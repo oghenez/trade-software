@@ -1,0 +1,12 @@
+D:\work\stockProject\code\dlls\client.exe
+D:\work\stockProject\code\dlls\client.pdb
+D:\work\stockProject\code\client\obj\Debug\ResolveAssemblyReference.cache
+D:\work\stockProject\code\client\obj\Debug\client.forms.companyList.resources
+D:\work\stockProject\code\client\obj\Debug\client.forms.investorEdit.resources
+D:\work\stockProject\code\client\obj\Debug\client.forms.watchList.resources
+D:\work\stockProject\code\client\obj\Debug\client.main.resources
+D:\work\stockProject\code\client\obj\Debug\client.Properties.Resources.resources
+D:\work\stockProject\code\client\obj\Debug\client.csproj.GenerateResource.Cache
+D:\work\stockProject\code\client\obj\Debug\client.exe
+D:\work\stockProject\code\client\obj\Debug\client.pdb
+D:\work\stockProject\code\client\obj\Debug\client.forms.tradeAnalysis.resources

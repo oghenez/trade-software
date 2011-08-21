@@ -1,0 +1,26 @@
+<Configuration>
+  <DBCONNECTION>
+    <dbConInfo0 dbServerName="UFgJ30q7O3cPO2qdp6ZJBA==" />
+  </DBCONNECTION>
+  <DBCONNECTION>
+    <dbConInfo0 dbName="/d6J1Q1gnzNwrv0C52ggyw==" />
+  </DBCONNECTION>
+  <DBCONNECTION>
+    <dbConInfo0 dbAccount="0myaXxZ8eBQHt+bP4urQ5w==" />
+  </DBCONNECTION>
+  <DBCONNECTION>
+    <dbConInfo0 dbPassword="rWbWH/IeH0/2ORNEkRlqZQ==" />
+  </DBCONNECTION>
+  <DBCONNECTION>
+    <dbConInfo0 dbTimeout="RkLVbHhukqmG8DqFrUVKzw==" />
+  </DBCONNECTION>
+  <DBCONNECTION>
+    <dbConInfo0 dbUseTransaction="EpAxoobbG0tPxhyMIVa+4Q==" />
+  </DBCONNECTION>
+  <ENVIRONMENT>
+    <Login LoginName="" />
+  </ENVIRONMENT>
+  <ENVIRONMENT>
+    <Login loginLocationId="0" />
+  </ENVIRONMENT>
+</Configuration>

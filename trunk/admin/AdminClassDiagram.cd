@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="stock.forms.backTesting">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAASAAAACAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>forms\backTesting.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="stock.forms.tradeAnalysis">
+    <Position X="3" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAgAAAAACAAAACAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>forms\tradeAnalysis.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="stock.forms.watchList">
+    <Position X="5.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAACAAAACAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>forms\watchList.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="admin.main">
+    <Position X="7.25" Y="1.75" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AkcAw/8ABDIPSAAECGnmCkAGABQEDlAFkAghGCViAiI=</HashCode>
+      <FileName>main.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
