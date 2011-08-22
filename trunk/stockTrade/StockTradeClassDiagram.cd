@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="stockTrade.forms.baseAlertFilter" Collapsed="true">
-    <Position X="5.25" Y="0.5" Width="1.5" />
+    <Position X="4.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AACCQBAAAKAQAEFAAAigIEACSIBCQAowAAAEAUAAIiA=</HashCode>
       <FileName>forms\baseAlertFilter.cs</FileName>
@@ -15,21 +15,21 @@
     </TypeIdentifier>
   </Class>
   <Class Name="stockTrade.forms.basePortfolioManagement" Collapsed="true">
-    <Position X="7" Y="0.5" Width="1.5" />
+    <Position X="6.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AEgEAABAIDMQABCgAACAAAACAAAAAABAACCgAgEAAAQ=</HashCode>
       <FileName>forms\basePortfolioManagement.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="stockTrade.forms.baseTradeAlertEdit" Collapsed="true">
-    <Position X="8.75" Y="0.5" Width="1.5" />
+    <Position X="8" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AMABQIAAgTAEBAOBIACkMEASDIARkCqBYCMAgAAAjKQ=</HashCode>
       <FileName>forms\baseTradeAlertEdit.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="stockTrade.forms.baseTradeAlertList" Collapsed="true">
-    <Position X="5.25" Y="1.5" Width="1.5" />
+    <Position X="4.5" Y="1.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>MBGhwgQATWEwBGBCJAmEhAiHKDEBMIIDgAgAgkCMgNE=</HashCode>
       <FileName>forms\baseTradeAlertList.cs</FileName>
@@ -50,7 +50,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="stockTrade.libs" Collapsed="true">
-    <Position X="7" Y="1.5" Width="1.5" />
+    <Position X="6.25" Y="1.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AACAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAA=</HashCode>
       <FileName>libs\libs.cs</FileName>

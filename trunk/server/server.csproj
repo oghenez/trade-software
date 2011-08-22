@@ -111,6 +111,7 @@
     <None Include="Resources\pause.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="ServerClassDiagram.cd" />
     <None Include="Resources\configure.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

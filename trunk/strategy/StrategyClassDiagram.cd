@@ -1,98 +1,98 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="strategy.BuyAndHoldStrategy">
-    <Position X="48.25" Y="1.5" Width="2.75" />
+  <Class Name="strategy.BuyAndHoldStrategy" Collapsed="true">
+    <Position X="5.75" Y="4.5" Width="2.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Generic\BuyAndHoldStrategy.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="strategy.GenericStrategy" Collapsed="true">
-    <Position X="31.5" Y="0.5" Width="1.5" />
+    <Position X="7.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>CCAASCAABACAAAYAAACAAAAAAABAAAAAAAAQAgSQEAA=</HashCode>
       <FileName>GenericStrategy.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="strategy.TwoSMA">
-    <Position X="21" Y="1.75" Width="1.5" />
+  <Class Name="strategy.TwoSMA" Collapsed="true">
+    <Position X="5.75" Y="3" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>MovingAverage\TwoSMA.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="strategy.TwoEMA">
-    <Position X="59.25" Y="1.75" Width="1.5" />
+  <Class Name="strategy.TwoEMA" Collapsed="true">
+    <Position X="11.25" Y="7.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>MovingAverage\TwoEMA.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="strategy.AverageStrategy">
+  <Class Name="strategy.AverageStrategy" Collapsed="true">
     <Position X="0.5" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Statistic\AverageStrategy.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="strategy.BasicWMA_5_10">
-    <Position X="31.5" Y="2" Width="1.5" />
+  <Class Name="strategy.BasicWMA_5_10" Collapsed="true">
+    <Position X="12.5" Y="6" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>MovingAverage\BasicWMA_5_10.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="strategy.TwoSMA_VolumeFilter">
-    <Position X="54" Y="1.75" Width="2" />
+  <Class Name="strategy.TwoSMA_VolumeFilter" Collapsed="true">
+    <Position X="3" Y="3" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>MovingAverage\TwoSMA_VolumeFilter.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="strategy.BasicPrice_3SMA">
-    <Position X="2.75" Y="1.75" Width="1.5" />
+  <Class Name="strategy.BasicPrice_3SMA" Collapsed="true">
+    <Position X="5.75" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>MovingAverage\BasicPrice_3SMA.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="strategy.Price_3SMA_Risk_Reward">
-    <Position X="61.5" Y="1.75" Width="2.5" />
+  <Class Name="strategy.Price_3SMA_Risk_Reward" Collapsed="true">
+    <Position X="6" Y="6" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>MovingAverage\Price_3SMA_Risk_Reward.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="strategy.BasicMACD">
-    <Position X="16.25" Y="1.75" Width="1.5" />
+  <Class Name="strategy.BasicMACD" Collapsed="true">
+    <Position X="11.5" Y="4.5" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAgAAAAA=</HashCode>
       <FileName>MACD\BasicMACD.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="strategy.MACD_Line_Cut">
-    <Position X="9.5" Y="1.75" Width="1.5" />
+  <Class Name="strategy.MACD_Line_Cut" Collapsed="true">
+    <Position X="3.5" Y="6" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>MACD\MACD_Line_Cut.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="strategy.MACD_HistogramChanged">
-    <Position X="28.25" Y="1.75" Width="2.25" />
+  <Class Name="strategy.MACD_HistogramChanged" Collapsed="true">
+    <Position X="9" Y="6" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAgAAAAA=</HashCode>
       <FileName>MACD\MACD_HistogramChanged.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="strategy.MACD_HistogramChanged_CutLoss">
-    <Position X="38.75" Y="1.75" Width="2.75" />
+  <Class Name="strategy.MACD_HistogramChanged_CutLoss" Collapsed="true">
+    <Position X="8" Y="1.75" Width="2.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAEAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>MACD\MACD_HistogramChanged_CutLoss.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="strategy.Parameters" Collapsed="true">
-    <Position X="65" Y="0.5" Width="1.5" />
+    <Position X="14.5" Y="0.5" Width="1.5" />
     <Compartments>
       <Compartment Name="Fields" Collapsed="true" />
     </Compartments>
@@ -101,102 +101,145 @@
       <FileName>Parameters.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="strategy.PriceTwoSMA">
-    <Position X="7.25" Y="1.75" Width="1.5" />
+  <Class Name="strategy.PriceTwoSMA" Collapsed="true">
+    <Position X="0.5" Y="7.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>MovingAverage\PriceTwoSMA.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="strategy.BasicDMI">
-    <Position X="11.75" Y="1.75" Width="1.5" />
+  <Class Name="strategy.BasicDMI" Collapsed="true">
+    <Position X="3.25" Y="4.5" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAgAAEAA=</HashCode>
       <FileName>DMI\BasicDMI.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="strategy.StochasticFast">
-    <Position X="5" Y="1.75" Width="1.5" />
+  <Class Name="strategy.StochasticFast" Collapsed="true">
+    <Position X="11.5" Y="1.75" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAgAAAAA=</HashCode>
       <FileName>Stochastic\StochasticFast.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="strategy.StochasticSlow">
-    <Position X="14" Y="1.75" Width="1.5" />
+  <Class Name="strategy.StochasticSlow" Collapsed="true">
+    <Position X="9.25" Y="4.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Stochastic\StochasticSlow.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="strategy.Pattern_Consecutive_UpAndDown">
-    <Position X="42.25" Y="1.75" Width="2.5" />
+  <Class Name="strategy.Pattern_Consecutive_UpAndDown" Collapsed="true">
+    <Position X="0.5" Y="6" Width="2.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Chart Pattern\Pattern_Consecutive_UpAndDown.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="strategy.RSI_MACD_Histogram">
-    <Position X="45.5" Y="1.75" Width="2" />
+  <Class Name="strategy.RSI_MACD_Histogram" Collapsed="true">
+    <Position X="0.5" Y="4.5" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Hybrid\RSI_MACD_Histogram.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="strategy.SMA_Stochastic">
-    <Position X="51.75" Y="1.75" Width="1.5" />
+  <Class Name="strategy.SMA_Stochastic" Collapsed="true">
+    <Position X="3.5" Y="7.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Hybrid\SMA_Stochastic.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="strategy.MACD_Stochastic">
-    <Position X="18.5" Y="1.75" Width="1.75" />
+  <Class Name="strategy.MACD_Stochastic" Collapsed="true">
+    <Position X="0.5" Y="3" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Hybrid\MACD_Stochastic.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="strategy.MACD_Stochastic_Bottom">
-    <Position X="25.5" Y="1.75" Width="2" />
+  <Class Name="strategy.MACD_Stochastic_Bottom" Collapsed="true">
+    <Position X="5.25" Y="7.25" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Hybrid\MACD_Stochastic_Bottom.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="strategy.MACD_Stochastic_Bottom_v1">
-    <Position X="35.75" Y="1.75" Width="2.25" />
+  <Class Name="strategy.MACD_Stochastic_Bottom_v1" Collapsed="true">
+    <Position X="2.75" Y="1.75" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Hybrid\MACD_Stochastic_Bottom_v1.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="strategy.SimpleMarkov">
-    <Position X="56.75" Y="1.5" Width="1.75" />
+  <Class Name="strategy.SimpleMarkov" Collapsed="true">
+    <Position X="8" Y="3" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAQAAAACAAAAAQQAAAAACCACQAAAAACAAAAAAAAAAAA=</HashCode>
       <FileName>Statistic\SimpleMarkov.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="strategy.RandomStrategy" Collapsed="true">
-    <Position X="23.25" Y="1.75" Width="1.5" />
+    <Position X="10.5" Y="3" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Misc\RandomStrategy.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="strategy.PriceScreening">
-    <Position X="29.5" Y="0.5" Width="1.25" />
+  <Class Name="strategy.PriceScreening" Collapsed="true">
+    <Position X="15" Y="4.5" Width="1.5" />
+    <InheritanceLine Type="strategy.GenericScreening" ManuallyRouted="true">
+      <Path>
+        <Point X="15" Y="2.191" />
+        <Point X="15" Y="2.55" />
+        <Point X="14.252" Y="2.55" />
+        <Point X="14.252" Y="4.2" />
+        <Point X="15.75" Y="4.2" />
+        <Point X="15.75" Y="4.5" />
+      </Path>
+    </InheritanceLine>
     <TypeIdentifier>
       <HashCode>AAAAQAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Screening\PriceScreening.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="strategy.TestStrategy">
-    <Position X="33.5" Y="1.75" Width="1.5" />
+  <Class Name="strategy.TestStrategy" Collapsed="true">
+    <Position X="9" Y="7.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Misc\TestStrategy.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="strategy.GenericScreening" Collapsed="true">
+    <Position X="14.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Screening\GenericScreening.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="strategy.SupportScreening" Collapsed="true">
+    <Position X="15" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAA=</HashCode>
+      <FileName>Screening\SupportScreening.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="strategy.ResistanceScreening" Collapsed="true">
+    <Position X="15" Y="5.75" Width="1.5" />
+    <InheritanceLine Type="strategy.GenericScreening" ManuallyRouted="true">
+      <Path>
+        <Point X="15" Y="2.191" />
+        <Point X="15" Y="2.55" />
+        <Point X="14.749" Y="2.55" />
+        <Point X="14.749" Y="4.2" />
+        <Point X="15.3" Y="4.2" />
+        <Point X="15.3" Y="5.45" />
+        <Point X="15.75" Y="5.45" />
+        <Point X="15.75" Y="5.75" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAA=</HashCode>
+      <FileName>Screening\ResistanceScreening.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />
