@@ -1,9 +1,0 @@
-D:\work\stockProject\code\dlls\indicators.dll
-D:\work\stockProject\code\dlls\indicators.pdb
-D:\work\stockProject\code\indicators\obj\Debug\ResolveAssemblyReference.cache
-D:\work\stockProject\code\indicators\obj\Debug\indicators.forms.baseIndicator.resources
-D:\work\stockProject\code\indicators\obj\Debug\indicators.forms.indicatorSMA.resources
-D:\work\stockProject\code\indicators\obj\Debug\indicators.Properties.Resources.resources
-D:\work\stockProject\code\indicators\obj\Debug\indicators.csproj.GenerateResource.Cache
-D:\work\stockProject\code\indicators\obj\Debug\indicators.dll
-D:\work\stockProject\code\indicators\obj\Debug\indicators.pdb

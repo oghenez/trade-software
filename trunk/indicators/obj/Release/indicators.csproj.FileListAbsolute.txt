@@ -1,9 +1,0 @@
-C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\code1008\dlls\indicators.dll
-C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\code1008\dlls\indicators.pdb
-C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\code1008\indicators\obj\Release\ResolveAssemblyReference.cache
-C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\code1008\indicators\obj\Release\indicators.forms.baseIndicator.resources
-C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\code1008\indicators\obj\Release\indicators.forms.indicatorSMA.resources
-C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\code1008\indicators\obj\Release\indicators.Properties.Resources.resources
-C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\code1008\indicators\obj\Release\indicators.csproj.GenerateResource.Cache
-C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\code1008\indicators\obj\Release\indicators.dll
-C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\code1008\indicators\obj\Release\indicators.pdb

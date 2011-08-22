@@ -1,5 +1,0 @@
-D:\work\stockProject\code\dlls\update.exe
-D:\work\stockProject\code\dlls\update.pdb
-D:\work\stockProject\code\commandLines\obj\Debug\ResolveAssemblyReference.cache
-D:\work\stockProject\code\commandLines\obj\Debug\update.exe
-D:\work\stockProject\code\commandLines\obj\Debug\update.pdb
