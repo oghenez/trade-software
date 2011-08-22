@@ -7,3 +7,5 @@ D:\work\stockProject\new-code\test\obj\Debug\test.tradeAnalysis.resources
 D:\work\stockProject\new-code\test\obj\Debug\test.csproj.GenerateResource.Cache
 D:\work\stockProject\new-code\test\obj\Debug\test.exe
 D:\work\stockProject\new-code\test\obj\Debug\test.pdb
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\SVNDungVQ\test\obj\Debug\test.exe
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\SVNDungVQ\test\obj\Debug\test.pdb
