@@ -6,6 +6,9 @@ using application;
 
 namespace strategy
 {
+    /// <summary>
+    /// class libs
+    /// </summary>
     public class libs
     {
         private static bool fExportData = false;
