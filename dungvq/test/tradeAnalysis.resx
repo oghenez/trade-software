@@ -118,20 +118,20 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <metadata name="myDataSet.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>241, 17</value>
+    <value>253, 17</value>
   </metadata>
   <metadata name="myToolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>138, 17</value>
+    <value>144, 17</value>
   </metadata>
   <metadata name="menuStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>347, 17</value>
+    <value>364, 17</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="volumeChartBtn.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAAlwSFlzAAALEwAA
-        CxMBAJqcGAAAAoVJREFUOE+VUt1L2mEU/m1s4G8X3my7LAukEiXJj1REkP4DBxXLj5LKLLVPElQoiZKE
+        YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAAlwSFlzAAALEgAA
+        CxIB0t1+/AAAAoVJREFUOE+VUt1L2mEU/m1s4G8X3my7LAukEiXJj1REkP4DBxXLj5LKLLVPElQoiZKE
         CKlwRskmXvSpUUG4i90oiOUHVLf9B7vvavTsPS+s1XbVD17el3Oe8/yec54jCOzb3t6mS5iZmXkzPz//
         bmxs7BUPvOQD8Nrn82VHR0exuLj46f7+/mUke3t7PqfTCalU+mtjYwPn5+cfXyJAyOVy9uHhYchkMiST
         SVxcXLz/l2BiYuJ/Tla029nZmVhaWvpht9s5QSKRwMnJyQdCFwqFZ0Vzc3OftVrtl2AwuBuLxd4KLpcL
