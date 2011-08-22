@@ -85,6 +85,12 @@
     <Compile Include="forms\baseIndicator.Designer.cs">
       <DependentUpon>baseIndicator.cs</DependentUpon>
     </Compile>
+    <Compile Include="forms\indicatorBolliger.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\indicatorBolliger.Designer.cs">
+      <DependentUpon>indicatorBolliger.cs</DependentUpon>
+    </Compile>
     <Compile Include="forms\indicatorSMA.cs">
       <SubType>Form</SubType>
     </Compile>
