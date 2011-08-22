@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.30729</ProductVersion>
+    <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{10F39549-D83D-4E47-8CB5-36E88CE2501B}</ProjectGuid>
     <OutputType>WinExe</OutputType>
@@ -216,6 +216,7 @@
     <None Include="Resources\folder-mail.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="AdminClassDiagram.cd" />
     <None Include="Resources\filter.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
