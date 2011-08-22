@@ -1,0 +1,8 @@
+insert into strategy values ('SCRPRICE','Screening Price','SCRPRICE','','PRI',0,1)
+insert into strategy values ('SCRMACD01','Screening MACD 01','SCRMACD01','','PRI',0,1)
+insert into strategy values ('SCRMACD02','Screening MACD 02','SCRMACD02','','PRI',0,1)
+insert into strategy values ('SCRDMI','Screening DMI','SCRDMI','','PRI',0,1)
+insert into strategy values ('SCRSupport','Screening Support','SCRSupport','','PRI',0,1)
+insert into strategy values ('SCRResist','Screening Resistance','SCRResist','','PRI',0,1)
+insert into strategy values ('SCRVolume','Screening Volume','SCRVolume','','PRI',0,1)
+insert into strategy values ('SCRSMA','Screening 2 SMA','SCRSMA','','PRI',0,1)
