@@ -6,6 +6,9 @@ using application;
 
 namespace strategy
 {
+    /// <summary>
+    /// Generic Strategy class
+    /// </summary>
     public class GenericStrategy
     {
         //data
