@@ -80,6 +80,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="class\AD.cs" />
+    <Compile Include="class\Aroon.cs" />
     <Compile Include="class\ATR.cs" />
     <Compile Include="class\indicatorhelper.cs" />
     <Compile Include="class\lib.cs" />
@@ -94,6 +95,12 @@
     </Compile>
     <Compile Include="forms\ADOSC.Designer.cs">
       <DependentUpon>ADOSC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\Aroon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\Aroon.Designer.cs">
+      <DependentUpon>Aroon.cs</DependentUpon>
     </Compile>
     <Compile Include="forms\ATR.cs">
       <SubType>Form</SubType>
@@ -163,6 +170,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="forms\ADOSC.resx">
       <DependentUpon>ADOSC.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\Aroon.resx">
+      <DependentUpon>Aroon.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\ATR.resx">
