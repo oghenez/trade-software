@@ -1,0 +1,10 @@
+#summary One-sentence summary of this page.
+
+= Trading Reference=
+
+Add your content here.
+
+
+= Details =
+
+[http://coreyhoffstein.com/automated-trading-resources/ Automated]
