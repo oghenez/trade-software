@@ -4,8 +4,9 @@
 
 this is some trading references
 
+== Trading Platform ==
+[http://www.iqbroker.com/platform/trading-platform.aspx IQBroker]
+
 = Details =
 
 [http://coreyhoffstein.com/automated-trading-resources/ AUTOMATED TRADING RESOURCES]
-
-[http://www.iqbroker.com/platform/trading-platform.aspx Trading Platform]
