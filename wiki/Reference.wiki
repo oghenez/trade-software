@@ -1,4 +1,4 @@
-#summary One-sentence summary of this page.
+#summary References of trading
 
 = Trading Reference=
 
@@ -7,3 +7,5 @@ this is some trading references
 = Details =
 
 [http://coreyhoffstein.com/automated-trading-resources/ AUTOMATED TRADING RESOURCES]
+
+[http://www.iqbroker.com/platform/trading-platform.aspx Trading Platform]
