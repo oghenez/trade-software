@@ -2,9 +2,8 @@
 
 = Trading Reference=
 
-Add your content here.
-
+this is some trading references
 
 = Details =
 
-[http://coreyhoffstein.com/automated-trading-resources/ Automated]
+[http://coreyhoffstein.com/automated-trading-resources/ AUTOMATED TRADING RESOURCES]
