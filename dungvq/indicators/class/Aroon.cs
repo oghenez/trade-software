@@ -8,6 +8,9 @@ using application;
 
 namespace Indicators
 {
+    /// <summary>
+    /// Aroon Helper class
+    /// </summary>
     public class AroonHelper : IndicatorHelper
     {
         public AroonHelper()
@@ -17,7 +20,19 @@ namespace Indicators
     }
 
     /// <summary>
-    /// 
+    /// Aroon Helper class
+    /// </summary>
+    public class AroonOSCHelper : IndicatorHelper
+    {
+        public AroonOSCHelper()
+        {
+            Init(typeof(AroonOsc), typeof(forms.AroonOsc), Consts.constIndicatorMetaFile);
+        }
+    }
+
+
+    /// <summary>
+    /// Aroon indicator
     /// </summary>
     public class Aroon : DataSeries
     {
@@ -28,10 +43,10 @@ namespace Indicators
         /// <param name="period"></param>
         /// <param name="name"></param>
         /// <returns></returns>
-        public static Aroon Series(DataBars ds,int period, string name)
+        public static Aroon Series(DataBars ds, int period, string name)
         {
             //Build description
-            string description = "(" + name + ","+period.ToString()+")";
+            string description = "(" + name + "," + period.ToString() + ")";
             //See if it exists in the cache
             if (ds.Cache.ContainsKey(description)) return (Aroon)ds.Cache[description];
 
@@ -47,7 +62,7 @@ namespace Indicators
         /// <param name="db">data to calculate Aroon</param>        
         /// <param name="period">period to calculate</param>
         /// <param name="name"></param>
-        public Aroon(DataBars db,int period, string name)
+        public Aroon(DataBars db, int period, string name)
             : base(db, name)
         {
             int begin = 0, length = 0;
@@ -56,7 +71,7 @@ namespace Indicators
             double[] outputDown = new double[db.Count];
             double[] outputUp = new double[db.Count];
 
-            retCode = Core.Aroon(0, db.Count - 1, db.High.Values, db.Low.Values, period, out begin, out length, outputDown,outputUp);
+            retCode = Core.Aroon(0, db.Count - 1, db.High.Values, db.Low.Values, period, out begin, out length, outputDown, outputUp);
 
             if (retCode != Core.RetCode.Success) return;
             //Assign first bar that contains indicator data
@@ -88,8 +103,59 @@ namespace Indicators
         {
             get
             {
-                return new DataSeries[] { this.aroonUpSeries};
+                return new DataSeries[] { this.aroonUpSeries };
             }
         }
+    }
+
+    /// <summary>
+    /// Aroon Osc indicator
+    /// </summary>
+    public class AroonOsc : DataSeries
+    {
+        /// <summary>
+        /// Static method to create Arron DataSeries
+        /// </summary>
+        /// <param name="ds"></param>
+        /// <param name="period"></param>
+        /// <param name="name"></param>
+        /// <returns></returns>
+        public static AroonOsc Series(DataBars ds, int period, string name)
+        {
+            //Build description
+            string description = "(" + name + "," + period.ToString() + ")";
+            //See if it exists in the cache
+            if (ds.Cache.ContainsKey(description)) return (AroonOsc)ds.Cache[description];
+
+            //Create aroon, cache it, return it
+            AroonOsc aroonOsc = new AroonOsc(ds, period, description);
+            ds.Cache[description] = aroonOsc;
+            return aroonOsc;
+        }
+
+        /// <summary>
+        /// Calculation of Aroon Oscillator indicators
+        /// </summary>
+        /// <param name="db">data to calculate Aroon oscillator</param>        
+        /// <param name="period">period to calculate</param>
+        /// <param name="name"></param>
+        public AroonOsc(DataBars db, int period, string name)
+            : base(db, name)
+        {
+            int begin = 0, length = 0;
+            Core.RetCode retCode = Core.RetCode.UnknownErr;
+
+            double[] output = new double[db.Count];
+
+            retCode = Core.AroonOsc(0, db.Count - 1, db.High.Values, db.Low.Values, period, out begin, out length, output);
+
+            if (retCode != Core.RetCode.Success) return;
+            //Assign first bar that contains indicator data
+            FirstValidValue = begin;
+            this.Name = name;
+
+            for (int i = begin, j = 0; j < length; i++, j++)
+                this[i] = output[j];
+        }        
     }
 }
