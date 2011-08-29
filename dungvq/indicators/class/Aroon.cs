@@ -82,9 +82,9 @@ namespace Indicators
             for (int i = begin, j = 0; j < length; i++, j++)
             {
                 this[i] = outputDown[j];
-                aroonUpSeries.Values[i] = outputUp[j];
+                upValue.Values[i] = outputUp[j];
             }
-
+            this.Cache[upValue.Name] = upValue;
         }
 
         /// <summary>

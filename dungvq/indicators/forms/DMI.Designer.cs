@@ -126,7 +126,7 @@
             this.inNewPaneChk.Text = "Hiển thị trong cửa sổ mới";
             this.inNewPaneChk.UseVisualStyleBackColor = true;
             // 
-            // rsiForm
+            // DMI
             // 
             this.ClientSize = new System.Drawing.Size(374, 143);
             this.Controls.Add(this.inNewPaneChk);
@@ -134,8 +134,8 @@
             this.Controls.Add(this.paraEd1);
             this.Controls.Add(this.colorEd1);
             this.Controls.Add(this.lineLbl1);
-            this.Name = "rsiForm";
-            this.Text = "RSI";
+            this.Name = "DMI";
+            this.Text = "DMI";
             this.Controls.SetChildIndex(this.okBtn, 0);
             this.Controls.SetChildIndex(this.closeBtn, 0);
             this.Controls.SetChildIndex(this.TitleLbl, 0);

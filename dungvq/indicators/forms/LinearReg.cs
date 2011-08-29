@@ -11,9 +11,9 @@ using application;
 
 namespace Indicators.forms
 {
-    public partial class Bop : baseIndicatorForm
+    public partial class LinearReg : baseIndicatorForm
     {
-        public Bop(Type indicatorType)
+        public LinearReg(Type indicatorType)
             : base(indicatorType)
         {
             InitializeComponent();
@@ -27,7 +27,7 @@ namespace Indicators.forms
                 IndicatorFormInfo[] info = new IndicatorFormInfo[1];
                 info[0] = new IndicatorFormInfo();
                 info[0].chartType = myTypes.chartType.Line;
-                info[0].paras = new int[] { };
+                info[0].paras = new int[] { (int)paraEd1.Value };
                 info[0].color = new Color[] { colorEd1.Color };
                 info[0].weight = (byte)weightEd1.Value;
                 info[0].inNewWindows = inNewPaneChk.Checked;
@@ -38,6 +38,7 @@ namespace Indicators.forms
             {
                 inNewPaneChk.Checked = value[0].inNewWindows;
 
+                paraEd1.Value = value[0].paras[0];
                 colorEd1.Color = value[0].color[0];
                 weightEd1.Value = value[0].weight;
             }

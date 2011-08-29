@@ -83,8 +83,12 @@
     <Compile Include="class\AD.cs" />
     <Compile Include="class\Aroon.cs" />
     <Compile Include="class\ATR.cs" />
+    <Compile Include="class\CCI.cs" />
+    <Compile Include="class\CMO.cs" />
     <Compile Include="class\indicatorhelper.cs" />
     <Compile Include="class\lib.cs" />
+    <Compile Include="class\LinearReg.cs" />
+    <Compile Include="class\MFI.cs" />
     <Compile Include="forms\AD.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -132,6 +136,30 @@
     </Compile>
     <Compile Include="forms\Bop.Designer.cs">
       <DependentUpon>Bop.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\CCI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\CCI.Designer.cs">
+      <DependentUpon>CCI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\CMO.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\CMO.Designer.cs">
+      <DependentUpon>CMO.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\LinearReg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\LinearReg.Designer.cs">
+      <DependentUpon>LinearReg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\MFI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\MFI.Designer.cs">
+      <DependentUpon>MFI.cs</DependentUpon>
     </Compile>
     <Compile Include="forms\Stoch.cs">
       <SubType>Form</SubType>
@@ -207,6 +235,22 @@
     </EmbeddedResource>
     <EmbeddedResource Include="forms\Bop.resx">
       <DependentUpon>Bop.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\CCI.resx">
+      <DependentUpon>CCI.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\CMO.resx">
+      <DependentUpon>CMO.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\LinearReg.resx">
+      <DependentUpon>LinearReg.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\MFI.resx">
+      <DependentUpon>MFI.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\Stoch.resx">
