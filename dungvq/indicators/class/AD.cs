@@ -15,7 +15,7 @@ namespace Indicators
     {
         public ADHelper()
         {
-            Init(typeof(AD), typeof(forms.AD), Consts.constIndicatorMetaFile);
+            Init(typeof(AD), typeof(forms.AD), Consts.constIndicatorMetaFile,typeof(DataBars));
         }
     }
 
@@ -26,7 +26,7 @@ namespace Indicators
     {
         public ADOSCHelper()
         {
-            Init(typeof(ADOSC), typeof(forms.ADOSC), Consts.constIndicatorMetaFile);
+            Init(typeof(ADOSC), typeof(forms.ADOSC), Consts.constIndicatorMetaFile,typeof(DataBars));
         }
     }
 

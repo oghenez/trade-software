@@ -15,7 +15,7 @@ namespace Indicators
     {
         public AroonHelper()
         {
-            Init(typeof(Aroon), typeof(forms.Aroon), Consts.constIndicatorMetaFile);
+            Init(typeof(Aroon), typeof(forms.Aroon), Consts.constIndicatorMetaFile, typeof(DataBars));
         }
     }
 
@@ -26,7 +26,7 @@ namespace Indicators
     {
         public AroonOSCHelper()
         {
-            Init(typeof(AroonOsc), typeof(forms.AroonOsc), Consts.constIndicatorMetaFile);
+            Init(typeof(AroonOsc), typeof(forms.AroonOsc), Consts.constIndicatorMetaFile, typeof(DataBars));
         }
     }
 

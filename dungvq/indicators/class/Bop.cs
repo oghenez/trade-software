@@ -15,7 +15,7 @@ namespace Indicators
     {
         public BopHelper()
         {
-            Init(typeof(Bop), typeof(forms.Bop), Consts.constIndicatorMetaFile);
+            Init(typeof(Bop), typeof(forms.Bop), Consts.constIndicatorMetaFile, typeof(DataBars));
         }
     }
 

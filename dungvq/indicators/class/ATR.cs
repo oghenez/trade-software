@@ -17,7 +17,7 @@ namespace Indicators
     {
         public ATRHelper()
         {
-            Init(typeof(ATR), typeof(forms.ATR), Consts.constIndicatorMetaFile);
+            Init(typeof(ATR), typeof(forms.ATR), Consts.constIndicatorMetaFile, typeof(DataBars));
         }
     }
 

@@ -27,7 +27,7 @@ namespace Indicators.forms
                 IndicatorFormInfo[] info = new IndicatorFormInfo[1];
                 info[0] = new IndicatorFormInfo();
                 info[0].chartType = myTypes.chartType.Line;
-                //info[0].paras = new int[] { (int)paraEd1.Value };
+                info[0].paras = new int[] { };
                 info[0].color = new Color[] { colorEd1.Color };
                 info[0].weight = (byte)weightEd1.Value;
                 info[0].inNewWindows = inNewPaneChk.Checked;
