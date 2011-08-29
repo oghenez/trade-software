@@ -10,3 +10,13 @@ this is some trading references
 = Details =
 
 [http://coreyhoffstein.com/automated-trading-resources/ AUTOMATED TRADING RESOURCES]
+
+==Research ==
+
+Web site URL			Description & Comments
+www.blaahg.blogspot.com/			Economics, History, Politics, and Random Thoughts
+www.prudential.com/yardeni			Dr. Ed Yardeni's Economics Network
+www.ntrs.com/library/econ_research/weekly			
+www.stlouisfed.org			
+www.pimco.com/TopNav/Home/Default.htm			
+www.comstockfunds.com			
