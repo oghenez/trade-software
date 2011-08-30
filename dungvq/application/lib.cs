@@ -10,6 +10,10 @@ using ZedGraph;
 
 namespace application
 {
+
+    /// <summary>
+    /// Data Series class
+    /// </summary>
     public class DataSeries
     {
         public DataSeries() { }
@@ -25,6 +29,14 @@ namespace application
             Name = _name;
             for (int idx = 0; idx < _values.Length; idx++) _values[idx] = 0;
         }
+
+        public DataSeries(double[] ds, string _name)
+        {
+            _values = new double[ds.Length];
+            Name = _name;
+            for (int idx = 0; idx < _values.Length; idx++) _values[idx] = ds[idx];
+        }
+
         public string Name = "";
         private double[] _values = null;
         public Dictionary<string, DataSeries> Cache = new Dictionary<string, DataSeries>();
