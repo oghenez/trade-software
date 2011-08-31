@@ -79,6 +79,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="class\APO.cs" />
     <Compile Include="class\Bop.cs" />
     <Compile Include="class\AD.cs" />
     <Compile Include="class\Aroon.cs" />
@@ -100,6 +101,12 @@
     </Compile>
     <Compile Include="forms\ADOSC.Designer.cs">
       <DependentUpon>ADOSC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\APO.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\APO.Designer.cs">
+      <DependentUpon>APO.cs</DependentUpon>
     </Compile>
     <Compile Include="forms\Aroon.cs">
       <SubType>Form</SubType>
@@ -211,6 +218,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="forms\ADOSC.resx">
       <DependentUpon>ADOSC.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\APO.resx">
+      <DependentUpon>APO.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\Aroon.resx">

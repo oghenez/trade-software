@@ -9,7 +9,7 @@ using application;
 namespace Indicators
 {
     /// <summary>
-    /// CCI Helper class
+    /// MFI Helper class
     /// </summary>
     public class MFIHelper : IndicatorHelper
     {
