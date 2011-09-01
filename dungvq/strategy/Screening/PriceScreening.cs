@@ -21,7 +21,7 @@ namespace strategy
             bool condition = (close[Bar] > sma5[Bar]) && (volume[Bar] > volume[Bar - 1])&&(volume[Bar]>30000)?true:false;
            
             analysis.tradePointInfo tradepointinfo = new analysis.tradePointInfo();
-            tradepointinfo.price = (decimal)close[Bar];
+            tradepointinfo.price = close[Bar];
             tradepointinfo.volume = (int)volume[Bar];
             //tradepointinfo.value1 = Price_3SMA_Risk_Reward*2+3-volueme ;
             //tradepointinfo.value2= sales*2/income;

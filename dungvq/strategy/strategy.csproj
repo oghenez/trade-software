@@ -43,6 +43,7 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\dlls\data.dll</HintPath>
     </Reference>
+    <Reference Include="Indicators, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
@@ -58,6 +59,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DMI\BasicDMI.cs" />
+    <Compile Include="Hybrid\MACD_ADX.cs" />
     <Compile Include="Hybrid\MACD_Stochastic.cs" />
     <Compile Include="Hybrid\MACD_Stochastic_Bottom.cs" />
     <Compile Include="Hybrid\MACD_Stochastic_Bottom_v1.cs" />

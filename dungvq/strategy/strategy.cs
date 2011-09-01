@@ -18,7 +18,7 @@ namespace strategy
 
             switch (strategyCode)
             {
-                //Screening
+                #region Screening
                 case "SCRPRICE":
                     {
                         Parameters p = null;
@@ -61,6 +61,7 @@ namespace strategy
                         strategy = new BuyAndHoldStrategy(data, strategyCode, fExportData, curStrategyCode);
                         return strategy.Execute();
                     }
+                #endregion
 
                 #region SMA Strategy
                 case "SMAONLY":
@@ -131,7 +132,7 @@ namespace strategy
                     }
                 #endregion
 
-                //Statistic
+                #region Statistic
                 case "AVERAGE":
                     {
                         Parameters p = new Parameters(30, -15, 10);
@@ -159,6 +160,8 @@ namespace strategy
                         strategy = new SimpleMarkov(data, strategyCode, fExportData, curStrategyCode, p);
                         return strategy.Execute();
                     }
+                #endregion
+
                 #region MACD strategy
                 //MACD strategy
 
@@ -185,6 +188,7 @@ namespace strategy
                         strategy = new MACD_HistogramChanged_CutLoss(data, strategyCode, fExportData, curStrategyCode);
                         return strategy.Execute();
                     }
+                
                 #endregion
                 //Strategy with DMI indicator
                 case "DMI":
@@ -283,6 +287,13 @@ namespace strategy
                         strategy = new TestStrategy(data, strategyCode, fExportData, curStrategyCode, p);
                         return strategy.Execute();
 
+                    }
+
+                case "MACD_ADX":
+                    {
+                        Parameters p = new Parameters(12, 26, 9,14);
+                        strategy = new MACD_ADX(data, strategyCode, fExportData, curStrategyCode, p);
+                        return strategy.Execute();
                     }
                 #endregion
 
