@@ -194,6 +194,14 @@ namespace application
             Close = new DataSeries(ds.Close, _name);
             Volume = new DataSeries(ds.Volume, _name);
         }
+        public DataBars(DataSeries _open, DataSeries _high, DataSeries _low, DataSeries _close, DataSeries _volume)
+        {
+            Open = _open;
+            High = _high;
+            Low = _low;
+            Close = _close;
+            Volume = _volume;
+        }
 
         private int _FirstValidValue = 0;
         public int FirstValidValue
