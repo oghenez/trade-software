@@ -36,6 +36,7 @@ namespace Indicators
             ds.Cache[description] = sma;
             return sma;
         }
+
         protected baseSMA(DataSeries ds, Types type, int period, string name): base(ds, name)
         {
             int begin = 0, length = 0;
@@ -95,7 +96,7 @@ namespace Indicators
     // MACD
     public class MACD : DataSeries
     {
-        protected static MACD Series(DataSeries ds, int fastPeriod, int slowPeriod, int signalPeriod, string name)
+        public static MACD Series(DataSeries ds, int fastPeriod, int slowPeriod, int signalPeriod, string name)
         {
             //Build description
             string description = "(" + name + "," + fastPeriod.ToString() + "," + slowPeriod.ToString() + ")";
@@ -250,7 +251,7 @@ namespace Indicators
     // StockRSI
     public class StochRSI : DataSeries
     {
-        protected static StochRSI Series(DataSeries ds, int rsiPeriod, int fastK_Period, int fastD_Period, string name)
+        public static StochRSI Series(DataSeries ds, int rsiPeriod, int fastK_Period, int fastD_Period, string name)
         {
             //Build description
             string description = "(" + name + "," + rsiPeriod.ToString()+ "," + fastK_Period.ToString() + "," + fastD_Period.ToString() + ")";
@@ -377,7 +378,7 @@ namespace Indicators
     // StochF
     public class StochF : DataSeries
     {
-        protected static StochF Series(DataBars db, int fastK_Period, int fastD_Period, string name)
+        public static StochF Series(DataBars db, int fastK_Period, int fastD_Period, string name)
         {
             //Build description
             string description = "(" + name + "," + fastK_Period.ToString() + "," + fastD_Period.ToString() + ")";
@@ -434,7 +435,7 @@ namespace Indicators
 
     public class Stoch : DataSeries
     {
-        protected static Stoch Series(DataBars db, int fastK_Period, int slowK_Period, int slowD_Period, string name)
+        public static Stoch Series(DataBars db, int fastK_Period, int slowK_Period, int slowD_Period, string name)
         {
             //Build description
             string description = "(" + name + "," + fastK_Period.ToString() + "," + slowK_Period.ToString() + "," + slowD_Period.ToString() + ")";
