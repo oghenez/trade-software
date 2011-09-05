@@ -375,7 +375,9 @@ namespace Indicators
         }
     }
 
-    // StochF
+    /// <summary>
+    /// Stochastic Fast
+    /// </summary>
     public class StochF : DataSeries
     {
         public static StochF Series(DataBars db, int fastK_Period, int fastD_Period, string name)
