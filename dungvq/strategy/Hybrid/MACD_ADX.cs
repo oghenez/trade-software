@@ -24,15 +24,21 @@ namespace strategy
 
             for (int idx = 1; idx < macd.Values.Length; idx++)
             {
+                delta = (macd.HistSeries[idx] - macd.HistSeries[idx - 1]);
                 //If there is a trend
-                //{
-                    delta = (macd.HistSeries[idx] - macd.HistSeries[idx - 1]);
-                    if ( (adx[idx]>25)&& delta > 0 && lastDelta < 0)
+                if (adx[idx] > 25)
+                {
+                    if (delta > 0 && lastDelta < 0)
                         BuyAtClose(idx);
-                    if (delta < 0 && lastDelta > 0)
-                        SellAtClose(idx);
-                    lastDelta = delta;
+                }
+                //else
+                //{
+                //    Indicators.Stoch stoch = Indicators.Stoch.Series(db,15,5,5 ,"");
+                //    //if (cu
                 //}
+                if (delta < 0 && lastDelta > 0)
+                    SellAtClose(idx);
+                lastDelta = delta;
             }
         }
     }

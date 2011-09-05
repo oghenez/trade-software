@@ -67,7 +67,6 @@
     <Compile Include="MACD\BasicMACD.cs" />
     <Compile Include="MACD\MACD_Line_Cut.cs" />
     <Compile Include="MACD\MACD_HistogramChanged.cs" />
-    <Compile Include="MACD\MACD_HistogramChanged_CutLoss.cs" />
     <Compile Include="MovingAverage\TwoSMA_VolumeFilter.cs" />
     <Compile Include="MovingAverage\BasicPrice_3SMA.cs" />
     <Compile Include="MovingAverage\Price_3SMA_Risk_Reward.cs" />

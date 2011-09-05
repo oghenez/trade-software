@@ -12,7 +12,6 @@ namespace strategy
         {
             double[] macd = null, ema = null, hist = null;
             data.MACD(12, 26, 9, ref macd, ref ema, ref hist);
-            analysis.analysisResult adviceInfo = new analysis.analysisResult();
             analysis.tradeActions lastTrend = analysis.tradeActions.None;
             analysis.tradeActions currentTrend = analysis.tradeActions.None;
 
@@ -21,14 +20,9 @@ namespace strategy
             {
                 currentTrend = ((macd[idx] > ema[idx]) ? analysis.tradeActions.Buy : analysis.tradeActions.Sell);
                 if (lastTrend == analysis.tradeActions.Sell && currentTrend == analysis.tradeActions.Buy)
-                {
-                    adviceInfo.Add(analysis.tradeActions.Buy, idx);
-                    lastBuyId = idx;
-                }
+                    BuyAtClose(idx);
                 if (lastTrend == analysis.tradeActions.Buy && currentTrend == analysis.tradeActions.Sell)
-                {
-                    adviceInfo.Add(analysis.tradeActions.Sell, idx);
-                }
+                    SellAtClose(idx);
                 lastTrend = currentTrend;
             }
             if (fExportData) analysis.ExportData(curStrategyCode + "-" + data.stockCodeRow.code + ".xls", data, macd, ema, hist);
