@@ -13,6 +13,7 @@ namespace strategy
         
         protected override void StrategyExecute()
         {            
+
             MACD macd = Indicators.MACD.Series(new DataSeries(data.closePrice,""),
                 (int)parameters.getParameter(0), (int)parameters.getParameter(1),
                 (int)parameters.getParameter(2),"");

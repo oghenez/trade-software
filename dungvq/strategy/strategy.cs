@@ -168,6 +168,10 @@ namespace strategy
                 case "MACDBAS":
                     {
                         Parameters p = new Parameters(12, 26, 9);
+                        //Form parameter
+                        myform=new strategyform(p);
+                        myform.get(p);
+
                         strategy = new BasicMACD(data, strategyCode, fExportData, curStrategyCode, p);
                         return strategy.Execute();
                     }
