@@ -1,18 +1,8 @@
-D:\work\stockProject\new-code\dlls\test.exe
-D:\work\stockProject\new-code\dlls\test.pdb
 D:\work\stockProject\new-code\test\obj\Debug\ResolveAssemblyReference.cache
 D:\work\stockProject\new-code\test\obj\Debug\test.Form1.resources
 D:\work\stockProject\new-code\test\obj\Debug\test.Properties.Resources.resources
-D:\work\stockProject\new-code\test\obj\Debug\test.tradeAnalysis.resources
 D:\work\stockProject\new-code\test\obj\Debug\test.csproj.GenerateResource.Cache
+D:\work\stockProject\new-code\dlls\test.exe
+D:\work\stockProject\new-code\dlls\test.pdb
 D:\work\stockProject\new-code\test\obj\Debug\test.exe
 D:\work\stockProject\new-code\test\obj\Debug\test.pdb
-C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\SVNDungVQ\test\obj\Debug\test.exe
-C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\SVNDungVQ\test\obj\Debug\test.pdb
-C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\SVNDungVQ\dlls\test.exe
-C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\SVNDungVQ\dlls\test.pdb
-C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\SVNDungVQ\test\obj\Debug\ResolveAssemblyReference.cache
-C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\SVNDungVQ\test\obj\Debug\test.Form1.resources
-C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\SVNDungVQ\test\obj\Debug\test.Properties.Resources.resources
-C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\SVNDungVQ\test\obj\Debug\test.tradeAnalysis.resources
-C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\SVNDungVQ\test\obj\Debug\test.csproj.GenerateResource.Cache

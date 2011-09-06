@@ -60,6 +60,13 @@ namespace test.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap adddata {
+            get {
+                object obj = ResourceManager.GetObject("adddata", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap barChart1 {
             get {
                 object obj = ResourceManager.GetObject("barChart1", resourceCulture);
@@ -88,23 +95,30 @@ namespace test.Properties {
             }
         }
         
-        internal static System.Drawing.Bitmap exrate {
+        internal static System.Drawing.Bitmap delete {
             get {
-                object obj = ResourceManager.GetObject("exrate", resourceCulture);
+                object obj = ResourceManager.GetObject("delete", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
         
-        internal static System.Drawing.Bitmap lineChart {
+        internal static System.Drawing.Bitmap indicator2 {
             get {
-                object obj = ResourceManager.GetObject("lineChart", resourceCulture);
+                object obj = ResourceManager.GetObject("indicator2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
         
-        internal static System.Drawing.Bitmap report {
+        internal static System.Drawing.Bitmap lineChart2 {
             get {
-                object obj = ResourceManager.GetObject("report", resourceCulture);
+                object obj = ResourceManager.GetObject("lineChart2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap refresh {
+            get {
+                object obj = ResourceManager.GetObject("refresh", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="test.tradeAnalysis">
+    <Position X="2" Y="0.5" Width="2.5" />
+    <NestedTypes>
+      <Enum Name="test.tradeAnalysis.chartTypeEnum" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>tradeAnalysis.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AsJAElAKgDhwAAKDA2DiRIQLFAEIoRTuBIEiQAkgACQ=</HashCode>
+      <FileName>tradeAnalysis.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
