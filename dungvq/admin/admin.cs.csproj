@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.21022</ProductVersion>
+    <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{10F39549-D83D-4E47-8CB5-36E88CE2501B}</ProjectGuid>
     <OutputType>WinExe</OutputType>
@@ -60,7 +60,7 @@
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="TA-Lib-Core, Version=1.0.4116.16634, Culture=neutral, PublicKeyToken=fdb2a6b268f56aa5, processorArchitecture=MSIL" />
-    <Reference Include="XPPanel, Version=1.0.0.0, Culture=neutral, PublicKeyToken=c1a4c9eadd4711d4" />
+    <Reference Include="WeifenLuo.WinFormsUI.Docking, Version=2.5.0.15095, Culture=neutral, processorArchitecture=MSIL" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="forms\backTesting.cs">
@@ -91,11 +91,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="forms\backTesting.resx">
       <DependentUpon>backTesting.cs</DependentUpon>
-      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\watchList.resx">
       <DependentUpon>watchList.cs</DependentUpon>
-      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="main.resx">
       <DependentUpon>main.cs</DependentUpon>
@@ -218,7 +216,6 @@
     <None Include="Resources\folder-mail.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="AdminClassDiagram.cd" />
     <None Include="Resources\filter.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

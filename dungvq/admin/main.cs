@@ -40,17 +40,17 @@ namespace admin
             return true;
         }
 
-        private void ShowStockChart(data.baseDS.stockCodeExtRow row)
+        private void ShowStockChart(data.baseDS.stockCodeRow row)
         {
-            string formName = "baseTradeAnalysis" + row.code.Trim();
-            stock.forms.tradeAnalysis myForm = (stock.forms.tradeAnalysis)common.formList.FindForm(formName);
-            if (myForm == null || myForm.IsDisposed)
-            {
-                myForm = new stock.forms.tradeAnalysis();
-                myForm.Name = formName;
-                common.formList.AddForm(myForm);
-            }
-            myForm.ShowForm(row);
+            //string formName = "baseTradeAnalysis" + row.code.Trim();
+            //stock.forms.tradeAnalysis myForm = (stock.forms.tradeAnalysis)common.formList.FindForm(formName);
+            //if (myForm == null || myForm.IsDisposed)
+            //{
+            //    myForm = new stock.forms.tradeAnalysis();
+            //    myForm.Name = formName;
+            //    common.formList.AddForm(myForm);
+            //}
+            //myForm.ShowForm(row);
         }
 
         private void exitMenu_Click(object sender, EventArgs e)
@@ -281,13 +281,13 @@ namespace admin
         {
             try
             {
-                Form myForm = this.FindForm("TradeOrderAddNew");
+                Form myForm = this.FindForm("transactionNew");
                 if (myForm == null || myForm.IsDisposed)
                 {
-                    myForm = new stockTrade.forms.baseTradeOrderAddNew();
-                    myForm.Name = "TradeOrderAddNew";
+                    myForm = new stockTrade.forms.transactionNew();
+                    myForm.Name = "transactionNew";
                 }
-                ((stockTrade.forms.baseTradeOrderAddNew)myForm).ShowForm();
+                ((stockTrade.forms.transactionNew)myForm).ShowForm();
             }
             catch (Exception er)
             {
@@ -298,14 +298,14 @@ namespace admin
         {
             try
             {
-                stockTrade.forms.baseTradeAlertList myForm = (stockTrade.forms.baseTradeAlertList)this.FindForm("TradeAlertList");
+                stockTrade.forms.tradeAlertList myForm = (stockTrade.forms.tradeAlertList)this.FindForm("TradeAlertList");
                 if (myForm == null || myForm.IsDisposed)
                 {
-                    myForm = new stockTrade.forms.baseTradeAlertList();
+                    myForm = new stockTrade.forms.tradeAlertList();
                     myForm.MdiParent = this;
                     myForm.Name = "TradeAlertList";
-                    myForm.InitForm();
-                    myForm.SetColumnVisible(stockTrade.forms.baseTradeAlertList.gridColumnName.Status.ToString(), false);
+                    //myForm.InitForm();
+                    myForm.SetColumnVisible(stockTrade.forms.tradeAlertList.gridColumnName.Status.ToString(), false);
                     myForm.Size = new Size(500,615);
                     myForm.ToolBarShowState = true;
                     myForm.LoadData();
@@ -325,12 +325,12 @@ namespace admin
         {
             try
             {
-                Form myForm = this.FindForm("portfolioView");
+                Form myForm = this.FindForm("portfolioWatch");
                 if (myForm == null || myForm.IsDisposed)
                 {
-                    myForm = new stockTrade.forms.basePortfolioManagement();
-                    myForm.Name = "portfolioView";
-                    ((stockTrade.forms.basePortfolioManagement)myForm).myOnShowChart += new stockTrade.forms.basePortfolioManagement.onShowChart(ShowStockChart);
+                    myForm = new stockTrade.forms.portfolioWatch();
+                    myForm.Name = "portfolioWatch";
+                    ((stockTrade.forms.portfolioWatch)myForm).myOnShowChart += new stockTrade.forms.portfolioWatch.onShowChart(ShowStockChart);
                 }
                 this.ShowForm(myForm, false);
             }

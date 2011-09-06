@@ -17,9 +17,9 @@ namespace stock.forms
             InitializeComponent();
         }
 
-        protected override analysis.analysisResult TradeAnalysis(analysis.workData data, string strategyCode)
-        {
-            return appHub.strategy.TradeAnalysis(data, strategyCode.Trim());
-        }
+        //protected override analysis.analysisResult TradeAnalysis(analysis.workData data, string strategyCode)
+        //{
+        //    return appHub.strategy.TradeAnalysis(data, strategyCode.Trim());
+        //}
     }
 }
