@@ -43,7 +43,7 @@ namespace baseClass.controls
         {
             strategyClb.CheckAll(state);
         }
-        public virtual void LoadData(application.myTypes.strategyType types,bool onlyEnableItem,bool checkAll)
+        public virtual void LoadData(application.myTypes.StrategyTypes types,bool onlyEnableItem,bool checkAll)
         {
             this.strategyClb.LoadData(types, onlyEnableItem,checkAll);
             this.strategyCatCb.LoadData(true);

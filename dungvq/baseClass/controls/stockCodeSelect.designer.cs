@@ -35,7 +35,7 @@
             this.showOnlyCheckedChk = new baseClass.controls.baseCheckBox();
             this.selectAllChk = new baseClass.controls.baseCheckBox();
             this.stockCodeClb = new baseClass.controls.clbStockCode();
-            this.bizSectorTypeSelection = new baseClass.controls.bizSectorTypeSelection();
+            this.BizSectorTypesSelection = new baseClass.controls.BizSectorTypesSelection();
             this.optionPnl.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -113,17 +113,17 @@
             this.stockCodeClb.Size = new System.Drawing.Size(540, 184);
             this.stockCodeClb.TabIndex = 2;
             // 
-            // bizSectorTypeSelection
+            // BizSectorTypesSelection
             // 
-            this.bizSectorTypeSelection.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bizSectorTypeSelection.Location = new System.Drawing.Point(0, 0);
-            this.bizSectorTypeSelection.Margin = new System.Windows.Forms.Padding(2);
-            this.bizSectorTypeSelection.myBizSectorCode = "";
-            this.bizSectorTypeSelection.myBizSectorType = application.myTypes.bizSectorType.None;
-            this.bizSectorTypeSelection.Name = "bizSectorTypeSelection";
-            this.bizSectorTypeSelection.Size = new System.Drawing.Size(539, 24);
-            this.bizSectorTypeSelection.TabIndex = 1;
-            this.bizSectorTypeSelection.mySectorSelectionChange += new baseClass.controls.bizSectorTypeSelection.SectorSelectionChange(this.bizSectorTypeSelection_mySectorSelectionChange);
+            this.BizSectorTypesSelection.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BizSectorTypesSelection.Location = new System.Drawing.Point(0, 0);
+            this.BizSectorTypesSelection.Margin = new System.Windows.Forms.Padding(2);
+            this.BizSectorTypesSelection.myBizSectorCode = "";
+            this.BizSectorTypesSelection.myBizSectorType = application.myTypes.BizSectorTypes.None;
+            this.BizSectorTypesSelection.Name = "BizSectorTypesSelection";
+            this.BizSectorTypesSelection.Size = new System.Drawing.Size(539, 24);
+            this.BizSectorTypesSelection.TabIndex = 1;
+            this.BizSectorTypesSelection.mySectorSelectionChange += new baseClass.controls.BizSectorTypesSelection.SectorSelectionChange(this.BizSectorTypesSelection_mySectorSelectionChange);
             // 
             // stockCodeSelect
             // 
@@ -131,7 +131,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.optionPnl);
             this.Controls.Add(this.stockCodeClb);
-            this.Controls.Add(this.bizSectorTypeSelection);
+            this.Controls.Add(this.BizSectorTypesSelection);
             this.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "stockCodeSelect";
@@ -145,7 +145,7 @@
 
         #endregion
 
-        protected bizSectorTypeSelection bizSectorTypeSelection;
+        protected BizSectorTypesSelection BizSectorTypesSelection;
         protected clbStockCode stockCodeClb;
         protected baseCheckBox selectAllChk;
         private baseCheckBox showOnlyCheckedChk;

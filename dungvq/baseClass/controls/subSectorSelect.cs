@@ -19,7 +19,7 @@ namespace baseClass.controls
             try
             {
                 InitializeComponent();
-                bizSectorTypeSelection.LoadData();
+                BizSectorTypesSelection.LoadData();
             }
             catch (Exception er)
             {
@@ -69,7 +69,7 @@ namespace baseClass.controls
             this.Enabled = !state;
             this.subSectorListClb.Enabled = !state;
             showOnlyCheckedChk.Enabled = !state;
-            bizSectorTypeSelection.LockEdit(state);
+            BizSectorTypesSelection.LockEdit(state);
         }
 
         private void showOnlyCheckedChk_CheckedChanged(object sender, EventArgs e)
@@ -87,12 +87,12 @@ namespace baseClass.controls
         {
             try
             {
-                bizSectorTypeSelection.Width = this.Width;
+                BizSectorTypesSelection.Width = this.Width;
 
                 showOnlyCheckedChk.Location = new Point(0, this.Height - showOnlyCheckedChk.Height);
                 selectAllChk.Location = new Point(showOnlyCheckedChk.Width+10, showOnlyCheckedChk.Location.Y);
 
-                subSectorListClb.Location = new Point(0, bizSectorTypeSelection.Height);
+                subSectorListClb.Location = new Point(0, BizSectorTypesSelection.Height);
                 subSectorListClb.Size = new Size(this.Width, selectAllChk.Location.Y - subSectorListClb.Location.Y);
             }
             catch (Exception er)
@@ -100,11 +100,11 @@ namespace baseClass.controls
                 ErrorHandler(this, er); ;
             }
         }
-        private void bizSectorTypeSelection_mySectorSelectionChange(object sender, EventArgs e)
+        private void BizSectorTypesSelection_mySectorSelectionChange(object sender, EventArgs e)
         {
             try
             {
-                subSectorListClb.myItemValues = bizSectorTypeSelection.myCurrentSubSectorCodes;
+                subSectorListClb.myItemValues = BizSectorTypesSelection.myCurrentSubSectorCodes;
                 showOnlyCheckedChk.Checked = false;
                 selectAllChk.Checked = false;
             }

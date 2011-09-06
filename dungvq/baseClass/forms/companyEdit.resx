@@ -123,19 +123,15 @@
   <metadata name="myToolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>138, 17</value>
   </metadata>
-  <metadata name="companySource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>347, 17</value>
-  </metadata>
   <data name="xpPanelGroup_Info.PanelGradient" mimetype="application/x-microsoft.net.object.binary.base64">
     <value>
-        AAEAAAD/////AQAAAAAAAAAMAgAAAEpYUFBhbmVsLCBWZXJzaW9uPTEuMC4wLjAsIEN1bHR1cmU9bmV1
-        dHJhbCwgUHVibGljS2V5VG9rZW49YzFhNGM5ZWFkZDQ3MTFkNAwDAAAAUVN5c3RlbS5EcmF3aW5nLCBW
-        ZXJzaW9uPTIuMC4wLjAsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49YjAzZjVmN2YxMWQ1
-        MGEzYQUBAAAAGlVJQ29tcG9uZW50cy5HcmFkaWVudENvbG9yAQAAABpCYXNlQ29sb3JDb2xsZWN0aW9u
-        K2NvbG9ycwQWU3lzdGVtLkRyYXdpbmcuQ29sb3JbXQMAAAACAAAACQQAAAAHBAAAAAABAAAAAgAAAAQU
-        U3lzdGVtLkRyYXdpbmcuQ29sb3IDAAAABfv///8UU3lzdGVtLkRyYXdpbmcuQ29sb3IEAAAABG5hbWUF
-        dmFsdWUKa25vd25Db2xvcgVzdGF0ZQEAAAAJBwcDAAAACgAAAAAAAAAABQABAAH6////+////woAAAAA
-        AAAAAAUAAQAL
+        AAEAAAD/////AQAAAAAAAAAMAgAAAD5YUFBhbmVsLCBWZXJzaW9uPTEuMC4wLjAsIEN1bHR1cmU9bmV1
+        dHJhbCwgUHVibGljS2V5VG9rZW49bnVsbAwDAAAAUVN5c3RlbS5EcmF3aW5nLCBWZXJzaW9uPTIuMC4w
+        LjAsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49YjAzZjVmN2YxMWQ1MGEzYQUBAAAAGlVJ
+        Q29tcG9uZW50cy5HcmFkaWVudENvbG9yAQAAABpCYXNlQ29sb3JDb2xsZWN0aW9uK2NvbG9ycwQWU3lz
+        dGVtLkRyYXdpbmcuQ29sb3JbXQMAAAACAAAACQQAAAAHBAAAAAABAAAAAgAAAAQUU3lzdGVtLkRyYXdp
+        bmcuQ29sb3IDAAAABfv///8UU3lzdGVtLkRyYXdpbmcuQ29sb3IEAAAABG5hbWUFdmFsdWUKa25vd25D
+        b2xvcgVzdGF0ZQEAAAAJBwcDAAAACgAAAAAAAAAABQABAAH6////+////woAAAAAAAAAAAUAAQAL
 </value>
   </data>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">

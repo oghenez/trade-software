@@ -40,7 +40,12 @@
             this.stockExchangeCb = new baseClass.controls.cbStockExchange();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.viewLogBtn = new common.control.baseButton();
+            this.noteGb = new System.Windows.Forms.GroupBox();
+            this.noteLbl = new baseClass.controls.baseLabel();
+            this.actionCb = new common.control.baseComboBox();
+            this.actionLbl = new common.control.baseLabel();
             ((System.ComponentModel.ISupportInitialize)(this.myDataSet)).BeginInit();
+            this.noteGb.SuspendLayout();
             this.SuspendLayout();
             // 
             // TitleLbl
@@ -52,7 +57,7 @@
             // 
             this.dataFileLbl.AutoSize = true;
             this.dataFileLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataFileLbl.Location = new System.Drawing.Point(39, 12);
+            this.dataFileLbl.Location = new System.Drawing.Point(29, 55);
             this.dataFileLbl.Name = "dataFileLbl";
             this.dataFileLbl.Size = new System.Drawing.Size(78, 16);
             this.dataFileLbl.TabIndex = 146;
@@ -60,16 +65,16 @@
             // 
             // dataFileNameEd
             // 
-            this.dataFileNameEd.Location = new System.Drawing.Point(42, 31);
+            this.dataFileNameEd.Location = new System.Drawing.Point(32, 74);
             this.dataFileNameEd.Name = "dataFileNameEd";
             this.dataFileNameEd.Size = new System.Drawing.Size(306, 22);
-            this.dataFileNameEd.TabIndex = 1;
+            this.dataFileNameEd.TabIndex = 2;
             // 
             // stockExchangeLbl
             // 
             this.stockExchangeLbl.AutoSize = true;
             this.stockExchangeLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.stockExchangeLbl.Location = new System.Drawing.Point(39, 61);
+            this.stockExchangeLbl.Location = new System.Drawing.Point(29, 105);
             this.stockExchangeLbl.Name = "stockExchangeLbl";
             this.stockExchangeLbl.Size = new System.Drawing.Size(243, 16);
             this.stockExchangeLbl.TabIndex = 149;
@@ -81,7 +86,8 @@
             this.cancelBtn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cancelBtn.Image = global::imports.Properties.Resources.remove;
             this.cancelBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.cancelBtn.Location = new System.Drawing.Point(135, 110);
+            this.cancelBtn.isDownState = false;
+            this.cancelBtn.Location = new System.Drawing.Point(124, 155);
             this.cancelBtn.Name = "cancelBtn";
             this.cancelBtn.Size = new System.Drawing.Size(68, 30);
             this.cancelBtn.TabIndex = 21;
@@ -95,7 +101,8 @@
             this.closeBtn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.closeBtn.Image = global::imports.Properties.Resources.close;
             this.closeBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.closeBtn.Location = new System.Drawing.Point(280, 110);
+            this.closeBtn.isDownState = false;
+            this.closeBtn.Location = new System.Drawing.Point(269, 155);
             this.closeBtn.Name = "closeBtn";
             this.closeBtn.Size = new System.Drawing.Size(68, 30);
             this.closeBtn.TabIndex = 23;
@@ -109,7 +116,8 @@
             this.importBtn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.importBtn.Image = global::imports.Properties.Resources.select;
             this.importBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.importBtn.Location = new System.Drawing.Point(44, 110);
+            this.importBtn.isDownState = false;
+            this.importBtn.Location = new System.Drawing.Point(33, 155);
             this.importBtn.Name = "importBtn";
             this.importBtn.Size = new System.Drawing.Size(91, 30);
             this.importBtn.TabIndex = 20;
@@ -122,10 +130,11 @@
             // 
             this.selectFileBtn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.selectFileBtn.Image = global::imports.Properties.Resources.open;
-            this.selectFileBtn.Location = new System.Drawing.Point(349, 31);
+            this.selectFileBtn.isDownState = false;
+            this.selectFileBtn.Location = new System.Drawing.Point(339, 74);
             this.selectFileBtn.Name = "selectFileBtn";
             this.selectFileBtn.Size = new System.Drawing.Size(22, 21);
-            this.selectFileBtn.TabIndex = 2;
+            this.selectFileBtn.TabIndex = 3;
             this.selectFileBtn.UseVisualStyleBackColor = true;
             this.selectFileBtn.Click += new System.EventHandler(this.selectFileBtn_Click);
             // 
@@ -139,7 +148,7 @@
             // 
             this.stockExchangeCb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.stockExchangeCb.FormattingEnabled = true;
-            this.stockExchangeCb.Location = new System.Drawing.Point(42, 80);
+            this.stockExchangeCb.Location = new System.Drawing.Point(32, 124);
             this.stockExchangeCb.myValue = "";
             this.stockExchangeCb.Name = "stockExchangeCb";
             this.stockExchangeCb.Size = new System.Drawing.Size(306, 24);
@@ -154,7 +163,8 @@
             this.viewLogBtn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.viewLogBtn.Image = global::imports.Properties.Resources.report;
             this.viewLogBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.viewLogBtn.Location = new System.Drawing.Point(203, 110);
+            this.viewLogBtn.isDownState = false;
+            this.viewLogBtn.Location = new System.Drawing.Point(192, 155);
             this.viewLogBtn.Name = "viewLogBtn";
             this.viewLogBtn.Size = new System.Drawing.Size(77, 30);
             this.viewLogBtn.TabIndex = 22;
@@ -163,11 +173,61 @@
             this.viewLogBtn.UseVisualStyleBackColor = true;
             this.viewLogBtn.Click += new System.EventHandler(this.viewLogBtn_Click);
             // 
+            // noteGb
+            // 
+            this.noteGb.Controls.Add(this.noteLbl);
+            this.noteGb.Location = new System.Drawing.Point(17, 184);
+            this.noteGb.Name = "noteGb";
+            this.noteGb.Size = new System.Drawing.Size(335, 38);
+            this.noteGb.TabIndex = 150;
+            this.noteGb.TabStop = false;
+            // 
+            // noteLbl
+            // 
+            this.noteLbl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.noteLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.noteLbl.Location = new System.Drawing.Point(1, 9);
+            this.noteLbl.Name = "noteLbl";
+            this.noteLbl.Size = new System.Drawing.Size(322, 26);
+            this.noteLbl.TabIndex = 147;
+            this.noteLbl.Text = "Cập nhật dữ liệu giá  từ tệp Excel vào hệ thống";
+            this.noteLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // actionCb
+            // 
+            this.actionCb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.actionCb.FormattingEnabled = true;
+            this.actionCb.Items.AddRange(new object[] {
+            "Import + Tổng hợp dữ liệu",
+            "Import dữ liệu",
+            "Tông hợp dữ liệu (Tuần,Tháng,Năm...)"});
+            this.actionCb.Location = new System.Drawing.Point(32, 23);
+            this.actionCb.myValue = "";
+            this.actionCb.Name = "actionCb";
+            this.actionCb.Size = new System.Drawing.Size(305, 24);
+            this.actionCb.TabIndex = 1;
+            this.actionCb.SelectionChangeCommitted += new System.EventHandler(this.actionCb_SelectionChangeCommitted);
+            // 
+            // actionLbl
+            // 
+            this.actionLbl.AutoSize = true;
+            this.actionLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.actionLbl.Location = new System.Drawing.Point(32, 5);
+            this.actionLbl.Name = "actionLbl";
+            this.actionLbl.Size = new System.Drawing.Size(64, 16);
+            this.actionLbl.TabIndex = 152;
+            this.actionLbl.Text = "Thao tác";
+            // 
             // importPriceData
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(391, 172);
+            this.ClientSize = new System.Drawing.Size(366, 250);
+            this.Controls.Add(this.actionLbl);
+            this.Controls.Add(this.actionCb);
+            this.Controls.Add(this.noteGb);
             this.Controls.Add(this.viewLogBtn);
             this.Controls.Add(this.cancelBtn);
             this.Controls.Add(this.closeBtn);
@@ -191,7 +251,11 @@
             this.Controls.SetChildIndex(this.closeBtn, 0);
             this.Controls.SetChildIndex(this.cancelBtn, 0);
             this.Controls.SetChildIndex(this.viewLogBtn, 0);
+            this.Controls.SetChildIndex(this.noteGb, 0);
+            this.Controls.SetChildIndex(this.actionCb, 0);
+            this.Controls.SetChildIndex(this.actionLbl, 0);
             ((System.ComponentModel.ISupportInitialize)(this.myDataSet)).EndInit();
+            this.noteGb.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -210,6 +274,10 @@
         protected data.baseDS myDataSet;
         protected System.Windows.Forms.OpenFileDialog openFileDialog;
         protected common.control.baseButton viewLogBtn;
+        private System.Windows.Forms.GroupBox noteGb;
+        private baseClass.controls.baseLabel noteLbl;
+        private common.control.baseComboBox actionCb;
+        protected common.control.baseLabel actionLbl;
 
     }
 }

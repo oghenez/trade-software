@@ -185,7 +185,6 @@
             this.basePanel1.Controls.Add(this.runBtn);
             this.basePanel1.haveCloseButton = false;
             this.basePanel1.haveShowHideButton = false;
-            this.basePanel1.isShowState = true;
             this.basePanel1.Location = new System.Drawing.Point(-1, -1);
             this.basePanel1.Name = "basePanel1";
             this.basePanel1.Size = new System.Drawing.Size(489, 27);

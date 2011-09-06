@@ -17,7 +17,7 @@ namespace baseClass.forms
             try
             {
                 InitializeComponent();
-                strategyClb.LoadData(myTypes.strategyType.Strategy,true,false);
+                strategyClb.LoadData(myTypes.StrategyTypes.Strategy,true,false);
 
                 portfolioCb.LoadData(application.sysLibs.sysLoginCode,true);
                 stockCodeSelect.LoadData();
@@ -233,16 +233,16 @@ namespace baseClass.forms
             {
                 stockCodeList = new StringCollection();
                 //Load stocks in portfolio
-                data.baseDS.stockCodeExtDataTable myStockCodeTbl = new data.baseDS.stockCodeExtDataTable();
+                data.baseDS.stockCodeDataTable myStockCodeTbl = new data.baseDS.stockCodeDataTable();
                 StringCollection portfolioList = common.system.List2Collection(portfolioCb.GetValues());
                 dataLibs.LoadStockCode_ByPortfolios(myStockCodeTbl, portfolioList);
 
                 DataView myStockView = new DataView(myStockCodeTbl);
-                data.baseDS.stockCodeExtRow stockRow;
+                data.baseDS.stockCodeRow stockRow;
                 myStockView.Sort = myStockCodeTbl.codeColumn.ColumnName + "," + myStockCodeTbl.stockExchangeColumn.ColumnName;
                 for (int idx1 = 0; idx1 < myStockView.Count; idx1++)
                 {
-                    stockRow = (data.baseDS.stockCodeExtRow)myStockView[idx1].Row;
+                    stockRow = (data.baseDS.stockCodeRow)myStockView[idx1].Row;
                     //Ignore duplicate stocks
                     if (stockCodeList.Contains(stockRow.code)) continue;
                     stockCodeList.Add(stockRow.code);
@@ -263,10 +263,10 @@ namespace baseClass.forms
                 strategyList[idx] = strategyList[idx].Trim();
             }
 
-            data.baseDS.stockCodeExtRow stockCodeRow;
+            data.baseDS.stockCodeRow stockCodeRow;
             for (int rowId = 0; rowId < stockCodeList.Count; rowId++)
             {
-                stockCodeRow = application.dataLibs.FindAndCache(myDataSet.stockCodeExt, stockCodeList[rowId]);
+                stockCodeRow = application.dataLibs.FindAndCache(myDataSet.stockCode, stockCodeList[rowId]);
                 if (stockCodeRow == null) continue;
                 DataRow row = testRetsultTbl.Rows.Add(stockCodeList[rowId]);
                 analysisData.Init(dateRangeEd.myTimeScale,dateRangeEd.frDate, dateRangeEd.toDate, stockCodeRow);
@@ -301,7 +301,7 @@ namespace baseClass.forms
             try
             {
                 this.myFormMode = formMode.OptionOnly;
-                dateRangeEd.myTimeRange = application.myTypes.timeRanges.YTD;
+                dateRangeEd.myTimeRange = application.myTypes.TimeRanges.YTD;
                 FormResize();
             }
             catch (Exception er)
@@ -362,7 +362,7 @@ namespace baseClass.forms
                 }
                 string strategyCode = strategyClb.myCheckedValues[e.ColumnIndex - 1];
                 data.baseDS.strategyRow strategyRow = application.dataLibs.FindAndCache(myDataSet.strategy, strategyCode);
-                data.baseDS.stockCodeExtRow stockCodeRow = application.dataLibs.FindAndCache(myDataSet.stockCodeExt, stockCode);
+                data.baseDS.stockCodeRow stockCodeRow = application.dataLibs.FindAndCache(myDataSet.stockCode, stockCode);
                 ShowEstimationForm(stockCodeRow, strategyRow,dateRangeEd.myTimeScale, dateRangeEd.frDate, dateRangeEd.toDate);
             }
             catch (Exception er)
@@ -373,11 +373,11 @@ namespace baseClass.forms
 
         private void ShowAnalysisForm(string stockCode,baseClass.controls.chartTiming  timing)
         {
-            data.baseDS.stockCodeExtRow stockCodeRow = application.dataLibs.FindAndCache(myDataSet.stockCodeExt, stockCode);
-            myTradeAnalysisForm.ShowForm(stockCodeRow, timing); 
+            //data.baseDS.stockCodeRow stockCodeRow = application.dataLibs.FindAndCache(myDataSet.stockCode, stockCode);
+            //myTradeAnalysisForm.ShowForm(stockCodeRow, timing); 
         }
-        private void ShowEstimationForm(data.baseDS.stockCodeExtRow stockCodeRow, data.baseDS.strategyRow strategyRow, 
-                                        myTypes.timeScales timeScale, DateTime frDate, DateTime toDate)
+        private void ShowEstimationForm(data.baseDS.stockCodeRow stockCodeRow, data.baseDS.strategyRow strategyRow, 
+                                        string timeScale, DateTime frDate, DateTime toDate)
         {
             analysis.workData data = new analysis.workData(timeScale, frDate, toDate, stockCodeRow);
             analysis.analysisResult advices = appHub.strategy.TradeAnalysis(data, strategyRow.code);

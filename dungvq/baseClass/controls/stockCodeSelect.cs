@@ -14,27 +14,27 @@ namespace baseClass.controls
 {
     public partial class stockCodeSelect : common.control.baseUserControl
     {
-        private data.baseDS.stockCodeExtDataTable _stockCodeTbl = null;
-        private data.baseDS.stockCodeExtDataTable stockCodeTbl
+        private data.baseDS.stockCodeDataTable _stockCodeTbl = null;
+        private data.baseDS.stockCodeDataTable stockCodeTbl
         {
             get
             {
                 if (this._stockCodeTbl == null)
                 {
-                    this._stockCodeTbl = new data.baseDS.stockCodeExtDataTable();
-                    application.dataLibs.LoadData(this._stockCodeTbl,(byte)application.myTypes.commonStatus.Enable);
+                    this._stockCodeTbl = new data.baseDS.stockCodeDataTable();
+                    application.dataLibs.LoadData(this._stockCodeTbl,(byte)application.myTypes.CommonStatus.Enable);
                 }
                 return this._stockCodeTbl;
             }
         }
-        private data.baseDS.companyDataTable _companyCodeTbl = null;
-        private data.baseDS.companyDataTable companyCodeTbl
+        private data.baseDS.stockCodeDataTable _companyCodeTbl = null;
+        private data.baseDS.stockCodeDataTable companyCodeTbl
         {
             get
             {
                 if (this._companyCodeTbl == null)
                 {
-                    this._companyCodeTbl = new data.baseDS.companyDataTable();
+                    this._companyCodeTbl = new data.baseDS.stockCodeDataTable();
                     application.dataLibs.LoadData(this._companyCodeTbl);
                 }
                 return this._companyCodeTbl;
@@ -46,7 +46,7 @@ namespace baseClass.controls
             try
             {
                 InitializeComponent();
-                bizSectorTypeSelection.LoadData();
+                BizSectorTypesSelection.LoadData();
                 selectCodeEd.isToUpperCase = true;
             }
             catch (Exception er)
@@ -98,7 +98,7 @@ namespace baseClass.controls
             this.Enabled = !state;
             this.stockCodeClb.Enabled = !state;
             showOnlyCheckedChk.Enabled = !state;
-            bizSectorTypeSelection.LockEdit(state);
+            BizSectorTypesSelection.LockEdit(state);
         }
 
         private void showOnlyCheckedChk_CheckedChanged(object sender, EventArgs e)
@@ -117,11 +117,11 @@ namespace baseClass.controls
         {
             try
             {
-                bizSectorTypeSelection.Width = this.Width;
+                BizSectorTypesSelection.Width = this.Width;
                 optionPnl.Width = this.Width;
 
                 optionPnl.Location = new Point(0, this.Height - optionPnl.Height);
-                stockCodeClb.Location = new Point(0, bizSectorTypeSelection.Height);
+                stockCodeClb.Location = new Point(0, BizSectorTypesSelection.Height);
                 stockCodeClb.Size = new Size(this.Width, optionPnl.Location.Y - stockCodeClb.Location.Y);
             }
             catch (Exception er)
@@ -130,11 +130,11 @@ namespace baseClass.controls
             }         
         }
 
-        private void bizSectorTypeSelection_mySectorSelectionChange(object sender, EventArgs e)
+        private void BizSectorTypesSelection_mySectorSelectionChange(object sender, EventArgs e)
         {
             try
             {
-                StringCollection subSectorCodeList = bizSectorTypeSelection.myCurrentSubSectorCodes;
+                StringCollection subSectorCodeList = BizSectorTypesSelection.myCurrentSubSectorCodes;
                 if (subSectorCodeList == null)
                 {
                     stockCodeClb.myDataTbl = this.stockCodeTbl;
@@ -150,7 +150,7 @@ namespace baseClass.controls
                     companyView.RowFilter = cond;
 
                     DataView stockCodeView = new DataView(stockCodeTbl);
-                    stockCodeView.Sort = stockCodeTbl.comCodeColumn.ColumnName;
+                    stockCodeView.Sort = stockCodeTbl.codeColumn.ColumnName;
                     StringCollection stocCodeList = new StringCollection();
                     DataRowView[] foundStockCodes;
                     for (int idx = 0; idx < companyView.Count; idx++)
@@ -158,7 +158,7 @@ namespace baseClass.controls
                         foundStockCodes = stockCodeView.FindRows(companyView[idx][companyCodeTbl.codeColumn.ColumnName]);
                         if (foundStockCodes.Length == 0) continue;
                         for (int idx2 = 0; idx2 < foundStockCodes.Length; idx2++)
-                            stocCodeList.Add(foundStockCodes[idx2][stockCodeTbl.comCodeColumn.ColumnName].ToString());
+                            stocCodeList.Add(foundStockCodes[idx2][stockCodeTbl.codeColumn.ColumnName].ToString());
                     }
                     stockCodeClb.myItemValues = stocCodeList;
                 }

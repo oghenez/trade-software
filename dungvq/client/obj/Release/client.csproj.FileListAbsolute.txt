@@ -1,0 +1,10 @@
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\code0509\dlls\client.exe
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\code0509\dlls\client.pdb
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\code0509\client\obj\Release\ResolveAssemblyReference.cache
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\code0509\client\obj\Release\client.forms.companyList.resources
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\code0509\client\obj\Release\client.forms.investorEdit.resources
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\code0509\client\obj\Release\client.main.resources
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\code0509\client\obj\Release\client.Properties.Resources.resources
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\code0509\client\obj\Release\client.csproj.GenerateResource.Cache
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\code0509\client\obj\Release\client.exe
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\code0509\client\obj\Release\client.pdb

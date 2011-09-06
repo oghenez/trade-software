@@ -8,31 +8,60 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using WeifenLuo.WinFormsUI.Docking;
+using application; 
 
 namespace client
 {
-    //public partial class main : common.forms.baseApplication
-    public partial class main : baseClass.forms.baseApplication
+    public partial class main : common.forms.baseApplication
+    //public partial class main : baseClass.forms.baseApplication
     {
-        private baseClass.controls.formContainer myLeftPane = new baseClass.controls.formContainer();
-        private baseClass.controls.formContainer myMidPane = new baseClass.controls.formContainer();
-        private const string myPaneNameLeft = "_leftPane";
-        private const string myPaneMiddle = "_middlePane";
-        private const int myPaneLeftWidth = 200;
+        private enum Language {Vi,En };
+        private Language language
+        {
+            get
+            {
+                if (vietnameseMenuItem.Checked) return Language.Vi;
+                return Language.En;
+            }
+            set
+            {
+                switch (value)
+                { 
+                    case Language.En:
+                         vietnameseMenuItem.Checked = false;
+                         englishMenuItem.Checked = true;
+                         break;
+                    default: 
+                         vietnameseMenuItem.Checked = true;
+                         englishMenuItem.Checked = false;
+                         break;
+                }
+            }
+        }
 
+        const int constPaneLeftWidth = 200;
+        const string constFormNameIndicator = "indicator-";
+        const string constFormNameStock = "stock-";
+        const string constFormNameWatchList = "WatchList-";
+        const string constFormNameTradeAlert = "TradeAlert";
+        
         public main()
         {
             try
             {
                 InitializeComponent();
-                myMidPane.myArrangeOptions = common.control.childArrangeOptions.Tiled; 
+                Init();
+                sysLibs.sysLoginCode = "A00000004";
             }
             catch (Exception er)
             {
                 this.ShowError(er);
             }
         }
-       
+
+        private common.DictionaryList cachedForms = new common.DictionaryList();  // To cache used forms 
+
         protected override bool LoadAppConfig()
         {
             common.Consts.constValidCallString = common.Consts.constValidCallMarker;
@@ -43,34 +72,335 @@ namespace client
             return true;
         }
 
-        private void ArrangForms()
+        private void Init()
         {
-            if (myLeftPane.ChildCount <= 0) myMidPane.Location = new Point(0, 0);
-            else myMidPane.Location = new Point(myLeftPane.Location.X + myLeftPane.Size.Width, myLeftPane.Location.Y);
-            myMidPane.Size = new Size(this.ClientRectangle.Width - myMidPane.Location.X,
-                                      this.ClientRectangle.Height - myMidPane.Location.Y - 2 * SystemInformation.CaptionHeight); 
+            //Create indicator menu
+            indicatorMenuItem.DropDownItems.Clear();
+            Indicators.Libs.CreateIndicatorMenu(indicatorMenuItem, showIndicatorHandler);
+
+            //Assign chart type to each button
+            lineChartBtn.Tag = myTypes.ChartTypes.Line;
+            barChartBtn.Tag = myTypes.ChartTypes.Bar;
+            candleSticksBtn.Tag = myTypes.ChartTypes.CandelStick;
+
+            lineChartMenuItem.Tag = myTypes.ChartTypes.Line;
+            barChartMenuItem.Tag = myTypes.ChartTypes.Bar;
+            candleSticksMenuItem.Tag = myTypes.ChartTypes.CandelStick;
+
+            //Create period button strips : M5,H1,H2,W1,D1,...
+            periodicityStrip.Items.Clear();
+            periodicityMenuItem.DropDownItems.Clear();
+            PeriodicityStripCreation(periodicityStrip, periodicityMenuItem);
+
+            this.ChartType = myTypes.ChartTypes.Line;
+            this.ChartTimeScale = myTypes.MainDataTimeScale;
+
+            //dockPanel
+            dockPanel.Parent = this;     
+            dockPanel.DockLeftPortion = 0.12;
+            dockPanel.AllowDrop = true;
+            dockPanel.ActiveAutoHideContent = null;
+        }
+        private void PeriodicityStripCreation(ToolStrip toStrip,ToolStripMenuItem toMenu)
+        {
+            ToolStripButton btn;
+            ToolStripMenuItem menuItem;
+            myTypes.TimeScaleTypes lastTimeScaleType =  myTypes.TimeScaleTypes.Day;
+            for (int idx = 0; idx < myTypes.myTimeScales.Length; idx++)
+            {
+                btn = new ToolStripButton();
+                btn.Name = "Periodicity-" + myTypes.myTimeScales[idx].Code;
+                btn.Text = myTypes.myTimeScales[idx].Text;
+                btn.Tag = myTypes.myTimeScales[idx];
+                btn.DisplayStyle = ToolStripItemDisplayStyle.Text;
+                btn.Click += new EventHandler(PeriodicityButon_Click);
+                if (toStrip.Items.Count > 0)toStrip.Items.Add(new ToolStripSeparator());
+                toStrip.Items.Add(btn);
+
+                if (idx == 0) lastTimeScaleType = myTypes.myTimeScales[idx].Type;
+                if (lastTimeScaleType != myTypes.myTimeScales[idx].Type)
+                {
+                    toMenu.DropDownItems.Add(new ToolStripSeparator());
+                    lastTimeScaleType = myTypes.myTimeScales[idx].Type;
+                }
+                menuItem = new ToolStripMenuItem();
+                menuItem.Name = "Periodicity-menu-" + myTypes.myTimeScales[idx].Code;
+                menuItem.Text = myTypes.myTimeScales[idx].Text;
+                menuItem.Tag = myTypes.myTimeScales[idx];
+                menuItem.Click += new EventHandler(PeriodicityMenu_Click);
+                toMenu.DropDownItems.Add(menuItem);
+            }
+        }
+        private myTypes.TimeScale ChartTimeScale
+        {
+            get
+            {
+                for (int idx = 0; idx < periodicityStrip.Items.Count; idx++)
+                {
+                    if (periodicityStrip.Items[idx].GetType() != typeof(ToolStripButton)) continue;
+                    ToolStripButton btn = (ToolStripButton)periodicityStrip.Items[idx];
+                    if (btn.Checked) return  (myTypes.TimeScale)btn.Tag;
+                }
+                return myTypes.MainDataTimeScale;
+            }
+            set
+            {
+                myTypes.TimeScale saveTimeScale = this.ChartTimeScale;
+                for (int idx = 0; idx < periodicityStrip.Items.Count; idx++)
+                {
+                    if (periodicityStrip.Items[idx].GetType() != typeof(ToolStripButton)) continue;
+                    ToolStripButton btn = (ToolStripButton)periodicityStrip.Items[idx];
+                    btn.Checked = ((myTypes.TimeScale)btn.Tag == value);
+                }
+                for (int idx = 0; idx < periodicityMenuItem.DropDownItems.Count; idx++)
+                {
+                    if (periodicityMenuItem.DropDownItems[idx].GetType() != typeof(ToolStripMenuItem)) continue;
+                    ToolStripMenuItem item = (ToolStripMenuItem)periodicityMenuItem.DropDownItems[idx];
+                    item.Checked =  ((myTypes.TimeScale)item.Tag == value);
+                }
+                if (saveTimeScale != this.ChartTimeScale)
+                {
+                    tools.forms.tradeAnalysis activeForm = FindActiveStockForm();
+                    if (activeForm != null)
+                    {
+                        activeForm.ChartTimeScale = value;
+                        activeForm.ReloadChart();
+                    }
+                }
+            }
+        }
+        private myTypes.ChartTypes ChartType
+        {
+            get
+            {
+                if(barChartBtn.Checked) return myTypes.ChartTypes.Bar; 
+                if(candleSticksBtn.Checked) return myTypes.ChartTypes.CandelStick; 
+                return myTypes.ChartTypes.Line; 
+            }
+            set
+            {
+                switch (value)
+                {
+                    case myTypes.ChartTypes.Bar:
+                        lineChartBtn.Checked = false;
+                        barChartBtn.Checked = true;
+                        candleSticksBtn.Checked = false;
+
+                        lineChartMenuItem.Checked = false;
+                        barChartMenuItem.Checked = true;
+                        candleSticksMenuItem.Checked = false;
+                        break;
+                    case myTypes.ChartTypes.CandelStick:
+                        lineChartBtn.Checked = false;
+                        barChartBtn.Checked = false;
+                        candleSticksBtn.Checked = true;
+
+                        lineChartMenuItem.Checked = false;
+                        barChartMenuItem.Checked = false;
+                        candleSticksMenuItem.Checked = true;
+                        break;
+                    default:
+                        lineChartBtn.Checked = true;
+                        barChartBtn.Checked = false;
+                        candleSticksBtn.Checked = false;
+
+                        lineChartMenuItem.Checked = true;
+                        barChartMenuItem.Checked = false;
+                        candleSticksMenuItem.Checked = false;
+                        break;
+                }
+                tools.forms.tradeAnalysis activeForm = FindActiveStockForm();
+                if (activeForm != null) activeForm.ChartPriceType = value;
+            }
+        }
+        private bool ChartVolumeVisibility
+        {
+            get
+            {
+                return chartVolumeBtn.Checked;
+            }
+            set
+            {
+                tools.forms.tradeAnalysis activeForm = FindActiveStockForm();
+                if (activeForm != null) activeForm.ChartVolumeVisibility = value;
+            }
+        }
+        private bool ChartHaveGrid
+        {
+            get { return chartGridMenuItem.Checked; }
+            set 
+            { 
+                chartGridMenuItem.Checked = value;
+                tools.forms.tradeAnalysis activeForm = FindActiveStockForm();
+                if (activeForm != null) activeForm.ChartHaveGrid = value;
+            }
         }
 
-        private void ShowStockChart(data.baseDS.stockCodeExtRow stockRow)
+        //Form that allow user to set date range of used data.
+        private baseClass.forms.chartDataOptions _chartDataOptionForm = null;
+        private baseClass.forms.chartDataOptions ChartDataOptionForm
+        {
+            get
+            {
+                if (_chartDataOptionForm == null)
+                {
+                    _chartDataOptionForm = new baseClass.forms.chartDataOptions();
+                    _chartDataOptionForm.InitData();
+                    _chartDataOptionForm.GetDate();
+                }
+                return _chartDataOptionForm;
+            }
+        }
+
+
+        private stockTrade.forms.marketWatchList GetMarketWatchForm(bool createIfNotFound)
+        {
+            string formName = constFormNameWatchList + "Market";
+            stockTrade.forms.marketWatchList myForm = (stockTrade.forms.marketWatchList)cachedForms.Find(formName);
+            if (myForm == null || myForm.IsDisposed)
+            {
+                if (!createIfNotFound) return null;
+                myForm = new stockTrade.forms.marketWatchList();
+                myForm.Name = formName;
+                myForm.myOnShowChart += new baseClass.forms.baseWatchList.onShowChart(ShowStockChart);
+                cachedForms.Add(formName, myForm);
+            }
+            return myForm;
+        }
+        private void ShowMarketWatchForm()
+        {
+            GetMarketWatchForm(true).Show(dockPanel, DockState.DockLeft);
+        }
+        private void ShowPortfolioWatchtForm()
+        {
+            string formName = constFormNameWatchList + "Portfolio";
+            stockTrade.forms.portfolioWatch myForm = (stockTrade.forms.portfolioWatch)cachedForms.Find(formName);
+            if (myForm == null || myForm.IsDisposed)
+            {
+                myForm = new stockTrade.forms.portfolioWatch();
+                myForm.Name = formName;
+                myForm.myOnShowChart += new baseClass.forms.baseWatchList.onShowChart(ShowStockChart);
+                cachedForms.Add(formName, myForm);
+            }
+            myForm.Show(dockPanel, DockState.DockBottom);
+        }
+        private void ShowTradeAlertForm()
+        {
+            string formName = constFormNameTradeAlert;
+            stockTrade.forms.tradeAlertList myForm = (stockTrade.forms.tradeAlertList)cachedForms.Find(formName);
+            if (myForm == null || myForm.IsDisposed)
+            {
+                myForm = new stockTrade.forms.tradeAlertList();
+                myForm.Name = formName;
+                myForm.Init();
+                myForm.LoadData();
+                //myForm.myOnShowChart += new baseClass.forms.basePortfolioView.onShowChart(ShowStockChart);
+                cachedForms.Add(formName, myForm);
+            }
+            myForm.Show(dockPanel, DockState.DockBottom);
+        }
+        private void ShowStockChart(data.baseDS.stockCodeRow stockRow)
+        {
+            string formName = constFormNameStock + stockRow.code.Trim();
+            tools.forms.tradeAnalysis myForm = (tools.forms.tradeAnalysis)cachedForms.Find(formName);
+            if (myForm == null || myForm.IsDisposed)
+            {
+                myForm = new tools.forms.tradeAnalysis();
+                myForm.Name = formName;
+                //Ensure that data date range is set.
+                ChartDataOptionForm.GetDate();
+                myForm.ChartStartDate = ChartDataOptionForm.frDate;
+                myForm.ChartEndDate = ChartDataOptionForm.toDate;
+                myForm.ChartPriceType = this.ChartType;
+                myForm.UseStock(stockRow);
+
+                myForm.Activated += new System.EventHandler(this.tradeAnalysisActivatedHandler);
+
+                //Cache it if no error occured
+                cachedForms.Add(formName, myForm);
+            }
+            myForm.Show(dockPanel);
+        }
+
+        /// <summary>
+        /// Update (re-load data,re-draw charts...) for all active trade analaysis forms 
+        /// </summary>
+        private void UpdateChartData()
+        {
+            tools.forms.tradeAnalysis tradeAnalysisForm;
+            object[] foundForms = cachedForms.FindAll(constFormNameStock);
+            for (int idx = 0; idx < foundForms.Length; idx++)
+            {
+                tradeAnalysisForm = (tools.forms.tradeAnalysis)foundForms[idx];
+                if (tradeAnalysisForm.IsDisposed) continue;
+                tradeAnalysisForm.ChartStartDate = ChartDataOptionForm.frDate;
+                tradeAnalysisForm.ChartEndDate = ChartDataOptionForm.toDate;
+                tradeAnalysisForm.ReloadChart();
+            }
+        }
+        /// <summary>
+        /// Refresh/Re-draw charts for all active trade analaysis forms.
+        /// </summary>
+        private void RefreshChart()
+        {
+            tools.forms.tradeAnalysis tradeAnalysisForm;
+            object[] foundForms = cachedForms.FindAll(constFormNameStock);
+            for (int idx = 0; idx < foundForms.Length; idx++)
+            {
+                tradeAnalysisForm = (tools.forms.tradeAnalysis)foundForms[idx];
+                if (tradeAnalysisForm.IsDisposed) continue;
+                tradeAnalysisForm.RefreshChart();
+            }
+        }
+
+        /// <summary>
+        /// Find active form. 
+        /// </summary>
+        /// <returns>Null if there is no active form.</returns>
+        private tools.forms.tradeAnalysis FindActiveStockForm()
+        {
+            tools.forms.tradeAnalysis tradeAnalysisForm;
+            object[] foundForms = cachedForms.FindAll(constFormNameStock);
+            for (int idx = 0; idx < foundForms.Length; idx++)
+            {
+                tradeAnalysisForm = (tools.forms.tradeAnalysis)foundForms[idx];
+                if (tradeAnalysisForm.IsDisposed) continue;
+                if (tradeAnalysisForm.IsActivated) return tradeAnalysisForm;
+            }
+            return null;
+        }
+
+        #region event handler
+
+        private void tradeAnalysisActivatedHandler(object sender, EventArgs e)
         {
             try
             {
-                string formName = myPaneMiddle + stockRow.code.Trim();
-                forms.tradeAnalysis myForm = (forms.tradeAnalysis)common.formList.FindForm(formName);
-                if (myForm == null || myForm.IsDisposed)
+                tools.forms.tradeAnalysis activeForm = (tools.forms.tradeAnalysis)sender;
+                this.ChartType = activeForm.ChartPriceType;
+                this.ChartTimeScale = activeForm.ChartTimeScale;
+                this.ChartVolumeVisibility = activeForm.ChartVolumeVisibility;
+                this.ChartHaveGrid = activeForm.ChartHaveGrid;
+            }
+            catch (Exception er)
+            {
+                this.ShowError(er);
+            }
+        }
+        private void chartPropertyHandler(object sender, common.baseDialogEvent e)
+        {
+            if (e != null && e.isCloseClick) return;
+            RefreshChart();
+        }
+        private void showIndicatorHandler(object sender, EventArgs e)
+        {
+            try
+            {
+                tools.forms.tradeAnalysis activeForm = FindActiveStockForm();
+                if (activeForm != null)
                 {
-                    myForm = new forms.tradeAnalysis();
-                    myForm.Name = formName;
-                    myForm.MdiParent = this;
-                    common.formList.AddForm(myForm);
-                    myMidPane.AddChild(myForm, formName);
-                    myForm.FormClosed += new FormClosedEventHandler(FormClosedHandler);
-
-                    myForm.FormBorderStyle = FormBorderStyle.Sizable;
-                    myForm.MinimizeBox = true;
+                    activeForm.PlotIndicator(((ToolStripMenuItem)sender).Tag.ToString());
                 }
-                myForm.ShowForm(stockRow);
-                ArrangForms();
             }
             catch (Exception er)
             {
@@ -78,101 +408,100 @@ namespace client
             }
         }
 
-        private client.forms.watchList GetWathListForm(bool createIfNotExisted)
+        private void View_ToolBar_MenuClick(object sender, EventArgs e)
         {
-            string formName = myPaneNameLeft;
-            forms.watchList myForm = (forms.watchList)common.formList.FindForm(formName);
-            if (!createIfNotExisted)
+            if (sender.GetType() != typeof(ToolStripMenuItem)) return;
+            ToolStripMenuItem menu = (ToolStripMenuItem)sender;
+            if (menu == tbStandardMenuItem)
             {
-                if (myForm.IsDisposed) return null; 
-                return myForm;
+                standartStrip.Visible = menu.Checked;
+                return;
             }
-
-            if (myForm == null || myForm.IsDisposed)
+            if (menu == tbChartMenuItem)
             {
-                myForm = new forms.watchList();
-                myForm.MdiParent = this;
-                //myForm.Parent = this;
-                myForm.Name = formName;
-                myLeftPane.Location = new Point(0, 0);
-                myLeftPane.Size = new Size(myPaneLeftWidth, this.ClientRectangle.Height - 2 * SystemInformation.CaptionHeight);
-
-                myForm.Location = new Point(0, 0);
-                myForm.Size = new Size(myPaneLeftWidth, this.ClientRectangle.Height - 2 * SystemInformation.CaptionHeight);
-
-                myForm.TopMost = true;
-                myForm.myOnShowChart += new baseClass.forms.basePortfolioView.onShowChart(ShowStockChart);
-                myForm.FormClosed += new FormClosedEventHandler(FormClosedHandler);
-                common.formList.AddForm(myForm);
-                myLeftPane.AddChild(myForm,formName);
-                ArrangForms();
+                chartStrip.Visible = menu.Checked;
+                return;
             }
-            return myForm;
-        }
-
-        private stockTrade.forms.baseTradeAlertList GetTradeAlertListForm(bool createIfNotExisted)
-        {
-            stockTrade.forms.baseTradeAlertList myForm = (stockTrade.forms.baseTradeAlertList)common.formList.FindForm("TradeAlertList");
-            if (!createIfNotExisted) return myForm;
-            if (myForm == null || myForm.IsDisposed)
+            if (menu == tbPeriodicityMenuItem)
             {
-                myForm = new stockTrade.forms.baseTradeAlertList();
-                myForm.MdiParent = this;
-                myForm.Name = "TradeAlertList";
-                myForm.SetColumnVisible(stockTrade.forms.baseTradeAlertList.gridColumnName.Status.ToString(), false);
-                myForm.Size = new Size(550,350);
-                myForm.InitForm();
-                myForm.StartPosition = FormStartPosition.CenterParent;
+                periodicityStrip.Visible = menu.Checked;
+                return;
             }
-            return myForm;
         }
 
-        private void FormClosedHandler(object sender, FormClosedEventArgs e)
+        private void ChartTypeButton_Click(object sender, EventArgs e)
         {
-            Form myForm = (Form)sender;
-            if (myForm.Name.Trim().ToLower() == myPaneNameLeft.Trim().ToLower())
-                myLeftPane.RemoveChild(((Form)sender).Name);
-            else myMidPane.RemoveChild(((Form)sender).Name);
-            ArrangForms();
+            this.ChartType = (myTypes.ChartTypes)((ToolStripButton)sender).Tag;
         }
-
-        #region event handler
-        private void arrangeHorizontalMenuItem_Click(object sender, EventArgs e)
+        private void ChartTypeMenu_Click(object sender, EventArgs e)
         {
-            //Tile all child forms horizontally.
-            this.LayoutMdi(System.Windows.Forms.MdiLayout.TileHorizontal);
+            this.ChartType = (myTypes.ChartTypes)((ToolStripMenuItem)sender).Tag;
         }
 
-        private void arrangeIconsMenuItem_Click(object sender, EventArgs e)
+        private void PeriodicityButon_Click(object sender, EventArgs e)
         {
-            //Arrange MDI child icons within the client region of the MDI parent form.
-            this.LayoutMdi(System.Windows.Forms.MdiLayout.ArrangeIcons);
+            this.ChartTimeScale = ((myTypes.TimeScale)((ToolStripButton)sender).Tag);
         }
-
-        private void cascadeMenuItem_Click(object sender, EventArgs e)
+        private void PeriodicityMenu_Click(object sender, EventArgs e)
         {
-            //Cascade all child forms.
-            this.LayoutMdi(System.Windows.Forms.MdiLayout.Cascade);
+            this.ChartTimeScale = ((myTypes.TimeScale)((ToolStripMenuItem)sender).Tag);
         }
 
-        private void arrangeVerticalMenuItem_Click(object sender, EventArgs e)
+        private void ChartVolume_Click(object sender, EventArgs e)
         {
-            //Tile all child forms horizontally.
-            this.LayoutMdi(System.Windows.Forms.MdiLayout.TileVertical);
+            this.ChartVolumeVisibility = true;
         }
-
-        private void maximizeAllMenuItem_Click(object sender, EventArgs e)
+        private void ChartGridMenuItem_Click(object sender, EventArgs e)
         {
-            //Gets forms that represent the MDI child forms 
-            //that are parented to this form in an array
-            Form[] charr = this.MdiChildren;
-
-            //for each child form set the window state to Maximized
-            foreach (Form chform in charr)
-                chform.WindowState = FormWindowState.Maximized;
+            this.ChartHaveGrid = !this.ChartHaveGrid;
         }
 
-   
+        private void ChartRefreshBtn_Click(object sender, EventArgs e)
+        {
+            tools.forms.tradeAnalysis activeForm = FindActiveStockForm();
+            if (activeForm != null)
+            {
+                activeForm.RefreshChart();
+            }
+        }
+
+        private void NewChartMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                stockTrade.forms.marketWatchList form = GetMarketWatchForm(false);
+                if (form == null) return;
+                if (form.CurrentRow == null) return;
+                ShowStockChart(form.CurrentRow);
+            }
+            catch (Exception er)
+            {
+                this.ShowError(er);
+            }
+        }
+        private void CloseChartMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                tools.forms.tradeAnalysis activeForm = FindActiveStockForm();
+                if (activeForm != null) activeForm.Close();
+            }
+            catch (Exception er)
+            {
+                this.ShowError(er);
+            }
+        }
+
+        private void closeAllMenuItem_Click(object sender, EventArgs e)
+        {
+            foreach (Form childForm in this.MdiChildren)
+            {
+                childForm.Close();
+            }
+        }
+
+
+
         private void backTestingMenuItem_Click(object sender, EventArgs e)
         {
             try
@@ -202,11 +531,27 @@ namespace client
                 this.ShowError(er);
             }
         }
-
-        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        private void logOutMenuItem_Click(object sender, EventArgs e)
         {
             try
             {
+                sysLibs.ClearLogin();
+                if (!this.ShowLogin())
+                {
+                    sysLibs.ExitApplication();
+                }
+            }
+            catch (Exception er)
+            {
+                this.ShowError(er);
+            }
+        }
+
+        private void exitMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                sysLibs.ExitApplication();
                 this.Close();
             }
             catch (Exception er)
@@ -215,13 +560,48 @@ namespace client
             }
         }
 
-        private void watchListMenuItem_Click(object sender, EventArgs e)
+        private void marketWatchBtn_Click(object sender, EventArgs e)
         {
             try
             {
-                Form myForm = GetWathListForm(true);
-                //AdjustMainForms();
-                common.formList.ShowForm(myForm, false);
+                ShowMarketWatchForm();
+            }
+            catch (Exception er)
+            {
+                this.ShowError(er);
+            }
+        }
+        private void portfolioWatchBtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ShowPortfolioWatchtForm();
+            }
+            catch (Exception er)
+            {
+                this.ShowError(er);
+            }
+        }
+        private void tradeAlertBtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ShowTradeAlertForm();
+            }
+            catch (Exception er)
+            {
+                this.ShowError(er);
+            }
+        }
+        private void chartDataOptionBtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ChartDataOptionForm.ShowDialog();
+                if (ChartDataOptionForm.myFormStatus.isCloseClick) return;
+                if (!ChartDataOptionForm.GetDate()) return;
+                //Update data for all active stocks
+                UpdateChartData();
             }
             catch (Exception er)
             {
@@ -229,32 +609,55 @@ namespace client
             }
         }
 
-        private void tradeAlertMenuItem_Click(object sender, EventArgs e)
+        private void chartPropertiesBtn_Click(object sender, EventArgs e)
         {
             try
             {
-                stockTrade.forms.baseTradeAlertList myForm = GetTradeAlertListForm(true);
-                common.formList.ShowForm(myForm, false);
+                baseClass.forms.chartProperties myForm = (baseClass.forms.chartProperties)this.FindForm("chartProperties");
+                if (myForm == null || myForm.IsDisposed)
+                {
+                    myForm = new baseClass.forms.chartProperties();
+                    myForm.Name = "chartProperties";
+                    myForm.myOnProcess += new common.forms.baseDialogForm.onProcess(chartPropertyHandler);
+                }
+                myForm.Show(dockPanel, DockState.DockRightAutoHide);
             }
             catch (Exception er)
             {
                 this.ShowError(er);
             }
+        }
 
+        private void preferencesMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                baseClass.forms.sysOptions myForm = (baseClass.forms.sysOptions)this.FindForm("sysOptions");
+                if (myForm == null || myForm.IsDisposed)
+                {
+                    myForm = new baseClass.forms.sysOptions();
+                    myForm.Name = "sysOptions";
+                }
+                myForm.Show(dockPanel);
+            }
+            catch (Exception er)
+            {
+                this.ShowError(er);
+            }
         }
 
         private void orderMenuItem_Click(object sender, EventArgs e)
         {
             try
             {
-                Form myForm = this.FindForm("TradeOrderAddNew");
+                Form myForm = this.FindForm("transactionNew");
                 if (myForm == null || myForm.IsDisposed)
                 {
-                    myForm = new stockTrade.forms.baseTradeOrderAddNew();
+                    myForm = new stockTrade.forms.transactionNew();
                     myForm.MdiParent = this;
-                    myForm.Name = "TradeOrderAddNew";
+                    myForm.Name = "transactionNew";
                 }
-                ((stockTrade.forms.baseTradeOrderAddNew)myForm).ShowForm();
+                ((stockTrade.forms.transactionNew)myForm).ShowForm();
             }
             catch (Exception er)
             {
@@ -266,34 +669,13 @@ namespace client
         {
             try
             {
-                Form myForm = this.FindForm("companyList");
+                forms.companyList myForm = (forms.companyList)this.FindForm("companyList");
                 if (myForm == null || myForm.IsDisposed)
                 {
-                    myForm = new client.forms.companyList();
-                    myForm.MdiParent = this;
+                    myForm = new forms.companyList();
                     myForm.Name = "companyList";
                 }
-                this.ShowForm(myForm, false);
-            }
-            catch (Exception er)
-            {
-                this.ShowError(er);
-            }
-        }
-
-        private void portfolioMenuItem_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                stockTrade.forms.basePortfolioManagement myForm = (stockTrade.forms.basePortfolioManagement)this.FindForm("portfolioView");
-                if (myForm == null || myForm.IsDisposed)
-                {
-                    myForm = new stockTrade.forms.basePortfolioManagement();
-                    myForm.Name = "portfolioView";
-                    myForm.MdiParent = this;
-                    myForm.myOnShowChart += new stockTrade.forms.basePortfolioManagement.onShowChart(ShowStockChart);
-                }
-                this.ShowForm(myForm, false);
+                myForm.Show(dockPanel);
             }
             catch (Exception er)
             {
@@ -320,7 +702,7 @@ namespace client
                 Form  myForm = this.FindForm("sysOptions");
                 if (myForm == null || myForm.IsDisposed)
                 {
-                    myForm = new baseClass.forms.baseSysOptions();
+                    myForm = new baseClass.forms.sysOptions();
                     myForm.MdiParent = this;
                     myForm.Name = "sysOptions";
                     myForm.MdiParent = this;
@@ -345,18 +727,17 @@ namespace client
             }
         }
 
-        private void myInfoMenuItem_Click(object sender, EventArgs e)
+        private void MyProfileMenuItem_Click(object sender, EventArgs e)
         {
             try
             {
-                Form myForm = this.FindForm("investorEdit");
+                forms.investorEdit myForm = (forms.investorEdit)this.FindForm("investorEdit");
                 if (myForm == null || myForm.IsDisposed)
                 {
-                    myForm = new client.forms.investorEdit();
-                    myForm.MdiParent = this;
+                    myForm = new forms.investorEdit();
                     myForm.Name = "investorEdit";
                 }
-                this.ShowForm(myForm, false);
+                myForm.Show(dockPanel);
             }
             catch (Exception er)
             {
@@ -364,11 +745,22 @@ namespace client
             }
         }
 
-        private void main_Resize(object sender, EventArgs e)
+        private void printSetupMenuItem_Click(object sender, EventArgs e)
+        {
+            myPrintDialog.ShowDialog();
+        }
+
+        private void transactionsBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void main_Load(object sender, EventArgs e)
         {
             try
             {
-                ArrangForms();
+                //Start forms
+                marketWatchBtn_Click(this, null);
             }
             catch (Exception er)
             {

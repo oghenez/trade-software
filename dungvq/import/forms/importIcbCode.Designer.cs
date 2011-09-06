@@ -41,7 +41,10 @@
             this.sysCodeCatEd = new common.control.baseTextBox();
             this.sysCodeCatLbl = new common.control.baseLabel();
             this.viewLogBtn = new common.control.baseButton();
+            this.noteGb = new System.Windows.Forms.GroupBox();
+            this.noteLbl = new baseClass.controls.baseLabel();
             ((System.ComponentModel.ISupportInitialize)(this.myDataSet)).BeginInit();
+            this.noteGb.SuspendLayout();
             this.SuspendLayout();
             // 
             // TitleLbl
@@ -71,6 +74,7 @@
             this.closeBtn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.closeBtn.Image = global::imports.Properties.Resources.close;
             this.closeBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.closeBtn.isDownState = false;
             this.closeBtn.Location = new System.Drawing.Point(307, 106);
             this.closeBtn.Name = "closeBtn";
             this.closeBtn.Size = new System.Drawing.Size(68, 30);
@@ -85,6 +89,7 @@
             this.importBtn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.importBtn.Image = global::imports.Properties.Resources.select;
             this.importBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.importBtn.isDownState = false;
             this.importBtn.Location = new System.Drawing.Point(139, 106);
             this.importBtn.Name = "importBtn";
             this.importBtn.Size = new System.Drawing.Size(91, 30);
@@ -98,6 +103,7 @@
             // 
             this.selectFileBtn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.selectFileBtn.Image = global::imports.Properties.Resources.open;
+            this.selectFileBtn.isDownState = false;
             this.selectFileBtn.Location = new System.Drawing.Point(376, 32);
             this.selectFileBtn.Name = "selectFileBtn";
             this.selectFileBtn.Size = new System.Drawing.Size(22, 21);
@@ -157,6 +163,7 @@
             this.viewLogBtn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.viewLogBtn.Image = global::imports.Properties.Resources.report;
             this.viewLogBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.viewLogBtn.isDownState = false;
             this.viewLogBtn.Location = new System.Drawing.Point(230, 106);
             this.viewLogBtn.Name = "viewLogBtn";
             this.viewLogBtn.Size = new System.Drawing.Size(77, 30);
@@ -166,11 +173,34 @@
             this.viewLogBtn.UseVisualStyleBackColor = true;
             this.viewLogBtn.Click += new System.EventHandler(this.viewLogBtn_Click);
             // 
+            // noteGb
+            // 
+            this.noteGb.Controls.Add(this.noteLbl);
+            this.noteGb.Location = new System.Drawing.Point(29, 139);
+            this.noteGb.Name = "noteGb";
+            this.noteGb.Size = new System.Drawing.Size(362, 42);
+            this.noteGb.TabIndex = 154;
+            this.noteGb.TabStop = false;
+            // 
+            // noteLbl
+            // 
+            this.noteLbl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.noteLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.noteLbl.Location = new System.Drawing.Point(7, 9);
+            this.noteLbl.Name = "noteLbl";
+            this.noteLbl.Size = new System.Drawing.Size(349, 27);
+            this.noteLbl.TabIndex = 147;
+            this.noteLbl.Text = "Cập nhật bộ mã ICB từ tệp Excel vào hệ thống";
+            this.noteLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // importIcbCode
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(421, 169);
+            this.ClientSize = new System.Drawing.Size(421, 214);
+            this.Controls.Add(this.noteGb);
             this.Controls.Add(this.viewLogBtn);
             this.Controls.Add(this.sysCodeCatEd);
             this.Controls.Add(this.sysCodeCatLbl);
@@ -196,7 +226,9 @@
             this.Controls.SetChildIndex(this.sysCodeCatLbl, 0);
             this.Controls.SetChildIndex(this.sysCodeCatEd, 0);
             this.Controls.SetChildIndex(this.viewLogBtn, 0);
+            this.Controls.SetChildIndex(this.noteGb, 0);
             ((System.ComponentModel.ISupportInitialize)(this.myDataSet)).EndInit();
+            this.noteGb.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -216,6 +248,8 @@
         protected common.control.baseTextBox sysCodeCatEd;
         protected common.control.baseLabel sysCodeCatLbl;
         protected common.control.baseButton viewLogBtn;
+        private System.Windows.Forms.GroupBox noteGb;
+        private baseClass.controls.baseLabel noteLbl;
 
     }
 }

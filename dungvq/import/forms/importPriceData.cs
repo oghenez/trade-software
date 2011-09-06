@@ -16,8 +16,16 @@ namespace imports.forms
         private bool fCanceled = false;
         public importPriceData()
         {
-            InitializeComponent();
-            stockExchangeCb.LoadData();
+            try
+            {
+                InitializeComponent();
+                stockExchangeCb.LoadData();
+                actionCb.SelectedIndex = 0;
+            }
+            catch (Exception er)
+            {
+                this.ShowError(er);
+            }
         }
 
         private void onAddCompany(string code)
@@ -45,12 +53,12 @@ namespace imports.forms
                 bool retVal = true;
                 ClearNotifyError();
                 this.ShowMessage("");
-                if (dataFileNameEd.Text.Trim() == "")
+                if (dataFileNameEd.Enabled && dataFileNameEd.Text.Trim() == "")
                 {
                     NotifyError(dataFileLbl);
                     retVal = false;
                 }
-                if (stockExchangeCb.myValue.Trim() == "")
+                if (stockExchangeCb.Enabled && stockExchangeCb.myValue.Trim() == "")
                 {
                     NotifyError(stockExchangeLbl);
                     retVal = false;
@@ -62,13 +70,41 @@ namespace imports.forms
                 importBtn.Enabled = false;
                 cancelBtn.Enabled = true;
                 ShowCurrorWait();
-                myDataSet.priceData.Clear();
-                // Number is in US format
-                libs.ImportPricedata_CSV(dataFileNameEd.Text.Trim(), stockExchangeCb.myValue,
-                                                           "en-US", myDataSet.priceData, onGotData,null, null);
-                application.dataLibs.UpdateData(myDataSet.priceData);
-
-                libs.AggregatePriceData(myDataSet.priceData, "vi-VN",true,onAggregateData);
+                this.ShowMessage("");
+                switch(actionCb.SelectedIndex)
+                {
+                    case 0:
+                        // Number is in US format
+                        myDataSet.priceData.Clear();
+                        libs.ImportPricedata_CSV(dataFileNameEd.Text.Trim(), stockExchangeCb.myValue,
+                                                                   "en-US", myDataSet.priceData, onGotData, null, null);
+                        application.dataLibs.UpdateData(myDataSet.priceData);
+                        libs.AggregatePriceData(myDataSet.priceData, "vi-VN", true, onAggregateData);
+                        break;
+                    case 1:
+                        // Number is in US format
+                        myDataSet.priceData.Clear();
+                        libs.ImportPricedata_CSV(dataFileNameEd.Text.Trim(), stockExchangeCb.myValue,
+                                           "en-US", myDataSet.priceData, onGotData, null, null);
+                        application.dataLibs.UpdateData(myDataSet.priceData);
+                        break;
+                    case 2:
+                        myDataSet.stockCode.Clear();
+                        this.ShowMessage("Delete aggregation data...");
+                        application.dataLibs.DeletePriceSumData();
+                        this.ShowMessage("Loading data...");
+                        application.dataLibs.LoadData(myDataSet.stockCode);
+                        for (int idx = 0; idx < myDataSet.stockCode.Count; idx++)
+                        {
+                            if (fCanceled) break;
+                            this.ShowMessage("Arregate stock : " + myDataSet.stockCode[idx].code);
+                            myDataSet.priceData.Clear();
+                            application.dataLibs.LoadData(myDataSet.priceData, myDataSet.stockCode[idx].code);
+                            libs.AggregatePriceData(myDataSet.priceData, "vi-VN", true, null);
+                            this.ShowMessage("");
+                        }
+                        break;
+                }
                 ShowCurrorDefault();
                 DateTime endTime = DateTime.Now;
                 this.ShowMessage(common.dateTimeLibs.TimeSpan2String(endTime.Subtract(startTime)));
@@ -119,6 +155,13 @@ namespace imports.forms
             {
                 ShowError(er);
             }
+        }
+
+        private void actionCb_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            dataFileNameEd.Enabled = actionCb.SelectedIndex != 2;
+            selectFileBtn.Enabled = dataFileNameEd.Enabled;
+            stockExchangeCb.Enabled = dataFileNameEd.Enabled;
         }
     }
 }

@@ -13,6 +13,7 @@ namespace baseClass.controls
 {
     public partial class companyGeneralInfo : common.control.baseUserControl
     {
+        private BindingSource myDataSource = null;
         public companyGeneralInfo()
         {
             InitializeComponent();
@@ -21,7 +22,7 @@ namespace baseClass.controls
         }
         private void SetMaxLength()
         {
-            data.baseDS.companyDataTable tbl = new data.baseDS.companyDataTable();
+            data.baseDS.stockCodeDataTable tbl = new data.baseDS.stockCodeDataTable();
             codeEd.MaxLength = tbl.codeColumn.MaxLength;
             nameEd.MaxLength = tbl.nameColumn.MaxLength;
             addressEd1.MaxLength = tbl.address1Column.MaxLength;
@@ -36,30 +37,40 @@ namespace baseClass.controls
         {
             countryCb.LoadData();
         }
-        public virtual void SetData(data.baseDS.companyRow row)
+        public void SetDataSource(System.Windows.Forms.BindingSource dataSrc)
         {
-            codeEd.Text = row.code;
-            nameEd.Text = row.name;
-            enNameEd.Text = (row.IsnameEnNull() ? "" : row.nameEn);
-            addressEd1.Text = row.address1;
-            addressEd2.Text = (row.Isaddress2Null()?"":row.address2);
-            phoneEd.Text = (row.IsphoneNull() ? "" : row.phone);
-            faxEd.Text = (row.IsfaxNull() ? "" : row.fax);
-            websiteEd.Text = (row.IswebsiteNull() ? "" : row.website);
-            emailEd.Text = row.email;
-            countryCb.myValue = row.country;
-        }
-        public virtual void GetData(data.baseDS.companyRow row)
-        {
-            row.code = codeEd.Text;
-            row.name = nameEd.Text;
-            if (enNameEd.Text.Trim() == "") row.SetnameEnNull(); else row.nameEn = enNameEd.Text.Trim();
-            row.address1 = addressEd1.Text.Trim();
-            if (addressEd2.Text.Trim() == "") row.Setaddress2Null(); else row.address2 = addressEd2.Text.Trim();
-            if (phoneEd.Text.Trim() == "") row.SetphoneNull(); else row.phone = phoneEd.Text.Trim();
-            if (faxEd.Text.Trim() == "") row.SetfaxNull(); else row.fax = faxEd.Text.Trim();
-            if (websiteEd.Text.Trim() == "") row.SetwebsiteNull(); else row.website = websiteEd.Text.Trim();
-            row.email = emailEd.Text.Trim();
+            this.myDataSource = dataSrc;
+            data.baseDS.stockCodeDataTable tbl = (data.baseDS.stockCodeDataTable)this.myDataSource.DataSource;
+            this.codeEd.DataBindings.Clear();
+            this.codeEd.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.myDataSource, tbl.codeColumn.ColumnName, true));
+
+            this.nameEd.DataBindings.Clear();
+            this.nameEd.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.myDataSource, tbl.nameColumn.ColumnName, true));
+
+            this.enNameEd.DataBindings.Clear();
+            this.enNameEd.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.myDataSource, tbl.nameEnColumn.ColumnName, true));
+
+            this.addressEd1.DataBindings.Clear();
+            this.addressEd1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.myDataSource, tbl.address1Column.ColumnName, true));
+
+            this.addressEd2.DataBindings.Clear();
+            this.addressEd2.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.myDataSource, tbl.address2Column.ColumnName, true));
+
+            this.phoneEd.DataBindings.Clear();
+            this.phoneEd.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.myDataSource, tbl.phoneColumn.ColumnName, true));
+
+            this.faxEd.DataBindings.Clear();
+            this.faxEd.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.myDataSource, tbl.faxColumn.ColumnName, true));
+
+            this.emailEd.DataBindings.Clear();
+            this.emailEd.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.myDataSource, tbl.emailColumn.ColumnName, true));
+
+            this.websiteEd.DataBindings.Clear();
+            this.websiteEd.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.myDataSource, tbl.websiteColumn.ColumnName, true));
+            
+            this.countryCb.DataBindings.Clear();
+            this.countryCb.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.myDataSource, tbl.countryColumn.ColumnName, true));
+
         }
         public virtual bool CheckData()
         {
@@ -78,11 +89,6 @@ namespace baseClass.controls
             if (addressEd1.Text.Trim() == "") 
             {
                 NotifyError(addressLbl1);
-                retVal = false;
-            }
-            if (emailEd.Text.Trim() == "")
-            {
-                NotifyError(emailLbl);
                 retVal = false;
             }
             return retVal;

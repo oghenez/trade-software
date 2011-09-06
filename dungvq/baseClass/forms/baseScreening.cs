@@ -19,7 +19,7 @@ namespace baseClass.forms
             try
             {
                 InitializeComponent();
-                strategyClb.LoadData(myTypes.strategyType.Screening,true,false);
+                strategyClb.LoadData(myTypes.StrategyTypes.Screening, true, false);
 
                 subSectorSelect.LoadData();
                 dateRangeEd.LoadData();
@@ -37,13 +37,13 @@ namespace baseClass.forms
         {
             //Type data
             DataTable typeTbl = new DataTable();
-            DataColumn col1 = new DataColumn("code", typeof(byte)); 
+            DataColumn col1 = new DataColumn("code", typeof(byte));
             typeTbl.Columns.Add(col1);
 
-            DataColumn col2 = new DataColumn("description"); 
+            DataColumn col2 = new DataColumn("description");
             typeTbl.Columns.Add(col2);
 
-            foreach (myTypes.screeningCritType item in Enum.GetValues(typeof(myTypes.screeningCritType)))
+            foreach (myTypes.ScreeningCriteriaTypes item in Enum.GetValues(typeof(myTypes.ScreeningCriteriaTypes)))
             {
                 DataRow row = typeTbl.Rows.Add((byte)item);
                 row[1] = myTypes.Type2Text(item);
@@ -84,10 +84,10 @@ namespace baseClass.forms
             return new baseTradeAnalysis();
         }
 
-        private enum formMode : byte { OptionOnly = 0, OptionWithData = 1, DataOnly= 2};
+        private enum formMode : byte { OptionOnly = 0, OptionWithData = 1, DataOnly = 2 };
         private formMode myFormMode
         {
-            get 
+            get
             {
                 if (dataPnl.Visible)
                 {
@@ -96,34 +96,34 @@ namespace baseClass.forms
                 }
                 return formMode.OptionOnly;
             }
-            set 
+            set
             {
                 switch (value)
                 {
                     case formMode.DataOnly:
-                                  dataPnl.Visible = true; xpPanelGroup_Info.Visible = false;  
-                                  break;
+                        dataPnl.Visible = true; xpPanelGroup_Info.Visible = false;
+                        break;
                     case formMode.OptionOnly: dataPnl.Visible = false; xpPanelGroup_Info.Visible = true; break;
                     case formMode.OptionWithData:
-                                  dataPnl.Visible = true; xpPanelGroup_Info.Visible = true;
-                                  this.Width = xpPanelGroup_Info.Width + dataPnl.Width;  
-                                  break;
+                        dataPnl.Visible = true; xpPanelGroup_Info.Visible = true;
+                        this.Width = xpPanelGroup_Info.Width + dataPnl.Width;
+                        break;
                 }
                 FormResize();
             }
         }
 
-        private myTypes.screeningCriteria[] GetScrCriteria()
+        private myTypes.ScreeningCriteria[] GetScrCriteria()
         {
             double val = 0;
-            myTypes.screeningCriteria[] criteria = new myTypes.screeningCriteria[0];
+            myTypes.ScreeningCriteria[] criteria = new myTypes.ScreeningCriteria[0];
             for (int idx = 0; idx < myScrCriteriaTbl.Rows.Count; idx++)
             {
                 if (myScrCriteriaTbl.Rows[idx]["type"].ToString() == "") continue;
                 Array.Resize(ref criteria, criteria.Length + 1);
-                criteria[criteria.Length - 1] = new myTypes.screeningCriteria();
-                
-                criteria[criteria.Length - 1].code = (myTypes.screeningCritType)myScrCriteriaTbl.Rows[idx]["type"];
+                criteria[criteria.Length - 1] = new myTypes.ScreeningCriteria();
+
+                criteria[criteria.Length - 1].code = (myTypes.ScreeningCriteriaTypes)myScrCriteriaTbl.Rows[idx]["type"];
                 val = 0; double.TryParse(myScrCriteriaTbl.Rows[idx]["min"].ToString(), out val);
                 criteria[criteria.Length - 1].min = val;
 
@@ -178,7 +178,7 @@ namespace baseClass.forms
         {
             // Define the new datatable
             DataTable tbl = new DataTable();
-            
+
             // Define columns
             DataColumn col = new DataColumn("item");
             tbl.Columns.Add(col);
@@ -199,12 +199,12 @@ namespace baseClass.forms
                     xpPanelGroup_Info.Height = this.ClientRectangle.Height - xpPanelGroup_Info.Location.Y - SystemInformation.CaptionHeight;
                     xpPanel_Advance.Height = xpPanelGroup_Info.Height - xpPanel_Advance.Location.Y;
                     subSectorSelect.Height = xpPanel_Advance.Height - subSectorSelect.Location.Y;
-                    this.Width = xpPanel_Advance.Width + SystemInformation.CaptionButtonSize.Width; 
+                    this.Width = xpPanel_Advance.Width + SystemInformation.CaptionButtonSize.Width;
                     break;
                 case formMode.DataOnly:
                     dataPnl.Location = new Point(0, 0);
-                    dataPnl.Width = this.ClientRectangle.Width - dataPnl.Location.X; 
-                    dataPnl.Height = this.ClientRectangle.Height- dataPnl.Location.Y - SystemInformation.CaptionHeight-3;
+                    dataPnl.Width = this.ClientRectangle.Width - dataPnl.Location.X;
+                    dataPnl.Height = this.ClientRectangle.Height - dataPnl.Location.Y - SystemInformation.CaptionHeight - 3;
                     break;
                 case formMode.OptionWithData:
                     xpPanelGroup_Info.Height = this.ClientRectangle.Height - xpPanelGroup_Info.Location.Y - SystemInformation.CaptionHeight;
@@ -213,7 +213,7 @@ namespace baseClass.forms
 
                     dataPnl.Location = new Point(xpPanelGroup_Info.Location.X + xpPanelGroup_Info.Width, 0);
                     dataPnl.Width = this.ClientRectangle.Width - dataPnl.Location.X;
-                    dataPnl.Height = this.ClientRectangle.Height - dataPnl.Location.Y-SystemInformation.CaptionHeight-3;
+                    dataPnl.Height = this.ClientRectangle.Height - dataPnl.Location.Y - SystemInformation.CaptionHeight - 3;
                     break;
             }
             DataPartResize();
@@ -247,30 +247,30 @@ namespace baseClass.forms
             StringCollection stockCodeList = new StringCollection();
 
             //Load stocks in selected subsectors if existed
-            data.baseDS.stockCodeExtDataTable selectedStockCodeTbl = null;
+            data.baseDS.stockCodeDataTable selectedStockCodeTbl = null;
             StringCollection subSectorCodeList = subSectorSelect.myCheckedValues;
-            if (subSectorCodeList != null && subSectorCodeList.Count>0)
+            if (subSectorCodeList != null && subSectorCodeList.Count > 0)
             {
-                selectedStockCodeTbl = new data.baseDS.stockCodeExtDataTable();
+                selectedStockCodeTbl = new data.baseDS.stockCodeDataTable();
                 dataLibs.LoadStockCode_ByBizSectors(selectedStockCodeTbl, subSectorCodeList);
-                if (selectedStockCodeTbl.Count==0) 
+                if (selectedStockCodeTbl.Count == 0)
                 {
                     selectedStockCodeTbl.Dispose();
                     selectedStockCodeTbl = null;
                 }
             }
-            
+
             //User specify screening criteria ??
-            data.baseDS.stockCodeExtDataTable tmpStockCodeTbl = new data.baseDS.stockCodeExtDataTable();
+            data.baseDS.stockCodeDataTable tmpStockCodeTbl = new data.baseDS.stockCodeDataTable();
             bool haveScrList = screening.GetStockList(tmpStockCodeTbl, GetScrCriteria());
             if (haveScrList)
             {
                 DataView myStockView = new DataView(tmpStockCodeTbl);
-                data.baseDS.stockCodeExtRow stockRow;
+                data.baseDS.stockCodeRow stockRow;
                 myStockView.Sort = tmpStockCodeTbl.codeColumn.ColumnName + "," + tmpStockCodeTbl.stockExchangeColumn.ColumnName;
                 for (int idx = 0; idx < myStockView.Count; idx++)
                 {
-                    stockRow = (data.baseDS.stockCodeExtRow)myStockView[idx].Row;
+                    stockRow = (data.baseDS.stockCodeRow)myStockView[idx].Row;
                     //Ignore stock NOT in selected subsectors
                     if (selectedStockCodeTbl != null && selectedStockCodeTbl.FindBycode(stockRow.code) == null) continue;
                     //Ignore duplicate stocks
@@ -311,13 +311,13 @@ namespace baseClass.forms
                 strategyList[idx] = strategyList[idx].Trim();
             }
 
-            data.baseDS.stockCodeExtRow stockCodeRow;
+            data.baseDS.stockCodeRow stockCodeRow;
             for (int rowId = 0; rowId < stockCodeList.Count; rowId++)
             {
-                stockCodeRow = application.dataLibs.FindAndCache(myDataSet.stockCodeExt, stockCodeList[rowId]);
+                stockCodeRow = application.dataLibs.FindAndCache(myDataSet.stockCode, stockCodeList[rowId]);
                 if (stockCodeRow == null) continue;
                 DataRow row = testRetsultTbl.Rows.Add(stockCodeList[rowId]);
-                analysisData.Init(dateRangeEd.myTimeScale,dateRangeEd.frDate, dateRangeEd.toDate, stockCodeRow);
+                analysisData.Init(dateRangeEd.myTimeScale, dateRangeEd.frDate, dateRangeEd.toDate, stockCodeRow);
                 for (int colId = 0; colId < strategyList.Count; colId++)
                 {
                     decimal revenue = 0;
@@ -326,7 +326,7 @@ namespace baseClass.forms
                     if (advices != null)
                     {
                         myTmpDS.tradeEstimate.Clear();
-                        analysis.EstimateAdvice(analysisData, advices,new application.analysis.estimateOptions(), myTmpDS.tradeEstimate);
+                        analysis.EstimateAdvice(analysisData, advices, new application.analysis.estimateOptions(), myTmpDS.tradeEstimate);
 
                         revenue = (myTmpDS.tradeEstimate.Count == 0 ? 0 : revenue = myTmpDS.tradeEstimate[myTmpDS.tradeEstimate.Count - 1].revenue);
                     }
@@ -343,13 +343,13 @@ namespace baseClass.forms
         {
             this.ShowMessage(e.Exception.Message);
         }
-        
+
         private void Form_Load(object sender, EventArgs e)
         {
             try
             {
                 this.myFormMode = formMode.OptionOnly;
-                dateRangeEd.myTimeRange = application.myTypes.timeRanges.YTD;
+                dateRangeEd.myTimeRange = application.myTypes.TimeRanges.YTD;
                 FormResize();
             }
             catch (Exception er)
@@ -357,7 +357,7 @@ namespace baseClass.forms
                 this.ShowError(er);
             }
         }
-       
+
         private void okBtn_Click(object sender, EventArgs e)
         {
             try
@@ -365,7 +365,7 @@ namespace baseClass.forms
                 this.ShowMessage("");
                 if (!DataValidate()) return;
                 progressBar.Visible = true;
-                this.myFormMode = formMode.OptionWithData; 
+                this.myFormMode = formMode.OptionWithData;
                 DateTime startTime = DateTime.Now;
                 Screening();
                 this.fullScreenBtn.Enabled = true;
@@ -389,7 +389,7 @@ namespace baseClass.forms
                 string stockCode = testResultDataGrid.CurrentRow.Cells[0].Value.ToString();
                 if (e.ColumnIndex == 0)
                 {
-                    ShowAnalysisForm(stockCode,dateRangeEd);
+                    ShowAnalysisForm(stockCode, dateRangeEd);
                     return;
                 }
             }
@@ -399,10 +399,10 @@ namespace baseClass.forms
             }
         }
 
-        private void ShowAnalysisForm(string stockCode,baseClass.controls.chartTiming  timing)
+        private void ShowAnalysisForm(string stockCode, baseClass.controls.chartTiming timing)
         {
-            data.baseDS.stockCodeExtRow stockCodeRow = application.dataLibs.FindAndCache(myDataSet.stockCodeExt, stockCode);
-            myTradeAnalysisForm.ShowForm(stockCodeRow, timing); 
+            //data.baseDS.stockCodeRow stockCodeRow = application.dataLibs.FindAndCache(myDataSet.stockCode, stockCode);
+            //myTradeAnalysisForm.ShowForm(stockCodeRow, timing);
         }
         private void closeBtn_Click(object sender, EventArgs e)
         {
@@ -451,7 +451,7 @@ namespace baseClass.forms
             }
         }
 
-      
+
         private void baseBackTesting_ResizeEnd(object sender, EventArgs e)
         {
             try

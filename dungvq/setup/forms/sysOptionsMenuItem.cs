@@ -52,11 +52,11 @@ namespace setup.forms
             percentPrecisionEd.Value = application.Settings.sysPrecisionPercentage;
 
             //email
-            smtpServerEd.Text = common.sendMail.sysSendMailInfo.smtpAddress;
-            smtpPortEd.Text  = common.sendMail.sysSendMailInfo.smtpPort.ToString();
-            smtpAuthAccountEd.Text = (common.sendMail.sysSendMailInfo.authAccount==null?"":common.sendMail.sysSendMailInfo.authAccount);
-            smtpAuthPasswordEd.Text = (common.sendMail.sysSendMailInfo.authPassword == null ? "" : common.sendMail.sysSendMailInfo.authPassword);
-            smtpSSLChk.Checked = common.sendMail.sysSendMailInfo.smtpSSL;
+            smtpServerEd.Text = common.sendMail.mySettings.smtpAddress;
+            smtpPortEd.Text = common.sendMail.mySettings.smtpPort.ToString();
+            smtpAuthAccountEd.Text = (common.sendMail.mySettings.authAccount == null ? "" : common.sendMail.mySettings.authAccount);
+            smtpAuthPasswordEd.Text = (common.sendMail.mySettings.authPassword == null ? "" : common.sendMail.mySettings.authPassword);
+            smtpSSLChk.Checked = common.sendMail.mySettings.smtpSSL;
 
             //Others
             dataStartDateEd.myDateTime = application.sysLibs.sysDataStartDate;
@@ -118,12 +118,12 @@ namespace setup.forms
             application.Settings.sysPrecisionPercentage = (byte)percentPrecisionEd.Value;
 
             //Email
-            common.sendMail.sysSendMailInfo.smtpAddress = smtpServerEd.Text.Trim();
+            common.sendMail.mySettings.smtpAddress = smtpServerEd.Text.Trim();
             int port = 25; int.TryParse(smtpPortEd.Text,out port);
-            common.sendMail.sysSendMailInfo.smtpPort = port;
-            common.sendMail.sysSendMailInfo.authAccount = (smtpAuthAccountEd.Text.Trim() == "" ? "" : smtpAuthAccountEd.Text.Trim());
-            common.sendMail.sysSendMailInfo.authPassword = (smtpAuthPasswordEd.Text.Trim() == "" ? "" : smtpAuthPasswordEd.Text.Trim());
-            common.sendMail.sysSendMailInfo.smtpSSL = smtpSSLChk.Checked;
+            common.sendMail.mySettings.smtpPort = port;
+            common.sendMail.mySettings.authAccount = (smtpAuthAccountEd.Text.Trim() == "" ? "" : smtpAuthAccountEd.Text.Trim());
+            common.sendMail.mySettings.authPassword = (smtpAuthPasswordEd.Text.Trim() == "" ? "" : smtpAuthPasswordEd.Text.Trim());
+            common.sendMail.mySettings.smtpSSL = smtpSSLChk.Checked;
 
             //Upload
             application.sysLibs.sysUploadMethod = uploadModeCb.myValue;

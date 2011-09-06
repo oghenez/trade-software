@@ -52,7 +52,7 @@
             this.optionPnl = new System.Windows.Forms.Panel();
             this.stockCodeLbl = new baseClass.controls.baseLabel();
             this.stockCodeOptionCb = new common.control.baseComboBox();
-            this.portfolioCb = new baseClass.controls.cbPorpolio();
+            this.portfolioCb = new baseClass.controls.cbPortpolio();
             this.strategyLbl = new baseClass.controls.baseLabel();
             this.strategyClb = new baseClass.controls.strategySelect();
             ((System.ComponentModel.ISupportInitialize)(this.testResultDataGrid)).BeginInit();
@@ -110,8 +110,7 @@
             // 
             this.dateRangeEd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateRangeEd.Location = new System.Drawing.Point(21, 24);
-            this.dateRangeEd.myTimeRange = application.myTypes.timeRanges.None;
-            this.dateRangeEd.myTimeScale = application.myTypes.timeScales.RealTime;
+            this.dateRangeEd.myTimeRange = application.myTypes.TimeRanges.None;
             this.dateRangeEd.Name = "dateRangeEd";
             this.dateRangeEd.Size = new System.Drawing.Size(366, 24);
             this.dateRangeEd.TabIndex = 1;
@@ -421,7 +420,7 @@
         protected baseClass.controls.baseLabel strategyLbl;
         protected baseClass.controls.strategySelect strategyClb;
         protected baseClass.controls.baseLabel stockCodeLbl;
-        protected baseClass.controls.cbPorpolio portfolioCb;
+        protected baseClass.controls.cbPortpolio portfolioCb;
         protected common.control.baseComboBox stockCodeOptionCb;
     }
 }

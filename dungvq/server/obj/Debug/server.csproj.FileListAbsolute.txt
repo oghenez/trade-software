@@ -25,3 +25,11 @@ D:\work\stockProject\code\server\obj\Debug\server.pdb
 D:\work\stockProject\code\server\obj\Debug\server.scheduleForm.resources
 D:\work\stockProject\code\dlls\server.exe
 D:\work\stockProject\code\dlls\server.pdb
+D:\work\stockProject\new-code\server\obj\Debug\ResolveAssemblyReference.cache
+D:\work\stockProject\new-code\server\obj\Debug\server.scheduleForm.resources
+D:\work\stockProject\new-code\server\obj\Debug\server.Properties.Resources.resources
+D:\work\stockProject\new-code\server\obj\Debug\server.csproj.GenerateResource.Cache
+D:\work\stockProject\new-code\server\obj\Debug\server.exe
+D:\work\stockProject\new-code\server\obj\Debug\server.pdb
+D:\work\stockProject\new-code\dlls\server.exe
+D:\work\stockProject\new-code\dlls\server.pdb

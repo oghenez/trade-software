@@ -25,11 +25,9 @@ namespace data {
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
     public partial class baseDS : global::System.Data.DataSet {
         
-        private companyDataTable tablecompany;
-        
         private sysLogDataTable tablesysLog;
         
-        private companyReportDataTable tablecompanyReport;
+        private stockReportDataTable tablestockReport;
         
         private indicatorDataTable tableindicator;
         
@@ -39,7 +37,7 @@ namespace data {
         
         private investorStockDataTable tableinvestorStock;
         
-        private investorTransHistoryDataTable tableinvestorTransHistory;
+        private transactionsDataTable tabletransactions;
         
         private priceDataDataTable tablepriceData;
         
@@ -74,8 +72,6 @@ namespace data {
         private investorCatDataTable tableinvestorCat;
         
         private employeeRangeDataTable tableemployeeRange;
-        
-        private stockCodeExtDataTable tablestockCodeExt;
         
         private bizIndustryDataTable tablebizIndustry;
         
@@ -119,14 +115,11 @@ namespace data {
             if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
-                if ((ds.Tables["company"] != null)) {
-                    base.Tables.Add(new companyDataTable(ds.Tables["company"]));
-                }
                 if ((ds.Tables["sysLog"] != null)) {
                     base.Tables.Add(new sysLogDataTable(ds.Tables["sysLog"]));
                 }
-                if ((ds.Tables["companyReport"] != null)) {
-                    base.Tables.Add(new companyReportDataTable(ds.Tables["companyReport"]));
+                if ((ds.Tables["stockReport"] != null)) {
+                    base.Tables.Add(new stockReportDataTable(ds.Tables["stockReport"]));
                 }
                 if ((ds.Tables["indicator"] != null)) {
                     base.Tables.Add(new indicatorDataTable(ds.Tables["indicator"]));
@@ -140,8 +133,8 @@ namespace data {
                 if ((ds.Tables["investorStock"] != null)) {
                     base.Tables.Add(new investorStockDataTable(ds.Tables["investorStock"]));
                 }
-                if ((ds.Tables["investorTransHistory"] != null)) {
-                    base.Tables.Add(new investorTransHistoryDataTable(ds.Tables["investorTransHistory"]));
+                if ((ds.Tables["transactions"] != null)) {
+                    base.Tables.Add(new transactionsDataTable(ds.Tables["transactions"]));
                 }
                 if ((ds.Tables["priceData"] != null)) {
                     base.Tables.Add(new priceDataDataTable(ds.Tables["priceData"]));
@@ -194,9 +187,6 @@ namespace data {
                 if ((ds.Tables["employeeRange"] != null)) {
                     base.Tables.Add(new employeeRangeDataTable(ds.Tables["employeeRange"]));
                 }
-                if ((ds.Tables["stockCodeExt"] != null)) {
-                    base.Tables.Add(new stockCodeExtDataTable(ds.Tables["stockCodeExt"]));
-                }
                 if ((ds.Tables["bizIndustry"] != null)) {
                     base.Tables.Add(new bizIndustryDataTable(ds.Tables["bizIndustry"]));
                 }
@@ -242,15 +232,6 @@ namespace data {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public companyDataTable company {
-            get {
-                return this.tablecompany;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.ComponentModel.Browsable(false)]
-        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
         public sysLogDataTable sysLog {
             get {
                 return this.tablesysLog;
@@ -260,9 +241,9 @@ namespace data {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public companyReportDataTable companyReport {
+        public stockReportDataTable stockReport {
             get {
-                return this.tablecompanyReport;
+                return this.tablestockReport;
             }
         }
         
@@ -305,9 +286,9 @@ namespace data {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public investorTransHistoryDataTable investorTransHistory {
+        public transactionsDataTable transactions {
             get {
-                return this.tableinvestorTransHistory;
+                return this.tabletransactions;
             }
         }
         
@@ -467,15 +448,6 @@ namespace data {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public stockCodeExtDataTable stockCodeExt {
-            get {
-                return this.tablestockCodeExt;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.ComponentModel.Browsable(false)]
-        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
         public bizIndustryDataTable bizIndustry {
             get {
                 return this.tablebizIndustry;
@@ -604,14 +576,11 @@ namespace data {
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
-                if ((ds.Tables["company"] != null)) {
-                    base.Tables.Add(new companyDataTable(ds.Tables["company"]));
-                }
                 if ((ds.Tables["sysLog"] != null)) {
                     base.Tables.Add(new sysLogDataTable(ds.Tables["sysLog"]));
                 }
-                if ((ds.Tables["companyReport"] != null)) {
-                    base.Tables.Add(new companyReportDataTable(ds.Tables["companyReport"]));
+                if ((ds.Tables["stockReport"] != null)) {
+                    base.Tables.Add(new stockReportDataTable(ds.Tables["stockReport"]));
                 }
                 if ((ds.Tables["indicator"] != null)) {
                     base.Tables.Add(new indicatorDataTable(ds.Tables["indicator"]));
@@ -625,8 +594,8 @@ namespace data {
                 if ((ds.Tables["investorStock"] != null)) {
                     base.Tables.Add(new investorStockDataTable(ds.Tables["investorStock"]));
                 }
-                if ((ds.Tables["investorTransHistory"] != null)) {
-                    base.Tables.Add(new investorTransHistoryDataTable(ds.Tables["investorTransHistory"]));
+                if ((ds.Tables["transactions"] != null)) {
+                    base.Tables.Add(new transactionsDataTable(ds.Tables["transactions"]));
                 }
                 if ((ds.Tables["priceData"] != null)) {
                     base.Tables.Add(new priceDataDataTable(ds.Tables["priceData"]));
@@ -678,9 +647,6 @@ namespace data {
                 }
                 if ((ds.Tables["employeeRange"] != null)) {
                     base.Tables.Add(new employeeRangeDataTable(ds.Tables["employeeRange"]));
-                }
-                if ((ds.Tables["stockCodeExt"] != null)) {
-                    base.Tables.Add(new stockCodeExtDataTable(ds.Tables["stockCodeExt"]));
                 }
                 if ((ds.Tables["bizIndustry"] != null)) {
                     base.Tables.Add(new bizIndustryDataTable(ds.Tables["bizIndustry"]));
@@ -736,22 +702,16 @@ namespace data {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         internal void InitVars(bool initTable) {
-            this.tablecompany = ((companyDataTable)(base.Tables["company"]));
-            if ((initTable == true)) {
-                if ((this.tablecompany != null)) {
-                    this.tablecompany.InitVars();
-                }
-            }
             this.tablesysLog = ((sysLogDataTable)(base.Tables["sysLog"]));
             if ((initTable == true)) {
                 if ((this.tablesysLog != null)) {
                     this.tablesysLog.InitVars();
                 }
             }
-            this.tablecompanyReport = ((companyReportDataTable)(base.Tables["companyReport"]));
+            this.tablestockReport = ((stockReportDataTable)(base.Tables["stockReport"]));
             if ((initTable == true)) {
-                if ((this.tablecompanyReport != null)) {
-                    this.tablecompanyReport.InitVars();
+                if ((this.tablestockReport != null)) {
+                    this.tablestockReport.InitVars();
                 }
             }
             this.tableindicator = ((indicatorDataTable)(base.Tables["indicator"]));
@@ -778,10 +738,10 @@ namespace data {
                     this.tableinvestorStock.InitVars();
                 }
             }
-            this.tableinvestorTransHistory = ((investorTransHistoryDataTable)(base.Tables["investorTransHistory"]));
+            this.tabletransactions = ((transactionsDataTable)(base.Tables["transactions"]));
             if ((initTable == true)) {
-                if ((this.tableinvestorTransHistory != null)) {
-                    this.tableinvestorTransHistory.InitVars();
+                if ((this.tabletransactions != null)) {
+                    this.tabletransactions.InitVars();
                 }
             }
             this.tablepriceData = ((priceDataDataTable)(base.Tables["priceData"]));
@@ -886,12 +846,6 @@ namespace data {
                     this.tableemployeeRange.InitVars();
                 }
             }
-            this.tablestockCodeExt = ((stockCodeExtDataTable)(base.Tables["stockCodeExt"]));
-            if ((initTable == true)) {
-                if ((this.tablestockCodeExt != null)) {
-                    this.tablestockCodeExt.InitVars();
-                }
-            }
             this.tablebizIndustry = ((bizIndustryDataTable)(base.Tables["bizIndustry"]));
             if ((initTable == true)) {
                 if ((this.tablebizIndustry != null)) {
@@ -949,12 +903,10 @@ namespace data {
             this.Namespace = "http://tempuri.org/masterDataSet.xsd";
             this.EnforceConstraints = false;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this.tablecompany = new companyDataTable();
-            base.Tables.Add(this.tablecompany);
             this.tablesysLog = new sysLogDataTable();
             base.Tables.Add(this.tablesysLog);
-            this.tablecompanyReport = new companyReportDataTable();
-            base.Tables.Add(this.tablecompanyReport);
+            this.tablestockReport = new stockReportDataTable();
+            base.Tables.Add(this.tablestockReport);
             this.tableindicator = new indicatorDataTable();
             base.Tables.Add(this.tableindicator);
             this.tableindicatorData = new indicatorDataDataTable();
@@ -963,8 +915,8 @@ namespace data {
             base.Tables.Add(this.tableinvestor);
             this.tableinvestorStock = new investorStockDataTable();
             base.Tables.Add(this.tableinvestorStock);
-            this.tableinvestorTransHistory = new investorTransHistoryDataTable();
-            base.Tables.Add(this.tableinvestorTransHistory);
+            this.tabletransactions = new transactionsDataTable();
+            base.Tables.Add(this.tabletransactions);
             this.tablepriceData = new priceDataDataTable();
             base.Tables.Add(this.tablepriceData);
             this.tablestockCode = new stockCodeDataTable();
@@ -999,8 +951,6 @@ namespace data {
             base.Tables.Add(this.tableinvestorCat);
             this.tableemployeeRange = new employeeRangeDataTable();
             base.Tables.Add(this.tableemployeeRange);
-            this.tablestockCodeExt = new stockCodeExtDataTable();
-            base.Tables.Add(this.tablestockCodeExt);
             this.tablebizIndustry = new bizIndustryDataTable();
             base.Tables.Add(this.tablebizIndustry);
             this.tablebizSuperSector = new bizSuperSectorDataTable();
@@ -1020,17 +970,12 @@ namespace data {
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        private bool ShouldSerializecompany() {
-            return false;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         private bool ShouldSerializesysLog() {
             return false;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        private bool ShouldSerializecompanyReport() {
+        private bool ShouldSerializestockReport() {
             return false;
         }
         
@@ -1055,7 +1000,7 @@ namespace data {
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        private bool ShouldSerializeinvestorTransHistory() {
+        private bool ShouldSerializetransactions() {
             return false;
         }
         
@@ -1141,11 +1086,6 @@ namespace data {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         private bool ShouldSerializeemployeeRange() {
-            return false;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        private bool ShouldSerializestockCodeExt() {
             return false;
         }
         
@@ -1242,11 +1182,9 @@ namespace data {
             return type;
         }
         
-        public delegate void companyRowChangeEventHandler(object sender, companyRowChangeEvent e);
-        
         public delegate void sysLogRowChangeEventHandler(object sender, sysLogRowChangeEvent e);
         
-        public delegate void companyReportRowChangeEventHandler(object sender, companyReportRowChangeEvent e);
+        public delegate void stockReportRowChangeEventHandler(object sender, stockReportRowChangeEvent e);
         
         public delegate void indicatorRowChangeEventHandler(object sender, indicatorRowChangeEvent e);
         
@@ -1256,7 +1194,7 @@ namespace data {
         
         public delegate void investorStockRowChangeEventHandler(object sender, investorStockRowChangeEvent e);
         
-        public delegate void investorTransHistoryRowChangeEventHandler(object sender, investorTransHistoryRowChangeEvent e);
+        public delegate void transactionsRowChangeEventHandler(object sender, transactionsRowChangeEvent e);
         
         public delegate void priceDataRowChangeEventHandler(object sender, priceDataRowChangeEvent e);
         
@@ -1292,8 +1230,6 @@ namespace data {
         
         public delegate void employeeRangeRowChangeEventHandler(object sender, employeeRangeRowChangeEvent e);
         
-        public delegate void stockCodeExtRowChangeEventHandler(object sender, stockCodeExtRowChangeEvent e);
-        
         public delegate void bizIndustryRowChangeEventHandler(object sender, bizIndustryRowChangeEvent e);
         
         public delegate void bizSuperSectorRowChangeEventHandler(object sender, bizSuperSectorRowChangeEvent e);
@@ -1309,442 +1245,6 @@ namespace data {
         public delegate void updateVolumeRowChangeEventHandler(object sender, updateVolumeRowChangeEvent e);
         
         public delegate void portfolioDetailRowChangeEventHandler(object sender, portfolioDetailRowChangeEvent e);
-        
-        /// <summary>
-        ///Represents the strongly named DataTable class.
-        ///</summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
-        [global::System.Serializable()]
-        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class companyDataTable : global::System.Data.TypedTableBase<companyRow> {
-            
-            private global::System.Data.DataColumn columncode;
-            
-            private global::System.Data.DataColumn columncapital;
-            
-            private global::System.Data.DataColumn columnname;
-            
-            private global::System.Data.DataColumn columnnameEn;
-            
-            private global::System.Data.DataColumn columnaddress1;
-            
-            private global::System.Data.DataColumn columnaddress2;
-            
-            private global::System.Data.DataColumn columnestDate;
-            
-            private global::System.Data.DataColumn columnphone;
-            
-            private global::System.Data.DataColumn columnfax;
-            
-            private global::System.Data.DataColumn columnemail;
-            
-            private global::System.Data.DataColumn columnwebsite;
-            
-            private global::System.Data.DataColumn columnbizSectors;
-            
-            private global::System.Data.DataColumn columncountry;
-            
-            private global::System.Data.DataColumn columncapitalUnit;
-            
-            private global::System.Data.DataColumn columnemployees;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public companyDataTable() {
-                this.TableName = "company";
-                this.BeginInit();
-                this.InitClass();
-                this.EndInit();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            internal companyDataTable(global::System.Data.DataTable table) {
-                this.TableName = table.TableName;
-                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
-                    this.CaseSensitive = table.CaseSensitive;
-                }
-                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
-                    this.Locale = table.Locale;
-                }
-                if ((table.Namespace != table.DataSet.Namespace)) {
-                    this.Namespace = table.Namespace;
-                }
-                this.Prefix = table.Prefix;
-                this.MinimumCapacity = table.MinimumCapacity;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            protected companyDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
-                    base(info, context) {
-                this.InitVars();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn codeColumn {
-                get {
-                    return this.columncode;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn capitalColumn {
-                get {
-                    return this.columncapital;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn nameColumn {
-                get {
-                    return this.columnname;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn nameEnColumn {
-                get {
-                    return this.columnnameEn;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn address1Column {
-                get {
-                    return this.columnaddress1;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn address2Column {
-                get {
-                    return this.columnaddress2;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn estDateColumn {
-                get {
-                    return this.columnestDate;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn phoneColumn {
-                get {
-                    return this.columnphone;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn faxColumn {
-                get {
-                    return this.columnfax;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn emailColumn {
-                get {
-                    return this.columnemail;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn websiteColumn {
-                get {
-                    return this.columnwebsite;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn bizSectorsColumn {
-                get {
-                    return this.columnbizSectors;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn countryColumn {
-                get {
-                    return this.columncountry;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn capitalUnitColumn {
-                get {
-                    return this.columncapitalUnit;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn employeesColumn {
-                get {
-                    return this.columnemployees;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.ComponentModel.Browsable(false)]
-            public int Count {
-                get {
-                    return this.Rows.Count;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public companyRow this[int index] {
-                get {
-                    return ((companyRow)(this.Rows[index]));
-                }
-            }
-            
-            public event companyRowChangeEventHandler companyRowChanging;
-            
-            public event companyRowChangeEventHandler companyRowChanged;
-            
-            public event companyRowChangeEventHandler companyRowDeleting;
-            
-            public event companyRowChangeEventHandler companyRowDeleted;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public void AddcompanyRow(companyRow row) {
-                this.Rows.Add(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public companyRow AddcompanyRow(string code, decimal capital, string name, string nameEn, string address1, string address2, System.DateTime estDate, string phone, string fax, string email, string website, string bizSectors, string country, string capitalUnit, int employees) {
-                companyRow rowcompanyRow = ((companyRow)(this.NewRow()));
-                object[] columnValuesArray = new object[] {
-                        code,
-                        capital,
-                        name,
-                        nameEn,
-                        address1,
-                        address2,
-                        estDate,
-                        phone,
-                        fax,
-                        email,
-                        website,
-                        bizSectors,
-                        country,
-                        capitalUnit,
-                        employees};
-                rowcompanyRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowcompanyRow);
-                return rowcompanyRow;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public companyRow FindBycode(string code) {
-                return ((companyRow)(this.Rows.Find(new object[] {
-                            code})));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public override global::System.Data.DataTable Clone() {
-                companyDataTable cln = ((companyDataTable)(base.Clone()));
-                cln.InitVars();
-                return cln;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            protected override global::System.Data.DataTable CreateInstance() {
-                return new companyDataTable();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            internal void InitVars() {
-                this.columncode = base.Columns["code"];
-                this.columncapital = base.Columns["capital"];
-                this.columnname = base.Columns["name"];
-                this.columnnameEn = base.Columns["nameEn"];
-                this.columnaddress1 = base.Columns["address1"];
-                this.columnaddress2 = base.Columns["address2"];
-                this.columnestDate = base.Columns["estDate"];
-                this.columnphone = base.Columns["phone"];
-                this.columnfax = base.Columns["fax"];
-                this.columnemail = base.Columns["email"];
-                this.columnwebsite = base.Columns["website"];
-                this.columnbizSectors = base.Columns["bizSectors"];
-                this.columncountry = base.Columns["country"];
-                this.columncapitalUnit = base.Columns["capitalUnit"];
-                this.columnemployees = base.Columns["employees"];
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            private void InitClass() {
-                this.columncode = new global::System.Data.DataColumn("code", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columncode);
-                this.columncapital = new global::System.Data.DataColumn("capital", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columncapital);
-                this.columnname = new global::System.Data.DataColumn("name", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnname);
-                this.columnnameEn = new global::System.Data.DataColumn("nameEn", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnnameEn);
-                this.columnaddress1 = new global::System.Data.DataColumn("address1", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnaddress1);
-                this.columnaddress2 = new global::System.Data.DataColumn("address2", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnaddress2);
-                this.columnestDate = new global::System.Data.DataColumn("estDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnestDate);
-                this.columnphone = new global::System.Data.DataColumn("phone", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnphone);
-                this.columnfax = new global::System.Data.DataColumn("fax", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnfax);
-                this.columnemail = new global::System.Data.DataColumn("email", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnemail);
-                this.columnwebsite = new global::System.Data.DataColumn("website", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnwebsite);
-                this.columnbizSectors = new global::System.Data.DataColumn("bizSectors", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnbizSectors);
-                this.columncountry = new global::System.Data.DataColumn("country", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columncountry);
-                this.columncapitalUnit = new global::System.Data.DataColumn("capitalUnit", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columncapitalUnit);
-                this.columnemployees = new global::System.Data.DataColumn("employees", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnemployees);
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columncode}, true));
-                this.columncode.AllowDBNull = false;
-                this.columncode.Unique = true;
-                this.columncode.MaxLength = 20;
-                this.columncapital.AllowDBNull = false;
-                this.columnname.AllowDBNull = false;
-                this.columnname.MaxLength = 255;
-                this.columnnameEn.MaxLength = 255;
-                this.columnaddress1.AllowDBNull = false;
-                this.columnaddress1.MaxLength = 255;
-                this.columnaddress2.MaxLength = 255;
-                this.columnestDate.AllowDBNull = false;
-                this.columnphone.MaxLength = 30;
-                this.columnfax.MaxLength = 30;
-                this.columnemail.AllowDBNull = false;
-                this.columnemail.MaxLength = 50;
-                this.columnwebsite.MaxLength = 100;
-                this.columnbizSectors.AllowDBNull = false;
-                this.columnbizSectors.MaxLength = 255;
-                this.columncountry.AllowDBNull = false;
-                this.columncountry.MaxLength = 2;
-                this.columncapitalUnit.AllowDBNull = false;
-                this.columncapitalUnit.MaxLength = 1;
-                this.columnemployees.AllowDBNull = false;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public companyRow NewcompanyRow() {
-                return ((companyRow)(this.NewRow()));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new companyRow(builder);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            protected override global::System.Type GetRowType() {
-                return typeof(companyRow);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanged(e);
-                if ((this.companyRowChanged != null)) {
-                    this.companyRowChanged(this, new companyRowChangeEvent(((companyRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanging(e);
-                if ((this.companyRowChanging != null)) {
-                    this.companyRowChanging(this, new companyRowChangeEvent(((companyRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleted(e);
-                if ((this.companyRowDeleted != null)) {
-                    this.companyRowDeleted(this, new companyRowChangeEvent(((companyRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleting(e);
-                if ((this.companyRowDeleting != null)) {
-                    this.companyRowDeleting(this, new companyRowChangeEvent(((companyRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public void RemovecompanyRow(companyRow row) {
-                this.Rows.Remove(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
-                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                baseDS ds = new baseDS();
-                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
-                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
-                any1.MinOccurs = new decimal(0);
-                any1.MaxOccurs = decimal.MaxValue;
-                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any1);
-                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
-                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
-                any2.MinOccurs = new decimal(1);
-                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any2);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute1.Name = "namespace";
-                attribute1.FixedValue = ds.Namespace;
-                type.Attributes.Add(attribute1);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "companyDataTable";
-                type.Attributes.Add(attribute2);
-                type.Particle = sequence;
-                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
-                if (xs.Contains(dsSchema.TargetNamespace)) {
-                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
-                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
-                    try {
-                        global::System.Xml.Schema.XmlSchema schema = null;
-                        dsSchema.Write(s1);
-                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
-                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
-                            s2.SetLength(0);
-                            schema.Write(s2);
-                            if ((s1.Length == s2.Length)) {
-                                s1.Position = 0;
-                                s2.Position = 0;
-                                for (; ((s1.Position != s1.Length) 
-                                            && (s1.ReadByte() == s2.ReadByte())); ) {
-                                    ;
-                                }
-                                if ((s1.Position == s1.Length)) {
-                                    return type;
-                                }
-                            }
-                        }
-                    }
-                    finally {
-                        if ((s1 != null)) {
-                            s1.Close();
-                        }
-                        if ((s2 != null)) {
-                            s2.Close();
-                        }
-                    }
-                }
-                xs.Add(dsSchema);
-                return type;
-            }
-        }
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -2061,11 +1561,11 @@ namespace data {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class companyReportDataTable : global::System.Data.TypedTableBase<companyReportRow> {
+        public partial class stockReportDataTable : global::System.Data.TypedTableBase<stockReportRow> {
             
             private global::System.Data.DataColumn columnreportType;
             
-            private global::System.Data.DataColumn columncompanyCode;
+            private global::System.Data.DataColumn columnstockCode;
             
             private global::System.Data.DataColumn columnonDate;
             
@@ -2082,15 +1582,15 @@ namespace data {
             private global::System.Data.DataColumn columnval3;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public companyReportDataTable() {
-                this.TableName = "companyReport";
+            public stockReportDataTable() {
+                this.TableName = "stockReport";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            internal companyReportDataTable(global::System.Data.DataTable table) {
+            internal stockReportDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -2106,7 +1606,7 @@ namespace data {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            protected companyReportDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected stockReportDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
@@ -2119,9 +1619,9 @@ namespace data {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn companyCodeColumn {
+            public global::System.Data.DataColumn stockCodeColumn {
                 get {
-                    return this.columncompanyCode;
+                    return this.columnstockCode;
                 }
             }
             
@@ -2183,31 +1683,31 @@ namespace data {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public companyReportRow this[int index] {
+            public stockReportRow this[int index] {
                 get {
-                    return ((companyReportRow)(this.Rows[index]));
+                    return ((stockReportRow)(this.Rows[index]));
                 }
             }
             
-            public event companyReportRowChangeEventHandler companyReportRowChanging;
+            public event stockReportRowChangeEventHandler stockReportRowChanging;
             
-            public event companyReportRowChangeEventHandler companyReportRowChanged;
+            public event stockReportRowChangeEventHandler stockReportRowChanged;
             
-            public event companyReportRowChangeEventHandler companyReportRowDeleting;
+            public event stockReportRowChangeEventHandler stockReportRowDeleting;
             
-            public event companyReportRowChangeEventHandler companyReportRowDeleted;
+            public event stockReportRowChangeEventHandler stockReportRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public void AddcompanyReportRow(companyReportRow row) {
+            public void AddstockReportRow(stockReportRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public companyReportRow AddcompanyReportRow(string reportType, string companyCode, System.DateTime onDate, string reportCode, string currency, decimal val0, decimal val1, decimal val2, decimal val3) {
-                companyReportRow rowcompanyReportRow = ((companyReportRow)(this.NewRow()));
+            public stockReportRow AddstockReportRow(string reportType, string stockCode, System.DateTime onDate, string reportCode, string currency, decimal val0, decimal val1, decimal val2, decimal val3) {
+                stockReportRow rowstockReportRow = ((stockReportRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         reportType,
-                        companyCode,
+                        stockCode,
                         onDate,
                         reportCode,
                         currency,
@@ -2215,37 +1715,37 @@ namespace data {
                         val1,
                         val2,
                         val3};
-                rowcompanyReportRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowcompanyReportRow);
-                return rowcompanyReportRow;
+                rowstockReportRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowstockReportRow);
+                return rowstockReportRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public companyReportRow FindByreportTypecurrencyreportCodeonDatecompanyCode(string reportType, string currency, string reportCode, System.DateTime onDate, string companyCode) {
-                return ((companyReportRow)(this.Rows.Find(new object[] {
+            public stockReportRow FindByreportTypestockCodeonDatereportCodecurrency(string reportType, string stockCode, System.DateTime onDate, string reportCode, string currency) {
+                return ((stockReportRow)(this.Rows.Find(new object[] {
                             reportType,
-                            currency,
-                            reportCode,
+                            stockCode,
                             onDate,
-                            companyCode})));
+                            reportCode,
+                            currency})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public override global::System.Data.DataTable Clone() {
-                companyReportDataTable cln = ((companyReportDataTable)(base.Clone()));
+                stockReportDataTable cln = ((stockReportDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new companyReportDataTable();
+                return new stockReportDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             internal void InitVars() {
                 this.columnreportType = base.Columns["reportType"];
-                this.columncompanyCode = base.Columns["companyCode"];
+                this.columnstockCode = base.Columns["stockCode"];
                 this.columnonDate = base.Columns["onDate"];
                 this.columnreportCode = base.Columns["reportCode"];
                 this.columncurrency = base.Columns["currency"];
@@ -2259,8 +1759,8 @@ namespace data {
             private void InitClass() {
                 this.columnreportType = new global::System.Data.DataColumn("reportType", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnreportType);
-                this.columncompanyCode = new global::System.Data.DataColumn("companyCode", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columncompanyCode);
+                this.columnstockCode = new global::System.Data.DataColumn("stockCode", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnstockCode);
                 this.columnonDate = new global::System.Data.DataColumn("onDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnonDate);
                 this.columnreportCode = new global::System.Data.DataColumn("reportCode", typeof(string), null, global::System.Data.MappingType.Element);
@@ -2277,14 +1777,14 @@ namespace data {
                 base.Columns.Add(this.columnval3);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnreportType,
-                                this.columncurrency,
-                                this.columnreportCode,
+                                this.columnstockCode,
                                 this.columnonDate,
-                                this.columncompanyCode}, true));
+                                this.columnreportCode,
+                                this.columncurrency}, true));
                 this.columnreportType.AllowDBNull = false;
                 this.columnreportType.MaxLength = 3;
-                this.columncompanyCode.AllowDBNull = false;
-                this.columncompanyCode.MaxLength = 20;
+                this.columnstockCode.AllowDBNull = false;
+                this.columnstockCode.MaxLength = 20;
                 this.columnonDate.AllowDBNull = false;
                 this.columnreportCode.AllowDBNull = false;
                 this.columnreportCode.MaxLength = 4;
@@ -2297,54 +1797,54 @@ namespace data {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public companyReportRow NewcompanyReportRow() {
-                return ((companyReportRow)(this.NewRow()));
+            public stockReportRow NewstockReportRow() {
+                return ((stockReportRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new companyReportRow(builder);
+                return new stockReportRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             protected override global::System.Type GetRowType() {
-                return typeof(companyReportRow);
+                return typeof(stockReportRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.companyReportRowChanged != null)) {
-                    this.companyReportRowChanged(this, new companyReportRowChangeEvent(((companyReportRow)(e.Row)), e.Action));
+                if ((this.stockReportRowChanged != null)) {
+                    this.stockReportRowChanged(this, new stockReportRowChangeEvent(((stockReportRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.companyReportRowChanging != null)) {
-                    this.companyReportRowChanging(this, new companyReportRowChangeEvent(((companyReportRow)(e.Row)), e.Action));
+                if ((this.stockReportRowChanging != null)) {
+                    this.stockReportRowChanging(this, new stockReportRowChangeEvent(((stockReportRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.companyReportRowDeleted != null)) {
-                    this.companyReportRowDeleted(this, new companyReportRowChangeEvent(((companyReportRow)(e.Row)), e.Action));
+                if ((this.stockReportRowDeleted != null)) {
+                    this.stockReportRowDeleted(this, new stockReportRowChangeEvent(((stockReportRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.companyReportRowDeleting != null)) {
-                    this.companyReportRowDeleting(this, new companyReportRowChangeEvent(((companyReportRow)(e.Row)), e.Action));
+                if ((this.stockReportRowDeleting != null)) {
+                    this.stockReportRowDeleting(this, new stockReportRowChangeEvent(((stockReportRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public void RemovecompanyReportRow(companyReportRow row) {
+            public void RemovestockReportRow(stockReportRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -2370,7 +1870,7 @@ namespace data {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "companyReportDataTable";
+                attribute2.FixedValue = "stockReportDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -3823,7 +3323,7 @@ namespace data {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class investorTransHistoryDataTable : global::System.Data.TypedTableBase<investorTransHistoryRow> {
+        public partial class transactionsDataTable : global::System.Data.TypedTableBase<transactionsRow> {
             
             private global::System.Data.DataColumn columnid;
             
@@ -3844,15 +3344,15 @@ namespace data {
             private global::System.Data.DataColumn columnstatus;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public investorTransHistoryDataTable() {
-                this.TableName = "investorTransHistory";
+            public transactionsDataTable() {
+                this.TableName = "transactions";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            internal investorTransHistoryDataTable(global::System.Data.DataTable table) {
+            internal transactionsDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -3868,7 +3368,7 @@ namespace data {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            protected investorTransHistoryDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected transactionsDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
@@ -3945,28 +3445,28 @@ namespace data {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public investorTransHistoryRow this[int index] {
+            public transactionsRow this[int index] {
                 get {
-                    return ((investorTransHistoryRow)(this.Rows[index]));
+                    return ((transactionsRow)(this.Rows[index]));
                 }
             }
             
-            public event investorTransHistoryRowChangeEventHandler investorTransHistoryRowChanging;
+            public event transactionsRowChangeEventHandler transactionsRowChanging;
             
-            public event investorTransHistoryRowChangeEventHandler investorTransHistoryRowChanged;
+            public event transactionsRowChangeEventHandler transactionsRowChanged;
             
-            public event investorTransHistoryRowChangeEventHandler investorTransHistoryRowDeleting;
+            public event transactionsRowChangeEventHandler transactionsRowDeleting;
             
-            public event investorTransHistoryRowChangeEventHandler investorTransHistoryRowDeleted;
+            public event transactionsRowChangeEventHandler transactionsRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public void AddinvestorTransHistoryRow(investorTransHistoryRow row) {
+            public void AddtransactionsRow(transactionsRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public investorTransHistoryRow AddinvestorTransHistoryRow(System.DateTime onTime, byte tranType, string portfolio, string stockCode, decimal qty, decimal amt, decimal feeAmt, byte status) {
-                investorTransHistoryRow rowinvestorTransHistoryRow = ((investorTransHistoryRow)(this.NewRow()));
+            public transactionsRow AddtransactionsRow(System.DateTime onTime, byte tranType, string portfolio, string stockCode, decimal qty, decimal amt, decimal feeAmt, byte status) {
+                transactionsRow rowtransactionsRow = ((transactionsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         onTime,
@@ -3977,27 +3477,27 @@ namespace data {
                         amt,
                         feeAmt,
                         status};
-                rowinvestorTransHistoryRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowinvestorTransHistoryRow);
-                return rowinvestorTransHistoryRow;
+                rowtransactionsRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowtransactionsRow);
+                return rowtransactionsRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public investorTransHistoryRow FindByid(int id) {
-                return ((investorTransHistoryRow)(this.Rows.Find(new object[] {
+            public transactionsRow FindByid(int id) {
+                return ((transactionsRow)(this.Rows.Find(new object[] {
                             id})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public override global::System.Data.DataTable Clone() {
-                investorTransHistoryDataTable cln = ((investorTransHistoryDataTable)(base.Clone()));
+                transactionsDataTable cln = ((transactionsDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new investorTransHistoryDataTable();
+                return new transactionsDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4054,54 +3554,54 @@ namespace data {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public investorTransHistoryRow NewinvestorTransHistoryRow() {
-                return ((investorTransHistoryRow)(this.NewRow()));
+            public transactionsRow NewtransactionsRow() {
+                return ((transactionsRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new investorTransHistoryRow(builder);
+                return new transactionsRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             protected override global::System.Type GetRowType() {
-                return typeof(investorTransHistoryRow);
+                return typeof(transactionsRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.investorTransHistoryRowChanged != null)) {
-                    this.investorTransHistoryRowChanged(this, new investorTransHistoryRowChangeEvent(((investorTransHistoryRow)(e.Row)), e.Action));
+                if ((this.transactionsRowChanged != null)) {
+                    this.transactionsRowChanged(this, new transactionsRowChangeEvent(((transactionsRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.investorTransHistoryRowChanging != null)) {
-                    this.investorTransHistoryRowChanging(this, new investorTransHistoryRowChangeEvent(((investorTransHistoryRow)(e.Row)), e.Action));
+                if ((this.transactionsRowChanging != null)) {
+                    this.transactionsRowChanging(this, new transactionsRowChangeEvent(((transactionsRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.investorTransHistoryRowDeleted != null)) {
-                    this.investorTransHistoryRowDeleted(this, new investorTransHistoryRowChangeEvent(((investorTransHistoryRow)(e.Row)), e.Action));
+                if ((this.transactionsRowDeleted != null)) {
+                    this.transactionsRowDeleted(this, new transactionsRowChangeEvent(((transactionsRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.investorTransHistoryRowDeleting != null)) {
-                    this.investorTransHistoryRowDeleting(this, new investorTransHistoryRowChangeEvent(((investorTransHistoryRow)(e.Row)), e.Action));
+                if ((this.transactionsRowDeleting != null)) {
+                    this.transactionsRowDeleting(this, new transactionsRowChangeEvent(((transactionsRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public void RemoveinvestorTransHistoryRow(investorTransHistoryRow row) {
+            public void RemovetransactionsRow(transactionsRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -4127,7 +3627,7 @@ namespace data {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "investorTransHistoryDataTable";
+                attribute2.FixedValue = "transactionsDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -4515,21 +4015,69 @@ namespace data {
             
             private global::System.Data.DataColumn columntickerCode;
             
-            private global::System.Data.DataColumn columncomCode;
+            private global::System.Data.DataColumn columnname;
+            
+            private global::System.Data.DataColumn columnnameEn;
+            
+            private global::System.Data.DataColumn columnaddress1;
+            
+            private global::System.Data.DataColumn columnaddress2;
+            
+            private global::System.Data.DataColumn columnphone;
+            
+            private global::System.Data.DataColumn columnfax;
+            
+            private global::System.Data.DataColumn columnwebsite;
+            
+            private global::System.Data.DataColumn columnemail;
+            
+            private global::System.Data.DataColumn columnbizSectors;
+            
+            private global::System.Data.DataColumn columncountry;
             
             private global::System.Data.DataColumn columnregDate;
             
-            private global::System.Data.DataColumn columnnoShares;
+            private global::System.Data.DataColumn columnnoListedStock;
             
-            private global::System.Data.DataColumn columnnoOpenShares;
+            private global::System.Data.DataColumn columnnoOutstandingStock;
             
-            private global::System.Data.DataColumn columnnoForeignOwnShares;
+            private global::System.Data.DataColumn columnnoForeignOwnedStock;
             
-            private global::System.Data.DataColumn columnstatus;
+            private global::System.Data.DataColumn columnnoTreasuryStock;
+            
+            private global::System.Data.DataColumn columnbookPrice;
             
             private global::System.Data.DataColumn columntargetPrice;
             
             private global::System.Data.DataColumn columntargetPriceVariant;
+            
+            private global::System.Data.DataColumn columnworkingCap;
+            
+            private global::System.Data.DataColumn columncapitalUnit;
+            
+            private global::System.Data.DataColumn columnsales;
+            
+            private global::System.Data.DataColumn columnprofit;
+            
+            private global::System.Data.DataColumn columnequity;
+            
+            private global::System.Data.DataColumn columntotalDebt;
+            
+            private global::System.Data.DataColumn columntotaAssets;
+            
+            private global::System.Data.DataColumn columnPB;
+            
+            private global::System.Data.DataColumn columnEPS;
+            
+            private global::System.Data.DataColumn columnPE;
+            
+            private global::System.Data.DataColumn columnROA;
+            
+            private global::System.Data.DataColumn columnROE;
+            
+            private global::System.Data.DataColumn columnBETA;
+            
+            private global::System.Data.DataColumn columnstatus;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public stockCodeDataTable() {
@@ -4583,9 +4131,72 @@ namespace data {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn comCodeColumn {
+            public global::System.Data.DataColumn nameColumn {
                 get {
-                    return this.columncomCode;
+                    return this.columnname;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn nameEnColumn {
+                get {
+                    return this.columnnameEn;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn address1Column {
+                get {
+                    return this.columnaddress1;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn address2Column {
+                get {
+                    return this.columnaddress2;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn phoneColumn {
+                get {
+                    return this.columnphone;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn faxColumn {
+                get {
+                    return this.columnfax;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn websiteColumn {
+                get {
+                    return this.columnwebsite;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn emailColumn {
+                get {
+                    return this.columnemail;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn bizSectorsColumn {
+                get {
+                    return this.columnbizSectors;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn countryColumn {
+                get {
+                    return this.columncountry;
                 }
             }
             
@@ -4597,30 +4208,37 @@ namespace data {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn noSharesColumn {
+            public global::System.Data.DataColumn noListedStockColumn {
                 get {
-                    return this.columnnoShares;
+                    return this.columnnoListedStock;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn noOpenSharesColumn {
+            public global::System.Data.DataColumn noOutstandingStockColumn {
                 get {
-                    return this.columnnoOpenShares;
+                    return this.columnnoOutstandingStock;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn noForeignOwnSharesColumn {
+            public global::System.Data.DataColumn noForeignOwnedStockColumn {
                 get {
-                    return this.columnnoForeignOwnShares;
+                    return this.columnnoForeignOwnedStock;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn statusColumn {
+            public global::System.Data.DataColumn noTreasuryStockColumn {
                 get {
-                    return this.columnstatus;
+                    return this.columnnoTreasuryStock;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn bookPriceColumn {
+                get {
+                    return this.columnbookPrice;
                 }
             }
             
@@ -4635,6 +4253,104 @@ namespace data {
             public global::System.Data.DataColumn targetPriceVariantColumn {
                 get {
                     return this.columntargetPriceVariant;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn workingCapColumn {
+                get {
+                    return this.columnworkingCap;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn capitalUnitColumn {
+                get {
+                    return this.columncapitalUnit;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn salesColumn {
+                get {
+                    return this.columnsales;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn profitColumn {
+                get {
+                    return this.columnprofit;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn equityColumn {
+                get {
+                    return this.columnequity;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn totalDebtColumn {
+                get {
+                    return this.columntotalDebt;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn totaAssetsColumn {
+                get {
+                    return this.columntotaAssets;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn PBColumn {
+                get {
+                    return this.columnPB;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn EPSColumn {
+                get {
+                    return this.columnEPS;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn PEColumn {
+                get {
+                    return this.columnPE;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn ROAColumn {
+                get {
+                    return this.columnROA;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn ROEColumn {
+                get {
+                    return this.columnROE;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn BETAColumn {
+                get {
+                    return this.columnBETA;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn statusColumn {
+                get {
+                    return this.columnstatus;
                 }
             }
             
@@ -4667,20 +4383,79 @@ namespace data {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public stockCodeRow AddstockCodeRow(string code, string stockExchange, string tickerCode, string comCode, System.DateTime regDate, int noShares, int noOpenShares, int noForeignOwnShares, byte status, decimal targetPrice, decimal targetPriceVariant) {
+            public stockCodeRow AddstockCodeRow(
+                        string code, 
+                        string stockExchange, 
+                        string tickerCode, 
+                        string name, 
+                        string nameEn, 
+                        string address1, 
+                        string address2, 
+                        string phone, 
+                        string fax, 
+                        string website, 
+                        string email, 
+                        string bizSectors, 
+                        string country, 
+                        System.DateTime regDate, 
+                        int noListedStock, 
+                        int noOutstandingStock, 
+                        int noForeignOwnedStock, 
+                        int noTreasuryStock, 
+                        decimal bookPrice, 
+                        decimal targetPrice, 
+                        decimal targetPriceVariant, 
+                        decimal workingCap, 
+                        string capitalUnit, 
+                        decimal sales, 
+                        decimal profit, 
+                        decimal equity, 
+                        decimal totalDebt, 
+                        decimal totaAssets, 
+                        decimal PB, 
+                        decimal EPS, 
+                        decimal PE, 
+                        decimal ROA, 
+                        decimal ROE, 
+                        decimal BETA, 
+                        byte status) {
                 stockCodeRow rowstockCodeRow = ((stockCodeRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         code,
                         stockExchange,
                         tickerCode,
-                        comCode,
+                        name,
+                        nameEn,
+                        address1,
+                        address2,
+                        phone,
+                        fax,
+                        website,
+                        email,
+                        bizSectors,
+                        country,
                         regDate,
-                        noShares,
-                        noOpenShares,
-                        noForeignOwnShares,
-                        status,
+                        noListedStock,
+                        noOutstandingStock,
+                        noForeignOwnedStock,
+                        noTreasuryStock,
+                        bookPrice,
                         targetPrice,
-                        targetPriceVariant};
+                        targetPriceVariant,
+                        workingCap,
+                        capitalUnit,
+                        sales,
+                        profit,
+                        equity,
+                        totalDebt,
+                        totaAssets,
+                        PB,
+                        EPS,
+                        PE,
+                        ROA,
+                        ROE,
+                        BETA,
+                        status};
                 rowstockCodeRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowstockCodeRow);
                 return rowstockCodeRow;
@@ -4709,14 +4484,38 @@ namespace data {
                 this.columncode = base.Columns["code"];
                 this.columnstockExchange = base.Columns["stockExchange"];
                 this.columntickerCode = base.Columns["tickerCode"];
-                this.columncomCode = base.Columns["comCode"];
+                this.columnname = base.Columns["name"];
+                this.columnnameEn = base.Columns["nameEn"];
+                this.columnaddress1 = base.Columns["address1"];
+                this.columnaddress2 = base.Columns["address2"];
+                this.columnphone = base.Columns["phone"];
+                this.columnfax = base.Columns["fax"];
+                this.columnwebsite = base.Columns["website"];
+                this.columnemail = base.Columns["email"];
+                this.columnbizSectors = base.Columns["bizSectors"];
+                this.columncountry = base.Columns["country"];
                 this.columnregDate = base.Columns["regDate"];
-                this.columnnoShares = base.Columns["noShares"];
-                this.columnnoOpenShares = base.Columns["noOpenShares"];
-                this.columnnoForeignOwnShares = base.Columns["noForeignOwnShares"];
-                this.columnstatus = base.Columns["status"];
+                this.columnnoListedStock = base.Columns["noListedStock"];
+                this.columnnoOutstandingStock = base.Columns["noOutstandingStock"];
+                this.columnnoForeignOwnedStock = base.Columns["noForeignOwnedStock"];
+                this.columnnoTreasuryStock = base.Columns["noTreasuryStock"];
+                this.columnbookPrice = base.Columns["bookPrice"];
                 this.columntargetPrice = base.Columns["targetPrice"];
                 this.columntargetPriceVariant = base.Columns["targetPriceVariant"];
+                this.columnworkingCap = base.Columns["workingCap"];
+                this.columncapitalUnit = base.Columns["capitalUnit"];
+                this.columnsales = base.Columns["sales"];
+                this.columnprofit = base.Columns["profit"];
+                this.columnequity = base.Columns["equity"];
+                this.columntotalDebt = base.Columns["totalDebt"];
+                this.columntotaAssets = base.Columns["totaAssets"];
+                this.columnPB = base.Columns["PB"];
+                this.columnEPS = base.Columns["EPS"];
+                this.columnPE = base.Columns["PE"];
+                this.columnROA = base.Columns["ROA"];
+                this.columnROE = base.Columns["ROE"];
+                this.columnBETA = base.Columns["BETA"];
+                this.columnstatus = base.Columns["status"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4727,22 +4526,70 @@ namespace data {
                 base.Columns.Add(this.columnstockExchange);
                 this.columntickerCode = new global::System.Data.DataColumn("tickerCode", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columntickerCode);
-                this.columncomCode = new global::System.Data.DataColumn("comCode", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columncomCode);
+                this.columnname = new global::System.Data.DataColumn("name", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnname);
+                this.columnnameEn = new global::System.Data.DataColumn("nameEn", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnameEn);
+                this.columnaddress1 = new global::System.Data.DataColumn("address1", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnaddress1);
+                this.columnaddress2 = new global::System.Data.DataColumn("address2", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnaddress2);
+                this.columnphone = new global::System.Data.DataColumn("phone", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnphone);
+                this.columnfax = new global::System.Data.DataColumn("fax", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnfax);
+                this.columnwebsite = new global::System.Data.DataColumn("website", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnwebsite);
+                this.columnemail = new global::System.Data.DataColumn("email", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnemail);
+                this.columnbizSectors = new global::System.Data.DataColumn("bizSectors", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnbizSectors);
+                this.columncountry = new global::System.Data.DataColumn("country", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncountry);
                 this.columnregDate = new global::System.Data.DataColumn("regDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnregDate);
-                this.columnnoShares = new global::System.Data.DataColumn("noShares", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnnoShares);
-                this.columnnoOpenShares = new global::System.Data.DataColumn("noOpenShares", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnnoOpenShares);
-                this.columnnoForeignOwnShares = new global::System.Data.DataColumn("noForeignOwnShares", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnnoForeignOwnShares);
-                this.columnstatus = new global::System.Data.DataColumn("status", typeof(byte), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnstatus);
+                this.columnnoListedStock = new global::System.Data.DataColumn("noListedStock", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnoListedStock);
+                this.columnnoOutstandingStock = new global::System.Data.DataColumn("noOutstandingStock", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnoOutstandingStock);
+                this.columnnoForeignOwnedStock = new global::System.Data.DataColumn("noForeignOwnedStock", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnoForeignOwnedStock);
+                this.columnnoTreasuryStock = new global::System.Data.DataColumn("noTreasuryStock", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnoTreasuryStock);
+                this.columnbookPrice = new global::System.Data.DataColumn("bookPrice", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnbookPrice);
                 this.columntargetPrice = new global::System.Data.DataColumn("targetPrice", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columntargetPrice);
                 this.columntargetPriceVariant = new global::System.Data.DataColumn("targetPriceVariant", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columntargetPriceVariant);
+                this.columnworkingCap = new global::System.Data.DataColumn("workingCap", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnworkingCap);
+                this.columncapitalUnit = new global::System.Data.DataColumn("capitalUnit", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncapitalUnit);
+                this.columnsales = new global::System.Data.DataColumn("sales", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnsales);
+                this.columnprofit = new global::System.Data.DataColumn("profit", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnprofit);
+                this.columnequity = new global::System.Data.DataColumn("equity", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnequity);
+                this.columntotalDebt = new global::System.Data.DataColumn("totalDebt", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columntotalDebt);
+                this.columntotaAssets = new global::System.Data.DataColumn("totaAssets", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columntotaAssets);
+                this.columnPB = new global::System.Data.DataColumn("PB", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPB);
+                this.columnEPS = new global::System.Data.DataColumn("EPS", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnEPS);
+                this.columnPE = new global::System.Data.DataColumn("PE", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPE);
+                this.columnROA = new global::System.Data.DataColumn("ROA", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnROA);
+                this.columnROE = new global::System.Data.DataColumn("ROE", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnROE);
+                this.columnBETA = new global::System.Data.DataColumn("BETA", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnBETA);
+                this.columnstatus = new global::System.Data.DataColumn("status", typeof(byte), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnstatus);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columncode}, true));
                 this.columncode.AllowDBNull = false;
@@ -4752,15 +4599,46 @@ namespace data {
                 this.columnstockExchange.MaxLength = 10;
                 this.columntickerCode.AllowDBNull = false;
                 this.columntickerCode.MaxLength = 20;
-                this.columncomCode.AllowDBNull = false;
-                this.columncomCode.MaxLength = 20;
+                this.columnname.AllowDBNull = false;
+                this.columnname.MaxLength = 255;
+                this.columnnameEn.MaxLength = 255;
+                this.columnaddress1.AllowDBNull = false;
+                this.columnaddress1.MaxLength = 255;
+                this.columnaddress2.MaxLength = 255;
+                this.columnphone.AllowDBNull = false;
+                this.columnphone.MaxLength = 50;
+                this.columnfax.AllowDBNull = false;
+                this.columnfax.MaxLength = 50;
+                this.columnwebsite.AllowDBNull = false;
+                this.columnwebsite.MaxLength = 255;
+                this.columnemail.MaxLength = 255;
+                this.columnbizSectors.AllowDBNull = false;
+                this.columnbizSectors.MaxLength = 1024;
+                this.columncountry.AllowDBNull = false;
+                this.columncountry.MaxLength = 2;
                 this.columnregDate.AllowDBNull = false;
-                this.columnnoShares.AllowDBNull = false;
-                this.columnnoOpenShares.AllowDBNull = false;
-                this.columnnoForeignOwnShares.AllowDBNull = false;
-                this.columnstatus.AllowDBNull = false;
+                this.columnnoListedStock.AllowDBNull = false;
+                this.columnnoOutstandingStock.AllowDBNull = false;
+                this.columnnoForeignOwnedStock.AllowDBNull = false;
+                this.columnnoTreasuryStock.AllowDBNull = false;
+                this.columnbookPrice.AllowDBNull = false;
                 this.columntargetPrice.AllowDBNull = false;
                 this.columntargetPriceVariant.AllowDBNull = false;
+                this.columnworkingCap.AllowDBNull = false;
+                this.columncapitalUnit.AllowDBNull = false;
+                this.columncapitalUnit.MaxLength = 1;
+                this.columnsales.AllowDBNull = false;
+                this.columnprofit.AllowDBNull = false;
+                this.columnequity.AllowDBNull = false;
+                this.columntotalDebt.AllowDBNull = false;
+                this.columntotaAssets.AllowDBNull = false;
+                this.columnPB.AllowDBNull = false;
+                this.columnEPS.AllowDBNull = false;
+                this.columnPE.AllowDBNull = false;
+                this.columnROA.AllowDBNull = false;
+                this.columnROE.AllowDBNull = false;
+                this.columnBETA.AllowDBNull = false;
+                this.columnstatus.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -9138,518 +9016,6 @@ namespace data {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class stockCodeExtDataTable : global::System.Data.TypedTableBase<stockCodeExtRow> {
-            
-            private global::System.Data.DataColumn columncode;
-            
-            private global::System.Data.DataColumn columnstockExchange;
-            
-            private global::System.Data.DataColumn columntickerCode;
-            
-            private global::System.Data.DataColumn columncomCode;
-            
-            private global::System.Data.DataColumn columnregDate;
-            
-            private global::System.Data.DataColumn columnnoShares;
-            
-            private global::System.Data.DataColumn columnnoOpenShares;
-            
-            private global::System.Data.DataColumn columnnoForeignOwnShares;
-            
-            private global::System.Data.DataColumn columnstatus;
-            
-            private global::System.Data.DataColumn columntargetPrice;
-            
-            private global::System.Data.DataColumn columntargetPriceVariant;
-            
-            private global::System.Data.DataColumn columnname;
-            
-            private global::System.Data.DataColumn columnnameEn;
-            
-            private global::System.Data.DataColumn columnaddress1;
-            
-            private global::System.Data.DataColumn columnaddress2;
-            
-            private global::System.Data.DataColumn columnbizSectors;
-            
-            private global::System.Data.DataColumn columncapital;
-            
-            private global::System.Data.DataColumn columncapitalUnit;
-            
-            private global::System.Data.DataColumn columnemployees;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public stockCodeExtDataTable() {
-                this.TableName = "stockCodeExt";
-                this.BeginInit();
-                this.InitClass();
-                this.EndInit();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            internal stockCodeExtDataTable(global::System.Data.DataTable table) {
-                this.TableName = table.TableName;
-                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
-                    this.CaseSensitive = table.CaseSensitive;
-                }
-                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
-                    this.Locale = table.Locale;
-                }
-                if ((table.Namespace != table.DataSet.Namespace)) {
-                    this.Namespace = table.Namespace;
-                }
-                this.Prefix = table.Prefix;
-                this.MinimumCapacity = table.MinimumCapacity;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            protected stockCodeExtDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
-                    base(info, context) {
-                this.InitVars();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn codeColumn {
-                get {
-                    return this.columncode;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn stockExchangeColumn {
-                get {
-                    return this.columnstockExchange;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn tickerCodeColumn {
-                get {
-                    return this.columntickerCode;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn comCodeColumn {
-                get {
-                    return this.columncomCode;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn regDateColumn {
-                get {
-                    return this.columnregDate;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn noSharesColumn {
-                get {
-                    return this.columnnoShares;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn noOpenSharesColumn {
-                get {
-                    return this.columnnoOpenShares;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn noForeignOwnSharesColumn {
-                get {
-                    return this.columnnoForeignOwnShares;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn statusColumn {
-                get {
-                    return this.columnstatus;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn targetPriceColumn {
-                get {
-                    return this.columntargetPrice;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn targetPriceVariantColumn {
-                get {
-                    return this.columntargetPriceVariant;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn nameColumn {
-                get {
-                    return this.columnname;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn nameEnColumn {
-                get {
-                    return this.columnnameEn;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn address1Column {
-                get {
-                    return this.columnaddress1;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn address2Column {
-                get {
-                    return this.columnaddress2;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn bizSectorsColumn {
-                get {
-                    return this.columnbizSectors;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn capitalColumn {
-                get {
-                    return this.columncapital;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn capitalUnitColumn {
-                get {
-                    return this.columncapitalUnit;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn employeesColumn {
-                get {
-                    return this.columnemployees;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.ComponentModel.Browsable(false)]
-            public int Count {
-                get {
-                    return this.Rows.Count;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public stockCodeExtRow this[int index] {
-                get {
-                    return ((stockCodeExtRow)(this.Rows[index]));
-                }
-            }
-            
-            public event stockCodeExtRowChangeEventHandler stockCodeExtRowChanging;
-            
-            public event stockCodeExtRowChangeEventHandler stockCodeExtRowChanged;
-            
-            public event stockCodeExtRowChangeEventHandler stockCodeExtRowDeleting;
-            
-            public event stockCodeExtRowChangeEventHandler stockCodeExtRowDeleted;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public void AddstockCodeExtRow(stockCodeExtRow row) {
-                this.Rows.Add(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public stockCodeExtRow AddstockCodeExtRow(
-                        string code, 
-                        string stockExchange, 
-                        string tickerCode, 
-                        string comCode, 
-                        System.DateTime regDate, 
-                        int noShares, 
-                        int noOpenShares, 
-                        int noForeignOwnShares, 
-                        byte status, 
-                        decimal targetPrice, 
-                        decimal targetPriceVariant, 
-                        string name, 
-                        string nameEn, 
-                        string address1, 
-                        string address2, 
-                        string bizSectors, 
-                        decimal capital, 
-                        string capitalUnit, 
-                        int employees) {
-                stockCodeExtRow rowstockCodeExtRow = ((stockCodeExtRow)(this.NewRow()));
-                object[] columnValuesArray = new object[] {
-                        code,
-                        stockExchange,
-                        tickerCode,
-                        comCode,
-                        regDate,
-                        noShares,
-                        noOpenShares,
-                        noForeignOwnShares,
-                        status,
-                        targetPrice,
-                        targetPriceVariant,
-                        name,
-                        nameEn,
-                        address1,
-                        address2,
-                        bizSectors,
-                        capital,
-                        capitalUnit,
-                        employees};
-                rowstockCodeExtRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowstockCodeExtRow);
-                return rowstockCodeExtRow;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public stockCodeExtRow FindBycode(string code) {
-                return ((stockCodeExtRow)(this.Rows.Find(new object[] {
-                            code})));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public override global::System.Data.DataTable Clone() {
-                stockCodeExtDataTable cln = ((stockCodeExtDataTable)(base.Clone()));
-                cln.InitVars();
-                return cln;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            protected override global::System.Data.DataTable CreateInstance() {
-                return new stockCodeExtDataTable();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            internal void InitVars() {
-                this.columncode = base.Columns["code"];
-                this.columnstockExchange = base.Columns["stockExchange"];
-                this.columntickerCode = base.Columns["tickerCode"];
-                this.columncomCode = base.Columns["comCode"];
-                this.columnregDate = base.Columns["regDate"];
-                this.columnnoShares = base.Columns["noShares"];
-                this.columnnoOpenShares = base.Columns["noOpenShares"];
-                this.columnnoForeignOwnShares = base.Columns["noForeignOwnShares"];
-                this.columnstatus = base.Columns["status"];
-                this.columntargetPrice = base.Columns["targetPrice"];
-                this.columntargetPriceVariant = base.Columns["targetPriceVariant"];
-                this.columnname = base.Columns["name"];
-                this.columnnameEn = base.Columns["nameEn"];
-                this.columnaddress1 = base.Columns["address1"];
-                this.columnaddress2 = base.Columns["address2"];
-                this.columnbizSectors = base.Columns["bizSectors"];
-                this.columncapital = base.Columns["capital"];
-                this.columncapitalUnit = base.Columns["capitalUnit"];
-                this.columnemployees = base.Columns["employees"];
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            private void InitClass() {
-                this.columncode = new global::System.Data.DataColumn("code", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columncode);
-                this.columnstockExchange = new global::System.Data.DataColumn("stockExchange", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnstockExchange);
-                this.columntickerCode = new global::System.Data.DataColumn("tickerCode", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columntickerCode);
-                this.columncomCode = new global::System.Data.DataColumn("comCode", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columncomCode);
-                this.columnregDate = new global::System.Data.DataColumn("regDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnregDate);
-                this.columnnoShares = new global::System.Data.DataColumn("noShares", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnnoShares);
-                this.columnnoOpenShares = new global::System.Data.DataColumn("noOpenShares", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnnoOpenShares);
-                this.columnnoForeignOwnShares = new global::System.Data.DataColumn("noForeignOwnShares", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnnoForeignOwnShares);
-                this.columnstatus = new global::System.Data.DataColumn("status", typeof(byte), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnstatus);
-                this.columntargetPrice = new global::System.Data.DataColumn("targetPrice", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columntargetPrice);
-                this.columntargetPriceVariant = new global::System.Data.DataColumn("targetPriceVariant", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columntargetPriceVariant);
-                this.columnname = new global::System.Data.DataColumn("name", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnname);
-                this.columnnameEn = new global::System.Data.DataColumn("nameEn", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnnameEn);
-                this.columnaddress1 = new global::System.Data.DataColumn("address1", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnaddress1);
-                this.columnaddress2 = new global::System.Data.DataColumn("address2", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnaddress2);
-                this.columnbizSectors = new global::System.Data.DataColumn("bizSectors", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnbizSectors);
-                this.columncapital = new global::System.Data.DataColumn("capital", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columncapital);
-                this.columncapitalUnit = new global::System.Data.DataColumn("capitalUnit", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columncapitalUnit);
-                this.columnemployees = new global::System.Data.DataColumn("employees", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnemployees);
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columncode}, true));
-                this.columncode.AllowDBNull = false;
-                this.columncode.Unique = true;
-                this.columncode.MaxLength = 20;
-                this.columnstockExchange.AllowDBNull = false;
-                this.columnstockExchange.MaxLength = 10;
-                this.columntickerCode.AllowDBNull = false;
-                this.columntickerCode.MaxLength = 20;
-                this.columncomCode.AllowDBNull = false;
-                this.columncomCode.MaxLength = 20;
-                this.columnregDate.AllowDBNull = false;
-                this.columnnoShares.AllowDBNull = false;
-                this.columnnoOpenShares.AllowDBNull = false;
-                this.columnnoForeignOwnShares.AllowDBNull = false;
-                this.columnstatus.AllowDBNull = false;
-                this.columntargetPrice.AllowDBNull = false;
-                this.columntargetPriceVariant.AllowDBNull = false;
-                this.columnname.AllowDBNull = false;
-                this.columnname.MaxLength = 255;
-                this.columnnameEn.MaxLength = 255;
-                this.columnaddress1.AllowDBNull = false;
-                this.columnaddress1.MaxLength = 255;
-                this.columnaddress2.MaxLength = 255;
-                this.columnbizSectors.AllowDBNull = false;
-                this.columnbizSectors.MaxLength = 255;
-                this.columncapital.AllowDBNull = false;
-                this.columncapitalUnit.AllowDBNull = false;
-                this.columncapitalUnit.MaxLength = 1;
-                this.columnemployees.AllowDBNull = false;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public stockCodeExtRow NewstockCodeExtRow() {
-                return ((stockCodeExtRow)(this.NewRow()));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new stockCodeExtRow(builder);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            protected override global::System.Type GetRowType() {
-                return typeof(stockCodeExtRow);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanged(e);
-                if ((this.stockCodeExtRowChanged != null)) {
-                    this.stockCodeExtRowChanged(this, new stockCodeExtRowChangeEvent(((stockCodeExtRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanging(e);
-                if ((this.stockCodeExtRowChanging != null)) {
-                    this.stockCodeExtRowChanging(this, new stockCodeExtRowChangeEvent(((stockCodeExtRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleted(e);
-                if ((this.stockCodeExtRowDeleted != null)) {
-                    this.stockCodeExtRowDeleted(this, new stockCodeExtRowChangeEvent(((stockCodeExtRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleting(e);
-                if ((this.stockCodeExtRowDeleting != null)) {
-                    this.stockCodeExtRowDeleting(this, new stockCodeExtRowChangeEvent(((stockCodeExtRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public void RemovestockCodeExtRow(stockCodeExtRow row) {
-                this.Rows.Remove(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
-                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                baseDS ds = new baseDS();
-                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
-                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
-                any1.MinOccurs = new decimal(0);
-                any1.MaxOccurs = decimal.MaxValue;
-                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any1);
-                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
-                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
-                any2.MinOccurs = new decimal(1);
-                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any2);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute1.Name = "namespace";
-                attribute1.FixedValue = ds.Namespace;
-                type.Attributes.Add(attribute1);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "stockCodeExtDataTable";
-                type.Attributes.Add(attribute2);
-                type.Particle = sequence;
-                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
-                if (xs.Contains(dsSchema.TargetNamespace)) {
-                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
-                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
-                    try {
-                        global::System.Xml.Schema.XmlSchema schema = null;
-                        dsSchema.Write(s1);
-                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
-                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
-                            s2.SetLength(0);
-                            schema.Write(s2);
-                            if ((s1.Length == s2.Length)) {
-                                s1.Position = 0;
-                                s2.Position = 0;
-                                for (; ((s1.Position != s1.Length) 
-                                            && (s1.ReadByte() == s2.ReadByte())); ) {
-                                    ;
-                                }
-                                if ((s1.Position == s1.Length)) {
-                                    return type;
-                                }
-                            }
-                        }
-                    }
-                    finally {
-                        if ((s1 != null)) {
-                            s1.Close();
-                        }
-                        if ((s2 != null)) {
-                            s2.Close();
-                        }
-                    }
-                }
-                xs.Add(dsSchema);
-                return type;
-            }
-        }
-        
-        /// <summary>
-        ///Represents the strongly named DataTable class.
-        ///</summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
-        [global::System.Serializable()]
-        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class bizIndustryDataTable : global::System.Data.TypedTableBase<bizIndustryRow> {
             
             private global::System.Data.DataColumn columncode;
@@ -11076,7 +10442,7 @@ namespace data {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public tradeAlertRow AddtradeAlertRow(System.DateTime onTime, string type, byte tradeAction, string portfolio, string stockCode, byte timeScale, string strategy, string subject, string msg, byte status) {
+            public tradeAlertRow AddtradeAlertRow(System.DateTime onTime, string type, byte tradeAction, string portfolio, string stockCode, string timeScale, string strategy, string subject, string msg, byte status) {
                 tradeAlertRow rowtradeAlertRow = ((tradeAlertRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -11142,7 +10508,7 @@ namespace data {
                 base.Columns.Add(this.columnportfolio);
                 this.columnstockCode = new global::System.Data.DataColumn("stockCode", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnstockCode);
-                this.columntimeScale = new global::System.Data.DataColumn("timeScale", typeof(byte), null, global::System.Data.MappingType.Element);
+                this.columntimeScale = new global::System.Data.DataColumn("timeScale", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columntimeScale);
                 this.columnstrategy = new global::System.Data.DataColumn("strategy", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnstrategy);
@@ -11169,6 +10535,7 @@ namespace data {
                 this.columnstockCode.AllowDBNull = false;
                 this.columnstockCode.MaxLength = 20;
                 this.columntimeScale.AllowDBNull = false;
+                this.columntimeScale.MaxLength = 2;
                 this.columnstrategy.AllowDBNull = false;
                 this.columnstrategy.MaxLength = 10;
                 this.columnsubject.AllowDBNull = false;
@@ -11301,9 +10668,9 @@ namespace data {
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class priceDataSumDataTable : global::System.Data.TypedTableBase<priceDataSumRow> {
             
-            private global::System.Data.DataColumn columntype;
-            
             private global::System.Data.DataColumn columnonDate;
+            
+            private global::System.Data.DataColumn columntype;
             
             private global::System.Data.DataColumn columnstockCode;
             
@@ -11354,16 +10721,16 @@ namespace data {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn typeColumn {
+            public global::System.Data.DataColumn onDateColumn {
                 get {
-                    return this.columntype;
+                    return this.columnonDate;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn onDateColumn {
+            public global::System.Data.DataColumn typeColumn {
                 get {
-                    return this.columnonDate;
+                    return this.columntype;
                 }
             }
             
@@ -11459,11 +10826,11 @@ namespace data {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public priceDataSumRow AddpriceDataSumRow(byte type, System.DateTime onDate, string stockCode, decimal openPrice, decimal closePrice, decimal lowPrice, decimal highPrice, decimal volume, short openTimeOffset, short closeTimeOffset, bool isUpdate) {
+            public priceDataSumRow AddpriceDataSumRow(System.DateTime onDate, string type, string stockCode, decimal openPrice, decimal closePrice, decimal lowPrice, decimal highPrice, decimal volume, short openTimeOffset, short closeTimeOffset, bool isUpdate) {
                 priceDataSumRow rowpriceDataSumRow = ((priceDataSumRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        type,
                         onDate,
+                        type,
                         stockCode,
                         openPrice,
                         closePrice,
@@ -11479,7 +10846,7 @@ namespace data {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public priceDataSumRow FindBytypestockCodeonDate(byte type, string stockCode, System.DateTime onDate) {
+            public priceDataSumRow FindBytypestockCodeonDate(string type, string stockCode, System.DateTime onDate) {
                 return ((priceDataSumRow)(this.Rows.Find(new object[] {
                             type,
                             stockCode,
@@ -11500,8 +10867,8 @@ namespace data {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             internal void InitVars() {
-                this.columntype = base.Columns["type"];
                 this.columnonDate = base.Columns["onDate"];
+                this.columntype = base.Columns["type"];
                 this.columnstockCode = base.Columns["stockCode"];
                 this.columnopenPrice = base.Columns["openPrice"];
                 this.columnclosePrice = base.Columns["closePrice"];
@@ -11515,10 +10882,10 @@ namespace data {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             private void InitClass() {
-                this.columntype = new global::System.Data.DataColumn("type", typeof(byte), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columntype);
                 this.columnonDate = new global::System.Data.DataColumn("onDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnonDate);
+                this.columntype = new global::System.Data.DataColumn("type", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columntype);
                 this.columnstockCode = new global::System.Data.DataColumn("stockCode", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnstockCode);
                 this.columnopenPrice = new global::System.Data.DataColumn("openPrice", typeof(decimal), null, global::System.Data.MappingType.Element);
@@ -11541,8 +10908,9 @@ namespace data {
                                 this.columntype,
                                 this.columnstockCode,
                                 this.columnonDate}, true));
-                this.columntype.AllowDBNull = false;
                 this.columnonDate.AllowDBNull = false;
+                this.columntype.AllowDBNull = false;
+                this.columntype.MaxLength = 2;
                 this.columnstockCode.AllowDBNull = false;
                 this.columnstockCode.MaxLength = 20;
                 this.columnopenPrice.AllowDBNull = false;
@@ -12218,246 +11586,6 @@ namespace data {
         ///Represents strongly named DataRow class.
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
-        public partial class companyRow : global::System.Data.DataRow {
-            
-            private companyDataTable tablecompany;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            internal companyRow(global::System.Data.DataRowBuilder rb) : 
-                    base(rb) {
-                this.tablecompany = ((companyDataTable)(this.Table));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public string code {
-                get {
-                    return ((string)(this[this.tablecompany.codeColumn]));
-                }
-                set {
-                    this[this.tablecompany.codeColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public decimal capital {
-                get {
-                    return ((decimal)(this[this.tablecompany.capitalColumn]));
-                }
-                set {
-                    this[this.tablecompany.capitalColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public string name {
-                get {
-                    return ((string)(this[this.tablecompany.nameColumn]));
-                }
-                set {
-                    this[this.tablecompany.nameColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public string nameEn {
-                get {
-                    try {
-                        return ((string)(this[this.tablecompany.nameEnColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'nameEn\' in table \'company\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablecompany.nameEnColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public string address1 {
-                get {
-                    return ((string)(this[this.tablecompany.address1Column]));
-                }
-                set {
-                    this[this.tablecompany.address1Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public string address2 {
-                get {
-                    try {
-                        return ((string)(this[this.tablecompany.address2Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'address2\' in table \'company\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablecompany.address2Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public System.DateTime estDate {
-                get {
-                    return ((global::System.DateTime)(this[this.tablecompany.estDateColumn]));
-                }
-                set {
-                    this[this.tablecompany.estDateColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public string phone {
-                get {
-                    try {
-                        return ((string)(this[this.tablecompany.phoneColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'phone\' in table \'company\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablecompany.phoneColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public string fax {
-                get {
-                    try {
-                        return ((string)(this[this.tablecompany.faxColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'fax\' in table \'company\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablecompany.faxColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public string email {
-                get {
-                    return ((string)(this[this.tablecompany.emailColumn]));
-                }
-                set {
-                    this[this.tablecompany.emailColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public string website {
-                get {
-                    try {
-                        return ((string)(this[this.tablecompany.websiteColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'website\' in table \'company\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablecompany.websiteColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public string bizSectors {
-                get {
-                    return ((string)(this[this.tablecompany.bizSectorsColumn]));
-                }
-                set {
-                    this[this.tablecompany.bizSectorsColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public string country {
-                get {
-                    return ((string)(this[this.tablecompany.countryColumn]));
-                }
-                set {
-                    this[this.tablecompany.countryColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public string capitalUnit {
-                get {
-                    return ((string)(this[this.tablecompany.capitalUnitColumn]));
-                }
-                set {
-                    this[this.tablecompany.capitalUnitColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public int employees {
-                get {
-                    return ((int)(this[this.tablecompany.employeesColumn]));
-                }
-                set {
-                    this[this.tablecompany.employeesColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public bool IsnameEnNull() {
-                return this.IsNull(this.tablecompany.nameEnColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public void SetnameEnNull() {
-                this[this.tablecompany.nameEnColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public bool Isaddress2Null() {
-                return this.IsNull(this.tablecompany.address2Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public void Setaddress2Null() {
-                this[this.tablecompany.address2Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public bool IsphoneNull() {
-                return this.IsNull(this.tablecompany.phoneColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public void SetphoneNull() {
-                this[this.tablecompany.phoneColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public bool IsfaxNull() {
-                return this.IsNull(this.tablecompany.faxColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public void SetfaxNull() {
-                this[this.tablecompany.faxColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public bool IswebsiteNull() {
-                return this.IsNull(this.tablecompany.websiteColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public void SetwebsiteNull() {
-                this[this.tablecompany.websiteColumn] = global::System.Convert.DBNull;
-            }
-        }
-        
-        /// <summary>
-        ///Represents strongly named DataRow class.
-        ///</summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
         public partial class sysLogRow : global::System.Data.DataRow {
             
             private sysLogDataTable tablesysLog;
@@ -12563,103 +11691,103 @@ namespace data {
         ///Represents strongly named DataRow class.
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
-        public partial class companyReportRow : global::System.Data.DataRow {
+        public partial class stockReportRow : global::System.Data.DataRow {
             
-            private companyReportDataTable tablecompanyReport;
+            private stockReportDataTable tablestockReport;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            internal companyReportRow(global::System.Data.DataRowBuilder rb) : 
+            internal stockReportRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tablecompanyReport = ((companyReportDataTable)(this.Table));
+                this.tablestockReport = ((stockReportDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public string reportType {
                 get {
-                    return ((string)(this[this.tablecompanyReport.reportTypeColumn]));
+                    return ((string)(this[this.tablestockReport.reportTypeColumn]));
                 }
                 set {
-                    this[this.tablecompanyReport.reportTypeColumn] = value;
+                    this[this.tablestockReport.reportTypeColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public string companyCode {
+            public string stockCode {
                 get {
-                    return ((string)(this[this.tablecompanyReport.companyCodeColumn]));
+                    return ((string)(this[this.tablestockReport.stockCodeColumn]));
                 }
                 set {
-                    this[this.tablecompanyReport.companyCodeColumn] = value;
+                    this[this.tablestockReport.stockCodeColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public System.DateTime onDate {
                 get {
-                    return ((global::System.DateTime)(this[this.tablecompanyReport.onDateColumn]));
+                    return ((global::System.DateTime)(this[this.tablestockReport.onDateColumn]));
                 }
                 set {
-                    this[this.tablecompanyReport.onDateColumn] = value;
+                    this[this.tablestockReport.onDateColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public string reportCode {
                 get {
-                    return ((string)(this[this.tablecompanyReport.reportCodeColumn]));
+                    return ((string)(this[this.tablestockReport.reportCodeColumn]));
                 }
                 set {
-                    this[this.tablecompanyReport.reportCodeColumn] = value;
+                    this[this.tablestockReport.reportCodeColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public string currency {
                 get {
-                    return ((string)(this[this.tablecompanyReport.currencyColumn]));
+                    return ((string)(this[this.tablestockReport.currencyColumn]));
                 }
                 set {
-                    this[this.tablecompanyReport.currencyColumn] = value;
+                    this[this.tablestockReport.currencyColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public decimal val0 {
                 get {
-                    return ((decimal)(this[this.tablecompanyReport.val0Column]));
+                    return ((decimal)(this[this.tablestockReport.val0Column]));
                 }
                 set {
-                    this[this.tablecompanyReport.val0Column] = value;
+                    this[this.tablestockReport.val0Column] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public decimal val1 {
                 get {
-                    return ((decimal)(this[this.tablecompanyReport.val1Column]));
+                    return ((decimal)(this[this.tablestockReport.val1Column]));
                 }
                 set {
-                    this[this.tablecompanyReport.val1Column] = value;
+                    this[this.tablestockReport.val1Column] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public decimal val2 {
                 get {
-                    return ((decimal)(this[this.tablecompanyReport.val2Column]));
+                    return ((decimal)(this[this.tablestockReport.val2Column]));
                 }
                 set {
-                    this[this.tablecompanyReport.val2Column] = value;
+                    this[this.tablestockReport.val2Column] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public decimal val3 {
                 get {
-                    return ((decimal)(this[this.tablecompanyReport.val3Column]));
+                    return ((decimal)(this[this.tablestockReport.val3Column]));
                 }
                 set {
-                    this[this.tablecompanyReport.val3Column] = value;
+                    this[this.tablestockReport.val3Column] = value;
                 }
             }
         }
@@ -13183,103 +12311,103 @@ namespace data {
         ///Represents strongly named DataRow class.
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
-        public partial class investorTransHistoryRow : global::System.Data.DataRow {
+        public partial class transactionsRow : global::System.Data.DataRow {
             
-            private investorTransHistoryDataTable tableinvestorTransHistory;
+            private transactionsDataTable tabletransactions;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            internal investorTransHistoryRow(global::System.Data.DataRowBuilder rb) : 
+            internal transactionsRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tableinvestorTransHistory = ((investorTransHistoryDataTable)(this.Table));
+                this.tabletransactions = ((transactionsDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public int id {
                 get {
-                    return ((int)(this[this.tableinvestorTransHistory.idColumn]));
+                    return ((int)(this[this.tabletransactions.idColumn]));
                 }
                 set {
-                    this[this.tableinvestorTransHistory.idColumn] = value;
+                    this[this.tabletransactions.idColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public System.DateTime onTime {
                 get {
-                    return ((global::System.DateTime)(this[this.tableinvestorTransHistory.onTimeColumn]));
+                    return ((global::System.DateTime)(this[this.tabletransactions.onTimeColumn]));
                 }
                 set {
-                    this[this.tableinvestorTransHistory.onTimeColumn] = value;
+                    this[this.tabletransactions.onTimeColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public byte tranType {
                 get {
-                    return ((byte)(this[this.tableinvestorTransHistory.tranTypeColumn]));
+                    return ((byte)(this[this.tabletransactions.tranTypeColumn]));
                 }
                 set {
-                    this[this.tableinvestorTransHistory.tranTypeColumn] = value;
+                    this[this.tabletransactions.tranTypeColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public string portfolio {
                 get {
-                    return ((string)(this[this.tableinvestorTransHistory.portfolioColumn]));
+                    return ((string)(this[this.tabletransactions.portfolioColumn]));
                 }
                 set {
-                    this[this.tableinvestorTransHistory.portfolioColumn] = value;
+                    this[this.tabletransactions.portfolioColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public string stockCode {
                 get {
-                    return ((string)(this[this.tableinvestorTransHistory.stockCodeColumn]));
+                    return ((string)(this[this.tabletransactions.stockCodeColumn]));
                 }
                 set {
-                    this[this.tableinvestorTransHistory.stockCodeColumn] = value;
+                    this[this.tabletransactions.stockCodeColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public decimal qty {
                 get {
-                    return ((decimal)(this[this.tableinvestorTransHistory.qtyColumn]));
+                    return ((decimal)(this[this.tabletransactions.qtyColumn]));
                 }
                 set {
-                    this[this.tableinvestorTransHistory.qtyColumn] = value;
+                    this[this.tabletransactions.qtyColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public decimal amt {
                 get {
-                    return ((decimal)(this[this.tableinvestorTransHistory.amtColumn]));
+                    return ((decimal)(this[this.tabletransactions.amtColumn]));
                 }
                 set {
-                    this[this.tableinvestorTransHistory.amtColumn] = value;
+                    this[this.tabletransactions.amtColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public decimal feeAmt {
                 get {
-                    return ((decimal)(this[this.tableinvestorTransHistory.feeAmtColumn]));
+                    return ((decimal)(this[this.tabletransactions.feeAmtColumn]));
                 }
                 set {
-                    this[this.tableinvestorTransHistory.feeAmtColumn] = value;
+                    this[this.tabletransactions.feeAmtColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public byte status {
                 get {
-                    return ((byte)(this[this.tableinvestorTransHistory.statusColumn]));
+                    return ((byte)(this[this.tabletransactions.statusColumn]));
                 }
                 set {
-                    this[this.tableinvestorTransHistory.statusColumn] = value;
+                    this[this.tabletransactions.statusColumn] = value;
                 }
             }
         }
@@ -13424,12 +12552,117 @@ namespace data {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public string comCode {
+            public string name {
                 get {
-                    return ((string)(this[this.tablestockCode.comCodeColumn]));
+                    return ((string)(this[this.tablestockCode.nameColumn]));
                 }
                 set {
-                    this[this.tablestockCode.comCodeColumn] = value;
+                    this[this.tablestockCode.nameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string nameEn {
+                get {
+                    try {
+                        return ((string)(this[this.tablestockCode.nameEnColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'nameEn\' in table \'stockCode\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablestockCode.nameEnColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string address1 {
+                get {
+                    return ((string)(this[this.tablestockCode.address1Column]));
+                }
+                set {
+                    this[this.tablestockCode.address1Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string address2 {
+                get {
+                    try {
+                        return ((string)(this[this.tablestockCode.address2Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'address2\' in table \'stockCode\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablestockCode.address2Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string phone {
+                get {
+                    return ((string)(this[this.tablestockCode.phoneColumn]));
+                }
+                set {
+                    this[this.tablestockCode.phoneColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string fax {
+                get {
+                    return ((string)(this[this.tablestockCode.faxColumn]));
+                }
+                set {
+                    this[this.tablestockCode.faxColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string website {
+                get {
+                    return ((string)(this[this.tablestockCode.websiteColumn]));
+                }
+                set {
+                    this[this.tablestockCode.websiteColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string email {
+                get {
+                    try {
+                        return ((string)(this[this.tablestockCode.emailColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'email\' in table \'stockCode\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablestockCode.emailColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string bizSectors {
+                get {
+                    return ((string)(this[this.tablestockCode.bizSectorsColumn]));
+                }
+                set {
+                    this[this.tablestockCode.bizSectorsColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string country {
+                get {
+                    return ((string)(this[this.tablestockCode.countryColumn]));
+                }
+                set {
+                    this[this.tablestockCode.countryColumn] = value;
                 }
             }
             
@@ -13444,42 +12677,52 @@ namespace data {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public int noShares {
+            public int noListedStock {
                 get {
-                    return ((int)(this[this.tablestockCode.noSharesColumn]));
+                    return ((int)(this[this.tablestockCode.noListedStockColumn]));
                 }
                 set {
-                    this[this.tablestockCode.noSharesColumn] = value;
+                    this[this.tablestockCode.noListedStockColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public int noOpenShares {
+            public int noOutstandingStock {
                 get {
-                    return ((int)(this[this.tablestockCode.noOpenSharesColumn]));
+                    return ((int)(this[this.tablestockCode.noOutstandingStockColumn]));
                 }
                 set {
-                    this[this.tablestockCode.noOpenSharesColumn] = value;
+                    this[this.tablestockCode.noOutstandingStockColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public int noForeignOwnShares {
+            public int noForeignOwnedStock {
                 get {
-                    return ((int)(this[this.tablestockCode.noForeignOwnSharesColumn]));
+                    return ((int)(this[this.tablestockCode.noForeignOwnedStockColumn]));
                 }
                 set {
-                    this[this.tablestockCode.noForeignOwnSharesColumn] = value;
+                    this[this.tablestockCode.noForeignOwnedStockColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public byte status {
+            public int noTreasuryStock {
                 get {
-                    return ((byte)(this[this.tablestockCode.statusColumn]));
+                    return ((int)(this[this.tablestockCode.noTreasuryStockColumn]));
                 }
                 set {
-                    this[this.tablestockCode.statusColumn] = value;
+                    this[this.tablestockCode.noTreasuryStockColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public decimal bookPrice {
+                get {
+                    return ((decimal)(this[this.tablestockCode.bookPriceColumn]));
+                }
+                set {
+                    this[this.tablestockCode.bookPriceColumn] = value;
                 }
             }
             
@@ -13501,6 +12744,176 @@ namespace data {
                 set {
                     this[this.tablestockCode.targetPriceVariantColumn] = value;
                 }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public decimal workingCap {
+                get {
+                    return ((decimal)(this[this.tablestockCode.workingCapColumn]));
+                }
+                set {
+                    this[this.tablestockCode.workingCapColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string capitalUnit {
+                get {
+                    return ((string)(this[this.tablestockCode.capitalUnitColumn]));
+                }
+                set {
+                    this[this.tablestockCode.capitalUnitColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public decimal sales {
+                get {
+                    return ((decimal)(this[this.tablestockCode.salesColumn]));
+                }
+                set {
+                    this[this.tablestockCode.salesColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public decimal profit {
+                get {
+                    return ((decimal)(this[this.tablestockCode.profitColumn]));
+                }
+                set {
+                    this[this.tablestockCode.profitColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public decimal equity {
+                get {
+                    return ((decimal)(this[this.tablestockCode.equityColumn]));
+                }
+                set {
+                    this[this.tablestockCode.equityColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public decimal totalDebt {
+                get {
+                    return ((decimal)(this[this.tablestockCode.totalDebtColumn]));
+                }
+                set {
+                    this[this.tablestockCode.totalDebtColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public decimal totaAssets {
+                get {
+                    return ((decimal)(this[this.tablestockCode.totaAssetsColumn]));
+                }
+                set {
+                    this[this.tablestockCode.totaAssetsColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public decimal PB {
+                get {
+                    return ((decimal)(this[this.tablestockCode.PBColumn]));
+                }
+                set {
+                    this[this.tablestockCode.PBColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public decimal EPS {
+                get {
+                    return ((decimal)(this[this.tablestockCode.EPSColumn]));
+                }
+                set {
+                    this[this.tablestockCode.EPSColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public decimal PE {
+                get {
+                    return ((decimal)(this[this.tablestockCode.PEColumn]));
+                }
+                set {
+                    this[this.tablestockCode.PEColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public decimal ROA {
+                get {
+                    return ((decimal)(this[this.tablestockCode.ROAColumn]));
+                }
+                set {
+                    this[this.tablestockCode.ROAColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public decimal ROE {
+                get {
+                    return ((decimal)(this[this.tablestockCode.ROEColumn]));
+                }
+                set {
+                    this[this.tablestockCode.ROEColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public decimal BETA {
+                get {
+                    return ((decimal)(this[this.tablestockCode.BETAColumn]));
+                }
+                set {
+                    this[this.tablestockCode.BETAColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public byte status {
+                get {
+                    return ((byte)(this[this.tablestockCode.statusColumn]));
+                }
+                set {
+                    this[this.tablestockCode.statusColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsnameEnNull() {
+                return this.IsNull(this.tablestockCode.nameEnColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetnameEnNull() {
+                this[this.tablestockCode.nameEnColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool Isaddress2Null() {
+                return this.IsNull(this.tablestockCode.address2Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void Setaddress2Null() {
+                this[this.tablestockCode.address2Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsemailNull() {
+                return this.IsNull(this.tablestockCode.emailColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetemailNull() {
+                this[this.tablestockCode.emailColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -14778,241 +14191,6 @@ namespace data {
         ///Represents strongly named DataRow class.
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
-        public partial class stockCodeExtRow : global::System.Data.DataRow {
-            
-            private stockCodeExtDataTable tablestockCodeExt;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            internal stockCodeExtRow(global::System.Data.DataRowBuilder rb) : 
-                    base(rb) {
-                this.tablestockCodeExt = ((stockCodeExtDataTable)(this.Table));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public string code {
-                get {
-                    return ((string)(this[this.tablestockCodeExt.codeColumn]));
-                }
-                set {
-                    this[this.tablestockCodeExt.codeColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public string stockExchange {
-                get {
-                    return ((string)(this[this.tablestockCodeExt.stockExchangeColumn]));
-                }
-                set {
-                    this[this.tablestockCodeExt.stockExchangeColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public string tickerCode {
-                get {
-                    return ((string)(this[this.tablestockCodeExt.tickerCodeColumn]));
-                }
-                set {
-                    this[this.tablestockCodeExt.tickerCodeColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public string comCode {
-                get {
-                    return ((string)(this[this.tablestockCodeExt.comCodeColumn]));
-                }
-                set {
-                    this[this.tablestockCodeExt.comCodeColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public System.DateTime regDate {
-                get {
-                    return ((global::System.DateTime)(this[this.tablestockCodeExt.regDateColumn]));
-                }
-                set {
-                    this[this.tablestockCodeExt.regDateColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public int noShares {
-                get {
-                    return ((int)(this[this.tablestockCodeExt.noSharesColumn]));
-                }
-                set {
-                    this[this.tablestockCodeExt.noSharesColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public int noOpenShares {
-                get {
-                    return ((int)(this[this.tablestockCodeExt.noOpenSharesColumn]));
-                }
-                set {
-                    this[this.tablestockCodeExt.noOpenSharesColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public int noForeignOwnShares {
-                get {
-                    return ((int)(this[this.tablestockCodeExt.noForeignOwnSharesColumn]));
-                }
-                set {
-                    this[this.tablestockCodeExt.noForeignOwnSharesColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public byte status {
-                get {
-                    return ((byte)(this[this.tablestockCodeExt.statusColumn]));
-                }
-                set {
-                    this[this.tablestockCodeExt.statusColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public decimal targetPrice {
-                get {
-                    return ((decimal)(this[this.tablestockCodeExt.targetPriceColumn]));
-                }
-                set {
-                    this[this.tablestockCodeExt.targetPriceColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public decimal targetPriceVariant {
-                get {
-                    return ((decimal)(this[this.tablestockCodeExt.targetPriceVariantColumn]));
-                }
-                set {
-                    this[this.tablestockCodeExt.targetPriceVariantColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public string name {
-                get {
-                    return ((string)(this[this.tablestockCodeExt.nameColumn]));
-                }
-                set {
-                    this[this.tablestockCodeExt.nameColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public string nameEn {
-                get {
-                    try {
-                        return ((string)(this[this.tablestockCodeExt.nameEnColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'nameEn\' in table \'stockCodeExt\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablestockCodeExt.nameEnColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public string address1 {
-                get {
-                    return ((string)(this[this.tablestockCodeExt.address1Column]));
-                }
-                set {
-                    this[this.tablestockCodeExt.address1Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public string address2 {
-                get {
-                    try {
-                        return ((string)(this[this.tablestockCodeExt.address2Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'address2\' in table \'stockCodeExt\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablestockCodeExt.address2Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public string bizSectors {
-                get {
-                    return ((string)(this[this.tablestockCodeExt.bizSectorsColumn]));
-                }
-                set {
-                    this[this.tablestockCodeExt.bizSectorsColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public decimal capital {
-                get {
-                    return ((decimal)(this[this.tablestockCodeExt.capitalColumn]));
-                }
-                set {
-                    this[this.tablestockCodeExt.capitalColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public string capitalUnit {
-                get {
-                    return ((string)(this[this.tablestockCodeExt.capitalUnitColumn]));
-                }
-                set {
-                    this[this.tablestockCodeExt.capitalUnitColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public int employees {
-                get {
-                    return ((int)(this[this.tablestockCodeExt.employeesColumn]));
-                }
-                set {
-                    this[this.tablestockCodeExt.employeesColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public bool IsnameEnNull() {
-                return this.IsNull(this.tablestockCodeExt.nameEnColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public void SetnameEnNull() {
-                this[this.tablestockCodeExt.nameEnColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public bool Isaddress2Null() {
-                return this.IsNull(this.tablestockCodeExt.address2Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public void Setaddress2Null() {
-                this[this.tablestockCodeExt.address2Column] = global::System.Convert.DBNull;
-            }
-        }
-        
-        /// <summary>
-        ///Represents strongly named DataRow class.
-        ///</summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
         public partial class bizIndustryRow : global::System.Data.DataRow {
             
             private bizIndustryDataTable tablebizIndustry;
@@ -15549,9 +14727,9 @@ namespace data {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public byte timeScale {
+            public string timeScale {
                 get {
-                    return ((byte)(this[this.tabletradeAlert.timeScaleColumn]));
+                    return ((string)(this[this.tabletradeAlert.timeScaleColumn]));
                 }
                 set {
                     this[this.tabletradeAlert.timeScaleColumn] = value;
@@ -15614,22 +14792,22 @@ namespace data {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public byte type {
-                get {
-                    return ((byte)(this[this.tablepriceDataSum.typeColumn]));
-                }
-                set {
-                    this[this.tablepriceDataSum.typeColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public System.DateTime onDate {
                 get {
                     return ((global::System.DateTime)(this[this.tablepriceDataSum.onDateColumn]));
                 }
                 set {
                     this[this.tablepriceDataSum.onDateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string type {
+                get {
+                    return ((string)(this[this.tablepriceDataSum.typeColumn]));
+                }
+                set {
+                    this[this.tablepriceDataSum.typeColumn] = value;
                 }
             }
             
@@ -15828,37 +15006,6 @@ namespace data {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
-        public class companyRowChangeEvent : global::System.EventArgs {
-            
-            private companyRow eventRow;
-            
-            private global::System.Data.DataRowAction eventAction;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public companyRowChangeEvent(companyRow row, global::System.Data.DataRowAction action) {
-                this.eventRow = row;
-                this.eventAction = action;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public companyRow Row {
-                get {
-                    return this.eventRow;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataRowAction Action {
-                get {
-                    return this.eventAction;
-                }
-            }
-        }
-        
-        /// <summary>
-        ///Row event argument class
-        ///</summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
         public class sysLogRowChangeEvent : global::System.EventArgs {
             
             private sysLogRow eventRow;
@@ -15890,20 +15037,20 @@ namespace data {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
-        public class companyReportRowChangeEvent : global::System.EventArgs {
+        public class stockReportRowChangeEvent : global::System.EventArgs {
             
-            private companyReportRow eventRow;
+            private stockReportRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public companyReportRowChangeEvent(companyReportRow row, global::System.Data.DataRowAction action) {
+            public stockReportRowChangeEvent(stockReportRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public companyReportRow Row {
+            public stockReportRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -16045,20 +15192,20 @@ namespace data {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
-        public class investorTransHistoryRowChangeEvent : global::System.EventArgs {
+        public class transactionsRowChangeEvent : global::System.EventArgs {
             
-            private investorTransHistoryRow eventRow;
+            private transactionsRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public investorTransHistoryRowChangeEvent(investorTransHistoryRow row, global::System.Data.DataRowAction action) {
+            public transactionsRowChangeEvent(transactionsRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public investorTransHistoryRow Row {
+            public transactionsRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -16603,37 +15750,6 @@ namespace data {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
-        public class stockCodeExtRowChangeEvent : global::System.EventArgs {
-            
-            private stockCodeExtRow eventRow;
-            
-            private global::System.Data.DataRowAction eventAction;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public stockCodeExtRowChangeEvent(stockCodeExtRow row, global::System.Data.DataRowAction action) {
-                this.eventRow = row;
-                this.eventAction = action;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public stockCodeExtRow Row {
-                get {
-                    return this.eventRow;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataRowAction Action {
-                get {
-                    return this.eventAction;
-                }
-            }
-        }
-        
-        /// <summary>
-        ///Row event argument class
-        ///</summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
         public class bizIndustryRowChangeEvent : global::System.EventArgs {
             
             private bizIndustryRow eventRow;
@@ -16881,338 +15997,6 @@ namespace data {
 }
 namespace data.baseDSTableAdapters {
     
-    
-    /// <summary>
-    ///Represents the connection and commands used to retrieve and save data.
-    ///</summary>
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
-    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
-    [global::System.ComponentModel.ToolboxItem(true)]
-    [global::System.ComponentModel.DataObjectAttribute(true)]
-    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
-        ", Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
-    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class companyTA : global::System.ComponentModel.Component {
-        
-        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
-        
-        private global::System.Data.SqlClient.SqlConnection _connection;
-        
-        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
-        
-        private bool _clearBeforeFill;
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        public companyTA() {
-            this.ClearBeforeFill = true;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        private global::System.Data.SqlClient.SqlDataAdapter Adapter {
-            get {
-                if ((this._adapter == null)) {
-                    this.InitAdapter();
-                }
-                return this._adapter;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        internal global::System.Data.SqlClient.SqlConnection Connection {
-            get {
-                if ((this._connection == null)) {
-                    this.InitConnection();
-                }
-                return this._connection;
-            }
-            set {
-                this._connection = value;
-                if ((this.Adapter.InsertCommand != null)) {
-                    this.Adapter.InsertCommand.Connection = value;
-                }
-                if ((this.Adapter.DeleteCommand != null)) {
-                    this.Adapter.DeleteCommand.Connection = value;
-                }
-                if ((this.Adapter.UpdateCommand != null)) {
-                    this.Adapter.UpdateCommand.Connection = value;
-                }
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    if ((this.CommandCollection[i] != null)) {
-                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
-                    }
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
-            get {
-                if ((this._commandCollection == null)) {
-                    this.InitCommandCollection();
-                }
-                return this._commandCollection;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        public bool ClearBeforeFill {
-            get {
-                return this._clearBeforeFill;
-            }
-            set {
-                this._clearBeforeFill = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        private void InitAdapter() {
-            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
-            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
-            tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "company";
-            tableMapping.ColumnMappings.Add("code", "code");
-            tableMapping.ColumnMappings.Add("capital", "capital");
-            tableMapping.ColumnMappings.Add("name", "name");
-            tableMapping.ColumnMappings.Add("nameEn", "nameEn");
-            tableMapping.ColumnMappings.Add("address1", "address1");
-            tableMapping.ColumnMappings.Add("address2", "address2");
-            tableMapping.ColumnMappings.Add("estDate", "estDate");
-            tableMapping.ColumnMappings.Add("phone", "phone");
-            tableMapping.ColumnMappings.Add("fax", "fax");
-            tableMapping.ColumnMappings.Add("email", "email");
-            tableMapping.ColumnMappings.Add("website", "website");
-            tableMapping.ColumnMappings.Add("bizSectors", "bizSectors");
-            tableMapping.ColumnMappings.Add("country", "country");
-            tableMapping.ColumnMappings.Add("capitalUnit", "capitalUnit");
-            tableMapping.ColumnMappings.Add("employees", "employees");
-            this._adapter.TableMappings.Add(tableMapping);
-            this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [company] WHERE (([code] = @Original_code) AND ([name] = @Original_name) AND ((@IsNull_nameEn = 1 AND [nameEn] IS NULL) OR ([nameEn] = @Original_nameEn)) AND ([address1] = @Original_address1) AND ((@IsNull_address2 = 1 AND [address2] IS NULL) OR ([address2] = @Original_address2)) AND ([estDate] = @Original_estDate) AND ((@IsNull_phone = 1 AND [phone] IS NULL) OR ([phone] = @Original_phone)) AND ((@IsNull_fax = 1 AND [fax] IS NULL) OR ([fax] = @Original_fax)) AND ([email] = @Original_email) AND ((@IsNull_website = 1 AND [website] IS NULL) OR ([website] = @Original_website)) AND ([bizSectors] = @Original_bizSectors) AND ([country] = @Original_country) AND ([capital] = @Original_capital) AND ([capitalUnit] = @Original_capitalUnit) AND ([employees] = @Original_employees))";
-            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_code", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "code", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "name", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_nameEn", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "nameEn", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_nameEn", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "nameEn", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_address1", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "address1", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_address2", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "address2", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_address2", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "address2", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_estDate", global::System.Data.SqlDbType.SmallDateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "estDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_phone", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "phone", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_phone", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "phone", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_fax", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "fax", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_fax", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "fax", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_email", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "email", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_website", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "website", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_website", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "website", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_bizSectors", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "bizSectors", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_country", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "country", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_capital", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 12, 2, "capital", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_capitalUnit", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "capitalUnit", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_employees", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "employees", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [company] ([code], [name], [nameEn], [address1], [address2], [estDate], [phone], [fax], [email], [website], [bizSectors], [country], [capital], [capitalUnit], [employees]) VALUES (@code, @name, @nameEn, @address1, @address2, @estDate, @phone, @fax, @email, @website, @bizSectors, @country, @capital, @capitalUnit, @employees);
-SELECT code, name, nameEn, address1, address2, estDate, phone, fax, email, website, bizSectors, country, capital, capitalUnit, employees FROM company WHERE (code = @code)";
-            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@code", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "code", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@nameEn", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "nameEn", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@address1", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "address1", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@address2", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "address2", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@estDate", global::System.Data.SqlDbType.SmallDateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "estDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@phone", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "phone", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fax", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "fax", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@email", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "email", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@website", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "website", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@bizSectors", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "bizSectors", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@country", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "country", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@capital", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 12, 2, "capital", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@capitalUnit", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "capitalUnit", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@employees", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "employees", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [company] SET [code] = @code, [name] = @name, [nameEn] = @nameEn, [address1] = @address1, [address2] = @address2, [estDate] = @estDate, [phone] = @phone, [fax] = @fax, [email] = @email, [website] = @website, [bizSectors] = @bizSectors, [country] = @country, [capital] = @capital, [capitalUnit] = @capitalUnit, [employees] = @employees WHERE (([code] = @Original_code) AND ([name] = @Original_name) AND ((@IsNull_nameEn = 1 AND [nameEn] IS NULL) OR ([nameEn] = @Original_nameEn)) AND ([address1] = @Original_address1) AND ((@IsNull_address2 = 1 AND [address2] IS NULL) OR ([address2] = @Original_address2)) AND ([estDate] = @Original_estDate) AND ((@IsNull_phone = 1 AND [phone] IS NULL) OR ([phone] = @Original_phone)) AND ((@IsNull_fax = 1 AND [fax] IS NULL) OR ([fax] = @Original_fax)) AND ([email] = @Original_email) AND ((@IsNull_website = 1 AND [website] IS NULL) OR ([website] = @Original_website)) AND ([bizSectors] = @Original_bizSectors) AND ([country] = @Original_country) AND ([capital] = @Original_capital) AND ([capitalUnit] = @Original_capitalUnit) AND ([employees] = @Original_employees));
-SELECT code, name, nameEn, address1, address2, estDate, phone, fax, email, website, bizSectors, country, capital, capitalUnit, employees FROM company WHERE (code = @code)";
-            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@code", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "code", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@nameEn", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "nameEn", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@address1", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "address1", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@address2", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "address2", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@estDate", global::System.Data.SqlDbType.SmallDateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "estDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@phone", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "phone", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fax", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "fax", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@email", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "email", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@website", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "website", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@bizSectors", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "bizSectors", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@country", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "country", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@capital", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 12, 2, "capital", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@capitalUnit", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "capitalUnit", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@employees", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "employees", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_code", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "code", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "name", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_nameEn", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "nameEn", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_nameEn", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "nameEn", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_address1", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "address1", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_address2", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "address2", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_address2", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "address2", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_estDate", global::System.Data.SqlDbType.SmallDateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "estDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_phone", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "phone", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_phone", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "phone", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_fax", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "fax", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_fax", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "fax", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_email", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "email", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_website", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "website", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_website", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "website", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_bizSectors", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "bizSectors", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_country", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "country", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_capital", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 12, 2, "capital", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_capitalUnit", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "capitalUnit", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_employees", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "employees", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        private void InitConnection() {
-            this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::data.Properties.Settings.Default.dbConnectionString;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[3];
-            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT *  FROM company";
-            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT * FROM company WHERE (code = @code)";
-            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@code", global::System.Data.SqlDbType.NVarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "code", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = "SELECT *  FROM company WHERE (code IN (SELECT DISTINCT comCode FROM stockCode WHE" +
-                "RE (code = @stockCode)))";
-            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@stockCode", global::System.Data.SqlDbType.NVarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "code", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(baseDS.companyDataTable dataTable) {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual baseDS.companyDataTable GetData() {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            baseDS.companyDataTable dataTable = new baseDS.companyDataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillByCode(baseDS.companyDataTable dataTable, string code) {
-            this.Adapter.SelectCommand = this.CommandCollection[1];
-            if ((code == null)) {
-                throw new global::System.ArgumentNullException("code");
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(code));
-            }
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual baseDS.companyDataTable GetByCode(string code) {
-            this.Adapter.SelectCommand = this.CommandCollection[1];
-            if ((code == null)) {
-                throw new global::System.ArgumentNullException("code");
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(code));
-            }
-            baseDS.companyDataTable dataTable = new baseDS.companyDataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillByStockCode(baseDS.companyDataTable dataTable, string stockCode) {
-            this.Adapter.SelectCommand = this.CommandCollection[2];
-            if ((stockCode == null)) {
-                throw new global::System.ArgumentNullException("stockCode");
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(stockCode));
-            }
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual baseDS.companyDataTable GetByStockCode(string stockCode) {
-            this.Adapter.SelectCommand = this.CommandCollection[2];
-            if ((stockCode == null)) {
-                throw new global::System.ArgumentNullException("stockCode");
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(stockCode));
-            }
-            baseDS.companyDataTable dataTable = new baseDS.companyDataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(baseDS.companyDataTable dataTable) {
-            return this.Adapter.Update(dataTable);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(baseDS dataSet) {
-            return this.Adapter.Update(dataSet, "company");
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow dataRow) {
-            return this.Adapter.Update(new global::System.Data.DataRow[] {
-                        dataRow});
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow[] dataRows) {
-            return this.Adapter.Update(dataRows);
-        }
-    }
     
     /// <summary>
     ///Represents the connection and commands used to retrieve and save data.
@@ -17604,7 +16388,7 @@ SELECT id, type, onDate, message, tag1, tag2 FROM sysLog WHERE (id = @id)";
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class companyReportTA : global::System.ComponentModel.Component {
+    public partial class stockReportTA : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -17615,7 +16399,7 @@ SELECT id, type, onDate, message, tag1, tag2 FROM sysLog WHERE (id = @id)";
         private bool _clearBeforeFill;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        public companyReportTA() {
+        public stockReportTA() {
             this.ClearBeforeFill = true;
         }
         
@@ -17681,9 +16465,9 @@ SELECT id, type, onDate, message, tag1, tag2 FROM sysLog WHERE (id = @id)";
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "companyReport";
+            tableMapping.DataSetTable = "stockReport";
             tableMapping.ColumnMappings.Add("reportType", "reportType");
-            tableMapping.ColumnMappings.Add("companyCode", "companyCode");
+            tableMapping.ColumnMappings.Add("stockCode", "stockCode");
             tableMapping.ColumnMappings.Add("onDate", "onDate");
             tableMapping.ColumnMappings.Add("reportCode", "reportCode");
             tableMapping.ColumnMappings.Add("currency", "currency");
@@ -17694,10 +16478,10 @@ SELECT id, type, onDate, message, tag1, tag2 FROM sysLog WHERE (id = @id)";
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [companyReport] WHERE (([reportType] = @Original_reportType) AND ([companyCode] = @Original_companyCode) AND ([onDate] = @Original_onDate) AND ([reportCode] = @Original_reportCode) AND ([currency] = @Original_currency) AND ([val0] = @Original_val0) AND ([val1] = @Original_val1) AND ([val2] = @Original_val2) AND ([val3] = @Original_val3))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [stockReport] WHERE (([reportType] = @Original_reportType) AND ([stockCode] = @Original_stockCode) AND ([onDate] = @Original_onDate) AND ([reportCode] = @Original_reportCode) AND ([currency] = @Original_currency) AND ([val0] = @Original_val0) AND ([val1] = @Original_val1) AND ([val2] = @Original_val2) AND ([val3] = @Original_val3))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_reportType", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "reportType", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_companyCode", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "companyCode", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_stockCode", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "stockCode", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_onDate", global::System.Data.SqlDbType.SmallDateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "onDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_reportCode", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "reportCode", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_currency", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "currency", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -17707,11 +16491,11 @@ SELECT id, type, onDate, message, tag1, tag2 FROM sysLog WHERE (id = @id)";
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_val3", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "val3", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [companyReport] ([reportType], [companyCode], [onDate], [reportCode], [currency], [val0], [val1], [val2], [val3]) VALUES (@reportType, @companyCode, @onDate, @reportCode, @currency, @val0, @val1, @val2, @val3);
-SELECT reportType, companyCode, onDate, reportCode, currency, val0, val1, val2, val3 FROM companyReport WHERE (companyCode = @companyCode) AND (currency = @currency) AND (onDate = @onDate) AND (reportCode = @reportCode) AND (reportType = @reportType)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [stockReport] ([reportType], [stockCode], [onDate], [reportCode], [currency], [val0], [val1], [val2], [val3]) VALUES (@reportType, @stockCode, @onDate, @reportCode, @currency, @val0, @val1, @val2, @val3);
+SELECT reportType, stockCode, onDate, reportCode, currency, val0, val1, val2, val3 FROM stockReport WHERE (currency = @currency) AND (onDate = @onDate) AND (reportCode = @reportCode) AND (reportType = @reportType) AND (stockCode = @stockCode)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@reportType", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "reportType", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@companyCode", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "companyCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@stockCode", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "stockCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@onDate", global::System.Data.SqlDbType.SmallDateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "onDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@reportCode", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "reportCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@currency", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "currency", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -17721,11 +16505,11 @@ SELECT reportType, companyCode, onDate, reportCode, currency, val0, val1, val2, 
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@val3", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "val3", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [companyReport] SET [reportType] = @reportType, [companyCode] = @companyCode, [onDate] = @onDate, [reportCode] = @reportCode, [currency] = @currency, [val0] = @val0, [val1] = @val1, [val2] = @val2, [val3] = @val3 WHERE (([reportType] = @Original_reportType) AND ([companyCode] = @Original_companyCode) AND ([onDate] = @Original_onDate) AND ([reportCode] = @Original_reportCode) AND ([currency] = @Original_currency) AND ([val0] = @Original_val0) AND ([val1] = @Original_val1) AND ([val2] = @Original_val2) AND ([val3] = @Original_val3));
-SELECT reportType, companyCode, onDate, reportCode, currency, val0, val1, val2, val3 FROM companyReport WHERE (companyCode = @companyCode) AND (currency = @currency) AND (onDate = @onDate) AND (reportCode = @reportCode) AND (reportType = @reportType)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [stockReport] SET [reportType] = @reportType, [stockCode] = @stockCode, [onDate] = @onDate, [reportCode] = @reportCode, [currency] = @currency, [val0] = @val0, [val1] = @val1, [val2] = @val2, [val3] = @val3 WHERE (([reportType] = @Original_reportType) AND ([stockCode] = @Original_stockCode) AND ([onDate] = @Original_onDate) AND ([reportCode] = @Original_reportCode) AND ([currency] = @Original_currency) AND ([val0] = @Original_val0) AND ([val1] = @Original_val1) AND ([val2] = @Original_val2) AND ([val3] = @Original_val3));
+SELECT reportType, stockCode, onDate, reportCode, currency, val0, val1, val2, val3 FROM stockReport WHERE (currency = @currency) AND (onDate = @onDate) AND (reportCode = @reportCode) AND (reportType = @reportType) AND (stockCode = @stockCode)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@reportType", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "reportType", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@companyCode", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "companyCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@stockCode", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "stockCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@onDate", global::System.Data.SqlDbType.SmallDateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "onDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@reportCode", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "reportCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@currency", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "currency", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -17734,7 +16518,7 @@ SELECT reportType, companyCode, onDate, reportCode, currency, val0, val1, val2, 
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@val2", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "val2", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@val3", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "val3", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_reportType", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "reportType", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_companyCode", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "companyCode", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_stockCode", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "stockCode", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_onDate", global::System.Data.SqlDbType.SmallDateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "onDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_reportCode", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "reportCode", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_currency", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "currency", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -17755,14 +16539,14 @@ SELECT reportType, companyCode, onDate, reportCode, currency, val0, val1, val2, 
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT *  FROM companyReport";
+            this._commandCollection[0].CommandText = "SELECT *  FROM stockReport";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(baseDS.companyReportDataTable dataTable) {
+        public virtual int Fill(baseDS.stockReportDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -17774,23 +16558,23 @@ SELECT reportType, companyCode, onDate, reportCode, currency, val0, val1, val2, 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual baseDS.companyReportDataTable GetData() {
+        public virtual baseDS.stockReportDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            baseDS.companyReportDataTable dataTable = new baseDS.companyReportDataTable();
+            baseDS.stockReportDataTable dataTable = new baseDS.stockReportDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(baseDS.companyReportDataTable dataTable) {
+        public virtual int Update(baseDS.stockReportDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         public virtual int Update(baseDS dataSet) {
-            return this.Adapter.Update(dataSet, "companyReport");
+            return this.Adapter.Update(dataSet, "stockReport");
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -17804,6 +16588,207 @@ SELECT reportType, companyCode, onDate, reportCode, currency, val0, val1, val2, 
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         public virtual int Update(global::System.Data.DataRow[] dataRows) {
             return this.Adapter.Update(dataRows);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
+        public virtual int Delete(string Original_reportType, string Original_stockCode, System.DateTime Original_onDate, string Original_reportCode, string Original_currency, decimal Original_val0, decimal Original_val1, decimal Original_val2, decimal Original_val3) {
+            if ((Original_reportType == null)) {
+                throw new global::System.ArgumentNullException("Original_reportType");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[0].Value = ((string)(Original_reportType));
+            }
+            if ((Original_stockCode == null)) {
+                throw new global::System.ArgumentNullException("Original_stockCode");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(Original_stockCode));
+            }
+            this.Adapter.DeleteCommand.Parameters[2].Value = ((System.DateTime)(Original_onDate));
+            if ((Original_reportCode == null)) {
+                throw new global::System.ArgumentNullException("Original_reportCode");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((string)(Original_reportCode));
+            }
+            if ((Original_currency == null)) {
+                throw new global::System.ArgumentNullException("Original_currency");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(Original_currency));
+            }
+            this.Adapter.DeleteCommand.Parameters[5].Value = ((decimal)(Original_val0));
+            this.Adapter.DeleteCommand.Parameters[6].Value = ((decimal)(Original_val1));
+            this.Adapter.DeleteCommand.Parameters[7].Value = ((decimal)(Original_val2));
+            this.Adapter.DeleteCommand.Parameters[8].Value = ((decimal)(Original_val3));
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
+            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.DeleteCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.DeleteCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
+        public virtual int Insert(string reportType, string stockCode, System.DateTime onDate, string reportCode, string currency, decimal val0, decimal val1, decimal val2, decimal val3) {
+            if ((reportType == null)) {
+                throw new global::System.ArgumentNullException("reportType");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(reportType));
+            }
+            if ((stockCode == null)) {
+                throw new global::System.ArgumentNullException("stockCode");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(stockCode));
+            }
+            this.Adapter.InsertCommand.Parameters[2].Value = ((System.DateTime)(onDate));
+            if ((reportCode == null)) {
+                throw new global::System.ArgumentNullException("reportCode");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(reportCode));
+            }
+            if ((currency == null)) {
+                throw new global::System.ArgumentNullException("currency");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(currency));
+            }
+            this.Adapter.InsertCommand.Parameters[5].Value = ((decimal)(val0));
+            this.Adapter.InsertCommand.Parameters[6].Value = ((decimal)(val1));
+            this.Adapter.InsertCommand.Parameters[7].Value = ((decimal)(val2));
+            this.Adapter.InsertCommand.Parameters[8].Value = ((decimal)(val3));
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
+            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.InsertCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.InsertCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(
+                    string reportType, 
+                    string stockCode, 
+                    System.DateTime onDate, 
+                    string reportCode, 
+                    string currency, 
+                    decimal val0, 
+                    decimal val1, 
+                    decimal val2, 
+                    decimal val3, 
+                    string Original_reportType, 
+                    string Original_stockCode, 
+                    System.DateTime Original_onDate, 
+                    string Original_reportCode, 
+                    string Original_currency, 
+                    decimal Original_val0, 
+                    decimal Original_val1, 
+                    decimal Original_val2, 
+                    decimal Original_val3) {
+            if ((reportType == null)) {
+                throw new global::System.ArgumentNullException("reportType");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(reportType));
+            }
+            if ((stockCode == null)) {
+                throw new global::System.ArgumentNullException("stockCode");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(stockCode));
+            }
+            this.Adapter.UpdateCommand.Parameters[2].Value = ((System.DateTime)(onDate));
+            if ((reportCode == null)) {
+                throw new global::System.ArgumentNullException("reportCode");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(reportCode));
+            }
+            if ((currency == null)) {
+                throw new global::System.ArgumentNullException("currency");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(currency));
+            }
+            this.Adapter.UpdateCommand.Parameters[5].Value = ((decimal)(val0));
+            this.Adapter.UpdateCommand.Parameters[6].Value = ((decimal)(val1));
+            this.Adapter.UpdateCommand.Parameters[7].Value = ((decimal)(val2));
+            this.Adapter.UpdateCommand.Parameters[8].Value = ((decimal)(val3));
+            if ((Original_reportType == null)) {
+                throw new global::System.ArgumentNullException("Original_reportType");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(Original_reportType));
+            }
+            if ((Original_stockCode == null)) {
+                throw new global::System.ArgumentNullException("Original_stockCode");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(Original_stockCode));
+            }
+            this.Adapter.UpdateCommand.Parameters[11].Value = ((System.DateTime)(Original_onDate));
+            if ((Original_reportCode == null)) {
+                throw new global::System.ArgumentNullException("Original_reportCode");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(Original_reportCode));
+            }
+            if ((Original_currency == null)) {
+                throw new global::System.ArgumentNullException("Original_currency");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(Original_currency));
+            }
+            this.Adapter.UpdateCommand.Parameters[14].Value = ((decimal)(Original_val0));
+            this.Adapter.UpdateCommand.Parameters[15].Value = ((decimal)(Original_val1));
+            this.Adapter.UpdateCommand.Parameters[16].Value = ((decimal)(Original_val2));
+            this.Adapter.UpdateCommand.Parameters[17].Value = ((decimal)(Original_val3));
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
+            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.UpdateCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.UpdateCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(decimal val0, decimal val1, decimal val2, decimal val3, string Original_reportType, string Original_stockCode, System.DateTime Original_onDate, string Original_reportCode, string Original_currency, decimal Original_val0, decimal Original_val1, decimal Original_val2, decimal Original_val3) {
+            return this.Update(Original_reportType, Original_stockCode, Original_onDate, Original_reportCode, Original_currency, val0, val1, val2, val3, Original_reportType, Original_stockCode, Original_onDate, Original_reportCode, Original_currency, Original_val0, Original_val1, Original_val2, Original_val3);
         }
     }
     
@@ -19712,7 +18697,7 @@ SELECT stockCode, portfolio, buyDate, qty, buyAmt FROM investorStock WHERE (buyD
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class investorTransHistoryTA : global::System.ComponentModel.Component {
+    public partial class transactionsTA : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -19723,7 +18708,7 @@ SELECT stockCode, portfolio, buyDate, qty, buyAmt FROM investorStock WHERE (buyD
         private bool _clearBeforeFill;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        public investorTransHistoryTA() {
+        public transactionsTA() {
             this.ClearBeforeFill = true;
         }
         
@@ -19789,7 +18774,7 @@ SELECT stockCode, portfolio, buyDate, qty, buyAmt FROM investorStock WHERE (buyD
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "investorTransHistory";
+            tableMapping.DataSetTable = "transactions";
             tableMapping.ColumnMappings.Add("id", "id");
             tableMapping.ColumnMappings.Add("onTime", "onTime");
             tableMapping.ColumnMappings.Add("tranType", "tranType");
@@ -19802,7 +18787,7 @@ SELECT stockCode, portfolio, buyDate, qty, buyAmt FROM investorStock WHERE (buyD
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [investorTransHistory] WHERE (([id] = @Original_id) AND ([onTime] = @Original_onTime) AND ([tranType] = @Original_tranType) AND ([portfolio] = @Original_portfolio) AND ([stockCode] = @Original_stockCode) AND ([qty] = @Original_qty) AND ([amt] = @Original_amt) AND ([feeAmt] = @Original_feeAmt) AND ([status] = @Original_status))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [transactions] WHERE (([id] = @Original_id) AND ([onTime] = @Original_onTime) AND ([tranType] = @Original_tranType) AND ([portfolio] = @Original_portfolio) AND ([stockCode] = @Original_stockCode) AND ([qty] = @Original_qty) AND ([amt] = @Original_amt) AND ([feeAmt] = @Original_feeAmt) AND ([status] = @Original_status))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_onTime", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "onTime", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -19815,8 +18800,8 @@ SELECT stockCode, portfolio, buyDate, qty, buyAmt FROM investorStock WHERE (buyD
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_status", global::System.Data.SqlDbType.TinyInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "status", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [investorTransHistory] ([onTime], [tranType], [portfolio], [stockCode], [qty], [amt], [feeAmt], [status]) VALUES (@onTime, @tranType, @portfolio, @stockCode, @qty, @amt, @feeAmt, @status);
-SELECT id, onTime, tranType, portfolio, stockCode, qty, amt, feeAmt, status FROM investorTransHistory WHERE (id = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [transactions] ([onTime], [tranType], [portfolio], [stockCode], [qty], [amt], [feeAmt], [status]) VALUES (@onTime, @tranType, @portfolio, @stockCode, @qty, @amt, @feeAmt, @status);
+SELECT id, onTime, tranType, portfolio, stockCode, qty, amt, feeAmt, status FROM transactions WHERE (id = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@onTime", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "onTime", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@tranType", global::System.Data.SqlDbType.TinyInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "tranType", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -19828,8 +18813,8 @@ SELECT id, onTime, tranType, portfolio, stockCode, qty, amt, feeAmt, status FROM
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@status", global::System.Data.SqlDbType.TinyInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "status", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [investorTransHistory] SET [onTime] = @onTime, [tranType] = @tranType, [portfolio] = @portfolio, [stockCode] = @stockCode, [qty] = @qty, [amt] = @amt, [feeAmt] = @feeAmt, [status] = @status WHERE (([id] = @Original_id) AND ([onTime] = @Original_onTime) AND ([tranType] = @Original_tranType) AND ([portfolio] = @Original_portfolio) AND ([stockCode] = @Original_stockCode) AND ([qty] = @Original_qty) AND ([amt] = @Original_amt) AND ([feeAmt] = @Original_feeAmt) AND ([status] = @Original_status));
-SELECT id, onTime, tranType, portfolio, stockCode, qty, amt, feeAmt, status FROM investorTransHistory WHERE (id = @id)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [transactions] SET [onTime] = @onTime, [tranType] = @tranType, [portfolio] = @portfolio, [stockCode] = @stockCode, [qty] = @qty, [amt] = @amt, [feeAmt] = @feeAmt, [status] = @status WHERE (([id] = @Original_id) AND ([onTime] = @Original_onTime) AND ([tranType] = @Original_tranType) AND ([portfolio] = @Original_portfolio) AND ([stockCode] = @Original_stockCode) AND ([qty] = @Original_qty) AND ([amt] = @Original_amt) AND ([feeAmt] = @Original_feeAmt) AND ([status] = @Original_status));
+SELECT id, onTime, tranType, portfolio, stockCode, qty, amt, feeAmt, status FROM transactions WHERE (id = @id)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@onTime", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "onTime", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@tranType", global::System.Data.SqlDbType.TinyInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "tranType", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -19862,13 +18847,13 @@ SELECT id, onTime, tranType, portfolio, stockCode, qty, amt, feeAmt, status FROM
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT * FROM investorTransHistory WHERE (portfolio = @portfolio)";
+            this._commandCollection[0].CommandText = "SELECT * FROM transactions WHERE (portfolio = @portfolio)";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@portfolio", global::System.Data.SqlDbType.NVarChar, 10, global::System.Data.ParameterDirection.Input, 0, 0, "portfolio", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT *  FROM investorTransHistory WHERE (portfolio = @portfolio) AND (stockCode" +
-                " = @stockCode)";
+            this._commandCollection[1].CommandText = "SELECT *  FROM transactions WHERE (portfolio = @portfolio) AND (stockCode = @stoc" +
+                "kCode)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@portfolio", global::System.Data.SqlDbType.NVarChar, 10, global::System.Data.ParameterDirection.Input, 0, 0, "portfolio", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@stockCode", global::System.Data.SqlDbType.NVarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "stockCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -19877,7 +18862,7 @@ SELECT id, onTime, tranType, portfolio, stockCode, qty, amt, feeAmt, status FROM
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int FillByPortfolio(baseDS.investorTransHistoryDataTable dataTable, string portfolio) {
+        public virtual int FillByPortfolio(baseDS.transactionsDataTable dataTable, string portfolio) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((portfolio == null)) {
                 throw new global::System.ArgumentNullException("portfolio");
@@ -19895,7 +18880,7 @@ SELECT id, onTime, tranType, portfolio, stockCode, qty, amt, feeAmt, status FROM
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual baseDS.investorTransHistoryDataTable GetByPortfolio(string portfolio) {
+        public virtual baseDS.transactionsDataTable GetByPortfolio(string portfolio) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((portfolio == null)) {
                 throw new global::System.ArgumentNullException("portfolio");
@@ -19903,7 +18888,7 @@ SELECT id, onTime, tranType, portfolio, stockCode, qty, amt, feeAmt, status FROM
             else {
                 this.Adapter.SelectCommand.Parameters[0].Value = ((string)(portfolio));
             }
-            baseDS.investorTransHistoryDataTable dataTable = new baseDS.investorTransHistoryDataTable();
+            baseDS.transactionsDataTable dataTable = new baseDS.transactionsDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -19911,7 +18896,7 @@ SELECT id, onTime, tranType, portfolio, stockCode, qty, amt, feeAmt, status FROM
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillByPortfolioStockCode(baseDS.investorTransHistoryDataTable dataTable, string portfolio, string stockCode) {
+        public virtual int FillByPortfolioStockCode(baseDS.transactionsDataTable dataTable, string portfolio, string stockCode) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
             if ((portfolio == null)) {
                 throw new global::System.ArgumentNullException("portfolio");
@@ -19935,7 +18920,7 @@ SELECT id, onTime, tranType, portfolio, stockCode, qty, amt, feeAmt, status FROM
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual baseDS.investorTransHistoryDataTable GetByPortfolioStockCode(string portfolio, string stockCode) {
+        public virtual baseDS.transactionsDataTable GetByPortfolioStockCode(string portfolio, string stockCode) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
             if ((portfolio == null)) {
                 throw new global::System.ArgumentNullException("portfolio");
@@ -19949,21 +18934,21 @@ SELECT id, onTime, tranType, portfolio, stockCode, qty, amt, feeAmt, status FROM
             else {
                 this.Adapter.SelectCommand.Parameters[1].Value = ((string)(stockCode));
             }
-            baseDS.investorTransHistoryDataTable dataTable = new baseDS.investorTransHistoryDataTable();
+            baseDS.transactionsDataTable dataTable = new baseDS.transactionsDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(baseDS.investorTransHistoryDataTable dataTable) {
+        public virtual int Update(baseDS.transactionsDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         public virtual int Update(baseDS dataSet) {
-            return this.Adapter.Update(dataSet, "investorTransHistory");
+            return this.Adapter.Update(dataSet, "transactions");
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -19977,183 +18962,6 @@ SELECT id, onTime, tranType, portfolio, stockCode, qty, amt, feeAmt, status FROM
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         public virtual int Update(global::System.Data.DataRow[] dataRows) {
             return this.Adapter.Update(dataRows);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_id, System.DateTime Original_onTime, byte Original_tranType, string Original_portfolio, string Original_stockCode, decimal Original_qty, decimal Original_amt, decimal Original_feeAmt, byte Original_status) {
-            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_id));
-            this.Adapter.DeleteCommand.Parameters[1].Value = ((System.DateTime)(Original_onTime));
-            this.Adapter.DeleteCommand.Parameters[2].Value = ((byte)(Original_tranType));
-            if ((Original_portfolio == null)) {
-                throw new global::System.ArgumentNullException("Original_portfolio");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((string)(Original_portfolio));
-            }
-            if ((Original_stockCode == null)) {
-                throw new global::System.ArgumentNullException("Original_stockCode");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(Original_stockCode));
-            }
-            this.Adapter.DeleteCommand.Parameters[5].Value = ((decimal)(Original_qty));
-            this.Adapter.DeleteCommand.Parameters[6].Value = ((decimal)(Original_amt));
-            this.Adapter.DeleteCommand.Parameters[7].Value = ((decimal)(Original_feeAmt));
-            this.Adapter.DeleteCommand.Parameters[8].Value = ((byte)(Original_status));
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
-            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.DeleteCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.DeleteCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(System.DateTime onTime, byte tranType, string portfolio, string stockCode, decimal qty, decimal amt, decimal feeAmt, byte status) {
-            this.Adapter.InsertCommand.Parameters[0].Value = ((System.DateTime)(onTime));
-            this.Adapter.InsertCommand.Parameters[1].Value = ((byte)(tranType));
-            if ((portfolio == null)) {
-                throw new global::System.ArgumentNullException("portfolio");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(portfolio));
-            }
-            if ((stockCode == null)) {
-                throw new global::System.ArgumentNullException("stockCode");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(stockCode));
-            }
-            this.Adapter.InsertCommand.Parameters[4].Value = ((decimal)(qty));
-            this.Adapter.InsertCommand.Parameters[5].Value = ((decimal)(amt));
-            this.Adapter.InsertCommand.Parameters[6].Value = ((decimal)(feeAmt));
-            this.Adapter.InsertCommand.Parameters[7].Value = ((byte)(status));
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
-            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.InsertCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.InsertCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(
-                    System.DateTime onTime, 
-                    byte tranType, 
-                    string portfolio, 
-                    string stockCode, 
-                    decimal qty, 
-                    decimal amt, 
-                    decimal feeAmt, 
-                    byte status, 
-                    int Original_id, 
-                    System.DateTime Original_onTime, 
-                    byte Original_tranType, 
-                    string Original_portfolio, 
-                    string Original_stockCode, 
-                    decimal Original_qty, 
-                    decimal Original_amt, 
-                    decimal Original_feeAmt, 
-                    byte Original_status, 
-                    int id) {
-            this.Adapter.UpdateCommand.Parameters[0].Value = ((System.DateTime)(onTime));
-            this.Adapter.UpdateCommand.Parameters[1].Value = ((byte)(tranType));
-            if ((portfolio == null)) {
-                throw new global::System.ArgumentNullException("portfolio");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(portfolio));
-            }
-            if ((stockCode == null)) {
-                throw new global::System.ArgumentNullException("stockCode");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(stockCode));
-            }
-            this.Adapter.UpdateCommand.Parameters[4].Value = ((decimal)(qty));
-            this.Adapter.UpdateCommand.Parameters[5].Value = ((decimal)(amt));
-            this.Adapter.UpdateCommand.Parameters[6].Value = ((decimal)(feeAmt));
-            this.Adapter.UpdateCommand.Parameters[7].Value = ((byte)(status));
-            this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(Original_id));
-            this.Adapter.UpdateCommand.Parameters[9].Value = ((System.DateTime)(Original_onTime));
-            this.Adapter.UpdateCommand.Parameters[10].Value = ((byte)(Original_tranType));
-            if ((Original_portfolio == null)) {
-                throw new global::System.ArgumentNullException("Original_portfolio");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(Original_portfolio));
-            }
-            if ((Original_stockCode == null)) {
-                throw new global::System.ArgumentNullException("Original_stockCode");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(Original_stockCode));
-            }
-            this.Adapter.UpdateCommand.Parameters[13].Value = ((decimal)(Original_qty));
-            this.Adapter.UpdateCommand.Parameters[14].Value = ((decimal)(Original_amt));
-            this.Adapter.UpdateCommand.Parameters[15].Value = ((decimal)(Original_feeAmt));
-            this.Adapter.UpdateCommand.Parameters[16].Value = ((byte)(Original_status));
-            this.Adapter.UpdateCommand.Parameters[17].Value = ((int)(id));
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
-            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.UpdateCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.UpdateCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(
-                    System.DateTime onTime, 
-                    byte tranType, 
-                    string portfolio, 
-                    string stockCode, 
-                    decimal qty, 
-                    decimal amt, 
-                    decimal feeAmt, 
-                    byte status, 
-                    int Original_id, 
-                    System.DateTime Original_onTime, 
-                    byte Original_tranType, 
-                    string Original_portfolio, 
-                    string Original_stockCode, 
-                    decimal Original_qty, 
-                    decimal Original_amt, 
-                    decimal Original_feeAmt, 
-                    byte Original_status) {
-            return this.Update(onTime, tranType, portfolio, stockCode, qty, amt, feeAmt, status, Original_id, Original_onTime, Original_tranType, Original_portfolio, Original_stockCode, Original_qty, Original_amt, Original_feeAmt, Original_status, Original_id);
         }
     }
     
@@ -20310,7 +19118,7 @@ SELECT stockCode, onDate, openPrice, closePrice, lowPrice, highPrice, volume, is
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[5];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[6];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT *  FROM priceData WHERE (onDate BETWEEN @frDate AND @toDate) AND (stockCod" +
@@ -20321,38 +19129,43 @@ SELECT stockCode, onDate, openPrice, closePrice, lowPrice, highPrice, volume, is
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@stockCode", global::System.Data.SqlDbType.NVarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "stockCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT *  FROM priceDataSum WHERE (type = @Type) AND (onDate BETWEEN @frDate AND " +
-                "@toDate) AND (stockCode = @stockCode) ORDER BY onDate";
+            this._commandCollection[1].CommandText = "SELECT *  FROM priceData WHERE  (stockCode = @stockCode) \r\nORDER BY onDate";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Type", global::System.Data.SqlDbType.TinyInt, 1, global::System.Data.ParameterDirection.Input, 0, 0, "type", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@frDate", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "onDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@toDate", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "onDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@stockCode", global::System.Data.SqlDbType.NVarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "stockCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = "SELECT TOP 1 *  FROM priceData WHERE (onDate BETWEEN @frDate AND @toDate) AND (st" +
-                "ockCode = @stockCode)";
+            this._commandCollection[2].CommandText = "SELECT *  FROM priceDataSum WHERE (type = @Type) AND (onDate BETWEEN @frDate AND " +
+                "@toDate) AND (stockCode = @stockCode) ORDER BY onDate";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Type", global::System.Data.SqlDbType.Char, 2, global::System.Data.ParameterDirection.Input, 0, 0, "type", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@frDate", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "onDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@toDate", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "onDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@stockCode", global::System.Data.SqlDbType.NVarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "stockCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[3].Connection = this.Connection;
-            this._commandCollection[3].CommandText = "SELECT COUNT(1) FROM priceData\r\nWHERE (onDate BETWEEN @frDate AND @toDate) AND (s" +
-                "tockCode = @stockCode) \r\n";
+            this._commandCollection[3].CommandText = "SELECT TOP 1 *  FROM priceData WHERE (onDate BETWEEN @frDate AND @toDate) AND (st" +
+                "ockCode = @stockCode)";
             this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@frDate", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "onDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@toDate", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "onDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@stockCode", global::System.Data.SqlDbType.NVarChar, 10, global::System.Data.ParameterDirection.Input, 0, 0, "stockCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@stockCode", global::System.Data.SqlDbType.NVarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "stockCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[4] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[4].Connection = this.Connection;
-            this._commandCollection[4].CommandText = "SELECT COUNT(1) FROM priceDataSum\r\nWHERE  type=@type AND  (onDate BETWEEN @frDate" +
-                " AND @toDate) AND (stockCode = @stockCode) \r\n";
+            this._commandCollection[4].CommandText = "SELECT COUNT(1) FROM priceData\r\nWHERE (onDate BETWEEN @frDate AND @toDate) AND (s" +
+                "tockCode = @stockCode) \r\n";
             this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@type", global::System.Data.SqlDbType.TinyInt, 1, global::System.Data.ParameterDirection.Input, 0, 0, "type", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@frDate", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "onDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@toDate", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "onDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@stockCode", global::System.Data.SqlDbType.NVarChar, 10, global::System.Data.ParameterDirection.Input, 0, 0, "stockCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[5] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[5].Connection = this.Connection;
+            this._commandCollection[5].CommandText = "SELECT COUNT(1) FROM priceDataSum\r\nWHERE  type=@type AND  (onDate BETWEEN @frDate" +
+                " AND @toDate) AND (stockCode = @stockCode) \r\n";
+            this._commandCollection[5].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@type", global::System.Data.SqlDbType.Char, 2, global::System.Data.ParameterDirection.Input, 0, 0, "type", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@frDate", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "onDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@toDate", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "onDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@stockCode", global::System.Data.SqlDbType.NVarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "stockCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -20396,9 +19209,48 @@ SELECT stockCode, onDate, openPrice, closePrice, lowPrice, highPrice, volume, is
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillByTypeDateCode(baseDS.priceDataDataTable dataTable, byte Type, System.DateTime frDate, System.DateTime toDate, string stockCode) {
+        public virtual int FillByCode(baseDS.priceDataDataTable dataTable, string stockCode) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
-            this.Adapter.SelectCommand.Parameters[0].Value = ((byte)(Type));
+            if ((stockCode == null)) {
+                throw new global::System.ArgumentNullException("stockCode");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(stockCode));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual baseDS.priceDataDataTable GetByCode(string stockCode) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((stockCode == null)) {
+                throw new global::System.ArgumentNullException("stockCode");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(stockCode));
+            }
+            baseDS.priceDataDataTable dataTable = new baseDS.priceDataDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByTypeDateCode(baseDS.priceDataDataTable dataTable, string Type, System.DateTime frDate, System.DateTime toDate, string stockCode) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            if ((Type == null)) {
+                throw new global::System.ArgumentNullException("Type");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(Type));
+            }
             this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(frDate));
             this.Adapter.SelectCommand.Parameters[2].Value = ((System.DateTime)(toDate));
             if ((stockCode == null)) {
@@ -20417,9 +19269,14 @@ SELECT stockCode, onDate, openPrice, closePrice, lowPrice, highPrice, volume, is
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual baseDS.priceDataDataTable GetByTypeDateCode(byte Type, System.DateTime frDate, System.DateTime toDate, string stockCode) {
-            this.Adapter.SelectCommand = this.CommandCollection[1];
-            this.Adapter.SelectCommand.Parameters[0].Value = ((byte)(Type));
+        public virtual baseDS.priceDataDataTable GetByTypeDateCode(string Type, System.DateTime frDate, System.DateTime toDate, string stockCode) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            if ((Type == null)) {
+                throw new global::System.ArgumentNullException("Type");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(Type));
+            }
             this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(frDate));
             this.Adapter.SelectCommand.Parameters[2].Value = ((System.DateTime)(toDate));
             if ((stockCode == null)) {
@@ -20437,7 +19294,7 @@ SELECT stockCode, onDate, openPrice, closePrice, lowPrice, highPrice, volume, is
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
         public virtual int FillOneByDateStockCode(baseDS.priceDataDataTable dataTable, System.DateTime frDate, System.DateTime toDate, string stockCode) {
-            this.Adapter.SelectCommand = this.CommandCollection[2];
+            this.Adapter.SelectCommand = this.CommandCollection[3];
             this.Adapter.SelectCommand.Parameters[0].Value = ((System.DateTime)(frDate));
             this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(toDate));
             if ((stockCode == null)) {
@@ -20457,7 +19314,7 @@ SELECT stockCode, onDate, openPrice, closePrice, lowPrice, highPrice, volume, is
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual baseDS.priceDataDataTable GetOneByDateStockCode(System.DateTime frDate, System.DateTime toDate, string stockCode) {
-            this.Adapter.SelectCommand = this.CommandCollection[2];
+            this.Adapter.SelectCommand = this.CommandCollection[3];
             this.Adapter.SelectCommand.Parameters[0].Value = ((System.DateTime)(frDate));
             this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(toDate));
             if ((stockCode == null)) {
@@ -20634,7 +19491,7 @@ SELECT stockCode, onDate, openPrice, closePrice, lowPrice, highPrice, volume, is
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         public virtual object GetTotalRow(System.DateTime frDate, System.DateTime toDate, string stockCode) {
-            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[3];
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[4];
             command.Parameters[0].Value = ((System.DateTime)(frDate));
             command.Parameters[1].Value = ((System.DateTime)(toDate));
             if ((stockCode == null)) {
@@ -20668,9 +19525,14 @@ SELECT stockCode, onDate, openPrice, closePrice, lowPrice, highPrice, volume, is
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual object GetTotalSumRow(byte type, System.DateTime frDate, System.DateTime toDate, string stockCode) {
-            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[4];
-            command.Parameters[0].Value = ((byte)(type));
+        public virtual object GetTotalSumRow(string type, System.DateTime frDate, System.DateTime toDate, string stockCode) {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[5];
+            if ((type == null)) {
+                throw new global::System.ArgumentNullException("type");
+            }
+            else {
+                command.Parameters[0].Value = ((string)(type));
+            }
             command.Parameters[1].Value = ((System.DateTime)(frDate));
             command.Parameters[2].Value = ((System.DateTime)(toDate));
             if ((stockCode == null)) {
@@ -20794,73 +19656,232 @@ SELECT stockCode, onDate, openPrice, closePrice, lowPrice, highPrice, volume, is
             tableMapping.ColumnMappings.Add("code", "code");
             tableMapping.ColumnMappings.Add("stockExchange", "stockExchange");
             tableMapping.ColumnMappings.Add("tickerCode", "tickerCode");
-            tableMapping.ColumnMappings.Add("comCode", "comCode");
+            tableMapping.ColumnMappings.Add("name", "name");
+            tableMapping.ColumnMappings.Add("nameEn", "nameEn");
+            tableMapping.ColumnMappings.Add("address1", "address1");
+            tableMapping.ColumnMappings.Add("address2", "address2");
+            tableMapping.ColumnMappings.Add("phone", "phone");
+            tableMapping.ColumnMappings.Add("fax", "fax");
+            tableMapping.ColumnMappings.Add("website", "website");
+            tableMapping.ColumnMappings.Add("email", "email");
+            tableMapping.ColumnMappings.Add("bizSectors", "bizSectors");
+            tableMapping.ColumnMappings.Add("country", "country");
             tableMapping.ColumnMappings.Add("regDate", "regDate");
-            tableMapping.ColumnMappings.Add("noShares", "noShares");
-            tableMapping.ColumnMappings.Add("noOpenShares", "noOpenShares");
-            tableMapping.ColumnMappings.Add("noForeignOwnShares", "noForeignOwnShares");
-            tableMapping.ColumnMappings.Add("status", "status");
+            tableMapping.ColumnMappings.Add("noListedStock", "noListedStock");
+            tableMapping.ColumnMappings.Add("noOutstandingStock", "noOutstandingStock");
+            tableMapping.ColumnMappings.Add("noForeignOwnedStock", "noForeignOwnedStock");
+            tableMapping.ColumnMappings.Add("noTreasuryStock", "noTreasuryStock");
+            tableMapping.ColumnMappings.Add("bookPrice", "bookPrice");
             tableMapping.ColumnMappings.Add("targetPrice", "targetPrice");
             tableMapping.ColumnMappings.Add("targetPriceVariant", "targetPriceVariant");
+            tableMapping.ColumnMappings.Add("workingCap", "workingCap");
+            tableMapping.ColumnMappings.Add("capitalUnit", "capitalUnit");
+            tableMapping.ColumnMappings.Add("sales", "sales");
+            tableMapping.ColumnMappings.Add("profit", "profit");
+            tableMapping.ColumnMappings.Add("equity", "equity");
+            tableMapping.ColumnMappings.Add("totalDebt", "totalDebt");
+            tableMapping.ColumnMappings.Add("totaAssets", "totaAssets");
+            tableMapping.ColumnMappings.Add("PB", "PB");
+            tableMapping.ColumnMappings.Add("EPS", "EPS");
+            tableMapping.ColumnMappings.Add("PE", "PE");
+            tableMapping.ColumnMappings.Add("ROA", "ROA");
+            tableMapping.ColumnMappings.Add("ROE", "ROE");
+            tableMapping.ColumnMappings.Add("BETA", "BETA");
+            tableMapping.ColumnMappings.Add("status", "status");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [stockCode] WHERE (([code] = @Original_code) AND ([stockExchange] = @Original_stockExchange) AND ([tickerCode] = @Original_tickerCode) AND ([comCode] = @Original_comCode) AND ([regDate] = @Original_regDate) AND ([noShares] = @Original_noShares) AND ([noOpenShares] = @Original_noOpenShares) AND ([noForeignOwnShares] = @Original_noForeignOwnShares) AND ([status] = @Original_status) AND ([targetPrice] = @Original_targetPrice) AND ([targetPriceVariant] = @Original_targetPriceVariant))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [stockCode] WHERE (([code] = @Original_code) AND ([stockExchange] = @Original_stockExchange) AND ([tickerCode] = @Original_tickerCode) AND ([name] = @Original_name) AND ((@IsNull_nameEn = 1 AND [nameEn] IS NULL) OR ([nameEn] = @Original_nameEn)) AND ([address1] = @Original_address1) AND ((@IsNull_address2 = 1 AND [address2] IS NULL) OR ([address2] = @Original_address2)) AND ([phone] = @Original_phone) AND ([fax] = @Original_fax) AND ([website] = @Original_website) AND ((@IsNull_email = 1 AND [email] IS NULL) OR ([email] = @Original_email)) AND ([bizSectors] = @Original_bizSectors) AND ([country] = @Original_country) AND ([regDate] = @Original_regDate) AND ([noListedStock] = @Original_noListedStock) AND ([noOutstandingStock] = @Original_noOutstandingStock) AND ([noForeignOwnedStock] = @Original_noForeignOwnedStock) AND ([noTreasuryStock] = @Original_noTreasuryStock) AND ([bookPrice] = @Original_bookPrice) AND ([targetPrice] = @Original_targetPrice) AND ([targetPriceVariant] = @Original_targetPriceVariant) AND ([workingCap] = @Original_workingCap) AND ([capitalUnit] = @Original_capitalUnit) AND ([sales] = @Original_sales) AND ([profit] = @Original_profit) AND ([equity] = @Original_equity) AND ([totalDebt] = @Original_totalDebt) AND ([totaAssets] = @Original_totaAssets) AND ([PB] = @Original_PB) AND ([EPS] = @Original_EPS) AND ([PE] = @Original_PE) AND ([ROA] = @Original_ROA) AND ([ROE] = @Original_ROE) AND ([BETA] = @Original_BETA) AND ([status] = @Original_status))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_code", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "code", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_stockExchange", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "stockExchange", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_tickerCode", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "tickerCode", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_comCode", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "comCode", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_tickerCode", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "tickerCode", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "name", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_nameEn", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "nameEn", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_nameEn", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "nameEn", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_address1", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "address1", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_address2", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "address2", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_address2", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "address2", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_phone", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "phone", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_fax", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "fax", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_website", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "website", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_email", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "email", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_email", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "email", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_bizSectors", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "bizSectors", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_country", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "country", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_regDate", global::System.Data.SqlDbType.SmallDateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "regDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_noShares", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "noShares", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_noOpenShares", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "noOpenShares", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_noForeignOwnShares", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "noForeignOwnShares", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_status", global::System.Data.SqlDbType.TinyInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "status", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_targetPrice", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "targetPrice", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_noListedStock", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "noListedStock", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_noOutstandingStock", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "noOutstandingStock", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_noForeignOwnedStock", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "noForeignOwnedStock", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_noTreasuryStock", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "noTreasuryStock", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_bookPrice", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "bookPrice", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_targetPrice", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "targetPrice", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_targetPriceVariant", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 4, 0, "targetPriceVariant", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_workingCap", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "workingCap", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_capitalUnit", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "capitalUnit", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_sales", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "sales", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_profit", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "profit", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_equity", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "equity", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_totalDebt", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "totalDebt", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_totaAssets", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "totaAssets", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PB", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "PB", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_EPS", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 0, "EPS", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PE", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "PE", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ROA", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "ROA", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ROE", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "ROE", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_BETA", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "BETA", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_status", global::System.Data.SqlDbType.TinyInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "status", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [stockCode] ([code], [stockExchange], [tickerCode], [comCode], [regDate], [noShares], [noOpenShares], [noForeignOwnShares], [status], [targetPrice], [targetPriceVariant]) VALUES (@code, @stockExchange, @tickerCode, @comCode, @regDate, @noShares, @noOpenShares, @noForeignOwnShares, @status, @targetPrice, @targetPriceVariant);
-SELECT code, stockExchange, tickerCode, comCode, regDate, noShares, noOpenShares, noForeignOwnShares, status, targetPrice, targetPriceVariant FROM stockCode WHERE (code = @code) ORDER BY code";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [stockCode] ([code], [stockExchange], [tickerCode], [name], [nameEn], [address1], [address2], [phone], [fax], [website], [email], [bizSectors], [country], [regDate], [noListedStock], [noOutstandingStock], [noForeignOwnedStock], [noTreasuryStock], [bookPrice], [targetPrice], [targetPriceVariant], [workingCap], [capitalUnit], [sales], [profit], [equity], [totalDebt], [totaAssets], [PB], [EPS], [PE], [ROA], [ROE], [BETA], [status]) VALUES (@code, @stockExchange, @tickerCode, @name, @nameEn, @address1, @address2, @phone, @fax, @website, @email, @bizSectors, @country, @regDate, @noListedStock, @noOutstandingStock, @noForeignOwnedStock, @noTreasuryStock, @bookPrice, @targetPrice, @targetPriceVariant, @workingCap, @capitalUnit, @sales, @profit, @equity, @totalDebt, @totaAssets, @PB, @EPS, @PE, @ROA, @ROE, @BETA, @status);
+SELECT code, stockExchange, tickerCode, name, nameEn, address1, address2, phone, fax, website, email, bizSectors, country, regDate, noListedStock, noOutstandingStock, noForeignOwnedStock, noTreasuryStock, bookPrice, targetPrice, targetPriceVariant, workingCap, capitalUnit, sales, profit, equity, totalDebt, totaAssets, PB, EPS, PE, ROA, ROE, BETA, status FROM stockCode WHERE (code = @code)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@code", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "code", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@stockExchange", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "stockExchange", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@tickerCode", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "tickerCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@comCode", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "comCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@tickerCode", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "tickerCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@nameEn", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "nameEn", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@address1", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "address1", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@address2", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "address2", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@phone", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "phone", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fax", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "fax", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@website", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "website", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@email", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "email", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@bizSectors", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "bizSectors", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@country", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "country", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@regDate", global::System.Data.SqlDbType.SmallDateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "regDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@noShares", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "noShares", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@noOpenShares", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "noOpenShares", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@noForeignOwnShares", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "noForeignOwnShares", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@status", global::System.Data.SqlDbType.TinyInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "status", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@targetPrice", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "targetPrice", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@noListedStock", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "noListedStock", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@noOutstandingStock", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "noOutstandingStock", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@noForeignOwnedStock", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "noForeignOwnedStock", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@noTreasuryStock", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "noTreasuryStock", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@bookPrice", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "bookPrice", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@targetPrice", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "targetPrice", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@targetPriceVariant", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 4, 0, "targetPriceVariant", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@workingCap", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "workingCap", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@capitalUnit", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "capitalUnit", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@sales", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "sales", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@profit", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "profit", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@equity", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "equity", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@totalDebt", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "totalDebt", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@totaAssets", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "totaAssets", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PB", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "PB", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EPS", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 0, "EPS", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PE", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "PE", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ROA", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "ROA", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ROE", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "ROE", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BETA", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "BETA", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@status", global::System.Data.SqlDbType.TinyInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "status", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [stockCode] SET [code] = @code, [stockExchange] = @stockExchange, [tickerCode] = @tickerCode, [comCode] = @comCode, [regDate] = @regDate, [noShares] = @noShares, [noOpenShares] = @noOpenShares, [noForeignOwnShares] = @noForeignOwnShares, [status] = @status, [targetPrice] = @targetPrice, [targetPriceVariant] = @targetPriceVariant WHERE (([code] = @Original_code) AND ([stockExchange] = @Original_stockExchange) AND ([tickerCode] = @Original_tickerCode) AND ([comCode] = @Original_comCode) AND ([regDate] = @Original_regDate) AND ([noShares] = @Original_noShares) AND ([noOpenShares] = @Original_noOpenShares) AND ([noForeignOwnShares] = @Original_noForeignOwnShares) AND ([status] = @Original_status) AND ([targetPrice] = @Original_targetPrice) AND ([targetPriceVariant] = @Original_targetPriceVariant));
-SELECT code, stockExchange, tickerCode, comCode, regDate, noShares, noOpenShares, noForeignOwnShares, status, targetPrice, targetPriceVariant FROM stockCode WHERE (code = @code) ORDER BY code";
+            this._adapter.UpdateCommand.CommandText = "UPDATE [stockCode] SET [code] = @code, [stockExchange] = @stockExchange, [tickerC" +
+                "ode] = @tickerCode, [name] = @name, [nameEn] = @nameEn, [address1] = @address1, " +
+                "[address2] = @address2, [phone] = @phone, [fax] = @fax, [website] = @website, [e" +
+                "mail] = @email, [bizSectors] = @bizSectors, [country] = @country, [regDate] = @r" +
+                "egDate, [noListedStock] = @noListedStock, [noOutstandingStock] = @noOutstandingS" +
+                "tock, [noForeignOwnedStock] = @noForeignOwnedStock, [noTreasuryStock] = @noTreas" +
+                "uryStock, [bookPrice] = @bookPrice, [targetPrice] = @targetPrice, [targetPriceVa" +
+                "riant] = @targetPriceVariant, [workingCap] = @workingCap, [capitalUnit] = @capit" +
+                "alUnit, [sales] = @sales, [profit] = @profit, [equity] = @equity, [totalDebt] = " +
+                "@totalDebt, [totaAssets] = @totaAssets, [PB] = @PB, [EPS] = @EPS, [PE] = @PE, [R" +
+                "OA] = @ROA, [ROE] = @ROE, [BETA] = @BETA, [status] = @status WHERE (([code] = @O" +
+                "riginal_code) AND ([stockExchange] = @Original_stockExchange) AND ([tickerCode] " +
+                "= @Original_tickerCode) AND ([name] = @Original_name) AND ((@IsNull_nameEn = 1 A" +
+                "ND [nameEn] IS NULL) OR ([nameEn] = @Original_nameEn)) AND ([address1] = @Origin" +
+                "al_address1) AND ((@IsNull_address2 = 1 AND [address2] IS NULL) OR ([address2] =" +
+                " @Original_address2)) AND ([phone] = @Original_phone) AND ([fax] = @Original_fax" +
+                ") AND ([website] = @Original_website) AND ((@IsNull_email = 1 AND [email] IS NUL" +
+                "L) OR ([email] = @Original_email)) AND ([bizSectors] = @Original_bizSectors) AND" +
+                " ([country] = @Original_country) AND ([regDate] = @Original_regDate) AND ([noLis" +
+                "tedStock] = @Original_noListedStock) AND ([noOutstandingStock] = @Original_noOut" +
+                "standingStock) AND ([noForeignOwnedStock] = @Original_noForeignOwnedStock) AND (" +
+                "[noTreasuryStock] = @Original_noTreasuryStock) AND ([bookPrice] = @Original_book" +
+                "Price) AND ([targetPrice] = @Original_targetPrice) AND ([targetPriceVariant] = @" +
+                "Original_targetPriceVariant) AND ([workingCap] = @Original_workingCap) AND ([cap" +
+                "italUnit] = @Original_capitalUnit) AND ([sales] = @Original_sales) AND ([profit]" +
+                " = @Original_profit) AND ([equity] = @Original_equity) AND ([totalDebt] = @Origi" +
+                "nal_totalDebt) AND ([totaAssets] = @Original_totaAssets) AND ([PB] = @Original_P" +
+                "B) AND ([EPS] = @Original_EPS) AND ([PE] = @Original_PE) AND ([ROA] = @Original_" +
+                "ROA) AND ([ROE] = @Original_ROE) AND ([BETA] = @Original_BETA) AND ([status] = @" +
+                "Original_status));\r\nSELECT code, stockExchange, tickerCode, name, nameEn, addres" +
+                "s1, address2, phone, fax, website, email, bizSectors, country, regDate, noListed" +
+                "Stock, noOutstandingStock, noForeignOwnedStock, noTreasuryStock, bookPrice, targ" +
+                "etPrice, targetPriceVariant, workingCap, capitalUnit, sales, profit, equity, tot" +
+                "alDebt, totaAssets, PB, EPS, PE, ROA, ROE, BETA, status FROM stockCode WHERE (co" +
+                "de = @code)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@code", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "code", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@stockExchange", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "stockExchange", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@tickerCode", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "tickerCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@comCode", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "comCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@tickerCode", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "tickerCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@nameEn", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "nameEn", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@address1", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "address1", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@address2", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "address2", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@phone", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "phone", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fax", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "fax", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@website", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "website", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@email", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "email", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@bizSectors", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "bizSectors", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@country", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "country", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@regDate", global::System.Data.SqlDbType.SmallDateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "regDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@noShares", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "noShares", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@noOpenShares", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "noOpenShares", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@noForeignOwnShares", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "noForeignOwnShares", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@status", global::System.Data.SqlDbType.TinyInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "status", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@targetPrice", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "targetPrice", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@noListedStock", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "noListedStock", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@noOutstandingStock", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "noOutstandingStock", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@noForeignOwnedStock", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "noForeignOwnedStock", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@noTreasuryStock", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "noTreasuryStock", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@bookPrice", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "bookPrice", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@targetPrice", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "targetPrice", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@targetPriceVariant", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 4, 0, "targetPriceVariant", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@workingCap", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "workingCap", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@capitalUnit", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "capitalUnit", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@sales", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "sales", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@profit", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "profit", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@equity", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "equity", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@totalDebt", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "totalDebt", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@totaAssets", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "totaAssets", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PB", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "PB", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EPS", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 0, "EPS", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PE", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "PE", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ROA", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "ROA", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ROE", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "ROE", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BETA", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "BETA", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@status", global::System.Data.SqlDbType.TinyInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "status", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_code", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "code", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_stockExchange", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "stockExchange", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_tickerCode", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "tickerCode", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_comCode", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "comCode", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_tickerCode", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "tickerCode", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "name", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_nameEn", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "nameEn", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_nameEn", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "nameEn", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_address1", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "address1", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_address2", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "address2", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_address2", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "address2", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_phone", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "phone", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_fax", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "fax", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_website", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "website", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_email", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "email", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_email", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "email", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_bizSectors", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "bizSectors", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_country", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "country", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_regDate", global::System.Data.SqlDbType.SmallDateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "regDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_noShares", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "noShares", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_noOpenShares", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "noOpenShares", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_noForeignOwnShares", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "noForeignOwnShares", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_status", global::System.Data.SqlDbType.TinyInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "status", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_targetPrice", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "targetPrice", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_noListedStock", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "noListedStock", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_noOutstandingStock", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "noOutstandingStock", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_noForeignOwnedStock", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "noForeignOwnedStock", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_noTreasuryStock", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "noTreasuryStock", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_bookPrice", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "bookPrice", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_targetPrice", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "targetPrice", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_targetPriceVariant", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 4, 0, "targetPriceVariant", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_workingCap", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "workingCap", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_capitalUnit", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "capitalUnit", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_sales", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "sales", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_profit", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "profit", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_equity", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "equity", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_totalDebt", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "totalDebt", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_totaAssets", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "totaAssets", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PB", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "PB", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_EPS", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 0, "EPS", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PE", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "PE", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ROA", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "ROA", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ROE", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "ROE", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_BETA", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "BETA", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_status", global::System.Data.SqlDbType.TinyInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "status", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -20871,36 +19892,40 @@ SELECT code, stockExchange, tickerCode, comCode, regDate, noShares, noOpenShares
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[3];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[4];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT *  FROM stockCode WHERE (status & @status > 0) ORDER BY code";
+            this._commandCollection[0].CommandText = "SELECT *  FROM stockCode WHERE (code = @code)";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@status", global::System.Data.SqlDbType.VarChar, 1024, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@code", global::System.Data.SqlDbType.NVarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "code", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT *  FROM stockCode WHERE (code = @code)";
+            this._commandCollection[1].CommandText = "SELECT *  FROM stockCode";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@code", global::System.Data.SqlDbType.NVarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "code", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = "SELECT *  FROM stockCode WHERE (comCode = @comCode) AND (status & @status > 0) OR" +
-                "DER BY code";
+            this._commandCollection[2].CommandText = "SELECT *  FROM stockCode WHERE (bizSectors LIKE @bizSectors) AND (status & @statu" +
+                "s > 0) ORDER BY code";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@comCode", global::System.Data.SqlDbType.NVarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "comCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@bizSectors", global::System.Data.SqlDbType.NVarChar, 1024, global::System.Data.ParameterDirection.Input, 0, 0, "bizSectors", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@status", global::System.Data.SqlDbType.VarChar, 1024, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[3].Connection = this.Connection;
+            this._commandCollection[3].CommandText = "SELECT *  FROM stockCode WHERE (status & @status > 0) ORDER BY code";
+            this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@status", global::System.Data.SqlDbType.VarChar, 1024, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(baseDS.stockCodeDataTable dataTable, string status) {
+        public virtual int FillByCode(baseDS.stockCodeDataTable dataTable, string code) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((status == null)) {
-                throw new global::System.ArgumentNullException("status");
+            if ((code == null)) {
+                throw new global::System.ArgumentNullException("code");
             }
             else {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(status));
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(code));
             }
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -20912,30 +19937,98 @@ SELECT code, stockExchange, tickerCode, comCode, regDate, noShares, noOpenShares
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual baseDS.stockCodeDataTable GetData(string status) {
+        public virtual baseDS.stockCodeDataTable GetByCode(string code) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((code == null)) {
+                throw new global::System.ArgumentNullException("code");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(code));
+            }
+            baseDS.stockCodeDataTable dataTable = new baseDS.stockCodeDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int Fill(baseDS.stockCodeDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual baseDS.stockCodeDataTable Get() {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            baseDS.stockCodeDataTable dataTable = new baseDS.stockCodeDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByBizSector(baseDS.stockCodeDataTable dataTable, string bizSectors, string status) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            if ((bizSectors == null)) {
+                throw new global::System.ArgumentNullException("bizSectors");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(bizSectors));
+            }
+            if ((status == null)) {
+                throw new global::System.ArgumentNullException("status");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(status));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual baseDS.stockCodeDataTable GetByBizSector(string bizSectors, string status) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            if ((bizSectors == null)) {
+                throw new global::System.ArgumentNullException("bizSectors");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(bizSectors));
+            }
+            if ((status == null)) {
+                throw new global::System.ArgumentNullException("status");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(status));
+            }
+            baseDS.stockCodeDataTable dataTable = new baseDS.stockCodeDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByStatus(baseDS.stockCodeDataTable dataTable, string status) {
+            this.Adapter.SelectCommand = this.CommandCollection[3];
             if ((status == null)) {
                 throw new global::System.ArgumentNullException("status");
             }
             else {
                 this.Adapter.SelectCommand.Parameters[0].Value = ((string)(status));
             }
-            baseDS.stockCodeDataTable dataTable = new baseDS.stockCodeDataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillByCode(baseDS.stockCodeDataTable dataTable, string code) {
-            this.Adapter.SelectCommand = this.CommandCollection[1];
-            if ((code == null)) {
-                throw new global::System.ArgumentNullException("code");
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(code));
-            }
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
             }
@@ -20946,59 +20039,13 @@ SELECT code, stockExchange, tickerCode, comCode, regDate, noShares, noOpenShares
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual baseDS.stockCodeDataTable GetByCode(string code) {
-            this.Adapter.SelectCommand = this.CommandCollection[1];
-            if ((code == null)) {
-                throw new global::System.ArgumentNullException("code");
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(code));
-            }
-            baseDS.stockCodeDataTable dataTable = new baseDS.stockCodeDataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillByComCode(baseDS.stockCodeDataTable dataTable, string comCode, string status) {
-            this.Adapter.SelectCommand = this.CommandCollection[2];
-            if ((comCode == null)) {
-                throw new global::System.ArgumentNullException("comCode");
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(comCode));
-            }
+        public virtual baseDS.stockCodeDataTable GetByStatus(string status) {
+            this.Adapter.SelectCommand = this.CommandCollection[3];
             if ((status == null)) {
                 throw new global::System.ArgumentNullException("status");
             }
             else {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(status));
-            }
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual baseDS.stockCodeDataTable GetByComCode(string comCode, string status) {
-            this.Adapter.SelectCommand = this.CommandCollection[2];
-            if ((comCode == null)) {
-                throw new global::System.ArgumentNullException("comCode");
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(comCode));
-            }
-            if ((status == null)) {
-                throw new global::System.ArgumentNullException("status");
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(status));
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(status));
             }
             baseDS.stockCodeDataTable dataTable = new baseDS.stockCodeDataTable();
             this.Adapter.Fill(dataTable);
@@ -21033,7 +20080,42 @@ SELECT code, stockExchange, tickerCode, comCode, regDate, noShares, noOpenShares
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(string Original_code, string Original_stockExchange, string Original_tickerCode, string Original_comCode, System.DateTime Original_regDate, int Original_noShares, int Original_noOpenShares, int Original_noForeignOwnShares, byte Original_status, decimal Original_targetPrice, decimal Original_targetPriceVariant) {
+        public virtual int Delete(
+                    string Original_code, 
+                    string Original_stockExchange, 
+                    string Original_tickerCode, 
+                    string Original_name, 
+                    string Original_nameEn, 
+                    string Original_address1, 
+                    string Original_address2, 
+                    string Original_phone, 
+                    string Original_fax, 
+                    string Original_website, 
+                    string Original_email, 
+                    string Original_bizSectors, 
+                    string Original_country, 
+                    System.DateTime Original_regDate, 
+                    int Original_noListedStock, 
+                    int Original_noOutstandingStock, 
+                    int Original_noForeignOwnedStock, 
+                    int Original_noTreasuryStock, 
+                    decimal Original_bookPrice, 
+                    decimal Original_targetPrice, 
+                    decimal Original_targetPriceVariant, 
+                    decimal Original_workingCap, 
+                    string Original_capitalUnit, 
+                    decimal Original_sales, 
+                    decimal Original_profit, 
+                    decimal Original_equity, 
+                    decimal Original_totalDebt, 
+                    decimal Original_totaAssets, 
+                    decimal Original_PB, 
+                    decimal Original_EPS, 
+                    decimal Original_PE, 
+                    decimal Original_ROA, 
+                    decimal Original_ROE, 
+                    decimal Original_BETA, 
+                    byte Original_status) {
             if ((Original_code == null)) {
                 throw new global::System.ArgumentNullException("Original_code");
             }
@@ -21052,19 +20134,99 @@ SELECT code, stockExchange, tickerCode, comCode, regDate, noShares, noOpenShares
             else {
                 this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_tickerCode));
             }
-            if ((Original_comCode == null)) {
-                throw new global::System.ArgumentNullException("Original_comCode");
+            if ((Original_name == null)) {
+                throw new global::System.ArgumentNullException("Original_name");
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((string)(Original_comCode));
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((string)(Original_name));
             }
-            this.Adapter.DeleteCommand.Parameters[4].Value = ((System.DateTime)(Original_regDate));
-            this.Adapter.DeleteCommand.Parameters[5].Value = ((int)(Original_noShares));
-            this.Adapter.DeleteCommand.Parameters[6].Value = ((int)(Original_noOpenShares));
-            this.Adapter.DeleteCommand.Parameters[7].Value = ((int)(Original_noForeignOwnShares));
-            this.Adapter.DeleteCommand.Parameters[8].Value = ((byte)(Original_status));
-            this.Adapter.DeleteCommand.Parameters[9].Value = ((decimal)(Original_targetPrice));
-            this.Adapter.DeleteCommand.Parameters[10].Value = ((decimal)(Original_targetPriceVariant));
+            if ((Original_nameEn == null)) {
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((string)(Original_nameEn));
+            }
+            if ((Original_address1 == null)) {
+                throw new global::System.ArgumentNullException("Original_address1");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((string)(Original_address1));
+            }
+            if ((Original_address2 == null)) {
+                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[8].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[8].Value = ((string)(Original_address2));
+            }
+            if ((Original_phone == null)) {
+                throw new global::System.ArgumentNullException("Original_phone");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[9].Value = ((string)(Original_phone));
+            }
+            if ((Original_fax == null)) {
+                throw new global::System.ArgumentNullException("Original_fax");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[10].Value = ((string)(Original_fax));
+            }
+            if ((Original_website == null)) {
+                throw new global::System.ArgumentNullException("Original_website");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[11].Value = ((string)(Original_website));
+            }
+            if ((Original_email == null)) {
+                this.Adapter.DeleteCommand.Parameters[12].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[13].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[12].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[13].Value = ((string)(Original_email));
+            }
+            if ((Original_bizSectors == null)) {
+                throw new global::System.ArgumentNullException("Original_bizSectors");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[14].Value = ((string)(Original_bizSectors));
+            }
+            if ((Original_country == null)) {
+                throw new global::System.ArgumentNullException("Original_country");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[15].Value = ((string)(Original_country));
+            }
+            this.Adapter.DeleteCommand.Parameters[16].Value = ((System.DateTime)(Original_regDate));
+            this.Adapter.DeleteCommand.Parameters[17].Value = ((int)(Original_noListedStock));
+            this.Adapter.DeleteCommand.Parameters[18].Value = ((int)(Original_noOutstandingStock));
+            this.Adapter.DeleteCommand.Parameters[19].Value = ((int)(Original_noForeignOwnedStock));
+            this.Adapter.DeleteCommand.Parameters[20].Value = ((int)(Original_noTreasuryStock));
+            this.Adapter.DeleteCommand.Parameters[21].Value = ((decimal)(Original_bookPrice));
+            this.Adapter.DeleteCommand.Parameters[22].Value = ((decimal)(Original_targetPrice));
+            this.Adapter.DeleteCommand.Parameters[23].Value = ((decimal)(Original_targetPriceVariant));
+            this.Adapter.DeleteCommand.Parameters[24].Value = ((decimal)(Original_workingCap));
+            if ((Original_capitalUnit == null)) {
+                throw new global::System.ArgumentNullException("Original_capitalUnit");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[25].Value = ((string)(Original_capitalUnit));
+            }
+            this.Adapter.DeleteCommand.Parameters[26].Value = ((decimal)(Original_sales));
+            this.Adapter.DeleteCommand.Parameters[27].Value = ((decimal)(Original_profit));
+            this.Adapter.DeleteCommand.Parameters[28].Value = ((decimal)(Original_equity));
+            this.Adapter.DeleteCommand.Parameters[29].Value = ((decimal)(Original_totalDebt));
+            this.Adapter.DeleteCommand.Parameters[30].Value = ((decimal)(Original_totaAssets));
+            this.Adapter.DeleteCommand.Parameters[31].Value = ((decimal)(Original_PB));
+            this.Adapter.DeleteCommand.Parameters[32].Value = ((decimal)(Original_EPS));
+            this.Adapter.DeleteCommand.Parameters[33].Value = ((decimal)(Original_PE));
+            this.Adapter.DeleteCommand.Parameters[34].Value = ((decimal)(Original_ROA));
+            this.Adapter.DeleteCommand.Parameters[35].Value = ((decimal)(Original_ROE));
+            this.Adapter.DeleteCommand.Parameters[36].Value = ((decimal)(Original_BETA));
+            this.Adapter.DeleteCommand.Parameters[37].Value = ((byte)(Original_status));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -21084,7 +20246,42 @@ SELECT code, stockExchange, tickerCode, comCode, regDate, noShares, noOpenShares
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string code, string stockExchange, string tickerCode, string comCode, System.DateTime regDate, int noShares, int noOpenShares, int noForeignOwnShares, byte status, decimal targetPrice, decimal targetPriceVariant) {
+        public virtual int Insert(
+                    string code, 
+                    string stockExchange, 
+                    string tickerCode, 
+                    string name, 
+                    string nameEn, 
+                    string address1, 
+                    string address2, 
+                    string phone, 
+                    string fax, 
+                    string website, 
+                    string email, 
+                    string bizSectors, 
+                    string country, 
+                    System.DateTime regDate, 
+                    int noListedStock, 
+                    int noOutstandingStock, 
+                    int noForeignOwnedStock, 
+                    int noTreasuryStock, 
+                    decimal bookPrice, 
+                    decimal targetPrice, 
+                    decimal targetPriceVariant, 
+                    decimal workingCap, 
+                    string capitalUnit, 
+                    decimal sales, 
+                    decimal profit, 
+                    decimal equity, 
+                    decimal totalDebt, 
+                    decimal totaAssets, 
+                    decimal PB, 
+                    decimal EPS, 
+                    decimal PE, 
+                    decimal ROA, 
+                    decimal ROE, 
+                    decimal BETA, 
+                    byte status) {
             if ((code == null)) {
                 throw new global::System.ArgumentNullException("code");
             }
@@ -21103,19 +20300,93 @@ SELECT code, stockExchange, tickerCode, comCode, regDate, noShares, noOpenShares
             else {
                 this.Adapter.InsertCommand.Parameters[2].Value = ((string)(tickerCode));
             }
-            if ((comCode == null)) {
-                throw new global::System.ArgumentNullException("comCode");
+            if ((name == null)) {
+                throw new global::System.ArgumentNullException("name");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(comCode));
+                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(name));
             }
-            this.Adapter.InsertCommand.Parameters[4].Value = ((System.DateTime)(regDate));
-            this.Adapter.InsertCommand.Parameters[5].Value = ((int)(noShares));
-            this.Adapter.InsertCommand.Parameters[6].Value = ((int)(noOpenShares));
-            this.Adapter.InsertCommand.Parameters[7].Value = ((int)(noForeignOwnShares));
-            this.Adapter.InsertCommand.Parameters[8].Value = ((byte)(status));
-            this.Adapter.InsertCommand.Parameters[9].Value = ((decimal)(targetPrice));
-            this.Adapter.InsertCommand.Parameters[10].Value = ((decimal)(targetPriceVariant));
+            if ((nameEn == null)) {
+                this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(nameEn));
+            }
+            if ((address1 == null)) {
+                throw new global::System.ArgumentNullException("address1");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(address1));
+            }
+            if ((address2 == null)) {
+                this.Adapter.InsertCommand.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[6].Value = ((string)(address2));
+            }
+            if ((phone == null)) {
+                throw new global::System.ArgumentNullException("phone");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[7].Value = ((string)(phone));
+            }
+            if ((fax == null)) {
+                throw new global::System.ArgumentNullException("fax");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[8].Value = ((string)(fax));
+            }
+            if ((website == null)) {
+                throw new global::System.ArgumentNullException("website");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[9].Value = ((string)(website));
+            }
+            if ((email == null)) {
+                this.Adapter.InsertCommand.Parameters[10].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[10].Value = ((string)(email));
+            }
+            if ((bizSectors == null)) {
+                throw new global::System.ArgumentNullException("bizSectors");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[11].Value = ((string)(bizSectors));
+            }
+            if ((country == null)) {
+                throw new global::System.ArgumentNullException("country");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[12].Value = ((string)(country));
+            }
+            this.Adapter.InsertCommand.Parameters[13].Value = ((System.DateTime)(regDate));
+            this.Adapter.InsertCommand.Parameters[14].Value = ((int)(noListedStock));
+            this.Adapter.InsertCommand.Parameters[15].Value = ((int)(noOutstandingStock));
+            this.Adapter.InsertCommand.Parameters[16].Value = ((int)(noForeignOwnedStock));
+            this.Adapter.InsertCommand.Parameters[17].Value = ((int)(noTreasuryStock));
+            this.Adapter.InsertCommand.Parameters[18].Value = ((decimal)(bookPrice));
+            this.Adapter.InsertCommand.Parameters[19].Value = ((decimal)(targetPrice));
+            this.Adapter.InsertCommand.Parameters[20].Value = ((decimal)(targetPriceVariant));
+            this.Adapter.InsertCommand.Parameters[21].Value = ((decimal)(workingCap));
+            if ((capitalUnit == null)) {
+                throw new global::System.ArgumentNullException("capitalUnit");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[22].Value = ((string)(capitalUnit));
+            }
+            this.Adapter.InsertCommand.Parameters[23].Value = ((decimal)(sales));
+            this.Adapter.InsertCommand.Parameters[24].Value = ((decimal)(profit));
+            this.Adapter.InsertCommand.Parameters[25].Value = ((decimal)(equity));
+            this.Adapter.InsertCommand.Parameters[26].Value = ((decimal)(totalDebt));
+            this.Adapter.InsertCommand.Parameters[27].Value = ((decimal)(totaAssets));
+            this.Adapter.InsertCommand.Parameters[28].Value = ((decimal)(PB));
+            this.Adapter.InsertCommand.Parameters[29].Value = ((decimal)(EPS));
+            this.Adapter.InsertCommand.Parameters[30].Value = ((decimal)(PE));
+            this.Adapter.InsertCommand.Parameters[31].Value = ((decimal)(ROA));
+            this.Adapter.InsertCommand.Parameters[32].Value = ((decimal)(ROE));
+            this.Adapter.InsertCommand.Parameters[33].Value = ((decimal)(BETA));
+            this.Adapter.InsertCommand.Parameters[34].Value = ((byte)(status));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -21139,25 +20410,73 @@ SELECT code, stockExchange, tickerCode, comCode, regDate, noShares, noOpenShares
                     string code, 
                     string stockExchange, 
                     string tickerCode, 
-                    string comCode, 
+                    string name, 
+                    string nameEn, 
+                    string address1, 
+                    string address2, 
+                    string phone, 
+                    string fax, 
+                    string website, 
+                    string email, 
+                    string bizSectors, 
+                    string country, 
                     System.DateTime regDate, 
-                    int noShares, 
-                    int noOpenShares, 
-                    int noForeignOwnShares, 
-                    byte status, 
+                    int noListedStock, 
+                    int noOutstandingStock, 
+                    int noForeignOwnedStock, 
+                    int noTreasuryStock, 
+                    decimal bookPrice, 
                     decimal targetPrice, 
                     decimal targetPriceVariant, 
+                    decimal workingCap, 
+                    string capitalUnit, 
+                    decimal sales, 
+                    decimal profit, 
+                    decimal equity, 
+                    decimal totalDebt, 
+                    decimal totaAssets, 
+                    decimal PB, 
+                    decimal EPS, 
+                    decimal PE, 
+                    decimal ROA, 
+                    decimal ROE, 
+                    decimal BETA, 
+                    byte status, 
                     string Original_code, 
                     string Original_stockExchange, 
                     string Original_tickerCode, 
-                    string Original_comCode, 
+                    string Original_name, 
+                    string Original_nameEn, 
+                    string Original_address1, 
+                    string Original_address2, 
+                    string Original_phone, 
+                    string Original_fax, 
+                    string Original_website, 
+                    string Original_email, 
+                    string Original_bizSectors, 
+                    string Original_country, 
                     System.DateTime Original_regDate, 
-                    int Original_noShares, 
-                    int Original_noOpenShares, 
-                    int Original_noForeignOwnShares, 
-                    byte Original_status, 
+                    int Original_noListedStock, 
+                    int Original_noOutstandingStock, 
+                    int Original_noForeignOwnedStock, 
+                    int Original_noTreasuryStock, 
+                    decimal Original_bookPrice, 
                     decimal Original_targetPrice, 
-                    decimal Original_targetPriceVariant) {
+                    decimal Original_targetPriceVariant, 
+                    decimal Original_workingCap, 
+                    string Original_capitalUnit, 
+                    decimal Original_sales, 
+                    decimal Original_profit, 
+                    decimal Original_equity, 
+                    decimal Original_totalDebt, 
+                    decimal Original_totaAssets, 
+                    decimal Original_PB, 
+                    decimal Original_EPS, 
+                    decimal Original_PE, 
+                    decimal Original_ROA, 
+                    decimal Original_ROE, 
+                    decimal Original_BETA, 
+                    byte Original_status) {
             if ((code == null)) {
                 throw new global::System.ArgumentNullException("code");
             }
@@ -21176,50 +20495,204 @@ SELECT code, stockExchange, tickerCode, comCode, regDate, noShares, noOpenShares
             else {
                 this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(tickerCode));
             }
-            if ((comCode == null)) {
-                throw new global::System.ArgumentNullException("comCode");
+            if ((name == null)) {
+                throw new global::System.ArgumentNullException("name");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(comCode));
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(name));
             }
-            this.Adapter.UpdateCommand.Parameters[4].Value = ((System.DateTime)(regDate));
-            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(noShares));
-            this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(noOpenShares));
-            this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(noForeignOwnShares));
-            this.Adapter.UpdateCommand.Parameters[8].Value = ((byte)(status));
-            this.Adapter.UpdateCommand.Parameters[9].Value = ((decimal)(targetPrice));
-            this.Adapter.UpdateCommand.Parameters[10].Value = ((decimal)(targetPriceVariant));
+            if ((nameEn == null)) {
+                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(nameEn));
+            }
+            if ((address1 == null)) {
+                throw new global::System.ArgumentNullException("address1");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(address1));
+            }
+            if ((address2 == null)) {
+                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(address2));
+            }
+            if ((phone == null)) {
+                throw new global::System.ArgumentNullException("phone");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(phone));
+            }
+            if ((fax == null)) {
+                throw new global::System.ArgumentNullException("fax");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(fax));
+            }
+            if ((website == null)) {
+                throw new global::System.ArgumentNullException("website");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(website));
+            }
+            if ((email == null)) {
+                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(email));
+            }
+            if ((bizSectors == null)) {
+                throw new global::System.ArgumentNullException("bizSectors");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(bizSectors));
+            }
+            if ((country == null)) {
+                throw new global::System.ArgumentNullException("country");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(country));
+            }
+            this.Adapter.UpdateCommand.Parameters[13].Value = ((System.DateTime)(regDate));
+            this.Adapter.UpdateCommand.Parameters[14].Value = ((int)(noListedStock));
+            this.Adapter.UpdateCommand.Parameters[15].Value = ((int)(noOutstandingStock));
+            this.Adapter.UpdateCommand.Parameters[16].Value = ((int)(noForeignOwnedStock));
+            this.Adapter.UpdateCommand.Parameters[17].Value = ((int)(noTreasuryStock));
+            this.Adapter.UpdateCommand.Parameters[18].Value = ((decimal)(bookPrice));
+            this.Adapter.UpdateCommand.Parameters[19].Value = ((decimal)(targetPrice));
+            this.Adapter.UpdateCommand.Parameters[20].Value = ((decimal)(targetPriceVariant));
+            this.Adapter.UpdateCommand.Parameters[21].Value = ((decimal)(workingCap));
+            if ((capitalUnit == null)) {
+                throw new global::System.ArgumentNullException("capitalUnit");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[22].Value = ((string)(capitalUnit));
+            }
+            this.Adapter.UpdateCommand.Parameters[23].Value = ((decimal)(sales));
+            this.Adapter.UpdateCommand.Parameters[24].Value = ((decimal)(profit));
+            this.Adapter.UpdateCommand.Parameters[25].Value = ((decimal)(equity));
+            this.Adapter.UpdateCommand.Parameters[26].Value = ((decimal)(totalDebt));
+            this.Adapter.UpdateCommand.Parameters[27].Value = ((decimal)(totaAssets));
+            this.Adapter.UpdateCommand.Parameters[28].Value = ((decimal)(PB));
+            this.Adapter.UpdateCommand.Parameters[29].Value = ((decimal)(EPS));
+            this.Adapter.UpdateCommand.Parameters[30].Value = ((decimal)(PE));
+            this.Adapter.UpdateCommand.Parameters[31].Value = ((decimal)(ROA));
+            this.Adapter.UpdateCommand.Parameters[32].Value = ((decimal)(ROE));
+            this.Adapter.UpdateCommand.Parameters[33].Value = ((decimal)(BETA));
+            this.Adapter.UpdateCommand.Parameters[34].Value = ((byte)(status));
             if ((Original_code == null)) {
                 throw new global::System.ArgumentNullException("Original_code");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(Original_code));
+                this.Adapter.UpdateCommand.Parameters[35].Value = ((string)(Original_code));
             }
             if ((Original_stockExchange == null)) {
                 throw new global::System.ArgumentNullException("Original_stockExchange");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(Original_stockExchange));
+                this.Adapter.UpdateCommand.Parameters[36].Value = ((string)(Original_stockExchange));
             }
             if ((Original_tickerCode == null)) {
                 throw new global::System.ArgumentNullException("Original_tickerCode");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(Original_tickerCode));
+                this.Adapter.UpdateCommand.Parameters[37].Value = ((string)(Original_tickerCode));
             }
-            if ((Original_comCode == null)) {
-                throw new global::System.ArgumentNullException("Original_comCode");
+            if ((Original_name == null)) {
+                throw new global::System.ArgumentNullException("Original_name");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((string)(Original_comCode));
+                this.Adapter.UpdateCommand.Parameters[38].Value = ((string)(Original_name));
             }
-            this.Adapter.UpdateCommand.Parameters[15].Value = ((System.DateTime)(Original_regDate));
-            this.Adapter.UpdateCommand.Parameters[16].Value = ((int)(Original_noShares));
-            this.Adapter.UpdateCommand.Parameters[17].Value = ((int)(Original_noOpenShares));
-            this.Adapter.UpdateCommand.Parameters[18].Value = ((int)(Original_noForeignOwnShares));
-            this.Adapter.UpdateCommand.Parameters[19].Value = ((byte)(Original_status));
-            this.Adapter.UpdateCommand.Parameters[20].Value = ((decimal)(Original_targetPrice));
-            this.Adapter.UpdateCommand.Parameters[21].Value = ((decimal)(Original_targetPriceVariant));
+            if ((Original_nameEn == null)) {
+                this.Adapter.UpdateCommand.Parameters[39].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[40].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[39].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[40].Value = ((string)(Original_nameEn));
+            }
+            if ((Original_address1 == null)) {
+                throw new global::System.ArgumentNullException("Original_address1");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[41].Value = ((string)(Original_address1));
+            }
+            if ((Original_address2 == null)) {
+                this.Adapter.UpdateCommand.Parameters[42].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[43].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[42].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[43].Value = ((string)(Original_address2));
+            }
+            if ((Original_phone == null)) {
+                throw new global::System.ArgumentNullException("Original_phone");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[44].Value = ((string)(Original_phone));
+            }
+            if ((Original_fax == null)) {
+                throw new global::System.ArgumentNullException("Original_fax");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[45].Value = ((string)(Original_fax));
+            }
+            if ((Original_website == null)) {
+                throw new global::System.ArgumentNullException("Original_website");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[46].Value = ((string)(Original_website));
+            }
+            if ((Original_email == null)) {
+                this.Adapter.UpdateCommand.Parameters[47].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[48].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[47].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[48].Value = ((string)(Original_email));
+            }
+            if ((Original_bizSectors == null)) {
+                throw new global::System.ArgumentNullException("Original_bizSectors");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[49].Value = ((string)(Original_bizSectors));
+            }
+            if ((Original_country == null)) {
+                throw new global::System.ArgumentNullException("Original_country");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[50].Value = ((string)(Original_country));
+            }
+            this.Adapter.UpdateCommand.Parameters[51].Value = ((System.DateTime)(Original_regDate));
+            this.Adapter.UpdateCommand.Parameters[52].Value = ((int)(Original_noListedStock));
+            this.Adapter.UpdateCommand.Parameters[53].Value = ((int)(Original_noOutstandingStock));
+            this.Adapter.UpdateCommand.Parameters[54].Value = ((int)(Original_noForeignOwnedStock));
+            this.Adapter.UpdateCommand.Parameters[55].Value = ((int)(Original_noTreasuryStock));
+            this.Adapter.UpdateCommand.Parameters[56].Value = ((decimal)(Original_bookPrice));
+            this.Adapter.UpdateCommand.Parameters[57].Value = ((decimal)(Original_targetPrice));
+            this.Adapter.UpdateCommand.Parameters[58].Value = ((decimal)(Original_targetPriceVariant));
+            this.Adapter.UpdateCommand.Parameters[59].Value = ((decimal)(Original_workingCap));
+            if ((Original_capitalUnit == null)) {
+                throw new global::System.ArgumentNullException("Original_capitalUnit");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[60].Value = ((string)(Original_capitalUnit));
+            }
+            this.Adapter.UpdateCommand.Parameters[61].Value = ((decimal)(Original_sales));
+            this.Adapter.UpdateCommand.Parameters[62].Value = ((decimal)(Original_profit));
+            this.Adapter.UpdateCommand.Parameters[63].Value = ((decimal)(Original_equity));
+            this.Adapter.UpdateCommand.Parameters[64].Value = ((decimal)(Original_totalDebt));
+            this.Adapter.UpdateCommand.Parameters[65].Value = ((decimal)(Original_totaAssets));
+            this.Adapter.UpdateCommand.Parameters[66].Value = ((decimal)(Original_PB));
+            this.Adapter.UpdateCommand.Parameters[67].Value = ((decimal)(Original_EPS));
+            this.Adapter.UpdateCommand.Parameters[68].Value = ((decimal)(Original_PE));
+            this.Adapter.UpdateCommand.Parameters[69].Value = ((decimal)(Original_ROA));
+            this.Adapter.UpdateCommand.Parameters[70].Value = ((decimal)(Original_ROE));
+            this.Adapter.UpdateCommand.Parameters[71].Value = ((decimal)(Original_BETA));
+            this.Adapter.UpdateCommand.Parameters[72].Value = ((byte)(Original_status));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -21242,26 +20715,74 @@ SELECT code, stockExchange, tickerCode, comCode, regDate, noShares, noOpenShares
         public virtual int Update(
                     string stockExchange, 
                     string tickerCode, 
-                    string comCode, 
+                    string name, 
+                    string nameEn, 
+                    string address1, 
+                    string address2, 
+                    string phone, 
+                    string fax, 
+                    string website, 
+                    string email, 
+                    string bizSectors, 
+                    string country, 
                     System.DateTime regDate, 
-                    int noShares, 
-                    int noOpenShares, 
-                    int noForeignOwnShares, 
-                    byte status, 
+                    int noListedStock, 
+                    int noOutstandingStock, 
+                    int noForeignOwnedStock, 
+                    int noTreasuryStock, 
+                    decimal bookPrice, 
                     decimal targetPrice, 
                     decimal targetPriceVariant, 
+                    decimal workingCap, 
+                    string capitalUnit, 
+                    decimal sales, 
+                    decimal profit, 
+                    decimal equity, 
+                    decimal totalDebt, 
+                    decimal totaAssets, 
+                    decimal PB, 
+                    decimal EPS, 
+                    decimal PE, 
+                    decimal ROA, 
+                    decimal ROE, 
+                    decimal BETA, 
+                    byte status, 
                     string Original_code, 
                     string Original_stockExchange, 
                     string Original_tickerCode, 
-                    string Original_comCode, 
+                    string Original_name, 
+                    string Original_nameEn, 
+                    string Original_address1, 
+                    string Original_address2, 
+                    string Original_phone, 
+                    string Original_fax, 
+                    string Original_website, 
+                    string Original_email, 
+                    string Original_bizSectors, 
+                    string Original_country, 
                     System.DateTime Original_regDate, 
-                    int Original_noShares, 
-                    int Original_noOpenShares, 
-                    int Original_noForeignOwnShares, 
-                    byte Original_status, 
+                    int Original_noListedStock, 
+                    int Original_noOutstandingStock, 
+                    int Original_noForeignOwnedStock, 
+                    int Original_noTreasuryStock, 
+                    decimal Original_bookPrice, 
                     decimal Original_targetPrice, 
-                    decimal Original_targetPriceVariant) {
-            return this.Update(Original_code, stockExchange, tickerCode, comCode, regDate, noShares, noOpenShares, noForeignOwnShares, status, targetPrice, targetPriceVariant, Original_code, Original_stockExchange, Original_tickerCode, Original_comCode, Original_regDate, Original_noShares, Original_noOpenShares, Original_noForeignOwnShares, Original_status, Original_targetPrice, Original_targetPriceVariant);
+                    decimal Original_targetPriceVariant, 
+                    decimal Original_workingCap, 
+                    string Original_capitalUnit, 
+                    decimal Original_sales, 
+                    decimal Original_profit, 
+                    decimal Original_equity, 
+                    decimal Original_totalDebt, 
+                    decimal Original_totaAssets, 
+                    decimal Original_PB, 
+                    decimal Original_EPS, 
+                    decimal Original_PE, 
+                    decimal Original_ROA, 
+                    decimal Original_ROE, 
+                    decimal Original_BETA, 
+                    byte Original_status) {
+            return this.Update(Original_code, stockExchange, tickerCode, name, nameEn, address1, address2, phone, fax, website, email, bizSectors, country, regDate, noListedStock, noOutstandingStock, noForeignOwnedStock, noTreasuryStock, bookPrice, targetPrice, targetPriceVariant, workingCap, capitalUnit, sales, profit, equity, totalDebt, totaAssets, PB, EPS, PE, ROA, ROE, BETA, status, Original_code, Original_stockExchange, Original_tickerCode, Original_name, Original_nameEn, Original_address1, Original_address2, Original_phone, Original_fax, Original_website, Original_email, Original_bizSectors, Original_country, Original_regDate, Original_noListedStock, Original_noOutstandingStock, Original_noForeignOwnedStock, Original_noTreasuryStock, Original_bookPrice, Original_targetPrice, Original_targetPriceVariant, Original_workingCap, Original_capitalUnit, Original_sales, Original_profit, Original_equity, Original_totalDebt, Original_totaAssets, Original_PB, Original_EPS, Original_PE, Original_ROA, Original_ROE, Original_BETA, Original_status);
         }
     }
     
@@ -25351,259 +24872,6 @@ SELECT [key], value, timeStamp FROM sysAutoKeyPending WHERE ([key] = @key) AND (
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class stockCodeExtTA : global::System.ComponentModel.Component {
-        
-        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
-        
-        private global::System.Data.SqlClient.SqlConnection _connection;
-        
-        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
-        
-        private bool _clearBeforeFill;
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        public stockCodeExtTA() {
-            this.ClearBeforeFill = true;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        private global::System.Data.SqlClient.SqlDataAdapter Adapter {
-            get {
-                if ((this._adapter == null)) {
-                    this.InitAdapter();
-                }
-                return this._adapter;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        internal global::System.Data.SqlClient.SqlConnection Connection {
-            get {
-                if ((this._connection == null)) {
-                    this.InitConnection();
-                }
-                return this._connection;
-            }
-            set {
-                this._connection = value;
-                if ((this.Adapter.InsertCommand != null)) {
-                    this.Adapter.InsertCommand.Connection = value;
-                }
-                if ((this.Adapter.DeleteCommand != null)) {
-                    this.Adapter.DeleteCommand.Connection = value;
-                }
-                if ((this.Adapter.UpdateCommand != null)) {
-                    this.Adapter.UpdateCommand.Connection = value;
-                }
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    if ((this.CommandCollection[i] != null)) {
-                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
-                    }
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
-            get {
-                if ((this._commandCollection == null)) {
-                    this.InitCommandCollection();
-                }
-                return this._commandCollection;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        public bool ClearBeforeFill {
-            get {
-                return this._clearBeforeFill;
-            }
-            set {
-                this._clearBeforeFill = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        private void InitAdapter() {
-            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
-            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
-            tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "stockCodeExt";
-            tableMapping.ColumnMappings.Add("code", "code");
-            tableMapping.ColumnMappings.Add("stockExchange", "stockExchange");
-            tableMapping.ColumnMappings.Add("tickerCode", "tickerCode");
-            tableMapping.ColumnMappings.Add("comCode", "comCode");
-            tableMapping.ColumnMappings.Add("regDate", "regDate");
-            tableMapping.ColumnMappings.Add("noShares", "noShares");
-            tableMapping.ColumnMappings.Add("noOpenShares", "noOpenShares");
-            tableMapping.ColumnMappings.Add("noForeignOwnShares", "noForeignOwnShares");
-            tableMapping.ColumnMappings.Add("status", "status");
-            tableMapping.ColumnMappings.Add("targetPrice", "targetPrice");
-            tableMapping.ColumnMappings.Add("targetPriceVariant", "targetPriceVariant");
-            tableMapping.ColumnMappings.Add("name", "name");
-            tableMapping.ColumnMappings.Add("nameEn", "nameEn");
-            tableMapping.ColumnMappings.Add("address1", "address1");
-            tableMapping.ColumnMappings.Add("address2", "address2");
-            tableMapping.ColumnMappings.Add("bizSectors", "bizSectors");
-            tableMapping.ColumnMappings.Add("capital", "capital");
-            tableMapping.ColumnMappings.Add("capitalUnit", "capitalUnit");
-            tableMapping.ColumnMappings.Add("employees", "employees");
-            this._adapter.TableMappings.Add(tableMapping);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        private void InitConnection() {
-            this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::data.Properties.Settings.Default.dbConnectionString;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[3];
-            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT *  FROM stockCodeExt WHERE (status & @status > 0) ORDER BY code";
-            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@status", global::System.Data.SqlDbType.VarChar, 1024, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT *  FROM stockCodeExt WHERE (bizSectors LIKE @bizSectors) AND (status & @st" +
-                "atus > 0) ORDER BY code";
-            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@bizSectors", global::System.Data.SqlDbType.NVarChar, 255, global::System.Data.ParameterDirection.Input, 0, 0, "bizSectors", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@status", global::System.Data.SqlDbType.VarChar, 1024, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = "SELECT *  FROM stockCodeExt WHERE (code = @code) ORDER BY code";
-            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@code", global::System.Data.SqlDbType.NVarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "code", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int FillByStatus(baseDS.stockCodeExtDataTable dataTable, string status) {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((status == null)) {
-                throw new global::System.ArgumentNullException("status");
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(status));
-            }
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual baseDS.stockCodeExtDataTable GetByStatus(string status) {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((status == null)) {
-                throw new global::System.ArgumentNullException("status");
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(status));
-            }
-            baseDS.stockCodeExtDataTable dataTable = new baseDS.stockCodeExtDataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillByBizSector(baseDS.stockCodeExtDataTable dataTable, string bizSectors, string status) {
-            this.Adapter.SelectCommand = this.CommandCollection[1];
-            if ((bizSectors == null)) {
-                throw new global::System.ArgumentNullException("bizSectors");
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(bizSectors));
-            }
-            if ((status == null)) {
-                throw new global::System.ArgumentNullException("status");
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(status));
-            }
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual baseDS.stockCodeExtDataTable GetByBizSector(string bizSectors, string status) {
-            this.Adapter.SelectCommand = this.CommandCollection[1];
-            if ((bizSectors == null)) {
-                throw new global::System.ArgumentNullException("bizSectors");
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(bizSectors));
-            }
-            if ((status == null)) {
-                throw new global::System.ArgumentNullException("status");
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(status));
-            }
-            baseDS.stockCodeExtDataTable dataTable = new baseDS.stockCodeExtDataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillByCode(baseDS.stockCodeExtDataTable dataTable, string code) {
-            this.Adapter.SelectCommand = this.CommandCollection[2];
-            if ((code == null)) {
-                throw new global::System.ArgumentNullException("code");
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(code));
-            }
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual baseDS.stockCodeExtDataTable GetByCode(string code) {
-            this.Adapter.SelectCommand = this.CommandCollection[2];
-            if ((code == null)) {
-                throw new global::System.ArgumentNullException("code");
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(code));
-            }
-            baseDS.stockCodeExtDataTable dataTable = new baseDS.stockCodeExtDataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
-        }
-    }
-    
-    /// <summary>
-    ///Represents the connection and commands used to retrieve and save data.
-    ///</summary>
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
-    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
-    [global::System.ComponentModel.ToolboxItem(true)]
-    [global::System.ComponentModel.DataObjectAttribute(true)]
-    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
-        ", Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
-    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
     public partial class bizIndustryTA : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
@@ -26340,9 +25608,11 @@ SELECT type, code, investorCode, name, description, startCapAmt, usedCapAmt, sto
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = "SELECT *  FROM portfolio WHERE (investorCode = @investorCode)";
+            this._commandCollection[2].CommandText = "SELECT *  FROM portfolio WHERE (investorCode = @investorCode) and (type & @typeMa" +
+                "sk)>0";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@investorCode", global::System.Data.SqlDbType.NVarChar, 10, global::System.Data.ParameterDirection.Input, 0, 0, "investorCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@typeMask", global::System.Data.SqlDbType.VarChar, 1024, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -26404,13 +25674,19 @@ SELECT type, code, investorCode, name, description, startCapAmt, usedCapAmt, sto
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillByInvestorCode(baseDS.portfolioDataTable dataTable, string investorCode) {
+        public virtual int FillByInvestorCodeAndTypeMask(baseDS.portfolioDataTable dataTable, string investorCode, string typeMask) {
             this.Adapter.SelectCommand = this.CommandCollection[2];
             if ((investorCode == null)) {
                 throw new global::System.ArgumentNullException("investorCode");
             }
             else {
                 this.Adapter.SelectCommand.Parameters[0].Value = ((string)(investorCode));
+            }
+            if ((typeMask == null)) {
+                throw new global::System.ArgumentNullException("typeMask");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(typeMask));
             }
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -26422,13 +25698,19 @@ SELECT type, code, investorCode, name, description, startCapAmt, usedCapAmt, sto
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual baseDS.portfolioDataTable GetByInvestorCode(string investorCode) {
+        public virtual baseDS.portfolioDataTable GetByInvestorCodeAndTypeMask(string investorCode, string typeMask) {
             this.Adapter.SelectCommand = this.CommandCollection[2];
             if ((investorCode == null)) {
                 throw new global::System.ArgumentNullException("investorCode");
             }
             else {
                 this.Adapter.SelectCommand.Parameters[0].Value = ((string)(investorCode));
+            }
+            if ((typeMask == null)) {
+                throw new global::System.ArgumentNullException("typeMask");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(typeMask));
             }
             baseDS.portfolioDataTable dataTable = new baseDS.portfolioDataTable();
             this.Adapter.Fill(dataTable);
@@ -26576,31 +25858,38 @@ SELECT id, onTime, type, tradeAction, portfolio, stockCode, timeScale, strategy,
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@tradeAction", global::System.Data.SqlDbType.TinyInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "tradeAction", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@portfolio", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "portfolio", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@stockCode", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "stockCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@timeScale", global::System.Data.SqlDbType.TinyInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "timeScale", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@timeScale", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "timeScale", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@strategy", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "strategy", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@subject", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "subject", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@msg", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "msg", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@status", global::System.Data.SqlDbType.TinyInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "status", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE    tradeAlert
-SET              onTime = @onTime, type = @type, tradeAction = @tradeAction, portfolio = @portfolio, stockCode = @stockCode, timeScale = @timeScale, 
-                      strategy = @strategy, subject = @subject, msg = @msg, status = @status
-WHERE     (id = @Original_id); 
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [tradeAlert] SET [onTime] = @onTime, [type] = @type, [tradeAction] = @tradeAction, [portfolio] = @portfolio, [stockCode] = @stockCode, [timeScale] = @timeScale, [strategy] = @strategy, [subject] = @subject, [msg] = @msg, [status] = @status WHERE (([id] = @Original_id) AND ([onTime] = @Original_onTime) AND ([type] = @Original_type) AND ([tradeAction] = @Original_tradeAction) AND ([portfolio] = @Original_portfolio) AND ([stockCode] = @Original_stockCode) AND ([timeScale] = @Original_timeScale) AND ([strategy] = @Original_strategy) AND ([subject] = @Original_subject) AND ([msg] = @Original_msg) AND ([status] = @Original_status));
 SELECT id, onTime, type, tradeAction, portfolio, stockCode, timeScale, strategy, subject, msg, status FROM tradeAlert WHERE (id = @id) ORDER BY onTime DESC";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@onTime", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "onTime", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@type", global::System.Data.SqlDbType.NVarChar, 3, global::System.Data.ParameterDirection.Input, 0, 0, "type", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@tradeAction", global::System.Data.SqlDbType.TinyInt, 1, global::System.Data.ParameterDirection.Input, 0, 0, "tradeAction", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@portfolio", global::System.Data.SqlDbType.NVarChar, 10, global::System.Data.ParameterDirection.Input, 0, 0, "portfolio", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@stockCode", global::System.Data.SqlDbType.NVarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "stockCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@timeScale", global::System.Data.SqlDbType.TinyInt, 1, global::System.Data.ParameterDirection.Input, 0, 0, "timeScale", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@strategy", global::System.Data.SqlDbType.NVarChar, 10, global::System.Data.ParameterDirection.Input, 0, 0, "strategy", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@subject", global::System.Data.SqlDbType.NVarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "subject", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@msg", global::System.Data.SqlDbType.NVarChar, 512, global::System.Data.ParameterDirection.Input, 0, 0, "msg", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@status", global::System.Data.SqlDbType.TinyInt, 1, global::System.Data.ParameterDirection.Input, 0, 0, "status", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@onTime", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "onTime", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@type", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "type", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@tradeAction", global::System.Data.SqlDbType.TinyInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "tradeAction", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@portfolio", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "portfolio", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@stockCode", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "stockCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@timeScale", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "timeScale", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@strategy", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "strategy", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@subject", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "subject", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@msg", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "msg", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@status", global::System.Data.SqlDbType.TinyInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "status", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_onTime", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "onTime", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_type", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "type", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_tradeAction", global::System.Data.SqlDbType.TinyInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "tradeAction", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_portfolio", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "portfolio", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_stockCode", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "stockCode", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_timeScale", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "timeScale", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_strategy", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "strategy", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_subject", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "subject", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_msg", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "msg", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_status", global::System.Data.SqlDbType.TinyInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "status", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -26635,9 +25924,9 @@ SELECT id, onTime, type, tradeAction, portfolio, stockCode, timeScale, strategy,
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@oldStat", global::System.Data.SqlDbType.TinyInt, 1, global::System.Data.ParameterDirection.Input, 0, 0, "status", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[3].Connection = this.Connection;
-            this._commandCollection[3].CommandText = "SELECT * FROM tradeAlert WHERE (portfolio IN (SELECT code FROM portfolio WHERE (i" +
-                "nvestorCode = @investorCode))) AND (onTime BETWEEN @frTime AND @toTime) AND (sta" +
-                "tus & @statusMask > 0) ORDER BY onTime DESC";
+            this._commandCollection[3].CommandText = "SELECT* FROM tradeAlert WHERE (portfolio IN (SELECT code FROM portfolio WHERE (in" +
+                "vestorCode = @investorCode))) AND (onTime BETWEEN @frTime AND @toTime) AND (stat" +
+                "us & @statusMask > 0) ORDER BY onTime DESC";
             this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@frTime", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "onTime", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@toTime", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "onTime", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -26645,31 +25934,21 @@ SELECT id, onTime, type, tradeAction, portfolio, stockCode, timeScale, strategy,
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@investorCode", global::System.Data.SqlDbType.NVarChar, 10, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[4] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[4].Connection = this.Connection;
-            this._commandCollection[4].CommandText = @"SELECT TOP 1 * FROM tradeAlert 
-WHERE (onTime BETWEEN @frTime AND @toTime)  
-AND (portfolio = @portfolio) 
-AND (stockCode = @stockCode) 
-AND (strategy = @strategy) 
-AND (timeScale & @timeScaleMask>0)
-AND  (status & @statusMask > 0)  
-ORDER BY onTime DESC";
+            this._commandCollection[4].CommandText = "SELECT TOP 1 *  FROM tradeAlert \r\nWHERE (onTime BETWEEN @frTime AND @toTime) AND " +
+                "(portfolio = @portfolio) AND (stockCode = @stockCode) AND (strategy = @strategy)" +
+                " AND (timeScale = @timeScale) AND (status & @statusMask > 0) ORDER BY onTime DES" +
+                "C";
             this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@frTime", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "onTime", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@toTime", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "onTime", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@portfolio", global::System.Data.SqlDbType.NVarChar, 10, global::System.Data.ParameterDirection.Input, 0, 0, "portfolio", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@stockCode", global::System.Data.SqlDbType.NVarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "stockCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@strategy", global::System.Data.SqlDbType.NVarChar, 10, global::System.Data.ParameterDirection.Input, 0, 0, "strategy", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@timeScaleMask", global::System.Data.SqlDbType.VarChar, 1024, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@timeScale", global::System.Data.SqlDbType.Char, 2, global::System.Data.ParameterDirection.Input, 0, 0, "timeScale", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@statusMask", global::System.Data.SqlDbType.VarChar, 1024, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[5] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[5].Connection = this.Connection;
-            this._commandCollection[5].CommandText = @"SELECT TOP 1 * FROM tradeAlert 
-WHERE (onTime BETWEEN @frTime AND @toTime)  
-AND portfolio IN  (SELECT code FROM  portfolio WHERE investorCode=@investorCode) 
-AND (stockCode = @stockCode) 
-AND (timeScale & @timeScaleMask>0)
-AND  (status & @statusMask > 0)  
-ORDER BY onTime DESC";
+            this._commandCollection[5].CommandText = @"SELECT TOP 1 *  FROM tradeAlert WHERE (onTime BETWEEN @frTime AND @toTime) AND (portfolio IN (SELECT code FROM portfolio WHERE (investorCode = @investorCode))) AND (stockCode = @stockCode) AND (timeScale & @timeScaleMask > 0) AND (status & @statusMask > 0) ORDER BY onTime DESC";
             this._commandCollection[5].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@frTime", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "onTime", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@toTime", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "onTime", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -26782,7 +26061,7 @@ ORDER BY onTime DESC";
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillOne(baseDS.tradeAlertDataTable dataTable, System.DateTime frTime, System.DateTime toTime, string portfolio, string stockCode, string strategy, string timeScaleMask, string statusMask) {
+        public virtual int FillOne(baseDS.tradeAlertDataTable dataTable, System.DateTime frTime, System.DateTime toTime, string portfolio, string stockCode, string strategy, string timeScale, string statusMask) {
             this.Adapter.SelectCommand = this.CommandCollection[4];
             this.Adapter.SelectCommand.Parameters[0].Value = ((System.DateTime)(frTime));
             this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(toTime));
@@ -26804,11 +26083,11 @@ ORDER BY onTime DESC";
             else {
                 this.Adapter.SelectCommand.Parameters[4].Value = ((string)(strategy));
             }
-            if ((timeScaleMask == null)) {
-                throw new global::System.ArgumentNullException("timeScaleMask");
+            if ((timeScale == null)) {
+                throw new global::System.ArgumentNullException("timeScale");
             }
             else {
-                this.Adapter.SelectCommand.Parameters[5].Value = ((string)(timeScaleMask));
+                this.Adapter.SelectCommand.Parameters[5].Value = ((string)(timeScale));
             }
             if ((statusMask == null)) {
                 throw new global::System.ArgumentNullException("statusMask");
@@ -26826,7 +26105,7 @@ ORDER BY onTime DESC";
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual baseDS.tradeAlertDataTable GetOne(System.DateTime frTime, System.DateTime toTime, string portfolio, string stockCode, string strategy, string timeScaleMask, string statusMask) {
+        public virtual baseDS.tradeAlertDataTable GetOne(System.DateTime frTime, System.DateTime toTime, string portfolio, string stockCode, string strategy, string timeScale, string statusMask) {
             this.Adapter.SelectCommand = this.CommandCollection[4];
             this.Adapter.SelectCommand.Parameters[0].Value = ((System.DateTime)(frTime));
             this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(toTime));
@@ -26848,11 +26127,11 @@ ORDER BY onTime DESC";
             else {
                 this.Adapter.SelectCommand.Parameters[4].Value = ((string)(strategy));
             }
-            if ((timeScaleMask == null)) {
-                throw new global::System.ArgumentNullException("timeScaleMask");
+            if ((timeScale == null)) {
+                throw new global::System.ArgumentNullException("timeScale");
             }
             else {
-                this.Adapter.SelectCommand.Parameters[5].Value = ((string)(timeScaleMask));
+                this.Adapter.SelectCommand.Parameters[5].Value = ((string)(timeScale));
             }
             if ((statusMask == null)) {
                 throw new global::System.ArgumentNullException("statusMask");
@@ -26988,7 +26267,7 @@ ORDER BY onTime DESC";
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(System.DateTime onTime, string type, byte tradeAction, string portfolio, string stockCode, byte timeScale, string strategy, string subject, string msg, byte status) {
+        public virtual int Insert(System.DateTime onTime, string type, byte tradeAction, string portfolio, string stockCode, string timeScale, string strategy, string subject, string msg, byte status) {
             this.Adapter.InsertCommand.Parameters[0].Value = ((System.DateTime)(onTime));
             if ((type == null)) {
                 throw new global::System.ArgumentNullException("type");
@@ -27009,7 +26288,12 @@ ORDER BY onTime DESC";
             else {
                 this.Adapter.InsertCommand.Parameters[4].Value = ((string)(stockCode));
             }
-            this.Adapter.InsertCommand.Parameters[5].Value = ((byte)(timeScale));
+            if ((timeScale == null)) {
+                throw new global::System.ArgumentNullException("timeScale");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(timeScale));
+            }
             if ((strategy == null)) {
                 throw new global::System.ArgumentNullException("strategy");
             }
@@ -27048,7 +26332,29 @@ ORDER BY onTime DESC";
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(System.DateTime onTime, string type, byte tradeAction, string portfolio, string stockCode, byte timeScale, string strategy, string subject, string msg, byte status, int Original_id, int id) {
+        public virtual int Update(
+                    System.DateTime onTime, 
+                    string type, 
+                    byte tradeAction, 
+                    string portfolio, 
+                    string stockCode, 
+                    string timeScale, 
+                    string strategy, 
+                    string subject, 
+                    string msg, 
+                    byte status, 
+                    int Original_id, 
+                    System.DateTime Original_onTime, 
+                    string Original_type, 
+                    byte Original_tradeAction, 
+                    string Original_portfolio, 
+                    string Original_stockCode, 
+                    string Original_timeScale, 
+                    string Original_strategy, 
+                    string Original_subject, 
+                    string Original_msg, 
+                    byte Original_status, 
+                    int id) {
             this.Adapter.UpdateCommand.Parameters[0].Value = ((System.DateTime)(onTime));
             if ((type == null)) {
                 throw new global::System.ArgumentNullException("type");
@@ -27069,7 +26375,12 @@ ORDER BY onTime DESC";
             else {
                 this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(stockCode));
             }
-            this.Adapter.UpdateCommand.Parameters[5].Value = ((byte)(timeScale));
+            if ((timeScale == null)) {
+                throw new global::System.ArgumentNullException("timeScale");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(timeScale));
+            }
             if ((strategy == null)) {
                 throw new global::System.ArgumentNullException("strategy");
             }
@@ -27090,7 +26401,52 @@ ORDER BY onTime DESC";
             }
             this.Adapter.UpdateCommand.Parameters[9].Value = ((byte)(status));
             this.Adapter.UpdateCommand.Parameters[10].Value = ((int)(Original_id));
-            this.Adapter.UpdateCommand.Parameters[11].Value = ((int)(id));
+            this.Adapter.UpdateCommand.Parameters[11].Value = ((System.DateTime)(Original_onTime));
+            if ((Original_type == null)) {
+                throw new global::System.ArgumentNullException("Original_type");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(Original_type));
+            }
+            this.Adapter.UpdateCommand.Parameters[13].Value = ((byte)(Original_tradeAction));
+            if ((Original_portfolio == null)) {
+                throw new global::System.ArgumentNullException("Original_portfolio");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((string)(Original_portfolio));
+            }
+            if ((Original_stockCode == null)) {
+                throw new global::System.ArgumentNullException("Original_stockCode");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(Original_stockCode));
+            }
+            if ((Original_timeScale == null)) {
+                throw new global::System.ArgumentNullException("Original_timeScale");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((string)(Original_timeScale));
+            }
+            if ((Original_strategy == null)) {
+                throw new global::System.ArgumentNullException("Original_strategy");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((string)(Original_strategy));
+            }
+            if ((Original_subject == null)) {
+                throw new global::System.ArgumentNullException("Original_subject");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((string)(Original_subject));
+            }
+            if ((Original_msg == null)) {
+                throw new global::System.ArgumentNullException("Original_msg");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((string)(Original_msg));
+            }
+            this.Adapter.UpdateCommand.Parameters[20].Value = ((byte)(Original_status));
+            this.Adapter.UpdateCommand.Parameters[21].Value = ((int)(id));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -27105,6 +26461,34 @@ ORDER BY onTime DESC";
                     this.Adapter.UpdateCommand.Connection.Close();
                 }
             }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(
+                    System.DateTime onTime, 
+                    string type, 
+                    byte tradeAction, 
+                    string portfolio, 
+                    string stockCode, 
+                    string timeScale, 
+                    string strategy, 
+                    string subject, 
+                    string msg, 
+                    byte status, 
+                    int Original_id, 
+                    System.DateTime Original_onTime, 
+                    string Original_type, 
+                    byte Original_tradeAction, 
+                    string Original_portfolio, 
+                    string Original_stockCode, 
+                    string Original_timeScale, 
+                    string Original_strategy, 
+                    string Original_subject, 
+                    string Original_msg, 
+                    byte Original_status) {
+            return this.Update(onTime, type, tradeAction, portfolio, stockCode, timeScale, strategy, subject, msg, status, Original_id, Original_onTime, Original_type, Original_tradeAction, Original_portfolio, Original_stockCode, Original_timeScale, Original_strategy, Original_subject, Original_msg, Original_status, Original_id);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -27244,8 +26628,8 @@ ORDER BY onTime DESC";
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "priceDataSum";
-            tableMapping.ColumnMappings.Add("type", "type");
             tableMapping.ColumnMappings.Add("onDate", "onDate");
+            tableMapping.ColumnMappings.Add("type", "type");
             tableMapping.ColumnMappings.Add("stockCode", "stockCode");
             tableMapping.ColumnMappings.Add("openPrice", "openPrice");
             tableMapping.ColumnMappings.Add("closePrice", "closePrice");
@@ -27260,7 +26644,7 @@ ORDER BY onTime DESC";
             this._adapter.DeleteCommand.Connection = this.Connection;
             this._adapter.DeleteCommand.CommandText = @"DELETE FROM [priceDataSum] WHERE (([type] = @Original_type) AND ([stockCode] = @Original_stockCode) AND ([onDate] = @Original_onDate) AND ([openPrice] = @Original_openPrice) AND ([closePrice] = @Original_closePrice) AND ([lowPrice] = @Original_lowPrice) AND ([highPrice] = @Original_highPrice) AND ([volume] = @Original_volume) AND ([openTimeOffset] = @Original_openTimeOffset) AND ([closeTimeOffset] = @Original_closeTimeOffset) AND ([isUpdate] = @Original_isUpdate))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_type", global::System.Data.SqlDbType.TinyInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "type", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_type", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "type", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_stockCode", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "stockCode", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_onDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "onDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_openPrice", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 8, 1, "openPrice", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -27276,7 +26660,7 @@ ORDER BY onTime DESC";
             this._adapter.InsertCommand.CommandText = @"INSERT INTO [priceDataSum] ([type], [stockCode], [onDate], [openPrice], [closePrice], [lowPrice], [highPrice], [volume], [openTimeOffset], [closeTimeOffset], [isUpdate]) VALUES (@type, @stockCode, @onDate, @openPrice, @closePrice, @lowPrice, @highPrice, @volume, @openTimeOffset, @closeTimeOffset, @isUpdate);
 SELECT type, stockCode, onDate, openPrice, closePrice, lowPrice, highPrice, volume, openTimeOffset, closeTimeOffset, isUpdate FROM priceDataSum WHERE (onDate = @onDate) AND (stockCode = @stockCode) AND (type = @type) ORDER BY onDate";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@type", global::System.Data.SqlDbType.TinyInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "type", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@type", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "type", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@stockCode", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "stockCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@onDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "onDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@openPrice", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 8, 1, "openPrice", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -27292,7 +26676,7 @@ SELECT type, stockCode, onDate, openPrice, closePrice, lowPrice, highPrice, volu
             this._adapter.UpdateCommand.CommandText = @"UPDATE [priceDataSum] SET [type] = @type, [stockCode] = @stockCode, [onDate] = @onDate, [openPrice] = @openPrice, [closePrice] = @closePrice, [lowPrice] = @lowPrice, [highPrice] = @highPrice, [volume] = @volume, [openTimeOffset] = @openTimeOffset, [closeTimeOffset] = @closeTimeOffset, [isUpdate] = @isUpdate WHERE (([type] = @Original_type) AND ([stockCode] = @Original_stockCode) AND ([onDate] = @Original_onDate) AND ([openPrice] = @Original_openPrice) AND ([closePrice] = @Original_closePrice) AND ([lowPrice] = @Original_lowPrice) AND ([highPrice] = @Original_highPrice) AND ([volume] = @Original_volume) AND ([openTimeOffset] = @Original_openTimeOffset) AND ([closeTimeOffset] = @Original_closeTimeOffset) AND ([isUpdate] = @Original_isUpdate));
 SELECT type, stockCode, onDate, openPrice, closePrice, lowPrice, highPrice, volume, openTimeOffset, closeTimeOffset, isUpdate FROM priceDataSum WHERE (onDate = @onDate) AND (stockCode = @stockCode) AND (type = @type) ORDER BY onDate";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@type", global::System.Data.SqlDbType.TinyInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "type", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@type", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "type", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@stockCode", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "stockCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@onDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "onDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@openPrice", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 8, 1, "openPrice", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -27303,7 +26687,7 @@ SELECT type, stockCode, onDate, openPrice, closePrice, lowPrice, highPrice, volu
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@openTimeOffset", global::System.Data.SqlDbType.SmallInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "openTimeOffset", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@closeTimeOffset", global::System.Data.SqlDbType.SmallInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "closeTimeOffset", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@isUpdate", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "isUpdate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_type", global::System.Data.SqlDbType.TinyInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "type", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_type", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "type", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_stockCode", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "stockCode", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_onDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "onDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_openPrice", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 8, 1, "openPrice", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -27324,30 +26708,44 @@ SELECT type, stockCode, onDate, openPrice, closePrice, lowPrice, highPrice, volu
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[5];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT * FROM priceDataSum WHERE (stockCode = @stockCode) AND (type = @type) AND " +
-                "(onDate BETWEEN @frDate AND @toDate) ORDER BY onDate";
+            this._commandCollection[0].CommandText = "SELECT *  FROM priceDataSum WHERE (stockCode = @stockCode) AND (type = @type) AND" +
+                " (onDate BETWEEN @frDate AND @toDate) ORDER BY onDate";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@stockCode", global::System.Data.SqlDbType.NVarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "stockCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@type", global::System.Data.SqlDbType.TinyInt, 1, global::System.Data.ParameterDirection.Input, 0, 0, "type", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@type", global::System.Data.SqlDbType.Char, 2, global::System.Data.ParameterDirection.Input, 0, 0, "type", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@frDate", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "onDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@toDate", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "onDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT *  FROM priceDataSum WHERE (type = @type) AND (onDate BETWEEN @frDate AND " +
-                "@toDate) ORDER BY onDate";
+            this._commandCollection[1].CommandText = "DELETE FROM [priceDataSum] ";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@type", global::System.Data.SqlDbType.TinyInt, 1, global::System.Data.ParameterDirection.Input, 0, 0, "type", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@frDate", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "onDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@toDate", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "onDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = "DELETE FROM [priceDataSum] WHERE (stockCode = @stockCode)";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@stockCode", global::System.Data.SqlDbType.NVarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "stockCode", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[3].Connection = this.Connection;
+            this._commandCollection[3].CommandText = "SELECT *  FROM priceDataSum WHERE (stockCode = @stockCode) ORDER BY type, onDate";
+            this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@stockCode", global::System.Data.SqlDbType.NVarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "stockCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[4].Connection = this.Connection;
+            this._commandCollection[4].CommandText = "SELECT *  FROM priceDataSum WHERE (type = @type) AND (onDate BETWEEN @frDate AND " +
+                "@toDate) ORDER BY onDate";
+            this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@type", global::System.Data.SqlDbType.Char, 2, global::System.Data.ParameterDirection.Input, 0, 0, "type", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@frDate", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "onDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@toDate", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "onDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(baseDS.priceDataSumDataTable dataTable, string stockCode, byte type, System.DateTime frDate, System.DateTime toDate) {
+        public virtual int Fill(baseDS.priceDataSumDataTable dataTable, string stockCode, string type, System.DateTime frDate, System.DateTime toDate) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((stockCode == null)) {
                 throw new global::System.ArgumentNullException("stockCode");
@@ -27355,7 +26753,12 @@ SELECT type, stockCode, onDate, openPrice, closePrice, lowPrice, highPrice, volu
             else {
                 this.Adapter.SelectCommand.Parameters[0].Value = ((string)(stockCode));
             }
-            this.Adapter.SelectCommand.Parameters[1].Value = ((byte)(type));
+            if ((type == null)) {
+                throw new global::System.ArgumentNullException("type");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(type));
+            }
             this.Adapter.SelectCommand.Parameters[2].Value = ((System.DateTime)(frDate));
             this.Adapter.SelectCommand.Parameters[3].Value = ((System.DateTime)(toDate));
             if ((this.ClearBeforeFill == true)) {
@@ -27368,7 +26771,7 @@ SELECT type, stockCode, onDate, openPrice, closePrice, lowPrice, highPrice, volu
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual baseDS.priceDataSumDataTable Get(string stockCode, byte type, System.DateTime frDate, System.DateTime toDate) {
+        public virtual baseDS.priceDataSumDataTable Get(string stockCode, string type, System.DateTime frDate, System.DateTime toDate) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((stockCode == null)) {
                 throw new global::System.ArgumentNullException("stockCode");
@@ -27376,7 +26779,12 @@ SELECT type, stockCode, onDate, openPrice, closePrice, lowPrice, highPrice, volu
             else {
                 this.Adapter.SelectCommand.Parameters[0].Value = ((string)(stockCode));
             }
-            this.Adapter.SelectCommand.Parameters[1].Value = ((byte)(type));
+            if ((type == null)) {
+                throw new global::System.ArgumentNullException("type");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(type));
+            }
             this.Adapter.SelectCommand.Parameters[2].Value = ((System.DateTime)(frDate));
             this.Adapter.SelectCommand.Parameters[3].Value = ((System.DateTime)(toDate));
             baseDS.priceDataSumDataTable dataTable = new baseDS.priceDataSumDataTable();
@@ -27387,9 +26795,48 @@ SELECT type, stockCode, onDate, openPrice, closePrice, lowPrice, highPrice, volu
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillByTypeDate(baseDS.priceDataSumDataTable dataTable, byte type, System.DateTime frDate, System.DateTime toDate) {
-            this.Adapter.SelectCommand = this.CommandCollection[1];
-            this.Adapter.SelectCommand.Parameters[0].Value = ((byte)(type));
+        public virtual int FillByCode(baseDS.priceDataSumDataTable dataTable, string stockCode) {
+            this.Adapter.SelectCommand = this.CommandCollection[3];
+            if ((stockCode == null)) {
+                throw new global::System.ArgumentNullException("stockCode");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(stockCode));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual baseDS.priceDataSumDataTable GetByCode(string stockCode) {
+            this.Adapter.SelectCommand = this.CommandCollection[3];
+            if ((stockCode == null)) {
+                throw new global::System.ArgumentNullException("stockCode");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(stockCode));
+            }
+            baseDS.priceDataSumDataTable dataTable = new baseDS.priceDataSumDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByTypeDate(baseDS.priceDataSumDataTable dataTable, string type, System.DateTime frDate, System.DateTime toDate) {
+            this.Adapter.SelectCommand = this.CommandCollection[4];
+            if ((type == null)) {
+                throw new global::System.ArgumentNullException("type");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(type));
+            }
             this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(frDate));
             this.Adapter.SelectCommand.Parameters[2].Value = ((System.DateTime)(toDate));
             if ((this.ClearBeforeFill == true)) {
@@ -27402,9 +26849,14 @@ SELECT type, stockCode, onDate, openPrice, closePrice, lowPrice, highPrice, volu
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual baseDS.priceDataSumDataTable GetByTypeDate(byte type, System.DateTime frDate, System.DateTime toDate) {
-            this.Adapter.SelectCommand = this.CommandCollection[1];
-            this.Adapter.SelectCommand.Parameters[0].Value = ((byte)(type));
+        public virtual baseDS.priceDataSumDataTable GetByTypeDate(string type, System.DateTime frDate, System.DateTime toDate) {
+            this.Adapter.SelectCommand = this.CommandCollection[4];
+            if ((type == null)) {
+                throw new global::System.ArgumentNullException("type");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(type));
+            }
             this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(frDate));
             this.Adapter.SelectCommand.Parameters[2].Value = ((System.DateTime)(toDate));
             baseDS.priceDataSumDataTable dataTable = new baseDS.priceDataSumDataTable();
@@ -27435,6 +26887,56 @@ SELECT type, stockCode, onDate, openPrice, closePrice, lowPrice, highPrice, volu
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         public virtual int Update(global::System.Data.DataRow[] dataRows) {
             return this.Adapter.Update(dataRows);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, false)]
+        public virtual int DeleteAll() {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[1];
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            int returnValue;
+            try {
+                returnValue = command.ExecuteNonQuery();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, false)]
+        public virtual int DeleteByStockCode(string stockCode) {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[2];
+            if ((stockCode == null)) {
+                throw new global::System.ArgumentNullException("stockCode");
+            }
+            else {
+                command.Parameters[0].Value = ((string)(stockCode));
+            }
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            int returnValue;
+            try {
+                returnValue = command.ExecuteNonQuery();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            return returnValue;
         }
     }
     

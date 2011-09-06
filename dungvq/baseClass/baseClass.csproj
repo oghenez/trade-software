@@ -41,6 +41,8 @@
     <Reference Include="LumenWorks.Framework.IO, Version=3.7.2.0, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="Microsoft.VisualBasic.PowerPacks.Vs, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="Microsoft.VisualStudio.TeamSystem.Data.UnitTesting, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core">
@@ -62,6 +64,7 @@
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="TA-Lib-Core, Version=1.0.4116.16634, Culture=neutral, PublicKeyToken=fdb2a6b268f56aa5, processorArchitecture=MSIL" />
+    <Reference Include="WeifenLuo.WinFormsUI.Docking, Version=2.5.0.15095, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="XPPanel, Version=1.0.0.0, Culture=neutral, PublicKeyToken=c1a4c9eadd4711d4">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\test\Debug\XPPanel.dll</HintPath>
@@ -90,12 +93,6 @@
     <Compile Include="controls\companyOtherlInfo.Designer.cs">
       <DependentUpon>companyOtherlInfo.cs</DependentUpon>
     </Compile>
-    <Compile Include="controls\companyStockCode.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="controls\companyStockCode.designer.cs">
-      <DependentUpon>companyStockCode.cs</DependentUpon>
-    </Compile>
     <Compile Include="controls\chartTiming.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -114,11 +111,11 @@
     <Compile Include="controls\strategySelect.designer.cs">
       <DependentUpon>strategySelect.cs</DependentUpon>
     </Compile>
-    <Compile Include="controls\transHistoryCriteria.cs">
+    <Compile Include="controls\transactionCriteria.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="controls\transHistoryCriteria.designer.cs">
-      <DependentUpon>transHistoryCriteria.cs</DependentUpon>
+    <Compile Include="controls\transactionCriteria.designer.cs">
+      <DependentUpon>transactionCriteria.cs</DependentUpon>
     </Compile>
     <Compile Include="controls\porfolioStrategy.cs">
       <SubType>UserControl</SubType>
@@ -162,17 +159,17 @@
     <Compile Include="controls\investorCriteria.designer.cs">
       <DependentUpon>investorCriteria.cs</DependentUpon>
     </Compile>
-    <Compile Include="controls\stockCodeDetail.cs">
+    <Compile Include="controls\companyStockInfo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="controls\stockCodeDetail.designer.cs">
-      <DependentUpon>stockCodeDetail.cs</DependentUpon>
+    <Compile Include="controls\companyStockInfo.designer.cs">
+      <DependentUpon>companyStockInfo.cs</DependentUpon>
     </Compile>
-    <Compile Include="forms\basePortfolioView.cs">
+    <Compile Include="forms\baseAnalysis.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="forms\basePortfolioView.designer.cs">
-      <DependentUpon>basePortfolioView.cs</DependentUpon>
+    <Compile Include="forms\baseAnalysis.designer.cs">
+      <DependentUpon>baseAnalysis.cs</DependentUpon>
     </Compile>
     <Compile Include="forms\baseGraphForm.cs">
       <SubType>Form</SubType>
@@ -180,11 +177,29 @@
     <Compile Include="forms\baseGraphForm.designer.cs">
       <DependentUpon>baseGraphForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="forms\baseScreening.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\baseScreening.Designer.cs">
+      <DependentUpon>baseScreening.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\baseWatchList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\baseWatchList.designer.cs">
+      <DependentUpon>baseWatchList.cs</DependentUpon>
+    </Compile>
     <Compile Include="forms\chartDataOptions.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="forms\chartDataOptions.designer.cs">
       <DependentUpon>chartDataOptions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\companyEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\companyEdit.Designer.cs">
+      <DependentUpon>companyEdit.cs</DependentUpon>
     </Compile>
     <Compile Include="forms\configure.cs">
       <SubType>Form</SubType>
@@ -228,12 +243,6 @@
     <Compile Include="forms\baseMasterEdit.designer.cs">
       <DependentUpon>baseMasterEdit.cs</DependentUpon>
     </Compile>
-    <Compile Include="forms\companyEdit.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="forms\companyEdit.designer.cs">
-      <DependentUpon>companyEdit.cs</DependentUpon>
-    </Compile>
     <Compile Include="forms\companyFind.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -264,29 +273,29 @@
     <Compile Include="forms\baseBackTestingChart.Designer.cs">
       <DependentUpon>baseBackTestingChart.cs</DependentUpon>
     </Compile>
-    <Compile Include="forms\baseAnalysis.cs">
+    <Compile Include="forms\sysOptions.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="forms\baseAnalysis.designer.cs">
-      <DependentUpon>baseAnalysis.cs</DependentUpon>
+    <Compile Include="forms\sysOptions.designer.cs">
+      <DependentUpon>sysOptions.cs</DependentUpon>
     </Compile>
-    <Compile Include="forms\baseSysOptions.cs">
+    <Compile Include="forms\basePortfolioEdit.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="forms\baseSysOptions.designer.cs">
-      <DependentUpon>baseSysOptions.cs</DependentUpon>
+    <Compile Include="forms\basePortfolioEdit.Designer.cs">
+      <DependentUpon>basePortfolioEdit.cs</DependentUpon>
     </Compile>
-    <Compile Include="forms\basePortpolioEdit.cs">
+    <Compile Include="forms\baseWatchEdit.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="forms\basePortpolioEdit.designer.cs">
-      <DependentUpon>basePortpolioEdit.cs</DependentUpon>
+    <Compile Include="forms\baseWatchEdit.Designer.cs">
+      <DependentUpon>baseWatchEdit.cs</DependentUpon>
     </Compile>
-    <Compile Include="forms\baseScreening.cs">
+    <Compile Include="forms\chartProperties.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="forms\baseScreening.Designer.cs">
-      <DependentUpon>baseScreening.cs</DependentUpon>
+    <Compile Include="forms\chartProperties.designer.cs">
+      <DependentUpon>chartProperties.cs</DependentUpon>
     </Compile>
     <Compile Include="forms\subSectorSelectionForm.cs">
       <SubType>Form</SubType>
@@ -299,12 +308,6 @@
     </Compile>
     <Compile Include="forms\stockSelectionForm.designer.cs">
       <DependentUpon>stockSelectionForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="forms\indicatorOption.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="forms\indicatorOption.designer.cs">
-      <DependentUpon>indicatorOption.cs</DependentUpon>
     </Compile>
     <Compile Include="forms\baseTradeAnalysis.cs">
       <SubType>Form</SubType>
@@ -383,9 +386,6 @@
     <EmbeddedResource Include="controls\companyOtherlInfo.resx">
       <DependentUpon>companyOtherlInfo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="controls\companyStockCode.resx">
-      <DependentUpon>companyStockCode.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="controls\chartTiming.resx">
       <DependentUpon>chartTiming.cs</DependentUpon>
     </EmbeddedResource>
@@ -395,8 +395,8 @@
     <EmbeddedResource Include="controls\strategySelect.resx">
       <DependentUpon>strategySelect.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="controls\transHistoryCriteria.resx">
-      <DependentUpon>transHistoryCriteria.cs</DependentUpon>
+    <EmbeddedResource Include="controls\transactionCriteria.resx">
+      <DependentUpon>transactionCriteria.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="controls\porfolioStrategy.resx">
       <DependentUpon>porfolioStrategy.cs</DependentUpon>
@@ -419,12 +419,15 @@
     <EmbeddedResource Include="controls\investorCriteria.resx">
       <DependentUpon>investorCriteria.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="controls\stockCodeDetail.resx">
-      <DependentUpon>stockCodeDetail.cs</DependentUpon>
+    <EmbeddedResource Include="controls\companyStockInfo.resx">
+      <DependentUpon>companyStockInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\AboutBox.resx">
       <DependentUpon>AboutBox.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\baseAnalysis.resx">
+      <DependentUpon>baseAnalysis.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\baseApplication.resx">
       <DependentUpon>baseApplication.cs</DependentUpon>
@@ -437,11 +440,14 @@
       <DependentUpon>baseMasterEdit.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="forms\basePortfolioView.resx">
-      <DependentUpon>basePortfolioView.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="forms\baseGraphForm.resx">
       <DependentUpon>baseGraphForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\baseScreening.resx">
+      <DependentUpon>baseScreening.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\baseWatchList.resx">
+      <DependentUpon>baseWatchList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\chartDataOptions.resx">
       <DependentUpon>chartDataOptions.cs</DependentUpon>
@@ -470,26 +476,23 @@
     <EmbeddedResource Include="forms\baseBackTestingChart.resx">
       <DependentUpon>baseBackTestingChart.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="forms\baseAnalysis.resx">
-      <DependentUpon>baseAnalysis.cs</DependentUpon>
+    <EmbeddedResource Include="forms\sysOptions.resx">
+      <DependentUpon>sysOptions.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="forms\baseSysOptions.resx">
-      <DependentUpon>baseSysOptions.cs</DependentUpon>
+    <EmbeddedResource Include="forms\basePortfolioEdit.resx">
+      <DependentUpon>basePortfolioEdit.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="forms\basePortpolioEdit.resx">
-      <DependentUpon>basePortpolioEdit.cs</DependentUpon>
+    <EmbeddedResource Include="forms\baseWatchEdit.resx">
+      <DependentUpon>baseWatchEdit.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="forms\baseScreening.resx">
-      <DependentUpon>baseScreening.cs</DependentUpon>
+    <EmbeddedResource Include="forms\chartProperties.resx">
+      <DependentUpon>chartProperties.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\subSectorSelectionForm.resx">
       <DependentUpon>subSectorSelectionForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\stockSelectionForm.resx">
       <DependentUpon>stockSelectionForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="forms\indicatorOption.resx">
-      <DependentUpon>indicatorOption.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\baseTradeAnalysis.resx">
       <DependentUpon>baseTradeAnalysis.cs</DependentUpon>
@@ -685,6 +688,16 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\ruler1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\addLine.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\deleteLine.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="forms\app.config" />
+    <None Include="Resources\edit.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -15,7 +15,7 @@ namespace baseClass.controls
 {
     public partial class porfolioStrategy : common.control.baseUserControl
     {
-        private myTypes.portfolioDetailDataType myDataType = myTypes.portfolioDetailDataType.Strategy;
+        private myTypes.PortfolioDetailDataType myDataType = myTypes.PortfolioDetailDataType.Strategy;
         private data.baseDS.portfolioDetailDataTable myDataTbl = new data.baseDS.portfolioDetailDataTable();
         public porfolioStrategy()
         {
@@ -67,13 +67,13 @@ namespace baseClass.controls
 
         private class nodeData
         {
-            public nodeData(string _strategy, myTypes.timeScales _timeScale)
+            public nodeData(string _strategy, string _timeScale)
             {
                 this.strategy = _strategy;
                 this.timeScale = _timeScale;
             }
             public string strategy = "";
-            public myTypes.timeScales timeScale = myTypes.timeScales.None;
+            public string timeScale = "";
         }
 
         private static TreeGridNode AddNode(TreeGridNodeCollection parentNodes,
@@ -82,7 +82,7 @@ namespace baseClass.controls
             TreeGridNode node;
             data.baseDS.strategyRow strategyRow = dataLibs.FindAndCache(strategyTbl, row.dataCode.Trim());
             node = parentNodes.Add(strategyRow.code.Trim() + " -  " + strategyRow.description);
-            node.Tag = new nodeData(strategyRow.code.Trim(), myTypes.timeScales.None);
+            node.Tag = new nodeData(strategyRow.code.Trim(), myTypes.MainDataTimeScale.Code);
 
             if (fon != null) node.DefaultCellStyle.Font = fon;
             node.ImageIndex = 0;
@@ -91,14 +91,12 @@ namespace baseClass.controls
 
         private static void AddNodes(TreeGridNodeCollection parentNodes, data.baseDS.portfolioDetailRow row, Font fon)
         {
-            StringCollection list = common.system.MultivalueString2List(row.data.Trim()); 
+            StringCollection list = common.system.MultivalueString2List(row.data.Trim());
             TreeGridNode node;
-            byte timeScaleCode = 0;
             for (int idx = 0; idx < list.Count; idx++)
             {
-                if(!byte.TryParse(list[idx],out timeScaleCode)) continue;
-                node = parentNodes.Add(myTypes.Type2Text((myTypes.timeScales)timeScaleCode));
-                node.Tag = new nodeData(row.dataCode.Trim(), (myTypes.timeScales)timeScaleCode);
+                node = parentNodes.Add(list[idx]);
+                node.Tag = new nodeData(row.dataCode.Trim(), list[idx]);
                 node.ImageIndex = 1;
                 if (fon != null) node.DefaultCellStyle.Font = fon;
             }

@@ -33,9 +33,8 @@ namespace baseClass.forms
         protected override void LoadData()
         {
             this.ShowMessage("");
-            myDataSet.company.Clear();
-            application.dataLibs.LoadFromSQL(myDataSet.company, findCriteria.GetSQL());
-            CurrentDataChanged();
+            myDataSet.stockCode.Clear();
+            application.dataLibs.LoadFromSQL(myDataSet.stockCode, findCriteria.GetSQL());
         }
         
         private void ShowFindPanel(bool state)
@@ -53,6 +52,7 @@ namespace baseClass.forms
             try
             {
                 LoadData();
+                ShowReccount();
             }
             catch (Exception er)
             {

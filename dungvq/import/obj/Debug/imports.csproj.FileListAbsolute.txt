@@ -20,3 +20,15 @@ D:\work\stockProject\code\import\obj\Debug\imports.Properties.Resources.resource
 D:\work\stockProject\code\import\obj\Debug\imports.csproj.GenerateResource.Cache
 D:\work\stockProject\code\import\obj\Debug\imports.dll
 D:\work\stockProject\code\import\obj\Debug\imports.pdb
+D:\work\stockProject\new-code\dlls\imports.dll
+D:\work\stockProject\new-code\dlls\imports.pdb
+D:\work\stockProject\new-code\import\obj\Debug\ResolveAssemblyReference.cache
+D:\work\stockProject\new-code\import\obj\Debug\imports.forms.updatePrice.resources
+D:\work\stockProject\new-code\import\obj\Debug\imports.forms.importComSector.resources
+D:\work\stockProject\new-code\import\obj\Debug\imports.forms.importCompany.resources
+D:\work\stockProject\new-code\import\obj\Debug\imports.forms.importIcbCode.resources
+D:\work\stockProject\new-code\import\obj\Debug\imports.forms.importPriceData.resources
+D:\work\stockProject\new-code\import\obj\Debug\imports.Properties.Resources.resources
+D:\work\stockProject\new-code\import\obj\Debug\imports.csproj.GenerateResource.Cache
+D:\work\stockProject\new-code\import\obj\Debug\imports.dll
+D:\work\stockProject\new-code\import\obj\Debug\imports.pdb

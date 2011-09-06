@@ -13,6 +13,7 @@ namespace baseClass.controls
 {
     public partial class companyOtherInfo : common.control.baseUserControl
     {
+        private BindingSource myDataSource = null;
         public companyOtherInfo()
         {
             InitializeComponent();
@@ -20,64 +21,35 @@ namespace baseClass.controls
         }
         private void SetMaxLength()
         {
-            data.baseDS.companyDataTable tbl = new data.baseDS.companyDataTable();
-            bizSectorClb.maxLen = tbl.bizSectorsColumn.MaxLength;
+            data.baseDS.stockCodeDataTable tbl = new data.baseDS.stockCodeDataTable();
+            bizSectorLb.maxLen = tbl.bizSectorsColumn.MaxLength;
         }
 
         public virtual void Init() 
         {
-            capitalUnitCb.LoadData();
-            bizSectorClb.LoadData();
-            employeeRangeCb.LoadData();
+            bizSectorLb.LoadData();
         }
-        public virtual void SetData(data.baseDS.companyRow row)
+        public void SetDataSource(System.Windows.Forms.BindingSource dataSrc)
         {
-            estDateEd.myDateTime = row.estDate;
-            capitalAmtEd.Value = row.capital;
-            capitalUnitCb.myValue = row.capitalUnit;
-            employeeRangeCb.myValue = row.employees;
-
-            bool saveShowCheckedOnly = bizSectorClb.ShowCheckedOnly;
-            bizSectorClb.ShowCheckedOnly = false; 
-            bizSectorClb.myItemString = row.bizSectors;
-            bizSectorClb.ShowCheckedOnly = saveShowCheckedOnly; 
-        }
-        public virtual void GetData(data.baseDS.companyRow row)
-        {
-            row.estDate = estDateEd.myDateTime;
-            row.capital = capitalAmtEd.Value;
-            row.capitalUnit = capitalUnitCb.myValue;
-            row.employees = employeeRangeCb.myValue;
-            row.bizSectors = bizSectorClb.myItemString;
+            this.myDataSource = dataSrc;
+            data.baseDS.stockCodeDataTable tbl = (data.baseDS.stockCodeDataTable)this.myDataSource.DataSource;
+            this.bizSectorLb.DataBindings.Clear();
+            this.bizSectorLb.DataBindings.Add(new System.Windows.Forms.Binding("myItemString", this.myDataSource, tbl.bizSectorsColumn.ColumnName, true));
         }
         public virtual bool CheckData()
         {
             bool retVal = true;
             ClearNotifyError();
-            if (estDateEd.myDateTime==common.Consts.constNullDate)
-            {
-                NotifyError(estDateLbl);
-                retVal = false;
-            }
-            if (capitalUnitCb.myValue == "")
-            {
-                NotifyError(capitalAmtLbl);
-                retVal = false;
-            }
             return retVal;
         }
         public virtual void LockEdit(bool state)
         {
-            estDateEd.ReadOnly = state;
-            capitalAmtEd.ReadOnly = state;
-            capitalUnitCb.Enabled = !state;
-            employeeRangeCb.Enabled = !state;
-            bizSectorClb.Enabled = !state;
+            bizSectorLb.Enabled = !state;
         }
         public virtual void SetFocus()
         {
             this.Focus();
-            estDateEd.Focus();
+            bizSectorLb.Focus();
         }
     }
 }

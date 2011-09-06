@@ -35,6 +35,7 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\dlls\admin.exe</HintPath>
     </Reference>
+    <Reference Include="appHub, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="application, Version=1.3.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\dlls\application.dll</HintPath>
@@ -51,10 +52,12 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\dlls\data.dll</HintPath>
     </Reference>
+    <Reference Include="ExpandableGridView, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="imports, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\dlls\imports.dll</HintPath>
     </Reference>
+    <Reference Include="Indicators, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="stockTrade, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\dlls\stockTrade.dll</HintPath>
@@ -79,14 +82,16 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
-    <Reference Include="XPPanel, Version=1.0.0.0, Culture=neutral, PublicKeyToken=c1a4c9eadd4711d4" />
+    <Reference Include="tools, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="WeifenLuo.WinFormsUI.Docking, Version=2.5.0.15095, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="XPPanel, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="ZedGraph, Version=5.0.9.41461, Culture=neutral, PublicKeyToken=02a83cbd123fcd60, processorArchitecture=MSIL" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="forms\companyList.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="forms\companyList.designer.cs">
+    <Compile Include="forms\companyList.Designer.cs">
       <DependentUpon>companyList.cs</DependentUpon>
     </Compile>
     <Compile Include="forms\investorEdit.cs">
@@ -94,18 +99,6 @@
     </Compile>
     <Compile Include="forms\investorEdit.Designer.cs">
       <DependentUpon>investorEdit.cs</DependentUpon>
-    </Compile>
-    <Compile Include="forms\tradeAnalysis.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="forms\tradeAnalysis.Designer.cs">
-      <DependentUpon>tradeAnalysis.cs</DependentUpon>
-    </Compile>
-    <Compile Include="forms\watchList.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="forms\watchList.Designer.cs">
-      <DependentUpon>watchList.cs</DependentUpon>
     </Compile>
     <Compile Include="main.cs">
       <SubType>Form</SubType>
@@ -120,12 +113,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="forms\investorEdit.resx">
       <DependentUpon>investorEdit.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="forms\tradeAnalysis.resx">
-      <DependentUpon>tradeAnalysis.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="forms\watchList.resx">
-      <DependentUpon>watchList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="main.resx">
       <DependentUpon>main.cs</DependentUpon>
@@ -155,9 +142,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\waiting.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\alert.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\category.jpeg" />
@@ -245,6 +229,69 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\usergroup.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\barChart1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\barChart2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\candeleStick.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\indicator2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lineChart2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\refresh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ruler.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\zoomOut.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\zoomIn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\adddata.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\print.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\alert.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\star.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\flag.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\addAll.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\book1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\book11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\properties.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\eyes.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

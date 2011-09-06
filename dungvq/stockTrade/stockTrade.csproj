@@ -54,72 +54,100 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="WeifenLuo.WinFormsUI.Docking, Version=2.5.0.15095, Culture=neutral, processorArchitecture=MSIL" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="forms\baseAlertFilter.cs">
+    <Compile Include="forms\alertFilter.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="forms\baseAlertFilter.designer.cs">
-      <DependentUpon>baseAlertFilter.cs</DependentUpon>
+    <Compile Include="forms\alertFilter.designer.cs">
+      <DependentUpon>alertFilter.cs</DependentUpon>
     </Compile>
-    <Compile Include="forms\baseTradeAlertEdit.cs">
+    <Compile Include="forms\transactionView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="forms\baseTradeAlertEdit.designer.cs">
-      <DependentUpon>baseTradeAlertEdit.cs</DependentUpon>
+    <Compile Include="forms\transactionView.Designer.cs">
+      <DependentUpon>transactionView.cs</DependentUpon>
     </Compile>
-    <Compile Include="forms\baseTradeOrder.cs">
+    <Compile Include="forms\tradeAlertEdit.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="forms\baseTradeOrder.designer.cs">
-      <DependentUpon>baseTradeOrder.cs</DependentUpon>
+    <Compile Include="forms\tradeAlertEdit.designer.cs">
+      <DependentUpon>tradeAlertEdit.cs</DependentUpon>
     </Compile>
-    <Compile Include="forms\baseTradeOrderNewFromAlert.cs">
+    <Compile Include="forms\transactionBase.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="forms\baseTradeOrderNewFromAlert.designer.cs">
-      <DependentUpon>baseTradeOrderNewFromAlert.cs</DependentUpon>
+    <Compile Include="forms\transactionBase.designer.cs">
+      <DependentUpon>transactionBase.cs</DependentUpon>
     </Compile>
-    <Compile Include="forms\baseTradeOrderAddNew.cs">
+    <Compile Include="forms\transactionFromAlert.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="forms\baseTradeOrderAddNew.designer.cs">
-      <DependentUpon>baseTradeOrderAddNew.cs</DependentUpon>
+    <Compile Include="forms\transactionFromAlert.designer.cs">
+      <DependentUpon>transactionFromAlert.cs</DependentUpon>
     </Compile>
-    <Compile Include="forms\baseTradeAlertList.cs">
+    <Compile Include="forms\transactionNew.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="forms\baseTradeAlertList.designer.cs">
-      <DependentUpon>baseTradeAlertList.cs</DependentUpon>
+    <Compile Include="forms\transactionNew.designer.cs">
+      <DependentUpon>transactionNew.cs</DependentUpon>
     </Compile>
-    <Compile Include="forms\basePortfolioManagement.cs">
+    <Compile Include="forms\transactionList.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="forms\basePortfolioManagement.designer.cs">
-      <DependentUpon>basePortfolioManagement.cs</DependentUpon>
+    <Compile Include="forms\transactionList.designer.cs">
+      <DependentUpon>transactionList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\portfolioWatch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\portfolioWatch.designer.cs">
+      <DependentUpon>portfolioWatch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\marketWatchList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\marketWatchList.Designer.cs">
+      <DependentUpon>marketWatchList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\tradeAlertList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\tradeAlertList.designer.cs">
+      <DependentUpon>tradeAlertList.cs</DependentUpon>
     </Compile>
     <Compile Include="libs\libs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="forms\baseAlertFilter.resx">
-      <DependentUpon>baseAlertFilter.cs</DependentUpon>
+    <EmbeddedResource Include="forms\alertFilter.resx">
+      <DependentUpon>alertFilter.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="forms\baseTradeAlertEdit.resx">
-      <DependentUpon>baseTradeAlertEdit.cs</DependentUpon>
+    <EmbeddedResource Include="forms\tradeAlertEdit.resx">
+      <DependentUpon>tradeAlertEdit.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="forms\baseTradeOrder.resx">
-      <DependentUpon>baseTradeOrder.cs</DependentUpon>
+    <EmbeddedResource Include="forms\transactionBase.resx">
+      <DependentUpon>transactionBase.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="forms\baseTradeOrderNewFromAlert.resx">
-      <DependentUpon>baseTradeOrderNewFromAlert.cs</DependentUpon>
+    <EmbeddedResource Include="forms\transactionFromAlert.resx">
+      <DependentUpon>transactionFromAlert.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="forms\baseTradeOrderAddNew.resx">
-      <DependentUpon>baseTradeOrderAddNew.cs</DependentUpon>
+    <EmbeddedResource Include="forms\transactionNew.resx">
+      <DependentUpon>transactionNew.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="forms\baseTradeAlertList.resx">
-      <DependentUpon>baseTradeAlertList.cs</DependentUpon>
+    <EmbeddedResource Include="forms\transactionList.resx">
+      <DependentUpon>transactionList.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="forms\basePortfolioManagement.resx">
-      <DependentUpon>basePortfolioManagement.cs</DependentUpon>
+    <EmbeddedResource Include="forms\portfolioWatch.resx">
+      <DependentUpon>portfolioWatch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\marketWatchList.resx">
+      <DependentUpon>marketWatchList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\tradeAlertList.resx">
+      <DependentUpon>tradeAlertList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\transactionView.resx">
+      <DependentUpon>transactionView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

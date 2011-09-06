@@ -39,91 +39,154 @@
             this.findCriteria = new baseClass.controls.investorCriteria();
             ((System.ComponentModel.ISupportInitialize)(this.investorSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.portfolioSource)).BeginInit();
-            this.portfolioPnl.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.watchListSource)).BeginInit();
+            this.infoPnl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.myDataSet)).BeginInit();
             this.toolBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).BeginInit();
             this.findPnl.SuspendLayout();
             this.SuspendLayout();
             // 
+            // codeEd
+            // 
+            this.codeEd.Margin = new System.Windows.Forms.Padding(3);
+            // 
+            // firstNameEd
+            // 
+            this.firstNameEd.Margin = new System.Windows.Forms.Padding(3);
+            // 
+            // lastNameEd
+            // 
+            this.lastNameEd.Margin = new System.Windows.Forms.Padding(3);
+            // 
+            // address1Ed
+            // 
+            this.address1Ed.Margin = new System.Windows.Forms.Padding(3);
+            // 
+            // address2Ed
+            // 
+            this.address2Ed.Margin = new System.Windows.Forms.Padding(2);
+            // 
+            // emailEd
+            // 
+            this.emailEd.Margin = new System.Windows.Forms.Padding(2);
+            // 
+            // accountEd
+            // 
+            this.accountEd.Margin = new System.Windows.Forms.Padding(2);
+            // 
+            // passwordEd
+            // 
+            this.passwordEd.Margin = new System.Windows.Forms.Padding(3);
+            // 
+            // expireDateEd
+            // 
+            this.expireDateEd.Margin = new System.Windows.Forms.Padding(3);
+            // 
+            // phoneEd
+            // 
+            this.phoneEd.Margin = new System.Windows.Forms.Padding(3);
+            // 
             // countryCb
             // 
-            this.countryCb.Size = new System.Drawing.Size(423, 24);
+            this.countryCb.Margin = new System.Windows.Forms.Padding(2);
+            this.countryCb.Size = new System.Drawing.Size(327, 24);
             // 
             // investorCatCb
             // 
-            this.investorCatCb.Size = new System.Drawing.Size(201, 24);
+            this.investorCatCb.Margin = new System.Windows.Forms.Padding(2);
+            this.investorCatCb.Size = new System.Drawing.Size(170, 24);
             // 
             // statusCb
             // 
-            this.statusCb.Size = new System.Drawing.Size(112, 24);
+            this.statusCb.Margin = new System.Windows.Forms.Padding(2);
+            this.statusCb.Size = new System.Drawing.Size(85, 24);
             // 
             // sexCb
             // 
-            this.sexCb.Size = new System.Drawing.Size(110, 24);
+            this.sexCb.Margin = new System.Windows.Forms.Padding(2);
+            this.sexCb.Size = new System.Drawing.Size(61, 24);
+            // 
+            // displayNameEd
+            // 
+            this.displayNameEd.Margin = new System.Windows.Forms.Padding(3);
+            // 
+            // addPortfolioBtn
+            // 
+            this.addPortfolioBtn.Size = new System.Drawing.Size(15, 17);
+            // 
+            // tabControl1
+            // 
+            this.tabControl1.Location = new System.Drawing.Point(0, 391);
             // 
             // toolBox
             // 
             this.toolBox.Location = new System.Drawing.Point(-2, -2);
-            this.toolBox.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
-            this.toolBox.Padding = new System.Windows.Forms.Padding(5, 4, 5, 4);
-            this.toolBox.Size = new System.Drawing.Size(554, 48);
+            this.toolBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.toolBox.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
             // 
             // exitBtn
             // 
-            this.exitBtn.Location = new System.Drawing.Point(406, 3);
-            this.exitBtn.Size = new System.Drawing.Size(67, 38);
+            this.exitBtn.Location = new System.Drawing.Point(415, 5);
+            this.exitBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.exitBtn.Size = new System.Drawing.Size(69, 39);
             // 
             // saveBtn
             // 
-            this.saveBtn.Location = new System.Drawing.Point(71, 3);
-            this.saveBtn.Size = new System.Drawing.Size(67, 38);
+            this.saveBtn.Location = new System.Drawing.Point(70, 5);
+            this.saveBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.saveBtn.Size = new System.Drawing.Size(69, 39);
             // 
             // deleteBtn
             // 
-            this.deleteBtn.Location = new System.Drawing.Point(138, 3);
-            this.deleteBtn.Size = new System.Drawing.Size(67, 38);
+            this.deleteBtn.Location = new System.Drawing.Point(139, 5);
+            this.deleteBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.deleteBtn.Size = new System.Drawing.Size(69, 39);
             this.deleteBtn.Visible = true;
             // 
             // editBtn
             // 
             this.editBtn.Image = ((System.Drawing.Image)(resources.GetObject("editBtn.Image")));
-            this.editBtn.Location = new System.Drawing.Point(272, 3);
-            this.editBtn.Size = new System.Drawing.Size(67, 38);
+            this.editBtn.Location = new System.Drawing.Point(346, 5);
+            this.editBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.editBtn.Size = new System.Drawing.Size(69, 39);
             this.editBtn.Text = "&Khóa";
             // 
             // addNewBtn
             // 
-            this.addNewBtn.Location = new System.Drawing.Point(4, 3);
-            this.addNewBtn.Size = new System.Drawing.Size(67, 38);
+            this.addNewBtn.Location = new System.Drawing.Point(1, 5);
+            this.addNewBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.addNewBtn.Size = new System.Drawing.Size(69, 39);
             // 
             // toExcelBtn
             // 
-            this.toExcelBtn.Location = new System.Drawing.Point(786, 7);
-            this.toExcelBtn.Size = new System.Drawing.Size(58, 38);
+            this.toExcelBtn.Location = new System.Drawing.Point(590, 6);
+            this.toExcelBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.toExcelBtn.Size = new System.Drawing.Size(44, 31);
             this.toExcelBtn.Visible = false;
             // 
             // findBtn
             // 
-            this.findBtn.Location = new System.Drawing.Point(205, 3);
-            this.findBtn.Size = new System.Drawing.Size(67, 38);
+            this.findBtn.Location = new System.Drawing.Point(208, 5);
+            this.findBtn.Size = new System.Drawing.Size(69, 39);
             this.findBtn.Visible = true;
             // 
             // reloadBtn
             // 
-            this.reloadBtn.Location = new System.Drawing.Point(339, 3);
-            this.reloadBtn.Size = new System.Drawing.Size(67, 38);
+            this.reloadBtn.Location = new System.Drawing.Point(277, 5);
+            this.reloadBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.reloadBtn.Size = new System.Drawing.Size(69, 39);
             this.reloadBtn.Visible = true;
             // 
             // printBtn
             // 
-            this.printBtn.Location = new System.Drawing.Point(844, 7);
-            this.printBtn.Size = new System.Drawing.Size(58, 38);
+            this.printBtn.Location = new System.Drawing.Point(633, 6);
+            this.printBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.printBtn.Size = new System.Drawing.Size(44, 31);
             // 
             // TitleLbl
             // 
-            this.TitleLbl.Location = new System.Drawing.Point(1285, 150);
-            this.TitleLbl.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.TitleLbl.Location = new System.Drawing.Point(964, 122);
             // 
             // dataGrid
             // 
@@ -135,13 +198,15 @@
             this.codeDataGridViewTextBoxColumn,
             this.displayNameDataGridViewTextBoxColumn});
             this.dataGrid.DataSource = this.investorSource;
-            this.dataGrid.Location = new System.Drawing.Point(473, -1);
+            this.dataGrid.DisableReadOnlyColumn = true;
+            this.dataGrid.Location = new System.Drawing.Point(485, -1);
+            this.dataGrid.Margin = new System.Windows.Forms.Padding(2);
             this.dataGrid.Name = "dataGrid";
             this.dataGrid.ReadOnly = true;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dataGrid.RowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGrid.Size = new System.Drawing.Size(422, 612);
+            this.dataGrid.Size = new System.Drawing.Size(419, 588);
             this.dataGrid.TabIndex = 231;
             // 
             // codeDataGridViewTextBoxColumn
@@ -165,9 +230,10 @@
             this.findPnl.Controls.Add(this.filterBtn);
             this.findPnl.Controls.Add(this.closeFindBtn);
             this.findPnl.Controls.Add(this.findCriteria);
-            this.findPnl.Location = new System.Drawing.Point(472, 415);
+            this.findPnl.Location = new System.Drawing.Point(484, 427);
+            this.findPnl.Margin = new System.Windows.Forms.Padding(2);
             this.findPnl.Name = "findPnl";
-            this.findPnl.Size = new System.Drawing.Size(422, 195);
+            this.findPnl.Size = new System.Drawing.Size(419, 160);
             this.findPnl.TabIndex = 239;
             this.findPnl.Visible = false;
             // 
@@ -176,9 +242,10 @@
             this.filterBtn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.filterBtn.Image = global::baseClass.Properties.Resources.filter;
             this.filterBtn.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.filterBtn.Location = new System.Drawing.Point(245, 152);
+            this.filterBtn.Location = new System.Drawing.Point(341, 72);
+            this.filterBtn.Margin = new System.Windows.Forms.Padding(2);
             this.filterBtn.Name = "filterBtn";
-            this.filterBtn.Size = new System.Drawing.Size(80, 38);
+            this.filterBtn.Size = new System.Drawing.Size(65, 40);
             this.filterBtn.TabIndex = 10;
             this.filterBtn.Text = "Lọc";
             this.filterBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -190,9 +257,10 @@
             this.closeFindBtn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.closeFindBtn.Image = global::baseClass.Properties.Resources.close;
             this.closeFindBtn.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.closeFindBtn.Location = new System.Drawing.Point(325, 152);
+            this.closeFindBtn.Location = new System.Drawing.Point(341, 28);
+            this.closeFindBtn.Margin = new System.Windows.Forms.Padding(2);
             this.closeFindBtn.Name = "closeFindBtn";
-            this.closeFindBtn.Size = new System.Drawing.Size(80, 38);
+            this.closeFindBtn.Size = new System.Drawing.Size(65, 40);
             this.closeFindBtn.TabIndex = 11;
             this.closeFindBtn.Text = "Đóng";
             this.closeFindBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -202,21 +270,21 @@
             // findCriteria
             // 
             this.findCriteria.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.findCriteria.Location = new System.Drawing.Point(16, 2);
-            this.findCriteria.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.findCriteria.Location = new System.Drawing.Point(33, 2);
+            this.findCriteria.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.findCriteria.Name = "findCriteria";
-            this.findCriteria.Size = new System.Drawing.Size(391, 147);
+            this.findCriteria.Size = new System.Drawing.Size(293, 150);
             this.findCriteria.TabIndex = 1;
             // 
             // investorList
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.ClientSize = new System.Drawing.Size(894, 638);
+            this.ClientSize = new System.Drawing.Size(903, 613);
             this.Controls.Add(this.findPnl);
             this.Controls.Add(this.dataGrid);
-            this.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "investorList";
-            this.Controls.SetChildIndex(this.portfolioPnl, 0);
+            this.Controls.SetChildIndex(this.infoPnl, 0);
+            this.Controls.SetChildIndex(this.tabControl1, 0);
             this.Controls.SetChildIndex(this.toolBox, 0);
             this.Controls.SetChildIndex(this.unLockBtn, 0);
             this.Controls.SetChildIndex(this.lockBtn, 0);
@@ -225,8 +293,9 @@
             this.Controls.SetChildIndex(this.findPnl, 0);
             ((System.ComponentModel.ISupportInitialize)(this.investorSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.portfolioSource)).EndInit();
-            this.portfolioPnl.ResumeLayout(false);
-            this.portfolioPnl.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.watchListSource)).EndInit();
+            this.infoPnl.ResumeLayout(false);
+            this.infoPnl.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.myDataSet)).EndInit();
             this.toolBox.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).EndInit();

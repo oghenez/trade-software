@@ -36,11 +36,9 @@ namespace imports.forms
             DataTable tbl = new DataTable();
             ArrayList tmpList = bizIndustryClb.myCheckedItems;
 
-            myDataSet.company.Clear();
             myDataSet.stockCode.Clear();
             myDataSet.bizSubSector.Clear();
 
-            application.dataLibs.LoadData(myDataSet.company);
             application.dataLibs.LoadData(myDataSet.stockCode);
             application.dataLibs.LoadData(myDataSet.bizSubSector);
 
@@ -48,7 +46,7 @@ namespace imports.forms
             mySubSectorView.Sort = myDataSet.bizSubSector.description1Column.ColumnName;
 
             //Clear all sector before update
-            for (int idx = 0; idx < myDataSet.company.Count; idx++) myDataSet.company[idx].bizSectors = "";
+            for (int idx = 0; idx < myDataSet.stockCode.Count; idx++) myDataSet.stockCode[idx].bizSectors = "";
             for (int idx = 0; idx < tmpList.Count; idx++)
             {
                 tbl.Clear();
@@ -61,10 +59,10 @@ namespace imports.forms
                 Application.DoEvents();
             }
             common.fileFuncs.WriteLog(common.Consts.constCRLF + "Companies do not have sectors");
-            for (int idx = 0; idx < myDataSet.company.Count; idx++)
+            for (int idx = 0; idx < myDataSet.stockCode.Count; idx++)
             {
-                if (myDataSet.company[idx].bizSectors.Trim() != "") continue;
-                common.fileFuncs.WriteLog(" - " + myDataSet.company[idx].code + common.Consts.constTab + myDataSet.company[idx].name);
+                if (myDataSet.stockCode[idx].bizSectors.Trim() != "") continue;
+                common.fileFuncs.WriteLog(" - " + myDataSet.stockCode[idx].code + common.Consts.constTab + myDataSet.stockCode[idx].name);
             }
             //common.Export.ExportToExcel(tbl.DefaultView.ToTable(), "d://tmp.xls");
             this.ShowMessage("Hoàn tất");
@@ -86,7 +84,6 @@ namespace imports.forms
         //Add to database
         private void Import_UpdateSectors(DataTable tbl)
         {
-            data.baseDS.companyRow companyRow;
             data.baseDS.stockCodeRow stockCodeRow;
             string comCode = "", comName, subSectorDesc;
 
@@ -102,19 +99,20 @@ namespace imports.forms
                     tbl.Rows[count].Delete(); continue;
                 }
 
-                //Company
+                //stockCode
                 comCode = tbl.Rows[count][1].ToString().Trim();
                 comName = tbl.Rows[count][3].ToString().Trim();
-                companyRow = myDataSet.company.FindBycode(comCode);
-                if (companyRow == null)
+                stockCodeRow = myDataSet.stockCode.FindBycode(comCode);
+                if (stockCodeRow == null)
                 {
-                    companyRow = myDataSet.company.NewcompanyRow();
-                    application.dataLibs.InitData(companyRow);
-                    companyRow.code = comCode;
-                    companyRow.name = "<New>";
-                    companyRow.estDate = DateTime.Today;
-                    myDataSet.company.AddcompanyRow(companyRow);
-                    common.fileFuncs.WriteLog(" - New company " + common.Consts.constTab + comCode + common.Consts.constTab + " at " + comName);
+                    stockCodeRow = myDataSet.stockCode.NewstockCodeRow();
+                    application.dataLibs.InitData(stockCodeRow);
+                    stockCodeRow.code = comCode;
+                    stockCodeRow.name = "<New>";
+                    stockCodeRow.regDate = DateTime.Today;
+                    stockCodeRow.stockExchange = tbl.Rows[count][2].ToString().Trim(); ;
+                    myDataSet.stockCode.AddstockCodeRow(stockCodeRow);
+                    common.fileFuncs.WriteLog(" - New stockCode " + common.Consts.constTab + comCode + common.Consts.constTab + " at " + comName);
                 }
                 //subSector ->code
                 subSectorDesc = tbl.Rows[count][5].ToString().Trim();
@@ -141,27 +139,13 @@ namespace imports.forms
 
                 if (foundSectorCode != null)
                 {
-                    companyRow.bizSectors = common.system.StrConcat(foundSectorCode,
-                                                                    companyRow.bizSectors,
+                    stockCodeRow.bizSectors = common.system.StrConcat(foundSectorCode,
+                                                                    stockCodeRow.bizSectors,
                                                                     common.settings.sysListSeparator,
                                                                     common.settings.sysListSeparatorPrefix,
                                                                     common.settings.sysListSeparatorPostfix);
                 }
-                //Stock Code
-                stockCodeRow  = myDataSet.stockCode.FindBycode(comCode);
-                if (stockCodeRow == null)
-                {
-                    stockCodeRow = myDataSet.stockCode.NewstockCodeRow();
-                    application.dataLibs.InitData(stockCodeRow);
-                    stockCodeRow.code = comCode;
-                    stockCodeRow.comCode = comCode;
-                    stockCodeRow.regDate = DateTime.Today;
-                    stockCodeRow.stockExchange = tbl.Rows[count][2].ToString().Trim(); ;
-                    myDataSet.stockCode.AddstockCodeRow(stockCodeRow);
-                    continue;
-                }
             }
-            application.dataLibs.UpdateData(myDataSet.company);
             application.dataLibs.UpdateData(myDataSet.stockCode);
         }
 

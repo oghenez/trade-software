@@ -39,8 +39,11 @@
             this.importBtn = new common.control.baseButton();
             this.selectFileBtn = new common.control.baseButton();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.noteLbl = new baseClass.controls.baseLabel();
+            this.noteGb = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.myDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
+            this.noteGb.SuspendLayout();
             this.SuspendLayout();
             // 
             // TitleLbl
@@ -81,6 +84,7 @@
             this.viewLogBtn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.viewLogBtn.Image = global::imports.Properties.Resources.report;
             this.viewLogBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.viewLogBtn.isDownState = false;
             this.viewLogBtn.Location = new System.Drawing.Point(230, 59);
             this.viewLogBtn.Name = "viewLogBtn";
             this.viewLogBtn.Size = new System.Drawing.Size(77, 30);
@@ -95,6 +99,7 @@
             this.closeBtn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.closeBtn.Image = global::imports.Properties.Resources.close;
             this.closeBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.closeBtn.isDownState = false;
             this.closeBtn.Location = new System.Drawing.Point(307, 59);
             this.closeBtn.Name = "closeBtn";
             this.closeBtn.Size = new System.Drawing.Size(68, 30);
@@ -109,6 +114,7 @@
             this.importBtn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.importBtn.Image = global::imports.Properties.Resources.select;
             this.importBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.importBtn.isDownState = false;
             this.importBtn.Location = new System.Drawing.Point(139, 59);
             this.importBtn.Name = "importBtn";
             this.importBtn.Size = new System.Drawing.Size(91, 30);
@@ -122,6 +128,7 @@
             // 
             this.selectFileBtn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.selectFileBtn.Image = global::imports.Properties.Resources.open;
+            this.selectFileBtn.isDownState = false;
             this.selectFileBtn.Location = new System.Drawing.Point(376, 32);
             this.selectFileBtn.Name = "selectFileBtn";
             this.selectFileBtn.Size = new System.Drawing.Size(22, 21);
@@ -129,11 +136,34 @@
             this.selectFileBtn.UseVisualStyleBackColor = true;
             this.selectFileBtn.Click += new System.EventHandler(this.selectFileBtn_Click);
             // 
+            // noteLbl
+            // 
+            this.noteLbl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.noteLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.noteLbl.Location = new System.Drawing.Point(7, 9);
+            this.noteLbl.Name = "noteLbl";
+            this.noteLbl.Size = new System.Drawing.Size(349, 41);
+            this.noteLbl.TabIndex = 147;
+            this.noteLbl.Text = "Cập nhật dữ liệu danh sánh các công ty niêm yết từ tệp Excel vào hệ thống";
+            this.noteLbl.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // noteGb
+            // 
+            this.noteGb.Controls.Add(this.noteLbl);
+            this.noteGb.Location = new System.Drawing.Point(35, 95);
+            this.noteGb.Name = "noteGb";
+            this.noteGb.Size = new System.Drawing.Size(362, 53);
+            this.noteGb.TabIndex = 148;
+            this.noteGb.TabStop = false;
+            // 
             // importCompany
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(409, 126);
+            this.ClientSize = new System.Drawing.Size(409, 172);
+            this.Controls.Add(this.noteGb);
             this.Controls.Add(this.viewLogBtn);
             this.Controls.Add(this.dataFileNameEd);
             this.Controls.Add(this.closeBtn);
@@ -151,8 +181,10 @@
             this.Controls.SetChildIndex(this.dataFileNameEd, 0);
             this.Controls.SetChildIndex(this.TitleLbl, 0);
             this.Controls.SetChildIndex(this.viewLogBtn, 0);
+            this.Controls.SetChildIndex(this.noteGb, 0);
             ((System.ComponentModel.ISupportInitialize)(this.myDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
+            this.noteGb.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -169,6 +201,8 @@
         protected System.Windows.Forms.OpenFileDialog openFileDialog;
         private System.Windows.Forms.BindingSource bindingSource1;
         protected common.control.baseButton viewLogBtn;
+        private baseClass.controls.baseLabel noteLbl;
+        private System.Windows.Forms.GroupBox noteGb;
 
     }
 }

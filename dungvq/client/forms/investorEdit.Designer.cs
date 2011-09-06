@@ -30,61 +30,82 @@
         {
             ((System.ComponentModel.ISupportInitialize)(this.investorSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.portfolioSource)).BeginInit();
-            this.portfolioPnl.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.watchListSource)).BeginInit();
+            this.infoPnl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.myDataSet)).BeginInit();
             this.toolBox.SuspendLayout();
             this.SuspendLayout();
             // 
-            // countryCb
+            // statusLbl
             // 
-            this.countryCb.Size = new System.Drawing.Size(423, 24);
+            this.statusLbl.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
+            this.statusLbl.Visible = false;
+            // 
+            // investorCatLbl
+            // 
+            this.investorCatLbl.Visible = false;
+            // 
+            // expireDateEd
+            // 
+            this.expireDateEd.Margin = new System.Windows.Forms.Padding(3);
+            this.expireDateEd.Visible = false;
+            // 
+            // expireDatelbl
+            // 
+            this.expireDatelbl.Visible = false;
             // 
             // investorCatCb
             // 
-            this.investorCatCb.Size = new System.Drawing.Size(202, 24);
+            this.investorCatCb.Margin = new System.Windows.Forms.Padding(2);
+            this.investorCatCb.Visible = false;
             // 
             // statusCb
             // 
-            this.statusCb.Size = new System.Drawing.Size(112, 24);
+            this.statusCb.Visible = false;
             // 
-            // sexCb
+            // displayNameEd
             // 
-            this.sexCb.Size = new System.Drawing.Size(110, 24);
+            this.displayNameEd.Margin = new System.Windows.Forms.Padding(3);
             // 
             // exitBtn
             // 
-            this.exitBtn.Location = new System.Drawing.Point(385, 7);
-            this.exitBtn.Size = new System.Drawing.Size(118, 38);
+            this.exitBtn.Location = new System.Drawing.Point(392, 6);
+            this.exitBtn.Size = new System.Drawing.Size(120, 38);
             // 
             // saveBtn
             // 
-            this.saveBtn.Location = new System.Drawing.Point(31, 7);
-            this.saveBtn.Size = new System.Drawing.Size(118, 38);
+            this.saveBtn.Location = new System.Drawing.Point(32, 6);
+            this.saveBtn.Size = new System.Drawing.Size(120, 38);
             // 
             // editBtn
             // 
-            this.editBtn.Location = new System.Drawing.Point(149, 7);
-            this.editBtn.Size = new System.Drawing.Size(118, 38);
+            this.editBtn.Location = new System.Drawing.Point(152, 6);
+            this.editBtn.Size = new System.Drawing.Size(120, 38);
             // 
             // addNewBtn
             // 
-            this.addNewBtn.Location = new System.Drawing.Point(527, 7);
+            this.addNewBtn.Enabled = false;
+            this.addNewBtn.Location = new System.Drawing.Point(692, 6);
+            this.addNewBtn.Margin = new System.Windows.Forms.Padding(2);
             this.addNewBtn.Visible = false;
             // 
             // printBtn
             // 
-            this.printBtn.Location = new System.Drawing.Point(267, 7);
-            this.printBtn.Size = new System.Drawing.Size(118, 38);
+            this.printBtn.Location = new System.Drawing.Point(272, 6);
+            this.printBtn.Size = new System.Drawing.Size(120, 38);
             // 
             // investorEdit
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.ClientSize = new System.Drawing.Size(471, 637);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.ClientSize = new System.Drawing.Size(484, 612);
+            this.Margin = new System.Windows.Forms.Padding(3);
             this.Name = "investorEdit";
+            this.Text = "Nha dau tu / Investor";
             ((System.ComponentModel.ISupportInitialize)(this.investorSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.portfolioSource)).EndInit();
-            this.portfolioPnl.ResumeLayout(false);
-            this.portfolioPnl.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.watchListSource)).EndInit();
+            this.infoPnl.ResumeLayout(false);
+            this.infoPnl.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.myDataSet)).EndInit();
             this.toolBox.ResumeLayout(false);
             this.ResumeLayout(false);

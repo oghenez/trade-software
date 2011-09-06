@@ -12,7 +12,7 @@ using System.Collections;
 
 namespace baseClass.controls
 {
-    public partial class bizSectorTypeSelection : common.control.baseUserControl
+    public partial class BizSectorTypesSelection : common.control.baseUserControl
     {
         private data.baseDS.bizIndustryDataTable industryTbl = null;
         private data.baseDS.bizSuperSectorDataTable superSectorTbl = null;
@@ -21,7 +21,7 @@ namespace baseClass.controls
         public delegate void SectorSelectionChange(object sender, EventArgs e);
         public event SectorSelectionChange mySectorSelectionChange = null;
         
-        public bizSectorTypeSelection()
+        public BizSectorTypesSelection()
         {
             try
             {
@@ -32,10 +32,10 @@ namespace baseClass.controls
                 ErrorHandler(this, er);;
             }            
         }
-        public application.myTypes.bizSectorType myBizSectorType
+        public application.myTypes.BizSectorTypes myBizSectorType
         {
-            get { return bizSectorTypeCb.myValue; }
-            set { bizSectorTypeCb.myValue=value; }
+            get { return bizSectorTypesCb.myValue; }
+            set { bizSectorTypesCb.myValue=value; }
         }
         public string myBizSectorCode
         {
@@ -48,15 +48,15 @@ namespace baseClass.controls
             get
             {
                 data.baseDS.bizSubSectorDataTable bizSubSector = new data.baseDS.bizSubSectorDataTable();
-                switch (bizSectorTypeCb.myValue)
+                switch (bizSectorTypesCb.myValue)
                 {
-                    case application.myTypes.bizSectorType.Industry:
+                    case application.myTypes.BizSectorTypes.Industry:
                         application.dataLibs.LoadDataByIndustryCode(bizSubSector, this.myBizSectorCode);
                         break;
-                    case application.myTypes.bizSectorType.SuperSector:
+                    case application.myTypes.BizSectorTypes.SuperSector:
                         application.dataLibs.LoadDataBySuperSectorCode(bizSubSector, this.myBizSectorCode);
                         break;
-                    case application.myTypes.bizSectorType.Sector:
+                    case application.myTypes.BizSectorTypes.Sector:
                         application.dataLibs.LoadDataBySectorCode(bizSubSector, this.myBizSectorCode);
                         break;
                     default: return null;
@@ -68,17 +68,17 @@ namespace baseClass.controls
         }
         public virtual void LoadData()
         {
-            this.bizSectorTypeCb.LoadList(new application.myTypes.bizSectorType[] 
-                        { application.myTypes.bizSectorType.None, 
-                          application.myTypes.bizSectorType.Industry, 
-                          application.myTypes.bizSectorType.SuperSector, 
-                          application.myTypes.bizSectorType.Sector}
+            this.bizSectorTypesCb.LoadList(new application.myTypes.BizSectorTypes[] 
+                        { application.myTypes.BizSectorTypes.None, 
+                          application.myTypes.BizSectorTypes.Industry, 
+                          application.myTypes.BizSectorTypes.SuperSector, 
+                          application.myTypes.BizSectorTypes.Sector}
                         );
         }
         public virtual void LockEdit(bool state)
         {
-            bizSectorTypeCb.Enabled = !state;
-            bizSectorCb.Enabled = (bizSectorTypeCb.myValue!= application.myTypes.bizSectorType.None) && !state;
+            bizSectorTypesCb.Enabled = !state;
+            bizSectorCb.Enabled = (bizSectorTypesCb.myValue != application.myTypes.BizSectorTypes.None) && !state;
         }
         private void LoadDataIndustry(ComboBox obj)
         {
@@ -139,7 +139,7 @@ namespace baseClass.controls
         {
             try
             {
-                bizSectorCb.Size = new Size(this.Width - bizSectorTypeCb.Width, this.Height);
+                bizSectorCb.Size = new Size(this.Width - bizSectorTypesCb.Width, this.Height);
             }
             catch (Exception er)
             {
@@ -157,16 +157,16 @@ namespace baseClass.controls
                 ErrorHandler(this, er); ;
             }       
         }
-        private void bizSectorTypeCb_SelectionChangeCommitted(object sender, EventArgs e)
+        private void bizSectorTypesCb_SelectionChangeCommitted(object sender, EventArgs e)
         {
             try
             {
-                LockEdit(!bizSectorTypeCb.Enabled);
-                switch (bizSectorTypeCb.myValue)
+                LockEdit(!bizSectorTypesCb.Enabled);
+                switch (bizSectorTypesCb.myValue)
                 {
-                    case application.myTypes.bizSectorType.Industry: LoadDataIndustry(bizSectorCb); break;
-                    case application.myTypes.bizSectorType.SuperSector: LoadDataSuperSector(bizSectorCb); break;
-                    case application.myTypes.bizSectorType.Sector: LoadDataSector(bizSectorCb); break;
+                    case application.myTypes.BizSectorTypes.Industry: LoadDataIndustry(bizSectorCb); break;
+                    case application.myTypes.BizSectorTypes.SuperSector: LoadDataSuperSector(bizSectorCb); break;
+                    case application.myTypes.BizSectorTypes.Sector: LoadDataSector(bizSectorCb); break;
                 }
                 if (mySectorSelectionChange != null) mySectorSelectionChange(sender, e);
             }

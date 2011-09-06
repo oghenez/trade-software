@@ -4,3 +4,9 @@ D:\work\stockProject\code\dlls\data.pdb
 D:\work\stockProject\code\data\obj\Debug\ResolveAssemblyReference.cache
 D:\work\stockProject\code\data\obj\Debug\data.dll
 D:\work\stockProject\code\data\obj\Debug\data.pdb
+D:\work\stockProject\new-code\dlls\data.dll.config
+D:\work\stockProject\new-code\dlls\data.dll
+D:\work\stockProject\new-code\dlls\data.pdb
+D:\work\stockProject\new-code\data\obj\Debug\ResolveAssemblyReference.cache
+D:\work\stockProject\new-code\data\obj\Debug\data.dll
+D:\work\stockProject\new-code\data\obj\Debug\data.pdb

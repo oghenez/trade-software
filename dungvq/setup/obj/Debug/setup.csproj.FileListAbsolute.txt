@@ -22,3 +22,15 @@ D:\work\stockProject\code\setup\obj\Debug\setup.pdb
 D:\work\stockProject\code\dlls\setup.exe.config
 D:\work\stockProject\code\dlls\setup.exe
 D:\work\stockProject\code\dlls\setup.pdb
+D:\work\stockProject\new-code\setup\obj\Debug\ResolveAssemblyReference.cache
+D:\work\stockProject\new-code\setup\obj\Debug\setup.AboutBox.resources
+D:\work\stockProject\new-code\setup\obj\Debug\setup.forms.configFile.resources
+D:\work\stockProject\new-code\setup\obj\Debug\setup.forms.sysOptionsMenuItem.resources
+D:\work\stockProject\new-code\setup\obj\Debug\setup.main.resources
+D:\work\stockProject\new-code\setup\obj\Debug\setup.Properties.Resources.resources
+D:\work\stockProject\new-code\setup\obj\Debug\setup.csproj.GenerateResource.Cache
+D:\work\stockProject\new-code\setup\obj\Debug\setup.exe
+D:\work\stockProject\new-code\setup\obj\Debug\setup.pdb
+D:\work\stockProject\new-code\dlls\setup.exe.config
+D:\work\stockProject\new-code\dlls\setup.exe
+D:\work\stockProject\new-code\dlls\setup.pdb

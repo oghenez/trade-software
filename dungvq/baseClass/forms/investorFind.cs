@@ -17,7 +17,7 @@ namespace baseClass.forms
             InitializeComponent();
             fullMode = false;
         }
-        public data.baseDS.companyRow selectedDataRow = null;
+        public data.baseDS.stockCodeRow selectedDataRow = null;
         protected bool fullMode
         {
             get
@@ -34,7 +34,7 @@ namespace baseClass.forms
 
         public string keyFldName
         {
-            get { return myBaseDS.company.codeColumn.ColumnName; }
+            get { return myBaseDS.stockCode.codeColumn.ColumnName; }
         }
 
         public bool Find(string code)
@@ -52,11 +52,11 @@ namespace baseClass.forms
                 code = code.Trim();
                 if (code != "")
                 {
-                    this.myBaseDS.company.Clear();
-                    application.dataLibs.LoadData(this.myBaseDS.company, code);
-                    if (this.myBaseDS.company.Count > 0)
+                    this.myBaseDS.stockCode.Clear();
+                    application.dataLibs.LoadData(this.myBaseDS.stockCode, code);
+                    if (this.myBaseDS.stockCode.Count > 0)
                     {
-                        selectedDataRow = (data.baseDS.companyRow)(((DataRowView)investorSource.Current).Row);
+                        selectedDataRow = (data.baseDS.stockCodeRow)(((DataRowView)investorSource.Current).Row);
                         return true;
                     }
                     if (!ShowSelectionIfNotFound) return false;
@@ -74,11 +74,11 @@ namespace baseClass.forms
        
         private void LoadData()
         {
-            myBaseDS.company.Clear();
+            myBaseDS.stockCode.Clear();
             string cond = findCriteria.GetCriteria().Trim();
-            string sqlCmd = "SELECT * FROM " + myBaseDS.company.TableName + (cond==""?"": " WHERE " + cond);
-            application.dataLibs.LoadFromSQL(myBaseDS.company, sqlCmd);
-            ShowReccount("["+myBaseDS.company.Count.ToString()+"]");
+            string sqlCmd = "SELECT * FROM " + myBaseDS.stockCode.TableName + (cond==""?"": " WHERE " + cond);
+            application.dataLibs.LoadFromSQL(myBaseDS.stockCode, sqlCmd);
+            ShowReccount("["+myBaseDS.stockCode.Count.ToString()+"]");
         }
 
         private void findBtn_Click(object sender, EventArgs e)
@@ -127,8 +127,9 @@ namespace baseClass.forms
         private void selectBtn_Click(object sender, EventArgs e)
         {
             if (investorSource.Current == null) selectedDataRow =null;
-            else selectedDataRow = (data.baseDS.companyRow)(((DataRowView)investorSource.Current).Row);
-            this.Hide();
+            else selectedDataRow = (data.baseDS.stockCodeRow)(((DataRowView)investorSource.Current).Row);
+            //??this.Hide();
+            this.Close();
         }
     }
 }

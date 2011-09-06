@@ -74,6 +74,13 @@ namespace baseClass.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap addLine {
+            get {
+                object obj = ResourceManager.GetObject("addLine", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap barChart1 {
             get {
                 object obj = ResourceManager.GetObject("barChart1", resourceCulture);
@@ -137,9 +144,23 @@ namespace baseClass.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap deleteLine {
+            get {
+                object obj = ResourceManager.GetObject("deleteLine", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap download {
             get {
                 object obj = ResourceManager.GetObject("download", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap edit {
+            get {
+                object obj = ResourceManager.GetObject("edit", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
