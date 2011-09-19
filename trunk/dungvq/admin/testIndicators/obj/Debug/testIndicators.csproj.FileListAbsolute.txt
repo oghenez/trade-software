@@ -1,0 +1,7 @@
+D:\work\stockProject\code\testIndicators\obj\Debug\ResolveAssemblyReference.cache
+D:\work\stockProject\code\testIndicators\obj\Debug\test.Indicators.Properties.Resources.resources
+D:\work\stockProject\code\testIndicators\obj\Debug\testIndicators.csproj.GenerateResource.Cache
+D:\work\stockProject\code\dlls\test.Indicators.dll
+D:\work\stockProject\code\dlls\test.Indicators.pdb
+D:\work\stockProject\code\testIndicators\obj\Debug\test.Indicators.dll
+D:\work\stockProject\code\testIndicators\obj\Debug\test.Indicators.pdb

@@ -1,0 +1,16 @@
+D:\work\stockProject\new-code\tuan\obj\Debug\ResolveAssemblyReference.cache
+D:\work\stockProject\new-code\tuan\obj\Debug\tuan.Properties.Resources.resources
+D:\work\stockProject\new-code\tuan\obj\Debug\tuan.csproj.GenerateResource.Cache
+D:\work\stockProject\new-code\tuan\bin\Debug\tuan.exe
+D:\work\stockProject\new-code\tuan\bin\Debug\tuan.pdb
+D:\work\stockProject\new-code\tuan\bin\Debug\common.dll
+D:\work\stockProject\new-code\tuan\bin\Debug\data.dll
+D:\work\stockProject\new-code\tuan\bin\Debug\ZedGraph.dll
+D:\work\stockProject\new-code\tuan\bin\Debug\ExpandableGridView.dll
+D:\work\stockProject\new-code\tuan\bin\Debug\WeifenLuo.WinFormsUI.Docking.dll
+D:\work\stockProject\new-code\tuan\bin\Debug\PdfSharp.dll
+D:\work\stockProject\new-code\tuan\bin\Debug\common.pdb
+D:\work\stockProject\new-code\tuan\bin\Debug\data.pdb
+D:\work\stockProject\new-code\tuan\bin\Debug\vi-VN\common.resources.dll
+D:\work\stockProject\new-code\tuan\obj\Debug\tuan.exe
+D:\work\stockProject\new-code\tuan\obj\Debug\tuan.pdb

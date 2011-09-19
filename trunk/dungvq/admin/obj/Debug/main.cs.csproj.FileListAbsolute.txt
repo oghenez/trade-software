@@ -1,0 +1,12 @@
+D:\work\stockProject\code\main\obj\Debug\stock.exe
+D:\work\stockProject\code\main\obj\Debug\stock.pdb
+D:\work\stockProject\code\main\obj\Debug\ResolveAssemblyReference.cache
+D:\work\stockProject\code\main\obj\Debug\stock.forms.backTesting.resources
+D:\work\stockProject\code\main\obj\Debug\stock.forms.watchList.resources
+D:\work\stockProject\code\main\obj\Debug\stock.forms.test.resources
+D:\work\stockProject\code\main\obj\Debug\stock.main.resources
+D:\work\stockProject\code\main\obj\Debug\stock.Properties.Resources.resources
+D:\work\stockProject\code\main\obj\Debug\main.cs.csproj.GenerateResource.Cache
+D:\work\stockProject\code\dlls\stock.exe
+D:\work\stockProject\code\dlls\stock.pdb
+D:\work\stockProject\code\main\obj\Debug\stock.Form1.resources

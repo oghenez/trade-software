@@ -1,0 +1,85 @@
+12/07/2011 6:07:32 CH : update data from http://online.mhbs.vn/quote/hose.aspx HOSE
+12/07/2011 6:07:51 CH : update data from http://online.mhbs.vn/quote/hnx.aspx HASTC
+12/07/2011 6:08:57 CH : Trade alert start
+19/09/2011 8:43:16 SA : ignored FetchRealTimeData().
+19/09/2011 8:43:26 SA : ignored FetchRealTimeData().
+19/09/2011 8:43:36 SA : ignored FetchRealTimeData().
+19/09/2011 8:43:46 SA : ignored FetchRealTimeData().
+19/09/2011 8:43:56 SA : ignored FetchRealTimeData().
+19/09/2011 8:44:06 SA : ignored FetchRealTimeData().
+19/09/2011 8:44:32 SA : ignored FetchRealTimeData().
+19/09/2011 8:44:42 SA : ignored FetchRealTimeData().
+19/09/2011 8:44:52 SA : ignored FetchRealTimeData().
+19/09/2011 8:45:11 SA : update data from http://online.mhbs.vn/quote/hose.aspx HOSE
+ - FetchData error Column 'onDate, stockCode, stockExchange' is constrained to be unique.  Value '19/09/2011 8:45:13 SA, 17.6, HOSE' is already present.
+19/09/2011 8:45:23 SA : update data from http://online.mhbs.vn/quote/hose.aspx HOSE
+ - FetchData error Column 'onDate, stockCode, stockExchange' is constrained to be unique.  Value '19/09/2011 8:45:23 SA, 17.6, HOSE' is already present.
+19/09/2011 8:45:29 SA : update data from http://online.mhbs.vn/quote/hose.aspx HOSE
+ - FetchData error Column 'onDate, stockCode, stockExchange' is constrained to be unique.  Value '19/09/2011 8:45:42 SA, 17.6, HOSE' is already present.
+19/09/2011 8:46:52 SA : update data from http://online.mhbs.vn/quote/hose.aspx HOSE
+ - FetchData error Column 'onDate, stockCode, stockExchange' is constrained to be unique.  Value '19/09/2011 8:46:52 SA, 17.6, HOSE' is already present.
+19/09/2011 8:46:59 SA : update data from http://online.mhbs.vn/quote/hose.aspx HOSE
+ - FetchData error Column 'onDate, stockCode, stockExchange' is constrained to be unique.  Value '19/09/2011 8:46:59 SA, 17.6, HOSE' is already present.
+19/09/2011 8:47:02 SA : update data from http://online.mhbs.vn/quote/hose.aspx HOSE
+ - FetchData error Column 'onDate, stockCode, stockExchange' is constrained to be unique.  Value '19/09/2011 8:47:02 SA, 17.6, HOSE' is already present.
+19/09/2011 8:47:12 SA : update data from http://online.mhbs.vn/quote/hose.aspx HOSE
+ - FetchData error Column 'onDate, stockCode, stockExchange' is constrained to be unique.  Value '19/09/2011 8:47:12 SA, 17.6, HOSE' is already present.
+19/09/2011 8:47:22 SA : update data from http://online.mhbs.vn/quote/hose.aspx HOSE
+ - FetchData error Column 'onDate, stockCode, stockExchange' is constrained to be unique.  Value '19/09/2011 8:47:22 SA, 17.6, HOSE' is already present.
+19/09/2011 8:47:32 SA : update data from http://online.mhbs.vn/quote/hose.aspx HOSE
+ - FetchData error Column 'onDate, stockCode, stockExchange' is constrained to be unique.  Value '19/09/2011 8:47:32 SA, 17.6, HOSE' is already present.
+19/09/2011 8:47:42 SA : update data from http://online.mhbs.vn/quote/hose.aspx HOSE
+ - FetchData error Column 'onDate, stockCode, stockExchange' is constrained to be unique.  Value '19/09/2011 8:47:42 SA, 17.6, HOSE' is already present.
+19/09/2011 8:47:52 SA : update data from http://online.mhbs.vn/quote/hose.aspx HOSE
+ - FetchData error Column 'onDate, stockCode, stockExchange' is constrained to be unique.  Value '19/09/2011 8:47:52 SA, 17.6, HOSE' is already present.
+19/09/2011 8:48:02 SA : update data from http://online.mhbs.vn/quote/hose.aspx HOSE
+ - FetchData error Column 'onDate, stockCode, stockExchange' is constrained to be unique.  Value '19/09/2011 8:48:02 SA, 17.6, HOSE' is already present.
+19/09/2011 8:48:12 SA : update data from http://online.mhbs.vn/quote/hose.aspx HOSE
+ - FetchData error Column 'onDate, stockCode, stockExchange' is constrained to be unique.  Value '19/09/2011 8:48:12 SA, 17.6, HOSE' is already present.
+19/09/2011 8:48:22 SA : update data from http://online.mhbs.vn/quote/hose.aspx HOSE
+ - FetchData error Column 'onDate, stockCode, stockExchange' is constrained to be unique.  Value '19/09/2011 8:48:22 SA, 17.6, HOSE' is already present.
+19/09/2011 8:48:32 SA : update data from http://online.mhbs.vn/quote/hose.aspx HOSE
+ - FetchData error Column 'onDate, stockCode, stockExchange' is constrained to be unique.  Value '19/09/2011 8:48:32 SA, 17.6, HOSE' is already present.
+19/09/2011 8:48:42 SA : update data from http://online.mhbs.vn/quote/hose.aspx HOSE
+ - FetchData error Column 'onDate, stockCode, stockExchange' is constrained to be unique.  Value '19/09/2011 8:48:42 SA, 17.6, HOSE' is already present.
+19/09/2011 8:48:52 SA : update data from http://online.mhbs.vn/quote/hose.aspx HOSE
+ - FetchData error Column 'onDate, stockCode, stockExchange' is constrained to be unique.  Value '19/09/2011 8:48:52 SA, 17.6, HOSE' is already present.
+19/09/2011 8:49:02 SA : update data from http://online.mhbs.vn/quote/hose.aspx HOSE
+ - FetchData error Column 'onDate, stockCode, stockExchange' is constrained to be unique.  Value '19/09/2011 8:49:02 SA, 17.6, HOSE' is already present.
+19/09/2011 8:49:12 SA : update data from http://online.mhbs.vn/quote/hose.aspx HOSE
+ - FetchData error Column 'onDate, stockCode, stockExchange' is constrained to be unique.  Value '19/09/2011 8:49:12 SA, 17.6, HOSE' is already present.
+19/09/2011 8:49:22 SA : update data from http://online.mhbs.vn/quote/hose.aspx HOSE
+ - FetchData error Column 'onDate, stockCode, stockExchange' is constrained to be unique.  Value '19/09/2011 8:49:22 SA, 17.6, HOSE' is already present.
+19/09/2011 8:49:32 SA : update data from http://online.mhbs.vn/quote/hose.aspx HOSE
+ - FetchData error Column 'onDate, stockCode, stockExchange' is constrained to be unique.  Value '19/09/2011 8:49:32 SA, 17.6, HOSE' is already present.
+19/09/2011 8:49:42 SA : update data from http://online.mhbs.vn/quote/hose.aspx HOSE
+ - FetchData error Column 'onDate, stockCode, stockExchange' is constrained to be unique.  Value '19/09/2011 8:49:42 SA, 17.6, HOSE' is already present.
+19/09/2011 8:49:52 SA : update data from http://online.mhbs.vn/quote/hose.aspx HOSE
+ - FetchData error Column 'onDate, stockCode, stockExchange' is constrained to be unique.  Value '19/09/2011 8:49:52 SA, 17.6, HOSE' is already present.
+19/09/2011 8:50:02 SA : update data from http://online.mhbs.vn/quote/hose.aspx HOSE
+ - FetchData error Column 'onDate, stockCode, stockExchange' is constrained to be unique.  Value '19/09/2011 8:50:02 SA, 17.6, HOSE' is already present.
+19/09/2011 8:50:12 SA : update data from http://online.mhbs.vn/quote/hose.aspx HOSE
+ - FetchData error Column 'onDate, stockCode, stockExchange' is constrained to be unique.  Value '19/09/2011 8:50:12 SA, 17.6, HOSE' is already present.
+19/09/2011 8:50:22 SA : update data from http://online.mhbs.vn/quote/hose.aspx HOSE
+ - FetchData error Column 'onDate, stockCode, stockExchange' is constrained to be unique.  Value '19/09/2011 8:50:22 SA, 17.6, HOSE' is already present.
+19/09/2011 8:50:32 SA : update data from http://online.mhbs.vn/quote/hose.aspx HOSE
+ - FetchData error Column 'onDate, stockCode, stockExchange' is constrained to be unique.  Value '19/09/2011 8:51:05 SA, 17.6, HOSE' is already present.
+19/09/2011 8:51:08 SA : update data from http://online.mhbs.vn/quote/hose.aspx HOSE
+ - FetchData error Column 'onDate, stockCode, stockExchange' is constrained to be unique.  Value '19/09/2011 8:51:17 SA, 17.6, HOSE' is already present.
+19/09/2011 8:53:10 SA : update data from http://online.mhbs.vn/quote/hose.aspx HOSE
+ - FetchData error Column 'onDate, stockCode, stockExchange' is constrained to be unique.  Value '19/09/2011 8:53:13 SA, 17.6, HOSE' is already present.
+19/09/2011 8:53:17 SA : update data from http://online.mhbs.vn/quote/hose.aspx HOSE
+ - FetchData error Column 'onDate, stockCode, stockExchange' is constrained to be unique.  Value '19/09/2011 8:53:22 SA, 17.6, HOSE' is already present.
+19/09/2011 8:53:23 SA : update data from http://online.mhbs.vn/quote/hose.aspx HOSE
+ - FetchData error Column 'onDate, stockCode, stockExchange' is constrained to be unique.  Value '19/09/2011 8:53:48 SA, 17.6, HOSE' is already present.
+19/09/2011 8:54:13 SA : update data from http://online.mhbs.vn/quote/hose.aspx HOSE
+ - FetchData error Column 'onDate, stockCode, stockExchange' is constrained to be unique.  Value '19/09/2011 8:54:13 SA, 17.6, HOSE' is already present.
+19/09/2011 8:54:22 SA : update data from http://online.mhbs.vn/quote/hose.aspx HOSE
+ - FetchData error Column 'onDate, stockCode, stockExchange' is constrained to be unique.  Value '19/09/2011 8:54:24 SA, 17.6, HOSE' is already present.
+19/09/2011 8:54:32 SA : update data from http://online.mhbs.vn/quote/hose.aspx HOSE
+ - FetchData error Column 'onDate, stockCode, stockExchange' is constrained to be unique.  Value '19/09/2011 8:54:32 SA, 17.6, HOSE' is already present.
+19/09/2011 8:54:44 SA : update data from http://online.mhbs.vn/quote/hose.aspx HOSE
+19/09/2011 8:57:15 SA : update data from http://online.mhbs.vn/quote/hose.aspx HOSE
+ - FetchData error Violation of PRIMARY KEY constraint 'PK_importPrice'. Cannot insert duplicate key in object 'importPrice'.
+The statement has been terminated.
+19/09/2011 8:58:29 SA : update data from http://online.mhbs.vn/quote/hose.aspx HOSE
