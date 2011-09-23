@@ -1,0 +1,42 @@
+D:\work\stockProject\code\dlls\client.exe
+D:\work\stockProject\code\dlls\client.pdb
+D:\work\stockProject\code\client\obj\Debug\ResolveAssemblyReference.cache
+D:\work\stockProject\code\client\obj\Debug\client.forms.companyList.resources
+D:\work\stockProject\code\client\obj\Debug\client.forms.investorEdit.resources
+D:\work\stockProject\code\client\obj\Debug\client.forms.watchList.resources
+D:\work\stockProject\code\client\obj\Debug\client.main.resources
+D:\work\stockProject\code\client\obj\Debug\client.Properties.Resources.resources
+D:\work\stockProject\code\client\obj\Debug\client.csproj.GenerateResource.Cache
+D:\work\stockProject\code\client\obj\Debug\client.exe
+D:\work\stockProject\code\client\obj\Debug\client.pdb
+D:\work\stockProject\code\client\obj\Debug\client.forms.tradeAnalysis.resources
+D:\work\stockProject\new-code\dlls\client.exe
+D:\work\stockProject\new-code\dlls\client.pdb
+D:\work\stockProject\new-code\client\obj\Debug\ResolveAssemblyReference.cache
+D:\work\stockProject\new-code\client\obj\Debug\client.forms.companyList.resources
+D:\work\stockProject\new-code\client\obj\Debug\client.forms.investorEdit.resources
+D:\work\stockProject\new-code\client\obj\Debug\client.main.resources
+D:\work\stockProject\new-code\client\obj\Debug\client.Properties.Resources.resources
+D:\work\stockProject\new-code\client\obj\Debug\client.csproj.GenerateResource.Cache
+D:\work\stockProject\new-code\client\obj\Debug\client.exe
+D:\work\stockProject\new-code\client\obj\Debug\client.pdb
+X:\code1509\new-code\client\obj\Debug\client.exe
+X:\code1509\new-code\client\obj\Debug\client.pdb
+X:\code1509\new-code\dlls\client.exe
+X:\code1509\new-code\dlls\client.pdb
+X:\code1509\new-code\client\obj\Debug\ResolveAssemblyReference.cache
+X:\code1509\new-code\client\obj\Debug\client.forms.companyList.resources
+X:\code1509\new-code\client\obj\Debug\client.forms.investorEdit.resources
+X:\code1509\new-code\client\obj\Debug\client.main.resources
+X:\code1509\new-code\client\obj\Debug\client.Properties.Resources.resources
+X:\code1509\new-code\client\obj\Debug\client.csproj.GenerateResource.Cache
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\code1509\new-code\client\obj\Debug\client.exe
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\code1509\new-code\client\obj\Debug\client.pdb
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\code1509\new-code\dlls\client.exe
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\code1509\new-code\dlls\client.pdb
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\code1509\new-code\client\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\code1509\new-code\client\obj\Debug\client.forms.companyList.resources
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\code1509\new-code\client\obj\Debug\client.forms.investorEdit.resources
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\code1509\new-code\client\obj\Debug\client.main.resources
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\code1509\new-code\client\obj\Debug\client.Properties.Resources.resources
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\code1509\new-code\client\obj\Debug\client.csproj.GenerateResource.Cache

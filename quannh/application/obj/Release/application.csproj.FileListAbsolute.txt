@@ -1,0 +1,8 @@
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\code1509\new-code\application\obj\Release\ResolveAssemblyReference.cache
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\code1509\new-code\application\obj\Release\application.Properties.Resources.resources
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\code1509\new-code\application\obj\Release\application.csproj.GenerateResource.Cache
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\code1509\new-code\dlls\application.dll.config
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\code1509\new-code\dlls\application.dll
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\code1509\new-code\dlls\application.pdb
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\code1509\new-code\application\obj\Release\application.dll
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\code1509\new-code\application\obj\Release\application.pdb

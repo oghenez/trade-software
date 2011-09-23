@@ -1,0 +1,6 @@
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\code1509\new-code\dlls\data.dll.config
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\code1509\new-code\dlls\data.dll
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\code1509\new-code\dlls\data.pdb
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\code1509\new-code\data\obj\Release\ResolveAssemblyReference.cache
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\code1509\new-code\data\obj\Release\data.dll
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\code1509\new-code\data\obj\Release\data.pdb

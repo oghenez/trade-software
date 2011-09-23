@@ -1,0 +1,20 @@
+X:\code1509\new-code\dlls\client.exe
+X:\code1509\new-code\dlls\client.pdb
+X:\code1509\new-code\client\obj\Release\ResolveAssemblyReference.cache
+X:\code1509\new-code\client\obj\Release\client.forms.companyList.resources
+X:\code1509\new-code\client\obj\Release\client.forms.investorEdit.resources
+X:\code1509\new-code\client\obj\Release\client.main.resources
+X:\code1509\new-code\client\obj\Release\client.Properties.Resources.resources
+X:\code1509\new-code\client\obj\Release\client.csproj.GenerateResource.Cache
+X:\code1509\new-code\client\obj\Release\client.exe
+X:\code1509\new-code\client\obj\Release\client.pdb
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\code1509\new-code\dlls\client.exe
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\code1509\new-code\dlls\client.pdb
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\code1509\new-code\client\obj\Release\ResolveAssemblyReference.cache
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\code1509\new-code\client\obj\Release\client.forms.companyList.resources
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\code1509\new-code\client\obj\Release\client.forms.investorEdit.resources
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\code1509\new-code\client\obj\Release\client.main.resources
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\code1509\new-code\client\obj\Release\client.Properties.Resources.resources
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\code1509\new-code\client\obj\Release\client.csproj.GenerateResource.Cache
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\code1509\new-code\client\obj\Release\client.exe
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\code1509\new-code\client\obj\Release\client.pdb

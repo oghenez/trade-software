@@ -1,0 +1,72 @@
+X:\code1509\new-code\dlls\Indicators.dll
+X:\code1509\new-code\dlls\Indicators.pdb
+X:\code1509\new-code\indicators\obj\Release\ResolveAssemblyReference.cache
+X:\code1509\new-code\indicators\obj\Release\Indicators.forms.AD.resources
+X:\code1509\new-code\indicators\obj\Release\Indicators.forms.ADOSC.resources
+X:\code1509\new-code\indicators\obj\Release\Indicators.forms.APO.resources
+X:\code1509\new-code\indicators\obj\Release\Indicators.forms.Aroon.resources
+X:\code1509\new-code\indicators\obj\Release\Indicators.forms.AroonOsc.resources
+X:\code1509\new-code\indicators\obj\Release\Indicators.forms.ATR.resources
+X:\code1509\new-code\indicators\obj\Release\Indicators.forms.baseIndicatorForm.resources
+X:\code1509\new-code\indicators\obj\Release\Indicators.forms.BBANDS.resources
+X:\code1509\new-code\indicators\obj\Release\Indicators.forms.Bop.resources
+X:\code1509\new-code\indicators\obj\Release\Indicators.forms.CCI.resources
+X:\code1509\new-code\indicators\obj\Release\Indicators.forms.CMO.resources
+X:\code1509\new-code\indicators\obj\Release\Indicators.forms.LinearReg.resources
+X:\code1509\new-code\indicators\obj\Release\Indicators.forms.MFI.resources
+X:\code1509\new-code\indicators\obj\Release\Indicators.forms.Stoch.resources
+X:\code1509\new-code\indicators\obj\Release\Indicators.forms.StochFast.resources
+X:\code1509\new-code\indicators\obj\Release\Indicators.forms.StochRSI.resources
+X:\code1509\new-code\indicators\obj\Release\Indicators.forms.DMI.resources
+X:\code1509\new-code\indicators\obj\Release\Indicators.forms.MACD.resources
+X:\code1509\new-code\indicators\obj\Release\Indicators.forms.RSI.resources
+X:\code1509\new-code\indicators\obj\Release\Indicators.forms.SMA.resources
+X:\code1509\new-code\indicators\obj\Release\Indicators.Properties.Resources.resources
+X:\code1509\new-code\indicators\obj\Release\Indicators.csproj.GenerateResource.Cache
+X:\code1509\new-code\indicators\obj\Release\Indicators.dll
+X:\code1509\new-code\indicators\obj\Release\Indicators.pdb
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\code1509\new-code\dlls\Indicators.dll
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\code1509\new-code\dlls\Indicators.pdb
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\code1509\new-code\indicators\obj\Release\ResolveAssemblyReference.cache
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\code1509\new-code\indicators\obj\Release\Indicators.forms.AD.resources
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\code1509\new-code\indicators\obj\Release\Indicators.forms.ADOSC.resources
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\code1509\new-code\indicators\obj\Release\Indicators.forms.ADXR.resources
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\code1509\new-code\indicators\obj\Release\Indicators.forms.APO.resources
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\code1509\new-code\indicators\obj\Release\Indicators.forms.Aroon.resources
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\code1509\new-code\indicators\obj\Release\Indicators.forms.AroonOsc.resources
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\code1509\new-code\indicators\obj\Release\Indicators.forms.ATR.resources
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\code1509\new-code\indicators\obj\Release\Indicators.forms.baseIndicatorForm.resources
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\code1509\new-code\indicators\obj\Release\Indicators.forms.BBANDS.resources
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\code1509\new-code\indicators\obj\Release\Indicators.forms.Bop.resources
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\code1509\new-code\indicators\obj\Release\Indicators.forms.CCI.resources
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\code1509\new-code\indicators\obj\Release\Indicators.forms.CMO.resources
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\code1509\new-code\indicators\obj\Release\Indicators.forms.DEMA.resources
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\code1509\new-code\indicators\obj\Release\Indicators.forms.HTDCPHASE.resources
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\code1509\new-code\indicators\obj\Release\Indicators.forms.HTSINE.resources
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\code1509\new-code\indicators\obj\Release\Indicators.forms.HTTRENDMODE.resources
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\code1509\new-code\indicators\obj\Release\Indicators.forms.LinearReg.resources
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\code1509\new-code\indicators\obj\Release\Indicators.forms.LINEARREG_INTERCEPT.resources
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\code1509\new-code\indicators\obj\Release\Indicators.forms.MAXINDEX.resources
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\code1509\new-code\indicators\obj\Release\Indicators.forms.MFI.resources
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\code1509\new-code\indicators\obj\Release\Indicators.forms.MIDPOINT.resources
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\code1509\new-code\indicators\obj\Release\Indicators.forms.MIN.resources
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\code1509\new-code\indicators\obj\Release\Indicators.forms.MINMAX.resources
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\code1509\new-code\indicators\obj\Release\Indicators.forms.MOM.resources
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\code1509\new-code\indicators\obj\Release\Indicators.forms.ROCP.resources
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\code1509\new-code\indicators\obj\Release\Indicators.forms.ROCR100.resources
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\code1509\new-code\indicators\obj\Release\Indicators.forms.Stoch.resources
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\code1509\new-code\indicators\obj\Release\Indicators.forms.StochFast.resources
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\code1509\new-code\indicators\obj\Release\Indicators.forms.StochRSI.resources
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\code1509\new-code\indicators\obj\Release\Indicators.forms.DMI.resources
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\code1509\new-code\indicators\obj\Release\Indicators.forms.MACD.resources
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\code1509\new-code\indicators\obj\Release\Indicators.forms.RSI.resources
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\code1509\new-code\indicators\obj\Release\Indicators.forms.SMA.resources
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\code1509\new-code\indicators\obj\Release\Indicators.forms.SUM.resources
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\code1509\new-code\indicators\obj\Release\Indicators.forms.TEMA.resources
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\code1509\new-code\indicators\obj\Release\Indicators.forms.TRIMA.resources
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\code1509\new-code\indicators\obj\Release\Indicators.forms.TSF.resources
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\code1509\new-code\indicators\obj\Release\Indicators.forms.WILLR.resources
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\code1509\new-code\indicators\obj\Release\Indicators.Properties.Resources.resources
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\code1509\new-code\indicators\obj\Release\Indicators.csproj.GenerateResource.Cache
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\code1509\new-code\indicators\obj\Release\Indicators.dll
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\code1509\new-code\indicators\obj\Release\Indicators.pdb
