@@ -290,4 +290,14 @@
     <MACD_Histogram_RiskMng Authors="Quan Nguyen" />
     <MACD_Histogram_RiskMng Version="1.0" />
   </STRATEGY>
+  <STRATEGY>
+    <AverageStrategy Category="VAL" />
+    <AverageStrategy Parameters="Period = 30, Buy Level from Average(%) = 20,Sell Level from Average(%) = 15,Cut Loss Level (%)=4,Take Profit Level (%)=200" />
+    <AverageStrategy ParameterDescriptions="" />
+    <AverageStrategy Name="Average Investing" />
+    <AverageStrategy Description="Buy when price down to Buy Level, Sell when price up to Sell Level" />
+    <AverageStrategy URL="http://www.hqtrader.com" />
+    <AverageStrategy Authors="Quan Nguyen" />
+    <AverageStrategy Version="1.0" />
+  </STRATEGY>
 </Configuration>

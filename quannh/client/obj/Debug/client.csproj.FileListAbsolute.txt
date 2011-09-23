@@ -40,3 +40,13 @@ C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\code1509\new-code\client\
 C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\code1509\new-code\client\obj\Debug\client.main.resources
 C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\code1509\new-code\client\obj\Debug\client.Properties.Resources.resources
 C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\code1509\new-code\client\obj\Debug\client.csproj.GenerateResource.Cache
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\QuanSVN\client\obj\Debug\client.exe
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\QuanSVN\client\obj\Debug\client.pdb
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\QuanSVN\dlls\client.exe
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\QuanSVN\dlls\client.pdb
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\QuanSVN\client\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\QuanSVN\client\obj\Debug\client.forms.companyList.resources
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\QuanSVN\client\obj\Debug\client.forms.investorEdit.resources
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\QuanSVN\client\obj\Debug\client.main.resources
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\QuanSVN\client\obj\Debug\client.Properties.Resources.resources
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\QuanSVN\client\obj\Debug\client.csproj.GenerateResource.Cache

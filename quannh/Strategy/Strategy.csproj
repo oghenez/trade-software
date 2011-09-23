@@ -58,6 +58,11 @@
     <Reference Include="WeifenLuo.WinFormsUI.Docking, Version=2.5.0.15095, Culture=neutral, processorArchitecture=MSIL" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AverageStrategy.cs" />
+    <Compile Include="BasicPrice_3SMA.cs" />
+    <Compile Include="BasicSMA.cs" />
+    <Compile Include="BasicSMA_5_10.cs" />
+    <Compile Include="BasicWMA.cs" />
     <Compile Include="Basic\BasicDMI.cs" />
     <Compile Include="Basic\BasicMACD.cs" />
     <Compile Include="Basic\BuyAndHoldStrategy.cs" />
@@ -72,10 +77,16 @@
     <Compile Include="Hybrid\MACD_ADX.cs" />
     <Compile Include="Hybrid\MACD_Stochastic.cs" />
     <Compile Include="Hybrid\MACD_Stochastic_Bottom.cs" />
-    <Compile Include="MACD_HistogramChanged.cs" />
-    <Compile Include="MACD_Line_Cut.cs" />
+    <Compile Include="Basic\MACD_HistogramChanged.cs" />
+    <Compile Include="Basic\MACD_Line_Cut.cs" />
     <Compile Include="Parameters.cs" />
     <Compile Include="Hybrid\RSI_MACD_Histogram.cs" />
+    <Compile Include="PriceTwoSMA.cs" />
+    <Compile Include="Price_3SMA_Risk_Reward.cs" />
+    <Compile Include="Price_SMA_20_50.cs" />
+    <Compile Include="Price_SMA_5_10.cs" />
+    <Compile Include="Price_SMA_5_10_20_Risk_Reward.cs" />
+    <Compile Include="Price_SMA_5_10_Volume_Filter.cs" />
     <Compile Include="Screening\RelativeStrength.cs" />
     <Compile Include="Screening\ResistanceScreening.cs" />
     <Compile Include="Screening\PriceScreening.cs" />
@@ -91,6 +102,9 @@
     <Compile Include="Basic\StochasticSlow.cs" />
     <Compile Include="Hybrid\SMA_Stochastic.cs" />
     <Compile Include="strategyLib.cs" />
+    <Compile Include="TwoEMA.cs" />
+    <Compile Include="TwoSMA.cs" />
+    <Compile Include="TwoSMA_VolumeFilter.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="fomrs\baseStrategyForm.resx">
