@@ -294,6 +294,16 @@
     <RSI_MACD_Histogram Version="1.0" />
   </STRATEGY>
   <STRATEGY>
+    <MACD_HistogramNEW Category="TRE" />
+    <MACD_HistogramNEW Parameters="MACD Fast=12,MACD Slow=26,MACD Signal=9" />
+    <MACD_HistogramNEW ParameterDescriptions="Period defines the input data for the strategy" />
+    <MACD_HistogramNEW Name="MACD strategy using histogram changes" />
+    <MACD_HistogramNEW Description="MACD strategy using histogram changes" />
+    <MACD_HistogramNEW URL="http://www.hqtrader.com" />
+    <MACD_HistogramNEW Authors="Quan Nguyen" />
+    <MACD_HistogramNEW Version="1.0" />
+  </STRATEGY>
+  <STRATEGY>
     <MACD_Histogram Category="TRE" />
     <MACD_Histogram Parameters="MACD Fast=12,MACD Slow=26,MACD Signal=9" />
     <MACD_Histogram ParameterDescriptions="Period defines the input data for the strategy" />
@@ -315,7 +325,7 @@
   </STRATEGY>
   <STRATEGY>
     <MACD_Histogram_RiskMng Category="TRE" />
-    <MACD_Histogram_RiskMng Parameters="MACD Fast=12,MACD Slow=26,MACD Signal=9,,Cut Loss Level (%)=4,Take Profit Level (%)=200" />
+    <MACD_Histogram_RiskMng Parameters="MACD Fast=12,MACD Slow=26,MACD Signal=9,Cut Loss Level (%)=10,Take Profit Level (%)=200" />
     <MACD_Histogram_RiskMng ParameterDescriptions="Period defines the input data for the strategy" />
     <MACD_Histogram_RiskMng Name="MACD strategy using histogram changes with risk management" />
     <MACD_Histogram_RiskMng Description="MACD strategy using histogram changes  with cut loss" />

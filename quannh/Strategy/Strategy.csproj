@@ -74,7 +74,7 @@
     <Compile Include="Hybrid\MACD_ADX.cs" />
     <Compile Include="Hybrid\MACD_Stochastic.cs" />
     <Compile Include="Hybrid\MACD_Stochastic_Bottom.cs" />
-    <Compile Include="Basic\MACD_HistogramChanged.cs" />
+    <Compile Include="Basic\MACD_Histogram.cs" />
     <Compile Include="Basic\MACD_Line_Cut.cs" />
     <Compile Include="Parameters.cs" />
     <Compile Include="Hybrid\RSI_MACD_Histogram.cs" />
