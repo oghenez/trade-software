@@ -97,13 +97,12 @@ namespace Strategy
                 else
                 if (max < list[i])
                     max = list[i];
-            double distance=max-min;
             double distance1 = list[position]-min;
             double distance2 = max-list[position];
             if (distance1>0) 
                 risk_reward = distance2 / distance1;
             else
-                risk_reward=-1;
+                risk_reward=100;
             return risk_reward;
         }
     }

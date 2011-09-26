@@ -37,6 +37,7 @@ namespace Strategy
         }
     }
 
+    
     public class PriceSCR : GenericStrategy 
     {
         override protected void StrategyExecute()

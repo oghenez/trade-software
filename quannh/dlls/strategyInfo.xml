@@ -1,5 +1,38 @@
 <Configuration>
   <STRATEGY>
+    <TwoSMAMACDSCR Type="SCREENING" />
+    <TwoSMAMACDSCR Category="TRE" />
+    <TwoSMAMACDSCR Parameters="MACD Fast=12,MACD Slow=26,MACD Signal=9,Short Period=5,Long Period=10" />
+    <TwoSMAMACDSCR ParameterDescriptions="Period defines the input data for the strategy" />
+    <TwoSMAMACDSCR Name="MACD and Two SMA Screening" />
+    <TwoSMAMACDSCR Description="Screen stock macd line above 0 and Short term SMA is above Long term SMA" />
+    <TwoSMAMACDSCR URL="http://www.hqtrader.com" />
+    <TwoSMAMACDSCR Authors="Quan Nguyen" />
+    <TwoSMAMACDSCR Version="1.0" />
+  </STRATEGY>
+  <STRATEGY>
+    <TwoSMASCR Type="SCREENING" />
+    <TwoSMASCR Category="TRE" />
+    <TwoSMASCR Parameters="Short Period=5,Long Period=10" />
+    <TwoSMASCR ParameterDescriptions="Period defines the parameter for the screening" />
+    <TwoSMASCR Name="Two SMA Screening" />
+    <TwoSMASCR Description="Two SMA Screening" />
+    <TwoSMASCR URL="http://www.hqtrader.com" />
+    <TwoSMASCR Authors="Quan Nguyen" />
+    <TwoSMASCR Version="1.0" />
+  </STRATEGY>
+  <STRATEGY>
+    <BasicADXSCR Type="SCREENING" />
+    <BasicADXSCR Category="TRE" />
+    <BasicADXSCR Parameters="ADX Period=14" />
+    <BasicADXSCR ParameterDescriptions="Period defines the parameter for the screening" />
+    <BasicADXSCR Name="ADX Screening" />
+    <BasicADXSCR Description="Screen stock with ADX as parameter" />
+    <BasicADXSCR URL="http://www.hqtrader.com" />
+    <BasicADXSCR Authors="Quan Nguyen" />
+    <BasicADXSCR Version="1.0" />
+  </STRATEGY>
+  <STRATEGY>
     <MACD_HistogramSCR Type="SCREENING" />
     <MACD_HistogramSCR Category="TRE" />
     <MACD_HistogramSCR Parameters="MACD Fast=12,MACD Slow=26,MACD Signal=9" />
@@ -13,7 +46,7 @@
   <STRATEGY>
     <RelativeStrengthSCR Type="SCREENING" />
     <RelativeStrengthSCR Category="TRE" />
-    <RelativeStrengthSCR Parameters="Period=90" />
+    <RelativeStrengthSCR Parameters="Period=180" />
     <RelativeStrengthSCR ParameterDescriptions="Period defines the parameter relative strength" />
     <RelativeStrengthSCR Name="Relative Strength" />
     <RelativeStrengthSCR Description="Relative Strength" />
@@ -110,15 +143,15 @@
     <VolumeSCR Version="1.0" />
   </STRATEGY>
   <STRATEGY>
-    <BasicDMIScreening Type="SCREENING" />
-    <BasicDMIScreening Category="TRE" />
-    <BasicDMIScreening Parameters="Plus Period=14,Minus Period=14" />
-    <BasicDMIScreening ParameterDescriptions="Period defines the input data for the strategy" />
-    <BasicDMIScreening Name="Basic DMI Screening" />
-    <BasicDMIScreening Description="Screen stock with DI+ above DI-" />
-    <BasicDMIScreening URL="http://www.hqtrader.com" />
-    <BasicDMIScreening Authors="Quan Nguyen" />
-    <BasicDMIScreening Version="1.0" />
+    <BasicDMISCR Type="SCREENING" />
+    <BasicDMISCR Category="TRE" />
+    <BasicDMISCR Parameters="Plus Period=14,Minus Period=14" />
+    <BasicDMISCR ParameterDescriptions="Period defines the input data for the strategy" />
+    <BasicDMISCR Name="Basic DMI Screening" />
+    <BasicDMISCR Description="Screen stock with DI+ above DI-" />
+    <BasicDMISCR URL="http://www.hqtrader.com" />
+    <BasicDMISCR Authors="Quan Nguyen" />
+    <BasicDMISCR Version="1.0" />
   </STRATEGY>
   <STRATEGY>
     <BuyAndHold Category="TRE" />
@@ -212,7 +245,7 @@
   </STRATEGY>
   <STRATEGY>
     <MACD_ADX_RiskMng Category="HFT" />
-    <MACD_ADX_RiskMng Parameters="MACD Fast=12,MACD Slow=26,MACD Signal=9,ADX Period=14" />
+    <MACD_ADX_RiskMng Parameters="MACD Fast=12,MACD Slow=26,MACD Signal=9,ADX Period=14,Cut Loss Level (%)=5,Take Profit Level (%)=200" />
     <MACD_ADX_RiskMng ParameterDescriptions="Period defines the input data for the strategy" />
     <MACD_ADX_RiskMng Name="Hybrid strategy with MACD and ADX with money management rule" />
     <MACD_ADX_RiskMng Description="Buy when there is cut between signal and macd line. &#xD;&#xA;                      Sell with money management rule" />
@@ -252,7 +285,7 @@
   </STRATEGY>
   <STRATEGY>
     <RSI_MACD_Histogram Category="HFT" />
-    <RSI_MACD_Histogram Parameters="MACD Fast=12,MACD Slow=26,MACD Signal=9, RSI Period=14, RSI Over Sold=30, RSI Over Bought=70" />
+    <RSI_MACD_Histogram Parameters="MACD Fast=12,MACD Slow=26,MACD Signal=9, RSI Period=14, RSI Over Sold=30, RSI Over Bought=70,,Cut Loss Level (%)=5,Take Profit Level (%)=200" />
     <RSI_MACD_Histogram ParameterDescriptions="Period defines the input data for the strategy" />
     <RSI_MACD_Histogram Name="MACD and RSI strategy" />
     <RSI_MACD_Histogram Description="MACD and RSI strategy" />
@@ -291,7 +324,7 @@
     <MACD_Histogram_RiskMng Version="1.0" />
   </STRATEGY>
   <STRATEGY>
-    <AverageStrategy Category="VAL" />
+    <AverageStrategy Category="MEA" />
     <AverageStrategy Parameters="Period = 30, Buy Level from Average(%) = 20,Sell Level from Average(%) = 15,Cut Loss Level (%)=4,Take Profit Level (%)=200" />
     <AverageStrategy ParameterDescriptions="" />
     <AverageStrategy Name="Average Investing" />
@@ -299,5 +332,85 @@
     <AverageStrategy URL="http://www.hqtrader.com" />
     <AverageStrategy Authors="Quan Nguyen" />
     <AverageStrategy Version="1.0" />
+  </STRATEGY>
+  <STRATEGY>
+    <PriceTwoSMA Category="TRE" />
+    <PriceTwoSMA Parameters="Short Period = 5,Long Period=10," />
+    <PriceTwoSMA ParameterDescriptions="Short Period is the period for the short term moving average line.&#xD;&#xA;                 Long Period is the period for the long term moving average line." />
+    <PriceTwoSMA Name="Two Simple Moving Average Waves compared with Price" />
+    <PriceTwoSMA Description="Two Simple Moving Average Waves compared with Price" />
+    <PriceTwoSMA URL="http://www.hqtrader.com" />
+    <PriceTwoSMA Authors="Quan Nguyen" />
+    <PriceTwoSMA Version="1.0" />
+  </STRATEGY>
+  <STRATEGY>
+    <Price_3SMA Category="TRE" />
+    <Price_3SMA Parameters="Short Period = 5,Medium Period=10,Long Period=20" />
+    <Price_3SMA ParameterDescriptions="Short Period is the period for the short term moving average line.&#xD;&#xA;                 Medium Period is the period for the medium term moving average line.&#xD;&#xA;                 Long Period is the period for the long term moving average line." />
+    <Price_3SMA Name="Three Simple Moving Average Waves" />
+    <Price_3SMA Description="Three Simple Moving Average Waves" />
+    <Price_3SMA URL="http://www.hqtrader.com" />
+    <Price_3SMA Authors="Quan Nguyen" />
+    <Price_3SMA Version="1.0" />
+  </STRATEGY>
+  <STRATEGY>
+    <Price_3SMA_Risk_Reward Category="TRE" />
+    <Price_3SMA_Risk_Reward Parameters="Short Period=5,Medium Period=10,Long Period=20,Risk Reward Ratio=2,Period for Risk Reward Ratio=60" />
+    <Price_3SMA_Risk_Reward ParameterDescriptions="Short Period is the period for the short term moving average line.&#xD;&#xA;                 Medium Period is the period for the medium term moving average line.&#xD;&#xA;                 Long Period is the period for the long term moving average line." />
+    <Price_3SMA_Risk_Reward Name="Three SMA Waves at Risk Reward Ratio" />
+    <Price_3SMA_Risk_Reward Description="Three SMA Waves at Risk Reward Ratio" />
+    <Price_3SMA_Risk_Reward URL="http://www.hqtrader.com" />
+    <Price_3SMA_Risk_Reward Authors="Quan Nguyen" />
+    <Price_3SMA_Risk_Reward Version="1.0" />
+  </STRATEGY>
+  <STRATEGY>
+    <TwoWMA Category="TRE" />
+    <TwoWMA Parameters="Short Period = 5,Long Period=10" />
+    <TwoWMA ParameterDescriptions="Short Period is the period for the short term moving average line.&#xD;&#xA;                 Long Period is the period for the long term moving average line." />
+    <TwoWMA Name="Two Weighted Moving Average Waves" />
+    <TwoWMA Description="Two Weighted Moving Average Waves" />
+    <TwoWMA URL="http://www.hqtrader.com" />
+    <TwoWMA Authors="Quan Nguyen" />
+    <TwoWMA Version="1.0" />
+  </STRATEGY>
+  <STRATEGY>
+    <TwoEMA Category="TRE" />
+    <TwoEMA Parameters="Short Period = 5,Long Period=10" />
+    <TwoEMA ParameterDescriptions="Short Period is the period for the short term moving average line.&#xD;&#xA;                 Long Period is the period for the long term moving average line." />
+    <TwoEMA Name="Two Exponential Moving Average Waves" />
+    <TwoEMA Description="Two Exponential Moving Average Waves" />
+    <TwoEMA URL="http://www.hqtrader.com" />
+    <TwoEMA Authors="Quan Nguyen" />
+    <TwoEMA Version="1.0" />
+  </STRATEGY>
+  <STRATEGY>
+    <TwoSMA Category="TRE" />
+    <TwoSMA Parameters="Short Period = 5,Long Period=10" />
+    <TwoSMA ParameterDescriptions="Short Period is the period for the short term moving average line.&#xD;&#xA;                 Long Period is the period for the long term moving average line." />
+    <TwoSMA Name="Two Simple Moving Average Waves" />
+    <TwoSMA Description="Two Simple Moving Average Waves" />
+    <TwoSMA URL="http://www.hqtrader.com" />
+    <TwoSMA Authors="Quan Nguyen" />
+    <TwoSMA Version="1.0" />
+  </STRATEGY>
+  <STRATEGY>
+    <TwoSMA_VolumeFilter Category="TRE" />
+    <TwoSMA_VolumeFilter Parameters="Short Period=5,Long Period=10,Volume Filter=100000" />
+    <TwoSMA_VolumeFilter ParameterDescriptions="Short Period is the period for the short term moving average line.&#xD;&#xA;                 Long Period is the period for the long term moving average line." />
+    <TwoSMA_VolumeFilter Name="Two Simple Moving Average Waves with Volume Filter" />
+    <TwoSMA_VolumeFilter Description="Two Simple Moving Average Waves  with Volume Filter" />
+    <TwoSMA_VolumeFilter URL="http://www.hqtrader.com" />
+    <TwoSMA_VolumeFilter Authors="Quan Nguyen" />
+    <TwoSMA_VolumeFilter Version="1.0" />
+  </STRATEGY>
+  <STRATEGY>
+    <ConsecutiveUpDown Category="TRE" />
+    <ConsecutiveUpDown Parameters="Days down=5,Days Up=5" />
+    <ConsecutiveUpDown ParameterDescriptions="" />
+    <ConsecutiveUpDown Name="Consecutive up down" />
+    <ConsecutiveUpDown Description="Consecutive up down" />
+    <ConsecutiveUpDown URL="http://www.hqtrader.com" />
+    <ConsecutiveUpDown Authors="Quan Nguyen" />
+    <ConsecutiveUpDown Version="1.0" />
   </STRATEGY>
 </Configuration>

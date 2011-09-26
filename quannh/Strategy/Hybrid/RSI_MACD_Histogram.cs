@@ -19,6 +19,8 @@ namespace Strategy
             int rsi_period = parameters[3];
             int RSI_LOWER_LEVEL = parameters[4];
             int RSI_UPPER_LEVEL = parameters[5];
+            int cutlosslevel = parameters[6];
+            int takeprofitlevel = parameters[7];
 
             double delta = 0, lastDelta = 0;
             
@@ -34,6 +36,12 @@ namespace Strategy
                 if (is_bought)
                     if ((delta < 0 && lastDelta > 0) || line1[idx] > RSI_UPPER_LEVEL)
                         SellAtClose(idx);
+                if (is_bought && CutLossCondition(data.Close[idx], buy_price, cutlosslevel))
+                    SellCutLoss(idx);
+
+                if (is_bought && TakeProfitCondition(data.Close[idx], buy_price, takeprofitlevel))
+                    SellTakeProfit(idx);
+
                 lastDelta = delta;
             }
         }

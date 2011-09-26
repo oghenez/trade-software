@@ -6,6 +6,7 @@ namespace Strategy
     public class MACD_ADX_Helper : baseHelper
     {
         public MACD_ADX_Helper() : base(typeof(MACD_ADX)) { }
+
     }
 
     public class MACD_ADX_RiskMng_Helper : baseHelper
@@ -49,6 +50,9 @@ namespace Strategy
                 parameters[2],"");
 
             ADX adx=new ADX(data.Bars,parameters[3],"");
+            
+            int cutlosslevel = parameters[4]; 
+            int takeprofitlevel=parameters[5];
             double delta = 0, lastDelta = 0;
 
             for (int idx = 1; idx < macd.Values.Length; idx++)
@@ -62,6 +66,12 @@ namespace Strategy
                 }
                 if (delta < 0 && lastDelta > 0)
                     SellAtClose(idx);
+
+                if (is_bought && CutLossCondition(data.Close[idx], buy_price, cutlosslevel))
+                    SellCutLoss(idx);
+
+                if (is_bought && TakeProfitCondition(data.Close[idx], buy_price, takeprofitlevel))
+                    SellTakeProfit(idx);
                 lastDelta = delta;
             }
         }

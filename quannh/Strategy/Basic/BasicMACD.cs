@@ -15,6 +15,11 @@ namespace Strategy
         public BasicMACDSCR_Helper() : base(typeof(BasicMACDSCR)) { }
     }
 
+    public class TwoSMAMACDSCR_Helper : baseHelper
+    {
+        public TwoSMAMACDSCR_Helper() : base(typeof(TwoSMAMACDSCR)) { }
+    }
+
     public class BasicMACD : GenericStrategy
     {
         override protected void StrategyExecute()
@@ -38,17 +43,18 @@ namespace Strategy
         }
     }
 
-    public class BasicMACDSCR : GenericStrategy
-    {
-        /// <summary>
-        /// Screening following basic MACD rule
-        /// </summary>
-        override protected void StrategyExecute()
+    public class BasicMACDRule:Rule{
+        public Indicators.MACD macd;
+        public DataSeries ema;
+        public BasicMACDRule(DataSeries ds,int fast,int slow,int signal)
         {
-            Indicators.MACD macd = Indicators.MACD.Series(data.Close, parameters[0], parameters[1], parameters[2], "");
-            DataSeries ema = macd.SignalSeries;
-            DataSeries hist = macd.HistSeries;
-            if (macd.Count < 2) return;
+            macd = Indicators.MACD.Series(ds, fast, slow, signal, "");
+            ema = macd.SignalSeries;
+        }
+
+        public override bool isValid()
+        {
+            if (macd.Count < 2) return false;
 
             AppTypes.MarketTrend lastTrend = AppTypes.MarketTrend.Unspecified;
             AppTypes.MarketTrend currentTrend = AppTypes.MarketTrend.Unspecified;
@@ -57,8 +63,47 @@ namespace Strategy
             {
                 currentTrend = ((macd[idx] > 0 && macd[idx] > ema[idx]) ? AppTypes.MarketTrend.Upward : AppTypes.MarketTrend.Downward);
                 if (lastTrend == AppTypes.MarketTrend.Downward && currentTrend == AppTypes.MarketTrend.Upward)
-                    BuyAtClose(idx);                
+                    return true;
                 lastTrend = currentTrend;
+            }
+            return false;
+        }
+    }
+
+    public class BasicMACDSCR : GenericStrategy
+    {
+        /// <summary>
+        /// Screening following basic MACD rule
+        /// </summary>
+        override protected void StrategyExecute()
+        {
+            BasicMACDRule rule = new BasicMACDRule(data.Close, parameters[0], parameters[1], parameters[2]);
+            //Rule rule1 = new TwoSMARule(data, 5, 10);
+            if (rule.isValid())
+            {
+                int Bar = data.Close.Count - 1;
+                BusinessInfo info = new BusinessInfo();
+                info.Weight = rule.macd[Bar] * 100;
+                SelectStock(Bar, info);
+            }            
+        }
+    }
+
+    public class TwoSMAMACDSCR : GenericStrategy
+    {
+        /// <summary>
+        /// Screening following basic MACD rule
+        /// </summary>
+        override protected void StrategyExecute()
+        {
+            BasicMACDRule rule = new BasicMACDRule(data.Close, parameters[0], parameters[1], parameters[2]);
+            TwoSMARule rule1 = new TwoSMARule(data.Close, parameters[3], parameters[4]);
+            if (rule.isValid()&&rule1.isValid())
+            {
+                int Bar = data.Close.Count - 1;
+                BusinessInfo info = new BusinessInfo();
+                info.Weight = rule.macd[Bar] * 100;
+                SelectStock(Bar, info);
             }
         }
     }

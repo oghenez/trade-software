@@ -30,3 +30,11 @@ C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\code1509\new-code\Strateg
 C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\code1509\new-code\Strategy\obj\Release\strategy.pdb
 C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\code1509\new-code\dlls\strategy.dll
 C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\code1509\new-code\dlls\strategy.pdb
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\QuanSVN\dlls\strategy.dll
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\QuanSVN\dlls\strategy.pdb
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\QuanSVN\strategy\obj\Release\ResolveAssemblyReference.cache
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\QuanSVN\strategy\obj\Release\Strategy.forms.baseStrategyForm.resources
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\QuanSVN\strategy\obj\Release\strategy.Properties.Resources.resources
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\QuanSVN\strategy\obj\Release\Strategy.csproj.GenerateResource.Cache
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\QuanSVN\strategy\obj\Release\strategy.dll
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\QuanSVN\strategy\obj\Release\strategy.pdb
