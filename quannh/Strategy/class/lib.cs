@@ -216,6 +216,10 @@ namespace Strategy
         //public double[] Resistance;
         //public double[] Support;
         public double Weight = 0;
+        override public string ToString()
+        {
+            return "No details";
+        }
     }
 
     //Information of one trading point (suggested by analysis process)
