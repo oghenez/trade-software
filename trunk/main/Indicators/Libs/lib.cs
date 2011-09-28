@@ -255,7 +255,7 @@ namespace Indicators
             {
                 string[] parts = common.system.String2List(items[idx], ":");
                 Color color = Color.Transparent;
-                if (parts.Length > 0) color = Color.FromName(parts[0]);
+                if (parts.Length > 0) color = ColorTranslator.FromHtml(parts[0]);
                 int weight = 1;
                 if (parts.Length > 1) int.TryParse(parts[1], out weight);
 
@@ -272,7 +272,7 @@ namespace Indicators
             for (int idx = 0; idx < outputInfoList.Length; idx++)
             {
                 str += (str == "" ? "" : ",") +
-                       outputInfoList[idx].Color.Name + ":" + outputInfoList[idx].Weight.ToString();
+                       ColorTranslator.ToHtml(outputInfoList[idx].Color) + ":" + outputInfoList[idx].Weight.ToString();
             }
             return str;
         }
