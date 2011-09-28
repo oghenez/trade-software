@@ -46,7 +46,7 @@
     <Indicators.MACD params="12,26,9" />
   </admin>
   <admin>
-    <Indicators.MACD output="Coral:1,Green:1,Navy:1" />
+    <Indicators.MACD output="Red:1,ffff8080:1,Navy:1" />
   </admin>
   <admin>
     <Indicators.SMA output="Maroon:1" />
@@ -65,5 +65,8 @@
   </admin>
   <admin>
     <Indicators.LinearReg drawInNewWindow="True" />
+  </admin>
+  <admin>
+    <Indicators.MACD drawInNewWindow="False" />
   </admin>
 </Configuration>
