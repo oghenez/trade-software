@@ -17,7 +17,7 @@ namespace Indicators.forms
     /// </summary>
     public partial class sampleMACD : baseIndicatorForm 
     {
-        public sampleMACD(Meta meta) : base(meta)
+        public sampleMACD(Meta meta) : base(meta)  
         {
             InitializeComponent();
             macdColorEd.LoadColors();
