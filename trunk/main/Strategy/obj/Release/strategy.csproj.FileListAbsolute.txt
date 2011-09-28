@@ -1,0 +1,8 @@
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\code1209\new-code\strategy\obj\Release\ResolveAssemblyReference.cache
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\code1209\new-code\strategy\obj\Release\strategy.forms.baseStrategyForm.resources
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\code1209\new-code\strategy\obj\Release\strategy.Properties.Resources.resources
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\code1209\new-code\strategy\obj\Release\strategy.csproj.GenerateResource.Cache
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\code1209\new-code\dlls\strategy.dll
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\code1209\new-code\dlls\strategy.pdb
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\code1209\new-code\strategy\obj\Release\strategy.dll
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\code1209\new-code\strategy\obj\Release\strategy.pdb

@@ -1,0 +1,69 @@
+<Configuration>
+  <admin>
+    <Strategy.SMACUT params="" />
+    <Strategy.MACDSMACUT params="14,26,9,10" />
+  </admin>
+  <admin>
+    <Strategy.EMACUT params="11,20" />
+  </admin>
+  <admin>
+    <Strategy.BasicVolumeSCR params="" />
+  </admin>
+  <admin>
+    <Strategy.StochFastSCR params="14,3" />
+  </admin>
+  <admin>
+    <Strategy.MACD_HistogramSCR params="12,26,9" />
+  </admin>
+  <admin>
+    <Strategy.SupportSCR params="30,1" />
+  </admin>
+  <admin>
+    <Strategy.ResistanceSCR params="30,1" />
+  </admin>
+  <admin>
+    <Strategy.RelativeStrengthSCR params="180" />
+  </admin>
+  <admin>
+    <Strategy.BasicADXSCR params="14" />
+  </admin>
+  <admin>
+    <Strategy.BasicDMISCR params="14,14" />
+  </admin>
+  <admin>
+    <Strategy.BasicMACDSCR params="12,26,9" />
+  </admin>
+  <admin>
+    <Strategy.TwoSMASCR params="5,10" />
+  </admin>
+  <admin>
+    <Strategy.TwoSMA_VolumeFilter params="5,10,100000" />
+  </admin>
+  <admin>
+    <Indicators.SMA params="5" />
+  </admin>
+  <admin>
+    <Indicators.MACD params="12,26,9" />
+  </admin>
+  <admin>
+    <Indicators.MACD output="Coral:1,Green:1,Navy:1" />
+  </admin>
+  <admin>
+    <Indicators.SMA output="Maroon:1" />
+  </admin>
+  <admin>
+    <Indicators.Bop params="" />
+  </admin>
+  <admin>
+    <Indicators.Bop output="Red:1" />
+  </admin>
+  <admin>
+    <Indicators.LinearReg params="25" />
+  </admin>
+  <admin>
+    <Indicators.LinearReg output="Red:1" />
+  </admin>
+  <admin>
+    <Indicators.LinearReg drawInNewWindow="True" />
+  </admin>
+</Configuration>

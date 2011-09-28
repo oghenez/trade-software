@@ -1,0 +1,426 @@
+<Configuration>
+  <STRATEGY>
+    <TwoSMAMACDSCR Type="SCREENING" />
+    <TwoSMAMACDSCR Category="TRE" />
+    <TwoSMAMACDSCR Parameters="MACD Fast=12,MACD Slow=26,MACD Signal=9,Short Period=5,Long Period=10" />
+    <TwoSMAMACDSCR ParameterDescriptions="Period defines the input data for the strategy" />
+    <TwoSMAMACDSCR Name="MACD and Two SMA Screening" />
+    <TwoSMAMACDSCR Description="Screen stock macd line above 0 and Short term SMA is above Long term SMA" />
+    <TwoSMAMACDSCR URL="http://www.hqtrader.com" />
+    <TwoSMAMACDSCR Authors="Quan Nguyen" />
+    <TwoSMAMACDSCR Version="1.0" />
+  </STRATEGY>
+  <STRATEGY>
+    <TwoSMASCR Type="SCREENING" />
+    <TwoSMASCR Category="TRE" />
+    <TwoSMASCR Parameters="Short Period=5,Long Period=10" />
+    <TwoSMASCR ParameterDescriptions="Period defines the parameter for the screening" />
+    <TwoSMASCR Name="Two SMA Screening" />
+    <TwoSMASCR Description="Two SMA Screening" />
+    <TwoSMASCR URL="http://www.hqtrader.com" />
+    <TwoSMASCR Authors="Quan Nguyen" />
+    <TwoSMASCR Version="1.0" />
+  </STRATEGY>
+  <STRATEGY>
+    <BasicADXSCR Type="SCREENING" />
+    <BasicADXSCR Category="TRE" />
+    <BasicADXSCR Parameters="ADX Period=14" />
+    <BasicADXSCR ParameterDescriptions="Period defines the parameter for the screening" />
+    <BasicADXSCR Name="ADX Screening" />
+    <BasicADXSCR Description="Screen stock with ADX as parameter" />
+    <BasicADXSCR URL="http://www.hqtrader.com" />
+    <BasicADXSCR Authors="Quan Nguyen" />
+    <BasicADXSCR Version="1.0" />
+  </STRATEGY>
+  <STRATEGY>
+    <MACD_HistogramSCR Type="SCREENING" />
+    <MACD_HistogramSCR Category="TRE" />
+    <MACD_HistogramSCR Parameters="MACD Fast=12,MACD Slow=26,MACD Signal=9" />
+    <MACD_HistogramSCR ParameterDescriptions="Period defines the parameter relative strength" />
+    <MACD_HistogramSCR Name="MACD Histogram Changed" />
+    <MACD_HistogramSCR Description="MACD Histogram Changed" />
+    <MACD_HistogramSCR URL="http://www.hqtrader.com" />
+    <MACD_HistogramSCR Authors="Quan Nguyen" />
+    <MACD_HistogramSCR Version="1.0" />
+  </STRATEGY>
+  <STRATEGY>
+    <RelativeStrengthSCR Type="SCREENING" />
+    <RelativeStrengthSCR Category="TRE" />
+    <RelativeStrengthSCR Parameters="Period=180" />
+    <RelativeStrengthSCR ParameterDescriptions="Period defines the parameter relative strength" />
+    <RelativeStrengthSCR Name="Relative Strength" />
+    <RelativeStrengthSCR Description="Relative Strength" />
+    <RelativeStrengthSCR URL="http://www.hqtrader.com" />
+    <RelativeStrengthSCR Authors="Quan Nguyen" />
+    <RelativeStrengthSCR Version="1.0" />
+  </STRATEGY>
+  <STRATEGY>
+    <SupportSCR Type="SCREENING" />
+    <SupportSCR Category="TRE" />
+    <SupportSCR Parameters="Period=30, Distance (%)=1" />
+    <SupportSCR ParameterDescriptions="Period defines the parameter for support line. Distance is between price and support line" />
+    <SupportSCR Name="Stocks near support" />
+    <SupportSCR Description="Screen stock near support line" />
+    <SupportSCR URL="http://www.hqtrader.com" />
+    <SupportSCR Authors="Quan Nguyen" />
+    <SupportSCR Version="1.0" />
+  </STRATEGY>
+  <STRATEGY>
+    <ResistanceSCR Type="SCREENING" />
+    <ResistanceSCR Category="TRE" />
+    <ResistanceSCR Parameters="Period=30, Distance (%)=1" />
+    <ResistanceSCR ParameterDescriptions="Period defines the parameter for resistance line. Distance is between price and resistance line" />
+    <ResistanceSCR Name="Stocks near resistance" />
+    <ResistanceSCR Description="Screen stock near resistance line" />
+    <ResistanceSCR URL="http://www.hqtrader.com" />
+    <ResistanceSCR Authors="Quan Nguyen" />
+    <ResistanceSCR Version="1.0" />
+  </STRATEGY>
+  <STRATEGY>
+    <StochFastSCR Type="SCREENING" />
+    <StochFastSCR Category="TRE" />
+    <StochFastSCR Parameters="Fast K=14,Fast D=3" />
+    <StochFastSCR ParameterDescriptions="" />
+    <StochFastSCR Name="Stochastic Fast" />
+    <StochFastSCR Description="Screen stock fast K line above fast D line" />
+    <StochFastSCR URL="http://www.hqtrader.com" />
+    <StochFastSCR Authors="Quan Nguyen" />
+    <StochFastSCR Version="1.0" />
+  </STRATEGY>
+  <STRATEGY>
+    <BasicMACDSCR Type="SCREENING" />
+    <BasicMACDSCR Category="TRE" />
+    <BasicMACDSCR Parameters="MACD Fast=12,MACD Slow=26,MACD Signal=9" />
+    <BasicMACDSCR ParameterDescriptions="Period defines the input data for the strategy" />
+    <BasicMACDSCR Name="Basic MACD Screening" />
+    <BasicMACDSCR Description="Screen stock with DI+ above DI-" />
+    <BasicMACDSCR URL="http://www.hqtrader.com" />
+    <BasicMACDSCR Authors="Quan Nguyen" />
+    <BasicMACDSCR Version="1.0" />
+  </STRATEGY>
+  <STRATEGY>
+    <PriceSCR Type="SCREENING" />
+    <PriceSCR Category="TRE" />
+    <PriceSCR Parameters="SMA Period=20" />
+    <PriceSCR ParameterDescriptions="Period defines the screening line" />
+    <PriceSCR Name="Price Screening" />
+    <PriceSCR Description="Screen stock with price above SMA lines with Period as parameter" />
+    <PriceSCR URL="http://www.hqtrader.com" />
+    <PriceSCR Authors="Quan Nguyen" />
+    <PriceSCR Version="1.0" />
+  </STRATEGY>
+  <STRATEGY>
+    <BasicPriceSCR Type="SCREENING" />
+    <BasicPriceSCR Category="TRE" />
+    <BasicPriceSCR Parameters="" />
+    <BasicPriceSCR ParameterDescriptions="" />
+    <BasicPriceSCR Name="Basic Price Screening" />
+    <BasicPriceSCR Description="Screen stock with target price" />
+    <BasicPriceSCR URL="http://www.hqtrader.com" />
+    <BasicPriceSCR Authors="Quan Nguyen" />
+    <BasicPriceSCR Version="1.0" />
+  </STRATEGY>
+  <STRATEGY>
+    <BasicVolumeSCR Type="SCREENING" />
+    <BasicVolumeSCR Category="TRE" />
+    <BasicVolumeSCR Parameters="" />
+    <BasicVolumeSCR ParameterDescriptions="" />
+    <BasicVolumeSCR Name="Volume of the last day in a range" />
+    <BasicVolumeSCR Description="Volume of the last day in a range" />
+    <BasicVolumeSCR URL="http://www.hqtrader.com" />
+    <BasicVolumeSCR Authors="Quan Nguyen" />
+    <BasicVolumeSCR Version="1.0" />
+  </STRATEGY>
+  <STRATEGY>
+    <VolumeSCR Type="SCREENING" />
+    <VolumeSCR Category="TRE" />
+    <VolumeSCR Parameters="" />
+    <VolumeSCR ParameterDescriptions="" />
+    <VolumeSCR Name="Volume Screening" />
+    <VolumeSCR Description="Volume of the last day above volume of the previous day" />
+    <VolumeSCR URL="http://www.hqtrader.com" />
+    <VolumeSCR Authors="Quan Nguyen" />
+    <VolumeSCR Version="1.0" />
+  </STRATEGY>
+  <STRATEGY>
+    <BasicDMISCR Type="SCREENING" />
+    <BasicDMISCR Category="TRE" />
+    <BasicDMISCR Parameters="Plus Period=14,Minus Period=14" />
+    <BasicDMISCR ParameterDescriptions="Period defines the input data for the strategy" />
+    <BasicDMISCR Name="Basic DMI Screening" />
+    <BasicDMISCR Description="Screen stock with DI+ above DI-" />
+    <BasicDMISCR URL="http://www.hqtrader.com" />
+    <BasicDMISCR Authors="Quan Nguyen" />
+    <BasicDMISCR Version="1.0" />
+  </STRATEGY>
+  <STRATEGY>
+    <BuyAndHold Category="TRE" />
+    <BuyAndHold Parameters="" />
+    <BuyAndHold ParameterDescriptions="" />
+    <BuyAndHold Name="Buy and Hold" />
+    <BuyAndHold Description="Buy and Hold during period" />
+    <BuyAndHold URL="http://www.hqtrader.com" />
+    <BuyAndHold Authors="Quan Nguyen" />
+    <BuyAndHold Version="1.0" />
+  </STRATEGY>
+  <STRATEGY>
+    <BasicDMI_CutLoss Category="HFT" />
+    <BasicDMI_CutLoss Parameters="Plus Period=14,Minus Period=14,Cut Loss Level (%)=5,Take Profit Level (%)=200" />
+    <BasicDMI_CutLoss ParameterDescriptions="Period defines the input data for the strategy. &#xD;&#xA;                      Cut loss Level defines the target in % of price for selling the stock. &#xD;&#xA;                      Take Profit Level defines the target in % of price for taking profit" />
+    <BasicDMI_CutLoss Name="Basic DMI with Risk Management" />
+    <BasicDMI_CutLoss Description="Buy when there is cut between DI+ and DI-. Sell when DI- crosses DI+. Cut loss when the strategy bypass the cut loss level" />
+    <BasicDMI_CutLoss URL="http://www.hqtrader.com" />
+    <BasicDMI_CutLoss Authors="Quan Nguyen" />
+    <BasicDMI_CutLoss Version="1.0" />
+  </STRATEGY>
+  <STRATEGY>
+    <BasicDMI Category="TRE" />
+    <BasicDMI Parameters="Plus Period=14,Minus Period=14" />
+    <BasicDMI ParameterDescriptions="Period defines the input data for the strategy" />
+    <BasicDMI Name="Basic DMI" />
+    <BasicDMI Description="Buy when there is cut between DI+ and DI-" />
+    <BasicDMI URL="http://www.hqtrader.com" />
+    <BasicDMI Authors="Quan Nguyen" />
+    <BasicDMI Version="1.0" />
+  </STRATEGY>
+  <STRATEGY>
+    <BasicMACD Category="TRE" />
+    <BasicMACD Parameters="MACD Fast=12,MACD Slow=26,MACD Signal=9" />
+    <BasicMACD ParameterDescriptions="Period defines the input data for the strategy" />
+    <BasicMACD Name="Basic MACD" />
+    <BasicMACD Description="Buy when there is cut between signal and macd line" />
+    <BasicMACD URL="http://www.hqtrader.com" />
+    <BasicMACD Authors="Quan Nguyen" />
+    <BasicMACD Version="1.0" />
+  </STRATEGY>
+  <STRATEGY>
+    <RandomStrategy Category="TRE" />
+    <RandomStrategy Parameters="" />
+    <RandomStrategy ParameterDescriptions="Period defines the input data for the strategy" />
+    <RandomStrategy Name="Random strategy" />
+    <RandomStrategy Description="Buy and sell random" />
+    <RandomStrategy URL="http://www.hqtrader.com" />
+    <RandomStrategy Authors="Quan Nguyen" />
+    <RandomStrategy Version="1.0" />
+  </STRATEGY>
+  <STRATEGY>
+    <StochasticFast Category="TRE" />
+    <StochasticFast Parameters="Fast K=14,Fast D=3" />
+    <StochasticFast ParameterDescriptions="Parameters Fast K and Fast D" />
+    <StochasticFast Name="Stochastic Fast" />
+    <StochasticFast Description="Buy when fast K line above fast D line" />
+    <StochasticFast URL="http://www.hqtrader.com" />
+    <StochasticFast Authors="Quan Nguyen" />
+    <StochasticFast Version="1.0" />
+  </STRATEGY>
+  <STRATEGY>
+    <StochasticSlow Category="TRE" />
+    <StochasticSlow Parameters="Fast K=15,Slow K=5,Slow D=3" />
+    <StochasticSlow ParameterDescriptions="" />
+    <StochasticSlow Name="Stochastic Slow" />
+    <StochasticSlow Description="Buy and sell condition following Stochastic Slow" />
+    <StochasticSlow URL="http://www.hqtrader.com" />
+    <StochasticSlow Authors="Quan Nguyen" />
+    <StochasticSlow Version="1.0" />
+  </STRATEGY>
+  <STRATEGY>
+    <SMA_Stochastic Category="HFT" />
+    <SMA_Stochastic Parameters="Short SMA=5,Long SMA=10,Fast K=15,Slow K=5,Slow D=3" />
+    <SMA_Stochastic ParameterDescriptions="SMA define Simple Moving Average lines. &#xD;&#xA;                    Fast K, Slow K, Slow D define parameters for slow stochastic" />
+    <SMA_Stochastic Name="Stochastic Slow" />
+    <SMA_Stochastic Description="Buy and sell condition following Stochastic Slow" />
+    <SMA_Stochastic URL="http://www.hqtrader.com" />
+    <SMA_Stochastic Authors="Quan Nguyen" />
+    <SMA_Stochastic Version="1.0" />
+  </STRATEGY>
+  <STRATEGY>
+    <MACD_ADX Category="HFT" />
+    <MACD_ADX Parameters="MACD Fast=12,MACD Slow=26,MACD Signal=9,ADX Period=14" />
+    <MACD_ADX ParameterDescriptions="Period defines the input data for the strategy" />
+    <MACD_ADX Name="Hybrid strategy with MACD and ADX for determining the trend" />
+    <MACD_ADX Description="Buy when there is cut between signal and macd line" />
+    <MACD_ADX URL="http://www.hqtrader.com" />
+    <MACD_ADX Authors="Quan Nguyen" />
+    <MACD_ADX Version="1.0" />
+  </STRATEGY>
+  <STRATEGY>
+    <MACD_ADX_RiskMng Category="HFT" />
+    <MACD_ADX_RiskMng Parameters="MACD Fast=12,MACD Slow=26,MACD Signal=9,ADX Period=14,Cut Loss Level (%)=5,Take Profit Level (%)=200" />
+    <MACD_ADX_RiskMng ParameterDescriptions="Period defines the input data for the strategy" />
+    <MACD_ADX_RiskMng Name="Hybrid strategy with MACD and ADX with money management rule" />
+    <MACD_ADX_RiskMng Description="Buy when there is cut between signal and macd line. &#xD;&#xA;                      Sell with money management rule" />
+    <MACD_ADX_RiskMng URL="http://www.hqtrader.com" />
+    <MACD_ADX_RiskMng Authors="Quan Nguyen" />
+    <MACD_ADX_RiskMng Version="1.0" />
+  </STRATEGY>
+  <STRATEGY>
+    <MACD_Stochastic Category="HFT" />
+    <MACD_Stochastic Parameters="Simple moving average=20,MACD Fast=12,MACD Slow=26,MACD Signal=9,Fast K Period=15,Slow K Period=5,Slow D Period=3" />
+    <MACD_Stochastic ParameterDescriptions="Period defines the input data for the strategy" />
+    <MACD_Stochastic Name="MACD and Stochastic" />
+    <MACD_Stochastic Description="Buy when there are differences in MACD signal and MACD lines, with Stochastic line K above D, and in up trend (defined by SMA condition)" />
+    <MACD_Stochastic URL="http://www.hqtrader.com" />
+    <MACD_Stochastic Authors="Quan Nguyen" />
+    <MACD_Stochastic Version="1.0" />
+  </STRATEGY>
+  <STRATEGY>
+    <MACD_Stochastic_Bottom Category="HFT" />
+    <MACD_Stochastic_Bottom Parameters="Simple moving average=20,MACD Fast=12,MACD Slow=26,MACD Signal=9,Fast K Period=15,Slow K Period=5,Slow D Period=3" />
+    <MACD_Stochastic_Bottom ParameterDescriptions="Period defines the input data for the strategy" />
+    <MACD_Stochastic_Bottom Name="MACD and Stochastic Extension" />
+    <MACD_Stochastic_Bottom Description="Buy when there are differences in MACD signal and MACD lines, &#xD;&#xA;                            with Stochastic line K above D, and in up trend (defined by SMA condition)&#xD;&#xA;                            and Stochastic Slow K below 70" />
+    <MACD_Stochastic_Bottom URL="http://www.hqtrader.com" />
+    <MACD_Stochastic_Bottom Authors="Quan Nguyen" />
+    <MACD_Stochastic_Bottom Version="1.0" />
+  </STRATEGY>
+  <STRATEGY>
+    <MACD_Stochastic_Bottom_v1 Category="HFT" />
+    <MACD_Stochastic_Bottom_v1 Parameters="Simple moving average=20,MACD Fast=12,MACD Slow=26,MACD Signal=9,Fast K Period=15,Slow K Period=5,Slow D Period=3" />
+    <MACD_Stochastic_Bottom_v1 ParameterDescriptions="Period defines the input data for the strategy" />
+    <MACD_Stochastic_Bottom_v1 Name="MACD and Stochastic Extension" />
+    <MACD_Stochastic_Bottom_v1 Description="Buy when there are differences in MACD signal and MACD lines, &#xD;&#xA;                            with Stochastic line K above D, and in up trend (defined by SMA condition)&#xD;&#xA;                            and Stochastic Slow K below 70" />
+    <MACD_Stochastic_Bottom_v1 URL="http://www.hqtrader.com" />
+    <MACD_Stochastic_Bottom_v1 Authors="Quan Nguyen" />
+    <MACD_Stochastic_Bottom_v1 Version="1.0" />
+  </STRATEGY>
+  <STRATEGY>
+    <RSI_MACD_Histogram Category="HFT" />
+    <RSI_MACD_Histogram Parameters="MACD Fast=12,MACD Slow=26,MACD Signal=9, RSI Period=14, RSI Over Sold=30, RSI Over Bought=70,,Cut Loss Level (%)=5,Take Profit Level (%)=200" />
+    <RSI_MACD_Histogram ParameterDescriptions="Period defines the input data for the strategy" />
+    <RSI_MACD_Histogram Name="MACD and RSI strategy" />
+    <RSI_MACD_Histogram Description="MACD and RSI strategy" />
+    <RSI_MACD_Histogram URL="http://www.hqtrader.com" />
+    <RSI_MACD_Histogram Authors="Quan Nguyen" />
+    <RSI_MACD_Histogram Version="1.0" />
+  </STRATEGY>
+  <STRATEGY>
+    <MACD_HistogramNEW Category="TRE" />
+    <MACD_HistogramNEW Parameters="MACD Fast=12,MACD Slow=26,MACD Signal=9" />
+    <MACD_HistogramNEW ParameterDescriptions="Period defines the input data for the strategy" />
+    <MACD_HistogramNEW Name="NEW MACD strategy using histogram changes" />
+    <MACD_HistogramNEW Description="NEW MACD strategy using histogram changes" />
+    <MACD_HistogramNEW URL="http://www.hqtrader.com" />
+    <MACD_HistogramNEW Authors="Quan Nguyen" />
+    <MACD_HistogramNEW Version="1.0" />
+  </STRATEGY>
+  <STRATEGY>
+    <MACD_Histogram Category="TRE" />
+    <MACD_Histogram Parameters="MACD Fast=12,MACD Slow=26,MACD Signal=9" />
+    <MACD_Histogram ParameterDescriptions="Period defines the input data for the strategy" />
+    <MACD_Histogram Name="MACD strategy using histogram changes" />
+    <MACD_Histogram Description="MACD strategy using histogram changes" />
+    <MACD_Histogram URL="http://www.hqtrader.com" />
+    <MACD_Histogram Authors="Quan Nguyen" />
+    <MACD_Histogram Version="1.0" />
+  </STRATEGY>
+  <STRATEGY>
+    <BasicMACD_LineCut Category="TRE" />
+    <BasicMACD_LineCut Parameters="MACD Fast=12,MACD Slow=26,MACD Signal=9" />
+    <BasicMACD_LineCut ParameterDescriptions="Period defines the input data for the strategy" />
+    <BasicMACD_LineCut Name="MACD using macd and signal line cut" />
+    <BasicMACD_LineCut Description="MACD using macd and signal line cut" />
+    <BasicMACD_LineCut URL="http://www.hqtrader.com" />
+    <BasicMACD_LineCut Authors="Quan Nguyen" />
+    <BasicMACD_LineCut Version="1.0" />
+  </STRATEGY>
+  <STRATEGY>
+    <MACD_Histogram_RiskMng Category="TRE" />
+    <MACD_Histogram_RiskMng Parameters="MACD Fast=12,MACD Slow=26,MACD Signal=9,Cut Loss Level (%)=10,Take Profit Level (%)=200" />
+    <MACD_Histogram_RiskMng ParameterDescriptions="Period defines the input data for the strategy" />
+    <MACD_Histogram_RiskMng Name="MACD strategy using histogram changes with risk management" />
+    <MACD_Histogram_RiskMng Description="MACD strategy using histogram changes  with cut loss" />
+    <MACD_Histogram_RiskMng URL="http://www.hqtrader.com" />
+    <MACD_Histogram_RiskMng Authors="Quan Nguyen" />
+    <MACD_Histogram_RiskMng Version="1.0" />
+  </STRATEGY>
+  <STRATEGY>
+    <AverageStrategy Category="MEA" />
+    <AverageStrategy Parameters="Period = 30, Buy Level from Average(%) = 20,Sell Level from Average(%) = 15,Cut Loss Level (%)=4,Take Profit Level (%)=200" />
+    <AverageStrategy ParameterDescriptions="" />
+    <AverageStrategy Name="Average Investing" />
+    <AverageStrategy Description="Buy when price down to Buy Level, Sell when price up to Sell Level" />
+    <AverageStrategy URL="http://www.hqtrader.com" />
+    <AverageStrategy Authors="Quan Nguyen" />
+    <AverageStrategy Version="1.0" />
+  </STRATEGY>
+  <STRATEGY>
+    <PriceTwoSMA Category="TRE" />
+    <PriceTwoSMA Parameters="Short Period = 5,Long Period=10," />
+    <PriceTwoSMA ParameterDescriptions="Short Period is the period for the short term moving average line.&#xD;&#xA;                 Long Period is the period for the long term moving average line." />
+    <PriceTwoSMA Name="Two Simple Moving Average Waves compared with Price" />
+    <PriceTwoSMA Description="Two Simple Moving Average Waves compared with Price" />
+    <PriceTwoSMA URL="http://www.hqtrader.com" />
+    <PriceTwoSMA Authors="Quan Nguyen" />
+    <PriceTwoSMA Version="1.0" />
+  </STRATEGY>
+  <STRATEGY>
+    <Price_3SMA Category="TRE" />
+    <Price_3SMA Parameters="Short Period = 5,Medium Period=10,Long Period=20" />
+    <Price_3SMA ParameterDescriptions="Short Period is the period for the short term moving average line.&#xD;&#xA;                 Medium Period is the period for the medium term moving average line.&#xD;&#xA;                 Long Period is the period for the long term moving average line." />
+    <Price_3SMA Name="Three Simple Moving Average Waves" />
+    <Price_3SMA Description="Three Simple Moving Average Waves" />
+    <Price_3SMA URL="http://www.hqtrader.com" />
+    <Price_3SMA Authors="Quan Nguyen" />
+    <Price_3SMA Version="1.0" />
+  </STRATEGY>
+  <STRATEGY>
+    <Price_3SMA_Risk_Reward Category="TRE" />
+    <Price_3SMA_Risk_Reward Parameters="Short Period=5,Medium Period=10,Long Period=20,Risk Reward Ratio=2,Period for Risk Reward Ratio=60" />
+    <Price_3SMA_Risk_Reward ParameterDescriptions="Short Period is the period for the short term moving average line.&#xD;&#xA;                 Medium Period is the period for the medium term moving average line.&#xD;&#xA;                 Long Period is the period for the long term moving average line." />
+    <Price_3SMA_Risk_Reward Name="Three SMA Waves at Risk Reward Ratio" />
+    <Price_3SMA_Risk_Reward Description="Three SMA Waves at Risk Reward Ratio" />
+    <Price_3SMA_Risk_Reward URL="http://www.hqtrader.com" />
+    <Price_3SMA_Risk_Reward Authors="Quan Nguyen" />
+    <Price_3SMA_Risk_Reward Version="1.0" />
+  </STRATEGY>
+  <STRATEGY>
+    <TwoWMA Category="TRE" />
+    <TwoWMA Parameters="Short Period = 5,Long Period=10" />
+    <TwoWMA ParameterDescriptions="Short Period is the period for the short term moving average line.&#xD;&#xA;                 Long Period is the period for the long term moving average line." />
+    <TwoWMA Name="Two Weighted Moving Average Waves" />
+    <TwoWMA Description="Two Weighted Moving Average Waves" />
+    <TwoWMA URL="http://www.hqtrader.com" />
+    <TwoWMA Authors="Quan Nguyen" />
+    <TwoWMA Version="1.0" />
+  </STRATEGY>
+  <STRATEGY>
+    <TwoEMA Category="TRE" />
+    <TwoEMA Parameters="Short Period = 5,Long Period=10" />
+    <TwoEMA ParameterDescriptions="Short Period is the period for the short term moving average line.&#xD;&#xA;                 Long Period is the period for the long term moving average line." />
+    <TwoEMA Name="Two Exponential Moving Average Waves" />
+    <TwoEMA Description="Two Exponential Moving Average Waves" />
+    <TwoEMA URL="http://www.hqtrader.com" />
+    <TwoEMA Authors="Quan Nguyen" />
+    <TwoEMA Version="1.0" />
+  </STRATEGY>
+  <STRATEGY>
+    <TwoSMA Category="TRE" />
+    <TwoSMA Parameters="Short Period = 5,Long Period=10" />
+    <TwoSMA ParameterDescriptions="Short Period is the period for the short term moving average line.&#xD;&#xA;                 Long Period is the period for the long term moving average line." />
+    <TwoSMA Name="Two Simple Moving Average Waves" />
+    <TwoSMA Description="Two Simple Moving Average Waves" />
+    <TwoSMA URL="http://www.hqtrader.com" />
+    <TwoSMA Authors="Quan Nguyen" />
+    <TwoSMA Version="1.0" />
+  </STRATEGY>
+  <STRATEGY>
+    <TwoSMA_VolumeFilter Category="TRE" />
+    <TwoSMA_VolumeFilter Parameters="Short Period=5,Long Period=10,Volume Filter=100000" />
+    <TwoSMA_VolumeFilter ParameterDescriptions="Short Period is the period for the short term moving average line.&#xD;&#xA;                 Long Period is the period for the long term moving average line." />
+    <TwoSMA_VolumeFilter Name="Two Simple Moving Average Waves with Volume Filter" />
+    <TwoSMA_VolumeFilter Description="Two Simple Moving Average Waves  with Volume Filter" />
+    <TwoSMA_VolumeFilter URL="http://www.hqtrader.com" />
+    <TwoSMA_VolumeFilter Authors="Quan Nguyen" />
+    <TwoSMA_VolumeFilter Version="1.0" />
+  </STRATEGY>
+  <STRATEGY>
+    <ConsecutiveUpDown Category="TRE" />
+    <ConsecutiveUpDown Parameters="Days down=5,Days Up=5" />
+    <ConsecutiveUpDown ParameterDescriptions="" />
+    <ConsecutiveUpDown Name="Consecutive up down" />
+    <ConsecutiveUpDown Description="Consecutive up down" />
+    <ConsecutiveUpDown URL="http://www.hqtrader.com" />
+    <ConsecutiveUpDown Authors="Quan Nguyen" />
+    <ConsecutiveUpDown Version="1.0" />
+  </STRATEGY>
+</Configuration>

@@ -1,0 +1,643 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D14859F5-0C41-4D7E-91AD-ED1C9195234D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>baseClass</RootNamespace>
+    <AssemblyName>baseClass</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <StartupObject>
+    </StartupObject>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\dlls\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\dlls\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="application, Version=1.3.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="common, Version=1.5.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="data, Version=2.1.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="ExpandableGridView, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="strategy, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WeifenLuo.WinFormsUI.Docking, Version=2.5.0.18386, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="XPPanel, Version=1.0.0.0, Culture=neutral, PublicKeyToken=c1a4c9eadd4711d4">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\test\Debug\XPPanel.dll</HintPath>
+    </Reference>
+    <Reference Include="ZedGraph, Version=5.0.9.41461, Culture=neutral, PublicKeyToken=02a83cbd123fcd60, processorArchitecture=MSIL" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="controls\baseControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="controls\companyCriteria.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="controls\companyCriteria.designer.cs">
+      <DependentUpon>companyCriteria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="controls\companyGeneralInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="controls\companyGeneralInfo.Designer.cs">
+      <DependentUpon>companyGeneralInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="controls\companyOtherlInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="controls\companyOtherlInfo.Designer.cs">
+      <DependentUpon>companyOtherlInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="controls\chartTiming.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="controls\chartTiming.designer.cs">
+      <DependentUpon>chartTiming.cs</DependentUpon>
+    </Compile>
+    <Compile Include="controls\bizSectorTypeSelection.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="controls\bizSectorTypeSelection.designer.cs">
+      <DependentUpon>bizSectorTypeSelection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="controls\stockCodeSelect.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="controls\stockCodeSelect.designer.cs">
+      <DependentUpon>stockCodeSelect.cs</DependentUpon>
+    </Compile>
+    <Compile Include="controls\stockCodeSelectByWatchList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="controls\stockCodeSelectByWatchList.designer.cs">
+      <DependentUpon>stockCodeSelectByWatchList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="controls\strategySelect.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="controls\strategySelect.designer.cs">
+      <DependentUpon>strategySelect.cs</DependentUpon>
+    </Compile>
+    <Compile Include="controls\transactionCriteria.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="controls\transactionCriteria.designer.cs">
+      <DependentUpon>transactionCriteria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="controls\watchListStrategy.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="controls\watchListStrategy.designer.cs">
+      <DependentUpon>watchListStrategy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="controls\subSectorList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="controls\subSectorList.designer.cs">
+      <DependentUpon>subSectorList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="controls\stockCodeList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="controls\stockCodeList.designer.cs">
+      <DependentUpon>stockCodeList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="controls\stockCodeSelectBySector.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="controls\stockCodeSelectBySector.designer.cs">
+      <DependentUpon>stockCodeSelectBySector.cs</DependentUpon>
+    </Compile>
+    <Compile Include="controls\subSectorSelect.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="controls\subSectorSelect.designer.cs">
+      <DependentUpon>subSectorSelect.cs</DependentUpon>
+    </Compile>
+    <Compile Include="controls\investorCriteria.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="controls\investorCriteria.designer.cs">
+      <DependentUpon>investorCriteria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="controls\companyStockInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="controls\companyStockInfo.designer.cs">
+      <DependentUpon>companyStockInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\baseGraphForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\baseGraphForm.designer.cs">
+      <DependentUpon>baseGraphForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\chartDataOptions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\chartDataOptions.designer.cs">
+      <DependentUpon>chartDataOptions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\companyEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\companyEdit.Designer.cs">
+      <DependentUpon>companyEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\configure.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\configure.designer.cs">
+      <DependentUpon>configure.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\baseStockList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\baseStockList.designer.cs">
+      <DependentUpon>baseStockList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\AboutBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\AboutBox.designer.cs">
+      <DependentUpon>AboutBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\baseApplication.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\baseApplication.designer.cs">
+      <DependentUpon>baseApplication.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\baseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\baseForm.Designer.cs">
+      <DependentUpon>baseForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\baseMasterDetailEntry.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\baseMasterDetailEntry.designer.cs">
+      <DependentUpon>baseMasterDetailEntry.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\baseMasterEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\baseMasterEdit.designer.cs">
+      <DependentUpon>baseMasterEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\companyFind.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\companyFind.Designer.cs">
+      <DependentUpon>companyFind.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\companyList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\companyList.Designer.cs">
+      <DependentUpon>companyList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\basePortfolioWatch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\basePortfolioWatch.designer.cs">
+      <DependentUpon>basePortfolioWatch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\watchListNew.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\watchListNew.Designer.cs">
+      <DependentUpon>watchListNew.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\portfolioEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\portfolioEdit.Designer.cs">
+      <DependentUpon>portfolioEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\watchListEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\watchListEdit.Designer.cs">
+      <DependentUpon>watchListEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\chartProperties.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\chartProperties.designer.cs">
+      <DependentUpon>chartProperties.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\subSectorSelectionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\subSectorSelectionForm.designer.cs">
+      <DependentUpon>subSectorSelectionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\stockSelectionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\stockSelectionForm.designer.cs">
+      <DependentUpon>stockSelectionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\stockExchangeEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\stockExchangeEdit.designer.cs">
+      <DependentUpon>stockExchangeEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\investorList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\investorList.Designer.cs">
+      <DependentUpon>investorList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\investorFind.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\investorFind.Designer.cs">
+      <DependentUpon>investorFind.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\investorEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\investorEdit.designer.cs">
+      <DependentUpon>investorEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\licenseCheck.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\licenseCheck.Designer.cs">
+      <DependentUpon>licenseCheck.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\sysCodeCatEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\sysCodeCatEdit.designer.cs">
+      <DependentUpon>sysCodeCatEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\sysCodeEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\sysCodeEdit.designer.cs">
+      <DependentUpon>sysCodeEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\investorLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\investorLogin.designer.cs">
+      <DependentUpon>investorLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="libs\Libs.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="controls\companyCriteria.resx">
+      <DependentUpon>companyCriteria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="controls\companyGeneralInfo.resx">
+      <DependentUpon>companyGeneralInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="controls\companyOtherlInfo.resx">
+      <DependentUpon>companyOtherlInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="controls\chartTiming.resx">
+      <DependentUpon>chartTiming.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="controls\bizSectorTypeSelection.resx">
+      <DependentUpon>bizSectorTypeSelection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="controls\stockCodeSelect.resx">
+      <DependentUpon>stockCodeSelect.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="controls\stockCodeSelectByWatchList.resx">
+      <DependentUpon>stockCodeSelectByWatchList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="controls\strategySelect.resx">
+      <DependentUpon>strategySelect.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="controls\transactionCriteria.resx">
+      <DependentUpon>transactionCriteria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="controls\watchListStrategy.resx">
+      <DependentUpon>watchListStrategy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="controls\subSectorList.resx">
+      <DependentUpon>subSectorList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="controls\stockCodeList.resx">
+      <DependentUpon>stockCodeList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="controls\stockCodeSelectBySector.resx">
+      <DependentUpon>stockCodeSelectBySector.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="controls\subSectorSelect.resx">
+      <DependentUpon>subSectorSelect.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="controls\investorCriteria.resx">
+      <DependentUpon>investorCriteria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="controls\companyStockInfo.resx">
+      <DependentUpon>companyStockInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\AboutBox.resx">
+      <DependentUpon>AboutBox.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\baseApplication.resx">
+      <DependentUpon>baseApplication.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\baseForm.resx">
+      <DependentUpon>baseForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\baseMasterDetailEntry.resx">
+      <DependentUpon>baseMasterDetailEntry.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\baseMasterEdit.resx">
+      <DependentUpon>baseMasterEdit.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\baseGraphForm.resx">
+      <DependentUpon>baseGraphForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\chartDataOptions.resx">
+      <DependentUpon>chartDataOptions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\companyEdit.resx">
+      <DependentUpon>companyEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\companyFind.resx">
+      <DependentUpon>companyFind.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\companyList.resx">
+      <DependentUpon>companyList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\configure.resx">
+      <DependentUpon>configure.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\baseStockList.resx">
+      <DependentUpon>baseStockList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\basePortfolioWatch.resx">
+      <DependentUpon>basePortfolioWatch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\watchListNew.resx">
+      <DependentUpon>watchListNew.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\portfolioEdit.resx">
+      <DependentUpon>portfolioEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\watchListEdit.resx">
+      <DependentUpon>watchListEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\chartProperties.resx">
+      <DependentUpon>chartProperties.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\subSectorSelectionForm.resx">
+      <DependentUpon>subSectorSelectionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\stockSelectionForm.resx">
+      <DependentUpon>stockSelectionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\stockExchangeEdit.resx">
+      <DependentUpon>stockExchangeEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\investorList.resx">
+      <DependentUpon>investorList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\investorFind.resx">
+      <DependentUpon>investorFind.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\investorEdit.resx">
+      <DependentUpon>investorEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\licenseCheck.resx">
+      <DependentUpon>licenseCheck.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\sysCodeCatEdit.resx">
+      <DependentUpon>sysCodeCatEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\sysCodeEdit.resx">
+      <DependentUpon>sysCodeEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\sysCodeEdit.sma-NO.resx">
+      <DependentUpon>sysCodeEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\investorLogin.resx">
+      <DependentUpon>investorLogin.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\%24this.Icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\connection.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pencil.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\undo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\excel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\find.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\remove.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\info.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\print.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\report.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\usergroup.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\select.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\adddata.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\download.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exrate.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mining.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\color.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\open.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\indicator.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\export.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\configure.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ruler.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\scale.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\run.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fullScreen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\refresh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\filter.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cancel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\strategy_images.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\addAll.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\barChart1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\barChart2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\candeleStick.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\data.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exrate1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lineChart3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\report1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ruler1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\addLine.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\deleteLine.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="forms\app.config" />
+    <None Include="Resources\edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\book.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\glasses.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

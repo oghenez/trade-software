@@ -1,0 +1,1000 @@
+Import from sheet : Oil & Gas
+Import from sheet : Basic Materials
+Import from sheet : Industrials
+Import from sheet : Consumer Goods
+Import from sheet : Health Care
+Import from sheet : Consumer Services
+Import from sheet : Telecommunications
+Import from sheet : Utilities
+Import from sheet : Financials
+Import from sheet : Technology
+
+Companies do not have sectors
+ - ^AEX	<New>
+ - ^AORD	<New>
+ - ^ATX	<New>
+ - ^BATDONGSAN	<New>
+ - ^BFX	<New>
+ - ^BSESN	<New>
+ - ^CAOSU	<New>
+ - ^CCSI	<New>
+ - ^CHUNGKHOAN	<New>
+ - ^DAUKHI	<New>
+ - ^DJI	<New>
+ - ^DUOCPHAM	<New>
+ - ^FCHI	<New>
+ - ^FTSE	<New>
+ - ^GDAXI	<New>
+ - ^GIAODUC	<New>
+ - ^GSPC	<New>
+ - ^HANGGIADUNG	<New>
+ - ^HASTC	<New>
+ - ^HSI	<New>
+ - ^IXIC	<New>
+ - ^JKSE	<New>
+ - ^KHOANGSAN	<New>
+ - ^KLSE	<New>
+ - ^KS11	<New>
+ - ^LARGECAP	<New>
+ - ^MIDCAP	<New>
+ - ^N225	<New>
+ - ^NGANHANG	<New>
+ - ^NYA	<New>
+ - ^NZ50	<New>
+ - ^OSEAX	<New>
+ - ^SMALLCAP	<New>
+ - ^SMSI	<New>
+ - ^SSEC	<New>
+ - ^SSMI	<New>
+ - ^STI	<New>
+ - ^TA100	<New>
+ - ^THEP	<New>
+ - ^THUCPHAM	<New>
+ - ^THUONGMAI	<New>
+ - ^THUYSAN	<New>
+ - ^TWII	<New>
+ - ^UPCOM	<New>
+ - ^VANTAI	<New>
+ - ^VLXD	<New>
+ - ^VN50	<New>
+ - ^VNINDEX	^VNINDEX
+ - ^VNINDEX2	<New>
+ - ^VNINDEX3	<New>
+ - ^XAYDUNG	<New>
+ - AAA	Công ty cổ phần Nhựa và Môi trường xanh An Phát
+ - AAM	Công ty cổ phần Thủy sản Mekong
+ - ABT	Công ty cổ phần Xuất nhập khẩu thủy sản Bến Tre
+ - ACB	Ngân hàng Thương Mại Cổ Phần Á Châu
+ - ACC	<New>
+ - ACL	Công ty cổ phần Xuất nhập khẩu Thủy sản Cửu Long An Giang
+ - ADC	Công ty cổ phần Mĩ thuật và Truyền thông
+ - AGC	Công ty cổ phần Cà phê An Giang
+ - AGD	Công ty cổ phần Gò Đàng
+ - AGF	Công ty cổ phần Xuất nhập khẩu thủy sản An Giang
+ - AGR	Công ty cổ phần Chứng khoán Ngân hàng Nông nghiệp và Phát triển Nông thôn Việt Nam
+ - ALP	Công ty cổ phần Alphanam
+ - ALT	Công ty cổ phần văn hoá Tân Bình
+ - ALV	Công ty cổ phần Khoáng sản Vinas A Lưới
+ - AME	Công ty cổ phần Alphanam Cơ điện
+ - AMV	Công ty cổ phần Sản xuất kinh doanh dược và Trang thiết bị y tế Việt Mỹ
+ - ANV	Công ty cổ phần Nam Việt
+ - APC	Công ty cổ phần Chiếu xạ An Phú
+ - APG	Công ty cổ phần Chứng khoán An Phát
+ - API	Công ty cổ phần Đầu tư Châu Á - Thái Bình Dương
+ - APP	Công ty cổ phần Phát triển Phụ gia và Sản phẩm dầu mỏ
+ - APS	Công ty cổ phần Chứng khoán Châu Á - Thái Bình Dương
+ - ARM	Công ty cổ phần Xuất nhập khẩu Hàng không
+ - ASM	Công ty cổ phần Đầu tư và Xây dựng Sao Mai tỉnh An Giang
+ - ASP	Công ty cổ phần Tập đoàn Dầu khí An Pha
+ - ATA	Công ty cổ phần NTACO
+ - AVF	Công ty Cổ phần Việt An
+ - AVS	Công ty cổ phần Chứng khoán Âu Việt
+ - B82	Công ty cổ phần 482
+ - BAS	Công ty cổ phần BASA
+ - BBC	Công ty Cổ phần Bibica
+ - BBS	Công ty cổ phần Bao bì xi măng Bút Sơn
+ - BBT	<New>
+ - BCC	Công ty cổ phần Xi măng Bỉm Sơn
+ - BCE	Công ty cổ phần Xây dựng và Giao thông Bình Dương
+ - BCI	Công ty cổ phần Đầu tư xây dựng Bình Chánh
+ - BDB	Công ty cổ phần Sách và Thiết bị Bình Định
+ - BED	Công ty cổ phần Sách và Thiết bị trường học Đà Nẵng
+ - BGM	<New>
+ - BHC	Công ty cổ phần Bê tông Biên Hòa
+ - BHS	Công ty Cổ phần Đường Biên Hòa
+ - BHT	Công ty cổ phần Đầu tư Xây dựng Bạch Đằng TMC
+ - BHV	Công ty Cổ phần Bá Hiến Viglacera
+ - BKC	Công ty cổ phần Khoáng sản Bắc Kạn
+ - BLF	Công ty cổ phần Thủy sản Bạc Liêu
+ - BMC	Công ty cổ phần Khoáng sản Bình Định
+ - BMI	Tổng công ty Cổ phần Bảo Minh
+ - BMP	Công ty cổ phần nhựa Bình Minh
+ - BPC	Công ty cổ phần Bao Bì Bỉm Sơn
+ - BSC	Công ty cổ phần Dịch vụ Bến Thành
+ - BSI	BIDV Securities Joint Stock Company
+ - BST	Công ty cổ phần Sách - Thiết bị Bình Thuận
+ - BT6	Công ty cổ phần Beton 6
+ - BTC	<New>
+ - BTH	Công ty cổ phần Chế tạo biến thế và Vật liệu điện Hà Nội
+ - BTP	Công ty cổ phần Nhiệt điện Bà Rịa
+ - BTS	Công ty cổ phần Xi măng Bút Sơn
+ - BTT	Công ty cổ phần Thương mại - Dịch vụ Bến Thành
+ - BVG	Công ty cổ phần Thép Bắc Việt
+ - BVH	Tập đoàn Bảo Việt
+ - BVS	Công ty Cổ phần Chứng khoán Bảo Việt
+ - BXH	Công ty cổ phần Bao bì xi măng Hải Phòng
+ - C21	CENTURY 21 JOINT STOCK COMPANY
+ - C47	<New>
+ - C92	Công ty cổ phần Xây dựng và Đầu tư 492
+ - CAD	Công ty cổ phần Chế biến và Xuất nhập khẩu Thủy sản Cadovimex
+ - CAN	Công ty Cổ phần Đồ hộp Hạ Long
+ - CAP	Công ty cổ phần Lâm nông sản thực phẩm Yên Bái
+ - CCI	Công ty cổ phần Đầu tư Phát triển Công nghiệp Thương mại Củ Chi
+ - CCL	Công ty cổ phần Đầu tư và Phát triển Dầu khí Cửu Long
+ - CCM	Công ty cổ phần Xi măng Cần Thơ
+ - CDC	Công ty cổ phần Chương Dương
+ - CIC	Công ty Cổ phần Đầu tư và Xây dựng COTEC
+ - CID	Công ty cổ phần Xây dựng và phát triển cơ sở hạ tầng
+ - CII	Công ty Cổ phần Đầu tư Hạ tầng Kỹ thuật Thành phố Hồ Chí Minh
+ - CJC	Công ty Cổ phần Cơ điện Miền Trung
+ - CKV	Công ty cổ phần Thương mại Bưu chính viễn thông
+ - CLC	Công ty Cổ phần Cát Lợi
+ - CLG	Công ty cổ phần Đầu tư và Phát triển Nhà đất Cotec
+ - CLW	Công ty cổ phần Cấp nước Chợ Lớn
+ - CMC	Công ty cổ phần Đầu tư CMC
+ - CMG	Công ty cổ phần Tập đoàn Công nghệ CMC
+ - CMI	Công ty cổ phần Cavico và Khoáng sản Công nghiệp
+ - CMS	Công ty cổ phần Cavico Xây dựng Nhân lực và Dịch vụ
+ - CMT	Công ty cổ phần Công nghệ Mạng và Truyền thông
+ - CMV	Công ty Cổ phần Thương Nghiệp Cà Mau
+ - CMX	Công ty cổ phần Chế biến thủy sản và xuất nhập khẩu Cà Mau (Camimex)
+ - CNT	Công ty cổ phần Xây dựng và Kinh doanh vật tư
+ - COM	Công ty cổ phần Vật Tư - Xăng Dầu
+ - CPC	Công ty cổ phần Thuốc sát trùng Cần Thơ
+ - CSC	Công ty cổ phần Đầu tư và Xây dựng Thành Nam
+ - CSG	Công ty cổ phần Cáp Sài Gòn
+ - CSM	Công ty cổ phần Công nghiệp Cao su Miền Nam
+ - CT6	Công ty cổ phần Công trình 6
+ - CTA	Công ty cổ phần Vinavico
+ - CTB	Công ty Cổ phần Chế tạo Bơm Hải Dương
+ - CTC	Công ty cổ phần Văn hóa và Du lịch Gia Lai
+ - CTD	Công ty cổ phần Xây dựng Cotec
+ - CTG	Ngân hàng Thương mại cổ phần Công Thương Việt Nam
+ - CTI	Công ty cổ phần Đầu tư Phát triển Cường Thuận IDICO
+ - CTM	Công ty cổ phần Đầu tư, Xây dựng và Khai thác mỏ Vinavico
+ - CTN	Công ty cổ Phần Xây dựng Công trình ngầm
+ - CTS	Công ty cổ phần Chứng khoán Ngân hàng Công thương Việt Nam
+ - CVN	Công ty cổ phần VINAM
+ - CVT	Công ty Cổ phần CMC
+ - CX8	Công ty cổ phần Đầu tư và Xây lắp Contrexim số 8
+ - CYC	Công ty cổ phần Gạch Men Chang Yih
+ - D11	Công ty cổ phần Địa ốc 11
+ - D2D	Công ty cổ phần Phát triển Đô thị Công nghiệp Số 2
+ - DAC	Công ty cổ phần Viglacera Đông Anh
+ - DAD	Công ty cổ phần Đầu tư và Phát triển giáo dục Đà Nẵng
+ - DAE	Công Ty Cổ Phần Sách Giáo Dục Tại TP Đà Nẵng
+ - DAG	Công ty cổ phần Tập đoàn Nhựa Đông Á
+ - DBC	Công ty cổ phần Dabaco Việt Nam
+ - DBT	Công ty cổ phần Dược phẩm Bến Tre
+ - DC2	Công ty cổ phần Đầu tư phát triển - Xây dựng (DIC) số 2
+ - DC4	Công ty cổ phần DIC số 4
+ - DCC	Công ty cổ phần Xây dựng công nghiệp DESCON
+ - DCL	Công ty cổ phần Dược phẩm Cửu Long
+ - DCS	Công ty cổ phần Tập đoàn Đại Châu
+ - DCT	Công ty cổ phần Tấm lợp Vật liệu Xây dựng Đồng Nai
+ - DDM	Công ty Cổ phần Hàng hải Đông Đô
+ - DHA	Công ty Cổ phần Hoá An
+ - DHC	Công ty cổ phần Đông Hải Bến Tre
+ - DHG	Công ty cổ phần Dược Hậu Giang
+ - DHI	Công ty cổ phần In Diên Hồng
+ - DHT	Công ty cổ phần Dược phẩm Hà Tây
+ - DIC	Công ty cổ phần Đầu tư và Thương mại DIC
+ - DID	Công ty cổ phần DIC-Đồng Tiến
+ - DIG	Tổng công ty cổ phần Đầu tư Phát triển Xây dựng
+ - DIH	<New>
+ - DL1	Công ty cổ phần Đầu tư phát triển dịch vụ công trình công cộng Đức Long Gia Lai
+ - DLG	Công ty cổ phần Tập đoàn Đức Long Gia Lai
+ - DLR	Công ty cổ phần Địa ốc Đà Lạt
+ - DMC	Công ty cổ phần Xuất nhập khẩu Y tế Domesco
+ - DNC	Công ty cổ phần Điện nước lắp máy Hải Phòng
+ - DNM	Tổng công ty cổ phần Y tế Danameco
+ - DNP	Công ty cổ phần Nhựa Đồng Nai
+ - DNY	Công ty cổ phần Thép Dana - Ý
+ - DPC	Công ty cổ phần nhựa Đà Nẵng
+ - DPM	Tổng công ty cổ phần Phân bón và Hóa chất dầu khí
+ - DPR	Công ty cổ phần Cao su Đồng Phú
+ - DQC	Công ty cổ phần Bóng đèn Điện Quang
+ - DRC	Công Ty Cổ Phần Cao Su Đà Nẵng
+ - DRH	Công ty cổ phần Đầu tư Căn nhà mơ ước
+ - DSN	Công ty cổ phần Công viên nước Đầm Sen
+ - DST	Công ty cổ phần Sách và Thiết bị giáo dục Nam Định
+ - DTA	Công Ty Cổ Phần Đệ Tam
+ - DTC	Công ty cổ phần Viglacera Đông Triều
+ - DTL	Công ty cổ phần Đại Thiên Lộc
+ - DTT	Công ty Cổ phần Kỹ nghệ Đô Thành
+ - DVD	Công ty cổ phần Dược phẩm Viễn Đông
+ - DVP	Công ty cổ phần Đầu tư và Phát triển cảng Đình Vũ
+ - DXG	Công ty cổ phần Dịch vụ và Xây dựng địa ốc Đất Xanh
+ - DXP	Công ty cổ phần Cảng Đoạn Xá
+ - DXV	Công ty cổ phần Xi măng Vật liệu xây dựng Xây lắp Đà Nẵng
+ - DZM	Công ty cổ phần Chế tạo máy Dzĩ An
+ - EBS	Công ty cổ phần Sách Giáo Dục tại TP Hà Nội
+ - ECI	Công ty cổ phần Bản đồ và Tranh ảnh giáo dục
+ - EFI	Công ty cổ phần Đầu tư tài chính giáo dục
+ - EIB	Ngân hàng TMCP Xuất nhập khẩu Việt Nam
+ - EID	Công ty cổ phần Đầu tư và Phát triển giáo dục Hà Nội
+ - ELC	Công ty cổ phần Đầu tư Phát triển Công nghệ điện tử - Viễn thông
+ - EVE	Công ty cổ phần Everpia Việt Nam
+ - FBT	Công ty cổ phần Xuất nhập khẩu lâm thủy sản Bến Tre
+ - FDC	Công ty cổ phần Ngoại thương và Phát triển Đầu tư TP.HCM
+ - FDG	<New>
+ - FMC	Công ty Cổ phần Thực phẩm Sao Ta
+ - FPC	<New>
+ - FPT	Công ty cổ phần FPT
+ - GBS	Công ty cổ phần Chứng khoán Nhấp và Gọi
+ - GDT	Công ty cổ phần Chế biến Gỗ Đức Thành
+ - GFC	<New>
+ - GGG	Công ty cổ phần Ô tô Giải Phóng
+ - GHA	Công ty Cổ phần HAPACO Hải Âu
+ - GIL	Công ty Cổ phần Sản Xuất Kinh Doanh Xuất Nhập Khẩu Bình Thạnh
+ - GLT	Công ty cổ phần Kỹ thuật điện toàn cầu
+ - GMC	Công ty Cổ phần Sản xuất Thương mại May Sài Gòn
+ - GMD	Công ty cổ phần Đại lý Liên hiệp vận chuyển
+ - GTA	Công ty Cổ phần chế biến gỗ Thuận An
+ - GTT	Công ty cổ phần Thuận Thảo
+ - HAD	Công ty cổ phần Bia Hà Nội - Hải Dương
+ - HAG	Công ty cổ phần Hoàng Anh Gia Lai
+ - HAI	Công ty Cổ phần Nông dược H.A.I
+ - HAP	Công ty cổ phần Tập đoàn HAPACO
+ - HAS	Công ty cổ phần Xây lắp Bưu điện Hà Nội
+ - HAT	Công ty cổ phần Thương mại Bia Hà Nội
+ - HAX	Công ty cổ phần Dịch vụ Ô tô Hàng Xanh
+ - HBB	Ngân Hàng Thương Mại Cổ Phần Nhà Hà Nội
+ - HBC	Công ty cổ phần Xây Dựng và Kinh Doanh Địa ốc Hòa Bình
+ - HBD	Công ty cổ phần Bao bì PP Bình Dương
+ - HBE	Công ty cổ phần Sách-Thiết bị trường học Hà Tĩnh
+ - HBS	Công ty cổ phần Chứng khoán Hòa Bình
+ - HCC	Công ty cổ phần Bê tông Hòa Cẩm
+ - HCM	Công ty cổ phần Chứng khoán Thành phố Hồ Chí Minh
+ - HCT	Công ty cổ phần Thương mại Dịch vụ Vận tải Xi măng Hải Phòng
+ - HDA	Công ty cổ phần Hãng sơn Đông Á
+ - HDC	Công ty cổ phần Phát triển nhà Bà Rịa-Vũng Tàu
+ - HDG	Công ty cổ phần Tập đoàn Hà Đô
+ - HDO	Công ty cổ phần Hưng Đạo Container
+ - HEV	Công ty cổ phần Sách Đại học - Dạy nghề
+ - HGM	Công ty cổ phần Cơ khí và Khoáng sản Hà Giang
+ - HHC	Công ty cổ phần Bánh kẹo Hải Hà
+ - HHG	Công ty cổ phần Hoàng Hà
+ - HHL	Công ty cổ phần Hồng Hà Long An
+ - HJS	Công ty Cổ phần Thủy điện Nậm Mu
+ - HLA	Công ty cổ phần Hữu Liên Á Châu
+ - HLC	Công ty cổ phần Than Hà Lầm - TKV
+ - HLG	Công ty cổ phần Tập đoàn Hoàng Long
+ - HLY	Công ty cổ phần Hạ Long I - Viglacera
+ - HMC	Công ty Cổ phần Kim khí TP Hồ Chí Minh
+ - HMH	Công ty cổ phần Hải Minh
+ - HNM	Công Ty Cổ Phần Sữa Hà Nội
+ - HOM	Công ty cổ phần Xi măng Hoàng Mai
+ - HOSE	<New>
+ - HPB	Công ty cổ phần Bao bì PP
+ - HPC	Công ty Cổ phần Chứng khoán Hải Phòng
+ - HPG	Công ty cổ phần Tập đoàn Hòa Phát
+ - HPR	<New>
+ - HPS	Công ty Cổ phần Đá xây dựng Hoà Phát
+ - HQC	Công ty cổ phần Tư vấn - Thương mại - Dịch vụ Địa ốc Hoàng Quân
+ - HRC	Công Ty Cổ Phần Cao su Hòa Bình
+ - HSC	<New>
+ - HSG	Công ty cổ phần Tập đoàn Hoa Sen
+ - HSI	Công ty cổ phần Vật tư Tổng hợp và Phân bón Hóa sinh
+ - HST	Công ty cổ phần Phát hành sách và Thiết bị trường học Hưng Yên
+ - HT1	Công ty cổ phần xi măng Hà Tiên 1
+ - HT2	Công ty cổ phần Xi măng Hà Tiên 2
+ - HTB	Công ty cổ phần Xây dựng Huy Thắng
+ - HTC	Công ty cổ phần Thương mại Hóc Môn
+ - HTI	Công ty cổ phần Đầu tư Phát triển Hạ tầng IDICO
+ - HTL	Công ty cổ phần Kỹ thuật và Ô tô Trường Long
+ - HTP	Công ty Cổ phần In sách giáo khoa Hòa Phát
+ - HTV	Công ty cổ phần vận tải Hà Tiên
+ - HU3	<New>
+ - HUT	Công ty cổ phần TASCO
+ - HVG	Công ty Cổ phần Hùng Vương
+ - HVT	Công ty cổ phần Hóa chất Việt Trì
+ - HVX	Công ty cổ phần xi măng Hải Vân
+ - ICF	Công ty cổ phần Đầu tư Thương mại Thủy sản
+ - ICG	Công ty cổ phần Xây dựng sông Hồng
+ - IDI	<New>
+ - IDJ	Công ty cổ phần Đầu tư tài chính Quốc tế và Phát triển doanh nghiệp IDJ
+ - IDV	Công ty cổ phần Phát triển hạ tầng Vĩnh Phúc
+ - IFS	Công ty Cổ phần Thực phẩm Quốc Tế
+ - IJC	Công ty cổ phần Phát triển Hạ tầng Kỹ thuật
+ - ILC	Công ty cổ phần Hợp tác lao động với nước ngoài
+ - IMP	Công ty cổ phần dược phẩm Imexpharm
+ - INN	Công ty cổ phần Bao bì và In nông nghiệp
+ - ITA	Công ty cổ phần Đầu tư – Công nghiệp Tân Tạo
+ - ITC	Công ty cổ phần Đầu tư và Kinh doanh nhà
+ - JVC	<New>
+ - KAC	Công ty cổ phần Đầu tư Địa ốc Khang An
+ - KBC	Tổng công ty Phát triển Đô thị Kinh Bắc-CTCP
+ - KBT	Công ty cổ phần Gạch ngói Kiên Giang
+ - KDC	Công ty cổ phần Kinh Đô
+ - KDH	Công ty cổ phần Đầu tư và Kinh doanh Nhà Khang Điền
+ - KHA	Công ty cổ phần xuất nhập khẩu Khánh Hội
+ - KHB	Công ty cổ phần Khoáng sản Hòa Bình
+ - KHP	Công ty cổ phần Điện lực Khánh Hòa
+ - KKC	Công ty cổ phần Sản xuất và Kinh doanh kim khí
+ - KLS	Công ty cổ phần Chứng khoán Kim Long
+ - KMF	Công ty cổ phần Mirae Fiber
+ - KMR	Công ty cổ phần Mirae
+ - KMT	Công ty cổ phần Kim khí Miền Trung
+ - KSA	Công ty cổ phần Khoáng sản Bình Thuận Hamico
+ - KSB	Công ty cổ phần Khoáng sản và Xây dựng Bình Dương
+ - KSD	Tổng công ty cổ phần Xuất khẩu Đông Nam Á Hamico
+ - KSH	Tổng công ty cổ phần Khoáng sản Hà Nam
+ - KSS	Tổng công ty cổ phần Khoáng sản Na Rì Hamico
+ - KST	Công ty cổ phần Viễn thông Tin học Điện tử
+ - KTB	Công ty cổ phần Đầu tư Khoáng sản Tây Bắc
+ - KTS	Công ty cổ phần Đường Kon Tum
+ - KTT	Công ty cổ phần Đầu tư Thiết bị và Xây lắp Điện Thiên Trường
+ - L10	Công ty cổ phần LILAMA 10
+ - L18	Công ty cổ phần Đầu tư và Xây dựng số 18
+ - L35	Công ty cổ phần Cơ khí lắp máy Lilama
+ - L43	Công ty cổ phần Lilama 45.3
+ - L44	Công ty cổ phần Lilama 45.4
+ - L61	Công ty cổ phần Lắp máy 69-1
+ - L62	Công ty cổ phần Lilama 69-2
+ - LAF	Công ty Cổ phần Chế biến hàng xuất khẩu Long An
+ - LBE	Công ty Cổ phần Sách và Thiết bị trường học Long An
+ - LBM	Công ty cổ phần Khoáng sản và Vật liệu xây dựng Lâm Đồng
+ - LCD	Công ty cổ phần Lilama Thí nghiệm cơ điện
+ - LCG	Công ty cổ phần LICOGI 16
+ - LCS	Công ty cổ phần Licogi 16.6
+ - LDP	Công ty cổ phần Dược Lâm Đồng
+ - LGC	Công ty cổ phần Cơ khí - Điện Lữ Gia
+ - LGL	Công ty cổ phần Đầu tư và Phát triển Đô thị Long Giang
+ - LHC	Công ty cổ phần Đầu tư và Xây dựng Thủy lợi Lâm Đồng
+ - LHG	Công ty cổ phần Long Hậu
+ - LIG	Công ty cổ phần Licogi 13
+ - LIX	Công ty cổ phần Bột giặt Lix
+ - LM3	Công ty cổ phần Lilama 3
+ - LM7	Công ty cổ phần Lilama 7
+ - LM8	Công ty cổ phần Lilama 18
+ - LO5	Công ty cổ phần Lilama 5
+ - LSS	Công ty cổ phần Mía đường Lam Sơn
+ - LTC	Công ty Cổ phần Điện nhẹ Viễn thông
+ - LUT	Công ty cổ phần Đầu tư xây dựng Lương Tài
+ - MAC	Công ty cổ phần Cung ứng và Dịch vụ kỹ thuật hàng hải
+ - MAFPF1	Quỹ đầu tư tăng trưởng Manulife
+ - MAX	<New>
+ - MCC	Công ty cổ phần Gạch ngói cao cấp
+ - MCF	Công ty cổ phần Xây lắp Cơ khí và Lương thực Thực phẩm
+ - MCG	Công ty cổ phần Cơ điện và Xây dựng Việt Nam
+ - MCL	Công ty cổ phần Phát triển nhà và Sản xuất vật liệu xây dựng Chí Linh
+ - MCO	Công ty cổ phần MCO Việt Nam
+ - MCP	Công Ty Cổ Phần In và Bao bì Mỹ Châu
+ - MCV	Công Ty Cổ Phần Cavico Việt Nam Khai thác mỏ và Xây dựng
+ - MDC	Công ty cổ phần Than Mông Dương - TKV
+ - MDG	Công ty cổ phần Miền Đông
+ - MEC	Công ty cổ phần Someco Sông Đà
+ - MHC	Công ty cổ phần hàng hải Hà Nội
+ - MHL	Công ty cổ phần Minh Hữu Liên
+ - MIC	Công ty cổ phần Kỹ nghệ khoáng sản Quảng Nam
+ - MIH	Công ty cổ phần Xuất nhập khẩu Khoáng sản Hà Nam
+ - MIM	Công ty cổ phần Khoáng sản và Cơ khí
+ - MKP	Công ty cổ phần Hóa Dược phẩm Mekophar
+ - MKV	Công ty cổ phần Dược thú y Cai Lậy
+ - MMC	Công ty cổ phần Khoáng sản Mangan
+ - MNC	Công ty cổ phần Tập đoàn Mai Linh Bắc Trung Bộ
+ - MPC	Công ty Cổ phần Tập đoàn Thủy hải sản Minh Phú
+ - MSN	CTCP Tập đoàn Ma San
+ - MTG	Công ty cổ phần MT GAS
+ - NAG	Công ty cổ phần Nagakawa Việt Nam
+ - NAV	Công ty Cổ phần Nam Việt
+ - NBB	Công ty cổ phần Năm Bảy Bảy
+ - NBC	Công Ty Cổ Phần Than Núi Béo
+ - NBP	Công ty cổ phần Nhiệt điện Ninh Bình
+ - NDN	<New>
+ - NET	Công ty cổ phần Bột giặt Net
+ - NGC	Công ty cổ phần Chế biến thủy sản Xuất khẩu Ngô Quyền
+ - NHA	Tổng công ty Đầu tư Phát triển Nhà và Đô thị Nam Hà Nội
+ - NHC	Công ty cổ phần gạch ngói Nhị Hiệp
+ - NHS	Công ty cổ phần Đường Ninh Hòa
+ - NHW	Công ty cổ phần Ngô Han
+ - NIS	Công ty cổ phần Dịch vụ hạ tầng mạng
+ - NKD	Công ty cổ phần Chế biến thực phẩm Kinh Đô miền Bắc
+ - NKG	Công ty cổ phần Thép Nam Kim
+ - NLC	Công ty cổ phần Thủy điện Nà Lơi
+ - NNC	Công ty cổ phần Đá Núi Nhỏ
+ - NPS	Công Ty Cổ Phần May Phú Thịnh - Nhà Bè
+ - NSC	Công ty Cổ phần Giống cây trồng Trung Ương
+ - NSN	Công ty cổ phần Xây dựng 565
+ - NST	Công Ty Cổ Phần Ngân Sơn
+ - NTB	Công ty cổ phần Đầu tư và Khai thác Công trình Giao thông 584
+ - NTL	Công ty cổ phần Phát triển đô thị Từ Liêm
+ - NTP	Công ty cổ phần Nhựa Thiếu niên Tiền Phong
+ - NVB	Ngân hàng Thương mại cổ phần Nam Việt
+ - NVC	Công ty cổ phần Nam Vang
+ - NVN	Công ty cổ phần Nhà Việt Nam
+ - NVT	Công ty cổ phần Bất động sản Du lịch Ninh Vân Bay
+ - OCH	Công ty cổ phần Khách sạn và Dịch vụ Đại Dương
+ - OGC	Công ty cổ phần Tập đoàn Đại Dương
+ - ONE	Công ty cổ phần Truyền thông số 1
+ - OPC	Công ty cổ phần Dược phẩm OPC
+ - ORS	Công ty Cổ phần Chứng khoán Phương Đông
+ - PAC	Công ty Cổ phần Pin Ắc quy miền Nam
+ - PAN	Công ty Cổ phần Xuyên Thái Bình
+ - PCG	Công ty cổ phần Đầu tư Phát triển Gas Đô thị
+ - PDC	Công ty cổ phần Du lịch Dầu khí Phương Đông
+ - PDR	Công ty cổ phần Phát triển Bất động sản Phát Đạt
+ - PET	Tổng Công ty cổ phần Dịch vụ Tổng hợp Dầu khí
+ - PFL	Công ty Bất động sản Tài chính Dầu khí Việt Nam
+ - PGC	Công ty Cổ Phần Gas Petrolimex
+ - PGD	Công ty cổ phần Phân phối khí Thấp áp
+ - PGS	Công ty cổ phần Kinh doanh khí hóa lỏng miền Nam
+ - PGT	Công ty cổ phần Taxi Sài Gòn Petrolimex
+ - PHC	Công ty cổ phần Xây dựng Phục Hưng Holdings
+ - PHH	Công ty cổ phần Hồng Hà Dầu khí
+ - PHR	Công ty cổ phần Cao su Phước Hòa
+ - PHS	Công ty cổ phần Chứng khoán Phú Hưng
+ - PHT	Công ty cổ phần Sản xuất và Thương mại Phúc Tiến
+ - PIT	Công ty Cổ phần Xuất nhập khẩu Petrolimex
+ - PIV	Công ty cổ phần Đầu tư và Thẩm định giá Dầu khí PIV
+ - PJC	Công ty Cổ phần Thương mại và Vận tải Petrolimex Hà Nội
+ - PJT	Công Ty Cổ Phần Vận tải Xăng dầu Đường Thủy Petrolimex
+ - PLC	Công ty Cổ phần Hóa dầu Petrolimex
+ - PMC	Công ty cổ phần Dược phẩm dược liệu Pharmedic
+ - PMS	Công ty cổ phần Cơ khí Xăng dầu
+ - PNC	Công ty cổ phần văn hoá Phương Nam
+ - PNJ	Công ty cổ phần Vàng bạc đá quý Phú Nhuận
+ - POM	Công ty cổ phần Thép Pomina
+ - POT	Công ty cổ phần Thiết bị Bưu Điện
+ - PPC	Công ty cổ phần Nhiệt điện Phả Lại
+ - PPG	Công ty cổ phần Sản xuất-Thương mại-Dịch vụ Phú Phong
+ - PPI	Công ty cổ phần Phát triển hạ tầng và Bất động sản Thái Bình Dương
+ - PPS	Công ty cổ phần Dịch vụ kỹ thuật Điện lực Dầu khí Việt Nam
+ - PRC	Công ty cổ phần Portserco
+ - PRUBF1	Quỹ đầu tư cân bằng Prudential
+ - PSC	Công ty cổ phần Vận tải và Dịch vụ Petrolimex Sài Gòn
+ - PSG	<New>
+ - PSI	Công ty cổ phần Chứng khoán Dầu khí
+ - PTC	Công ty cổ phần Đầu tư và Xây dựng Bưu điện
+ - PTI	Tổng công ty cổ phần bảo hiểm bưu điện
+ - PTL	Công ty cổ phần Đầu tư hạ tầng và Đô thị Dầu khí
+ - PTM	Công ty cổ phần Khuôn mẫu chính xác và Máy CNC
+ - PTS	Công ty Cổ phần Vận tải và Dịch vụ Petrolimex Hải Phòng
+ - PV2	Công ty cổ phần Đầu tư và Phát triển PVI
+ - PVA	Công ty cổ phần Tổng công ty Xây lắp Dầu khí Nghệ An
+ - PVC	Tổng công ty cổ phần Dung dịch khoan và Hóa phẩm Dầu khí
+ - PVD	Tổng công ty cổ phần Khoan và Dịch vụ khoan dầu khí
+ - PVE	Công ty cổ phần Tư vấn đầu tư và Thiết kế dầu khí
+ - PVF	Tổng công ty Tài chính cổ phần Dầu khí Việt Nam
+ - PVG	Công ty cổ phần Kinh doanh khí hóa lỏng miền Bắc
+ - PVI	Tổng công ty Cổ phần Bảo hiểm dầu khí Việt Nam
+ - PVL	Công ty cổ phần Bất động sản Điện lực Dầu khí Việt Nam
+ - PVR	Công ty cổ phần Kinh doanh dịch vụ cao cấp Dầu khí Việt Nam
+ - PVS	Tổng Công ty cổ phần Dịch vụ Kỹ thuật Dầu khí Việt Nam
+ - PVT	Tổng Công ty cổ phần Vận tải dầu khí
+ - PVV	Công ty cổ phần Đầu tư Xây dựng Vinaconex - PVC
+ - PVX	Tổng công ty cổ phần Xây lắp Dầu khí Việt Nam
+ - PXA	Công ty cổ phần Đầu tư và Thương mại Dầu khí Nghệ An
+ - PXI	Công ty cổ phần Xây dựng Công nghiệp và Dân dụng Dầu khí
+ - PXL	Công ty Cổ phần Đầu tư Khu công nghiệp Dầu khí - Idico Long Sơn
+ - PXM	Công ty cổ phần Xây lắp Dầu khí miền Trung
+ - PXS	Công ty cổ phần Kết cấu Kim loại và Lắp máy Dầu khí
+ - PXT	Công ty cổ phần Xây lắp Đường ống Bể chứa Dầu khí
+ - QCC	Công ty cổ phần Xây lắp và Phát triển Dịch vụ Bưu điện Quảng Nam
+ - QCG	Công ty cổ phần Quốc Cường Gia Lai
+ - QHD	Công ty cổ phần Que hàn Việt Đức
+ - QNC	Công ty cổ phần Xi măng và Xây dựng Quảng Ninh
+ - QST	Công ty cổ phần Sách và Thiết bị trường học Quảng Ninh
+ - QTC	Công ty cổ phần Công trình giao thông Vận tải Quảng Nam
+ - RAL	Công ty cổ phần Bóng đèn Phích nước Rạng Đông
+ - RCL	Công ty Cổ phần Địa ốc Chợ Lớn
+ - RDP	Công ty cổ phần Nhựa Rạng Đông
+ - REE	Công ty cổ phần Cơ điện lạnh
+ - RHC	Công ty Cổ phần Thủy điện Ry Ninh II
+ - RIC	Công ty Cổ phần Quốc tế Hoàng Gia
+ - S12	Công ty cổ phần Sông Đà 12
+ - S27	Công ty cổ phần Sông Đà 27
+ - S55	Công ty cổ phần Sông Đà 505
+ - S64	Công ty Cổ phần Sông Đà 6.04
+ - S74	Công ty cổ phần Sông Đà 7.04
+ - S91	Công ty Cổ phần Sông Đà 9.01
+ - S96	Công ty cổ phần Sông Đà 9.06
+ - S99	Công ty Cổ phần Sông Đà 909
+ - SAF	Công ty cổ phần Lương thực Thực phẩm SAFOCO
+ - SAM	Công ty cổ phần Đầu tư và Phát triển SACOM
+ - SAP	Công ty Cổ phần In sách giáo khoa TP Hồ Chí Minh
+ - SAV	Công ty cổ phần Hợp tác kinh tế và Xuất nhập khẩu SAVIMEX
+ - SBA	Công ty cổ phần Sông Ba
+ - SBC	Công ty cổ phần Vận tải và Giao nhận Bia Sài Gòn
+ - SBS	Công ty cổ phần Chứng khoán Ngân hàng Sài Gòn Thương tín
+ - SBT	Công ty cổ phần Bourbon Tây Ninh
+ - SC5	Công ty cổ phần Xây dựng số 5
+ - SCC	Công ty Cổ phần Xi Măng Sông Đà
+ - SCD	Công ty Cổ phần Nước Giải khát Chương Dương
+ - SCJ	Công ty cổ phần Xi măng Sài Sơn
+ - SCL	Công ty cổ phần Sông Đà Cao Cường
+ - SCR	Công ty cổ phần Địa ốc Sài Gòn Thương Tín
+ - SD1	Công ty cổ phần Sông Đà 1
+ - SD2	Công ty cổ phần Sông Đà 2
+ - SD3	Công ty Cổ phần Sông Đà 3
+ - SD4	Công ty cổ phần Sông Đà 4
+ - SD5	Công ty Cổ phần Sông Đà 5
+ - SD6	Công ty Cổ phần Sông Đà 6
+ - SD7	Công ty cổ phần Sông Đà 7
+ - SD8	Công ty cổ phần Sông Đà 8
+ - SD9	Công ty cổ phần Sông Đà 9
+ - SDA	Công ty Cổ phần Simco Sông Đà
+ - SDB	Công ty cổ phần Sông Đà 207
+ - SDC	Công ty Cổ phần Tư vấn sông Đà
+ - SDD	Công ty cổ phần Đầu tư và Xây lắp Sông Đà
+ - SDE	Công ty cổ phần Kỹ thuật điện Sông Đà
+ - SDG	Công ty cổ phần SADICO Cần Thơ
+ - SDH	Công ty cổ phần Xây dựng hạ tầng sông Đà
+ - SDJ	Công ty cổ phần Sông Đà 25
+ - SDN	Công ty cổ phần Sơn Đồng Nai
+ - SDP	Công ty cổ phần Đầu tư và Thương mại Dầu khí sông Đà
+ - SDS	Công ty cổ phần Xây lắp và Đầu tư Sông Đà
+ - SDT	Công ty Cổ phần Sông Đà 10
+ - SDU	Công ty cổ phần Đầu tư xây dựng và Phát triển đô thị Sông Đà
+ - SDY	Công ty Cổ phần Xi măng Sông Đà Yaly
+ - SEB	Công ty cổ phần Đầu tư và Phát triển điện miền Trung
+ - SEC	Công ty cổ phần Mía đường - Nhiệt điện Gia Lai
+ - SED	Công ty cổ phần Đầu tư và Phát triển giáo dục Phương Nam
+ - SEL	Công ty cổ phần Sông Đà 11 Thăng Long
+ - SFC	Công Ty Cổ Phần Nhiên Liệu Sài Gòn
+ - SFI	Công ty cổ phần Đại lý Vận tải SAFI
+ - SFN	Công Ty Cổ Phần Dệt lưới Sài Gòn
+ - SGC	Công ty CP Xuất nhập khẩu Sa Giang
+ - SGD	Công ty cổ phần Sách Giáo dục tại thành phố Hồ Chí Minh
+ - SGH	Công ty Cổ phần Khách sạn Sài Gòn
+ - SGT	Công ty cổ phần Công nghệ Viễn thông Sài Gòn
+ - SHB	Ngân hàng Thương mại cổ phần Sài Gòn - Hà Nội
+ - SHC	Công ty Cổ phần Hàng hải Sài Gòn
+ - SHI	Công ty cổ phần Quốc tế Sơn Hà
+ - SHN	Công ty cổ phần Đầu tư Tổng hợp Hà Nội
+ - SHS	Công ty cổ phần Chứng khoán Sài Gòn Hà Nội
+ - SIC	Công ty cổ phần Đầu tư - Phát triển Sông Đà
+ - SJ1	Công ty cổ phần Thủy sản số 1
+ - SJC	Công ty Cổ phần Sông Đà 1.01
+ - SJD	Công Ty Cổ Phần Thủy Điện Cần Đơn
+ - SJE	Công ty Cổ phần Sông Đà 11
+ - SJM	Công ty cổ phần Sông Đà 19
+ - SJS	Công ty cổ phần Đầu tư Phát triển Đô thị và Khu công nghiệp Sông Đà
+ - SKS	Công ty cổ phần Công trình giao thông sông Đà
+ - SMA	Công ty cổ phần Thiết bị phụ tùng Sài Gòn
+ - SMC	Công ty cổ phần đầu tư thương mại SMC
+ - SME	Công ty cổ phần Chứng khoán SME
+ - SMT	Công ty cổ phần Vật liệu Điện và Viễn thông Sam Cường
+ - SNG	Công ty cổ phần Sông Đà 10.1
+ - SPM	Công ty Cổ phần S.P.M
+ - SPP	Công ty cổ phần Bao bì Nhựa Sài Gòn
+ - SQC	Công ty cổ phần Khoáng sản Sài Gòn - Quy Nhơn
+ - SRA	Công ty cổ phần Sara Việt Nam
+ - SRB	Công ty cổ phần Tập đoàn SARA
+ - SRC	Công ty cổ phần Cao su Sao vàng
+ - SRF	Công ty cổ phần Kỹ Nghệ Lạnh
+ - SSC	Công ty cổ phần Giống cây trồng miền Nam
+ - SSG	Công ty cổ phần Vận tải biển Hải Âu
+ - SSI	Công ty Cổ phần chứng khoán Sài Gòn
+ - SSM	Công ty cổ phần Chế tạo kết cấu thép VNECO.SSM
+ - SSS	Công ty cổ phần Sông Đà 6.06
+ - ST8	Công ty cổ phần Siêu Thanh
+ - STB	Ngân hàng Thương mại cổ phần Sài Gòn Thương Tín
+ - STC	Công ty cổ phần Sách và Thiết bị trường học TP Hồ Chí Minh
+ - STG	Công ty cổ phần Kho vận miền Nam
+ - STL	Công ty cổ phần Sông Đà - Thăng Long
+ - STP	Công ty Cổ phần công nghiệp thương mại Sông Đà
+ - STT	<New>
+ - SVC	Công ty Cổ phần dịch vụ tổng hợp Sài Gòn
+ - SVI	Công ty cổ phần Bao bì Biên Hòa
+ - SVS	Công ty cổ phần Chứng khoán Sao Việt
+ - SZL	Công ty cổ phần Sonadezi Long Thành
+ - TAC	Công ty cổ phần Dầu thực vật Tường An
+ - TAG	Công ty cổ phần Thế giới số Trần Anh
+ - TAS	Công ty cổ phần Chứng khoán Tràng An
+ - TBC	Công ty Cổ phần Thủy điện Thác Bà
+ - TBX	Công ty cổ phần Xi măng Thái Bình
+ - TC6	Công ty cổ phần Than Cọc Sáu - TKV
+ - TCL	Công ty cổ phần Đại lý giao nhận Vận tải xếp dỡ Tân Cảng
+ - TCM	Công ty cổ phần Dệt may - Đầu tư - Thương mại Thành Công
+ - TCR	Công ty cổ phần Công Nghiệp Gốm sứ Taicera
+ - TCS	Công ty cổ phần Than Cao Sơn - TKV
+ - TCT	Công ty Cổ phần Cáp treo Núi Bà Tây Ninh
+ - TDC	Công ty cổ phần Kinh doanh và Phát triển Bình Dương
+ - TDH	Công ty Cổ phần Phát triển nhà Thủ Đức
+ - TDN	Công ty cổ phần Than Đèo Nai - TKV
+ - TDW	Công ty cổ phần Cấp nước Thủ Đức
+ - TET	Công ty cổ phần Vải sợi May mặc miền Bắc
+ - TH1	Công ty cổ phần Xuất nhập khẩu Tổng hợp I Việt Nam
+ - THB	Công ty cổ phần Bia Thanh Hóa
+ - THT	Công ty cổ phần Than Hà Tu - TKV
+ - THV	Công ty cổ phần Tập đoàn Thái Hòa Việt Nam
+ - TIC	Công ty cổ phần Đầu tư điện Tây Nguyên
+ - TIE	Công ty cổ phần TIE
+ - TIG	Công ty cổ phần Đầu tư Thăng Long
+ - TIX	Công ty Cổ phần Sản xuất Kinh doanh Xuất nhập khẩu Dịch vụ và Đầu tư Tân Bình
+ - TJC	Công ty cổ phần Dịch vụ Vận tải và Thương mại
+ - TKC	Công ty Xây dựng và Kinh doanh địa ốc Tân Kỷ
+ - TKU	Công ty Cổ phần Công nghiệp Tung Kuang
+ - TLC	Công ty cổ phần Viễn thông Thăng Long
+ - TLG	Công ty cổ phần Tập đoàn Thiên Long
+ - TLH	Công ty cổ phần Tập đoàn thép Tiến Lên
+ - TLT	Công ty cổ phần Viglacera Thăng Long
+ - TMC	Công ty Cổ phần Xuất nhập khẩu thương mại Thủ Đức
+ - TMP	Công ty cổ phần Thủy điện Thác Mơ
+ - TMS	Công ty cổ phần Kho vận Giao nhận Ngoại thương TP.HCM
+ - TMT	Công ty cổ phần Ô tô TMT
+ - TMX	Công ty cổ phần Thương mại Xi măng
+ - TNA	Công ty Cổ Phần Thương Mại Xuất Nhập Khẩu Thiên Nam
+ - TNC	Công ty cổ phần Cao su Thống Nhất
+ - TNG	Công ty cổ phần Đầu tư và Thương mại TNG
+ - TNT	Công ty cổ phần Tài Nguyên
+ - TPC	Công ty cổ phần Nhựa Tân Đại Hưng
+ - TPH	Công ty Cổ Phần In Sách Giáo Khoa tại TP Hà Nội
+ - TPP	Công ty cổ phần Nhựa Tân Phú
+ - TRA	Công ty cổ phần Traphaco
+ - TRC	Công ty Cổ phần Cao su Tây Ninh
+ - TRI	Công ty cổ phần Nước giải khát Sài Gòn-TRIBECO
+ - TS4	Công ty cổ phần Thủy sản số 4
+ - TSB	Công ty cổ phần Ắc quy Tia sáng
+ - TSC	Công ty cổ phần Vật tư kỹ thuật nông nghiệp Cần Thơ
+ - TSM	Công ty cổ phần Xi măng Tiên Sơn Hà Tây
+ - TST	Công ty cổ phần Dịch vụ Kỹ thuật Viễn thông
+ - TTC	Công ty cổ phần Gạch men Thanh Thanh
+ - TTF	Công ty cổ phần Tập đoàn Kỹ nghệ gỗ Trường Thành
+ - TTP	Công ty cổ phần bao bì Nhựa Tân Tiến
+ - TV1	Công ty cổ phần Tư vấn xây dựng điện 1
+ - TV2	Công ty cổ phần Tư vấn Xây dựng điện 2
+ - TV3	Công ty cổ phần Tư vấn xây dựng điện 3
+ - TV4	Công ty cổ phần Tư vấn xây dựng điện 4
+ - TVD	Công ty cổ phần than Vàng Danh - TKV
+ - TXM	Công ty cổ phần Thạch cao xi măng
+ - TYA	Công ty Cổ phần Dây và Cáp điện Taya Việt Nam
+ - UDC	Công ty cổ phần Xây dựng và Phát triển đô thị tỉnh Bà Rịa-Vũng Tàu
+ - UIC	Công ty cổ phần Đầu tư phát triển Nhà và Đô thị IDICO
+ - UNI	Công ty cổ phần Viễn Liên
+ - V11	Công ty cổ phần Xây dựng số 11
+ - V12	Công ty cổ phần Xây dựng số 12
+ - V15	Công ty cổ phần Xây dựng số 15
+ - V21	Công ty Cổ phần Xây dựng số 21
+ - VAT	Công ty cổ phần Viễn thông Vạn Xuân
+ - VBC	Công ty cổ phần Nhựa - Bao bì Vinh
+ - VBH	Công Ty Cổ Phần Điện tử Bình Hoà
+ - VC1	Công ty Cổ phần Xây dựng số 1
+ - VC2	Công ty Cổ Phần Xây Dựng Số 2
+ - VC3	Công ty cổ phần Xây dựng số 3
+ - VC5	Công ty cổ phần Xây dựng số 5
+ - VC6	Công ty cổ phần Vinaconex 6
+ - VC7	Công ty cổ phần Xây dựng số 7
+ - VC9	Công ty cổ phần Xây dựng số 9
+ - VCB	Ngân hàng thương mại cổ phần Ngoại thương Việt Nam
+ - VCC	Công ty cổ phần Vinaconex 25
+ - VCF	Công ty Cổ phần VinaCafé Biên Hòa
+ - VCG	Tổng công ty cổ phần Xuất nhập khẩu và xây dựng Việt Nam
+ - VCH	Công ty cổ phần Đầu tư xây dựng và Phát triển hạ tầng Vinaconex
+ - VCM	Công ty cổ phần Nhân lực và Thương mại Vinaconex
+ - VCR	Công ty Cổ phần Đầu tư và Phát triển Du lịch Vinaconex
+ - VCS	Công ty cổ phần Đá ốp lát cao cấp Vinaconex
+ - VCV	Công ty cổ phần Vận tải Vinaconex
+ - VDL	Công ty cổ phần Thực phẩm Lâm Đồng
+ - VDS	Công ty cổ phần Chứng khoán Rồng Việt
+ - VE1	Công ty cổ phần Xây dựng điện VNECO 1
+ - VE2	Công ty cổ phần Xây dựng Điện VNECO 2
+ - VE3	Công ty cổ phần Xây dựng điện VNECO 3
+ - VE9	Công ty cổ phần Xây dựng điện VNECO 9
+ - VES	Công ty cổ phần Đầu tư và Xây dựng điện Mê Ca Vneco
+ - VFC	Công ty cổ phần Vinafco
+ - VFG	Công ty cổ phần Khử trùng Việt Nam
+ - VFMVF1	Quỹ Đầu Tư Chứng Khoán Việt Nam
+ - VFMVF4	Quỹ đầu tư Doanh nghiệp hàng đầu Việt Nam
+ - VFMVFA	Quỹ Đầu tư năng động Việt Nam
+ - VFR	Công ty cổ phần Vận tải và Thuê tàu
+ - VGP	Công ty Cổ phần Cảng rau quả
+ - VGS	Công ty cổ phần Ống thép Việt Đức VG PIPE
+ - VHC	Công ty cổ phần Vĩnh Hoàn
+ - VHG	Công ty cổ phần Đầu tư và Sản xuất Việt - Hàn
+ - VHH	Công ty cổ phần Đầu tư Xây dựng Viwaseen Huế
+ - VHL	Công ty cổ phần Viglacera Hạ Long
+ - VIC	Công ty Cổ phần VINCOM
+ - VID	Công ty cổ phần Đầu tư Phát triển Thương mại Viễn Đông
+ - VIE	<New>
+ - VIG	Công ty cổ phần Chứng khoán Thương mại và Công nghiệp Việt Nam
+ - VIP	Công ty Cổ phần Vận tải Xăng dầu VIPCO
+ - VIS	Công ty Cổ phần Thép Việt Ý
+ - VIT	Công ty cổ phần Viglacera Tiên Sơn
+ - VIX	Công ty cổ phần Chứng khoán Vincom
+ - VKC	Công ty cổ phần Cáp Nhựa Vĩnh Khánh
+ - VKP	Công ty cổ phần Nhựa Tân Hóa
+ - VLA	Công ty cổ phần Đầu tư và Phát triển Công nghệ Văn Lang
+ - VLF	Công ty cổ phần Lương thực thực phẩm Vĩnh Long
+ - VMC	Công ty cổ phần VIMECO
+ - VMD	Công ty cổ phần Y Dược phẩm Vimedimex
+ - VMG	Công ty cổ phần Thương mại và Dịch vụ dầu khí Vũng Tàu
+ - VNA	Công ty cổ phần vận tải biển VINASHIP
+ - VNC	Công ty Cổ phần Giám định Vinacontrol
+ - VND	Công ty Cổ phần Chứng khoán VNDIRECT
+ - VNE	Tổng công ty Cổ phần Xây dựng điện Việt Nam
+ - VNF	Công ty cổ phần Vận tải Ngoại thương
+ - VNG	Công ty cổ phần Du lịch Golf Việt Nam
+ - VNH	Công ty cổ phần Thủy hải sản Việt Nhật
+ - VNI	Công ty cổ phần Đầu tư bất động sản Việt Nam
+ - VNL	Công ty cổ phần Giao nhận Vận tải và Thương mại
+ - VNM	Công ty Cổ phần Sữa Việt Nam
+ - VNR	Tổng công ty cổ phần tái bảo hiểm quốc gia Việt Nam
+ - VNS	Công ty cổ phần Ánh Dương Việt Nam
+ - VNT	Công ty cổ phần Giao nhận Vận tải Ngoại thương
+ - VOS	Công ty cổ phần Vận tải biển Việt Nam
+ - VPH	Công ty cổ phần Vạn Phát Hưng
+ - VPK	Công ty Cổ phần bao bì dầu thực vật
+ - VPL	Công ty Cổ phần Vinpearlland
+ - VRC	Công ty cổ phần Xây lắp và Địa ốc Vũng Tàu
+ - VSC	Công ty cổ phần Container Việt Nam
+ - VSG	Công ty cổ phần Container phía Nam
+ - VSH	Công ty Cổ phần Thủy điện Vĩnh Sơn – Sông Hinh
+ - VSI	Công ty cổ phần đầu tư và xây dựng cấp thoát nước
+ - VSP	Công ty cổ phần Vận tải biển và Bất động sản Việt Hải
+ - VST	Công ty cổ phần Vận tải và Thuê tàu biển Việt Nam
+ - VTA	Công ty cổ phần Vitaly
+ - VTB	Công Ty Cổ Phần Điện tử Tân Bình
+ - VTC	Công ty cổ phần viễn thông VTC
+ - VTF	Công ty cổ phần Thủy sản Việt Thắng
+ - VTL	Công ty Cổ phần Thăng Long
+ - VTO	Công ty cổ phần Vận tải xăng dầu VITACO
+ - VTS	Công ty cổ phần Viglacera Từ Sơn
+ - VTV	Công ty Cổ phần Vật tư Vận tải Xi măng
+ - VXB	Công ty cổ phần Vật liệu xây dựng Bến Tre
+ - WCS	Công ty cổ phần Bến xe miền Tây
+ - WSS	Công ty cổ phần Chứng khoán phố Wall
+ - XMC	Công ty cổ phần Bê tông và Xây dựng Vinaconex Xuân Mai
+ - YBC	Công ty cổ phần Xi măng và Khoáng sản Yên Bái
+ - YSC	Công ty Cổ phần HAPACO Yên Sơn
+Import from sheet : D:\work\stockProject\data\import\company_list.xls
+Import from sheet : D:\work\stockProject\data\import\company_list.xls
+Import from sheet : D:\work\stockProject\data\import\company_list.xls
+Import from sheet : D:\work\stockProject\data\import\company_list.xls
+Import from sheet : D:\work\stockProject\data\import\company_list.xls
+Import from sheet : D:\work\stockProject\data\import\company_list.xls
+Import from sheet : D:\work\stockProject\data\import\company_list.xls
+Import from sheet : D:\work\stockProject\data\import\company_list.xls
+Import from sheet : D:\work\stockProject\data\import\company_list.xls
+Import from sheet : D:\work\stockProject\data\import\company_list.xls
+Import from sheet : D:\work\stockProject\data\import\company_list.xls
+Import from sheet : D:\work\stockProject\data\import\company_list.xls
+Import from sheet : D:\work\stockProject\data\import\company_list.xls
+ - Add stockExchange	SanCK
+Import from sheet : D:\work\stockProject\data\import\company_list.xls
+Import from sheet : D:\work\stockProject\data\import\company_list.xls
+Import from sheet : D:\work\stockProject\data\import\company_list.xls
+Import from sheet : D:\work\stockProject\data\import\company_list.xls
+Import from sheet : D:\work\stockProject\data\import\company_list.xls
+Import from sheet : D:\work\stockProject\data\import\company_list.xls
+Import from sheet : D:\work\stockProject\data\import\company_list.xls
+Import from sheet : D:\work\stockProject\data\import\company_list.xls
+Import from sheet : D:\work\stockProject\data\import\company_list.xls
+Import from sheet : D:\work\stockProject\data\import\company_list.xls
+Import from sheet : D:\work\stockProject\data\import\company_list.xls
+Import from sheet : D:\work\stockProject\data\import\company_list.xls
+Import from sheet : D:\work\stockProject\data\import\company_list.xls
+Import from sheet : D:\work\stockProject\data\import\company_list.xls
+Import from sheet : D:\work\stockProject\data\import\company_list.xls
+Import from sheet : D:\work\stockProject\data\import\company_list.xls
+Import from sheet : D:\work\stockProject\data\import\company_list.xls
+Import from sheet : D:\work\stockProject\data\import\company_list.xls
+Import from sheet : D:\work\stockProject\data\import\company_list.xls
+Import from sheet : D:\work\stockProject\data\import\company_list.xls
+Import from sheet : D:\work\stockProject\data\import\company_list.xls
+ - Add stockExchange	HASTC
+Import from sheet : D:\work\stockProject\data\import\company_list.xls
+Import from sheet : Oil & Gas
+ - New subsector 	Oil Equipment, Services & Dist	at PVD
+ - New subsector 	Oil Equipment, Services & Dist	at SFC
+ - New subsector 	Oil Equipment, Services & Dist	at PVC
+Import from sheet : Basic Materials
+ - New subsector 	Speciality Chemicals	at DPM
+ - New subsector 	Iron & Steel	at DTL
+ - New subsector 	Speciality Chemicals	at HAI
+ - New subsector 	Iron & Steel	at HMC
+ - New subsector 	Iron & Steel	at HSG
+ - New subsector 	Speciality Chemicals	at HSI
+ - New subsector 	Iron & Steel	at NKG
+ - New subsector 	Speciality Chemicals	at PHR
+ - New subsector 	Iron & Steel	at PHT
+ - New subsector 	Speciality Chemicals	at RDP
+ - New subsector 	Iron & Steel	at SMC
+ - New subsector 	Speciality Chemicals	at SRC
+ - New subsector 	Iron & Steel	at TLH
+ - New subsector 	Speciality Chemicals	at VFG
+ - New subsector 	Iron & Steel	at VIS
+ - New subsector 	Iron & Steel	at BVG
+ - New subsector 	Speciality Chemicals	at CPC
+ - New subsector 	Iron & Steel	at DNY
+ - New subsector 	Speciality Chemicals	at HDA
+ - New subsector 	Speciality Chemicals	at HVT
+ - New subsector 	Iron & Steel	at KMT
+ - New subsector 	Iron & Steel	at MHL
+ - New subsector 	Iron & Steel	at NVC
+ - New subsector 	Iron & Steel	at VGS
+Import from sheet : Industrials
+ - Match subsector 	Electrical Components & Equipm	->	Electrical Components & Equipment	 at CSG
+ - Match subsector 	Electrical Components & Equipm	->	Electrical Components & Equipment	 at FPC
+ - New subsector 	Iron & Steel	at HLA
+ - Match subsector 	Electrical Components & Equipm	->	Electrical Components & Equipment	 at PAC
+ - New subsector 	Iron & Steel	at POM
+ - Match subsector 	Real Estate Holding & Developm	->	Real Estate Holding & Development	 at PTL
+ - Match subsector 	Electrical Components & Equipm	->	Electrical Components & Equipment	 at SAM
+ - Match subsector 	Electrical Components & Equipm	->	Electrical Components & Equipment	 at TIE
+ - Match subsector 	Electrical Components & Equipm	->	Electrical Components & Equipment	 at TYA
+ - Match subsector 	Electrical Components & Equipm	->	Electrical Components & Equipment	 at AME
+ - Match subsector 	Electrical Components & Equipm	->	Electrical Components & Equipment	 at BTH
+ - Match subsector 	Electrical Components & Equipm	->	Electrical Components & Equipment	 at CJC
+ - New subsector 	Iron & Steel	at KKC
+ - New subsector 	Oil Equipment, Services & Dist	at PVS
+ - Match subsector 	Electrical Components & Equipm	->	Electrical Components & Equipment	 at QHD
+ - Match subsector 	Business Training & Employment	->	Business Training & Employment Agencies	 at SRA
+ - Match subsector 	Electrical Components & Equipm	->	Electrical Components & Equipment	 at TSB
+ - Match subsector 	Electrical Components & Equipm	->	Electrical Components & Equipment	 at VBH
+ - Match subsector 	Real Estate Holding & Developm	->	Real Estate Holding & Development	 at VCR
+ - Match subsector 	Electrical Components & Equipm	->	Electrical Components & Equipment	 at VKC
+Import from sheet : Consumer Goods
+ - New subsector 	Speciality Chemicals	at NET
+Import from sheet : Health Care
+Import from sheet : Consumer Services
+ - Match subsector 	Real Estate Holding & Developm	->	Real Estate Holding & Development	 at OCH
+Import from sheet : Telecommunications
+Import from sheet : Utilities
+ - New subsector 	Conventional Electricity	at BTP
+ - New subsector 	Conventional Electricity	at KHP
+ - New subsector 	Conventional Electricity	at PPC
+ - New subsector 	Alternative Electricity	at SEC
+ - New subsector 	Alternative Electricity	at SJD
+ - New subsector 	Alternative Electricity	at TBC
+ - New subsector 	Alternative Electricity	at TIC
+ - New subsector 	Alternative Electricity	at TMP
+ - New subsector 	Alternative Electricity	at VSH
+ - New subsector 	Alternative Electricity	at HJS
+ - New subsector 	Conventional Electricity	at NBP
+ - New subsector 	Alternative Electricity	at NLC
+ - New subsector 	Alternative Electricity	at RHC
+Import from sheet : Financials
+ - Match subsector 	Real Estate Holding & Developm	->	Real Estate Holding & Development	 at PV2
+ - Match subsector 	Real Estate Holding & Developm	->	Real Estate Holding & Development	 at ASM
+ - Match subsector 	Real Estate Holding & Developm	->	Real Estate Holding & Development	 at BCI
+ - Match subsector 	Real Estate Holding & Developm	->	Real Estate Holding & Development	 at CCL
+ - Match subsector 	Real Estate Holding & Developm	->	Real Estate Holding & Development	 at CLG
+ - Match subsector 	Real Estate Holding & Developm	->	Real Estate Holding & Development	 at DTA
+ - Match subsector 	Real Estate Holding & Developm	->	Real Estate Holding & Development	 at DXG
+ - Match subsector 	Real Estate Holding & Developm	->	Real Estate Holding & Development	 at HDC
+ - Match subsector 	Real Estate Holding & Developm	->	Real Estate Holding & Development	 at HDG
+ - Match subsector 	Real Estate Holding & Developm	->	Real Estate Holding & Development	 at HQC
+ - New subsector 	Real Estate Services	at ITA
+ - Match subsector 	Real Estate Holding & Developm	->	Real Estate Holding & Development	 at ITC
+ - Match subsector 	Real Estate Holding & Developm	->	Real Estate Holding & Development	 at LGL
+ - Match subsector 	Real Estate Holding & Developm	->	Real Estate Holding & Development	 at LHG
+ - Match subsector 	Real Estate Holding & Developm	->	Real Estate Holding & Development	 at NBB
+ - Match subsector 	Real Estate Holding & Developm	->	Real Estate Holding & Development	 at NTL
+ - Match subsector 	Real Estate Holding & Developm	->	Real Estate Holding & Development	 at NVN
+ - Match subsector 	Real Estate Holding & Developm	->	Real Estate Holding & Development	 at NVT
+ - Match subsector 	Real Estate Holding & Developm	->	Real Estate Holding & Development	 at OGC
+ - Match subsector 	Real Estate Holding & Developm	->	Real Estate Holding & Development	 at PDR
+ - Match subsector 	Real Estate Holding & Developm	->	Real Estate Holding & Development	 at QCG
+ - Match subsector 	Real Estate Holding & Developm	->	Real Estate Holding & Development	 at SZL
+ - Match subsector 	Real Estate Holding & Developm	->	Real Estate Holding & Development	 at TDC
+ - Match subsector 	Real Estate Holding & Developm	->	Real Estate Holding & Development	 at TDH
+ - Match subsector 	Real Estate Holding & Developm	->	Real Estate Holding & Development	 at VIC
+ - Match subsector 	Real Estate Holding & Developm	->	Real Estate Holding & Development	 at VNI
+ - Match subsector 	Real Estate Holding & Developm	->	Real Estate Holding & Development	 at D11
+ - New subsector 	Real Estate Services	at DLR
+ - Match subsector 	Real Estate Holding & Developm	->	Real Estate Holding & Development	 at PVL
+ - Match subsector 	Real Estate Holding & Developm	->	Real Estate Holding & Development	 at RCL
+ - Match subsector 	Real Estate Holding & Developm	->	Real Estate Holding & Development	 at SCR
+Import from sheet : Technology
+ - Match subsector 	Electrical Components & Equipm	->	Electrical Components & Equipment	 at TST
+
+Companies do not have sectors
+ - ACC	Công ty cổ phần bê tông BECAMEX
+ - ADC	Công ty cổ phần Mĩ thuật và Truyền thông
+ - API	Công ty cổ phần Đầu tư Châu Á - Thái Bình Dương
+ - ARM	Công ty cổ phần Xuất nhập khẩu Hàng không
+ - BBT	Công ty Cổ phần Bông Bạch Tuyết
+ - BGM	Công ty Cổ phần Khai thác và Chế biến Khoáng sản Bắc Giang
+ - BSI	Công ty Cổ phần Chứng khoán BIDV
+ - BTC	Công ty cổ phần cơ khí và xây dựng Bình Triệu
+ - BTP	Công ty cổ phần Nhiệt điện Bà Rịa
+ - BVG	Công ty cổ phần Thép Bắc Việt
+ - C21	Công ty Cổ phần Thế kỷ 21
+ - C92	Công ty cổ phần Xây dựng và Đầu tư 492
+ - CAP	Công ty cổ phần Lâm nông sản thực phẩm Yên Bái
+ - CIG	Công ty Cổ phần COMA18
+ - CPC	Công ty cổ phần Thuốc sát trùng Cần Thơ
+ - DAG	Công ty cổ phần Tập đoàn Nhựa Đông Á
+ - DIH	Công ty cổ phần Đầu tư Phát triển Xây dựng Hội An
+ - DLR	Công ty cổ phần Địa ốc Đà Lạt
+ - DNY	Công ty cổ phần Thép Dana - Ý
+ - DPM	Tổng công ty cổ phần Phân bón và Hóa chất dầu khí
+ - DSN	Công ty cổ phần Công viên nước Đầm Sen
+ - DTL	Công ty cổ phần Đại Thiên Lộc
+ - FDG	Công ty Cổ phần Docimexco
+ - GFC	Công ty cổ phần Thủy sản Gentraco
+ - HAI	Công ty Cổ phần Nông dược H.A.I
+ - HBE	Công ty cổ phần Sách-Thiết bị trường học Hà Tĩnh
+ - HDA	Công ty cổ phần Hãng sơn Đông Á
+ - HJS	Công ty Cổ phần Thủy điện Nậm Mu
+ - HLA	Công ty cổ phần Hữu Liên Á Châu
+ - HMC	Công ty Cổ phần Kim khí TP Hồ Chí Minh
+ - HOT	Công ty Cổ phần Du lịch-Dịch vụ Hội An
+ - HPR	Công ty cổ phần Đầu tư Xây dựng Hồng Phát
+ - HSC	Công ty Cổ phần Hacinco
+ - HSG	Công ty cổ phần Tập đoàn Hoa Sen
+ - HSI	Công ty cổ phần Vật tư Tổng hợp và Phân bón Hóa sinh
+ - HT2	Công ty cổ phần Xi măng Hà Tiên 2
+ - HTL	Công ty cổ phần Kỹ thuật và Ô tô Trường Long
+ - HVT	Công ty cổ phần Hóa chất Việt Trì
+ - IDI	Công ty Cổ phần Đầu tư và Phát triển Đa Quốc Gia
+ - INC	Công ty Cổ phần Tư vấn Đầu tư IDICO
+ - ITA	Công ty cổ phần Đầu tư – Công nghiệp Tân Tạo
+ - JVC	Công ty cổ phần Thiết bị Y tế Việt Nhật
+ - KAC	Công ty cổ phần Đầu tư Địa ốc Khang An
+ - KHP	Công ty cổ phần Điện lực Khánh Hòa
+ - KKC	Công ty cổ phần Sản xuất và Kinh doanh kim khí
+ - KMF	Công ty cổ phần Mirae Fiber
+ - KMT	Công ty cổ phần Kim khí Miền Trung
+ - KSD	Tổng công ty cổ phần Xuất khẩu Đông Nam Á Hamico
+ - KST	Công ty cổ phần Viễn thông Tin học Điện tử
+ - MAFPF1	Quỹ đầu tư tăng trưởng Manulife
+ - MAX	Công ty cổ phần Khai khoáng và Cơ khí Hữu nghị Vĩnh Sinh
+ - MHL	Công ty cổ phần Minh Hữu Liên
+ - NBP	Công ty cổ phần Nhiệt điện Ninh Bình
+ - NDN	Công ty Đầu tư Phát triển Nhà Đà Nẵng
+ - NET	Công ty cổ phần Bột giặt Net
+ - NKD	Công ty cổ phần Chế biến thực phẩm Kinh Đô miền Bắc
+ - NKG	Công ty cổ phần Thép Nam Kim
+ - NLC	Công ty cổ phần Thủy điện Nà Lơi
+ - NVC	Công ty cổ phần Nam Vang
+ - PHR	Công ty cổ phần Cao su Phước Hòa
+ - PHT	Công ty cổ phần Sản xuất và Thương mại Phúc Tiến
+ - POM	Công ty cổ phần Thép Pomina
+ - PPC	Công ty cổ phần Nhiệt điện Phả Lại
+ - PPI	Công ty cổ phần Phát triển hạ tầng và Bất động sản Thái Bình Dương
+ - PPP	Công ty cổ phần Dược phẩm Phong Phú
+ - PRUBF1	Quỹ đầu tư cân bằng Prudential
+ - PVC	Tổng công ty cổ phần Dung dịch khoan và Hóa phẩm Dầu khí
+ - PVD	Tổng công ty cổ phần Khoan và Dịch vụ khoan dầu khí
+ - PVS	Tổng Công ty cổ phần Dịch vụ Kỹ thuật Dầu khí Việt Nam
+ - RDP	Công ty cổ phần Nhựa Rạng Đông
+ - RHC	Công ty Cổ phần Thủy điện Ry Ninh II
+ - SDC	Công ty Cổ phần Tư vấn sông Đà
+ - SDS	Công ty cổ phần Xây lắp và Đầu tư Sông Đà
+ - SDY	Công ty Cổ phần Xi măng Sông Đà Yaly
+ - SEC	Công ty cổ phần Mía đường - Nhiệt điện Gia Lai
+ - SFC	Công Ty Cổ Phần Nhiên Liệu Sài Gòn
+ - SJD	Công Ty Cổ Phần Thủy Điện Cần Đơn
+ - SMC	Công ty cổ phần đầu tư thương mại SMC
+ - SRC	Công ty cổ phần Cao su Sao vàng
+ - STT	Công ty cổ phần Vận chuyển Sài Gòn Tourist
+ - TBC	Công ty Cổ phần Thủy điện Thác Bà
+ - TIC	Công ty cổ phần Đầu tư điện Tây Nguyên
+ - TLH	Công ty cổ phần Tập đoàn thép Tiến Lên
+ - TMP	Công ty cổ phần Thủy điện Thác Mơ
+ - TV4	Công ty cổ phần Tư vấn xây dựng điện 4
+ - V21	Công ty Cổ phần Xây dựng số 21
+ - VCC	Công ty cổ phần Vinaconex 25
+ - VCM	Công ty cổ phần Nhân lực và Thương mại Vinaconex
+ - VFG	Công ty cổ phần Khử trùng Việt Nam
+ - VFMVF1	Quỹ Đầu Tư Chứng Khoán Việt Nam
+ - VFMVF4	Quỹ đầu tư Doanh nghiệp hàng đầu Việt Nam
+ - VFMVFA	Quỹ Đầu tư năng động Việt Nam
+ - VGS	Công ty cổ phần Ống thép Việt Đức VG PIPE
+ - VIE	Công ty cổ phần Công nghệ Viễn thông VITECO
+ - VIS	Công ty Cổ phần Thép Việt Ý
+ - VNH	Công ty cổ phần Thủy hải sản Việt Nhật
+ - VSH	Công ty Cổ phần Thủy điện Vĩnh Sơn – Sông Hinh
+Import from sheet : D:\work\stockProject\data\import\company_list.xls
+Import from sheet : D:\work\stockProject\data\import\company_list.xls
+Import from sheet : D:\work\stockProject\data\import\company_list.xls
+Import from sheet : D:\work\stockProject\data\import\company_list.xls
+Import from sheet : D:\work\stockProject\data\import\company_list.xls
+Import from sheet : D:\work\stockProject\data\import\company_list.xls
+Import from sheet : D:\work\stockProject\data\import\company_list.xls
+Import from sheet : D:\work\stockProject\data\import\company_list.xls
+Import from sheet : D:\work\stockProject\data\import\company_list.xls
