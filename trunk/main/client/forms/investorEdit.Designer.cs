@@ -118,7 +118,6 @@
             this.ClientSize = new System.Drawing.Size(484, 581);
             this.Margin = new System.Windows.Forms.Padding(3);
             this.Name = "investorEdit";
-            this.Text = "Nha dau tu / Investor";
             ((System.ComponentModel.ISupportInitialize)(this.investorSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.portfolioSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.watchListSource)).EndInit();

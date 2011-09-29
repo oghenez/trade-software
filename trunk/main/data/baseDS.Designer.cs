@@ -9941,9 +9941,9 @@ namespace data {
             
             private global::System.Data.DataColumn columnportfolio;
             
-            private global::System.Data.DataColumn columndataType;
+            private global::System.Data.DataColumn columncode;
             
-            private global::System.Data.DataColumn columndataCode;
+            private global::System.Data.DataColumn columnsubCode;
             
             private global::System.Data.DataColumn columndata;
             
@@ -9985,16 +9985,16 @@ namespace data {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn dataTypeColumn {
+            public global::System.Data.DataColumn codeColumn {
                 get {
-                    return this.columndataType;
+                    return this.columncode;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn dataCodeColumn {
+            public global::System.Data.DataColumn subCodeColumn {
                 get {
-                    return this.columndataCode;
+                    return this.columnsubCode;
                 }
             }
             
@@ -10034,12 +10034,12 @@ namespace data {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public portfolioDetailRow AddportfolioDetailRow(string portfolio, byte dataType, string dataCode, string data) {
+            public portfolioDetailRow AddportfolioDetailRow(string portfolio, string code, string subCode, string data) {
                 portfolioDetailRow rowportfolioDetailRow = ((portfolioDetailRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         portfolio,
-                        dataType,
-                        dataCode,
+                        code,
+                        subCode,
                         data};
                 rowportfolioDetailRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowportfolioDetailRow);
@@ -10047,11 +10047,11 @@ namespace data {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public portfolioDetailRow FindByportfoliodataTypedataCode(string portfolio, byte dataType, string dataCode) {
+            public portfolioDetailRow FindByportfoliocodesubCode(string portfolio, string code, string subCode) {
                 return ((portfolioDetailRow)(this.Rows.Find(new object[] {
                             portfolio,
-                            dataType,
-                            dataCode})));
+                            code,
+                            subCode})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -10069,8 +10069,8 @@ namespace data {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             internal void InitVars() {
                 this.columnportfolio = base.Columns["portfolio"];
-                this.columndataType = base.Columns["dataType"];
-                this.columndataCode = base.Columns["dataCode"];
+                this.columncode = base.Columns["code"];
+                this.columnsubCode = base.Columns["subCode"];
                 this.columndata = base.Columns["data"];
             }
             
@@ -10078,21 +10078,22 @@ namespace data {
             private void InitClass() {
                 this.columnportfolio = new global::System.Data.DataColumn("portfolio", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnportfolio);
-                this.columndataType = new global::System.Data.DataColumn("dataType", typeof(byte), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columndataType);
-                this.columndataCode = new global::System.Data.DataColumn("dataCode", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columndataCode);
+                this.columncode = new global::System.Data.DataColumn("code", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncode);
+                this.columnsubCode = new global::System.Data.DataColumn("subCode", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnsubCode);
                 this.columndata = new global::System.Data.DataColumn("data", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndata);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnportfolio,
-                                this.columndataType,
-                                this.columndataCode}, true));
+                                this.columncode,
+                                this.columnsubCode}, true));
                 this.columnportfolio.AllowDBNull = false;
                 this.columnportfolio.MaxLength = 10;
-                this.columndataType.AllowDBNull = false;
-                this.columndataCode.AllowDBNull = false;
-                this.columndataCode.MaxLength = 10;
+                this.columncode.AllowDBNull = false;
+                this.columncode.MaxLength = 20;
+                this.columnsubCode.AllowDBNull = false;
+                this.columnsubCode.MaxLength = 20;
                 this.columndata.AllowDBNull = false;
                 this.columndata.MaxLength = 512;
             }
@@ -13217,22 +13218,22 @@ namespace data {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public byte dataType {
+            public string code {
                 get {
-                    return ((byte)(this[this.tableportfolioDetail.dataTypeColumn]));
+                    return ((string)(this[this.tableportfolioDetail.codeColumn]));
                 }
                 set {
-                    this[this.tableportfolioDetail.dataTypeColumn] = value;
+                    this[this.tableportfolioDetail.codeColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public string dataCode {
+            public string subCode {
                 get {
-                    return ((string)(this[this.tableportfolioDetail.dataCodeColumn]));
+                    return ((string)(this[this.tableportfolioDetail.subCodeColumn]));
                 }
                 set {
-                    this[this.tableportfolioDetail.dataCodeColumn] = value;
+                    this[this.tableportfolioDetail.subCodeColumn] = value;
                 }
             }
             
@@ -24107,41 +24108,43 @@ SELECT stockCode, onDate, volume FROM updateVolume WHERE (onDate = @onDate) AND 
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "portfolioDetail";
             tableMapping.ColumnMappings.Add("portfolio", "portfolio");
-            tableMapping.ColumnMappings.Add("dataType", "dataType");
-            tableMapping.ColumnMappings.Add("dataCode", "dataCode");
+            tableMapping.ColumnMappings.Add("code", "code");
+            tableMapping.ColumnMappings.Add("subCode", "subCode");
             tableMapping.ColumnMappings.Add("data", "data");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [portfolioDetail] WHERE (([portfolio] = @Original_portfolio) AND ([da" +
-                "taType] = @Original_dataType) AND ([dataCode] = @Original_dataCode) AND ([data] " +
-                "= @Original_data))";
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [portfolioDetail] WHERE (([portfolio] = @Original_portfolio) AND ([co" +
+                "de] = @Original_code) AND ([subCode] = @Original_subCode) AND ([data] = @Origina" +
+                "l_data))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_portfolio", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "portfolio", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_dataType", global::System.Data.SqlDbType.TinyInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dataType", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_dataCode", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dataCode", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_code", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "code", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_subCode", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "subCode", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_data", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "data", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [portfolioDetail] ([portfolio], [dataType], [dataCode], [data]) VALUES (@portfolio, @dataType, @dataCode, @data);
-SELECT portfolio, dataType, dataCode, data FROM portfolioDetail WHERE (dataCode = @dataCode) AND (dataType = @dataType) AND (portfolio = @portfolio)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [portfolioDetail] ([portfolio], [code], [subCode], [data]) VALUES (@p" +
+                "ortfolio, @code, @subCode, @data);\r\nSELECT portfolio, code, subCode, data FROM p" +
+                "ortfolioDetail WHERE (code = @code) AND (portfolio = @portfolio) AND (subCode = " +
+                "@subCode)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@portfolio", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "portfolio", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dataType", global::System.Data.SqlDbType.TinyInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dataType", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dataCode", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dataCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@code", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "code", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@subCode", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "subCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@data", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "data", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [portfolioDetail] SET [portfolio] = @portfolio, [dataType] = @dataType, [dataCode] = @dataCode, [data] = @data WHERE (([portfolio] = @Original_portfolio) AND ([dataType] = @Original_dataType) AND ([dataCode] = @Original_dataCode) AND ([data] = @Original_data));
-SELECT portfolio, dataType, dataCode, data FROM portfolioDetail WHERE (dataCode = @dataCode) AND (dataType = @dataType) AND (portfolio = @portfolio)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [portfolioDetail] SET [portfolio] = @portfolio, [code] = @code, [subCode] = @subCode, [data] = @data WHERE (([portfolio] = @Original_portfolio) AND ([code] = @Original_code) AND ([subCode] = @Original_subCode) AND ([data] = @Original_data));
+SELECT portfolio, code, subCode, data FROM portfolioDetail WHERE (code = @code) AND (portfolio = @portfolio) AND (subCode = @subCode)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@portfolio", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "portfolio", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dataType", global::System.Data.SqlDbType.TinyInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dataType", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dataCode", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dataCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@code", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "code", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@subCode", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "subCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@data", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "data", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_portfolio", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "portfolio", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_dataType", global::System.Data.SqlDbType.TinyInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dataType", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_dataCode", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dataCode", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_code", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "code", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_subCode", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "subCode", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_data", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "data", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
@@ -24153,20 +24156,42 @@ SELECT portfolio, dataType, dataCode, data FROM portfolioDetail WHERE (dataCode 
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[4];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT    *\r\nFROM         portfolioDetail\r\nWHERE     (portfolio = @portfolio) AND" +
-                " (dataType = @dataType)";
+            this._commandCollection[0].CommandText = "SELECT * FROM portfolioDetail WHERE (portfolio = @portfolio) AND (code = @code) A" +
+                "ND (subCode = @subCode)";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@portfolio", global::System.Data.SqlDbType.NVarChar, 10, global::System.Data.ParameterDirection.Input, 0, 0, "portfolio", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dataType", global::System.Data.SqlDbType.TinyInt, 1, global::System.Data.ParameterDirection.Input, 0, 0, "dataType", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@code", global::System.Data.SqlDbType.NVarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "code", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@subCode", global::System.Data.SqlDbType.NVarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "subCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "DELETE  FROM portfolioDetail WHERE (portfolio = @portfolio) AND (code = @code) AN" +
+                "D (subCode = @subCode)";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@portfolio", global::System.Data.SqlDbType.NVarChar, 10, global::System.Data.ParameterDirection.Input, 0, 0, "portfolio", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@code", global::System.Data.SqlDbType.NVarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "code", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@subCode", global::System.Data.SqlDbType.NVarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "subCode", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = "SELECT code, data, portfolio, subCode FROM portfolioDetail WHERE (portfolio = @po" +
+                "rtfolio) AND (code = @code)";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@portfolio", global::System.Data.SqlDbType.NVarChar, 10, global::System.Data.ParameterDirection.Input, 0, 0, "portfolio", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@code", global::System.Data.SqlDbType.NVarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "code", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[3].Connection = this.Connection;
+            this._commandCollection[3].CommandText = "SELECT code, data, portfolio, subCode FROM portfolioDetail WHERE (portfolio = @po" +
+                "rtfolio)";
+            this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@portfolio", global::System.Data.SqlDbType.NVarChar, 10, global::System.Data.ParameterDirection.Input, 0, 0, "portfolio", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(baseDS.portfolioDetailDataTable dataTable, string portfolio, byte dataType) {
+        public virtual int Fill(baseDS.portfolioDetailDataTable dataTable, string portfolio, string code, string subCode) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((portfolio == null)) {
                 throw new global::System.ArgumentNullException("portfolio");
@@ -24174,7 +24199,18 @@ SELECT portfolio, dataType, dataCode, data FROM portfolioDetail WHERE (dataCode 
             else {
                 this.Adapter.SelectCommand.Parameters[0].Value = ((string)(portfolio));
             }
-            this.Adapter.SelectCommand.Parameters[1].Value = ((byte)(dataType));
+            if ((code == null)) {
+                throw new global::System.ArgumentNullException("code");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(code));
+            }
+            if ((subCode == null)) {
+                throw new global::System.ArgumentNullException("subCode");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((string)(subCode));
+            }
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
             }
@@ -24185,7 +24221,7 @@ SELECT portfolio, dataType, dataCode, data FROM portfolioDetail WHERE (dataCode 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual baseDS.portfolioDetailDataTable Get(string portfolio, byte dataType) {
+        public virtual baseDS.portfolioDetailDataTable Get(string portfolio, string code, string subCode) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((portfolio == null)) {
                 throw new global::System.ArgumentNullException("portfolio");
@@ -24193,7 +24229,98 @@ SELECT portfolio, dataType, dataCode, data FROM portfolioDetail WHERE (dataCode 
             else {
                 this.Adapter.SelectCommand.Parameters[0].Value = ((string)(portfolio));
             }
-            this.Adapter.SelectCommand.Parameters[1].Value = ((byte)(dataType));
+            if ((code == null)) {
+                throw new global::System.ArgumentNullException("code");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(code));
+            }
+            if ((subCode == null)) {
+                throw new global::System.ArgumentNullException("subCode");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((string)(subCode));
+            }
+            baseDS.portfolioDetailDataTable dataTable = new baseDS.portfolioDetailDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByCode(baseDS.portfolioDetailDataTable dataTable, string portfolio, string code) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            if ((portfolio == null)) {
+                throw new global::System.ArgumentNullException("portfolio");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(portfolio));
+            }
+            if ((code == null)) {
+                throw new global::System.ArgumentNullException("code");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(code));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual baseDS.portfolioDetailDataTable GetByCode(string portfolio, string code) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            if ((portfolio == null)) {
+                throw new global::System.ArgumentNullException("portfolio");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(portfolio));
+            }
+            if ((code == null)) {
+                throw new global::System.ArgumentNullException("code");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(code));
+            }
+            baseDS.portfolioDetailDataTable dataTable = new baseDS.portfolioDetailDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByPortfolio(baseDS.portfolioDetailDataTable dataTable, string portfolio) {
+            this.Adapter.SelectCommand = this.CommandCollection[3];
+            if ((portfolio == null)) {
+                throw new global::System.ArgumentNullException("portfolio");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(portfolio));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual baseDS.portfolioDetailDataTable GetByPortfolio(string portfolio) {
+            this.Adapter.SelectCommand = this.CommandCollection[3];
+            if ((portfolio == null)) {
+                throw new global::System.ArgumentNullException("portfolio");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(portfolio));
+            }
             baseDS.portfolioDetailDataTable dataTable = new baseDS.portfolioDetailDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -24226,145 +24353,42 @@ SELECT portfolio, dataType, dataCode, data FROM portfolioDetail WHERE (dataCode 
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(string Original_portfolio, byte Original_dataType, string Original_dataCode, string Original_data) {
-            if ((Original_portfolio == null)) {
-                throw new global::System.ArgumentNullException("Original_portfolio");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[0].Value = ((string)(Original_portfolio));
-            }
-            this.Adapter.DeleteCommand.Parameters[1].Value = ((byte)(Original_dataType));
-            if ((Original_dataCode == null)) {
-                throw new global::System.ArgumentNullException("Original_dataCode");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_dataCode));
-            }
-            if ((Original_data == null)) {
-                throw new global::System.ArgumentNullException("Original_data");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((string)(Original_data));
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
-            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.DeleteCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.DeleteCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string portfolio, byte dataType, string dataCode, string data) {
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, false)]
+        public virtual int DeleteRow(string portfolio, string code, string subCode) {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[1];
             if ((portfolio == null)) {
                 throw new global::System.ArgumentNullException("portfolio");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(portfolio));
+                command.Parameters[0].Value = ((string)(portfolio));
             }
-            this.Adapter.InsertCommand.Parameters[1].Value = ((byte)(dataType));
-            if ((dataCode == null)) {
-                throw new global::System.ArgumentNullException("dataCode");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(dataCode));
-            }
-            if ((data == null)) {
-                throw new global::System.ArgumentNullException("data");
+            if ((code == null)) {
+                throw new global::System.ArgumentNullException("code");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(data));
+                command.Parameters[1].Value = ((string)(code));
             }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
-            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+            if ((subCode == null)) {
+                throw new global::System.ArgumentNullException("subCode");
+            }
+            else {
+                command.Parameters[2].Value = ((string)(subCode));
+            }
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.InsertCommand.Connection.Open();
+                command.Connection.Open();
             }
+            int returnValue;
             try {
-                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
-                return returnValue;
+                returnValue = command.ExecuteNonQuery();
             }
             finally {
                 if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.InsertCommand.Connection.Close();
+                    command.Connection.Close();
                 }
             }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string portfolio, byte dataType, string dataCode, string data, string Original_portfolio, byte Original_dataType, string Original_dataCode, string Original_data) {
-            if ((portfolio == null)) {
-                throw new global::System.ArgumentNullException("portfolio");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(portfolio));
-            }
-            this.Adapter.UpdateCommand.Parameters[1].Value = ((byte)(dataType));
-            if ((dataCode == null)) {
-                throw new global::System.ArgumentNullException("dataCode");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(dataCode));
-            }
-            if ((data == null)) {
-                throw new global::System.ArgumentNullException("data");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(data));
-            }
-            if ((Original_portfolio == null)) {
-                throw new global::System.ArgumentNullException("Original_portfolio");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(Original_portfolio));
-            }
-            this.Adapter.UpdateCommand.Parameters[5].Value = ((byte)(Original_dataType));
-            if ((Original_dataCode == null)) {
-                throw new global::System.ArgumentNullException("Original_dataCode");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(Original_dataCode));
-            }
-            if ((Original_data == null)) {
-                throw new global::System.ArgumentNullException("Original_data");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Original_data));
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
-            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.UpdateCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.UpdateCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string data, string Original_portfolio, byte Original_dataType, string Original_dataCode, string Original_data) {
-            return this.Update(Original_portfolio, Original_dataType, Original_dataCode, data, Original_portfolio, Original_dataType, Original_dataCode, Original_data);
+            return returnValue;
         }
     }
 }

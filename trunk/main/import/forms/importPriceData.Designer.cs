@@ -29,24 +29,24 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(importPriceData));
-            this.dataFileLbl = new common.control.baseLabel();
-            this.dataFileNameEd = new common.control.baseTextBox();
-            this.stockExchangeLbl = new common.control.baseLabel();
-            this.cancelBtn = new common.control.baseButton();
-            this.closeBtn = new common.control.baseButton();
-            this.importBtn = new common.control.baseButton();
-            this.selectFileBtn = new common.control.baseButton();
+            this.dataFileLbl = new common.controls.baseLabel();
+            this.dataFileNameEd = new common.controls.baseTextBox();
+            this.stockExchangeLbl = new common.controls.baseLabel();
+            this.cancelBtn = new common.controls.baseButton();
+            this.closeBtn = new common.controls.baseButton();
+            this.importBtn = new common.controls.baseButton();
+            this.selectFileBtn = new common.controls.baseButton();
             this.myDataSet = new data.baseDS();
             this.stockExchangeCb = new baseClass.controls.cbStockExchange();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
-            this.viewLogBtn = new common.control.baseButton();
+            this.viewLogBtn = new common.controls.baseButton();
             this.noteGb = new System.Windows.Forms.GroupBox();
             this.noteLbl = new baseClass.controls.baseLabel();
-            this.actionCb = new common.control.baseComboBox();
-            this.actionLbl = new common.control.baseLabel();
-            this.dateTimeFormatLbl = new common.control.baseLabel();
-            this.baseLabel1 = new common.control.baseLabel();
-            this.cbDateTimeFormat = new common.control.cbDateTimeFormat();
+            this.actionCb = new common.controls.baseComboBox();
+            this.actionLbl = new common.controls.baseLabel();
+            this.dateTimeFormatLbl = new common.controls.baseLabel();
+            this.baseLabel1 = new common.controls.baseLabel();
+            this.cbDateTimeFormat = new common.controls.cbDateTimeFormat();
             ((System.ComponentModel.ISupportInitialize)(this.myDataSet)).BeginInit();
             this.noteGb.SuspendLayout();
             this.SuspendLayout();
@@ -299,24 +299,24 @@
 
         #endregion
 
-        protected common.control.baseButton selectFileBtn;
-        protected common.control.baseLabel dataFileLbl;
-        protected common.control.baseTextBox dataFileNameEd;
+        protected common.controls.baseButton selectFileBtn;
+        protected common.controls.baseLabel dataFileLbl;
+        protected common.controls.baseTextBox dataFileNameEd;
         protected baseClass.controls.cbStockExchange stockExchangeCb;
-        protected common.control.baseLabel stockExchangeLbl;
-        protected common.control.baseButton importBtn;
-        protected common.control.baseButton closeBtn;
-        protected common.control.baseButton cancelBtn;
+        protected common.controls.baseLabel stockExchangeLbl;
+        protected common.controls.baseButton importBtn;
+        protected common.controls.baseButton closeBtn;
+        protected common.controls.baseButton cancelBtn;
         protected data.baseDS myDataSet;
         protected System.Windows.Forms.OpenFileDialog openFileDialog;
-        protected common.control.baseButton viewLogBtn;
+        protected common.controls.baseButton viewLogBtn;
         private System.Windows.Forms.GroupBox noteGb;
         private baseClass.controls.baseLabel noteLbl;
-        private common.control.baseComboBox actionCb;
-        protected common.control.baseLabel actionLbl;
-        protected common.control.baseLabel dateTimeFormatLbl;
-        protected common.control.baseLabel baseLabel1;
-        protected common.control.cbDateTimeFormat cbDateTimeFormat;
+        private common.controls.baseComboBox actionCb;
+        protected common.controls.baseLabel actionLbl;
+        protected common.controls.baseLabel dateTimeFormatLbl;
+        protected common.controls.baseLabel baseLabel1;
+        protected common.controls.cbDateTimeFormat cbDateTimeFormat;
 
     }
 }

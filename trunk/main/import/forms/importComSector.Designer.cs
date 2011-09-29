@@ -30,16 +30,16 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(importComSector));
-            this.dataFileLbl = new common.control.baseLabel();
-            this.dataFileNameEd = new common.control.baseTextBox();
+            this.dataFileLbl = new common.controls.baseLabel();
+            this.dataFileNameEd = new common.controls.baseTextBox();
             this.myDataSet = new data.baseDS();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.bizIndustryClb = new baseClass.controls.clbBizIndustry();
-            this.industryLbl = new common.control.baseLabel();
-            this.viewLogBtn = new common.control.baseButton();
-            this.closeBtn = new common.control.baseButton();
-            this.importBtn = new common.control.baseButton();
-            this.selectFileBtn = new common.control.baseButton();
+            this.industryLbl = new common.controls.baseLabel();
+            this.viewLogBtn = new common.controls.baseButton();
+            this.closeBtn = new common.controls.baseButton();
+            this.importBtn = new common.controls.baseButton();
+            this.selectFileBtn = new common.controls.baseButton();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.noteGb = new System.Windows.Forms.GroupBox();
             this.noteLbl = new baseClass.controls.baseLabel();
@@ -222,17 +222,17 @@
 
         #endregion
 
-        protected common.control.baseButton selectFileBtn;
-        protected common.control.baseLabel dataFileLbl;
-        protected common.control.baseTextBox dataFileNameEd;
-        protected common.control.baseButton importBtn;
-        protected common.control.baseButton closeBtn;
+        protected common.controls.baseButton selectFileBtn;
+        protected common.controls.baseLabel dataFileLbl;
+        protected common.controls.baseTextBox dataFileNameEd;
+        protected common.controls.baseButton importBtn;
+        protected common.controls.baseButton closeBtn;
         protected data.baseDS myDataSet;
         protected System.Windows.Forms.OpenFileDialog openFileDialog;
-        protected common.control.baseLabel industryLbl;
+        protected common.controls.baseLabel industryLbl;
         protected baseClass.controls.clbBizIndustry bizIndustryClb;
         private System.Windows.Forms.BindingSource bindingSource1;
-        protected common.control.baseButton viewLogBtn;
+        protected common.controls.baseButton viewLogBtn;
         private System.Windows.Forms.GroupBox noteGb;
         private baseClass.controls.baseLabel noteLbl;
 

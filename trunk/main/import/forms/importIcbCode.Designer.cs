@@ -29,18 +29,18 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(importIcbCode));
-            this.dataFileLbl = new common.control.baseLabel();
-            this.dataFileNameEd = new common.control.baseTextBox();
-            this.closeBtn = new common.control.baseButton();
-            this.importBtn = new common.control.baseButton();
-            this.selectFileBtn = new common.control.baseButton();
+            this.dataFileLbl = new common.controls.baseLabel();
+            this.dataFileNameEd = new common.controls.baseTextBox();
+            this.closeBtn = new common.controls.baseButton();
+            this.importBtn = new common.controls.baseButton();
+            this.selectFileBtn = new common.controls.baseButton();
             this.myDataSet = new data.baseDS();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
-            this.sheetNameEd = new common.control.baseTextBox();
-            this.sheetNameLbl = new common.control.baseLabel();
-            this.sysCodeCatEd = new common.control.baseTextBox();
-            this.sysCodeCatLbl = new common.control.baseLabel();
-            this.viewLogBtn = new common.control.baseButton();
+            this.sheetNameEd = new common.controls.baseTextBox();
+            this.sheetNameLbl = new common.controls.baseLabel();
+            this.sysCodeCatEd = new common.controls.baseTextBox();
+            this.sysCodeCatLbl = new common.controls.baseLabel();
+            this.viewLogBtn = new common.controls.baseButton();
             this.noteGb = new System.Windows.Forms.GroupBox();
             this.noteLbl = new baseClass.controls.baseLabel();
             ((System.ComponentModel.ISupportInitialize)(this.myDataSet)).BeginInit();
@@ -236,18 +236,18 @@
 
         #endregion
 
-        protected common.control.baseButton selectFileBtn;
-        protected common.control.baseLabel dataFileLbl;
-        protected common.control.baseTextBox dataFileNameEd;
-        protected common.control.baseButton importBtn;
-        protected common.control.baseButton closeBtn;
+        protected common.controls.baseButton selectFileBtn;
+        protected common.controls.baseLabel dataFileLbl;
+        protected common.controls.baseTextBox dataFileNameEd;
+        protected common.controls.baseButton importBtn;
+        protected common.controls.baseButton closeBtn;
         protected data.baseDS myDataSet;
         protected System.Windows.Forms.OpenFileDialog openFileDialog;
-        protected common.control.baseTextBox sheetNameEd;
-        protected common.control.baseLabel sheetNameLbl;
-        protected common.control.baseTextBox sysCodeCatEd;
-        protected common.control.baseLabel sysCodeCatLbl;
-        protected common.control.baseButton viewLogBtn;
+        protected common.controls.baseTextBox sheetNameEd;
+        protected common.controls.baseLabel sheetNameLbl;
+        protected common.controls.baseTextBox sysCodeCatEd;
+        protected common.controls.baseLabel sysCodeCatLbl;
+        protected common.controls.baseButton viewLogBtn;
         private System.Windows.Forms.GroupBox noteGb;
         private baseClass.controls.baseLabel noteLbl;
 

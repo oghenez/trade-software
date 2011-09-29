@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(updatePrice));
-            this.urlLbl = new common.control.baseLabel();
-            this.urlEd = new common.control.baseTextBox();
-            this.stockExchangeLbl = new common.control.baseLabel();
-            this.closeBtn = new common.control.baseButton();
-            this.importBtn = new common.control.baseButton();
+            this.urlLbl = new common.controls.baseLabel();
+            this.urlEd = new common.controls.baseTextBox();
+            this.stockExchangeLbl = new common.controls.baseLabel();
+            this.closeBtn = new common.controls.baseButton();
+            this.importBtn = new common.controls.baseButton();
             this.myBaseDS = new data.baseDS();
             this.stockExchangeCb = new baseClass.controls.cbStockExchange();
             this.myImportDS = new data.importDS();
@@ -185,12 +185,12 @@
 
         #endregion
 
-        protected common.control.baseLabel urlLbl;
-        protected common.control.baseTextBox urlEd;
+        protected common.controls.baseLabel urlLbl;
+        protected common.controls.baseTextBox urlEd;
         protected baseClass.controls.cbStockExchange stockExchangeCb;
-        protected common.control.baseLabel stockExchangeLbl;
-        protected common.control.baseButton importBtn;
-        protected common.control.baseButton closeBtn;
+        protected common.controls.baseLabel stockExchangeLbl;
+        protected common.controls.baseButton importBtn;
+        protected common.controls.baseButton closeBtn;
         protected data.baseDS myBaseDS;
         private data.importDS myImportDS;
         private System.Windows.Forms.GroupBox noteGb;
