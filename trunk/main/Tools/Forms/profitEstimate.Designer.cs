@@ -36,7 +36,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(profitEstimate));
-            this.dataGrid = new common.control.baseDataGridView();
+            this.dataGrid = new common.controls.baseDataGridView();
             this.ignored = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.tradeActionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.onDateColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -50,7 +50,7 @@
             this.tradeEstimateSource = new System.Windows.Forms.BindingSource(this.components);
             this.myTmpDS = new data.tmpDS();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
-            this.chartPnl = new common.control.baseGraphPanel();
+            this.chartPnl = new common.controls.baseGraphPanel();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.estimationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.allTransactionMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -83,9 +83,8 @@
             // TitleLbl
             // 
             this.TitleLbl.Location = new System.Drawing.Point(919, 7);
-            this.TitleLbl.Size = new System.Drawing.Size(428, 24);
+            this.TitleLbl.Size = new System.Drawing.Size(87, 20);
             this.TitleLbl.Text = "TÌM KIẾM";
-            this.TitleLbl.Visible = false;
             // 
             // dataGrid
             // 
@@ -134,7 +133,7 @@
             // onDateColumn
             // 
             this.onDateColumn.DataPropertyName = "onDate";
-            this.onDateColumn.HeaderText = "Thời gian";
+            this.onDateColumn.HeaderText = "Date/Time";
             this.onDateColumn.Name = "onDateColumn";
             this.onDateColumn.ReadOnly = true;
             this.onDateColumn.Width = 140;
@@ -142,7 +141,7 @@
             // priceDataColumn
             // 
             this.priceDataColumn.DataPropertyName = "price";
-            this.priceDataColumn.HeaderText = "Giá";
+            this.priceDataColumn.HeaderText = "Price";
             this.priceDataColumn.Name = "priceDataColumn";
             this.priceDataColumn.ReadOnly = true;
             this.priceDataColumn.Width = 60;
@@ -154,7 +153,7 @@
             dataGridViewCellStyle1.Format = "N0";
             dataGridViewCellStyle1.NullValue = null;
             this.qtyColumn.DefaultCellStyle = dataGridViewCellStyle1;
-            this.qtyColumn.HeaderText = "S/Lượng";
+            this.qtyColumn.HeaderText = "Qty";
             this.qtyColumn.Name = "qtyColumn";
             this.qtyColumn.ReadOnly = true;
             this.qtyColumn.Width = 80;
@@ -166,7 +165,7 @@
             dataGridViewCellStyle2.Format = "N0";
             dataGridViewCellStyle2.NullValue = null;
             this.stockAmtColumn.DefaultCellStyle = dataGridViewCellStyle2;
-            this.stockAmtColumn.HeaderText = "Thành.tiền";
+            this.stockAmtColumn.HeaderText = "Amount";
             this.stockAmtColumn.Name = "stockAmtColumn";
             this.stockAmtColumn.ReadOnly = true;
             // 
@@ -177,7 +176,7 @@
             dataGridViewCellStyle3.Format = "N0";
             dataGridViewCellStyle3.NullValue = null;
             this.cashAmtColumn.DefaultCellStyle = dataGridViewCellStyle3;
-            this.cashAmtColumn.HeaderText = "Tiền mặt";
+            this.cashAmtColumn.HeaderText = "Cash ";
             this.cashAmtColumn.Name = "cashAmtColumn";
             this.cashAmtColumn.ReadOnly = true;
             // 
@@ -188,7 +187,7 @@
             dataGridViewCellStyle4.Format = "N0";
             dataGridViewCellStyle4.NullValue = null;
             this.totalAmtColumn.DefaultCellStyle = dataGridViewCellStyle4;
-            this.totalAmtColumn.HeaderText = "Tổng.giá.trị";
+            this.totalAmtColumn.HeaderText = "Total";
             this.totalAmtColumn.Name = "totalAmtColumn";
             this.totalAmtColumn.ReadOnly = true;
             this.totalAmtColumn.Width = 110;
@@ -200,7 +199,7 @@
             dataGridViewCellStyle5.Format = "N0";
             dataGridViewCellStyle5.NullValue = null;
             this.feeAmtColumn.DefaultCellStyle = dataGridViewCellStyle5;
-            this.feeAmtColumn.HeaderText = "Phí GD";
+            this.feeAmtColumn.HeaderText = "Fee";
             this.feeAmtColumn.Name = "feeAmtColumn";
             this.feeAmtColumn.ReadOnly = true;
             this.feeAmtColumn.Width = 90;
@@ -212,7 +211,7 @@
             dataGridViewCellStyle6.Format = "N0";
             dataGridViewCellStyle6.NullValue = null;
             this.profitColumn.DefaultCellStyle = dataGridViewCellStyle6;
-            this.profitColumn.HeaderText = "Lợi.nhuận";
+            this.profitColumn.HeaderText = "Profit";
             this.profitColumn.Name = "profitColumn";
             this.profitColumn.ReadOnly = true;
             this.profitColumn.Width = 90;
@@ -242,13 +241,13 @@
             this.chartPnl.isExpanded = true;
             this.chartPnl.isVisible = true;
             this.chartPnl.Location = new System.Drawing.Point(0, 397);
-            this.chartPnl.myIconLocations = common.control.basePanel.IconLocations.None;
-            this.chartPnl.mySizingOptions = common.control.basePanel.SizingOptions.Top;
+            this.chartPnl.myIconLocations = common.controls.basePanel.IconLocations.None;
+            this.chartPnl.mySizingOptions = common.controls.basePanel.SizingOptions.Top;
             this.chartPnl.myWeight = 0;
             this.chartPnl.Name = "chartPnl";
             this.chartPnl.Size = new System.Drawing.Size(905, 217);
             this.chartPnl.TabIndex = 298;
-            this.chartPnl.myOnShowStateChanged += new common.control.basePanel.OnShowStateChanged(this.chartPnl_myOnShowStateChanged);
+            this.chartPnl.myOnShowStateChanged += new common.controls.basePanel.OnShowStateChanged(this.chartPnl_myOnShowStateChanged);
             // 
             // menuStrip
             // 
@@ -318,7 +317,7 @@
             this.exportMenuItem.Text = "Export";
             this.exportMenuItem.Click += new System.EventHandler(this.exportMenuItem_Click);
             // 
-            // estimateTrade
+            // profitEstimate
             // 
             this.ClientSize = new System.Drawing.Size(908, 645);
             this.Controls.Add(this.chartPnl);
@@ -326,17 +325,17 @@
             this.Controls.Add(this.menuStrip);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip;
-            this.Name = "estimateTrade";
-            this.Text = "Danh gia / Estimation";
+            this.Name = "profitEstimate";
+            this.Text = " Estimation";
             this.Load += new System.EventHandler(this.baseAdviceEstimate_Load);
             this.myOnProcess += new common.forms.baseDialogForm.onProcess(this.baseAdviceEstimate_myOnAccept);
             this.Resize += new System.EventHandler(this.baseAdviceEstimate_Resize);
             this.Controls.SetChildIndex(this.menuStrip, 0);
             this.Controls.SetChildIndex(this.closeBtn, 0);
             this.Controls.SetChildIndex(this.dataGrid, 0);
-            this.Controls.SetChildIndex(this.chartPnl, 0);
             this.Controls.SetChildIndex(this.okBtn, 0);
             this.Controls.SetChildIndex(this.TitleLbl, 0);
+            this.Controls.SetChildIndex(this.chartPnl, 0);
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tradeEstimateSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.myTmpDS)).EndInit();
@@ -351,9 +350,18 @@
 
         private System.Windows.Forms.BindingSource tradeEstimateSource;
         private data.tmpDS myTmpDS;
-        protected common.control.baseDataGridView dataGrid;
+        protected common.controls.baseDataGridView dataGrid;
         protected System.Windows.Forms.SaveFileDialog saveFileDialog;
-        protected common.control.baseGraphPanel chartPnl;
+        protected common.controls.baseGraphPanel chartPnl;
+        protected System.Windows.Forms.MenuStrip menuStrip;
+        private System.Windows.Forms.ToolStripMenuItem estimationToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem allTransactionMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripMenuItem showChartMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripMenuItem reloadMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem exportMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.DataGridViewCheckBoxColumn ignored;
         private System.Windows.Forms.DataGridViewTextBoxColumn tradeActionDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn onDateColumn;
@@ -364,14 +372,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn totalAmtColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn feeAmtColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn profitColumn;
-        protected System.Windows.Forms.MenuStrip menuStrip;
-        private System.Windows.Forms.ToolStripMenuItem estimationToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem allTransactionMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.ToolStripMenuItem showChartMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
-        private System.Windows.Forms.ToolStripMenuItem reloadMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem exportMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
     }
 }

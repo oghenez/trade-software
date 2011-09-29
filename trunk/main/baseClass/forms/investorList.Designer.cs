@@ -30,13 +30,13 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(investorList));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.dataGrid = new common.control.baseDataGridView();
-            this.codeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.displayNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGrid = new common.controls.baseDataGridView();
             this.findPnl = new System.Windows.Forms.Panel();
             this.filterBtn = new baseClass.controls.baseButton();
             this.closeFindBtn = new baseClass.controls.baseButton();
             this.findCriteria = new baseClass.controls.investorCriteria();
+            this.codeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.displayNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.investorSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.portfolioSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.watchListSource)).BeginInit();
@@ -78,12 +78,20 @@
             // countryCb
             // 
             this.countryCb.Margin = new System.Windows.Forms.Padding(2);
-            this.countryCb.Size = new System.Drawing.Size(239, 21);
+            this.countryCb.Size = new System.Drawing.Size(239, 24);
+            // 
+            // investorCatCb
+            // 
+            this.investorCatCb.Size = new System.Drawing.Size(239, 24);
+            // 
+            // statusCb
+            // 
+            this.statusCb.Size = new System.Drawing.Size(99, 24);
             // 
             // sexCb
             // 
             this.sexCb.Margin = new System.Windows.Forms.Padding(2);
-            this.sexCb.Size = new System.Drawing.Size(61, 21);
+            this.sexCb.Size = new System.Drawing.Size(61, 24);
             // 
             // displayNameEd
             // 
@@ -189,21 +197,6 @@
             this.dataGrid.Size = new System.Drawing.Size(419, 617);
             this.dataGrid.TabIndex = 231;
             // 
-            // codeDataGridViewTextBoxColumn
-            // 
-            this.codeDataGridViewTextBoxColumn.DataPropertyName = "code";
-            this.codeDataGridViewTextBoxColumn.HeaderText = "Mã số";
-            this.codeDataGridViewTextBoxColumn.Name = "codeDataGridViewTextBoxColumn";
-            this.codeDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // displayNameDataGridViewTextBoxColumn
-            // 
-            this.displayNameDataGridViewTextBoxColumn.DataPropertyName = "displayName";
-            this.displayNameDataGridViewTextBoxColumn.HeaderText = "Tên";
-            this.displayNameDataGridViewTextBoxColumn.Name = "displayNameDataGridViewTextBoxColumn";
-            this.displayNameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.displayNameDataGridViewTextBoxColumn.Width = 260;
-            // 
             // findPnl
             // 
             this.findPnl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
@@ -229,7 +222,7 @@
             this.filterBtn.Name = "filterBtn";
             this.filterBtn.Size = new System.Drawing.Size(65, 40);
             this.filterBtn.TabIndex = 10;
-            this.filterBtn.Text = "Lọc";
+            this.filterBtn.Text = "Find";
             this.filterBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.filterBtn.UseVisualStyleBackColor = true;
             this.filterBtn.Click += new System.EventHandler(this.filterBtn_Click);
@@ -244,7 +237,7 @@
             this.closeFindBtn.Name = "closeFindBtn";
             this.closeFindBtn.Size = new System.Drawing.Size(65, 40);
             this.closeFindBtn.TabIndex = 11;
-            this.closeFindBtn.Text = "Đóng";
+            this.closeFindBtn.Text = "Close";
             this.closeFindBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.closeFindBtn.UseVisualStyleBackColor = true;
             this.closeFindBtn.Click += new System.EventHandler(this.closeFindBtn_Click);
@@ -257,6 +250,21 @@
             this.findCriteria.Name = "findCriteria";
             this.findCriteria.Size = new System.Drawing.Size(293, 150);
             this.findCriteria.TabIndex = 1;
+            // 
+            // codeDataGridViewTextBoxColumn
+            // 
+            this.codeDataGridViewTextBoxColumn.DataPropertyName = "code";
+            this.codeDataGridViewTextBoxColumn.HeaderText = "Code";
+            this.codeDataGridViewTextBoxColumn.Name = "codeDataGridViewTextBoxColumn";
+            this.codeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // displayNameDataGridViewTextBoxColumn
+            // 
+            this.displayNameDataGridViewTextBoxColumn.DataPropertyName = "displayName";
+            this.displayNameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.displayNameDataGridViewTextBoxColumn.Name = "displayNameDataGridViewTextBoxColumn";
+            this.displayNameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.displayNameDataGridViewTextBoxColumn.Width = 260;
             // 
             // investorList
             // 
@@ -292,7 +300,7 @@
         protected baseClass.controls.baseButton filterBtn;
         protected controls.investorCriteria findCriteria;
         protected System.Windows.Forms.Panel findPnl;
-        protected common.control.baseDataGridView dataGrid;
+        protected common.controls.baseDataGridView dataGrid;
         private System.Windows.Forms.DataGridViewTextBoxColumn codeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn displayNameDataGridViewTextBoxColumn;
     }

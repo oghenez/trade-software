@@ -31,8 +31,8 @@
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.watchListCb = new common.control.baseComboBox();
-            this.stockGV = new common.control.baseDataGridView();
+            this.watchListCb = new common.controls.baseComboBox();
+            this.stockGV = new common.controls.baseDataGridView();
             this.stockSource = new System.Windows.Forms.BindingSource(this.components);
             this.myTmpDS = new data.tmpDS();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
@@ -56,7 +56,7 @@
             this.watchListCb.Location = new System.Drawing.Point(0, 0);
             this.watchListCb.myValue = "";
             this.watchListCb.Name = "watchListCb";
-            this.watchListCb.Size = new System.Drawing.Size(233, 24);
+            this.watchListCb.Size = new System.Drawing.Size(244, 24);
             this.watchListCb.TabIndex = 1;
             this.watchListCb.SelectionChangeCommitted += new System.EventHandler(this.watchListCb_SelectionChangeCommitted);
             // 
@@ -82,7 +82,7 @@
             this.stockGV.ReadOnly = true;
             this.stockGV.RowHeadersWidth = 20;
             this.stockGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.stockGV.Size = new System.Drawing.Size(253, 348);
+            this.stockGV.Size = new System.Drawing.Size(264, 348);
             this.stockGV.TabIndex = 10;
             this.stockGV.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.stockGV_CellDoubleClick);
             this.stockGV.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.stockGV_DataBindingComplete);
@@ -107,7 +107,7 @@
             this.refreshBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.refreshBtn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.refreshBtn.Image = global::baseClass.Properties.Resources.refresh;
-            this.refreshBtn.Location = new System.Drawing.Point(233, 1);
+            this.refreshBtn.Location = new System.Drawing.Point(244, 1);
             this.refreshBtn.Margin = new System.Windows.Forms.Padding(4);
             this.refreshBtn.Name = "refreshBtn";
             this.refreshBtn.Size = new System.Drawing.Size(18, 21);
@@ -118,15 +118,15 @@
             // stockExchangeColumn
             // 
             this.stockExchangeColumn.DataPropertyName = "stockExchange";
-            this.stockExchangeColumn.HeaderText = "Sàn";
+            this.stockExchangeColumn.HeaderText = "Exchange";
             this.stockExchangeColumn.Name = "stockExchangeColumn";
             this.stockExchangeColumn.ReadOnly = true;
-            this.stockExchangeColumn.Width = 50;
+            this.stockExchangeColumn.Width = 65;
             // 
             // codeColumn
             // 
             this.codeColumn.DataPropertyName = "code";
-            this.codeColumn.HeaderText = "Mã";
+            this.codeColumn.HeaderText = "Code";
             this.codeColumn.Name = "codeColumn";
             this.codeColumn.ReadOnly = true;
             this.codeColumn.Width = 45;
@@ -138,7 +138,7 @@
             dataGridViewCellStyle1.Format = "N2";
             dataGridViewCellStyle1.NullValue = null;
             this.priceColumn.DefaultCellStyle = dataGridViewCellStyle1;
-            this.priceColumn.HeaderText = "Giá";
+            this.priceColumn.HeaderText = "Price";
             this.priceColumn.Name = "priceColumn";
             this.priceColumn.ReadOnly = true;
             this.priceColumn.Width = 65;
@@ -158,7 +158,7 @@
             // stockNameColumn
             // 
             this.stockNameColumn.DataPropertyName = "name";
-            this.stockNameColumn.HeaderText = "Tên";
+            this.stockNameColumn.HeaderText = "Name";
             this.stockNameColumn.Name = "stockNameColumn";
             this.stockNameColumn.ReadOnly = true;
             this.stockNameColumn.Visible = false;
@@ -172,7 +172,7 @@
             this.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "stockCodeSelectByWatchList";
-            this.Size = new System.Drawing.Size(255, 375);
+            this.Size = new System.Drawing.Size(266, 375);
             this.Resize += new System.EventHandler(this.form_Resize);
             ((System.ComponentModel.ISupportInitialize)(this.stockGV)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.stockSource)).EndInit();
@@ -183,10 +183,10 @@
 
         #endregion
 
-        private common.control.baseComboBox watchListCb;
+        private common.controls.baseComboBox watchListCb;
         protected baseButton refreshBtn;
         protected System.Windows.Forms.BindingSource stockSource;
-        protected common.control.baseDataGridView stockGV;
+        protected common.controls.baseDataGridView stockGV;
         protected System.Windows.Forms.SaveFileDialog saveFileDialog;
         protected data.tmpDS myTmpDS;
         private System.Windows.Forms.DataGridViewTextBoxColumn stockExchangeColumn;

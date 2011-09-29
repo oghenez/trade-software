@@ -114,7 +114,7 @@
             this.xpPanel_OtherInfo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.xpPanel_OtherInfo.BackColor = System.Drawing.Color.Transparent;
-            this.xpPanel_OtherInfo.Caption = "Khác";
+            this.xpPanel_OtherInfo.Caption = "Others";
             this.xpPanel_OtherInfo.CaptionCornerType = ((UIComponents.CornerType)((UIComponents.CornerType.TopLeft | UIComponents.CornerType.TopRight)));
             this.xpPanel_OtherInfo.CaptionGradient.End = System.Drawing.SystemColors.MenuHighlight;
             this.xpPanel_OtherInfo.CaptionGradient.Start = System.Drawing.SystemColors.MenuHighlight;
@@ -150,7 +150,7 @@
             this.xpPanel_StockInfo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.xpPanel_StockInfo.BackColor = System.Drawing.Color.Transparent;
-            this.xpPanel_StockInfo.Caption = "Cổ phiếu";
+            this.xpPanel_StockInfo.Caption = "Stock";
             this.xpPanel_StockInfo.CaptionCornerType = ((UIComponents.CornerType)((UIComponents.CornerType.TopLeft | UIComponents.CornerType.TopRight)));
             this.xpPanel_StockInfo.CaptionGradient.End = System.Drawing.SystemColors.MenuHighlight;
             this.xpPanel_StockInfo.CaptionGradient.Start = System.Drawing.SystemColors.MenuHighlight;
@@ -188,7 +188,7 @@
             this.xpPanel_GeneralInfo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.xpPanel_GeneralInfo.BackColor = System.Drawing.Color.Transparent;
-            this.xpPanel_GeneralInfo.Caption = "Thông tin chung";
+            this.xpPanel_GeneralInfo.Caption = "General Info";
             this.xpPanel_GeneralInfo.CaptionCornerType = ((UIComponents.CornerType)((UIComponents.CornerType.TopLeft | UIComponents.CornerType.TopRight)));
             this.xpPanel_GeneralInfo.CaptionGradient.End = System.Drawing.SystemColors.MenuHighlight;
             this.xpPanel_GeneralInfo.CaptionGradient.Start = System.Drawing.SystemColors.MenuHighlight;
@@ -226,7 +226,7 @@
             this.Controls.Add(this.xpPanelGroup_Info);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "companyEdit";
-            this.Text = "Cong ty";
+            this.Text = "Company";
             this.Controls.SetChildIndex(this.toolBox, 0);
             this.Controls.SetChildIndex(this.unLockBtn, 0);
             this.Controls.SetChildIndex(this.TitleLbl, 0);

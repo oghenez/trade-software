@@ -28,19 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.paraLbl = new common.control.baseLabel();
-            this.macdColorEd = new common.control.ColorComboBox();
-            this.fastParaEd = new common.control.numberTextBox();
+            this.paraLbl = new common.controls.baseLabel();
+            this.macdColorEd = new common.controls.ColorComboBox();
+            this.fastParaEd = new common.controls.numberTextBox();
             this.macdWeightEd = new System.Windows.Forms.NumericUpDown();
-            this.inNewPaneChk = new common.control.baseCheckBox();
+            this.inNewPaneChk = new common.controls.baseCheckBox();
             this.sigWeightEd = new System.Windows.Forms.NumericUpDown();
-            this.slowParaEd = new common.control.numberTextBox();
-            this.signalColorEd = new common.control.ColorComboBox();
-            this.macdLbl2 = new common.control.baseLabel();
-            this.signalLbl = new common.control.baseLabel();
-            this.signalParaEd = new common.control.numberTextBox();
-            this.histColorCb = new common.control.ColorComboBox();
-            this.histLbl = new common.control.baseLabel();
+            this.slowParaEd = new common.controls.numberTextBox();
+            this.signalColorEd = new common.controls.ColorComboBox();
+            this.macdLbl2 = new common.controls.baseLabel();
+            this.signalLbl = new common.controls.baseLabel();
+            this.signalParaEd = new common.controls.numberTextBox();
+            this.histColorCb = new common.controls.ColorComboBox();
+            this.histLbl = new common.controls.baseLabel();
             this.histWeightEd = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.macdWeightEd)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sigWeightEd)).BeginInit();
@@ -319,19 +319,19 @@
 
         #endregion
 
-        protected common.control.baseLabel paraLbl;
-        protected common.control.ColorComboBox macdColorEd;
-        protected common.control.numberTextBox fastParaEd;
+        protected common.controls.baseLabel paraLbl;
+        protected common.controls.ColorComboBox macdColorEd;
+        protected common.controls.numberTextBox fastParaEd;
         private System.Windows.Forms.NumericUpDown macdWeightEd;
-        protected common.control.baseCheckBox inNewPaneChk;
+        protected common.controls.baseCheckBox inNewPaneChk;
         private System.Windows.Forms.NumericUpDown sigWeightEd;
-        protected common.control.numberTextBox slowParaEd;
-        protected common.control.ColorComboBox signalColorEd;
-        protected common.control.baseLabel macdLbl2;
-        protected common.control.baseLabel signalLbl;
-        protected common.control.numberTextBox signalParaEd;
-        protected common.control.ColorComboBox histColorCb;
-        protected common.control.baseLabel histLbl;
+        protected common.controls.numberTextBox slowParaEd;
+        protected common.controls.ColorComboBox signalColorEd;
+        protected common.controls.baseLabel macdLbl2;
+        protected common.controls.baseLabel signalLbl;
+        protected common.controls.numberTextBox signalParaEd;
+        protected common.controls.ColorComboBox histColorCb;
+        protected common.controls.baseLabel histLbl;
         private System.Windows.Forms.NumericUpDown histWeightEd;
     }
 }

@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.paramGrid = new common.control.baseDataGridView();
+            this.paramGrid = new common.controls.baseDataGridView();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.paraPg = new System.Windows.Forms.TabPage();
-            this.paraDescEd = new common.control.baseTextBox();
+            this.paraDescEd = new common.controls.baseTextBox();
             this.hintPg = new System.Windows.Forms.TabPage();
-            this.hintTextEd = new common.control.baseTextBox();
-            this.saveBtn = new common.control.baseButton();
+            this.hintTextEd = new common.controls.baseTextBox();
+            this.saveBtn = new common.controls.baseButton();
             this.nameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.valueColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.paramGrid)).BeginInit();
@@ -211,13 +211,13 @@
 
         #endregion
 
-        protected common.control.baseDataGridView paramGrid;
+        protected common.controls.baseDataGridView paramGrid;
         private System.Windows.Forms.TabPage paraPg;
         private System.Windows.Forms.TabPage hintPg;
         protected System.Windows.Forms.TabControl tabControl;
-        protected common.control.baseTextBox hintTextEd;
-        protected common.control.baseTextBox paraDescEd;
-        protected common.control.baseButton saveBtn;
+        protected common.controls.baseTextBox hintTextEd;
+        protected common.controls.baseTextBox paraDescEd;
+        protected common.controls.baseButton saveBtn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn valueColumn;
 

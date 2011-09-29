@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(watchListNew));
-            this.descriptionEd = new common.control.baseTextBox();
+            this.descriptionEd = new common.controls.baseTextBox();
             this.nameLbl = new baseClass.controls.baseLabel();
-            this.codeEd = new common.control.baseTextBox();
-            this.nameEd = new common.control.baseTextBox();
+            this.codeEd = new common.controls.baseTextBox();
+            this.nameEd = new common.controls.baseTextBox();
             this.descriptionLbl = new baseClass.controls.baseLabel();
             this.saveBtn = new System.Windows.Forms.Button();
             this.exitBtn = new System.Windows.Forms.Button();
@@ -62,9 +62,9 @@
             this.nameLbl.Location = new System.Drawing.Point(19, 11);
             this.nameLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.nameLbl.Name = "nameLbl";
-            this.nameLbl.Size = new System.Drawing.Size(31, 16);
+            this.nameLbl.Size = new System.Drawing.Size(43, 16);
             this.nameLbl.TabIndex = 369;
-            this.nameLbl.Text = "Tên";
+            this.nameLbl.Text = "Name";
             // 
             // codeEd
             // 
@@ -93,9 +93,9 @@
             this.descriptionLbl.Location = new System.Drawing.Point(20, 62);
             this.descriptionLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.descriptionLbl.Name = "descriptionLbl";
-            this.descriptionLbl.Size = new System.Drawing.Size(45, 16);
+            this.descriptionLbl.Size = new System.Drawing.Size(81, 16);
             this.descriptionLbl.TabIndex = 368;
-            this.descriptionLbl.Text = "Mô tả";
+            this.descriptionLbl.Text = "Description";
             // 
             // saveBtn
             // 
@@ -106,7 +106,7 @@
             this.saveBtn.Name = "saveBtn";
             this.saveBtn.Size = new System.Drawing.Size(75, 29);
             this.saveBtn.TabIndex = 371;
-            this.saveBtn.Text = "&Lưu";
+            this.saveBtn.Text = "&Save";
             this.saveBtn.UseVisualStyleBackColor = true;
             this.saveBtn.Click += new System.EventHandler(this.saveBtn_Click);
             // 
@@ -119,7 +119,7 @@
             this.exitBtn.Name = "exitBtn";
             this.exitBtn.Size = new System.Drawing.Size(75, 29);
             this.exitBtn.TabIndex = 372;
-            this.exitBtn.Text = "Đó&ng";
+            this.exitBtn.Text = "&Close";
             this.exitBtn.UseVisualStyleBackColor = true;
             this.exitBtn.Click += new System.EventHandler(this.exitBtn_Click);
             // 
@@ -131,8 +131,6 @@
             // 
             // watchListNew
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            
             this.ClientSize = new System.Drawing.Size(352, 187);
             this.Controls.Add(this.saveBtn);
             this.Controls.Add(this.exitBtn);
@@ -164,10 +162,10 @@
 
         #endregion
 
-        protected common.control.baseTextBox descriptionEd;
+        protected common.controls.baseTextBox descriptionEd;
         protected baseClass.controls.baseLabel nameLbl;
-        protected common.control.baseTextBox codeEd;
-        protected common.control.baseTextBox nameEd;
+        protected common.controls.baseTextBox codeEd;
+        protected common.controls.baseTextBox nameEd;
         protected baseClass.controls.baseLabel descriptionLbl;
         protected System.Windows.Forms.Button saveBtn;
         protected System.Windows.Forms.Button exitBtn;

@@ -16,4 +16,3 @@ D:\work\stockProject\new-code\admin\obj\Debug\admin.Properties.Resources.resourc
 D:\work\stockProject\new-code\admin\obj\Debug\admin.cs.csproj.GenerateResource.Cache
 D:\work\stockProject\new-code\admin\obj\Debug\admin.exe
 D:\work\stockProject\new-code\admin\obj\Debug\admin.pdb
-D:\work\stockProject\new-code\admin\obj\Debug\admin.forms.sysWatchList.resources

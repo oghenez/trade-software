@@ -26,7 +26,7 @@ namespace Tools.Forms
                 CreateContextMenu();
                 minScrollBar.Maximum = Int32.MaxValue-1;
                 maxScrollBar.Maximum = Int32.MaxValue-1;
-                editColumn.myImageType = common.control.imageType.Edit;
+                editColumn.myImageType = common.controls.imageType.Edit;
                 LockOptions(criteriaSource.Count <= 0);
             }
             catch (Exception er)

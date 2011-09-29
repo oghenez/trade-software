@@ -8,23 +8,15 @@ using System.Windows.Forms;
 
 namespace admin
 {
-    //public partial class main : common.forms.baseApplication
-    public partial class main : baseClass.forms.baseApplication
+    public partial class main : common.forms.baseApplication
+    //public partial class main : baseClass.forms.baseApplication
     {
-        //private int timerIntervalInSecs = 10;       //Tick event occurs each 10 second
-        //private int tradeAlertIntervalInSecs = 10;  //Time interval to check new trade alerts
-        //private int tradeAlertElapseInSecs = 0;     //Time elapsed since the last trade alert event
-
         public main()
         {
             try
             {
                 InitializeComponent();
-                //application.test.LoadTestConfig();
-
-                //this.myStatusImageVisibled = false;
-                //this.myStatusImage = Properties.Resources.mail;
-                //myMainTimer.Interval = this.timerIntervalInSecs*1000;  
+                application.test.LoadTestConfig();
             }
             catch (Exception er)
             {
@@ -41,19 +33,7 @@ namespace admin
         {
             return true;
         }
-
-        private void ShowStockChart(data.baseDS.stockCodeRow row)
-        {
-            //string formName = "baseTradeAnalysis" + row.code.Trim();
-            //stock.forms.tradeAnalysis myForm = (stock.forms.tradeAnalysis)common.formList.FindForm(formName);
-            //if (myForm == null || myForm.IsDisposed)
-            //{
-            //    myForm = new stock.forms.tradeAnalysis();
-            //    myForm.Name = formName;
-            //    common.formList.AddForm(myForm);
-            //}
-            //myForm.ShowForm(row);
-        }
+     
 
         private void exitMenu_Click(object sender, EventArgs e)
         {
@@ -235,8 +215,28 @@ namespace admin
 
         private void sysWatchListMenuItem_Click(object sender, EventArgs e)
         {
-            forms.sysWatchList myForm = forms.sysWatchList.GetForm("sysWatchList");
-            myForm.Show();
+            try
+            {
+                baseClass.forms.sysWatchList myForm = baseClass.forms.sysWatchList.GetForm("sysWatchList");
+                myForm.Show();
+            }
+            catch (Exception er)
+            {
+                this.ShowError(er);
+            }
+        }
+
+        private void sysInterestedStrategyMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                baseClass.forms.sysInterestedStrategy myForm = baseClass.forms.sysInterestedStrategy.GetForm("sysInterestedStrategy");
+                myForm.Show();
+            }
+            catch (Exception er)
+            {
+                this.ShowError(er);
+            }
         }
     }
 }

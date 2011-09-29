@@ -40,9 +40,9 @@
             this.bizSectorLbl.Location = new System.Drawing.Point(3, 3);
             this.bizSectorLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.bizSectorLbl.Name = "bizSectorLbl";
-            this.bizSectorLbl.Size = new System.Drawing.Size(137, 16);
+            this.bizSectorLbl.Size = new System.Drawing.Size(118, 16);
             this.bizSectorLbl.TabIndex = 291;
-            this.bizSectorLbl.Text = "Lãnh vực họat động";
+            this.bizSectorLbl.Text = "Business Sectors";
             // 
             // txtDate2ss
             // 

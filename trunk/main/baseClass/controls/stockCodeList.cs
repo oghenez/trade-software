@@ -12,8 +12,11 @@ using System.Collections;
 
 namespace baseClass.controls
 {
-    public partial class stockCodeList : common.control.baseListEdit2
+    public partial class stockCodeList : common.controls.baseListEdit2
     {
+        public delegate void StockCodeSelectionChange(object sender, EventArgs e);
+        public event StockCodeSelectionChange myStockCodeSelectionChange = null;
+
         public stockCodeList()
         {
             try
@@ -25,15 +28,30 @@ namespace baseClass.controls
                 ErrorHandler(this, er);
             }            
         }
-        protected override common.control.baseListBox CreateListObj()
+        protected override common.controls.baseListBox CreateListObj()
         {
-            controls.lbStockCode lbox = new controls.lbStockCode();
-            lbox.SelectionMode = SelectionMode.MultiExtended;
-            return lbox;
+            stockCodeLb.SelectionMode = SelectionMode.MultiExtended;
+            return stockCodeLb;
+            //lbStockCode lbox = new lbStockCode();
+            //lbox.SelectionMode = SelectionMode.MultiExtended;
+            //return lbox;
         }
         protected override common.forms.baseListSelection CreateCodeSelectionForm()
         {
             return new forms.stockSelectionForm();
+        }
+
+        private void stockCodeLb_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (myStockCodeSelectionChange==null) return;
+                myStockCodeSelectionChange(sender, e);
+            }
+            catch (Exception er)
+            {
+                ErrorHandler(this, er);
+            }            
         }
     }
 }

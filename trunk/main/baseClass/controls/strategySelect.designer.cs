@@ -65,16 +65,14 @@
             this.selectAllChk.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.selectAllChk.Location = new System.Drawing.Point(3, 177);
             this.selectAllChk.Name = "selectAllChk";
-            this.selectAllChk.Size = new System.Drawing.Size(67, 20);
+            this.selectAllChk.Size = new System.Drawing.Size(87, 20);
             this.selectAllChk.TabIndex = 20;
-            this.selectAllChk.Text = "Tất cả";
+            this.selectAllChk.Text = "Select All";
             this.selectAllChk.UseVisualStyleBackColor = true;
             this.selectAllChk.CheckedChanged += new System.EventHandler(this.selectAllChk_CheckedChanged);
             // 
             // strategySelect
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
-            
             this.Controls.Add(this.selectAllChk);
             this.Controls.Add(this.strategyClb);
             this.Controls.Add(this.strategyCatCb);

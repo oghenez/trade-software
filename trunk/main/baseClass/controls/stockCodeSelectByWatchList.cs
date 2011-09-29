@@ -21,7 +21,7 @@ namespace baseClass.controls
     /// - WatchList : stockcodes from user's m watch lists
     /// 
     /// </summary>
-    public partial class stockCodeSelectByWatchList : common.control.baseUserControl
+    public partial class stockCodeSelectByWatchList : common.controls.baseUserControl
     {
         public stockCodeSelectByWatchList()
         {
@@ -73,7 +73,7 @@ namespace baseClass.controls
         {
             StockCode, StockExCode, StockName, Price, PriceVariant
         }
-        public common.control.baseDataGridView myGridView
+        public common.controls.baseDataGridView myGridView
         {
             get { return stockGV; }
         }

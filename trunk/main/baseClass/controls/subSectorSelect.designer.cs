@@ -51,11 +51,11 @@
             // 
             this.showOnlyCheckedChk.AutoSize = true;
             this.showOnlyCheckedChk.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.showOnlyCheckedChk.Location = new System.Drawing.Point(76, 233);
+            this.showOnlyCheckedChk.Location = new System.Drawing.Point(91, 233);
             this.showOnlyCheckedChk.Name = "showOnlyCheckedChk";
-            this.showOnlyCheckedChk.Size = new System.Drawing.Size(80, 20);
+            this.showOnlyCheckedChk.Size = new System.Drawing.Size(115, 20);
             this.showOnlyCheckedChk.TabIndex = 4;
-            this.showOnlyCheckedChk.Text = "Đã chọn";
+            this.showOnlyCheckedChk.Text = "Only Selected";
             this.showOnlyCheckedChk.UseVisualStyleBackColor = true;
             this.showOnlyCheckedChk.CheckedChanged += new System.EventHandler(this.showOnlyCheckedChk_CheckedChanged);
             // 
@@ -80,16 +80,14 @@
             this.selectAllChk.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.selectAllChk.Location = new System.Drawing.Point(3, 233);
             this.selectAllChk.Name = "selectAllChk";
-            this.selectAllChk.Size = new System.Drawing.Size(67, 20);
+            this.selectAllChk.Size = new System.Drawing.Size(87, 20);
             this.selectAllChk.TabIndex = 3;
-            this.selectAllChk.Text = "Tất cả";
+            this.selectAllChk.Text = "Select All";
             this.selectAllChk.UseVisualStyleBackColor = true;
             this.selectAllChk.CheckedChanged += new System.EventHandler(this.selectAllChk_CheckedChanged);
             // 
             // subSectorSelect
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
-            
             this.Controls.Add(this.selectAllChk);
             this.Controls.Add(this.BizSectorTypesSelection);
             this.Controls.Add(this.showOnlyCheckedChk);

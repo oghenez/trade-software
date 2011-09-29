@@ -12,7 +12,7 @@ using System.Collections;
 
 namespace baseClass.controls
 {
-    public partial class strategySelect : common.control.baseUserControl
+    public partial class strategySelect : common.controls.baseUserControl
     {
         public strategySelect()
         {

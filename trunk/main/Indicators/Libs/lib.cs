@@ -231,13 +231,13 @@ namespace Indicators
         {
             common.DictionaryList list = new common.DictionaryList();
             common.myKeyValueItem[] keyValues = common.system.String2KeyValueList(str, ",", "=");
-            Color color = Color.Transparent;
+            Color color = Data.sysDefaultLineColor;
             int weight = 1;
             AppTypes.ChartTypes chartType = Data.sysDefaultLineChartType; 
             for (int idx = 0; idx < keyValues.Length; idx++)
             {
                 string[] parts = common.system.String2List(keyValues[idx].Value, ":", StringSplitOptions.None);
-                color = (parts.Length > 0 ? Color.FromName(parts[0]) : Data.sysDefaultLineColor);
+                color = (parts.Length > 0 ? ColorTranslator.FromHtml(parts[0]) : Data.sysDefaultLineColor);
                 weight = Data.sysDefaultLineWeight;
                 if (parts.Length > 1) int.TryParse(parts[1], out weight);
                 chartType = (parts.Length > 2 ? AppTypes.Text2ChartType(parts[2]) : Data.sysDefaultLineChartType);
@@ -254,7 +254,7 @@ namespace Indicators
             for (int idx = 0; idx < items.Length; idx++)
             {
                 string[] parts = common.system.String2List(items[idx], ":");
-                Color color = Color.Transparent;
+                Color color = Data.sysDefaultLineColor;
                 if (parts.Length > 0) color = ColorTranslator.FromHtml(parts[0]);
                 int weight = 1;
                 if (parts.Length > 1) int.TryParse(parts[1], out weight);

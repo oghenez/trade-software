@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.bizSectorCb = new common.control.baseComboBox();
+            this.bizSectorCb = new common.controls.baseComboBox();
             this.bizSectorTypesCb = new baseClass.controls.cbBizSectorType();
             this.SuspendLayout();
             // 
@@ -73,6 +73,6 @@
         #endregion
 
         private cbBizSectorType bizSectorTypesCb;
-        private common.control.baseComboBox bizSectorCb;
+        private common.controls.baseComboBox bizSectorCb;
     }
 }

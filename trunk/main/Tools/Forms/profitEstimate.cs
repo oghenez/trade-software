@@ -10,7 +10,7 @@ using ZedGraph;
 
 namespace Tools.Forms
 {
-    public partial class profitEstimate : common.forms.baseDialogForm
+    public partial class profitEstimate : baseClass.forms.baseDialogForm  
     {
         public profitEstimate()
         {

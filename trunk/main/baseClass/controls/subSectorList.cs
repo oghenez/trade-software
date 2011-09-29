@@ -12,7 +12,7 @@ using System.Collections;
 
 namespace baseClass.controls
 {
-    public partial class subSectorList : common.control.baseListEdit2
+    public partial class subSectorList : common.controls.baseListEdit2
     {
         public subSectorList()
         {
@@ -25,7 +25,7 @@ namespace baseClass.controls
                 ErrorHandler(this, er);
             }            
         }
-        protected override common.control.baseListBox CreateListObj()
+        protected override common.controls.baseListBox CreateListObj()
         {
             controls.lbSubSectorCode lbox = new controls.lbSubSectorCode();
             lbox.SelectionMode = SelectionMode.MultiExtended;

@@ -13,6 +13,7 @@ namespace baseClass.forms
     public partial class watchListEdit : baseMasterEdit
     {
         public application.AppTypes.PortfolioTypes myWatchListType = application.AppTypes.PortfolioTypes.WatchList;
+        private data.baseDS.portfolioDetailDataTable defaPortfolioDataTbl = new data.baseDS.portfolioDetailDataTable();
         public watchListEdit()
         {
             try
@@ -24,12 +25,14 @@ namespace baseClass.forms
                 nameEd.MaxLength = myDataSet.portfolio.nameColumn.MaxLength;
                 descriptionEd.MaxLength = myDataSet.portfolio.descriptionColumn.MaxLength;
 
-                interestedBizSectorClb.maxLen = myDataSet.portfolio.interestedSectorColumn.MaxLength;
                 interestedStockClb.maxLen = myDataSet.portfolio.interestedStockColumn.MaxLength;
 
                 interestedStrategy.Init();
                 interestedStockClb.LoadData();
-                interestedBizSectorClb.LoadData();
+
+                //Load default Portfolio Data
+                data.baseDS.portfolioRow portfolioRow = application.dataLibs.GetSystemPortfolio(); 
+                this.defaPortfolioDataTbl =  application.dataLibs.GetPortfolioData(portfolioRow.code);
 
                 codeEd.BackColor = common.settings.sysColorDisableBG; codeEd.ForeColor = common.settings.sysColorDisableFG;
                 LockEdit(true);
@@ -43,8 +46,8 @@ namespace baseClass.forms
         public string myInvestorCode
         {
             get { return _myInvestorCode; }
-            set
-            {
+            set 
+            { 
                 _myInvestorCode = value;
                 LoadData();
             }
@@ -59,20 +62,50 @@ namespace baseClass.forms
             return form;
         }
 
-        protected void UpdateEditStatus()
+        private void AddDefaultPortfolioData(string porfolioCode, string stockCode)
         {
-            ShowReccount((this.portfolioSource.Position + 1).ToString() + "/" + this.portfolioSource.Count.ToString());
-        }
-        protected void LoadDetailData()
-        {
-            if (this.portfolioSource.Current == null) return;
-            data.baseDS.portfolioRow portfolioRow = (data.baseDS.portfolioRow)((DataRowView)this.portfolioSource.Current).Row;
-
-            //interested strategy
-            interestedStrategy.LoadData(portfolioRow.code);
+            data.baseDS.portfolioDetailRow row;
+            for (int idx = 0; idx < defaPortfolioDataTbl.Rows.Count; idx++)
+            {
+                row = myDataSet.portfolioDetail.NewportfolioDetailRow();
+                application.dataLibs.InitData(row);
+                row.portfolio = porfolioCode;
+                row.code = stockCode;
+                row.subCode = defaPortfolioDataTbl[idx].subCode; ;
+                row.data = defaPortfolioDataTbl[idx].data;
+                myDataSet.portfolioDetail.AddportfolioDetailRow(row);
+            }
         }
 
         #region override funcs
+        public override void LockEdit(bool lockState)
+        {
+            base.LockEdit(lockState);
+            this.nameEd.Enabled = !lockState;
+            this.descriptionEd.Enabled = !lockState;
+
+            this.interestedStockClb.Enabled = !lockState;
+            this.interestedStrategy.LockData(lockState);
+
+        }
+        public override void AddNew(string code)
+        {
+            this.AddNewRow();
+            data.baseDS.portfolioRow row = (data.baseDS.portfolioRow)((DataRowView)myMasterSource.Current).Row;
+            if (row == null) return;
+            application.dataLibs.InitData(row);
+            row.type = (byte)this.myWatchListType;
+            common.myAutoKeyInfo info = application.sysLibs.GetAutoKey(myDataSet.portfolio.TableName, false);
+            row.code = info.value.ToString().PadLeft(myDataSet.portfolio.codeColumn.MaxLength, '0');
+            row.investorCode = this.myInvestorCode;
+            codeEd.Text = row.code;
+            interestedStrategy.Clear();
+        }
+
+        protected override bool DataChanged()
+        {
+            return (myDataSet.portfolioDetail.GetChanges() != null && myDataSet.portfolioDetail.GetChanges().Rows.Count > 0);
+        }
         protected override void SetFirstFocus()
         {
             this.nameEd.Focus();
@@ -81,17 +114,8 @@ namespace baseClass.forms
         {
             this.myDataSet.portfolio.Clear();
             application.dataLibs.LoadPortfolioByInvestor(this.myDataSet.portfolio, this.myInvestorCode, this.myWatchListType);
-        }
-        public override void LockEdit(bool lockState)
-        {
-            base.LockEdit(lockState);
-            this.nameEd.Enabled = !lockState;
-            this.descriptionEd.Enabled = !lockState;
-
-            this.interestedBizSectorClb.Enabled = !lockState;
-            this.interestedStockClb.Enabled = !lockState;
-            this.interestedStrategy.LockData(lockState);
-
+            interestedStrategy.myStockCode = "";
+            interestedStrategy.Clear();
         }
         protected override bool DataValid(bool showMsg)
         {
@@ -112,26 +136,8 @@ namespace baseClass.forms
                 NotifyError(interestedStockLbl);
                 retVal = false;
             }
-            if (!interestedBizSectorClb.DataValid(false))
-            {
-                NotifyError(interestedStockLbl);
-                retVal = false;
-            }
             if (!retVal) this.ShowMessage("Dữ liệu không hợp lệ");
             return retVal;
-        }
-        public override void AddNew(string code)
-        {
-            this.AddNewRow();
-            data.baseDS.portfolioRow row = (data.baseDS.portfolioRow)((DataRowView)myMasterSource.Current).Row;
-            if (row == null) return;
-            application.dataLibs.InitData(row);
-            row.type = (byte)this.myWatchListType;
-            common.myAutoKeyInfo info = application.sysLibs.GetAutoKey(myDataSet.portfolio.TableName, false);
-            row.code = info.value.ToString().PadLeft(myDataSet.portfolio.codeColumn.MaxLength, '0');
-            row.investorCode = this.myInvestorCode;
-            codeEd.Text = row.code;
-            interestedStrategy.Clear();
         }
         protected override void UpdateData(DataRow row)
         {
@@ -147,21 +153,15 @@ namespace baseClass.forms
                 portfolioRow.code = info.value.ToString().PadLeft(myDataSet.portfolio.codeColumn.MaxLength, '0');
             }
             application.dataLibs.UpdateData(portfolioRow);
-
-            interestedStrategy.SaveData();
+            application.dataLibs.UpdateData(myDataSet.portfolioDetail);
         }
-
-        protected override bool DataChanged()
-        {
-            return false;
-        }
-
+       
         #endregion override funcs
 
         #region event handler
         private void grid_DataError(object sender, DataGridViewDataErrorEventArgs e)
         {
-
+            return;
         }
         private void portfolioSource_CurrentChanged(object sender, EventArgs e)
         {
@@ -170,8 +170,14 @@ namespace baseClass.forms
             {
                 if (this.fOnProccessing) return;
                 this.fOnProccessing = true;
-                UpdateEditStatus();
-                LoadDetailData();
+                ShowReccount((this.portfolioSource.Position + 1).ToString() + "/" + this.portfolioSource.Count.ToString());
+                myDataSet.portfolioDetail.Clear();
+                data.baseDS.portfolioRow row = (data.baseDS.portfolioRow)((DataRowView)this.portfolioSource.Current).Row;
+                application.dataLibs.LoadData(myDataSet.portfolioDetail, row.code);
+                interestedStrategy.myDataTbl = myDataSet.portfolioDetail;
+                interestedStrategy.myPorfolioCode = row.code;
+                interestedStrategy.myStockCode = "";
+                interestedStrategy.Clear();
             }
             catch (Exception er)
             {
@@ -188,7 +194,7 @@ namespace baseClass.forms
             {
                 xpPanelGroup_Info.Height = this.ClientRectangle.Height - this.xpPanelGroup_Info.Location.Y - SystemInformation.CaptionHeight + 3;
                 xpPanel_options.Height = xpPanelGroup_Info.Height - xpPanel_options.Location.Y;
-                if (xpPanel_options.Height < 400) xpPanel_options.Height = 400;
+                //if (xpPanel_options.Height < 400) xpPanel_options.Height = 400;
                 
                 common.system.AutoFitGridColumn(portfolioGrid, nameColumn.Name);
             }
@@ -196,6 +202,47 @@ namespace baseClass.forms
             {
                 ShowError(er);
             }
+        }
+
+        private void interestedStockClb_myStockCodeSelectionChange(object sender, EventArgs e)
+        {
+            try
+            {
+                interestedStrategy.myStockCode = "";
+                if ((((baseClass.controls.lbStockCode)sender).SelectedItem) != null)
+                {
+                    string stockCode = ((common.myComboBoxItem)(((baseClass.controls.lbStockCode)sender).SelectedItem)).Value;
+                    interestedStrategy.myStockCode = stockCode;
+                }
+                interestedStrategy.Refresh();
+            }
+            catch (Exception er)
+            {
+                ShowError(er);
+            }
+        }
+        private void interestedStockClb_myOnError(object sender, common.myExceptionEventArgs e)
+        {
+            ShowError(e.myException);
+        }
+        private bool interestedStockClb_myOnAddItemList(object sender, StringCollection codes)
+        {
+            for (int idx = 0; idx < codes.Count; idx++)
+            {
+                AddDefaultPortfolioData(interestedStrategy.myPorfolioCode, codes[idx]);
+            }
+            interestedStrategy.Refresh();
+            return true;
+        }
+        private bool interestedStockClb_myOnRemoveItemList(object sender, StringCollection codes)
+        {
+            for (int idx = 0; idx < myDataSet.portfolioDetail.Count; idx++)
+            {
+                if ((myDataSet.portfolioDetail[idx].portfolio == interestedStrategy.myPorfolioCode) &&
+                    (codes.Contains(myDataSet.portfolioDetail[idx].code))) 
+                    myDataSet.portfolioDetail[idx].Delete();
+            }
+            return true; 
         }
         #endregion event handler
     }

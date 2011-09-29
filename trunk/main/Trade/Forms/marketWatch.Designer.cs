@@ -48,7 +48,7 @@
             this.stockCodeList.Name = "stockCodeList";
             this.stockCodeList.Size = new System.Drawing.Size(255, 909);
             this.stockCodeList.TabIndex = 145;
-            this.stockCodeList.myOnError += new System.EventHandler(this.stockCodeList_myOnError);
+            this.stockCodeList.myOnError += new common.myEventHandler(this.stockCodeList_myOnError);
             // 
             // marketWatch
             // 

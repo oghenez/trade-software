@@ -33,7 +33,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataPnl = new System.Windows.Forms.Panel();
-            this.resultDataGrid = new common.control.baseDataGridView();
+            this.resultDataGrid = new common.controls.baseDataGridView();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.mainMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.runMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -60,21 +60,21 @@
             this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.strategyCb = new common.control.baseComboBox();
+            this.strategyCb = new common.controls.baseComboBox();
             this.screeningCodeSource = new System.Windows.Forms.BindingSource(this.components);
-            this.criteriaGrid = new common.control.baseDataGridView();
-            this.delBtn = new System.Windows.Forms.Button();
-            this.addBtn = new System.Windows.Forms.Button();
-            this.baseLabel4 = new baseClass.controls.baseLabel();
-            this.strategyDescEd = new common.control.baseTextBox();
-            this.maxLbl = new baseClass.controls.baseLabel();
-            this.minLbl = new baseClass.controls.baseLabel();
-            this.strategyLbl = new baseClass.controls.baseLabel();
+            this.criteriaGrid = new common.controls.baseDataGridView();
             this.selectedColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.codeColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.minColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.maxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.editColumn = new common.control.gridViewImageColumn();
+            this.editColumn = new common.controls.gridViewImageColumn();
+            this.delBtn = new System.Windows.Forms.Button();
+            this.addBtn = new System.Windows.Forms.Button();
+            this.baseLabel4 = new baseClass.controls.baseLabel();
+            this.strategyDescEd = new common.controls.baseTextBox();
+            this.maxLbl = new baseClass.controls.baseLabel();
+            this.minLbl = new baseClass.controls.baseLabel();
+            this.strategyLbl = new baseClass.controls.baseLabel();
             ((System.ComponentModel.ISupportInitialize)(this.myDataSet)).BeginInit();
             this.dataPnl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.resultDataGrid)).BeginInit();
@@ -377,7 +377,7 @@
             this.strategyCb.Location = new System.Drawing.Point(23, 28);
             this.strategyCb.myValue = "";
             this.strategyCb.Name = "strategyCb";
-            this.strategyCb.Size = new System.Drawing.Size(417, 21);
+            this.strategyCb.Size = new System.Drawing.Size(417, 24);
             this.strategyCb.TabIndex = 1;
             this.strategyCb.ValueMember = "code";
             this.strategyCb.SelectedIndexChanged += new System.EventHandler(this.strategyCb_SelectedIndexChanged);
@@ -409,6 +409,54 @@
             this.criteriaGrid.Size = new System.Drawing.Size(463, 170);
             this.criteriaGrid.TabIndex = 375;
             this.criteriaGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.criteriaGrid_CellClick);
+            // 
+            // selectedColumn
+            // 
+            this.selectedColumn.DataPropertyName = "selected";
+            this.selectedColumn.HeaderText = "";
+            this.selectedColumn.Name = "selectedColumn";
+            this.selectedColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.selectedColumn.Width = 20;
+            // 
+            // codeColumn
+            // 
+            this.codeColumn.DataPropertyName = "code";
+            this.codeColumn.DataSource = this.screeningCodeSource;
+            this.codeColumn.DisplayMember = "description";
+            this.codeColumn.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.ComboBox;
+            this.codeColumn.HeaderText = "Criteria";
+            this.codeColumn.Name = "codeColumn";
+            this.codeColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.codeColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.codeColumn.ValueMember = "code";
+            this.codeColumn.Width = 175;
+            // 
+            // minColumn
+            // 
+            this.minColumn.DataPropertyName = "min";
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.Format = "N0";
+            dataGridViewCellStyle1.NullValue = null;
+            this.minColumn.DefaultCellStyle = dataGridViewCellStyle1;
+            this.minColumn.HeaderText = "Min";
+            this.minColumn.Name = "minColumn";
+            // 
+            // maxColumn
+            // 
+            this.maxColumn.DataPropertyName = "max";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.Format = "N0";
+            dataGridViewCellStyle2.NullValue = null;
+            this.maxColumn.DefaultCellStyle = dataGridViewCellStyle2;
+            this.maxColumn.HeaderText = "Max";
+            this.maxColumn.Name = "maxColumn";
+            // 
+            // editColumn
+            // 
+            this.editColumn.HeaderText = "";
+            this.editColumn.myValue = "";
+            this.editColumn.Name = "editColumn";
+            this.editColumn.Width = 25;
             // 
             // delBtn
             // 
@@ -488,61 +536,12 @@
             this.strategyLbl.TabIndex = 318;
             this.strategyLbl.Text = "Criteria";
             // 
-            // selectedColumn
-            // 
-            this.selectedColumn.DataPropertyName = "selected";
-            this.selectedColumn.HeaderText = "";
-            this.selectedColumn.Name = "selectedColumn";
-            this.selectedColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.selectedColumn.Width = 20;
-            // 
-            // codeColumn
-            // 
-            this.codeColumn.DataPropertyName = "code";
-            this.codeColumn.DataSource = this.screeningCodeSource;
-            this.codeColumn.DisplayMember = "description";
-            this.codeColumn.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.ComboBox;
-            this.codeColumn.HeaderText = "Criteria";
-            this.codeColumn.Name = "codeColumn";
-            this.codeColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.codeColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.codeColumn.ValueMember = "code";
-            this.codeColumn.Width = 175;
-            // 
-            // minColumn
-            // 
-            this.minColumn.DataPropertyName = "min";
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.Format = "N0";
-            dataGridViewCellStyle1.NullValue = null;
-            this.minColumn.DefaultCellStyle = dataGridViewCellStyle1;
-            this.minColumn.HeaderText = "Min";
-            this.minColumn.Name = "minColumn";
-            // 
-            // maxColumn
-            // 
-            this.maxColumn.DataPropertyName = "max";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.Format = "N0";
-            dataGridViewCellStyle2.NullValue = null;
-            this.maxColumn.DefaultCellStyle = dataGridViewCellStyle2;
-            this.maxColumn.HeaderText = "Max";
-            this.maxColumn.Name = "maxColumn";
-            // 
-            // editColumn
-            // 
-            this.editColumn.HeaderText = "";
-            this.editColumn.myValue = "";
-            this.editColumn.Name = "editColumn";
-            this.editColumn.Width = 25;
-            // 
             // screening
             // 
             this.ClientSize = new System.Drawing.Size(1004, 668);
             this.Controls.Add(this.dataPnl);
             this.Controls.Add(this.optionPnl);
             this.Controls.Add(this.menuStrip);
-            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "screening";
             this.Text = "Screening";
@@ -576,7 +575,7 @@
         #endregion
 
         protected System.Windows.Forms.Panel dataPnl;
-        protected common.control.baseDataGridView resultDataGrid;
+        protected common.controls.baseDataGridView resultDataGrid;
         protected System.Windows.Forms.MenuStrip menuStrip;
         private System.Windows.Forms.ToolStripMenuItem mainMenuItem;
         private System.Windows.Forms.ToolStripMenuItem runMenuItem;
@@ -599,15 +598,15 @@
         protected System.Windows.Forms.BindingSource criteriaSource;
         protected Tools.Data.tmpDataSet tmpDS;
         protected System.Windows.Forms.BindingSource screeningCodeSource;
-        protected common.control.baseComboBox strategyCb;
+        protected common.controls.baseComboBox strategyCb;
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveFirstItem;
         private System.Windows.Forms.ToolStripButton bindingNavigatorMovePreviousItem;
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveNextItem;
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
         protected baseClass.controls.stockCodeSelect stockCodeLb;
-        protected common.control.baseTextBox strategyDescEd;
-        protected common.control.baseDataGridView criteriaGrid;
+        protected common.controls.baseTextBox strategyDescEd;
+        protected common.controls.baseDataGridView criteriaGrid;
         protected System.Windows.Forms.BindingNavigator screeningCodeNav;
         protected System.Windows.Forms.HScrollBar maxScrollBar;
         protected System.Windows.Forms.HScrollBar minScrollBar;
@@ -617,6 +616,6 @@
         private System.Windows.Forms.DataGridViewComboBoxColumn codeColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn minColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn maxColumn;
-        private common.control.gridViewImageColumn editColumn;
+        private common.controls.gridViewImageColumn editColumn;
     }
 }

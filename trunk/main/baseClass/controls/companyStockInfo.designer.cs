@@ -28,28 +28,28 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.stockCodeEd = new common.control.baseTextBox();
-            this.tickerCodeEd = new common.control.baseTextBox();
-            this.regDateEd = new common.control.baseDate();
-            this.listedStockEd = new common.control.numberTextBox();
-            this.outstandingStockEd = new common.control.numberTextBox();
-            this.targetPriceEd = new common.control.numberTextBox();
-            this.targetPriceVariantEd = new common.control.numberTextBox();
-            this.workingCapitalEd = new common.control.numberTextBox();
-            this.treasuryStockEd = new common.control.numberTextBox();
-            this.foreignOwnStockEd = new common.control.numberTextBox();
-            this.salesEd = new common.control.numberTextBox();
-            this.profitEd = new common.control.numberTextBox();
-            this.equityEd = new common.control.numberTextBox();
-            this.totalDebtEd = new common.control.numberTextBox();
-            this.totalAssetEd = new common.control.numberTextBox();
-            this.pricePerBookEd = new common.control.numberTextBox();
-            this.earnPerShareEd = new common.control.numberTextBox();
-            this.prixePerEarningEd = new common.control.numberTextBox();
-            this.roaEd = new common.control.numberTextBox();
-            this.roeEd = new common.control.numberTextBox();
-            this.betaEd = new common.control.numberTextBox();
-            this.bookPriceEd = new common.control.numberTextBox();
+            this.stockCodeEd = new common.controls.baseTextBox();
+            this.tickerCodeEd = new common.controls.baseTextBox();
+            this.regDateEd = new common.controls.baseDate();
+            this.listedStockEd = new common.controls.numberTextBox();
+            this.outstandingStockEd = new common.controls.numberTextBox();
+            this.targetPriceEd = new common.controls.numberTextBox();
+            this.targetPriceVariantEd = new common.controls.numberTextBox();
+            this.workingCapitalEd = new common.controls.numberTextBox();
+            this.treasuryStockEd = new common.controls.numberTextBox();
+            this.foreignOwnStockEd = new common.controls.numberTextBox();
+            this.salesEd = new common.controls.numberTextBox();
+            this.profitEd = new common.controls.numberTextBox();
+            this.equityEd = new common.controls.numberTextBox();
+            this.totalDebtEd = new common.controls.numberTextBox();
+            this.totalAssetEd = new common.controls.numberTextBox();
+            this.pricePerBookEd = new common.controls.numberTextBox();
+            this.earnPerShareEd = new common.controls.numberTextBox();
+            this.prixePerEarningEd = new common.controls.numberTextBox();
+            this.roaEd = new common.controls.numberTextBox();
+            this.roeEd = new common.controls.numberTextBox();
+            this.betaEd = new common.controls.numberTextBox();
+            this.bookPriceEd = new common.controls.numberTextBox();
             this.bookPriceLbl = new baseClass.controls.baseLabel();
             this.roaLbl = new baseClass.controls.baseLabel();
             this.roeLbl = new baseClass.controls.baseLabel();
@@ -447,9 +447,9 @@
             this.bookPriceLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bookPriceLbl.Location = new System.Drawing.Point(2, 245);
             this.bookPriceLbl.Name = "bookPriceLbl";
-            this.bookPriceLbl.Size = new System.Drawing.Size(80, 16);
+            this.bookPriceLbl.Size = new System.Drawing.Size(75, 16);
             this.bookPriceLbl.TabIndex = 332;
-            this.bookPriceLbl.Text = "Giá sổ sách";
+            this.bookPriceLbl.Text = "Book price";
             // 
             // roaLbl
             // 
@@ -524,9 +524,9 @@
             this.baseLabel3.Location = new System.Drawing.Point(2, 99);
             this.baseLabel3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.baseLabel3.Name = "baseLabel3";
-            this.baseLabel3.Size = new System.Drawing.Size(34, 16);
+            this.baseLabel3.Size = new System.Drawing.Size(67, 16);
             this.baseLabel3.TabIndex = 316;
-            this.baseLabel3.Text = "ĐVT";
+            this.baseLabel3.Text = "Currency";
             // 
             // totalAssetLbl
             // 
@@ -535,9 +535,9 @@
             this.totalAssetLbl.Location = new System.Drawing.Point(2, 150);
             this.totalAssetLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.totalAssetLbl.Name = "totalAssetLbl";
-            this.totalAssetLbl.Size = new System.Drawing.Size(88, 16);
+            this.totalAssetLbl.Size = new System.Drawing.Size(89, 16);
             this.totalAssetLbl.TabIndex = 315;
-            this.totalAssetLbl.Text = "Tổng Tài sản";
+            this.totalAssetLbl.Text = "Total Assest";
             // 
             // totalDebtLbl
             // 
@@ -546,9 +546,9 @@
             this.totalDebtLbl.Location = new System.Drawing.Point(119, 150);
             this.totalDebtLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.totalDebtLbl.Name = "totalDebtLbl";
-            this.totalDebtLbl.Size = new System.Drawing.Size(59, 16);
+            this.totalDebtLbl.Size = new System.Drawing.Size(75, 16);
             this.totalDebtLbl.TabIndex = 313;
-            this.totalDebtLbl.Text = "Tổng Nợ";
+            this.totalDebtLbl.Text = "Total Debt";
             // 
             // equityLbl
             // 
@@ -557,9 +557,9 @@
             this.equityLbl.Location = new System.Drawing.Point(221, 99);
             this.equityLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.equityLbl.Name = "equityLbl";
-            this.equityLbl.Size = new System.Drawing.Size(81, 16);
+            this.equityLbl.Size = new System.Drawing.Size(76, 16);
             this.equityLbl.TabIndex = 311;
-            this.equityLbl.Text = "Vốn chủ SH";
+            this.equityLbl.Text = "Equity Cap";
             // 
             // profitLbl
             // 
@@ -568,9 +568,9 @@
             this.profitLbl.Location = new System.Drawing.Point(348, 151);
             this.profitLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.profitLbl.Name = "profitLbl";
-            this.profitLbl.Size = new System.Drawing.Size(89, 16);
+            this.profitLbl.Size = new System.Drawing.Size(70, 16);
             this.profitLbl.TabIndex = 309;
-            this.profitLbl.Text = "Lợi nhuận ST";
+            this.profitLbl.Text = "Net profit";
             // 
             // salesLbl
             // 
@@ -579,9 +579,9 @@
             this.salesLbl.Location = new System.Drawing.Point(237, 150);
             this.salesLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.salesLbl.Name = "salesLbl";
-            this.salesLbl.Size = new System.Drawing.Size(75, 16);
+            this.salesLbl.Size = new System.Drawing.Size(42, 16);
             this.salesLbl.TabIndex = 307;
-            this.salesLbl.Text = "Doanh thu";
+            this.salesLbl.Text = "Sales";
             // 
             // treasuryStockLbl
             // 
@@ -589,19 +589,19 @@
             this.treasuryStockLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.treasuryStockLbl.Location = new System.Drawing.Point(221, 49);
             this.treasuryStockLbl.Name = "treasuryStockLbl";
-            this.treasuryStockLbl.Size = new System.Drawing.Size(57, 16);
+            this.treasuryStockLbl.Size = new System.Drawing.Size(66, 16);
             this.treasuryStockLbl.TabIndex = 305;
-            this.treasuryStockLbl.Text = "CP. Quỹ";
+            this.treasuryStockLbl.Text = "Treasury";
             // 
             // outstandingStockLbl
             // 
             this.outstandingStockLbl.AutoSize = true;
             this.outstandingStockLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.outstandingStockLbl.Location = new System.Drawing.Point(109, 49);
+            this.outstandingStockLbl.Location = new System.Drawing.Point(107, 49);
             this.outstandingStockLbl.Name = "outstandingStockLbl";
-            this.outstandingStockLbl.Size = new System.Drawing.Size(87, 16);
+            this.outstandingStockLbl.Size = new System.Drawing.Size(114, 16);
             this.outstandingStockLbl.TabIndex = 304;
-            this.outstandingStockLbl.Text = "SL Lưu hành";
+            this.outstandingStockLbl.Text = "Outstanding Qty";
             // 
             // capitalUnitCb
             // 
@@ -621,9 +621,9 @@
             this.workingCapitalLbl.Location = new System.Drawing.Point(106, 99);
             this.workingCapitalLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.workingCapitalLbl.Name = "workingCapitalLbl";
-            this.workingCapitalLbl.Size = new System.Drawing.Size(103, 16);
+            this.workingCapitalLbl.Size = new System.Drawing.Size(52, 16);
             this.workingCapitalLbl.TabIndex = 299;
-            this.workingCapitalLbl.Text = "Vốn thị trường";
+            this.workingCapitalLbl.Text = "Capital";
             // 
             // targetPriceVariantLbl
             // 
@@ -641,9 +641,9 @@
             this.targetPriceLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.targetPriceLbl.Location = new System.Drawing.Point(113, 247);
             this.targetPriceLbl.Name = "targetPriceLbl";
-            this.targetPriceLbl.Size = new System.Drawing.Size(57, 16);
+            this.targetPriceLbl.Size = new System.Drawing.Size(87, 16);
             this.targetPriceLbl.TabIndex = 270;
-            this.targetPriceLbl.Text = "Giá đích";
+            this.targetPriceLbl.Text = "Target price";
             // 
             // foreignOwnStockLbl
             // 
@@ -651,9 +651,9 @@
             this.foreignOwnStockLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.foreignOwnStockLbl.Location = new System.Drawing.Point(336, 49);
             this.foreignOwnStockLbl.Name = "foreignOwnStockLbl";
-            this.foreignOwnStockLbl.Size = new System.Drawing.Size(73, 16);
+            this.foreignOwnStockLbl.Size = new System.Drawing.Size(104, 16);
             this.foreignOwnStockLbl.TabIndex = 268;
-            this.foreignOwnStockLbl.Text = "NN Sở hữu";
+            this.foreignOwnStockLbl.Text = "Foreign-owned";
             // 
             // statusCb
             // 
@@ -664,7 +664,7 @@
             this.statusCb.myValue = application.AppTypes.CommonStatus.None;
             this.statusCb.Name = "statusCb";
             this.statusCb.SelectedValue = ((byte)(0));
-            this.statusCb.Size = new System.Drawing.Size(90, 24);
+            this.statusCb.Size = new System.Drawing.Size(90, 21);
             this.statusCb.TabIndex = 54;
             // 
             // statusLblb
@@ -674,9 +674,9 @@
             this.statusLblb.Location = new System.Drawing.Point(353, 247);
             this.statusLblb.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.statusLblb.Name = "statusLblb";
-            this.statusLblb.Size = new System.Drawing.Size(74, 16);
+            this.statusLblb.Size = new System.Drawing.Size(51, 16);
             this.statusLblb.TabIndex = 266;
-            this.statusLblb.Text = "Tình trạng";
+            this.statusLblb.Text = "Status";
             // 
             // noListedStockLbl
             // 
@@ -685,9 +685,9 @@
             this.noListedStockLbl.Location = new System.Drawing.Point(1, 49);
             this.noListedStockLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.noListedStockLbl.Name = "noListedStockLbl";
-            this.noListedStockLbl.Size = new System.Drawing.Size(83, 16);
+            this.noListedStockLbl.Size = new System.Drawing.Size(74, 16);
             this.noListedStockLbl.TabIndex = 262;
-            this.noListedStockLbl.Text = "SL niêm yết";
+            this.noListedStockLbl.Text = "Listed Qty";
             // 
             // regDateLbl
             // 
@@ -696,9 +696,9 @@
             this.regDateLbl.Location = new System.Drawing.Point(252, 247);
             this.regDateLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.regDateLbl.Name = "regDateLbl";
-            this.regDateLbl.Size = new System.Drawing.Size(90, 16);
+            this.regDateLbl.Size = new System.Drawing.Size(72, 16);
             this.regDateLbl.TabIndex = 260;
-            this.regDateLbl.Text = "Ngày lên sàn";
+            this.regDateLbl.Text = "Reg. Date";
             // 
             // tickerCodeLbl
             // 
@@ -706,9 +706,9 @@
             this.tickerCodeLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tickerCodeLbl.Location = new System.Drawing.Point(322, 1);
             this.tickerCodeLbl.Name = "tickerCodeLbl";
-            this.tickerCodeLbl.Size = new System.Drawing.Size(58, 16);
+            this.tickerCodeLbl.Size = new System.Drawing.Size(46, 16);
             this.tickerCodeLbl.TabIndex = 256;
-            this.tickerCodeLbl.Text = "Mã hiệu";
+            this.tickerCodeLbl.Text = "Ticker";
             // 
             // stockCodeLbl
             // 
@@ -717,9 +717,9 @@
             this.stockCodeLbl.Location = new System.Drawing.Point(1, 1);
             this.stockCodeLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.stockCodeLbl.Name = "stockCodeLbl";
-            this.stockCodeLbl.Size = new System.Drawing.Size(46, 16);
+            this.stockCodeLbl.Size = new System.Drawing.Size(40, 16);
             this.stockCodeLbl.TabIndex = 254;
-            this.stockCodeLbl.Text = "Mã số";
+            this.stockCodeLbl.Text = "Code";
             // 
             // stockMarketCb
             // 
@@ -729,7 +729,7 @@
             this.stockMarketCb.Margin = new System.Windows.Forms.Padding(2);
             this.stockMarketCb.myValue = "";
             this.stockMarketCb.Name = "stockMarketCb";
-            this.stockMarketCb.Size = new System.Drawing.Size(201, 24);
+            this.stockMarketCb.Size = new System.Drawing.Size(201, 21);
             this.stockMarketCb.TabIndex = 2;
             // 
             // stockMarketLbl
@@ -739,11 +739,11 @@
             this.stockMarketLbl.Location = new System.Drawing.Point(124, 1);
             this.stockMarketLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.stockMarketLbl.Name = "stockMarketLbl";
-            this.stockMarketLbl.Size = new System.Drawing.Size(32, 16);
+            this.stockMarketLbl.Size = new System.Drawing.Size(69, 16);
             this.stockMarketLbl.TabIndex = 252;
-            this.stockMarketLbl.Text = "Sàn";
+            this.stockMarketLbl.Text = "Exchange";
             // 
-            // stockCodeDetail
+            // companyStockInfo
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.Controls.Add(this.bookPriceEd);
@@ -796,8 +796,7 @@
             this.Controls.Add(this.stockCodeLbl);
             this.Controls.Add(this.stockMarketCb);
             this.Controls.Add(this.stockMarketLbl);
-
-            this.Name = "stockCodeDetail";
+            this.Name = "companyStockInfo";
             this.Size = new System.Drawing.Size(441, 290);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -807,54 +806,54 @@
         #endregion
 
         protected baseClass.controls.baseLabel stockMarketLbl;
-        protected common.control.baseTextBox stockCodeEd;
+        protected common.controls.baseTextBox stockCodeEd;
         protected baseLabel stockCodeLbl;
         protected controls.cbStockExchange stockMarketCb;
-        protected common.control.baseTextBox tickerCodeEd;
+        protected common.controls.baseTextBox tickerCodeEd;
         protected baseLabel tickerCodeLbl;
-        protected common.control.baseDate regDateEd;
+        protected common.controls.baseDate regDateEd;
         protected baseLabel regDateLbl;
-        protected common.control.numberTextBox listedStockEd;
+        protected common.controls.numberTextBox listedStockEd;
         protected baseLabel noListedStockLbl;
         protected cbStockStatus statusCb;
         protected baseLabel statusLblb;
-        protected common.control.numberTextBox outstandingStockEd;
+        protected common.controls.numberTextBox outstandingStockEd;
         protected baseLabel foreignOwnStockLbl;
-        protected common.control.numberTextBox targetPriceEd;
+        protected common.controls.numberTextBox targetPriceEd;
         protected baseLabel targetPriceLbl;
-        protected common.control.numberTextBox targetPriceVariantEd;
+        protected common.controls.numberTextBox targetPriceVariantEd;
         protected baseLabel targetPriceVariantLbl;
         private cbCurrency capitalUnitCb;
         protected baseLabel workingCapitalLbl;
-        private common.control.numberTextBox workingCapitalEd;
-        protected common.control.numberTextBox treasuryStockEd;
-        protected common.control.numberTextBox foreignOwnStockEd;
+        private common.controls.numberTextBox workingCapitalEd;
+        protected common.controls.numberTextBox treasuryStockEd;
+        protected common.controls.numberTextBox foreignOwnStockEd;
         protected baseLabel outstandingStockLbl;
         protected baseLabel treasuryStockLbl;
         protected baseLabel salesLbl;
-        private common.control.numberTextBox salesEd;
+        private common.controls.numberTextBox salesEd;
         protected baseLabel profitLbl;
-        private common.control.numberTextBox profitEd;
+        private common.controls.numberTextBox profitEd;
         protected baseLabel equityLbl;
-        private common.control.numberTextBox equityEd;
+        private common.controls.numberTextBox equityEd;
         protected baseLabel totalDebtLbl;
-        private common.control.numberTextBox totalDebtEd;
+        private common.controls.numberTextBox totalDebtEd;
         protected baseLabel totalAssetLbl;
-        private common.control.numberTextBox totalAssetEd;
+        private common.controls.numberTextBox totalAssetEd;
         protected baseLabel baseLabel3;
         protected baseLabel pricePerBookLbl;
-        private common.control.numberTextBox pricePerBookEd;
+        private common.controls.numberTextBox pricePerBookEd;
         protected baseLabel earnPerShareLbl;
-        private common.control.numberTextBox earnPerShareEd;
+        private common.controls.numberTextBox earnPerShareEd;
         protected baseLabel prixePerEarningLbl;
-        private common.control.numberTextBox prixePerEarningEd;
+        private common.controls.numberTextBox prixePerEarningEd;
         protected baseLabel roaLbl;
-        private common.control.numberTextBox roaEd;
+        private common.controls.numberTextBox roaEd;
         protected baseLabel roeLbl;
-        private common.control.numberTextBox roeEd;
+        private common.controls.numberTextBox roeEd;
         protected baseLabel betaLbl;
-        private common.control.numberTextBox betaEd;
-        protected common.control.numberTextBox bookPriceEd;
+        private common.controls.numberTextBox betaEd;
+        protected common.controls.numberTextBox bookPriceEd;
         protected baseLabel bookPriceLbl;
     }
 }

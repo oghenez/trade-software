@@ -34,9 +34,7 @@
             this.itemSource = new System.Windows.Forms.BindingSource(this.components);
             this.myBaseDS = new data.baseDS();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.dataGrid = new common.control.baseDataGridView();
-            this.codeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGrid = new common.controls.baseDataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -45,6 +43,8 @@
             this.closeBtn = new baseClass.controls.baseButton();
             this.selectBtn = new baseClass.controls.baseButton();
             this.findBtn = new baseClass.controls.baseButton();
+            this.codeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.itemSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.myBaseDS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).BeginInit();
@@ -95,22 +95,6 @@
             this.dataGrid.TabIndex = 2;
             this.dataGrid.DoubleClick += new System.EventHandler(this.selectBtn_Click);
             this.dataGrid.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.grid_DataError);
-            // 
-            // codeDataGridViewTextBoxColumn
-            // 
-            this.codeDataGridViewTextBoxColumn.DataPropertyName = "code";
-            this.codeDataGridViewTextBoxColumn.HeaderText = "Mã số";
-            this.codeDataGridViewTextBoxColumn.Name = "codeDataGridViewTextBoxColumn";
-            this.codeDataGridViewTextBoxColumn.ReadOnly = true;
-            this.codeDataGridViewTextBoxColumn.Width = 80;
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Tên";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.nameDataGridViewTextBoxColumn.Width = 300;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -163,7 +147,7 @@
             this.closeBtn.Name = "closeBtn";
             this.closeBtn.Size = new System.Drawing.Size(117, 38);
             this.closeBtn.TabIndex = 13;
-            this.closeBtn.Text = "Đóng";
+            this.closeBtn.Text = "Close";
             this.closeBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.closeBtn.UseVisualStyleBackColor = true;
             this.closeBtn.Click += new System.EventHandler(this.closeBtn_Click);
@@ -178,7 +162,7 @@
             this.selectBtn.Name = "selectBtn";
             this.selectBtn.Size = new System.Drawing.Size(117, 38);
             this.selectBtn.TabIndex = 11;
-            this.selectBtn.Text = "&Chọn";
+            this.selectBtn.Text = "&Select";
             this.selectBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.selectBtn.UseVisualStyleBackColor = true;
             this.selectBtn.Click += new System.EventHandler(this.selectBtn_Click);
@@ -193,10 +177,26 @@
             this.findBtn.Name = "findBtn";
             this.findBtn.Size = new System.Drawing.Size(117, 38);
             this.findBtn.TabIndex = 10;
-            this.findBtn.Text = "&Tìm";
+            this.findBtn.Text = "&Find";
             this.findBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.findBtn.UseVisualStyleBackColor = true;
             this.findBtn.Click += new System.EventHandler(this.findBtn_Click);
+            // 
+            // codeDataGridViewTextBoxColumn
+            // 
+            this.codeDataGridViewTextBoxColumn.DataPropertyName = "code";
+            this.codeDataGridViewTextBoxColumn.HeaderText = "Code";
+            this.codeDataGridViewTextBoxColumn.Name = "codeDataGridViewTextBoxColumn";
+            this.codeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.codeDataGridViewTextBoxColumn.Width = 80;
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.nameDataGridViewTextBoxColumn.Width = 300;
             // 
             // companyFind
             // 
@@ -208,7 +208,7 @@
             this.Controls.Add(this.findBtn);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "companyFind";
-            this.Text = "Tim kiem";
+            this.Text = "Company Find";
             this.Load += new System.EventHandler(this.form_Load);
             this.Controls.SetChildIndex(this.TitleLbl, 0);
             this.Controls.SetChildIndex(this.findBtn, 0);
@@ -234,7 +234,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
-        private common.control.baseDataGridView dataGrid;
+        private common.controls.baseDataGridView dataGrid;
         protected baseClass.controls.baseButton selectBtn;
         protected baseClass.controls.baseButton closeBtn;
         protected controls.companyCriteria findCriteria;

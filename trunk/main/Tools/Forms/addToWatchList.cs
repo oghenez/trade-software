@@ -10,7 +10,7 @@ using application;
 
 namespace Tools.Forms
 {
-    public partial class addToWatchList : common.forms.baseDialogForm
+    public partial class addToWatchList : baseClass.forms.baseDialogForm  
     {
         StringCollection myStockCodes = null;
         common.MultiValueString mvString = new common.MultiValueString();

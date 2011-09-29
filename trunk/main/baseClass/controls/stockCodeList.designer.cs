@@ -28,20 +28,38 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(stockCodeList));
+            this.stockCodeLb = new baseClass.controls.lbStockCode();
             this.SuspendLayout();
+            // 
+            // stockCodeLb
+            // 
+            this.stockCodeLb.FormattingEnabled = true;
+            this.stockCodeLb.ItemHeight = 16;
+            this.stockCodeLb.Location = new System.Drawing.Point(165, 3);
+            this.stockCodeLb.myItemString = "";
+            this.stockCodeLb.myItemValues = ((System.Collections.Specialized.StringCollection)(resources.GetObject("stockCodeLb.myItemValues")));
+            this.stockCodeLb.Name = "stockCodeLb";
+            this.stockCodeLb.Size = new System.Drawing.Size(120, 84);
+            this.stockCodeLb.TabIndex = 5;
+            this.stockCodeLb.SelectedIndexChanged += new System.EventHandler(this.stockCodeLb_SelectedIndexChanged);
             // 
             // stockCodeList
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
-            
-            this.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Controls.Add(this.stockCodeLb);
             this.Name = "stockCodeList";
-            this.Size = new System.Drawing.Size(452, 148);
+            this.Controls.SetChildIndex(this.stockCodeLb, 0);
+            this.Controls.SetChildIndex(this.addBtn, 0);
+            this.Controls.SetChildIndex(this.removeBtn, 0);
             this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        protected lbStockCode stockCodeLb;
+
+
 
     }
 }

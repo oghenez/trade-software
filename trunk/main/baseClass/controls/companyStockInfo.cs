@@ -11,7 +11,7 @@ using System.Collections;
 
 namespace baseClass.controls
 {
-    public partial class companyStockInfo : common.control.baseUserControl
+    public partial class companyStockInfo : common.controls.baseUserControl
     {
         private BindingSource myDataSource = null;
         public companyStockInfo()

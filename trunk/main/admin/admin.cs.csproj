@@ -58,12 +58,6 @@
     <Reference Include="XPPanel, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="forms\sysWatchList.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="forms\sysWatchList.Designer.cs">
-      <DependentUpon>sysWatchList.cs</DependentUpon>
-    </Compile>
     <Compile Include="main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -72,9 +66,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="forms\sysWatchList.resx">
-      <DependentUpon>sysWatchList.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="main.resx">
       <DependentUpon>main.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -197,6 +188,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\filter.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="forms\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

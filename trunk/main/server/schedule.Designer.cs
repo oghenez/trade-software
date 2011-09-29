@@ -31,20 +31,20 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(scheduleForm));
             this.fetchStockEd = new System.Windows.Forms.NumericUpDown();
-            this.fetchStockLbl2 = new common.control.baseLabel();
-            this.tradeAlertLbl2 = new common.control.baseLabel();
+            this.fetchStockLbl2 = new common.controls.baseLabel();
+            this.tradeAlertLbl2 = new common.controls.baseLabel();
             this.tradeAlertEd = new System.Windows.Forms.NumericUpDown();
             this.scheduleGb = new System.Windows.Forms.GroupBox();
-            this.tradeAlertChk = new common.control.baseCheckBox();
-            this.fetchStockChk = new common.control.baseCheckBox();
-            this.basePanel1 = new common.control.basePanel();
-            this.viewConfigBtn = new common.control.baseButton();
-            this.viewLogBtn = new common.control.baseButton();
-            this.saveBtn = new common.control.baseButton();
-            this.runBtn = new common.control.baseButton();
+            this.tradeAlertChk = new common.controls.baseCheckBox();
+            this.fetchStockChk = new common.controls.baseCheckBox();
+            this.basePanel1 = new common.controls.basePanel();
+            this.viewConfigBtn = new common.controls.baseButton();
+            this.viewLogBtn = new common.controls.baseButton();
+            this.saveBtn = new common.controls.baseButton();
+            this.runBtn = new common.controls.baseButton();
             this.myTimer = new System.Windows.Forms.Timer(this.components);
-            this.startBtn = new common.control.baseButton();
-            this.pauseBtn = new common.control.baseButton();
+            this.startBtn = new common.controls.baseButton();
+            this.pauseBtn = new common.controls.baseButton();
             ((System.ComponentModel.ISupportInitialize)(this.fetchStockEd)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tradeAlertEd)).BeginInit();
             this.scheduleGb.SuspendLayout();
@@ -197,8 +197,8 @@
             this.basePanel1.isVisible = true;
             this.basePanel1.Location = new System.Drawing.Point(-1, -1);
             this.basePanel1.Margin = new System.Windows.Forms.Padding(2);
-            this.basePanel1.myIconLocations = common.control.basePanel.IconLocations.None;
-            this.basePanel1.mySizingOptions = common.control.basePanel.SizingOptions.None;
+            this.basePanel1.myIconLocations = common.controls.basePanel.IconLocations.None;
+            this.basePanel1.mySizingOptions = common.controls.basePanel.SizingOptions.None;
             this.basePanel1.myWeight = 0;
             this.basePanel1.Name = "basePanel1";
             this.basePanel1.Size = new System.Drawing.Size(327, 28);
@@ -325,21 +325,21 @@
 
         #endregion
 
-        private common.control.baseButton runBtn;
+        private common.controls.baseButton runBtn;
         private System.Windows.Forms.NumericUpDown fetchStockEd;
-        private common.control.baseLabel fetchStockLbl2;
-        private common.control.baseLabel tradeAlertLbl2;
+        private common.controls.baseLabel fetchStockLbl2;
+        private common.controls.baseLabel tradeAlertLbl2;
         private System.Windows.Forms.NumericUpDown tradeAlertEd;
-        private common.control.baseButton saveBtn;
-        private common.control.baseButton viewLogBtn;
-        protected common.control.baseButton pauseBtn;
+        private common.controls.baseButton saveBtn;
+        private common.controls.baseButton viewLogBtn;
+        protected common.controls.baseButton pauseBtn;
         protected System.Windows.Forms.GroupBox scheduleGb;
-        protected common.control.basePanel basePanel1;
-        private common.control.baseButton startBtn;
+        protected common.controls.basePanel basePanel1;
+        private common.controls.baseButton startBtn;
         protected System.Windows.Forms.Timer myTimer;
-        private common.control.baseCheckBox tradeAlertChk;
-        private common.control.baseCheckBox fetchStockChk;
-        private common.control.baseButton viewConfigBtn;
+        private common.controls.baseCheckBox tradeAlertChk;
+        private common.controls.baseCheckBox fetchStockChk;
+        private common.controls.baseButton viewConfigBtn;
     }
 }
 

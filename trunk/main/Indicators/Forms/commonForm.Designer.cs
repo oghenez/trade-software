@@ -30,20 +30,20 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.paramGrid = new common.control.baseDataGridView();
+            this.paramGrid = new common.controls.baseDataGridView();
             this.nameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.valueColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.paraPg = new System.Windows.Forms.TabPage();
-            this.baseLabel1 = new common.control.baseLabel();
-            this.paraLbl = new common.control.baseLabel();
-            this.outputGrid = new common.control.baseDataGridView();
-            this.inNewPaneChk = new common.control.baseCheckBox();
-            this.paraDescEd = new common.control.baseTextBox();
+            this.baseLabel1 = new common.controls.baseLabel();
+            this.paraLbl = new common.controls.baseLabel();
+            this.outputGrid = new common.controls.baseDataGridView();
+            this.inNewPaneChk = new common.controls.baseCheckBox();
+            this.paraDescEd = new common.controls.baseTextBox();
             this.hintPg = new System.Windows.Forms.TabPage();
-            this.hintTextEd = new common.control.baseTextBox();
+            this.hintTextEd = new common.controls.baseTextBox();
             this.outNameolumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.outColorColumn = new common.control.ColorPickerColumn();
+            this.outColorColumn = new common.controls.ColorPickerColumn();
             this.outWeightColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.outChartTypeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.paramGrid)).BeginInit();
@@ -282,20 +282,20 @@
 
         #endregion
 
-        protected common.control.baseDataGridView paramGrid;
+        protected common.controls.baseDataGridView paramGrid;
         private System.Windows.Forms.TabPage paraPg;
         private System.Windows.Forms.TabPage hintPg;
         protected System.Windows.Forms.TabControl tabControl;
-        protected common.control.baseTextBox hintTextEd;
-        protected common.control.baseTextBox paraDescEd;
-        protected common.control.baseCheckBox inNewPaneChk;
-        protected common.control.baseDataGridView outputGrid;
-        private common.control.baseLabel paraLbl;
-        private common.control.baseLabel baseLabel1;
+        protected common.controls.baseTextBox hintTextEd;
+        protected common.controls.baseTextBox paraDescEd;
+        protected common.controls.baseCheckBox inNewPaneChk;
+        protected common.controls.baseDataGridView outputGrid;
+        private common.controls.baseLabel paraLbl;
+        private common.controls.baseLabel baseLabel1;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn valueColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn outNameolumn;
-        private common.control.ColorPickerColumn outColorColumn;
+        private common.controls.ColorPickerColumn outColorColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn outWeightColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn outChartTypeColumn;
 

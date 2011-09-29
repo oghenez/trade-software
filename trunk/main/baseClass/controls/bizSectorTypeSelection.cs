@@ -12,7 +12,7 @@ using System.Collections;
 
 namespace baseClass.controls
 {
-    public partial class BizSectorTypesSelection : common.control.baseUserControl
+    public partial class BizSectorTypesSelection : common.controls.baseUserControl
     {
         private data.baseDS.bizIndustryDataTable industryTbl = null;
         private data.baseDS.bizSuperSectorDataTable superSectorTbl = null;

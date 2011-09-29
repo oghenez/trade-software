@@ -64,6 +64,7 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.myMainTimer = new System.Windows.Forms.Timer(this.components);
             this.dataProcessMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sysInterestedStrategyMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.myMainMenu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -227,7 +228,8 @@
             this.toolStripSeparator6,
             this.stockExchangeMenu,
             this.toolStripSeparator12,
-            this.sysWatchListMenuItem});
+            this.sysWatchListMenuItem,
+            this.sysInterestedStrategyMenuItem});
             this.listMenuStrip.Name = "listMenuStrip";
             this.listMenuStrip.Size = new System.Drawing.Size(83, 22);
             this.listMenuStrip.Text = "Danh mục";
@@ -237,33 +239,33 @@
             this.companyMenu.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.companyMenu.Image = global::admin.Properties.Resources.home1;
             this.companyMenu.Name = "companyMenu";
-            this.companyMenu.Size = new System.Drawing.Size(210, 22);
+            this.companyMenu.Size = new System.Drawing.Size(215, 22);
             this.companyMenu.Text = "Công ty";
             this.companyMenu.Click += new System.EventHandler(this.companyMenu_Click);
             // 
             // toolStripSeparator11
             // 
             this.toolStripSeparator11.Name = "toolStripSeparator11";
-            this.toolStripSeparator11.Size = new System.Drawing.Size(207, 6);
+            this.toolStripSeparator11.Size = new System.Drawing.Size(212, 6);
             // 
             // investorMenu
             // 
             this.investorMenu.Image = global::admin.Properties.Resources.employee;
             this.investorMenu.Name = "investorMenu";
-            this.investorMenu.Size = new System.Drawing.Size(210, 22);
+            this.investorMenu.Size = new System.Drawing.Size(215, 22);
             this.investorMenu.Text = "Nhà đầu tư";
             this.investorMenu.Click += new System.EventHandler(this.investorMenu_Click);
             // 
             // toolStripSeparator6
             // 
             this.toolStripSeparator6.Name = "toolStripSeparator6";
-            this.toolStripSeparator6.Size = new System.Drawing.Size(207, 6);
+            this.toolStripSeparator6.Size = new System.Drawing.Size(212, 6);
             // 
             // stockExchangeMenu
             // 
             this.stockExchangeMenu.Image = global::admin.Properties.Resources.exrate;
             this.stockExchangeMenu.Name = "stockExchangeMenu";
-            this.stockExchangeMenu.Size = new System.Drawing.Size(210, 22);
+            this.stockExchangeMenu.Size = new System.Drawing.Size(215, 22);
             this.stockExchangeMenu.Tag = "??";
             this.stockExchangeMenu.Text = "Sàn giao dịch";
             this.stockExchangeMenu.Click += new System.EventHandler(this.stockExchangeMenu_Click);
@@ -271,12 +273,12 @@
             // toolStripSeparator12
             // 
             this.toolStripSeparator12.Name = "toolStripSeparator12";
-            this.toolStripSeparator12.Size = new System.Drawing.Size(207, 6);
+            this.toolStripSeparator12.Size = new System.Drawing.Size(212, 6);
             // 
             // sysWatchListMenuItem
             // 
             this.sysWatchListMenuItem.Name = "sysWatchListMenuItem";
-            this.sysWatchListMenuItem.Size = new System.Drawing.Size(210, 22);
+            this.sysWatchListMenuItem.Size = new System.Drawing.Size(215, 22);
             this.sysWatchListMenuItem.Text = "System Watch List";
             this.sysWatchListMenuItem.Click += new System.EventHandler(this.sysWatchListMenuItem_Click);
             // 
@@ -340,15 +342,20 @@
             this.dataProcessMenuItem.Size = new System.Drawing.Size(116, 20);
             this.dataProcessMenuItem.Text = "Xử lý dữ liệu";
             // 
+            // sysInterestedStrategyMenuItem
+            // 
+            this.sysInterestedStrategyMenuItem.Name = "sysInterestedStrategyMenuItem";
+            this.sysInterestedStrategyMenuItem.Size = new System.Drawing.Size(221, 22);
+            this.sysInterestedStrategyMenuItem.Text = "Interested Strategy";
+            this.sysInterestedStrategyMenuItem.Click += new System.EventHandler(this.sysInterestedStrategyMenuItem_Click);
+            // 
             // main
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.ClientSize = new System.Drawing.Size(720, 406);
             this.Controls.Add(this.myMainMenu);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
-            this.Location = new System.Drawing.Point(0, 0);
             this.MainMenuStrip = this.myMainMenu;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = true;
@@ -399,5 +406,6 @@
         private System.Windows.Forms.ToolStripMenuItem testToolStripMenuItem;
         protected System.Windows.Forms.Timer myMainTimer;
         private System.Windows.Forms.ToolStripMenuItem sysWatchListMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem sysInterestedStrategyMenuItem;
     }
 }

@@ -13,10 +13,8 @@ using application;
 
 namespace baseClass.controls
 {
-    public partial class watchListStrategy : common.control.baseUserControl
+    public partial class watchListStrategy : common.controls.baseUserControl
     {
-        private AppTypes.PortfolioDetailDataType myDataType = AppTypes.PortfolioDetailDataType.Strategy;
-        private data.baseDS.portfolioDetailDataTable myDataTbl = new data.baseDS.portfolioDetailDataTable();
         public watchListStrategy()
         {
             try
@@ -33,18 +31,10 @@ namespace baseClass.controls
                 ErrorHandler(this, er);
             }            
         }
+
+        public data.baseDS.portfolioDetailDataTable myDataTbl = null;
         public string myPorfolioCode = null;
-        public void LoadData(string porfolioCode)
-        {
-            this.myPorfolioCode = porfolioCode;  
-            myDataTbl.Clear();
-            dataLibs.LoadData(myDataTbl, porfolioCode,this.myDataType);
-            RefreshView();
-        }
-        public void SaveData()
-        {
-            dataLibs.UpdateData(this.myDataTbl);
-        }
+        public string myStockCode = null;
 
         public void Init()
         {
@@ -53,15 +43,23 @@ namespace baseClass.controls
         }
         public void Clear()
         {
-            timeScaleClb.myItemString ="";
-            this.myDataTbl.Clear();
-            RefreshView();
+            treeGV.Nodes.Clear();
         }
         public void LockData(bool lockStat)
         {
+            addNewBtn.Enabled = !lockStat;
+            addAllBtn.Enabled = false; // !lockStat;
+            deleteBtn.Enabled = !lockStat;
+
             strategyCb.Enabled = !lockStat;
             timeScaleClb.Enabled = !lockStat;
             treeGV.Enabled = !lockStat;
+        }
+        public override void Refresh()
+        {
+            base.Refresh();
+            treeGV.Nodes.Clear();
+            CreateTreeView(this.myDataTbl, treeGV);
         }
 
         private class nodeData
@@ -86,23 +84,17 @@ namespace baseClass.controls
             return node;
         }
 
-        private static void AddNodes(TreeGridNodeCollection parentNodes, data.baseDS.portfolioDetailRow row, Font fon)
+        private static void AddNodes(TreeGridNodeCollection parentNodes,data.baseDS.portfolioDetailRow row, Font fon)
         {
             StringCollection list = common.MultiValueString.String2List(row.data.Trim());
             TreeGridNode node;
             for (int idx = 0; idx < list.Count; idx++)
             {
                 node = parentNodes.Add(list[idx]);
-                node.Tag = new nodeData(row.dataCode.Trim(), list[idx]);
+                node.Tag = new nodeData(row.subCode.Trim(), list[idx]);
                 node.ImageIndex = 1;
                 if (fon != null) node.DefaultCellStyle.Font = fon;
             }
-        }
-
-        private void RefreshView()
-        {
-            treeGV.Nodes.Clear();
-            CreateTreeView(this.myDataTbl, treeGV); 
         }
 
         private string GetStrategyDescription(string code)
@@ -117,8 +109,12 @@ namespace baseClass.controls
 
         private void CreateTreeView(data.baseDS.portfolioDetailDataTable dataTbl, TreeGridView treeGV)
         {
+            if (this.myPorfolioCode == null || this.myStockCode == null) return;
+
             DataView dataView = new DataView(dataTbl);
-            dataView.Sort = dataTbl.dataCodeColumn.ColumnName;
+            dataView.Sort = dataTbl.subCodeColumn.ColumnName;
+            dataView.RowFilter = dataTbl.portfolioColumn + "='" + this.myPorfolioCode + "' AND " +
+                                 dataTbl.codeColumn + "='" + this.myStockCode + "'";
             data.baseDS.portfolioDetailRow dataRow;
             Font boldFont = new Font(treeGV.DefaultCellStyle.Font, FontStyle.Bold);
             string lastStrategy = "";
@@ -126,10 +122,10 @@ namespace baseClass.controls
             for (int idx = 0; idx < dataView.Count; idx++)
             {
                 dataRow = (data.baseDS.portfolioDetailRow)dataView[idx].Row;
-                if (lastStrategy != dataRow.dataCode.Trim())
+                if (lastStrategy != dataRow.subCode.Trim())
                 {
-                    strategyNodes = AddNode(treeGV.Nodes, dataRow.dataCode,GetStrategyDescription(dataRow.dataCode), boldFont).Nodes;
-                    lastStrategy = dataRow.dataCode.Trim();
+                    strategyNodes = AddNode(treeGV.Nodes, dataRow.subCode, GetStrategyDescription(dataRow.subCode), boldFont).Nodes;
+                    lastStrategy = dataRow.subCode.Trim();
                 }
                 AddNodes((strategyNodes == null ? treeGV.Nodes : strategyNodes), dataRow,null);
             }
@@ -151,19 +147,19 @@ namespace baseClass.controls
                     return;
                 }
                 data.baseDS.portfolioDetailRow row;
-                row = this.myDataTbl.FindByportfoliodataTypedataCode(this.myPorfolioCode, (byte)this.myDataType, strategyCb.myValue);
+                row = this.myDataTbl.FindByportfoliocodesubCode(this.myPorfolioCode, this.myStockCode, strategyCb.myValue);
                 if (row == null)
                 {
                     row = this.myDataTbl.NewportfolioDetailRow();
                     dataLibs.InitData(row);
-                    row.dataType = (byte)this.myDataType;
-                    row.dataCode = strategyCb.myValue;
                     row.portfolio = this.myPorfolioCode;
+                    row.code = this.myStockCode;
+                    row.subCode = strategyCb.myValue;
                     row.data = timeScaleClb.myItemString;
                     this.myDataTbl.AddportfolioDetailRow(row);
                 }
                 row.data = timeScaleClb.myItemString;
-                RefreshView();
+                Refresh();
             }
             catch (Exception er)
             {
@@ -176,7 +172,7 @@ namespace baseClass.controls
             {
                 if (treeGV.SelectedRows.Count == 0)
                 {
-                    common.system.ShowErrorMessage("Xin vui lòng chọn ít nhất 01 dòng trong danh sách");
+                    common.system.ShowErrorMessage("Please select one or more rows!");
                     treeGV.Focus();
                     return;
                 }
@@ -185,46 +181,21 @@ namespace baseClass.controls
                 for (int idx = 0; idx < treeGV.SelectedRows.Count; idx++)
                 {
                     nodeData = (nodeData)treeGV.SelectedRows[idx].Tag;
-                    row = this.myDataTbl.FindByportfoliodataTypedataCode(this.myPorfolioCode, (byte)this.myDataType, nodeData.strategy);
+                    row = this.myDataTbl.FindByportfoliocodesubCode(this.myPorfolioCode,this.myStockCode, nodeData.strategy);
                     if (row != null) row.Delete();
                 }
-                RefreshView();
+                Refresh();
             }
             catch (Exception er)
             {
                 ErrorHandler(this, er); ;
             }
         }
-
-        private void porfolioStrategy_Resize(object sender, EventArgs e)
-        {
-            try
-            {
-                addNewBtn.Size = new Size(25, 24);
-                addAllBtn.Size = new Size(25, 24);
-                deleteBtn.Size = new Size(25, 24);
-
-                deleteBtn.Location = new Point(this.Width - deleteBtn.Width, deleteBtn.Location.Y);
-                addAllBtn.Location = new Point(this.Width - addAllBtn.Width - deleteBtn.Width, addAllBtn.Location.Y);
-                addNewBtn.Location = new Point(this.Width - addNewBtn.Width - deleteBtn.Width- addAllBtn.Width, addNewBtn.Location.Y);
-
-                timeScaleClb.Location = new Point(addNewBtn.Location.X - timeScaleClb.Width, timeScaleClb.Location.Y);
-                timeScaleLbl.Location = new Point(timeScaleClb.Location.X, timeScaleLbl.Location.Y);
-
-                strategyCb.Width = this.Width - timeScaleClb.Width - addNewBtn.Width+2;
-
-                treeGV.Location = new Point(0, strategyCb.Location.Y + strategyCb.Height);
-                treeGV.Size = new Size(this.Width, this.Height - treeGV.Location.Y);
-            }
-            catch (Exception er)
-            {
-                ErrorHandler(this, er); ;
-            }
-        }
-
+       
         private void ExpandTimeScale()
         {
-            timeScaleClb.Height = this.Height - 1 * timeScaleClb.Height;
+            timeScaleClb.Height = Math.Min(timeScaleClb.Items.Count * (timeScaleClb.Font.Height + 2 * SystemInformation.BorderSize.Height + 3),
+                                           this.Height - 1 * timeScaleClb.Height);
         }
         private void CollapseTimeScale()
         {
@@ -233,22 +204,50 @@ namespace baseClass.controls
 
         private void timeScaleClb_Enter(object sender, EventArgs e)
         {
-            ExpandTimeScale();
+            try
+            {
+                ExpandTimeScale();
+            }
+            catch (Exception er)
+            {
+                ErrorHandler(this, er); ;
+            }
         }
 
         private void timeScaleClb_Leave(object sender, EventArgs e)
         {
-            CollapseTimeScale();
+            try
+            {
+                CollapseTimeScale();
+            }
+            catch (Exception er)
+            {
+                ErrorHandler(this, er); ;
+            }
         }
 
         private void timeScaleClb_MouseHover(object sender, EventArgs e)
         {
-            ExpandTimeScale();
+            try
+            {
+                ExpandTimeScale();
+            }
+            catch (Exception er)
+            {
+                ErrorHandler(this, er); ;
+            }
         }
 
         private void timeScaleClb_MouseLeave(object sender, EventArgs e)
         {
-            CollapseTimeScale();
+            try
+            {
+                CollapseTimeScale();
+            }
+            catch (Exception er)
+            {
+                ErrorHandler(this, er); ;
+            }
         }
 
         private void addAllBtn_Click(object sender, EventArgs e)
@@ -277,13 +276,13 @@ namespace baseClass.controls
                     common.myComboBoxItem item = (common.myComboBoxItem)strategyCb.Items[idx];
                     row = this.myDataTbl.NewportfolioDetailRow();
                     dataLibs.InitData(row);
-                    row.dataType = (byte)this.myDataType;
-                    row.dataCode = item.Value;
                     row.portfolio = this.myPorfolioCode;
+                    row.code  = this.myStockCode;
+                    row.subCode = item.Value;
                     row.data = timeScaleClb.myItemString;
                     this.myDataTbl.AddportfolioDetailRow(row);
                 }
-                RefreshView();
+                Refresh();
             }
             catch (Exception er)
             {

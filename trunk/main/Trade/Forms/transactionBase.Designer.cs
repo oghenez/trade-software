@@ -29,30 +29,30 @@
         private void InitializeComponent()
         {
             this.editGB1 = new System.Windows.Forms.GroupBox();
-            this.totalAmtEd = new common.control.numberTextBox();
-            this.feePercEd = new common.control.numberTextBox();
-            this.qtyEd = new common.control.numberTextBox();
-            this.totalAmtLbl = new common.control.baseLabel();
-            this.qtyLbl = new common.control.baseLabel();
-            this.priceEd = new common.control.numberTextBox();
-            this.feeAmtLbl = new common.control.baseLabel();
-            this.priceLbl = new common.control.baseLabel();
-            this.feeAmtEd = new common.control.numberTextBox();
-            this.subTotalEd = new common.control.numberTextBox();
-            this.subTotalLbl = new common.control.baseLabel();
+            this.totalAmtEd = new common.controls.numberTextBox();
+            this.feePercEd = new common.controls.numberTextBox();
+            this.qtyEd = new common.controls.numberTextBox();
+            this.totalAmtLbl = new common.controls.baseLabel();
+            this.qtyLbl = new common.controls.baseLabel();
+            this.priceEd = new common.controls.numberTextBox();
+            this.feeAmtLbl = new common.controls.baseLabel();
+            this.priceLbl = new common.controls.baseLabel();
+            this.feeAmtEd = new common.controls.numberTextBox();
+            this.subTotalEd = new common.controls.numberTextBox();
+            this.subTotalLbl = new common.controls.baseLabel();
             this.editGB2 = new System.Windows.Forms.GroupBox();
-            this.statusLbl = new common.control.baseLabel();
+            this.statusLbl = new common.controls.baseLabel();
             this.statusCb = new baseClass.controls.cbCommonStatus();
-            this.onTimeLbl = new common.control.baseLabel();
-            this.onTimeEd = new common.control.baseDate();
-            this.portfolioLbl = new common.control.baseLabel();
-            this.stockCodeLbl = new common.control.baseLabel();
-            this.transTypeLbl = new common.control.baseLabel();
+            this.onTimeLbl = new common.controls.baseLabel();
+            this.onTimeEd = new common.controls.baseDate();
+            this.portfolioLbl = new common.controls.baseLabel();
+            this.stockCodeLbl = new common.controls.baseLabel();
+            this.transTypeLbl = new common.controls.baseLabel();
             this.portfolioCb = new baseClass.controls.cbWatchList();
             this.stockCodeEd = new baseClass.controls.txtStockCode();
-            this.transCodeEd = new common.control.baseTextBox();
+            this.transCodeEd = new common.controls.baseTextBox();
             this.transTypeCb = new baseClass.controls.cbTradeAction();
-            this.codeLbl = new common.control.baseLabel();
+            this.codeLbl = new common.controls.baseLabel();
             this.editGB1.SuspendLayout();
             this.editGB2.SuspendLayout();
             this.SuspendLayout();
@@ -135,21 +135,21 @@
             // 
             this.totalAmtLbl.AutoSize = true;
             this.totalAmtLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.totalAmtLbl.Location = new System.Drawing.Point(48, 115);
+            this.totalAmtLbl.Location = new System.Drawing.Point(29, 114);
             this.totalAmtLbl.Name = "totalAmtLbl";
-            this.totalAmtLbl.Size = new System.Drawing.Size(68, 16);
+            this.totalAmtLbl.Size = new System.Drawing.Size(93, 16);
             this.totalAmtLbl.TabIndex = 173;
-            this.totalAmtLbl.Text = "Tổng tiền";
+            this.totalAmtLbl.Text = "Total amount";
             // 
             // qtyLbl
             // 
             this.qtyLbl.AutoSize = true;
             this.qtyLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.qtyLbl.Location = new System.Drawing.Point(41, 19);
+            this.qtyLbl.Location = new System.Drawing.Point(91, 19);
             this.qtyLbl.Name = "qtyLbl";
-            this.qtyLbl.Size = new System.Drawing.Size(75, 16);
+            this.qtyLbl.Size = new System.Drawing.Size(31, 16);
             this.qtyLbl.TabIndex = 163;
-            this.qtyLbl.Text = "Khối lượng";
+            this.qtyLbl.Text = "Qty";
             // 
             // priceEd
             // 
@@ -174,21 +174,21 @@
             // 
             this.feeAmtLbl.AutoSize = true;
             this.feeAmtLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.feeAmtLbl.Location = new System.Drawing.Point(55, 91);
+            this.feeAmtLbl.Location = new System.Drawing.Point(50, 90);
             this.feeAmtLbl.Name = "feeAmtLbl";
-            this.feeAmtLbl.Size = new System.Drawing.Size(61, 16);
+            this.feeAmtLbl.Size = new System.Drawing.Size(74, 16);
             this.feeAmtLbl.TabIndex = 171;
-            this.feeAmtLbl.Text = "Tiền phí ";
+            this.feeAmtLbl.Text = "Trans Fee ";
             // 
             // priceLbl
             // 
             this.priceLbl.AutoSize = true;
             this.priceLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.priceLbl.Location = new System.Drawing.Point(59, 43);
+            this.priceLbl.Location = new System.Drawing.Point(82, 43);
             this.priceLbl.Name = "priceLbl";
-            this.priceLbl.Size = new System.Drawing.Size(57, 16);
+            this.priceLbl.Size = new System.Drawing.Size(40, 16);
             this.priceLbl.TabIndex = 165;
-            this.priceLbl.Text = "Đơn giá";
+            this.priceLbl.Text = "Price";
             // 
             // feeAmtEd
             // 
@@ -232,11 +232,11 @@
             // 
             this.subTotalLbl.AutoSize = true;
             this.subTotalLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.subTotalLbl.Location = new System.Drawing.Point(63, 67);
+            this.subTotalLbl.Location = new System.Drawing.Point(63, 66);
             this.subTotalLbl.Name = "subTotalLbl";
-            this.subTotalLbl.Size = new System.Drawing.Size(53, 16);
+            this.subTotalLbl.Size = new System.Drawing.Size(59, 16);
             this.subTotalLbl.TabIndex = 167;
-            this.subTotalLbl.Text = "Số tiền";
+            this.subTotalLbl.Text = "Amount";
             // 
             // editGB2
             // 
@@ -262,11 +262,11 @@
             // 
             this.statusLbl.AutoSize = true;
             this.statusLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.statusLbl.Location = new System.Drawing.Point(34, 143);
+            this.statusLbl.Location = new System.Drawing.Point(65, 143);
             this.statusLbl.Name = "statusLbl";
-            this.statusLbl.Size = new System.Drawing.Size(74, 16);
+            this.statusLbl.Size = new System.Drawing.Size(51, 16);
             this.statusLbl.TabIndex = 163;
-            this.statusLbl.Text = "Tình trạng";
+            this.statusLbl.Text = "Status";
             // 
             // statusCb
             // 
@@ -285,11 +285,11 @@
             // 
             this.onTimeLbl.AutoSize = true;
             this.onTimeLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.onTimeLbl.Location = new System.Drawing.Point(43, 118);
+            this.onTimeLbl.Location = new System.Drawing.Point(44, 118);
             this.onTimeLbl.Name = "onTimeLbl";
-            this.onTimeLbl.Size = new System.Drawing.Size(65, 16);
+            this.onTimeLbl.Size = new System.Drawing.Size(72, 16);
             this.onTimeLbl.TabIndex = 161;
-            this.onTimeLbl.Text = "Thời gian";
+            this.onTimeLbl.Text = "Date Time";
             // 
             // onTimeEd
             // 
@@ -310,7 +310,7 @@
             // 
             this.portfolioLbl.AutoSize = true;
             this.portfolioLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.portfolioLbl.Location = new System.Drawing.Point(42, 93);
+            this.portfolioLbl.Location = new System.Drawing.Point(53, 93);
             this.portfolioLbl.Name = "portfolioLbl";
             this.portfolioLbl.Size = new System.Drawing.Size(63, 16);
             this.portfolioLbl.TabIndex = 152;
@@ -320,21 +320,21 @@
             // 
             this.stockCodeLbl.AutoSize = true;
             this.stockCodeLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.stockCodeLbl.Location = new System.Drawing.Point(23, 18);
+            this.stockCodeLbl.Location = new System.Drawing.Point(76, 18);
             this.stockCodeLbl.Name = "stockCodeLbl";
-            this.stockCodeLbl.Size = new System.Drawing.Size(85, 16);
+            this.stockCodeLbl.Size = new System.Drawing.Size(40, 16);
             this.stockCodeLbl.TabIndex = 159;
-            this.stockCodeLbl.Text = "Mã cổ phiếu";
+            this.stockCodeLbl.Text = "Code";
             // 
             // transTypeLbl
             // 
             this.transTypeLbl.AutoSize = true;
             this.transTypeLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.transTypeLbl.Location = new System.Drawing.Point(13, 68);
+            this.transTypeLbl.Location = new System.Drawing.Point(32, 68);
             this.transTypeLbl.Name = "transTypeLbl";
-            this.transTypeLbl.Size = new System.Drawing.Size(95, 16);
+            this.transTypeLbl.Size = new System.Drawing.Size(84, 16);
             this.transTypeLbl.TabIndex = 157;
-            this.transTypeLbl.Text = "Loại giao dịch";
+            this.transTypeLbl.Text = "Transaction";
             // 
             // portfolioCb
             // 
@@ -383,11 +383,11 @@
             // 
             this.codeLbl.AutoSize = true;
             this.codeLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.codeLbl.Location = new System.Drawing.Point(20, 43);
+            this.codeLbl.Location = new System.Drawing.Point(35, 43);
             this.codeLbl.Name = "codeLbl";
-            this.codeLbl.Size = new System.Drawing.Size(88, 16);
+            this.codeLbl.Size = new System.Drawing.Size(81, 16);
             this.codeLbl.TabIndex = 156;
-            this.codeLbl.Text = "Mã giao dịch";
+            this.codeLbl.Text = "Order Code";
             // 
             // transactionBase
             // 
@@ -412,29 +412,29 @@
         #endregion
 
         protected System.Windows.Forms.GroupBox editGB1;
-        protected common.control.numberTextBox totalAmtEd;
-        protected common.control.numberTextBox feePercEd;
-        protected common.control.numberTextBox qtyEd;
-        protected common.control.baseLabel totalAmtLbl;
-        protected common.control.baseLabel qtyLbl;
-        protected common.control.numberTextBox priceEd;
-        protected common.control.baseLabel feeAmtLbl;
-        protected common.control.baseLabel priceLbl;
-        protected common.control.numberTextBox feeAmtEd;
-        protected common.control.numberTextBox subTotalEd;
-        protected common.control.baseLabel subTotalLbl;
+        protected common.controls.numberTextBox totalAmtEd;
+        protected common.controls.numberTextBox feePercEd;
+        protected common.controls.numberTextBox qtyEd;
+        protected common.controls.baseLabel totalAmtLbl;
+        protected common.controls.baseLabel qtyLbl;
+        protected common.controls.numberTextBox priceEd;
+        protected common.controls.baseLabel feeAmtLbl;
+        protected common.controls.baseLabel priceLbl;
+        protected common.controls.numberTextBox feeAmtEd;
+        protected common.controls.numberTextBox subTotalEd;
+        protected common.controls.baseLabel subTotalLbl;
         protected System.Windows.Forms.GroupBox editGB2;
-        protected common.control.baseLabel statusLbl;
+        protected common.controls.baseLabel statusLbl;
         protected baseClass.controls.cbCommonStatus statusCb;
-        protected common.control.baseLabel onTimeLbl;
-        protected common.control.baseDate onTimeEd;
-        protected common.control.baseLabel portfolioLbl;
-        protected common.control.baseLabel stockCodeLbl;
-        protected common.control.baseLabel transTypeLbl;
+        protected common.controls.baseLabel onTimeLbl;
+        protected common.controls.baseDate onTimeEd;
+        protected common.controls.baseLabel portfolioLbl;
+        protected common.controls.baseLabel stockCodeLbl;
+        protected common.controls.baseLabel transTypeLbl;
         protected baseClass.controls.cbWatchList portfolioCb;
         protected baseClass.controls.txtStockCode stockCodeEd;
-        protected common.control.baseTextBox transCodeEd;
+        protected common.controls.baseTextBox transCodeEd;
         protected baseClass.controls.cbTradeAction transTypeCb;
-        protected common.control.baseLabel codeLbl;
+        protected common.controls.baseLabel codeLbl;
     }
 }

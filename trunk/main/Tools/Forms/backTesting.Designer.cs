@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(backTesting));
-            this.resultDataGrid = new common.control.baseDataGridView();
+            this.resultDataGrid = new common.controls.baseDataGridView();
             this.dateRangeLbl = new baseClass.controls.baseLabel();
             this.dateRangeEd = new baseClass.controls.chartTiming();
             this.myTmpDS = new data.tmpDS();
             this.dataPnl = new System.Windows.Forms.Panel();
-            this.strategyEstimationPnl = new common.control.basePanel();
-            this.strategyEstimationGrid = new common.control.baseDataGridView();
+            this.strategyEstimationPnl = new common.controls.basePanel();
+            this.strategyEstimationGrid = new common.controls.baseDataGridView();
             this.optionPnl = new System.Windows.Forms.Panel();
             this.stockCodeSelectLb = new baseClass.controls.stockCodeSelect();
             this.stockCodeLbl = new baseClass.controls.baseLabel();
@@ -89,9 +89,9 @@
             this.dateRangeLbl.Location = new System.Drawing.Point(22, 3);
             this.dateRangeLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.dateRangeLbl.Name = "dateRangeLbl";
-            this.dateRangeLbl.Size = new System.Drawing.Size(65, 16);
+            this.dateRangeLbl.Size = new System.Drawing.Size(76, 16);
             this.dateRangeLbl.TabIndex = 311;
-            this.dateRangeLbl.Text = "Thời gian";
+            this.dateRangeLbl.Text = "Periodicity";
             // 
             // dateRangeEd
             // 
@@ -128,13 +128,13 @@
             this.strategyEstimationPnl.isExpanded = true;
             this.strategyEstimationPnl.isVisible = true;
             this.strategyEstimationPnl.Location = new System.Drawing.Point(-1, 493);
-            this.strategyEstimationPnl.myIconLocations = common.control.basePanel.IconLocations.None;
-            this.strategyEstimationPnl.mySizingOptions = common.control.basePanel.SizingOptions.None;
+            this.strategyEstimationPnl.myIconLocations = common.controls.basePanel.IconLocations.None;
+            this.strategyEstimationPnl.mySizingOptions = common.controls.basePanel.SizingOptions.None;
             this.strategyEstimationPnl.myWeight = 0;
             this.strategyEstimationPnl.Name = "strategyEstimationPnl";
             this.strategyEstimationPnl.Size = new System.Drawing.Size(412, 159);
             this.strategyEstimationPnl.TabIndex = 311;
-            this.strategyEstimationPnl.myOnClosing += new common.control.basePanel.OnClosing(this.strategyEstimationPnl_myOnClosing);
+            this.strategyEstimationPnl.myOnClosing += new common.controls.basePanel.OnClosing(this.strategyEstimationPnl_myOnClosing);
             // 
             // strategyEstimationGrid
             // 
@@ -186,9 +186,9 @@
             this.stockCodeLbl.Location = new System.Drawing.Point(22, 232);
             this.stockCodeLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.stockCodeLbl.Name = "stockCodeLbl";
-            this.stockCodeLbl.Size = new System.Drawing.Size(156, 16);
+            this.stockCodeLbl.Size = new System.Drawing.Size(63, 16);
             this.stockCodeLbl.TabIndex = 318;
-            this.stockCodeLbl.Text = "Danh sách mã cổ phiếu";
+            this.stockCodeLbl.Text = "Code list";
             // 
             // strategyLbl
             // 
@@ -196,9 +196,9 @@
             this.strategyLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.strategyLbl.Location = new System.Drawing.Point(22, 50);
             this.strategyLbl.Name = "strategyLbl";
-            this.strategyLbl.Size = new System.Drawing.Size(74, 16);
+            this.strategyLbl.Size = new System.Drawing.Size(66, 16);
             this.strategyLbl.TabIndex = 315;
-            this.strategyLbl.Text = "Chiến lược";
+            this.strategyLbl.Text = "Strategy";
             // 
             // strategyClb
             // 
@@ -332,6 +332,7 @@
             this.Controls.Add(this.dataPnl);
             this.Controls.Add(this.optionPnl);
             this.Controls.Add(this.menuStrip);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip;
             this.Name = "backTesting";
@@ -359,18 +360,18 @@
 
         #endregion
 
-        protected common.control.baseDataGridView resultDataGrid;
+        protected common.controls.baseDataGridView resultDataGrid;
         protected baseClass.controls.baseLabel dateRangeLbl;
         protected baseClass.controls.chartTiming dateRangeEd;
         private data.tmpDS myTmpDS;
         protected System.Windows.Forms.Panel dataPnl;
-        protected common.control.baseDataGridView strategyEstimationGrid;
+        protected common.controls.baseDataGridView strategyEstimationGrid;
         protected System.Windows.Forms.Panel optionPnl;
         protected baseClass.controls.baseLabel strategyLbl;
         protected baseClass.controls.strategySelect strategyClb;
         protected baseClass.controls.baseLabel stockCodeLbl;
         protected System.Windows.Forms.MenuStrip menuStrip;
-        private common.control.basePanel strategyEstimationPnl;
+        private common.controls.basePanel strategyEstimationPnl;
         private System.Windows.Forms.ToolStripMenuItem mainMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exportResultMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exportEstimationMenuItem;

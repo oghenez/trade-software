@@ -34,10 +34,7 @@
             this.investorSource = new System.Windows.Forms.BindingSource(this.components);
             this.myBaseDS = new data.baseDS();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.dataGrid = new common.control.baseDataGridView();
-            this.codeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.displayNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.address1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGrid = new common.controls.baseDataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -47,6 +44,9 @@
             this.findBtn = new baseClass.controls.baseButton();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.findCriteria = new baseClass.controls.investorCriteria();
+            this.codeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.displayNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.address1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.investorSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.myBaseDS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).BeginInit();
@@ -88,6 +88,7 @@
             this.displayNameDataGridViewTextBoxColumn,
             this.address1});
             this.dataGrid.DataSource = this.investorSource;
+            this.dataGrid.DisableReadOnlyColumn = true;
             this.dataGrid.Location = new System.Drawing.Point(0, 153);
             this.dataGrid.Name = "dataGrid";
             this.dataGrid.ReadOnly = true;
@@ -98,29 +99,6 @@
             this.dataGrid.TabIndex = 2;
             this.dataGrid.DoubleClick += new System.EventHandler(this.selectBtn_Click);
             this.dataGrid.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.grid_DataError);
-            // 
-            // codeDataGridViewTextBoxColumn
-            // 
-            this.codeDataGridViewTextBoxColumn.DataPropertyName = "code";
-            this.codeDataGridViewTextBoxColumn.HeaderText = "Mã số";
-            this.codeDataGridViewTextBoxColumn.Name = "codeDataGridViewTextBoxColumn";
-            this.codeDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // displayNameDataGridViewTextBoxColumn
-            // 
-            this.displayNameDataGridViewTextBoxColumn.DataPropertyName = "displayName";
-            this.displayNameDataGridViewTextBoxColumn.HeaderText = "Tên";
-            this.displayNameDataGridViewTextBoxColumn.Name = "displayNameDataGridViewTextBoxColumn";
-            this.displayNameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.displayNameDataGridViewTextBoxColumn.Width = 200;
-            // 
-            // address1
-            // 
-            this.address1.DataPropertyName = "address1";
-            this.address1.HeaderText = "Địa chỉ";
-            this.address1.Name = "address1";
-            this.address1.ReadOnly = true;
-            this.address1.Width = 250;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -151,12 +129,12 @@
             this.closeBtn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.closeBtn.Image = global::baseClass.Properties.Resources.close;
             this.closeBtn.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.closeBtn.Location = new System.Drawing.Point(470, 114);
+            this.closeBtn.Location = new System.Drawing.Point(470, 115);
             this.closeBtn.Margin = new System.Windows.Forms.Padding(0);
             this.closeBtn.Name = "closeBtn";
-            this.closeBtn.Size = new System.Drawing.Size(80, 37);
+            this.closeBtn.Size = new System.Drawing.Size(80, 38);
             this.closeBtn.TabIndex = 13;
-            this.closeBtn.Text = "Đóng";
+            this.closeBtn.Text = "Close";
             this.closeBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.closeBtn.UseVisualStyleBackColor = true;
             this.closeBtn.Visible = false;
@@ -167,12 +145,12 @@
             this.selectBtn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.selectBtn.Image = global::baseClass.Properties.Resources.select;
             this.selectBtn.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.selectBtn.Location = new System.Drawing.Point(470, 40);
+            this.selectBtn.Location = new System.Drawing.Point(470, 39);
             this.selectBtn.Margin = new System.Windows.Forms.Padding(4);
             this.selectBtn.Name = "selectBtn";
-            this.selectBtn.Size = new System.Drawing.Size(80, 37);
+            this.selectBtn.Size = new System.Drawing.Size(80, 38);
             this.selectBtn.TabIndex = 11;
-            this.selectBtn.Text = "&Chọn";
+            this.selectBtn.Text = "&Select";
             this.selectBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.selectBtn.UseVisualStyleBackColor = true;
             this.selectBtn.Click += new System.EventHandler(this.selectBtn_Click);
@@ -185,9 +163,9 @@
             this.newBtn.Location = new System.Drawing.Point(470, 77);
             this.newBtn.Margin = new System.Windows.Forms.Padding(0);
             this.newBtn.Name = "newBtn";
-            this.newBtn.Size = new System.Drawing.Size(80, 37);
+            this.newBtn.Size = new System.Drawing.Size(80, 38);
             this.newBtn.TabIndex = 12;
-            this.newBtn.Text = "&Mới";
+            this.newBtn.Text = "&New";
             this.newBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.newBtn.UseVisualStyleBackColor = true;
             this.newBtn.Click += new System.EventHandler(this.newBtn_Click);
@@ -197,12 +175,12 @@
             this.findBtn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.findBtn.Image = global::baseClass.Properties.Resources.find;
             this.findBtn.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.findBtn.Location = new System.Drawing.Point(470, 3);
+            this.findBtn.Location = new System.Drawing.Point(470, 1);
             this.findBtn.Margin = new System.Windows.Forms.Padding(0);
             this.findBtn.Name = "findBtn";
-            this.findBtn.Size = new System.Drawing.Size(80, 37);
+            this.findBtn.Size = new System.Drawing.Size(80, 38);
             this.findBtn.TabIndex = 10;
-            this.findBtn.Text = "&Tìm";
+            this.findBtn.Text = "&Find";
             this.findBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.findBtn.UseVisualStyleBackColor = true;
             this.findBtn.Click += new System.EventHandler(this.findBtn_Click);
@@ -224,6 +202,29 @@
             this.findCriteria.Size = new System.Drawing.Size(390, 151);
             this.findCriteria.TabIndex = 1;
             // 
+            // codeDataGridViewTextBoxColumn
+            // 
+            this.codeDataGridViewTextBoxColumn.DataPropertyName = "code";
+            this.codeDataGridViewTextBoxColumn.HeaderText = "Code";
+            this.codeDataGridViewTextBoxColumn.Name = "codeDataGridViewTextBoxColumn";
+            this.codeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // displayNameDataGridViewTextBoxColumn
+            // 
+            this.displayNameDataGridViewTextBoxColumn.DataPropertyName = "displayName";
+            this.displayNameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.displayNameDataGridViewTextBoxColumn.Name = "displayNameDataGridViewTextBoxColumn";
+            this.displayNameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.displayNameDataGridViewTextBoxColumn.Width = 200;
+            // 
+            // address1
+            // 
+            this.address1.DataPropertyName = "address1";
+            this.address1.HeaderText = "Address";
+            this.address1.Name = "address1";
+            this.address1.ReadOnly = true;
+            this.address1.Width = 250;
+            // 
             // investorFind
             // 
             this.ClientSize = new System.Drawing.Size(610, 570);
@@ -235,7 +236,7 @@
             this.Controls.Add(this.findBtn);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "investorFind";
-            this.Text = "Tim kiem";
+            this.Text = "Find";
             this.Load += new System.EventHandler(this.form_Load);
             this.Controls.SetChildIndex(this.TitleLbl, 0);
             this.Controls.SetChildIndex(this.findBtn, 0);
@@ -262,7 +263,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
-        private common.control.baseDataGridView dataGrid;
+        private common.controls.baseDataGridView dataGrid;
         protected baseClass.controls.baseButton newBtn;
         protected baseClass.controls.baseButton selectBtn;
         protected baseClass.controls.baseButton closeBtn;

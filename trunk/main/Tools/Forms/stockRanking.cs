@@ -116,19 +116,19 @@ namespace Tools.Forms
             }
         }
 
-        private common.control.baseDataGridView CurrentDataGridView
+        private common.controls.baseDataGridView CurrentDataGridView
         {
             get
             {
                 for (int idx = 0; idx < resultTab.SelectedTab.Controls.Count; idx++)
                 {
-                    if (resultTab.SelectedTab.Controls[idx].GetType() == typeof(common.control.baseDataGridView))
-                        return (common.control.baseDataGridView)resultTab.SelectedTab.Controls[idx];
+                    if (resultTab.SelectedTab.Controls[idx].GetType() == typeof(common.controls.baseDataGridView))
+                        return (common.controls.baseDataGridView)resultTab.SelectedTab.Controls[idx];
                 }
                 return null;
             }
         }
-        private static void SetDataGrid(common.control.baseDataGridView grid, DataTable tbl)
+        private static void SetDataGrid(common.controls.baseDataGridView grid, DataTable tbl)
         {
             grid.DataSource = tbl;
 
@@ -145,7 +145,7 @@ namespace Tools.Forms
                 column.DataPropertyName = tbl.Columns[idx].ColumnName;
                 if (idx == 0)
                 {
-                    column.HeaderText = "Chiến lược";
+                    column.HeaderText = "Strategy";
                     column.Width = 100;
                     column.Frozen = true;
                 }
@@ -159,7 +159,7 @@ namespace Tools.Forms
             }
             AdjustTestGridSize(grid);
         }
-        private void CreateContextMenu(common.control.baseDataGridView gridView)
+        private void CreateContextMenu(common.controls.baseDataGridView gridView)
         {
             ContextMenuStrip contextMenuStrip = new ContextMenuStrip();
             ToolStripItem menuItem;
@@ -276,7 +276,7 @@ namespace Tools.Forms
             {
                 string stockCode = stockCodeList[stockCodeId].ToString();
                 DataTable testRetsultTbl = CreateDataTable(timeRangeList, strategyList);
-                common.control.baseDataGridView resultGrid = CreateResultGrid(stockCode, testRetsultTbl);
+                common.controls.baseDataGridView resultGrid = CreateResultGrid(stockCode, testRetsultTbl);
 
                 for (int colId = 0; colId < timeRangeList.Count; colId++)
                 {
@@ -305,9 +305,9 @@ namespace Tools.Forms
             FormResize();
         }
 
-        private common.control.baseDataGridView CreateResultGrid(string stockCode, DataTable testRetsultTbl)
+        private common.controls.baseDataGridView CreateResultGrid(string stockCode, DataTable testRetsultTbl)
         {
-            common.control.baseDataGridView dataGridView = new common.control.baseDataGridView();
+            common.controls.baseDataGridView dataGridView = new common.controls.baseDataGridView();
             resultTab.TabPages.Add(stockCode, stockCode);
             TabPage page = resultTab.TabPages[stockCode];
             page.Controls.Add(dataGridView);
@@ -321,7 +321,7 @@ namespace Tools.Forms
             return dataGridView;
         }
 
-        private void Amount2Percent(common.control.baseDataGridView dataGrid)
+        private void Amount2Percent(common.controls.baseDataGridView dataGrid)
         {
             DataTable dataTbl = (DataTable)dataGrid.DataSource;
             decimal val = 0;
@@ -334,7 +334,7 @@ namespace Tools.Forms
                 }
             }
         }
-        private void Percent2Amount(common.control.baseDataGridView dataGrid)
+        private void Percent2Amount(common.controls.baseDataGridView dataGrid)
         {
             DataTable dataTbl = (DataTable)dataGrid.DataSource;
             decimal val = 0;
@@ -355,8 +355,8 @@ namespace Tools.Forms
             {
                 for (int pageId = 0; pageId < resultTab.TabPages[tabId].Controls.Count; pageId++)
                 {
-                    if (resultTab.TabPages[tabId].Controls[pageId].GetType() != typeof(common.control.baseDataGridView)) continue;
-                    Amount2Percent((common.control.baseDataGridView)resultTab.TabPages[tabId].Controls[pageId]);
+                    if (resultTab.TabPages[tabId].Controls[pageId].GetType() != typeof(common.controls.baseDataGridView)) continue;
+                    Amount2Percent((common.controls.baseDataGridView)resultTab.TabPages[tabId].Controls[pageId]);
                     break;
                 }
             }
@@ -368,8 +368,8 @@ namespace Tools.Forms
             {
                 for (int pageId = 0; pageId < resultTab.TabPages[tabId].Controls.Count; pageId++)
                 {
-                    if (resultTab.TabPages[tabId].Controls[pageId].GetType() != typeof(common.control.baseDataGridView)) continue;
-                    Percent2Amount((common.control.baseDataGridView)resultTab.TabPages[tabId].Controls[pageId]);
+                    if (resultTab.TabPages[tabId].Controls[pageId].GetType() != typeof(common.controls.baseDataGridView)) continue;
+                    Percent2Amount((common.controls.baseDataGridView)resultTab.TabPages[tabId].Controls[pageId]);
                     break;
                 }
             }
@@ -398,7 +398,7 @@ namespace Tools.Forms
         {
             try
             {
-                common.control.baseDataGridView resultDataGrid = this.CurrentDataGridView;
+                common.controls.baseDataGridView resultDataGrid = this.CurrentDataGridView;
                 if (resultDataGrid == null) return;
                 string stockCode = resultTab.SelectedTab.Name;  
 
@@ -463,7 +463,7 @@ namespace Tools.Forms
         {
             try
             {
-                common.control.baseDataGridView resultDataGrid = this.CurrentDataGridView;
+                common.controls.baseDataGridView resultDataGrid = this.CurrentDataGridView;
                 if (resultDataGrid == null) return;
 
                 string stockCode = resultTab.SelectedTab.Name;  
@@ -482,7 +482,7 @@ namespace Tools.Forms
         {
             try
             {
-                //common.control.baseDataGridView resultDataGrid = this.CurrentDataGridView;
+                //common.controls.baseDataGridView resultDataGrid = this.CurrentDataGridView;
                 //if (resultDataGrid == null) return;
 
                 //string stockCode = resultTab.SelectedTab.Name;  
@@ -510,7 +510,7 @@ namespace Tools.Forms
         {
             try
             {
-                common.control.baseDataGridView resultDataGrid = this.CurrentDataGridView;
+                common.controls.baseDataGridView resultDataGrid = this.CurrentDataGridView;
                 if (resultDataGrid == null) return;
 
                 string stockCode = resultTab.SelectedTab.Name;  

@@ -111,3 +111,6 @@ D:\work\stockProject\new-code\baseClass\obj\Debug\baseClass.dll
 D:\work\stockProject\new-code\baseClass\obj\Debug\baseClass.pdb
 D:\work\stockProject\new-code\baseClass\obj\Debug\baseClass.controls.stockCodeSelect.resources
 D:\work\stockProject\new-code\baseClass\obj\Debug\baseClass.forms.baseForm.resources
+D:\work\stockProject\new-code\baseClass\obj\Debug\baseClass.forms.baseDialogForm.resources
+D:\work\stockProject\new-code\baseClass\obj\Debug\baseClass.forms.sysInterestedStrategy.resources
+D:\work\stockProject\new-code\baseClass\obj\Debug\baseClass.forms.sysWatchList.resources

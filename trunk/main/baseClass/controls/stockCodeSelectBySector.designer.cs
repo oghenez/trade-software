@@ -29,12 +29,11 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(stockCodeSelectBySector));
-            this.selectCodeEd = new common.control.baseTextBox();
+            this.selectCodeEd = new common.controls.baseTextBox();
             this.optionPnl = new System.Windows.Forms.Panel();
             this.selectCodeBtn = new baseClass.controls.baseButton();
             this.showOnlyCheckedChk = new baseClass.controls.baseCheckBox();
             this.selectAllChk = new baseClass.controls.baseCheckBox();
-            this.selectCodeLbl = new baseClass.controls.baseLabel();
             this.stockCodeClb = new baseClass.controls.clbStockCode();
             this.bizSectorTypesSelection = new baseClass.controls.BizSectorTypesSelection();
             this.optionPnl.SuspendLayout();
@@ -44,7 +43,7 @@
             // 
             this.selectCodeEd.BackColor = System.Drawing.Color.White;
             this.selectCodeEd.ForeColor = System.Drawing.Color.Black;
-            this.selectCodeEd.Location = new System.Drawing.Point(225, 1);
+            this.selectCodeEd.Location = new System.Drawing.Point(222, 1);
             this.selectCodeEd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.selectCodeEd.Name = "selectCodeEd";
             this.selectCodeEd.Size = new System.Drawing.Size(159, 23);
@@ -59,7 +58,6 @@
             this.optionPnl.Controls.Add(this.showOnlyCheckedChk);
             this.optionPnl.Controls.Add(this.selectCodeEd);
             this.optionPnl.Controls.Add(this.selectAllChk);
-            this.optionPnl.Controls.Add(this.selectCodeLbl);
             this.optionPnl.Location = new System.Drawing.Point(0, 377);
             this.optionPnl.Name = "optionPnl";
             this.optionPnl.Size = new System.Drawing.Size(703, 27);
@@ -70,7 +68,7 @@
             // 
             this.selectCodeBtn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.selectCodeBtn.Image = global::baseClass.Properties.Resources.addLine;
-            this.selectCodeBtn.Location = new System.Drawing.Point(380, 1);
+            this.selectCodeBtn.Location = new System.Drawing.Point(377, 1);
             this.selectCodeBtn.Name = "selectCodeBtn";
             this.selectCodeBtn.Size = new System.Drawing.Size(23, 23);
             this.selectCodeBtn.TabIndex = 4;
@@ -81,11 +79,11 @@
             // 
             this.showOnlyCheckedChk.AutoSize = true;
             this.showOnlyCheckedChk.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.showOnlyCheckedChk.Location = new System.Drawing.Point(75, 2);
+            this.showOnlyCheckedChk.Location = new System.Drawing.Point(98, 2);
             this.showOnlyCheckedChk.Name = "showOnlyCheckedChk";
-            this.showOnlyCheckedChk.Size = new System.Drawing.Size(80, 20);
+            this.showOnlyCheckedChk.Size = new System.Drawing.Size(115, 20);
             this.showOnlyCheckedChk.TabIndex = 2;
-            this.showOnlyCheckedChk.Text = "Đã chọn";
+            this.showOnlyCheckedChk.Text = "Only Selected";
             this.showOnlyCheckedChk.UseVisualStyleBackColor = true;
             this.showOnlyCheckedChk.CheckedChanged += new System.EventHandler(this.showOnlyCheckedChk_CheckedChanged);
             // 
@@ -93,23 +91,13 @@
             // 
             this.selectAllChk.AutoSize = true;
             this.selectAllChk.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.selectAllChk.Location = new System.Drawing.Point(3, 2);
+            this.selectAllChk.Location = new System.Drawing.Point(5, 2);
             this.selectAllChk.Name = "selectAllChk";
-            this.selectAllChk.Size = new System.Drawing.Size(67, 20);
+            this.selectAllChk.Size = new System.Drawing.Size(87, 20);
             this.selectAllChk.TabIndex = 1;
-            this.selectAllChk.Text = "Tất cả";
+            this.selectAllChk.Text = "Select All";
             this.selectAllChk.UseVisualStyleBackColor = true;
             this.selectAllChk.CheckedChanged += new System.EventHandler(this.selectAllChk_CheckedChanged);
-            // 
-            // selectCodeLbl
-            // 
-            this.selectCodeLbl.AutoSize = true;
-            this.selectCodeLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.selectCodeLbl.Location = new System.Drawing.Point(165, 4);
-            this.selectCodeLbl.Name = "selectCodeLbl";
-            this.selectCodeLbl.Size = new System.Drawing.Size(64, 16);
-            this.selectCodeLbl.TabIndex = 5;
-            this.selectCodeLbl.Text = "Tự nhập ";
             // 
             // stockCodeClb
             // 
@@ -164,10 +152,9 @@
         protected BizSectorTypesSelection bizSectorTypesSelection;
         protected clbStockCode stockCodeClb;
         protected baseCheckBox selectAllChk;
-        protected common.control.baseTextBox selectCodeEd;
+        protected common.controls.baseTextBox selectCodeEd;
         protected System.Windows.Forms.Panel optionPnl;
         protected baseButton selectCodeBtn;
         protected baseCheckBox showOnlyCheckedChk;
-        protected baseLabel selectCodeLbl;
     }
 }

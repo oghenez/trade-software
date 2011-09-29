@@ -30,13 +30,13 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(companyList));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.dataGrid = new common.control.baseDataGridView();
-            this.codeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGrid = new common.controls.baseDataGridView();
             this.findPnl = new System.Windows.Forms.Panel();
             this.filterBtn = new baseClass.controls.baseButton();
             this.closeFindBtn = new baseClass.controls.baseButton();
             this.findCriteria = new baseClass.controls.companyCriteria();
+            this.codeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.xpPanelGroup_Info)).BeginInit();
             this.xpPanelGroup_Info.SuspendLayout();
             this.xpPanel_OtherInfo.SuspendLayout();
@@ -161,21 +161,6 @@
             this.dataGrid.Size = new System.Drawing.Size(463, 716);
             this.dataGrid.TabIndex = 231;
             // 
-            // codeColumn
-            // 
-            this.codeColumn.DataPropertyName = "code";
-            this.codeColumn.HeaderText = "Mã số";
-            this.codeColumn.Name = "codeColumn";
-            this.codeColumn.ReadOnly = true;
-            // 
-            // nameColumn
-            // 
-            this.nameColumn.DataPropertyName = "name";
-            this.nameColumn.HeaderText = "Tên";
-            this.nameColumn.Name = "nameColumn";
-            this.nameColumn.ReadOnly = true;
-            this.nameColumn.Width = 300;
-            // 
             // findPnl
             // 
             this.findPnl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
@@ -231,13 +216,27 @@
             this.findCriteria.Size = new System.Drawing.Size(392, 101);
             this.findCriteria.TabIndex = 1;
             // 
+            // codeColumn
+            // 
+            this.codeColumn.DataPropertyName = "code";
+            this.codeColumn.HeaderText = "Code";
+            this.codeColumn.Name = "codeColumn";
+            this.codeColumn.ReadOnly = true;
+            // 
+            // nameColumn
+            // 
+            this.nameColumn.DataPropertyName = "nameEn";
+            this.nameColumn.HeaderText = "Name";
+            this.nameColumn.Name = "nameColumn";
+            this.nameColumn.ReadOnly = true;
+            this.nameColumn.Width = 300;
+            // 
             // companyList
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(964, 738);
             this.Controls.Add(this.findPnl);
             this.Controls.Add(this.dataGrid);
-            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "companyList";
@@ -270,7 +269,7 @@
         protected baseClass.controls.baseButton filterBtn;
         protected controls.companyCriteria findCriteria;
         protected System.Windows.Forms.Panel findPnl;
-        protected common.control.baseDataGridView dataGrid;
+        protected common.controls.baseDataGridView dataGrid;
         private System.Windows.Forms.DataGridViewTextBoxColumn codeColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameColumn;
     }

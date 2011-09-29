@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.saveBtn = new common.control.baseButton();
+            this.saveBtn = new common.controls.baseButton();
             this.SuspendLayout();
             // 
             // closeBtn
@@ -91,6 +91,6 @@
 
         #endregion
 
-        protected common.control.baseButton saveBtn;
+        protected common.controls.baseButton saveBtn;
     }
 }

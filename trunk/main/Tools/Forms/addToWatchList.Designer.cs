@@ -32,7 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(addToWatchList));
             this.myDataSet = new data.baseDS();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
-            this.newWatchListBtn = new common.control.baseButton();
+            this.newWatchListBtn = new common.controls.baseButton();
             this.listNameLbl = new baseClass.controls.baseLabel();
             this.watchListCb = new baseClass.controls.cbWatchList();
             ((System.ComponentModel.ISupportInitialize)(this.myDataSet)).BeginInit();
@@ -43,21 +43,16 @@
             // 
             this.closeBtn.Location = new System.Drawing.Point(194, 64);
             this.closeBtn.Size = new System.Drawing.Size(79, 26);
-            this.closeBtn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // okBtn
             // 
             this.okBtn.Image = global::Tools.Properties.Resources.adddata;
             this.okBtn.Location = new System.Drawing.Point(115, 64);
             this.okBtn.Size = new System.Drawing.Size(79, 26);
-            this.okBtn.Text = "Thêm";
-            this.okBtn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // TitleLbl
             // 
             this.TitleLbl.Location = new System.Drawing.Point(560, 68);
-            this.TitleLbl.Size = new System.Drawing.Size(32, 26);
-            this.TitleLbl.Visible = false;
             // 
             // myDataSet
             // 
@@ -71,6 +66,7 @@
             // 
             // newWatchListBtn
             // 
+            this.newWatchListBtn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.newWatchListBtn.Image = global::Tools.Properties.Resources.addNew;
             this.newWatchListBtn.isDownState = false;
             this.newWatchListBtn.Location = new System.Drawing.Point(277, 24);
@@ -87,9 +83,9 @@
             this.listNameLbl.Location = new System.Drawing.Point(26, 6);
             this.listNameLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.listNameLbl.Name = "listNameLbl";
-            this.listNameLbl.Size = new System.Drawing.Size(74, 16);
+            this.listNameLbl.Size = new System.Drawing.Size(52, 16);
             this.listNameLbl.TabIndex = 312;
-            this.listNameLbl.Text = "Thêm vào ";
+            this.listNameLbl.Text = "Add to";
             // 
             // watchListCb
             // 
@@ -108,7 +104,6 @@
             this.Controls.Add(this.listNameLbl);
             this.Controls.Add(this.watchListCb);
             this.Controls.Add(this.newWatchListBtn);
-            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "addToWatchList";
             this.Text = "Add to watch list";
@@ -132,6 +127,6 @@
         protected baseClass.controls.baseLabel listNameLbl;
         protected data.baseDS myDataSet;
         protected System.Windows.Forms.ErrorProvider errorProvider;
-        private common.control.baseButton newWatchListBtn;
+        private common.controls.baseButton newWatchListBtn;
     }
 }

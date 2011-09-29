@@ -13,7 +13,7 @@ using application;
 
 namespace baseClass.controls
 {
-    public partial class stockCodeSelectBySector : common.control.baseUserControl
+    public partial class stockCodeSelectBySector : common.controls.baseUserControl
     {
         private data.baseDS.stockCodeDataTable _stockCodeTbl = null;
         protected data.baseDS.stockCodeDataTable myStockCodeTbl

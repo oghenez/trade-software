@@ -236,6 +236,24 @@
     <Compile Include="forms\basePortfolioWatch.designer.cs">
       <DependentUpon>basePortfolioWatch.cs</DependentUpon>
     </Compile>
+    <Compile Include="forms\baseDialogForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\baseDialogForm.designer.cs">
+      <DependentUpon>baseDialogForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\sysInterestedStrategy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\sysInterestedStrategy.Designer.cs">
+      <DependentUpon>sysInterestedStrategy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\sysWatchList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\sysWatchList.Designer.cs">
+      <DependentUpon>sysWatchList.cs</DependentUpon>
+    </Compile>
     <Compile Include="forms\watchListNew.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -411,6 +429,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="forms\basePortfolioWatch.resx">
       <DependentUpon>basePortfolioWatch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\baseDialogForm.resx">
+      <DependentUpon>baseDialogForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\sysInterestedStrategy.resx">
+      <DependentUpon>sysInterestedStrategy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\sysWatchList.resx">
+      <DependentUpon>sysWatchList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\watchListNew.resx">
       <DependentUpon>watchListNew.cs</DependentUpon>

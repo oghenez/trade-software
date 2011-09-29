@@ -403,13 +403,13 @@
     <value>False</value>
   </data>
   <data name="categoryCb.Location" type="System.Drawing.Point, System.Drawing">
-    <value>70, 60</value>
+    <value>23, 70</value>
   </data>
   <data name="categoryCb.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>5, 4, 5, 4</value>
   </data>
   <data name="categoryCb.Size" type="System.Drawing.Size, System.Drawing">
-    <value>248, 26</value>
+    <value>277, 26</value>
   </data>
   <data name="categoryCb.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -426,68 +426,26 @@
   <data name="&gt;&gt;categoryCb.ZOrder" xml:space="preserve">
     <value>10</value>
   </data>
-  <metadata name="gridSyscode.UserAddedColumn" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="inGroup.UserAddedColumn" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="weight.UserAddedColumn" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="isSystem.UserAddedColumn" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="isVisible.UserAddedColumn" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="sysCodeSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>347, 17</value>
-  </metadata>
+  <data name="syscodeGrid.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
   <data name="syscodeGrid.ColumnHeadersHeight" type="System.Int32, mscorlib">
     <value>25</value>
-  </data>
-  <data name="syscodeGrid.Location" type="System.Drawing.Point, System.Drawing">
-    <value>479, -1</value>
-  </data>
-  <data name="syscodeGrid.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 4, 5, 4</value>
-  </data>
-  <data name="syscodeGrid.ScrollBars" type="System.Windows.Forms.ScrollBars, System.Windows.Forms">
-    <value>Vertical</value>
-  </data>
-  <data name="syscodeGrid.Size" type="System.Drawing.Size, System.Drawing">
-    <value>535, 533</value>
-  </data>
-  <data name="syscodeGrid.TabIndex" type="System.Int32, mscorlib">
-    <value>10</value>
-  </data>
-  <data name="&gt;&gt;syscodeGrid.Name" xml:space="preserve">
-    <value>syscodeGrid</value>
-  </data>
-  <data name="&gt;&gt;syscodeGrid.Type" xml:space="preserve">
-    <value>common.control.baseDataGridView, common, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;syscodeGrid.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;syscodeGrid.ZOrder" xml:space="preserve">
-    <value>9</value>
   </data>
   <metadata name="gridSyscode.UserAddedColumn" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <data name="gridSyscode.HeaderText" xml:space="preserve">
-    <value>Mã.số</value>
+    <value>Code</value>
   </data>
   <data name="gridDescription1.HeaderText" xml:space="preserve">
-    <value>Diễn giải</value>
+    <value>Description</value>
   </data>
   <data name="gridDescription1.Width" type="System.Int32, mscorlib">
     <value>230</value>
   </data>
   <data name="gridDescription2.HeaderText" xml:space="preserve">
-    <value>Diễn giải 2</value>
+    <value>Description 2</value>
   </data>
   <data name="gridDescription2.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -499,7 +457,7 @@
     <value>True</value>
   </metadata>
   <data name="inGroup.HeaderText" xml:space="preserve">
-    <value>Nhóm</value>
+    <value>Group</value>
   </data>
   <data name="inGroup.Width" type="System.Int32, mscorlib">
     <value>80</value>
@@ -508,7 +466,7 @@
     <value>True</value>
   </metadata>
   <data name="weight.HeaderText" xml:space="preserve">
-    <value>Trọng.số</value>
+    <value>Weight</value>
   </data>
   <data name="weight.Width" type="System.Int32, mscorlib">
     <value>65</value>
@@ -540,6 +498,33 @@
   <metadata name="sysCodeSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>347, 17</value>
   </metadata>
+  <data name="syscodeGrid.Location" type="System.Drawing.Point, System.Drawing">
+    <value>479, -1</value>
+  </data>
+  <data name="syscodeGrid.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 4, 5, 4</value>
+  </data>
+  <data name="syscodeGrid.ScrollBars" type="System.Windows.Forms.ScrollBars, System.Windows.Forms">
+    <value>Vertical</value>
+  </data>
+  <data name="syscodeGrid.Size" type="System.Drawing.Size, System.Drawing">
+    <value>535, 550</value>
+  </data>
+  <data name="syscodeGrid.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="&gt;&gt;syscodeGrid.Name" xml:space="preserve">
+    <value>syscodeGrid</value>
+  </data>
+  <data name="&gt;&gt;syscodeGrid.Type" xml:space="preserve">
+    <value>common.controls.baseDataGridView, common, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;syscodeGrid.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;syscodeGrid.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
   <data name="systemChk.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -550,19 +535,19 @@
     <value>Tahoma, 9.75pt, style=Bold</value>
   </data>
   <data name="systemChk.Location" type="System.Drawing.Point, System.Drawing">
-    <value>72, 111</value>
+    <value>25, 149</value>
   </data>
   <data name="systemChk.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
     <value>Yes</value>
   </data>
   <data name="systemChk.Size" type="System.Drawing.Size, System.Drawing">
-    <value>86, 20</value>
+    <value>75, 20</value>
   </data>
   <data name="systemChk.TabIndex" type="System.Int32, mscorlib">
     <value>142</value>
   </data>
   <data name="systemChk.Text" xml:space="preserve">
-    <value>Hệ thống</value>
+    <value>System</value>
   </data>
   <data name="&gt;&gt;systemChk.Name" xml:space="preserve">
     <value>systemChk</value>
@@ -583,16 +568,16 @@
     <value>Tahoma, 9.75pt, style=Bold</value>
   </data>
   <data name="typeLbl.Location" type="System.Drawing.Point, System.Drawing">
-    <value>17, 62</value>
+    <value>24, 49</value>
   </data>
   <data name="typeLbl.Size" type="System.Drawing.Size, System.Drawing">
-    <value>34, 16</value>
+    <value>68, 16</value>
   </data>
   <data name="typeLbl.TabIndex" type="System.Int32, mscorlib">
     <value>146</value>
   </data>
   <data name="typeLbl.Text" xml:space="preserve">
-    <value>Loại</value>
+    <value>Categoty</value>
   </data>
   <data name="&gt;&gt;typeLbl.Name" xml:space="preserve">
     <value>typeLbl</value>
@@ -616,7 +601,7 @@
     <value>Tahoma, 9.75pt, style=Bold</value>
   </data>
   <data name="isVisibleChk.Location" type="System.Drawing.Point, System.Drawing">
-    <value>176, 111</value>
+    <value>132, 149</value>
   </data>
   <data name="isVisibleChk.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
     <value>Yes</value>
@@ -628,7 +613,7 @@
     <value>147</value>
   </data>
   <data name="isVisibleChk.Text" xml:space="preserve">
-    <value>Hiển thị</value>
+    <value>Display</value>
   </data>
   <data name="&gt;&gt;isVisibleChk.Name" xml:space="preserve">
     <value>isVisibleChk</value>
@@ -649,13 +634,13 @@
     <value>Tahoma, 11.25pt</value>
   </data>
   <data name="notesEd.Location" type="System.Drawing.Point, System.Drawing">
-    <value>70, 86</value>
+    <value>25, 121</value>
   </data>
   <data name="notesEd.Multiline" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="notesEd.Size" type="System.Drawing.Size, System.Drawing">
-    <value>403, 23</value>
+    <value>425, 23</value>
   </data>
   <data name="notesEd.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -664,7 +649,7 @@
     <value>notesEd</value>
   </data>
   <data name="&gt;&gt;notesEd.Type" xml:space="preserve">
-    <value>common.control.baseTextBox, common, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>common.controls.baseTextBox, common, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;notesEd.Parent" xml:space="preserve">
     <value>$this</value>
@@ -679,16 +664,16 @@
     <value>Tahoma, 9.75pt, style=Bold</value>
   </data>
   <data name="notesLbl.Location" type="System.Drawing.Point, System.Drawing">
-    <value>17, 89</value>
+    <value>24, 101</value>
   </data>
   <data name="notesLbl.Size" type="System.Drawing.Size, System.Drawing">
-    <value>54, 16</value>
+    <value>45, 16</value>
   </data>
   <data name="notesLbl.TabIndex" type="System.Int32, mscorlib">
     <value>149</value>
   </data>
   <data name="notesLbl.Text" xml:space="preserve">
-    <value>Ghi chú</value>
+    <value>Notes</value>
   </data>
   <data name="&gt;&gt;notesLbl.Name" xml:space="preserve">
     <value>notesLbl</value>
@@ -718,7 +703,7 @@
     <value>tag2Ed</value>
   </data>
   <data name="&gt;&gt;tag2Ed.Type" xml:space="preserve">
-    <value>common.control.baseTextBox, common, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>common.controls.baseTextBox, common, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;tag2Ed.Parent" xml:space="preserve">
     <value>editPnl</value>
@@ -742,13 +727,13 @@
     <value>5, 0, 5, 0</value>
   </data>
   <data name="tag2Lbl.Size" type="System.Drawing.Size, System.Drawing">
-    <value>73, 16</value>
+    <value>43, 16</value>
   </data>
   <data name="tag2Lbl.TabIndex" type="System.Int32, mscorlib">
     <value>240</value>
   </data>
   <data name="tag2Lbl.Text" xml:space="preserve">
-    <value>Tham số 2</value>
+    <value>Tag 2</value>
   </data>
   <data name="&gt;&gt;tag2Lbl.Name" xml:space="preserve">
     <value>tag2Lbl</value>
@@ -778,7 +763,7 @@
     <value>tag1Ed</value>
   </data>
   <data name="&gt;&gt;tag1Ed.Type" xml:space="preserve">
-    <value>common.control.baseTextBox, common, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>common.controls.baseTextBox, common, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;tag1Ed.Parent" xml:space="preserve">
     <value>editPnl</value>
@@ -802,13 +787,13 @@
     <value>5, 0, 5, 0</value>
   </data>
   <data name="tag1Lbl.Size" type="System.Drawing.Size, System.Drawing">
-    <value>73, 16</value>
+    <value>43, 16</value>
   </data>
   <data name="tag1Lbl.TabIndex" type="System.Int32, mscorlib">
     <value>238</value>
   </data>
   <data name="tag1Lbl.Text" xml:space="preserve">
-    <value>Tham số 1</value>
+    <value>Tag 1</value>
   </data>
   <data name="&gt;&gt;tag1Lbl.Name" xml:space="preserve">
     <value>tag1Lbl</value>
@@ -838,7 +823,7 @@
     <value>weightEd</value>
   </data>
   <data name="&gt;&gt;weightEd.Type" xml:space="preserve">
-    <value>common.control.baseTextBox, common, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>common.controls.baseTextBox, common, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;weightEd.Parent" xml:space="preserve">
     <value>editPnl</value>
@@ -859,13 +844,13 @@
     <value>5, 0, 5, 0</value>
   </data>
   <data name="weightLbl.Size" type="System.Drawing.Size, System.Drawing">
-    <value>64, 16</value>
+    <value>54, 16</value>
   </data>
   <data name="weightLbl.TabIndex" type="System.Int32, mscorlib">
     <value>236</value>
   </data>
   <data name="weightLbl.Text" xml:space="preserve">
-    <value>Trọng số</value>
+    <value>Weight</value>
   </data>
   <data name="&gt;&gt;weightLbl.Name" xml:space="preserve">
     <value>weightLbl</value>
@@ -889,16 +874,16 @@
     <value>Tahoma, 9.75pt, style=Bold</value>
   </data>
   <data name="editIsVisibleChk.Location" type="System.Drawing.Point, System.Drawing">
-    <value>137, 366</value>
+    <value>137, 344</value>
   </data>
   <data name="editIsVisibleChk.Size" type="System.Drawing.Size, System.Drawing">
-    <value>76, 20</value>
+    <value>73, 20</value>
   </data>
   <data name="editIsVisibleChk.TabIndex" type="System.Int32, mscorlib">
     <value>234</value>
   </data>
   <data name="editIsVisibleChk.Text" xml:space="preserve">
-    <value>Hiển thị</value>
+    <value>Display</value>
   </data>
   <data name="&gt;&gt;editIsVisibleChk.Name" xml:space="preserve">
     <value>editIsVisibleChk</value>
@@ -925,7 +910,7 @@
     <value>True</value>
   </data>
   <data name="editNoteEd.Size" type="System.Drawing.Size, System.Drawing">
-    <value>433, 121</value>
+    <value>433, 97</value>
   </data>
   <data name="editNoteEd.TabIndex" type="System.Int32, mscorlib">
     <value>20</value>
@@ -955,13 +940,13 @@
     <value>5, 0, 5, 0</value>
   </data>
   <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>54, 16</value>
+    <value>45, 16</value>
   </data>
   <data name="label6.TabIndex" type="System.Int32, mscorlib">
     <value>233</value>
   </data>
   <data name="label6.Text" xml:space="preserve">
-    <value>Ghi chú</value>
+    <value>Notes</value>
   </data>
   <data name="&gt;&gt;label6.Name" xml:space="preserve">
     <value>label6</value>
@@ -994,7 +979,7 @@
     <value>inGroupEd</value>
   </data>
   <data name="&gt;&gt;inGroupEd.Type" xml:space="preserve">
-    <value>common.control.baseTextBox, common, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>common.controls.baseTextBox, common, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;inGroupEd.Parent" xml:space="preserve">
     <value>editPnl</value>
@@ -1015,13 +1000,13 @@
     <value>5, 0, 5, 0</value>
   </data>
   <data name="inGroupLbl.Size" type="System.Drawing.Size, System.Drawing">
-    <value>85, 16</value>
+    <value>111, 16</value>
   </data>
   <data name="inGroupLbl.TabIndex" type="System.Int32, mscorlib">
     <value>229</value>
   </data>
   <data name="inGroupLbl.Text" xml:space="preserve">
-    <value>Thuộc nhóm</value>
+    <value>Belong to group</value>
   </data>
   <data name="&gt;&gt;inGroupLbl.Name" xml:space="preserve">
     <value>inGroupLbl</value>
@@ -1054,7 +1039,7 @@
     <value>desc2Ed</value>
   </data>
   <data name="&gt;&gt;desc2Ed.Type" xml:space="preserve">
-    <value>common.control.baseTextBox, common, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>common.controls.baseTextBox, common, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;desc2Ed.Parent" xml:space="preserve">
     <value>editPnl</value>
@@ -1075,13 +1060,13 @@
     <value>5, 0, 5, 0</value>
   </data>
   <data name="desc2Lbl.Size" type="System.Drawing.Size, System.Drawing">
-    <value>74, 16</value>
+    <value>93, 16</value>
   </data>
   <data name="desc2Lbl.TabIndex" type="System.Int32, mscorlib">
     <value>227</value>
   </data>
   <data name="desc2Lbl.Text" xml:space="preserve">
-    <value>Diễn giải 2</value>
+    <value>Description 2</value>
   </data>
   <data name="&gt;&gt;desc2Lbl.Name" xml:space="preserve">
     <value>desc2Lbl</value>
@@ -1105,16 +1090,16 @@
     <value>Tahoma, 9.75pt, style=Bold</value>
   </data>
   <data name="editIsSystemChk.Location" type="System.Drawing.Point, System.Drawing">
-    <value>23, 366</value>
+    <value>23, 344</value>
   </data>
   <data name="editIsSystemChk.Size" type="System.Drawing.Size, System.Drawing">
-    <value>86, 20</value>
+    <value>75, 20</value>
   </data>
   <data name="editIsSystemChk.TabIndex" type="System.Int32, mscorlib">
     <value>225</value>
   </data>
   <data name="editIsSystemChk.Text" xml:space="preserve">
-    <value>Hệ thống</value>
+    <value>System</value>
   </data>
   <data name="&gt;&gt;editIsSystemChk.Name" xml:space="preserve">
     <value>editIsSystemChk</value>
@@ -1147,7 +1132,7 @@
     <value>codeEd</value>
   </data>
   <data name="&gt;&gt;codeEd.Type" xml:space="preserve">
-    <value>common.control.baseTextBox, common, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>common.controls.baseTextBox, common, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;codeEd.Parent" xml:space="preserve">
     <value>editPnl</value>
@@ -1168,13 +1153,13 @@
     <value>5, 0, 5, 0</value>
   </data>
   <data name="codeLbl.Size" type="System.Drawing.Size, System.Drawing">
-    <value>58, 16</value>
+    <value>52, 16</value>
   </data>
   <data name="codeLbl.TabIndex" type="System.Int32, mscorlib">
     <value>223</value>
   </data>
   <data name="codeLbl.Text" xml:space="preserve">
-    <value>Mã số *</value>
+    <value>Code *</value>
   </data>
   <data name="&gt;&gt;codeLbl.Name" xml:space="preserve">
     <value>codeLbl</value>
@@ -1207,7 +1192,7 @@
     <value>desc1Ed</value>
   </data>
   <data name="&gt;&gt;desc1Ed.Type" xml:space="preserve">
-    <value>common.control.baseTextBox, common, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>common.controls.baseTextBox, common, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;desc1Ed.Parent" xml:space="preserve">
     <value>editPnl</value>
@@ -1228,13 +1213,13 @@
     <value>5, 0, 5, 0</value>
   </data>
   <data name="desc1Lbl.Size" type="System.Drawing.Size, System.Drawing">
-    <value>90, 16</value>
+    <value>105, 16</value>
   </data>
   <data name="desc1Lbl.TabIndex" type="System.Int32, mscorlib">
     <value>224</value>
   </data>
   <data name="desc1Lbl.Text" xml:space="preserve">
-    <value>Diễn giải  1 *</value>
+    <value>Description 1 *</value>
   </data>
   <data name="&gt;&gt;desc1Lbl.Name" xml:space="preserve">
     <value>desc1Lbl</value>
@@ -1249,10 +1234,10 @@
     <value>17</value>
   </data>
   <data name="editPnl.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 138</value>
+    <value>0, 173</value>
   </data>
   <data name="editPnl.Size" type="System.Drawing.Size, System.Drawing">
-    <value>477, 393</value>
+    <value>477, 373</value>
   </data>
   <data name="editPnl.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -1276,7 +1261,7 @@
     <value>Tahoma, 11.25pt</value>
   </data>
   <data name="maxLenEd.Location" type="System.Drawing.Point, System.Drawing">
-    <value>437, 60</value>
+    <value>420, 70</value>
   </data>
   <data name="maxLenEd.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>5, 4, 5, 4</value>
@@ -1294,7 +1279,7 @@
     <value>maxLenEd</value>
   </data>
   <data name="&gt;&gt;maxLenEd.Type" xml:space="preserve">
-    <value>common.control.baseTextBox, common, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>common.controls.baseTextBox, common, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;maxLenEd.Parent" xml:space="preserve">
     <value>$this</value>
@@ -1309,7 +1294,7 @@
     <value>Tahoma, 11.25pt</value>
   </data>
   <data name="categoryEd.Location" type="System.Drawing.Point, System.Drawing">
-    <value>315, 60</value>
+    <value>298, 70</value>
   </data>
   <data name="categoryEd.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>5, 4, 5, 4</value>
@@ -1327,7 +1312,7 @@
     <value>categoryEd</value>
   </data>
   <data name="&gt;&gt;categoryEd.Type" xml:space="preserve">
-    <value>common.control.baseTextBox, common, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>common.controls.baseTextBox, common, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;categoryEd.Parent" xml:space="preserve">
     <value>$this</value>
@@ -1341,11 +1326,8 @@
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>25</value>
   </metadata>
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>8, 16</value>
-  </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>1014, 556</value>
+    <value>1014, 575</value>
   </data>
   <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
     <value>Tahoma, 9.75pt, style=Bold</value>
@@ -1391,11 +1373,17 @@
   <data name="&gt;&gt;myToolTip.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolTip, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;sysCodeSource.Name" xml:space="preserve">
+    <value>sysCodeSource</value>
+  </data>
+  <data name="&gt;&gt;sysCodeSource.Type" xml:space="preserve">
+    <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;gridSyscode.Name" xml:space="preserve">
     <value>gridSyscode</value>
   </data>
   <data name="&gt;&gt;gridSyscode.Type" xml:space="preserve">
-    <value>common.control.DataGridViewTextBoxColumnExt, common, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>common.controls.DataGridViewTextBoxColumnExt, common, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;gridDescription1.Name" xml:space="preserve">
     <value>gridDescription1</value>
@@ -1432,12 +1420,6 @@
   </data>
   <data name="&gt;&gt;isVisible.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewCheckBoxColumn, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;sysCodeSource.Name" xml:space="preserve">
-    <value>sysCodeSource</value>
-  </data>
-  <data name="&gt;&gt;sysCodeSource.Type" xml:space="preserve">
-    <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>sysCodeEdit</value>

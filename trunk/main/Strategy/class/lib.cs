@@ -26,7 +26,8 @@ namespace Strategy
         //Parameter descriptions
         public IList<string> ParameterDescriptions = null;
 
-        //Name of the strategy
+        //Name and Code of the strategy
+        public string Code = "";
         public string Name = "";
 
         //Description of the strategy
@@ -104,25 +105,29 @@ namespace Strategy
             StringCollection aFields = new StringCollection();
             aFields.Clear();
             aFields.Add("Type");
+            aFields.Add("Code");
+            aFields.Add("Name");
+            aFields.Add("Description");
             aFields.Add("Category");
             aFields.Add("Parameters");
             aFields.Add("ParameterDescriptions");
-            aFields.Add("Name");
-            aFields.Add("Description");
             aFields.Add("URL");
             aFields.Add("Authors");
             aFields.Add("Version");
             common.configuration.GetConfiguration(xmlFileName, "STRATEGY", meta.ClassType.Name, aFields, false);
 
             meta.Type = AppTypes.Text2StrategyType(aFields[0]);
-            meta.Category = aFields[1];
-            meta.ParameterList = String2ParameterList(aFields[2]);
-            meta.ParameterDescriptions = common.system.String2List(aFields[3]);
-            meta.Name = aFields[4];
-            meta.Description = aFields[5];
-            meta.URL = aFields[6];
-            meta.Authors = aFields[7];
-            meta.Version = aFields[8];
+            meta.Code = aFields[1];
+            meta.Name = aFields[2];
+            meta.Description = aFields[3];
+
+            meta.Category = aFields[4];
+            meta.ParameterList = String2ParameterList(aFields[5]);
+            meta.ParameterDescriptions = common.system.String2List(aFields[6]);
+            
+            meta.URL = aFields[7];
+            meta.Authors = aFields[8];
+            meta.Version = aFields[9];
             return true;
         }
 
@@ -136,11 +141,14 @@ namespace Strategy
             StringCollection aFields = new StringCollection();
             aFields.Clear();
             aFields.Add("Type");
+            aFields.Add("Name");
+            aFields.Add("Code");
+            aFields.Add("Description");
+
             aFields.Add("Category");
             aFields.Add("Parameters");
             aFields.Add("ParameterDescriptions");
-            aFields.Add("Name");
-            aFields.Add("Description");
+
             aFields.Add("URL");
             aFields.Add("Authors");
             aFields.Add("Version");
@@ -148,11 +156,14 @@ namespace Strategy
             StringCollection aValues = new StringCollection();
             aValues.Clear();
             aValues.Add(meta.Type.ToString());
+            aValues.Add(meta.Name);
+            aValues.Add(meta.Code);
+            aValues.Add(meta.Description);
+
             aValues.Add(meta.Category);
             aValues.Add(meta.ParameterToString());
             aValues.Add(meta.ParameterDescriptions.ToString());
-            aValues.Add(meta.Name);
-            aValues.Add(meta.Description);
+            
             aValues.Add(meta.URL);
             aValues.Add(meta.Authors);
             aValues.Add(meta.Version);

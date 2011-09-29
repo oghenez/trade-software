@@ -1,6 +1,7 @@
 <Configuration>
   <STRATEGY>
     <TwoSMAMACDSCR Type="SCREENING" />
+    <TwoSMAMACDSCR Code="SCR001" />
     <TwoSMAMACDSCR Category="TRE" />
     <TwoSMAMACDSCR Parameters="MACD Fast=12,MACD Slow=26,MACD Signal=9,Short Period=5,Long Period=10" />
     <TwoSMAMACDSCR ParameterDescriptions="Period defines the input data for the strategy" />
@@ -12,6 +13,7 @@
   </STRATEGY>
   <STRATEGY>
     <TwoSMASCR Type="SCREENING" />
+    <TwoSMASCR Code="SCR002" />
     <TwoSMASCR Category="TRE" />
     <TwoSMASCR Parameters="Short Period=5,Long Period=10" />
     <TwoSMASCR ParameterDescriptions="Period defines the parameter for the screening" />
@@ -23,6 +25,7 @@
   </STRATEGY>
   <STRATEGY>
     <BasicADXSCR Type="SCREENING" />
+    <BasicADXSCR Code="SCR003" />
     <BasicADXSCR Category="TRE" />
     <BasicADXSCR Parameters="ADX Period=14" />
     <BasicADXSCR ParameterDescriptions="Period defines the parameter for the screening" />
@@ -34,6 +37,7 @@
   </STRATEGY>
   <STRATEGY>
     <MACD_HistogramSCR Type="SCREENING" />
+    <MACD_HistogramSCR Code="SCR004" />
     <MACD_HistogramSCR Category="TRE" />
     <MACD_HistogramSCR Parameters="MACD Fast=12,MACD Slow=26,MACD Signal=9" />
     <MACD_HistogramSCR ParameterDescriptions="Period defines the parameter relative strength" />
@@ -45,6 +49,7 @@
   </STRATEGY>
   <STRATEGY>
     <RelativeStrengthSCR Type="SCREENING" />
+    <RelativeStrengthSCR Code="SCR005" />
     <RelativeStrengthSCR Category="TRE" />
     <RelativeStrengthSCR Parameters="Period=180" />
     <RelativeStrengthSCR ParameterDescriptions="Period defines the parameter relative strength" />
@@ -56,6 +61,7 @@
   </STRATEGY>
   <STRATEGY>
     <SupportSCR Type="SCREENING" />
+    <SupportSCR Code="SCR006" />
     <SupportSCR Category="TRE" />
     <SupportSCR Parameters="Period=30, Distance (%)=1" />
     <SupportSCR ParameterDescriptions="Period defines the parameter for support line. Distance is between price and support line" />
@@ -67,6 +73,7 @@
   </STRATEGY>
   <STRATEGY>
     <ResistanceSCR Type="SCREENING" />
+    <ResistanceSCR Code="SCR007" />
     <ResistanceSCR Category="TRE" />
     <ResistanceSCR Parameters="Period=30, Distance (%)=1" />
     <ResistanceSCR ParameterDescriptions="Period defines the parameter for resistance line. Distance is between price and resistance line" />
@@ -78,6 +85,7 @@
   </STRATEGY>
   <STRATEGY>
     <StochFastSCR Type="SCREENING" />
+    <StochFastSCR Code="SCR008" />
     <StochFastSCR Category="TRE" />
     <StochFastSCR Parameters="Fast K=14,Fast D=3" />
     <StochFastSCR ParameterDescriptions="" />
@@ -89,6 +97,7 @@
   </STRATEGY>
   <STRATEGY>
     <BasicMACDSCR Type="SCREENING" />
+    <BasicMACDSCR Code="SCR009" />
     <BasicMACDSCR Category="TRE" />
     <BasicMACDSCR Parameters="MACD Fast=12,MACD Slow=26,MACD Signal=9" />
     <BasicMACDSCR ParameterDescriptions="Period defines the input data for the strategy" />
@@ -100,6 +109,7 @@
   </STRATEGY>
   <STRATEGY>
     <PriceSCR Type="SCREENING" />
+    <PriceSCR Code="SCR010" />
     <PriceSCR Category="TRE" />
     <PriceSCR Parameters="SMA Period=20" />
     <PriceSCR ParameterDescriptions="Period defines the screening line" />
@@ -110,7 +120,8 @@
     <PriceSCR Version="1.0" />
   </STRATEGY>
   <STRATEGY>
-    <BasicPriceSCR Type="SCREENING" />
+    <BasicPriceSCR Type="SCREENING"/>
+    <BasicPriceSCR Code="SCR011" />
     <BasicPriceSCR Category="TRE" />
     <BasicPriceSCR Parameters="" />
     <BasicPriceSCR ParameterDescriptions="" />
@@ -122,6 +133,7 @@
   </STRATEGY>
   <STRATEGY>
     <BasicVolumeSCR Type="SCREENING" />
+    <BasicVolumeSCR Code="SCR012" />
     <BasicVolumeSCR Category="TRE" />
     <BasicVolumeSCR Parameters="" />
     <BasicVolumeSCR ParameterDescriptions="" />
@@ -133,6 +145,7 @@
   </STRATEGY>
   <STRATEGY>
     <VolumeSCR Type="SCREENING" />
+    <VolumeSCR Code="SCR013" />
     <VolumeSCR Category="TRE" />
     <VolumeSCR Parameters="" />
     <VolumeSCR ParameterDescriptions="" />
@@ -144,6 +157,7 @@
   </STRATEGY>
   <STRATEGY>
     <BasicDMISCR Type="SCREENING" />
+    <BasicDMISCR Code="SCR014" />
     <BasicDMISCR Category="TRE" />
     <BasicDMISCR Parameters="Plus Period=14,Minus Period=14" />
     <BasicDMISCR ParameterDescriptions="Period defines the input data for the strategy" />
@@ -154,6 +168,7 @@
     <BasicDMISCR Version="1.0" />
   </STRATEGY>
   <STRATEGY>
+    <BuyAndHold Code="STR001"/>
     <BuyAndHold Category="TRE" />
     <BuyAndHold Parameters="" />
     <BuyAndHold ParameterDescriptions="" />
@@ -164,6 +179,7 @@
     <BuyAndHold Version="1.0" />
   </STRATEGY>
   <STRATEGY>
+    <BasicDMI_CutLoss Code="STR002"/>
     <BasicDMI_CutLoss Category="HFT" />
     <BasicDMI_CutLoss Parameters="Plus Period=14,Minus Period=14,Cut Loss Level (%)=5,Take Profit Level (%)=200" />
     <BasicDMI_CutLoss ParameterDescriptions="Period defines the input data for the strategy. &#xD;&#xA;                      Cut loss Level defines the target in % of price for selling the stock. &#xD;&#xA;                      Take Profit Level defines the target in % of price for taking profit" />
@@ -174,6 +190,7 @@
     <BasicDMI_CutLoss Version="1.0" />
   </STRATEGY>
   <STRATEGY>
+    <BasicDMI Code="STR003"/>
     <BasicDMI Category="TRE" />
     <BasicDMI Parameters="Plus Period=14,Minus Period=14" />
     <BasicDMI ParameterDescriptions="Period defines the input data for the strategy" />
@@ -184,6 +201,7 @@
     <BasicDMI Version="1.0" />
   </STRATEGY>
   <STRATEGY>
+    <BasicMACD Code="STR004"/>
     <BasicMACD Category="TRE" />
     <BasicMACD Parameters="MACD Fast=12,MACD Slow=26,MACD Signal=9" />
     <BasicMACD ParameterDescriptions="Period defines the input data for the strategy" />
@@ -194,6 +212,7 @@
     <BasicMACD Version="1.0" />
   </STRATEGY>
   <STRATEGY>
+    <RandomStrategy Code="STR005"/>
     <RandomStrategy Category="TRE" />
     <RandomStrategy Parameters="" />
     <RandomStrategy ParameterDescriptions="Period defines the input data for the strategy" />
@@ -204,6 +223,7 @@
     <RandomStrategy Version="1.0" />
   </STRATEGY>
   <STRATEGY>
+    <StochasticFast Code="STR006"/>
     <StochasticFast Category="TRE" />
     <StochasticFast Parameters="Fast K=14,Fast D=3" />
     <StochasticFast ParameterDescriptions="Parameters Fast K and Fast D" />
@@ -214,6 +234,7 @@
     <StochasticFast Version="1.0" />
   </STRATEGY>
   <STRATEGY>
+    <StochasticSlow Code="STR007"/>
     <StochasticSlow Category="TRE" />
     <StochasticSlow Parameters="Fast K=15,Slow K=5,Slow D=3" />
     <StochasticSlow ParameterDescriptions="" />
@@ -224,6 +245,7 @@
     <StochasticSlow Version="1.0" />
   </STRATEGY>
   <STRATEGY>
+    <SMA_Stochastic Code="STR008"/>
     <SMA_Stochastic Category="HFT" />
     <SMA_Stochastic Parameters="Short SMA=5,Long SMA=10,Fast K=15,Slow K=5,Slow D=3" />
     <SMA_Stochastic ParameterDescriptions="SMA define Simple Moving Average lines. &#xD;&#xA;                    Fast K, Slow K, Slow D define parameters for slow stochastic" />
@@ -234,6 +256,7 @@
     <SMA_Stochastic Version="1.0" />
   </STRATEGY>
   <STRATEGY>
+    <MACD_ADX Code="STR009"/>
     <MACD_ADX Category="HFT" />
     <MACD_ADX Parameters="MACD Fast=12,MACD Slow=26,MACD Signal=9,ADX Period=14" />
     <MACD_ADX ParameterDescriptions="Period defines the input data for the strategy" />
@@ -244,6 +267,7 @@
     <MACD_ADX Version="1.0" />
   </STRATEGY>
   <STRATEGY>
+    <MACD_ADX_RiskMng Code="STR010"/>
     <MACD_ADX_RiskMng Category="HFT" />
     <MACD_ADX_RiskMng Parameters="MACD Fast=12,MACD Slow=26,MACD Signal=9,ADX Period=14,Cut Loss Level (%)=5,Take Profit Level (%)=200" />
     <MACD_ADX_RiskMng ParameterDescriptions="Period defines the input data for the strategy" />
@@ -254,6 +278,7 @@
     <MACD_ADX_RiskMng Version="1.0" />
   </STRATEGY>
   <STRATEGY>
+    <MACD_Stochastic Code="STR011"/>
     <MACD_Stochastic Category="HFT" />
     <MACD_Stochastic Parameters="Simple moving average=20,MACD Fast=12,MACD Slow=26,MACD Signal=9,Fast K Period=15,Slow K Period=5,Slow D Period=3" />
     <MACD_Stochastic ParameterDescriptions="Period defines the input data for the strategy" />
@@ -264,6 +289,7 @@
     <MACD_Stochastic Version="1.0" />
   </STRATEGY>
   <STRATEGY>
+    <MACD_Stochastic_Bottom Code="STR012"/>
     <MACD_Stochastic_Bottom Category="HFT" />
     <MACD_Stochastic_Bottom Parameters="Simple moving average=20,MACD Fast=12,MACD Slow=26,MACD Signal=9,Fast K Period=15,Slow K Period=5,Slow D Period=3" />
     <MACD_Stochastic_Bottom ParameterDescriptions="Period defines the input data for the strategy" />
@@ -274,6 +300,7 @@
     <MACD_Stochastic_Bottom Version="1.0" />
   </STRATEGY>
   <STRATEGY>
+    <MACD_Stochastic_Bottom_v1 Code="STR013"/>
     <MACD_Stochastic_Bottom_v1 Category="HFT" />
     <MACD_Stochastic_Bottom_v1 Parameters="Simple moving average=20,MACD Fast=12,MACD Slow=26,MACD Signal=9,Fast K Period=15,Slow K Period=5,Slow D Period=3" />
     <MACD_Stochastic_Bottom_v1 ParameterDescriptions="Period defines the input data for the strategy" />
@@ -284,6 +311,7 @@
     <MACD_Stochastic_Bottom_v1 Version="1.0" />
   </STRATEGY>
   <STRATEGY>
+    <RSI_MACD_Histogram Code="STR014"/>
     <RSI_MACD_Histogram Category="HFT" />
     <RSI_MACD_Histogram Parameters="MACD Fast=12,MACD Slow=26,MACD Signal=9, RSI Period=14, RSI Over Sold=30, RSI Over Bought=70,,Cut Loss Level (%)=5,Take Profit Level (%)=200" />
     <RSI_MACD_Histogram ParameterDescriptions="Period defines the input data for the strategy" />
@@ -294,6 +322,7 @@
     <RSI_MACD_Histogram Version="1.0" />
   </STRATEGY>
   <STRATEGY>
+    <MACD_HistogramNEW Code="STR015"/>
     <MACD_HistogramNEW Category="TRE" />
     <MACD_HistogramNEW Parameters="MACD Fast=12,MACD Slow=26,MACD Signal=9" />
     <MACD_HistogramNEW ParameterDescriptions="Period defines the input data for the strategy" />
@@ -304,6 +333,7 @@
     <MACD_HistogramNEW Version="1.0" />
   </STRATEGY>
   <STRATEGY>
+    <MACD_Histogram Code="STR016"/>
     <MACD_Histogram Category="TRE" />
     <MACD_Histogram Parameters="MACD Fast=12,MACD Slow=26,MACD Signal=9" />
     <MACD_Histogram ParameterDescriptions="Period defines the input data for the strategy" />
@@ -314,6 +344,7 @@
     <MACD_Histogram Version="1.0" />
   </STRATEGY>
   <STRATEGY>
+    <BasicMACD_LineCut Code="STR017"/>
     <BasicMACD_LineCut Category="TRE" />
     <BasicMACD_LineCut Parameters="MACD Fast=12,MACD Slow=26,MACD Signal=9" />
     <BasicMACD_LineCut ParameterDescriptions="Period defines the input data for the strategy" />
@@ -324,6 +355,7 @@
     <BasicMACD_LineCut Version="1.0" />
   </STRATEGY>
   <STRATEGY>
+    <MACD_Histogram_RiskMng Code="STR018"/>
     <MACD_Histogram_RiskMng Category="TRE" />
     <MACD_Histogram_RiskMng Parameters="MACD Fast=12,MACD Slow=26,MACD Signal=9,Cut Loss Level (%)=10,Take Profit Level (%)=200" />
     <MACD_Histogram_RiskMng ParameterDescriptions="Period defines the input data for the strategy" />
@@ -334,6 +366,7 @@
     <MACD_Histogram_RiskMng Version="1.0" />
   </STRATEGY>
   <STRATEGY>
+    <AverageStrategy Code="STR019"/>
     <AverageStrategy Category="MEA" />
     <AverageStrategy Parameters="Period = 30, Buy Level from Average(%) = 20,Sell Level from Average(%) = 15,Cut Loss Level (%)=4,Take Profit Level (%)=200" />
     <AverageStrategy ParameterDescriptions="" />
@@ -344,6 +377,7 @@
     <AverageStrategy Version="1.0" />
   </STRATEGY>
   <STRATEGY>
+    <PriceTwoSMA Code="STR020"/>
     <PriceTwoSMA Category="TRE" />
     <PriceTwoSMA Parameters="Short Period = 5,Long Period=10," />
     <PriceTwoSMA ParameterDescriptions="Short Period is the period for the short term moving average line.&#xD;&#xA;                 Long Period is the period for the long term moving average line." />
@@ -354,6 +388,7 @@
     <PriceTwoSMA Version="1.0" />
   </STRATEGY>
   <STRATEGY>
+    <Price_3SMA Code="STR021"/>
     <Price_3SMA Category="TRE" />
     <Price_3SMA Parameters="Short Period = 5,Medium Period=10,Long Period=20" />
     <Price_3SMA ParameterDescriptions="Short Period is the period for the short term moving average line.&#xD;&#xA;                 Medium Period is the period for the medium term moving average line.&#xD;&#xA;                 Long Period is the period for the long term moving average line." />
@@ -364,6 +399,7 @@
     <Price_3SMA Version="1.0" />
   </STRATEGY>
   <STRATEGY>
+    <Price_3SMA_Risk_Reward Code="STR022"/>
     <Price_3SMA_Risk_Reward Category="TRE" />
     <Price_3SMA_Risk_Reward Parameters="Short Period=5,Medium Period=10,Long Period=20,Risk Reward Ratio=2,Period for Risk Reward Ratio=60" />
     <Price_3SMA_Risk_Reward ParameterDescriptions="Short Period is the period for the short term moving average line.&#xD;&#xA;                 Medium Period is the period for the medium term moving average line.&#xD;&#xA;                 Long Period is the period for the long term moving average line." />
@@ -374,6 +410,7 @@
     <Price_3SMA_Risk_Reward Version="1.0" />
   </STRATEGY>
   <STRATEGY>
+    <TwoWMA Code="STR023"/>
     <TwoWMA Category="TRE" />
     <TwoWMA Parameters="Short Period = 5,Long Period=10" />
     <TwoWMA ParameterDescriptions="Short Period is the period for the short term moving average line.&#xD;&#xA;                 Long Period is the period for the long term moving average line." />
@@ -384,6 +421,7 @@
     <TwoWMA Version="1.0" />
   </STRATEGY>
   <STRATEGY>
+    <TwoEMA Code="STR024"/>
     <TwoEMA Category="TRE" />
     <TwoEMA Parameters="Short Period = 5,Long Period=10" />
     <TwoEMA ParameterDescriptions="Short Period is the period for the short term moving average line.&#xD;&#xA;                 Long Period is the period for the long term moving average line." />
@@ -394,6 +432,7 @@
     <TwoEMA Version="1.0" />
   </STRATEGY>
   <STRATEGY>
+    <TwoSMA Code="STR025"/>
     <TwoSMA Category="TRE" />
     <TwoSMA Parameters="Short Period = 5,Long Period=10" />
     <TwoSMA ParameterDescriptions="Short Period is the period for the short term moving average line.&#xD;&#xA;                 Long Period is the period for the long term moving average line." />
@@ -404,6 +443,7 @@
     <TwoSMA Version="1.0" />
   </STRATEGY>
   <STRATEGY>
+    <TwoSMA_VolumeFilter Code="STR026"/>
     <TwoSMA_VolumeFilter Category="TRE" />
     <TwoSMA_VolumeFilter Parameters="Short Period=5,Long Period=10,Volume Filter=100000" />
     <TwoSMA_VolumeFilter ParameterDescriptions="Short Period is the period for the short term moving average line.&#xD;&#xA;                 Long Period is the period for the long term moving average line." />
@@ -415,6 +455,7 @@
   </STRATEGY>
 
   <STRATEGY>
+    <ConsecutiveUpDown Code="STR027"/>
     <ConsecutiveUpDown Category="TRE" />
     <ConsecutiveUpDown Parameters="Days down=5,Days Up=5" />
     <ConsecutiveUpDown ParameterDescriptions="" />

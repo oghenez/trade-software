@@ -100,12 +100,12 @@
             // 
             this.timeScaleLbl.AutoSize = true;
             this.timeScaleLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.timeScaleLbl.Location = new System.Drawing.Point(263, 285);
+            this.timeScaleLbl.Location = new System.Drawing.Point(241, 285);
             this.timeScaleLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.timeScaleLbl.Name = "timeScaleLbl";
-            this.timeScaleLbl.Size = new System.Drawing.Size(52, 16);
+            this.timeScaleLbl.Size = new System.Drawing.Size(74, 16);
             this.timeScaleLbl.TabIndex = 327;
-            this.timeScaleLbl.Text = "Dữ liệu";
+            this.timeScaleLbl.Text = "Time scale";
             // 
             // stockCodeLbl
             // 
@@ -114,9 +114,9 @@
             this.stockCodeLbl.Location = new System.Drawing.Point(21, 4);
             this.stockCodeLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.stockCodeLbl.Name = "stockCodeLbl";
-            this.stockCodeLbl.Size = new System.Drawing.Size(156, 16);
+            this.stockCodeLbl.Size = new System.Drawing.Size(63, 16);
             this.stockCodeLbl.TabIndex = 326;
-            this.stockCodeLbl.Text = "Danh sách mã cổ phiếu";
+            this.stockCodeLbl.Text = "Code list";
             // 
             // cbTimeScale
             // 
@@ -133,9 +133,9 @@
             this.allTimeRangeChk.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
             this.allTimeRangeChk.Location = new System.Drawing.Point(24, 281);
             this.allTimeRangeChk.Name = "allTimeRangeChk";
-            this.allTimeRangeChk.Size = new System.Drawing.Size(84, 20);
+            this.allTimeRangeChk.Size = new System.Drawing.Size(95, 20);
             this.allTimeRangeChk.TabIndex = 2;
-            this.allTimeRangeChk.Text = "Thời gian";
+            this.allTimeRangeChk.Text = "Periodicity";
             this.allTimeRangeChk.UseVisualStyleBackColor = true;
             this.allTimeRangeChk.CheckedChanged += new System.EventHandler(this.allTimeRangeChk_CheckedChanged);
             // 
@@ -161,9 +161,9 @@
             this.strategyLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.strategyLbl.Location = new System.Drawing.Point(21, 389);
             this.strategyLbl.Name = "strategyLbl";
-            this.strategyLbl.Size = new System.Drawing.Size(74, 16);
+            this.strategyLbl.Size = new System.Drawing.Size(66, 16);
             this.strategyLbl.TabIndex = 315;
-            this.strategyLbl.Text = "Chiến lược";
+            this.strategyLbl.Text = "Strategy";
             // 
             // strategyClb
             // 
@@ -274,6 +274,7 @@
             this.Controls.Add(this.resultTab);
             this.Controls.Add(this.optionPnl);
             this.Controls.Add(this.menuStrip);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip;
             this.Name = "stockRanking";

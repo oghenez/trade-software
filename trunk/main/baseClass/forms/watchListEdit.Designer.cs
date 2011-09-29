@@ -33,20 +33,18 @@
             this.portfolioSource = new System.Windows.Forms.BindingSource(this.components);
             this.stockCodeSource = new System.Windows.Forms.BindingSource(this.components);
             this.xpPanelGroup_Info = new UIComponents.XPPanelGroup();
-            this.xpPanel_options = new UIComponents.XPPanel(400);
+            this.xpPanel_options = new UIComponents.XPPanel(462);
             this.interestedStockClb = new baseClass.controls.stockCodeList();
             this.interestedStrategy = new baseClass.controls.watchListStrategy();
-            this.interestedBizSectorLbl = new baseClass.controls.baseLabel();
-            this.interestedBizSectorClb = new baseClass.controls.subSectorList();
             this.interestedStockLbl = new baseClass.controls.baseLabel();
-            this.xpPane_generalInfo = new UIComponents.XPPanel(204);
-            this.descriptionEd = new common.control.baseTextBox();
+            this.xpPane_generalInfo = new UIComponents.XPPanel(164);
+            this.descriptionEd = new common.controls.baseTextBox();
             this.codeLbl = new baseClass.controls.baseLabel();
             this.nameLbl = new baseClass.controls.baseLabel();
-            this.codeEd = new common.control.baseTextBox();
-            this.nameEd = new common.control.baseTextBox();
+            this.codeEd = new common.controls.baseTextBox();
+            this.nameEd = new common.controls.baseTextBox();
             this.descriptionLbl = new baseClass.controls.baseLabel();
-            this.portfolioGrid = new common.control.baseDataGridView();
+            this.portfolioGrid = new common.controls.baseDataGridView();
             this.codeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.myDataSet)).BeginInit();
@@ -66,28 +64,28 @@
             // 
             // exitBtn
             // 
-            this.exitBtn.Location = new System.Drawing.Point(427, 7);
-            this.exitBtn.Size = new System.Drawing.Size(85, 39);
+            this.exitBtn.Location = new System.Drawing.Point(468, 7);
+            this.exitBtn.Size = new System.Drawing.Size(93, 39);
             // 
             // saveBtn
             // 
-            this.saveBtn.Location = new System.Drawing.Point(87, 7);
-            this.saveBtn.Size = new System.Drawing.Size(85, 39);
+            this.saveBtn.Location = new System.Drawing.Point(96, 7);
+            this.saveBtn.Size = new System.Drawing.Size(93, 39);
             // 
             // deleteBtn
             // 
-            this.deleteBtn.Location = new System.Drawing.Point(172, 7);
-            this.deleteBtn.Size = new System.Drawing.Size(85, 39);
+            this.deleteBtn.Location = new System.Drawing.Point(189, 7);
+            this.deleteBtn.Size = new System.Drawing.Size(93, 39);
             // 
             // editBtn
             // 
-            this.editBtn.Location = new System.Drawing.Point(257, 7);
-            this.editBtn.Size = new System.Drawing.Size(85, 39);
+            this.editBtn.Location = new System.Drawing.Point(282, 7);
+            this.editBtn.Size = new System.Drawing.Size(93, 39);
             // 
             // addNewBtn
             // 
-            this.addNewBtn.Location = new System.Drawing.Point(2, 7);
-            this.addNewBtn.Size = new System.Drawing.Size(85, 39);
+            this.addNewBtn.Location = new System.Drawing.Point(3, 7);
+            this.addNewBtn.Size = new System.Drawing.Size(93, 39);
             // 
             // toExcelBtn
             // 
@@ -101,8 +99,8 @@
             // 
             // reloadBtn
             // 
-            this.reloadBtn.Location = new System.Drawing.Point(342, 7);
-            this.reloadBtn.Size = new System.Drawing.Size(85, 39);
+            this.reloadBtn.Location = new System.Drawing.Point(375, 7);
+            this.reloadBtn.Size = new System.Drawing.Size(93, 39);
             // 
             // printBtn
             // 
@@ -142,16 +140,17 @@
             this.xpPanelGroup_Info.Name = "xpPanelGroup_Info";
             this.xpPanelGroup_Info.PanelGradient = ((UIComponents.GradientColor)(resources.GetObject("xpPanelGroup_Info.PanelGradient")));
             this.xpPanelGroup_Info.PanelSpacing = 0;
-            this.xpPanelGroup_Info.Size = new System.Drawing.Size(514, 628);
+            this.xpPanelGroup_Info.Size = new System.Drawing.Size(563, 627);
             this.xpPanelGroup_Info.TabIndex = 360;
             // 
             // xpPanel_options
             // 
-            this.xpPanel_options.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.xpPanel_options.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.xpPanel_options.AnimationRate = 0;
             this.xpPanel_options.BackColor = System.Drawing.Color.Transparent;
-            this.xpPanel_options.Caption = "Thông số";
+            this.xpPanel_options.Caption = "Options";
             this.xpPanel_options.CaptionCornerType = ((UIComponents.CornerType)((UIComponents.CornerType.TopLeft | UIComponents.CornerType.TopRight)));
             this.xpPanel_options.CaptionGradient.End = System.Drawing.SystemColors.MenuHighlight;
             this.xpPanel_options.CaptionGradient.Start = System.Drawing.SystemColors.MenuHighlight;
@@ -159,20 +158,18 @@
             this.xpPanel_options.CaptionUnderline = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.xpPanel_options.Controls.Add(this.interestedStockClb);
             this.xpPanel_options.Controls.Add(this.interestedStrategy);
-            this.xpPanel_options.Controls.Add(this.interestedBizSectorLbl);
-            this.xpPanel_options.Controls.Add(this.interestedBizSectorClb);
             this.xpPanel_options.Controls.Add(this.interestedStockLbl);
             this.xpPanel_options.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xpPanel_options.ForeColor = System.Drawing.SystemColors.WindowText;
             this.xpPanel_options.HorzAlignment = System.Drawing.StringAlignment.Near;
             this.xpPanel_options.ImageItems.ImageSet = null;
             this.xpPanel_options.ImeMode = System.Windows.Forms.ImeMode.On;
-            this.xpPanel_options.Location = new System.Drawing.Point(0, 204);
+            this.xpPanel_options.Location = new System.Drawing.Point(0, 164);
             this.xpPanel_options.Name = "xpPanel_options";
             this.xpPanel_options.PanelGradient.End = System.Drawing.SystemColors.Control;
             this.xpPanel_options.PanelGradient.Start = System.Drawing.SystemColors.Control;
             this.xpPanel_options.PanelGradientMode = System.Drawing.Drawing2D.LinearGradientMode.Horizontal;
-            this.xpPanel_options.Size = new System.Drawing.Size(514, 400);
+            this.xpPanel_options.Size = new System.Drawing.Size(563, 462);
             this.xpPanel_options.TabIndex = 8;
             this.xpPanel_options.TextColors.Foreground = System.Drawing.SystemColors.Control;
             this.xpPanel_options.TextHighlightColors.Foreground = System.Drawing.SystemColors.ActiveCaptionText;
@@ -184,12 +181,16 @@
             this.interestedStockClb.DataBindings.Add(new System.Windows.Forms.Binding("myItemString", this.portfolioSource, "interestedStock", true));
             this.interestedStockClb.Enabled = false;
             this.interestedStockClb.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.interestedStockClb.Location = new System.Drawing.Point(29, 147);
+            this.interestedStockClb.Location = new System.Drawing.Point(24, 56);
             this.interestedStockClb.Margin = new System.Windows.Forms.Padding(2);
             this.interestedStockClb.myItemString = "";
             this.interestedStockClb.Name = "interestedStockClb";
-            this.interestedStockClb.Size = new System.Drawing.Size(464, 100);
+            this.interestedStockClb.Size = new System.Drawing.Size(534, 100);
             this.interestedStockClb.TabIndex = 20;
+            this.interestedStockClb.myOnRemoveItemList += new common.controls.baseListEdit2.OnModifyItemList(this.interestedStockClb_myOnRemoveItemList);
+            this.interestedStockClb.myOnAddItemList += new common.controls.baseListEdit2.OnModifyItemList(this.interestedStockClb_myOnAddItemList);
+            this.interestedStockClb.myStockCodeSelectionChange += new baseClass.controls.stockCodeList.StockCodeSelectionChange(this.interestedStockClb_myStockCodeSelectionChange);
+            this.interestedStockClb.myOnError += new common.myEventHandler(this.interestedStockClb_myOnError);
             // 
             // interestedStrategy
             // 
@@ -197,43 +198,21 @@
                         | System.Windows.Forms.AnchorStyles.Left)));
             this.interestedStrategy.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.interestedStrategy.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.interestedStrategy.Location = new System.Drawing.Point(29, 251);
+            this.interestedStrategy.Location = new System.Drawing.Point(24, 160);
             this.interestedStrategy.Margin = new System.Windows.Forms.Padding(4);
             this.interestedStrategy.Name = "interestedStrategy";
-            this.interestedStrategy.Size = new System.Drawing.Size(465, 147);
+            this.interestedStrategy.Size = new System.Drawing.Size(537, 304);
             this.interestedStrategy.TabIndex = 21;
-            // 
-            // interestedBizSectorLbl
-            // 
-            this.interestedBizSectorLbl.AutoSize = true;
-            this.interestedBizSectorLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.interestedBizSectorLbl.Location = new System.Drawing.Point(29, 37);
-            this.interestedBizSectorLbl.Name = "interestedBizSectorLbl";
-            this.interestedBizSectorLbl.Size = new System.Drawing.Size(132, 16);
-            this.interestedBizSectorLbl.TabIndex = 345;
-            this.interestedBizSectorLbl.Text = "Lãnh vực quan tâm";
-            // 
-            // interestedBizSectorClb
-            // 
-            this.interestedBizSectorClb.DataBindings.Add(new System.Windows.Forms.Binding("myItemString", this.portfolioSource, "interestedSector", true));
-            this.interestedBizSectorClb.Enabled = false;
-            this.interestedBizSectorClb.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.interestedBizSectorClb.Location = new System.Drawing.Point(29, 55);
-            this.interestedBizSectorClb.Margin = new System.Windows.Forms.Padding(2);
-            this.interestedBizSectorClb.myItemString = "";
-            this.interestedBizSectorClb.Name = "interestedBizSectorClb";
-            this.interestedBizSectorClb.Size = new System.Drawing.Size(465, 68);
-            this.interestedBizSectorClb.TabIndex = 11;
             // 
             // interestedStockLbl
             // 
             this.interestedStockLbl.AutoSize = true;
             this.interestedStockLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.interestedStockLbl.Location = new System.Drawing.Point(29, 128);
+            this.interestedStockLbl.Location = new System.Drawing.Point(24, 37);
             this.interestedStockLbl.Name = "interestedStockLbl";
-            this.interestedStockLbl.Size = new System.Drawing.Size(128, 16);
+            this.interestedStockLbl.Size = new System.Drawing.Size(120, 16);
             this.interestedStockLbl.TabIndex = 344;
-            this.interestedStockLbl.Text = "Cổ phiếu quan tâm";
+            this.interestedStockLbl.Text = "Interested codes";
             // 
             // xpPane_generalInfo
             // 
@@ -241,7 +220,7 @@
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.xpPane_generalInfo.AnimationRate = 0;
             this.xpPane_generalInfo.BackColor = System.Drawing.Color.Transparent;
-            this.xpPane_generalInfo.Caption = "Thông tin chung";
+            this.xpPane_generalInfo.Caption = "General Info";
             this.xpPane_generalInfo.CaptionCornerType = ((UIComponents.CornerType)((UIComponents.CornerType.TopLeft | UIComponents.CornerType.TopRight)));
             this.xpPane_generalInfo.CaptionGradient.End = System.Drawing.SystemColors.MenuHighlight;
             this.xpPane_generalInfo.CaptionGradient.Start = System.Drawing.SystemColors.MenuHighlight;
@@ -263,7 +242,7 @@
             this.xpPane_generalInfo.PanelGradient.End = System.Drawing.SystemColors.Control;
             this.xpPane_generalInfo.PanelGradient.Start = System.Drawing.SystemColors.Control;
             this.xpPane_generalInfo.PanelGradientMode = System.Drawing.Drawing2D.LinearGradientMode.Horizontal;
-            this.xpPane_generalInfo.Size = new System.Drawing.Size(514, 204);
+            this.xpPane_generalInfo.Size = new System.Drawing.Size(563, 164);
             this.xpPane_generalInfo.TabIndex = 6;
             this.xpPane_generalInfo.TextColors.Foreground = System.Drawing.SystemColors.Control;
             this.xpPane_generalInfo.TextHighlightColors.Foreground = System.Drawing.SystemColors.ActiveCaptionText;
@@ -275,40 +254,40 @@
             this.descriptionEd.BackColor = System.Drawing.SystemColors.Window;
             this.descriptionEd.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.portfolioSource, "description", true));
             this.descriptionEd.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.descriptionEd.Location = new System.Drawing.Point(29, 152);
+            this.descriptionEd.Location = new System.Drawing.Point(25, 106);
             this.descriptionEd.Multiline = true;
             this.descriptionEd.Name = "descriptionEd";
-            this.descriptionEd.Size = new System.Drawing.Size(467, 41);
+            this.descriptionEd.Size = new System.Drawing.Size(514, 41);
             this.descriptionEd.TabIndex = 3;
             // 
             // codeLbl
             // 
             this.codeLbl.AutoSize = true;
             this.codeLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.codeLbl.Location = new System.Drawing.Point(29, 37);
+            this.codeLbl.Location = new System.Drawing.Point(25, 37);
             this.codeLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.codeLbl.Name = "codeLbl";
-            this.codeLbl.Size = new System.Drawing.Size(46, 16);
+            this.codeLbl.Size = new System.Drawing.Size(40, 16);
             this.codeLbl.TabIndex = 364;
-            this.codeLbl.Text = "Mã số";
+            this.codeLbl.Text = "Code";
             // 
             // nameLbl
             // 
             this.nameLbl.AutoSize = true;
             this.nameLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nameLbl.Location = new System.Drawing.Point(29, 87);
+            this.nameLbl.Location = new System.Drawing.Point(132, 37);
             this.nameLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.nameLbl.Name = "nameLbl";
-            this.nameLbl.Size = new System.Drawing.Size(31, 16);
+            this.nameLbl.Size = new System.Drawing.Size(43, 16);
             this.nameLbl.TabIndex = 353;
-            this.nameLbl.Text = "Tên";
+            this.nameLbl.Text = "Name";
             // 
             // codeEd
             // 
             this.codeEd.BackColor = System.Drawing.SystemColors.Window;
             this.codeEd.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.portfolioSource, "code", true));
             this.codeEd.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.codeEd.Location = new System.Drawing.Point(29, 56);
+            this.codeEd.Location = new System.Drawing.Point(25, 56);
             this.codeEd.Name = "codeEd";
             this.codeEd.ReadOnly = true;
             this.codeEd.Size = new System.Drawing.Size(108, 24);
@@ -320,21 +299,21 @@
             this.nameEd.BackColor = System.Drawing.SystemColors.Window;
             this.nameEd.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.portfolioSource, "name", true));
             this.nameEd.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nameEd.Location = new System.Drawing.Point(29, 106);
+            this.nameEd.Location = new System.Drawing.Point(133, 56);
             this.nameEd.Name = "nameEd";
-            this.nameEd.Size = new System.Drawing.Size(464, 24);
+            this.nameEd.Size = new System.Drawing.Size(406, 24);
             this.nameEd.TabIndex = 1;
             // 
             // descriptionLbl
             // 
             this.descriptionLbl.AutoSize = true;
             this.descriptionLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.descriptionLbl.Location = new System.Drawing.Point(29, 133);
+            this.descriptionLbl.Location = new System.Drawing.Point(25, 87);
             this.descriptionLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.descriptionLbl.Name = "descriptionLbl";
-            this.descriptionLbl.Size = new System.Drawing.Size(45, 16);
+            this.descriptionLbl.Size = new System.Drawing.Size(81, 16);
             this.descriptionLbl.TabIndex = 351;
-            this.descriptionLbl.Text = "Mô tả";
+            this.descriptionLbl.Text = "Description";
             // 
             // portfolioGrid
             // 
@@ -350,18 +329,18 @@
             this.nameColumn});
             this.portfolioGrid.DataSource = this.portfolioSource;
             this.portfolioGrid.DisableReadOnlyColumn = false;
-            this.portfolioGrid.Location = new System.Drawing.Point(513, -1);
+            this.portfolioGrid.Location = new System.Drawing.Point(560, -1);
             this.portfolioGrid.Name = "portfolioGrid";
             this.portfolioGrid.ReadOnly = true;
             this.portfolioGrid.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.portfolioGrid.Size = new System.Drawing.Size(364, 679);
+            this.portfolioGrid.Size = new System.Drawing.Size(470, 678);
             this.portfolioGrid.TabIndex = 362;
             this.portfolioGrid.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.grid_DataError);
             // 
             // codeColumn
             // 
             this.codeColumn.DataPropertyName = "code";
-            this.codeColumn.HeaderText = "Mã số";
+            this.codeColumn.HeaderText = "Code";
             this.codeColumn.Name = "codeColumn";
             this.codeColumn.ReadOnly = true;
             this.codeColumn.Width = 80;
@@ -369,15 +348,15 @@
             // nameColumn
             // 
             this.nameColumn.DataPropertyName = "name";
-            this.nameColumn.HeaderText = "Tên";
+            this.nameColumn.HeaderText = "Name";
             this.nameColumn.Name = "nameColumn";
             this.nameColumn.ReadOnly = true;
-            this.nameColumn.Width = 225;
+            this.nameColumn.Width = 230;
             // 
             // watchListEdit
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(877, 702);
+            this.ClientSize = new System.Drawing.Size(1030, 701);
             this.Controls.Add(this.portfolioGrid);
             this.Controls.Add(this.xpPanelGroup_Info);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -414,18 +393,16 @@
         protected UIComponents.XPPanel xpPanel_options;
         protected baseClass.controls.stockCodeList interestedStockClb;
         protected baseClass.controls.watchListStrategy interestedStrategy;
-        protected baseClass.controls.baseLabel interestedBizSectorLbl;
-        protected baseClass.controls.subSectorList interestedBizSectorClb;
         protected baseClass.controls.baseLabel interestedStockLbl;
         protected UIComponents.XPPanel xpPane_generalInfo;
-        protected common.control.baseTextBox descriptionEd;
+        protected common.controls.baseTextBox descriptionEd;
         protected baseClass.controls.baseLabel codeLbl;
         protected baseClass.controls.baseLabel nameLbl;
-        protected common.control.baseTextBox codeEd;
-        protected common.control.baseTextBox nameEd;
+        protected common.controls.baseTextBox codeEd;
+        protected common.controls.baseTextBox nameEd;
         protected baseClass.controls.baseLabel descriptionLbl;
         protected UIComponents.XPPanelGroup xpPanelGroup_Info;
-        protected common.control.baseDataGridView portfolioGrid;
+        protected common.controls.baseDataGridView portfolioGrid;
         private System.Windows.Forms.DataGridViewTextBoxColumn codeColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameColumn;
 

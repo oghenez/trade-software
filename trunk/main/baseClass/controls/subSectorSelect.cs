@@ -12,7 +12,7 @@ using System.Collections;
 
 namespace baseClass.controls
 {
-    public partial class subSectorSelect : common.control.baseUserControl
+    public partial class subSectorSelect : common.controls.baseUserControl
     {
         public subSectorSelect()
         {
