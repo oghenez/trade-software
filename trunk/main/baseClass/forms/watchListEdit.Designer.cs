@@ -145,9 +145,8 @@
             // 
             // xpPanel_options
             // 
-            this.xpPanel_options.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.xpPanel_options.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)));
             this.xpPanel_options.AnimationRate = 0;
             this.xpPanel_options.BackColor = System.Drawing.Color.Transparent;
             this.xpPanel_options.Caption = "Options";
@@ -359,7 +358,6 @@
             this.ClientSize = new System.Drawing.Size(1030, 701);
             this.Controls.Add(this.portfolioGrid);
             this.Controls.Add(this.xpPanelGroup_Info);
-            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "watchListEdit";
             this.Text = "Watch List";

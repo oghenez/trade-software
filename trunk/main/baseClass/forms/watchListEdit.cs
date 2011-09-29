@@ -194,8 +194,6 @@ namespace baseClass.forms
             {
                 xpPanelGroup_Info.Height = this.ClientRectangle.Height - this.xpPanelGroup_Info.Location.Y - SystemInformation.CaptionHeight + 3;
                 xpPanel_options.Height = xpPanelGroup_Info.Height - xpPanel_options.Location.Y;
-                //if (xpPanel_options.Height < 400) xpPanel_options.Height = 400;
-                
                 common.system.AutoFitGridColumn(portfolioGrid, nameColumn.Name);
             }
             catch (Exception er)
