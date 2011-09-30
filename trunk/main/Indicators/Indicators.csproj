@@ -58,6 +58,7 @@
     <Reference Include="ZedGraph, Version=5.0.9.41461, Culture=neutral, PublicKeyToken=02a83cbd123fcd60, processorArchitecture=MSIL" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="class\AVGPRICE.cs" />
     <Compile Include="class\AD.cs" />
     <Compile Include="class\ADXR.cs" />
     <Compile Include="class\APO.cs" />
@@ -85,6 +86,7 @@
     <Compile Include="class\TRIMA.cs" />
     <Compile Include="class\TSF.cs" />
     <Compile Include="class\WILLR.cs" />
+    <Compile Include="class\CORREL.cs" />
     <Compile Include="forms\baseIndicatorForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -104,7 +106,17 @@
     <Compile Include="forms\sampleMACD.designer.cs">
       <DependentUpon>sampleMACD.cs</DependentUpon>
     </Compile>
+    <Compile Include="class\HT_DCPERIOD.cs" />
+    <Compile Include="class\HT_PHASOR.cs" />
+    <Compile Include="class\HT_TRENDLINE.cs" />
+    <Compile Include="class\KAMA.cs" />
     <Compile Include="Libs\lib.cs" />
+    <Compile Include="class\LINEARREG_SLOPE.cs" />
+    <Compile Include="class\MAX.cs" />
+    <Compile Include="class\MEDPRICE.cs" />
+    <Compile Include="class\MIDPRICE.cs" />
+    <Compile Include="class\MININDEX.cs" />
+    <Compile Include="class\NATR.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="forms\baseIndicatorForm.resx">
       <DependentUpon>baseIndicatorForm.cs</DependentUpon>
@@ -137,6 +149,13 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="class\SAR.cs" />
+    <Compile Include="class\STDDEV.cs" />
+    <Compile Include="class\T3.cs" />
+    <Compile Include="class\TRANGE.cs" />
+    <Compile Include="class\TRIX.cs" />
+    <Compile Include="class\TYPPRICE.cs" />
+    <Compile Include="class\VAR.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\adddata.PNG" />
