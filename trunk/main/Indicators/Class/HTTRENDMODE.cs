@@ -60,7 +60,6 @@ namespace Indicators
 
             int[] output = new int[db.Count];
 
-
             retCode = Core.HtTrendMode(0, db.Count - 1, db.Values, out begin, out length, output);
 
             if (retCode != Core.RetCode.Success) return;

@@ -49,28 +49,50 @@ namespace Indicators
         /// <summary>
         /// Calculation of HTSINE indicators
         /// </summary>
-        /// <param name="db">data to calculate HTSINE</param>        
+        /// <param name="ds">data to calculate HTSINE</param>        
         /// <param name="period">period to calculate</param>
         /// <param name="name"></param>
-        public HTSINE(DataSeries db, string name)
-            : base(db, name)
+        public HTSINE(DataSeries ds, string name)
+            : base(ds, name)
         {
             int begin = 0, length = 0;
             Core.RetCode retCode = Core.RetCode.UnknownErr;
 
-            double[] outsine = new double[db.Count];
-            double[] outleadsine = new double[db.Count];
+            double[] outsine = new double[ds.Count];
+            double[] outleadsine = new double[ds.Count];
 
 
-            retCode = Core.HtSine(0, db.Count - 1, db.Values, out begin, out length, outsine,outleadsine);
+            retCode = Core.HtSine(0, ds.Count - 1, ds.Values, out begin, out length, outsine,outleadsine);
             
             if (retCode != Core.RetCode.Success) return;
+            DataSeries leadSineSeries = new DataSeries(ds, name + "-leadSine");
+
             //Assign first bar that contains indicator data
             FirstValidValue = begin;
             this.Name = name;
 
             for (int i = begin, j = 0; j < length; i++, j++)
+            {
                 this[i] = outsine[j];
+                leadSineSeries[i] = outleadsine[j];
+            }
+            //Cache Series
+            this.Cache.Add(leadSineSeries.Name, leadSineSeries);
+        }
+
+        public DataSeries leadSineSeries
+        {
+            get
+            {
+                return (DataSeries)this.Cache.Find(this.Name + "-leadSine");
+            }
+        }
+        public DataSeries[] ExtraSeries
+        {
+            get
+            {
+                return new DataSeries[] { this.leadSineSeries};
+            }
         }
     }
 }
