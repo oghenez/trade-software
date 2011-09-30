@@ -20,3 +20,13 @@ D:\work\stockProject\new-code\dlls\client.exe
 D:\work\stockProject\new-code\dlls\client.pdb
 D:\work\stockProject\new-code\client\obj\Debug\client.exe
 D:\work\stockProject\new-code\client\obj\Debug\client.pdb
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\HQStocks\client\obj\Debug\client.exe
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\HQStocks\client\obj\Debug\client.pdb
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\HQStocks\dlls\client.exe
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\HQStocks\dlls\client.pdb
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\HQStocks\client\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\HQStocks\client\obj\Debug\client.forms.companyList.resources
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\HQStocks\client\obj\Debug\client.forms.investorEdit.resources
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\HQStocks\client\obj\Debug\client.main.resources
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\HQStocks\client\obj\Debug\client.Properties.Resources.resources
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\HQStocks\client\obj\Debug\client.csproj.GenerateResource.Cache
