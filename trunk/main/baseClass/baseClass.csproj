@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.30729</ProductVersion>
+    <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{D14859F5-0C41-4D7E-91AD-ED1C9195234D}</ProjectGuid>
     <OutputType>Library</OutputType>
@@ -342,51 +342,67 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="controls\companyCriteria.resx">
       <DependentUpon>companyCriteria.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="controls\companyGeneralInfo.resx">
       <DependentUpon>companyGeneralInfo.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="controls\companyOtherlInfo.resx">
       <DependentUpon>companyOtherlInfo.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="controls\chartTiming.resx">
       <DependentUpon>chartTiming.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="controls\bizSectorTypeSelection.resx">
       <DependentUpon>bizSectorTypeSelection.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="controls\stockCodeSelect.resx">
       <DependentUpon>stockCodeSelect.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="controls\stockCodeSelectByWatchList.resx">
       <DependentUpon>stockCodeSelectByWatchList.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="controls\strategySelect.resx">
       <DependentUpon>strategySelect.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="controls\transactionCriteria.resx">
       <DependentUpon>transactionCriteria.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="controls\watchListStrategy.resx">
       <DependentUpon>watchListStrategy.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="controls\subSectorList.resx">
       <DependentUpon>subSectorList.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="controls\stockCodeList.resx">
       <DependentUpon>stockCodeList.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="controls\stockCodeSelectBySector.resx">
       <DependentUpon>stockCodeSelectBySector.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="controls\subSectorSelect.resx">
       <DependentUpon>subSectorSelect.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="controls\investorCriteria.resx">
       <DependentUpon>investorCriteria.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="controls\companyStockInfo.resx">
       <DependentUpon>companyStockInfo.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\AboutBox.resx">
       <DependentUpon>AboutBox.cs</DependentUpon>
@@ -398,9 +414,11 @@
     </EmbeddedResource>
     <EmbeddedResource Include="forms\baseForm.resx">
       <DependentUpon>baseForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\baseMasterDetailEntry.resx">
       <DependentUpon>baseMasterDetailEntry.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\baseMasterEdit.resx">
       <DependentUpon>baseMasterEdit.cs</DependentUpon>
@@ -408,27 +426,35 @@
     </EmbeddedResource>
     <EmbeddedResource Include="forms\baseGraphForm.resx">
       <DependentUpon>baseGraphForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\chartDataOptions.resx">
       <DependentUpon>chartDataOptions.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\companyEdit.resx">
       <DependentUpon>companyEdit.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\companyFind.resx">
       <DependentUpon>companyFind.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\companyList.resx">
       <DependentUpon>companyList.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\configure.resx">
       <DependentUpon>configure.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\baseStockList.resx">
       <DependentUpon>baseStockList.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\basePortfolioWatch.resx">
       <DependentUpon>basePortfolioWatch.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\baseDialogForm.resx">
       <DependentUpon>baseDialogForm.cs</DependentUpon>
@@ -441,45 +467,59 @@
     </EmbeddedResource>
     <EmbeddedResource Include="forms\watchListNew.resx">
       <DependentUpon>watchListNew.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\portfolioEdit.resx">
       <DependentUpon>portfolioEdit.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\watchListEdit.resx">
       <DependentUpon>watchListEdit.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\chartProperties.resx">
       <DependentUpon>chartProperties.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\subSectorSelectionForm.resx">
       <DependentUpon>subSectorSelectionForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\stockSelectionForm.resx">
       <DependentUpon>stockSelectionForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\stockExchangeEdit.resx">
       <DependentUpon>stockExchangeEdit.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\investorList.resx">
       <DependentUpon>investorList.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\investorFind.resx">
       <DependentUpon>investorFind.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\investorEdit.resx">
       <DependentUpon>investorEdit.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\licenseCheck.resx">
       <DependentUpon>licenseCheck.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\sysCodeCatEdit.resx">
       <DependentUpon>sysCodeCatEdit.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\sysCodeEdit.resx">
       <DependentUpon>sysCodeEdit.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\sysCodeEdit.sma-NO.resx">
       <DependentUpon>sysCodeEdit.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\investorLogin.resx">
       <DependentUpon>investorLogin.cs</DependentUpon>
