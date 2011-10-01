@@ -60,11 +60,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>tmpDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Forms\addToWatchList.cs">
+    <Compile Include="Forms\addToWatchList_StockOnly.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\addToWatchList.Designer.cs">
-      <DependentUpon>addToWatchList.cs</DependentUpon>
+    <Compile Include="Forms\addToWatchList_StockOnly.Designer.cs">
+      <DependentUpon>addToWatchList_StockOnly.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\backTesting.cs">
       <SubType>Form</SubType>
@@ -78,11 +78,23 @@
     <Compile Include="Forms\baseTesting.Designer.cs">
       <DependentUpon>baseTesting.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\stockRanking.cs">
+    <Compile Include="Forms\baseAddToWatchList.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\stockRanking.Designer.cs">
-      <DependentUpon>stockRanking.cs</DependentUpon>
+    <Compile Include="Forms\baseAddToWatchList.Designer.cs">
+      <DependentUpon>baseAddToWatchList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\addToWatchList_StockAndStrategy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\addToWatchList_StockAndStrategy.Designer.cs">
+      <DependentUpon>addToWatchList_StockAndStrategy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\strategyRanking.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\strategyRanking.Designer.cs">
+      <DependentUpon>strategyRanking.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\profitEstimate.cs">
       <SubType>Form</SubType>
@@ -110,8 +122,8 @@
     </Compile>
     <Compile Include="Libs\lib.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Forms\addToWatchList.resx">
-      <DependentUpon>addToWatchList.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\addToWatchList_StockOnly.resx">
+      <DependentUpon>addToWatchList_StockOnly.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\backTesting.resx">
       <DependentUpon>backTesting.cs</DependentUpon>
@@ -119,8 +131,14 @@
     <EmbeddedResource Include="Forms\baseTesting.resx">
       <DependentUpon>baseTesting.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\stockRanking.resx">
-      <DependentUpon>stockRanking.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\baseAddToWatchList.resx">
+      <DependentUpon>baseAddToWatchList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\addToWatchList_StockAndStrategy.resx">
+      <DependentUpon>addToWatchList_StockAndStrategy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\strategyRanking.resx">
+      <DependentUpon>strategyRanking.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\profitEstimate.resx">
       <DependentUpon>profitEstimate.cs</DependentUpon>

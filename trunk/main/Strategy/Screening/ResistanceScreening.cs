@@ -20,7 +20,7 @@ namespace Strategy
     {
         override protected void StrategyExecute()
         {
-            int period = parameters[0];
+            int period = (int)parameters[0];
             double distance = (double)parameters[1];
 
             int Bar = data.Close.Count - 1;
@@ -40,7 +40,7 @@ namespace Strategy
     {
         override protected void StrategyExecute()
         {
-            int period = parameters[0];
+            int period = (int)parameters[0];
             double distance = (double)parameters[1];
 
             int Bar = data.Close.Count - 1;

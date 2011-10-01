@@ -31,7 +31,7 @@ namespace Indicators
         /// <param name="period"></param>
         /// <param name="name"></param>
         /// <returns></returns>
-        public static SUM Series(DataSeries ds, int period, string name)
+        public static SUM Series(DataSeries ds, double period, string name)
         {
             //Build description
             string description = "(" + name + period.ToString() + ")";
@@ -51,15 +51,14 @@ namespace Indicators
         /// <param name="db">data to calculate SUM</param>        
         /// <param name="period">period to calculate</param>
         /// <param name="name"></param>
-        public SUM(DataSeries db, int period, string name)
-            : base(db, name)
+        public SUM(DataSeries db, double period, string name) : base(db, name)
         {
             int begin = 0, length = 0;
             Core.RetCode retCode = Core.RetCode.UnknownErr;
 
             double[] output = new double[db.Count];
 
-            retCode = Core.Sum(0, db.Count - 1, db.Values, period, out begin, out length, output);
+            retCode = Core.Sum(0, db.Count - 1, db.Values, (int)period, out begin, out length, output);
             
             if (retCode != Core.RetCode.Success) return;
             //Assign first bar that contains indicator data

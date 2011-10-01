@@ -49,19 +49,28 @@
             this.stockCodeClb.Size = new System.Drawing.Size(826, 508);
             this.stockCodeClb.TabIndex = 11;
             // 
+            // selectAllChk
+            // 
+            this.selectAllChk.Location = new System.Drawing.Point(3, 3);
+            // 
             // selectCodeEd
             // 
-            this.selectCodeEd.Size = new System.Drawing.Size(578, 23);
+            this.selectCodeEd.Location = new System.Drawing.Point(216, 1);
+            this.selectCodeEd.Size = new System.Drawing.Size(586, 23);
             // 
             // optionPnl
             // 
-            this.optionPnl.Location = new System.Drawing.Point(0, 563);
-            this.optionPnl.Size = new System.Drawing.Size(826, 27);
+            this.optionPnl.Location = new System.Drawing.Point(-2, 567);
+            this.optionPnl.Size = new System.Drawing.Size(827, 27);
             this.optionPnl.TabIndex = 20;
             // 
             // selectCodeBtn
             // 
-            this.selectCodeBtn.Location = new System.Drawing.Point(803, 0);
+            this.selectCodeBtn.Location = new System.Drawing.Point(803, 2);
+            // 
+            // showOnlyCheckedChk
+            // 
+            this.showOnlyCheckedChk.Location = new System.Drawing.Point(97, 3);
             // 
             // stockSelectionCb
             // 
@@ -78,12 +87,10 @@
             // 
             // stockCodeSelect
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
-            
             this.Controls.Add(this.stockSelectionCb);
             this.myValues = ((System.Collections.Specialized.StringCollection)(resources.GetObject("$this.myValues")));
             this.Name = "stockCodeSelect";
-            this.Size = new System.Drawing.Size(826, 592);
+            this.Size = new System.Drawing.Size(826, 596);
             this.Controls.SetChildIndex(this.stockSelectionCb, 0);
             this.Controls.SetChildIndex(this.bizSectorTypesSelection, 0);
             this.Controls.SetChildIndex(this.stockCodeClb, 0);

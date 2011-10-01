@@ -12,15 +12,15 @@ namespace Strategy
     {
         override protected void StrategyExecute()
         {
-            int fast_macd=parameters[0];
-            int slow_macd = parameters[1];
-            int signal_macd= parameters[2];
-            
-            int rsi_period = parameters[3];
-            int RSI_LOWER_LEVEL = parameters[4];
-            int RSI_UPPER_LEVEL = parameters[5];
-            int cutlosslevel = parameters[6];
-            int takeprofitlevel = parameters[7];
+            int fast_macd = (int)parameters[0];
+            int slow_macd = (int)parameters[1];
+            int signal_macd = (int)parameters[2];
+
+            int rsi_period = (int)parameters[3];
+            int RSI_LOWER_LEVEL = (int)parameters[4];
+            int RSI_UPPER_LEVEL = (int)parameters[5];
+            int cutlosslevel = (int)parameters[6];
+            int takeprofitlevel = (int)parameters[7];
 
             double delta = 0, lastDelta = 0;
             

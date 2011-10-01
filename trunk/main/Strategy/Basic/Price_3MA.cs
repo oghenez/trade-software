@@ -19,8 +19,8 @@ namespace Strategy
             DataSeries sma5 = Indicators.SMA.Series(data.Close, parameters[0], "");
             DataSeries sma10 = Indicators.SMA.Series(data.Close, parameters[1], "");
             DataSeries sma20 = Indicators.SMA.Series(data.Close, parameters[2], "");
-            int RISKREWARD = parameters[3];
-            int PERIOD=parameters[4];
+            int RISKREWARD = (int)parameters[3];
+            int PERIOD = (int)parameters[4];
 
             AppTypes.MarketTrend lastTrend = AppTypes.MarketTrend.Unspecified; 
             AppTypes.MarketTrend currentTrend = AppTypes.MarketTrend.Unspecified; 

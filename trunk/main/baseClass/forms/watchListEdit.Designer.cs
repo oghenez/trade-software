@@ -33,7 +33,7 @@
             this.portfolioSource = new System.Windows.Forms.BindingSource(this.components);
             this.stockCodeSource = new System.Windows.Forms.BindingSource(this.components);
             this.xpPanelGroup_Info = new UIComponents.XPPanelGroup();
-            this.xpPanel_options = new UIComponents.XPPanel(462);
+            this.xpPanel_options = new UIComponents.XPPanel(463);
             this.interestedStockClb = new baseClass.controls.stockCodeList();
             this.interestedStrategy = new baseClass.controls.watchListStrategy();
             this.interestedStockLbl = new baseClass.controls.baseLabel();
@@ -145,8 +145,8 @@
             // 
             // xpPanel_options
             // 
-            this.xpPanel_options.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)));
+            this.xpPanel_options.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.xpPanel_options.AnimationRate = 0;
             this.xpPanel_options.BackColor = System.Drawing.Color.Transparent;
             this.xpPanel_options.Caption = "Options";
@@ -168,7 +168,7 @@
             this.xpPanel_options.PanelGradient.End = System.Drawing.SystemColors.Control;
             this.xpPanel_options.PanelGradient.Start = System.Drawing.SystemColors.Control;
             this.xpPanel_options.PanelGradientMode = System.Drawing.Drawing2D.LinearGradientMode.Horizontal;
-            this.xpPanel_options.Size = new System.Drawing.Size(563, 462);
+            this.xpPanel_options.Size = new System.Drawing.Size(563, 463);
             this.xpPanel_options.TabIndex = 8;
             this.xpPanel_options.TextColors.Foreground = System.Drawing.SystemColors.Control;
             this.xpPanel_options.TextHighlightColors.Foreground = System.Drawing.SystemColors.ActiveCaptionText;
@@ -184,7 +184,7 @@
             this.interestedStockClb.Margin = new System.Windows.Forms.Padding(2);
             this.interestedStockClb.myItemString = "";
             this.interestedStockClb.Name = "interestedStockClb";
-            this.interestedStockClb.Size = new System.Drawing.Size(534, 100);
+            this.interestedStockClb.Size = new System.Drawing.Size(534, 182);
             this.interestedStockClb.TabIndex = 20;
             this.interestedStockClb.myOnRemoveItemList += new common.controls.baseListEdit2.OnModifyItemList(this.interestedStockClb_myOnRemoveItemList);
             this.interestedStockClb.myOnAddItemList += new common.controls.baseListEdit2.OnModifyItemList(this.interestedStockClb_myOnAddItemList);
@@ -193,14 +193,14 @@
             // 
             // interestedStrategy
             // 
-            this.interestedStrategy.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)));
-            this.interestedStrategy.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.interestedStrategy.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.interestedStrategy.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.interestedStrategy.Location = new System.Drawing.Point(24, 160);
+            this.interestedStrategy.Location = new System.Drawing.Point(24, 245);
             this.interestedStrategy.Margin = new System.Windows.Forms.Padding(4);
             this.interestedStrategy.Name = "interestedStrategy";
-            this.interestedStrategy.Size = new System.Drawing.Size(537, 304);
+            this.interestedStrategy.Size = new System.Drawing.Size(537, 219);
             this.interestedStrategy.TabIndex = 21;
             // 
             // interestedStockLbl
@@ -332,7 +332,7 @@
             this.portfolioGrid.Name = "portfolioGrid";
             this.portfolioGrid.ReadOnly = true;
             this.portfolioGrid.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.portfolioGrid.Size = new System.Drawing.Size(470, 678);
+            this.portfolioGrid.Size = new System.Drawing.Size(470, 679);
             this.portfolioGrid.TabIndex = 362;
             this.portfolioGrid.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.grid_DataError);
             // 
@@ -358,6 +358,7 @@
             this.ClientSize = new System.Drawing.Size(1030, 701);
             this.Controls.Add(this.portfolioGrid);
             this.Controls.Add(this.xpPanelGroup_Info);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "watchListEdit";
             this.Text = "Watch List";

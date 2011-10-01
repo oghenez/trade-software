@@ -56,7 +56,7 @@
             this.strategyClb.myItemValues = ((System.Collections.Specialized.StringCollection)(resources.GetObject("strategyClb.myItemValues")));
             this.strategyClb.Name = "strategyClb";
             this.strategyClb.ShowCheckedOnly = false;
-            this.strategyClb.Size = new System.Drawing.Size(412, 148);
+            this.strategyClb.Size = new System.Drawing.Size(412, 140);
             this.strategyClb.TabIndex = 10;
             // 
             // selectAllChk
@@ -76,8 +76,7 @@
             this.Controls.Add(this.selectAllChk);
             this.Controls.Add(this.strategyClb);
             this.Controls.Add(this.strategyCatCb);
-            this.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "strategySelect";
             this.Size = new System.Drawing.Size(416, 199);
             this.Resize += new System.EventHandler(this.form_Resize);

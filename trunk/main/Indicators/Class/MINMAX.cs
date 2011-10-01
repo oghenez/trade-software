@@ -31,7 +31,7 @@ namespace Indicators
         /// <param name="period"></param>
         /// <param name="name"></param>
         /// <returns></returns>
-        public static MINMAX Series(DataSeries ds, int period, string name)
+        public static MINMAX Series(DataSeries ds, double period, string name)
         {
             //Build description
             string description = "(" + name + period.ToString() + ")";
@@ -52,7 +52,7 @@ namespace Indicators
         /// <param name="db">data to calculate MINMAX</param>        
         /// <param name="period">period to calculate</param>
         /// <param name="name"></param>
-        public MINMAX(DataSeries db, int period, string name)
+        public MINMAX(DataSeries db, double period, string name)
             : base(db, name)
         {
             int begin = 0, length = 0;
@@ -62,7 +62,7 @@ namespace Indicators
             double[] outmax = new double[db.Count];
 
 
-            retCode = Core.MinMax(0, db.Count - 1, db.Values, period, out begin, out length, outmin,outmax);
+            retCode = Core.MinMax(0, db.Count - 1, db.Values, (int)period, out begin, out length, outmin, outmax);
             
             if (retCode != Core.RetCode.Success) return;
             //Assign first bar that contains indicator data

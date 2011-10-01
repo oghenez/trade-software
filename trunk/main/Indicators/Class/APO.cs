@@ -31,7 +31,7 @@ namespace Indicators
         /// <param name="period"></param>
         /// <param name="name"></param>
         /// <returns></returns>
-        public static APO Series(DataSeries ds, int fastperiod, int slowperiod, int matype, string name)
+        public static APO Series(DataSeries ds, double fastperiod, double slowperiod, int matype, string name)
         {
             //Build description
             string description = "(" + name + fastperiod.ToString()+","+slowperiod.ToString()+","+matype.ToString() + ")";
@@ -52,7 +52,7 @@ namespace Indicators
         /// <param name="db">data to calculate MFI</param>        
         /// <param name="period">period to calculate</param>
         /// <param name="name"></param>
-        public APO(DataSeries db, int fastperiod,int slowperiod, int matype,string name)
+        public APO(DataSeries db, double fastperiod, double slowperiod, int matype, string name)
             : base(db, name)
         {
             int begin = 0, length = 0;
@@ -62,32 +62,32 @@ namespace Indicators
 
             switch (matype)
             {
-                case 0: 
-                    retCode = Core.Apo(0, db.Count - 1, db.Values, fastperiod, slowperiod, Core.MAType.Dema, out begin, out length, output);
+                case 0:
+                    retCode = Core.Apo(0, db.Count - 1, db.Values, (int)fastperiod, (int)slowperiod, Core.MAType.Dema, out begin, out length, output);
                     break;
-                case 1: 
-                    retCode = Core.Apo(0, db.Count - 1, db.Values, fastperiod, slowperiod, Core.MAType.Ema, out begin, out length, output);
+                case 1:
+                    retCode = Core.Apo(0, db.Count - 1, db.Values, (int)fastperiod, (int)slowperiod, Core.MAType.Ema, out begin, out length, output);
                     break;
-                case 2: 
-                    retCode = Core.Apo(0, db.Count - 1, db.Values, fastperiod, slowperiod, Core.MAType.Kama, out begin, out length, output);
+                case 2:
+                    retCode = Core.Apo(0, db.Count - 1, db.Values, (int)fastperiod, (int)slowperiod, Core.MAType.Kama, out begin, out length, output);
                     break;
                 case 3:
-                    retCode = Core.Apo(0, db.Count - 1, db.Values, fastperiod, slowperiod, Core.MAType.Mama, out begin, out length, output);
+                    retCode = Core.Apo(0, db.Count - 1, db.Values, (int)fastperiod, (int)slowperiod, Core.MAType.Mama, out begin, out length, output);
                     break;
                 case 4:
-                    retCode = Core.Apo(0, db.Count - 1, db.Values, fastperiod, slowperiod, Core.MAType.Sma, out begin, out length, output);
+                    retCode = Core.Apo(0, db.Count - 1, db.Values, (int)fastperiod, (int)slowperiod, Core.MAType.Sma, out begin, out length, output);
                     break;
                 case 5:
-                    retCode = Core.Apo(0, db.Count - 1, db.Values, fastperiod, slowperiod, Core.MAType.T3, out begin, out length, output);
+                    retCode = Core.Apo(0, db.Count - 1, db.Values, (int)fastperiod, (int)slowperiod, Core.MAType.T3, out begin, out length, output);
                     break;
                 case 6:
-                    retCode = Core.Apo(0, db.Count - 1, db.Values, fastperiod, slowperiod, Core.MAType.Tema, out begin, out length, output);
+                    retCode = Core.Apo(0, db.Count - 1, db.Values, (int)fastperiod, (int)slowperiod, Core.MAType.Tema, out begin, out length, output);
                     break;
                 case 7:
-                    retCode = Core.Apo(0, db.Count - 1, db.Values, fastperiod, slowperiod, Core.MAType.Trima, out begin, out length, output);
+                    retCode = Core.Apo(0, db.Count - 1, db.Values, (int)fastperiod, (int)slowperiod, Core.MAType.Trima, out begin, out length, output);
                     break;
                 case 8:
-                    retCode = Core.Apo(0, db.Count - 1, db.Values, fastperiod, slowperiod, Core.MAType.Wma, out begin, out length, output);
+                    retCode = Core.Apo(0, db.Count - 1, db.Values, (int)fastperiod, (int)slowperiod, Core.MAType.Wma, out begin, out length, output);
                     break;
             }
             if (retCode != Core.RetCode.Success) return;

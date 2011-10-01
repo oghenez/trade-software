@@ -100,15 +100,16 @@ namespace Indicators
         //Parameter descriptions
         public IList<string> ParameterDescriptions = null;
 
-        public int[] Parameters
+        public int ParameterPrecision = 0;
+        public double[] Parameters
         {
             get
             {
                 object[] values = this.ParameterList.Values;
-                int[] paras = new int[values.Length];
+                double[] paras = new double[values.Length];
                 for (int idx = 0; idx < values.Length; idx++)
                 {
-                    paras[idx] = (int)values[idx];
+                    paras[idx] = (double)values[idx];
                 }
                 return paras;
             }
@@ -150,11 +151,11 @@ namespace Indicators
         {
             get
             {
-                return common.system.List2String(this.Parameters);
+                return common.system.ToString(this.Parameters);
             }
             set
             {
-                this.Parameters = common.system.String2IntList(value);
+                this.Parameters = common.system.String2DoubleList(value);
             }
         }
 
@@ -183,6 +184,7 @@ namespace Indicators
             aFields.Clear();
             aFields.Add("Category");
             aFields.Add("Parameters");
+            aFields.Add("ParameterPrecision");
             aFields.Add("ParameterDescriptions");
             aFields.Add("Output");
             aFields.Add("DrawInNewWindow");
@@ -195,14 +197,18 @@ namespace Indicators
             common.configuration.GetConfiguration(Data.sysMetaFullFileName, "INDICATORS", meta.ClassType.Name, aFields, false);
             meta.Category = aFields[0];
             meta.ParameterList = String2ParameterList(aFields[1]);
-            meta.ParameterDescriptions = common.system.String2List(aFields[2]);
-            meta.OutputInfoList = String2OutputList(aFields[3]);
-            meta.DrawInNewWindow = (aFields[4]==Boolean.TrueString);
-            meta.Name = aFields[5];
-            meta.Description = aFields[6];
-            meta.URL = aFields[7];
-            meta.Authors = aFields[8];
-            meta.Version = aFields[9];
+
+            int num = 0; int.TryParse(aFields[2], out num);
+            meta.ParameterPrecision = num;
+
+            meta.ParameterDescriptions = common.system.String2List(aFields[3]);
+            meta.OutputInfoList = String2OutputList(aFields[4]);
+            meta.DrawInNewWindow = (aFields[5]==Boolean.TrueString);
+            meta.Name = aFields[6];
+            meta.Description = aFields[7];
+            meta.URL = aFields[8];
+            meta.Authors = aFields[9];
+            meta.Version = aFields[10];
             return true;
         }
 
@@ -212,12 +218,12 @@ namespace Indicators
         /// <param name="str">String in the format <key=value>,...,<key=value></param>
         private static common.DictionaryList String2ParameterList(string str)
         {
-            int para = 0;
+            double para = 0;
             common.DictionaryList list = new common.DictionaryList();
             common.myKeyValueItem[] keyValues = common.system.String2KeyValueList(str,"," , "=");
             for (int idx = 0; idx < keyValues.Length; idx++)
             {
-                if (!int.TryParse(keyValues[idx].Value, out para)) continue;
+                if (!double.TryParse(keyValues[idx].Value, out para)) continue;
                 list.Add(keyValues[idx].Key, para);
             }
             return list;
@@ -509,7 +515,7 @@ namespace Indicators
             aFields.Add("output");
             aFields.Add("drawInNewWindow");
             if (!configuration.ReadUserSettings(sysLibs.sysLoginAccount, meta.ClassType.FullName, aFields)) return;
-            meta.Parameters = common.system.String2IntList(aFields[0]);
+            meta.Parameters = common.system.String2DoubleList(aFields[0]);
             Meta.OutputInfo[] saveMetaOutput = meta.Output;
             meta.Output = Meta.String2OutputInfo(aFields[1]);
 
@@ -528,7 +534,7 @@ namespace Indicators
             aFields.Add("output");
             aFields.Add("drawInNewWindow");
             StringCollection aValues = new StringCollection();
-            aValues.Add(common.system.List2String(meta.Parameters));
+            aValues.Add(common.system.ToString(meta.Parameters));
             aValues.Add(Meta.OutputInfo2Tring(meta.Output));
             aValues.Add(meta.DrawInNewWindow.ToString());
             configuration.SetUserSettings(sysLibs.sysLoginAccount, meta.ClassType.FullName, aFields, aValues);

@@ -151,7 +151,7 @@ namespace Tools.Forms
                 }
                 else
                 {
-                    column.HeaderText = tbl.Columns[idx].ColumnName;
+                    column.HeaderText = Strategy.Libs.GetMetaName(tbl.Columns[idx].ColumnName);
                     column.Width = 90;
                     column.DefaultCellStyle = amountCellStyle;
                 }
@@ -173,7 +173,7 @@ namespace Tools.Forms
         {
             SetDataGrid(strategyEstimationGrid, tbl);
             strategyEstimationGrid.Columns[0].Width = 120;
-            strategyEstimationGrid.Columns[0].HeaderText = "Tiêu chí";
+            strategyEstimationGrid.Columns[0].HeaderText = "Criteria";
             strategyEstimationGrid.Columns[0].Frozen = true;
         }
         private DataTable CreateDataTable(StringCollection strategyCode)
@@ -304,12 +304,14 @@ namespace Tools.Forms
             menuItem = contextMenuStrip.Items.Add(addToWatchListMenuItem.Text);
             menuItem.Click += new System.EventHandler(addToWatchListMenuItem_Click);
 
-            menuItem = contextMenuStrip.Items.Add(profitEstimateMenu.Text);
-            menuItem.Click += new System.EventHandler(profitEstimateMenu_Click);
+            menuItem = contextMenuStrip.Items.Add(profitDetailMenu.Text);
+            menuItem.Click += new System.EventHandler(profitDetailMenu_Click);
+
+            menuItem = contextMenuStrip.Items.Add(allProfitDetailMenu.Text);
+            menuItem.Click += new System.EventHandler(allProfitDetailMenu_Click);
 
             resultDataGrid.ContextMenuStrip = contextMenuStrip;
         }
-
 
         protected override void Amount2Percent() 
         {
@@ -516,7 +518,7 @@ namespace Tools.Forms
             }
         }
 
-        private void profitEstimateMenu_Click(object sender, EventArgs e)
+        private void allProfitDetailMenu_Click(object sender, EventArgs e)
         {
             try
             {
@@ -556,12 +558,18 @@ namespace Tools.Forms
                 this.ShowError(er);
             }
         }
-
-        private void optionsMenuItem_Click(object sender, EventArgs e)
+        private void profitDetailMenu_Click(object sender, EventArgs e)
         {
             try
             {
-                Tools.Forms.options.GetForm("").ShowDialog();
+                if (resultDataGrid.CurrentRow == null || resultDataGrid.CurrentCell == null) return;
+                if (resultDataGrid.CurrentCell.ColumnIndex <= 0) return;
+
+                string stockCode = resultDataGrid.CurrentRow.Cells[0].Value.ToString();
+                data.baseDS.stockCodeRow stockCodeRow = application.dataLibs.FindAndCache(myDataSet.stockCode, stockCode);
+                if (stockCodeRow == null) return;
+                ShowTradeTransactions(stockCodeRow, strategyClb.myCheckedValues[resultDataGrid.CurrentCell.ColumnIndex-1],
+                                      dateRangeEd.myTimeRange, dateRangeEd.myTimeScale);
             }
             catch (Exception er)
             {
@@ -569,6 +577,5 @@ namespace Tools.Forms
             }
         }
         #endregion
-
     }
 }

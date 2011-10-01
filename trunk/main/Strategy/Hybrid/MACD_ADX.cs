@@ -50,9 +50,9 @@ namespace Strategy
                 parameters[2],"");
 
             ADX adx=new ADX(data.Bars,parameters[3],"");
-            
-            int cutlosslevel = parameters[4]; 
-            int takeprofitlevel=parameters[5];
+
+            int cutlosslevel = (int)parameters[4];
+            int takeprofitlevel = (int)parameters[5];
             double delta = 0, lastDelta = 0;
 
             for (int idx = 1; idx < macd.Values.Length; idx++)

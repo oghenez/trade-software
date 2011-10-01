@@ -210,7 +210,7 @@ namespace Strategy
             return false;
         }
 
-        virtual public TradePoints Execute(application.Data data, int[] paras)
+        virtual public TradePoints Execute(application.Data data, double[] paras)
         {
             this.data = data;
             parameters = new Parameters(paras);

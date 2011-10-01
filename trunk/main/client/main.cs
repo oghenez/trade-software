@@ -262,9 +262,9 @@ namespace client
                 return;
             }
 
-            if (activeType == typeof(Tools.Forms.stockRanking))
+            if (activeType == typeof(Tools.Forms.strategyRanking))
             {
-                ((Tools.Forms.stockRanking)activeObj).ExportResult();
+                ((Tools.Forms.strategyRanking)activeObj).ExportResult();
                 return;
             }
 
@@ -604,14 +604,14 @@ namespace client
             }
             return null;
         }
-        private Tools.Forms.stockRanking GetActiveStockRankingForm()
+        private Tools.Forms.strategyRanking GetActivestrategyRankingForm()
         {
             object activeObj = dockPanel.ActiveContent;
             if (activeObj == null) return null;
             Type activeType = activeObj.GetType();
-            if (activeType == typeof(Tools.Forms.stockRanking))
+            if (activeType == typeof(Tools.Forms.strategyRanking))
             {
-                return ((Tools.Forms.stockRanking)activeObj);
+                return ((Tools.Forms.strategyRanking)activeObj);
             }
             return null;
         }
@@ -791,18 +791,6 @@ namespace client
             }
         }
 
-        private void strategyRankingMenuItem_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                common.system.ShowMessage("Sorry, the function was not implemented!");
-            }
-            catch (Exception er)
-            {
-                this.ShowError(er);
-            }
-        }
-
         private void aboutMenuItem_Click(object sender, EventArgs e)
         {
             try
@@ -863,10 +851,10 @@ namespace client
                     return;
                 }
 
-                Tools.Forms.stockRanking stockRankingForm = GetActiveStockRankingForm();
-                if (stockRankingForm != null)
+                Tools.Forms.strategyRanking strategyRankingForm = GetActivestrategyRankingForm();
+                if (strategyRankingForm != null)
                 {
-                    stockRankingForm.Execute();
+                    strategyRankingForm.Execute();
                     return;
                 }
 
@@ -893,10 +881,10 @@ namespace client
                     return;
                 }
 
-                Tools.Forms.stockRanking stockRankingForm = GetActiveStockRankingForm();
-                if (stockRankingForm != null)
+                Tools.Forms.strategyRanking strategyRankingForm = GetActivestrategyRankingForm();
+                if (strategyRankingForm != null)
                 {
-                    stockRankingForm.IsFullScreen = !stockRankingForm.IsFullScreen;
+                    strategyRankingForm.IsFullScreen = !strategyRankingForm.IsFullScreen;
                     return;
                 }
 
@@ -959,11 +947,12 @@ namespace client
 
         }
 
-        private void stockRankingMenuItem_Click(object sender, EventArgs e)
+        private void strategyRankingMenuItem_Click(object sender, EventArgs e)
         {
             try
             {
-                Tools.Forms.stockRanking form = Tools.Forms.stockRanking.GetForm("");
+                Tools.Forms.strategyRanking form = Tools.Forms.strategyRanking.GetForm("");
+                form.myShowStock += new Tools.Forms.backTesting.ShowStockFunc(ShowStockHandler);
                 form.myDockedPane = dockPanel;
                 form.Show(dockPanel);
             }
@@ -986,9 +975,9 @@ namespace client
                 return;
             }
 
-            if (activeType == typeof(Tools.Forms.stockRanking))
+            if (activeType == typeof(Tools.Forms.strategyRanking))
             {
-                ((Tools.Forms.stockRanking)activeObj).myValueType = value;
+                ((Tools.Forms.strategyRanking)activeObj).myValueType = value;
                 return;
             }
         }        
@@ -1014,7 +1003,18 @@ namespace client
                 this.ShowError(er);
             }
         }
+        
+        private void toolOptionMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Tools.Forms.options.GetForm("").ShowDialog();
+            }
+            catch (Exception er)
+            {
+                this.ShowError(er);
+            }
+        }
         #endregion event handler
-
     }
 }

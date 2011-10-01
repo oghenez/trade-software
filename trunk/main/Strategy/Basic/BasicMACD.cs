@@ -77,7 +77,7 @@ namespace Strategy
         /// </summary>
         override protected void StrategyExecute()
         {
-            BasicMACDRule rule = new BasicMACDRule(data.Close, parameters[0], parameters[1], parameters[2]);
+            BasicMACDRule rule = new BasicMACDRule(data.Close, (int)parameters[0], (int)parameters[1], (int)parameters[2]);
             //Rule rule1 = new TwoSMARule(data, 5, 10);
             if (rule.isValid())
             {
@@ -96,8 +96,8 @@ namespace Strategy
         /// </summary>
         override protected void StrategyExecute()
         {
-            BasicMACDRule rule = new BasicMACDRule(data.Close, parameters[0], parameters[1], parameters[2]);
-            TwoSMARule rule1 = new TwoSMARule(data.Close, parameters[3], parameters[4]);
+            BasicMACDRule rule = new BasicMACDRule(data.Close, (int)parameters[0], (int)parameters[1], (int)parameters[2]);
+            TwoSMARule rule1 = new TwoSMARule(data.Close, (int)parameters[3], (int)parameters[4]);
             if (rule.isValid()&&rule1.isValid())
             {
                 int Bar = data.Close.Count - 1;

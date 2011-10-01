@@ -106,7 +106,7 @@ namespace Tools.Forms
                 Strategy.Meta meta = (Strategy.Meta)screeningValues[idx];
                 if (meta.Type != AppTypes.StrategyTypes.Screening) continue;
                 row = tmpDS.screeningCode.NewscreeningCodeRow();
-                row.code = screeningKeys[idx];
+                row.code = meta.Code;
                 row.description = meta.Name;
                 tmpDS.screeningCode.AddscreeningCodeRow(row);
 
@@ -166,7 +166,7 @@ namespace Tools.Forms
                 }
                 else
                 {
-                    column.HeaderText = tbl.Columns[idx].ColumnName;
+                    column.HeaderText = Strategy.Libs.GetMetaName(tbl.Columns[idx].ColumnName);
                     column.Width = 90;
                     column.DefaultCellStyle = amountCellStyle;
                 }

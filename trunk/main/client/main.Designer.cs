@@ -163,18 +163,18 @@
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.aboutMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripPanel = new System.Windows.Forms.ToolStripPanel();
-            this.periodicityStrip = new System.Windows.Forms.ToolStrip();
-            this.dummyStripBtn = new System.Windows.Forms.ToolStripButton();
             this.formatStrip = new System.Windows.Forms.ToolStrip();
             this.amountBtn = new System.Windows.Forms.ToolStripButton();
             this.percentBtn = new System.Windows.Forms.ToolStripButton();
+            this.periodicityStrip = new System.Windows.Forms.ToolStrip();
+            this.dummyStripBtn = new System.Windows.Forms.ToolStripButton();
             this.chartStrip.SuspendLayout();
             this.standartStrip.SuspendLayout();
             this.toolsStrip.SuspendLayout();
             this.mainMenu.SuspendLayout();
             this.toolStripPanel.SuspendLayout();
-            this.periodicityStrip.SuspendLayout();
             this.formatStrip.SuspendLayout();
+            this.periodicityStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // TitleLbl
@@ -1077,7 +1077,7 @@
             this.stockRankingMenuItem.Name = "stockRankingMenuItem";
             this.stockRankingMenuItem.Size = new System.Drawing.Size(198, 22);
             this.stockRankingMenuItem.Text = "Strategy Ranking";
-            this.stockRankingMenuItem.Click += new System.EventHandler(this.stockRankingMenuItem_Click);
+            this.stockRankingMenuItem.Click += new System.EventHandler(this.strategyRankingMenuItem_Click);
             // 
             // toolStripSeparator6
             // 
@@ -1135,10 +1135,10 @@
             // 
             // toolOptionMenuItem
             // 
-            this.toolOptionMenuItem.Enabled = false;
             this.toolOptionMenuItem.Name = "toolOptionMenuItem";
             this.toolOptionMenuItem.Size = new System.Drawing.Size(198, 22);
             this.toolOptionMenuItem.Text = "Options";
+            this.toolOptionMenuItem.Click += new System.EventHandler(this.toolOptionMenuItem_Click);
             // 
             // windowsMenuItem
             // 
@@ -1218,25 +1218,6 @@
             this.toolStripPanel.RowMargin = new System.Windows.Forms.Padding(3, 0, 0, 0);
             this.toolStripPanel.Size = new System.Drawing.Size(1284, 49);
             // 
-            // periodicityStrip
-            // 
-            this.periodicityStrip.Dock = System.Windows.Forms.DockStyle.None;
-            this.periodicityStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.dummyStripBtn});
-            this.periodicityStrip.Location = new System.Drawing.Point(628, 24);
-            this.periodicityStrip.Name = "periodicityStrip";
-            this.periodicityStrip.Size = new System.Drawing.Size(84, 25);
-            this.periodicityStrip.TabIndex = 147;
-            // 
-            // dummyStripBtn
-            // 
-            this.dummyStripBtn.CheckOnClick = true;
-            this.dummyStripBtn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.dummyStripBtn.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.dummyStripBtn.Name = "dummyStripBtn";
-            this.dummyStripBtn.Size = new System.Drawing.Size(74, 22);
-            this.dummyStripBtn.Text = "Auto created";
-            // 
             // formatStrip
             // 
             this.formatStrip.Dock = System.Windows.Forms.DockStyle.None;
@@ -1267,6 +1248,25 @@
             this.percentBtn.Size = new System.Drawing.Size(23, 22);
             this.percentBtn.Click += new System.EventHandler(this.percentBtn_Click);
             // 
+            // periodicityStrip
+            // 
+            this.periodicityStrip.Dock = System.Windows.Forms.DockStyle.None;
+            this.periodicityStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.dummyStripBtn});
+            this.periodicityStrip.Location = new System.Drawing.Point(628, 24);
+            this.periodicityStrip.Name = "periodicityStrip";
+            this.periodicityStrip.Size = new System.Drawing.Size(84, 25);
+            this.periodicityStrip.TabIndex = 147;
+            // 
+            // dummyStripBtn
+            // 
+            this.dummyStripBtn.CheckOnClick = true;
+            this.dummyStripBtn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.dummyStripBtn.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.dummyStripBtn.Name = "dummyStripBtn";
+            this.dummyStripBtn.Size = new System.Drawing.Size(74, 22);
+            this.dummyStripBtn.Text = "Auto created";
+            // 
             // main
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -1295,10 +1295,10 @@
             this.mainMenu.PerformLayout();
             this.toolStripPanel.ResumeLayout(false);
             this.toolStripPanel.PerformLayout();
-            this.periodicityStrip.ResumeLayout(false);
-            this.periodicityStrip.PerformLayout();
             this.formatStrip.ResumeLayout(false);
             this.formatStrip.PerformLayout();
+            this.periodicityStrip.ResumeLayout(false);
+            this.periodicityStrip.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 

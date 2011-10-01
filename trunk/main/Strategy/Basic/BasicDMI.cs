@@ -88,7 +88,7 @@ namespace Strategy
     {
         protected override void StrategyExecute()
         {
-            Rule rule = new BasicDMIRule(data.Bars, parameters[0], parameters[1]);
+            Rule rule = new BasicDMIRule(data.Bars, (int)parameters[0], (int)parameters[1]);
             if (rule.isValid())
             {
                 int Bar = data.Close.Count - 1;
@@ -128,8 +128,8 @@ namespace Strategy
         {
             DataSeries minusDmi_14 = new Indicators.MinusDI(data.Bars, parameters[0], "");
             DataSeries plusDmi_14 = new Indicators.PlusDI(data.Bars, parameters[1], "");
-            int cutlosslevel = parameters[2]; 
-            int takeprofitlevel=parameters[3];
+            int cutlosslevel = (int)parameters[2];
+            int takeprofitlevel = (int)parameters[3];
 
             AppTypes.MarketTrend lastTrend = AppTypes.MarketTrend.Unspecified;
             AppTypes.MarketTrend currentTrend = AppTypes.MarketTrend.Unspecified;

@@ -40,15 +40,15 @@ namespace Strategy
         //Version
         public string Version = "";
        
-        public int[] Parameters
+        public double[] Parameters
         {
             get
             {
                 object[] values = this.ParameterList.Values;
-                int[] paras = new int[values.Length];
+                double[] paras = new double[values.Length];
                 for (int idx = 0; idx < values.Length; idx++)
                 {
-                    paras[idx] = (int)values[idx];
+                    paras[idx] =  (double)values[idx];
                 }
                 return paras;
             }
@@ -68,12 +68,12 @@ namespace Strategy
         /// <param name="str">String in the format <key=value>,...,<key=value></param>
         private static common.DictionaryList String2ParameterList(string str)
         {
-            int para = 0;
+            double para = 0;
             common.DictionaryList list = new common.DictionaryList();
             common.myKeyValueItem[] keyValues = common.system.String2KeyValueList(str, ",", "=");
             for (int idx = 0; idx < keyValues.Length; idx++)
             {
-                if (!int.TryParse(keyValues[idx].Value, out para)) continue;
+                if (!double.TryParse(keyValues[idx].Value, out para)) continue;
                 list.Add(keyValues[idx].Key, para);
             }
             return list;
@@ -274,6 +274,12 @@ namespace Strategy
 
     public class Libs
     {
+        public static string GetMetaName(string code)
+        {
+            Meta meta = Libs.FindMetaByCode(code);
+            return meta.ClassType.Name;
+        }
+
         /// <summary>
         /// Calculated primary strategy data. If an strategy has several output,one is called "primary data" 
         /// and others are calles "exatra data".
@@ -301,9 +307,9 @@ namespace Strategy
             Data.AddToCache(cacheName, tradePoints);
             return tradePoints;
         }
-        public static TradePoints Analysis(application.Data myData, string strategyName)
+        public static TradePoints Analysis(application.Data myData, string strategyCode)
         { 
-            Meta meta = FindMetaByName(strategyName);
+            Meta meta = FindMetaByCode(strategyCode);
             if (meta == null) return null;
             return Analysis(myData,meta);
         }
@@ -355,6 +361,21 @@ namespace Strategy
         }
 
         /// <summary>
+        /// Find/Get strategy by code. Return null if not found
+        /// </summary>
+        /// <param name="MetaList">List keeps meta data</param>
+        /// <param name="name">strategy code to find</param>
+        /// <returns>Null if not found</returns>
+        private static Meta FindMetaByCode(common.DictionaryList MetaList, string code)
+        {
+            for (int idx = 0; idx < MetaList.Values.Length; idx++)
+            { 
+                if ( ((Meta)MetaList.Values[idx]).Code==code) return (Meta)MetaList.Values[idx];
+            }
+            return null;
+        }
+
+        /// <summary>
         /// Find/Get strategy by name. Return null if not found
         /// </summary>
         /// <param name="name">strategy name to find</param>/// 
@@ -362,6 +383,16 @@ namespace Strategy
         public static Meta FindMetaByName(string name)
         {
             return Libs.FindMetaByName(Data.MetaList, name);
+        }
+
+        /// <summary>
+        /// Find/Get strategy by code. Return null if not found
+        /// </summary>
+        /// <param name="name">strategy code to find</param>/// 
+        /// <returns>Null if not found</returns>
+        public static Meta FindMetaByCode(string code)
+        {
+            return Libs.FindMetaByCode(Data.MetaList, code);
         }
 
         /// <summary>
@@ -808,7 +839,7 @@ namespace Strategy
             StringCollection aFields = new StringCollection();
             aFields.Add("params");
             if (configuration.ReadUserSettings(sysLibs.sysLoginAccount, meta.ClassType.FullName, aFields))
-                meta.Parameters = common.system.String2IntList(aFields[0]);
+                meta.Parameters = common.system.String2DoubleList(aFields[0]);
         }
         public static void SaveUserSettings(Meta meta)
         {
@@ -816,7 +847,7 @@ namespace Strategy
             aFields.Clear();
             aFields.Add("params");
             StringCollection aValues = new StringCollection();
-            aValues.Add(common.system.List2String(meta.Parameters));
+            aValues.Add(common.system.ToString(meta.Parameters));
             configuration.SetUserSettings(sysLibs.sysLoginAccount, meta.ClassType.FullName, aFields, aValues);
         }
     }

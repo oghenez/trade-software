@@ -22408,7 +22408,7 @@ SELECT type, code, investorCode, name, description, startCapAmt, usedCapAmt, sto
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[3];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[4];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT * FROM portfolio WHERE (code = @code)";
@@ -22425,6 +22425,11 @@ SELECT type, code, investorCode, name, description, startCapAmt, usedCapAmt, sto
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@investorCode", global::System.Data.SqlDbType.NVarChar, 10, global::System.Data.ParameterDirection.Input, 0, 0, "investorCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@typeMask", global::System.Data.SqlDbType.VarChar, 1024, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[3].Connection = this.Connection;
+            this._commandCollection[3].CommandText = "SELECT *  FROM portfolio WHERE (type & @typeMask)>0";
+            this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@typeMask", global::System.Data.SqlDbType.VarChar, 1024, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -22523,6 +22528,40 @@ SELECT type, code, investorCode, name, description, startCapAmt, usedCapAmt, sto
             }
             else {
                 this.Adapter.SelectCommand.Parameters[1].Value = ((string)(typeMask));
+            }
+            baseDS.portfolioDataTable dataTable = new baseDS.portfolioDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByTypeMask(baseDS.portfolioDataTable dataTable, string typeMask) {
+            this.Adapter.SelectCommand = this.CommandCollection[3];
+            if ((typeMask == null)) {
+                throw new global::System.ArgumentNullException("typeMask");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(typeMask));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual baseDS.portfolioDataTable GetByTypeMask(string typeMask) {
+            this.Adapter.SelectCommand = this.CommandCollection[3];
+            if ((typeMask == null)) {
+                throw new global::System.ArgumentNullException("typeMask");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(typeMask));
             }
             baseDS.portfolioDataTable dataTable = new baseDS.portfolioDataTable();
             this.Adapter.Fill(dataTable);
@@ -24156,7 +24195,7 @@ SELECT portfolio, code, subCode, data FROM portfolioDetail WHERE (code = @code) 
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[4];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[6];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT * FROM portfolioDetail WHERE (portfolio = @portfolio) AND (code = @code) A" +
@@ -24167,25 +24206,37 @@ SELECT portfolio, code, subCode, data FROM portfolioDetail WHERE (code = @code) 
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@subCode", global::System.Data.SqlDbType.NVarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "subCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "DELETE  FROM portfolioDetail WHERE (portfolio = @portfolio) AND (code = @code) AN" +
-                "D (subCode = @subCode)";
+            this._commandCollection[1].CommandText = "DELETE  FROM portfolioDetail WHERE (portfolio = @portfolio) AND (code = @code) ";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@portfolio", global::System.Data.SqlDbType.NVarChar, 10, global::System.Data.ParameterDirection.Input, 0, 0, "portfolio", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@code", global::System.Data.SqlDbType.NVarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "code", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@subCode", global::System.Data.SqlDbType.NVarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "subCode", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = "SELECT code, data, portfolio, subCode FROM portfolioDetail WHERE (portfolio = @po" +
-                "rtfolio) AND (code = @code)";
+            this._commandCollection[2].CommandText = "DELETE  FROM portfolioDetail WHERE (portfolio = @portfolio) AND (code = @code) AN" +
+                "D (subCode = @subCode)";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@portfolio", global::System.Data.SqlDbType.NVarChar, 10, global::System.Data.ParameterDirection.Input, 0, 0, "portfolio", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@code", global::System.Data.SqlDbType.NVarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "code", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@portfolio", global::System.Data.SqlDbType.NVarChar, 10, global::System.Data.ParameterDirection.Input, 0, 0, "portfolio", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@code", global::System.Data.SqlDbType.NVarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "code", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@subCode", global::System.Data.SqlDbType.NVarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "subCode", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[3].Connection = this.Connection;
             this._commandCollection[3].CommandText = "SELECT code, data, portfolio, subCode FROM portfolioDetail WHERE (portfolio = @po" +
-                "rtfolio)";
+                "rtfolio) AND (code = @code)";
             this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@portfolio", global::System.Data.SqlDbType.NVarChar, 10, global::System.Data.ParameterDirection.Input, 0, 0, "portfolio", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@code", global::System.Data.SqlDbType.NVarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "code", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[4].Connection = this.Connection;
+            this._commandCollection[4].CommandText = "SELECT code, data, portfolio, subCode FROM portfolioDetail WHERE (portfolio = @po" +
+                "rtfolio)";
+            this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@portfolio", global::System.Data.SqlDbType.NVarChar, 10, global::System.Data.ParameterDirection.Input, 0, 0, "portfolio", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[5] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[5].Connection = this.Connection;
+            this._commandCollection[5].CommandText = "SELECT * FROM portfolioDetail \r\nWHERE  portfolio IN\r\n(\r\nSELECT code  FROM portfol" +
+                "io WHERE (type & @typeMask)>0\r\n)";
+            this._commandCollection[5].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@typeMask", global::System.Data.SqlDbType.VarChar, 1024, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -24250,7 +24301,7 @@ SELECT portfolio, code, subCode, data FROM portfolioDetail WHERE (code = @code) 
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
         public virtual int FillByCode(baseDS.portfolioDetailDataTable dataTable, string portfolio, string code) {
-            this.Adapter.SelectCommand = this.CommandCollection[2];
+            this.Adapter.SelectCommand = this.CommandCollection[3];
             if ((portfolio == null)) {
                 throw new global::System.ArgumentNullException("portfolio");
             }
@@ -24274,7 +24325,7 @@ SELECT portfolio, code, subCode, data FROM portfolioDetail WHERE (code = @code) 
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual baseDS.portfolioDetailDataTable GetByCode(string portfolio, string code) {
-            this.Adapter.SelectCommand = this.CommandCollection[2];
+            this.Adapter.SelectCommand = this.CommandCollection[3];
             if ((portfolio == null)) {
                 throw new global::System.ArgumentNullException("portfolio");
             }
@@ -24296,7 +24347,7 @@ SELECT portfolio, code, subCode, data FROM portfolioDetail WHERE (code = @code) 
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
         public virtual int FillByPortfolio(baseDS.portfolioDetailDataTable dataTable, string portfolio) {
-            this.Adapter.SelectCommand = this.CommandCollection[3];
+            this.Adapter.SelectCommand = this.CommandCollection[4];
             if ((portfolio == null)) {
                 throw new global::System.ArgumentNullException("portfolio");
             }
@@ -24314,12 +24365,46 @@ SELECT portfolio, code, subCode, data FROM portfolioDetail WHERE (code = @code) 
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual baseDS.portfolioDetailDataTable GetByPortfolio(string portfolio) {
-            this.Adapter.SelectCommand = this.CommandCollection[3];
+            this.Adapter.SelectCommand = this.CommandCollection[4];
             if ((portfolio == null)) {
                 throw new global::System.ArgumentNullException("portfolio");
             }
             else {
                 this.Adapter.SelectCommand.Parameters[0].Value = ((string)(portfolio));
+            }
+            baseDS.portfolioDetailDataTable dataTable = new baseDS.portfolioDetailDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByTypeMask(baseDS.portfolioDetailDataTable dataTable, string typeMask) {
+            this.Adapter.SelectCommand = this.CommandCollection[5];
+            if ((typeMask == null)) {
+                throw new global::System.ArgumentNullException("typeMask");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(typeMask));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual baseDS.portfolioDetailDataTable GetByTypeMask(string typeMask) {
+            this.Adapter.SelectCommand = this.CommandCollection[5];
+            if ((typeMask == null)) {
+                throw new global::System.ArgumentNullException("typeMask");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(typeMask));
             }
             baseDS.portfolioDetailDataTable dataTable = new baseDS.portfolioDetailDataTable();
             this.Adapter.Fill(dataTable);
@@ -24354,8 +24439,42 @@ SELECT portfolio, code, subCode, data FROM portfolioDetail WHERE (code = @code) 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, false)]
-        public virtual int DeleteRow(string portfolio, string code, string subCode) {
+        public virtual int DeleteByPortfolioAndCode(string portfolio, string code) {
             global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[1];
+            if ((portfolio == null)) {
+                throw new global::System.ArgumentNullException("portfolio");
+            }
+            else {
+                command.Parameters[0].Value = ((string)(portfolio));
+            }
+            if ((code == null)) {
+                throw new global::System.ArgumentNullException("code");
+            }
+            else {
+                command.Parameters[1].Value = ((string)(code));
+            }
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            int returnValue;
+            try {
+                returnValue = command.ExecuteNonQuery();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, false)]
+        public virtual int DeleteRow(string portfolio, string code, string subCode) {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[2];
             if ((portfolio == null)) {
                 throw new global::System.ArgumentNullException("portfolio");
             }

@@ -50,8 +50,8 @@ namespace Tools.Forms
 
         protected virtual void AddStockToWatchList(StringCollection stockCodes)
         {
-            addToWatchList myForm = addToWatchList.GetForm("");
-            myForm.AddToWatchList(stockCodes);
+            addToWatchList_StockOnly myForm = addToWatchList_StockOnly.GetForm("");
+            myForm.ShowForm(stockCodes);
         }
         protected void ShowStock(data.baseDS.stockCodeRow stockCodeRow, AppTypes.TimeRanges timeRange, AppTypes.TimeScale timeScale)
         {
@@ -66,7 +66,7 @@ namespace Tools.Forms
             Strategy.Data.ClearCache();
             Strategy.TradePoints advices = Strategy.Libs.Analysis(data, strategyCode);
             if (advices == null) return;
-            string formName = data.DataStockCode.Trim() + "," + timeRange.ToString() + "," + strategyCode.Trim() + "," + timeScale.Code;
+            string formName = data.DataStockCode.Trim() + "," + timeRange.ToString() + "," + Strategy.Libs.GetMetaName(strategyCode) + "," + timeScale.Code;
             profitEstimate myForm = profitEstimate.GetForm(formName);
             myForm.Text = "$(" + formName + ")";
             myForm.Init(data, advices);

@@ -31,9 +31,7 @@ namespace baseClass.forms
                 interestedStockClb.LoadData();
 
                 //Load default Portfolio Data
-                data.baseDS.portfolioRow portfolioRow = application.dataLibs.GetSystemPortfolio(); 
-                this.defaPortfolioDataTbl =  application.dataLibs.GetPortfolioData(portfolioRow.code);
-
+                this.defaPortfolioDataTbl = application.dataLibs.GetDefaultPortfolioData();
                 codeEd.BackColor = common.settings.sysColorDisableBG; codeEd.ForeColor = common.settings.sysColorDisableFG;
                 LockEdit(true);
             }
@@ -62,21 +60,7 @@ namespace baseClass.forms
             return form;
         }
 
-        private void AddDefaultPortfolioData(string porfolioCode, string stockCode)
-        {
-            data.baseDS.portfolioDetailRow row;
-            for (int idx = 0; idx < defaPortfolioDataTbl.Rows.Count; idx++)
-            {
-                row = myDataSet.portfolioDetail.NewportfolioDetailRow();
-                application.dataLibs.InitData(row);
-                row.portfolio = porfolioCode;
-                row.code = stockCode;
-                row.subCode = defaPortfolioDataTbl[idx].subCode; ;
-                row.data = defaPortfolioDataTbl[idx].data;
-                myDataSet.portfolioDetail.AddportfolioDetailRow(row);
-            }
-        }
-
+ 
         #region override funcs
         public override void LockEdit(bool lockState)
         {
@@ -194,7 +178,9 @@ namespace baseClass.forms
             {
                 xpPanelGroup_Info.Height = this.ClientRectangle.Height - this.xpPanelGroup_Info.Location.Y - SystemInformation.CaptionHeight + 3;
                 xpPanel_options.Height = xpPanelGroup_Info.Height - xpPanel_options.Location.Y;
+                interestedStrategy.Height = xpPanel_options.Height - interestedStrategy.Location.X-1; 
                 common.system.AutoFitGridColumn(portfolioGrid, nameColumn.Name);
+                this.ShowMessage(xpPanelGroup_Info.Height.ToString() + "-" + xpPanel_options.Height.ToString() +"-"+ this.ClientRectangle.Height.ToString());
             }
             catch (Exception er)
             {
@@ -227,7 +213,7 @@ namespace baseClass.forms
         {
             for (int idx = 0; idx < codes.Count; idx++)
             {
-                AddDefaultPortfolioData(interestedStrategy.myPorfolioCode, codes[idx]);
+                application.dataLibs.CopyPortfolioData(this.defaPortfolioDataTbl,myDataSet.portfolioDetail,interestedStrategy.myPorfolioCode, codes[idx]);
             }
             interestedStrategy.Refresh();
             return true;
@@ -236,6 +222,7 @@ namespace baseClass.forms
         {
             for (int idx = 0; idx < myDataSet.portfolioDetail.Count; idx++)
             {
+                if (myDataSet.portfolioDetail[idx].RowState== DataRowState.Deleted)continue;
                 if ((myDataSet.portfolioDetail[idx].portfolio == interestedStrategy.myPorfolioCode) &&
                     (codes.Contains(myDataSet.portfolioDetail[idx].code))) 
                     myDataSet.portfolioDetail[idx].Delete();

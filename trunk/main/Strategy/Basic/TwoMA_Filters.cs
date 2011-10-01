@@ -12,8 +12,8 @@ namespace Strategy
         override protected void StrategyExecute()
         {
             DataSeries sma5 = Indicators.SMA.Series(data.Close, parameters[0], "");
-            DataSeries sma10 = Indicators.SMA.Series(data.Close, parameters[1], "");            
-            int VOLUME_FILTER = parameters[2];
+            DataSeries sma10 = Indicators.SMA.Series(data.Close, parameters[1], "");
+            int VOLUME_FILTER = (int)parameters[2];
             
             AppTypes.MarketTrend lastTrend = AppTypes.MarketTrend.Unspecified;;
             AppTypes.MarketTrend currentTrend = AppTypes.MarketTrend.Unspecified;;

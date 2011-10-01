@@ -92,7 +92,7 @@ namespace Indicators
         /// <param name="slowPeriod"></param>
         /// <param name="name"></param>
         /// <returns></returns>       
-        public static ADOSC Series(DataBars ds, int fastPeriod, int slowPeriod, string name)
+        public static ADOSC Series(DataBars ds, double fastPeriod, double slowPeriod, string name)
         {
             //Build description
             string description = "(" + name + "," + fastPeriod.ToString() + "," + slowPeriod.ToString() + ")";
@@ -113,7 +113,7 @@ namespace Indicators
         /// </summary>
         /// <param name="db">data to calculate AD</param>        
         /// <param name="name"></param>
-        public ADOSC(DataBars db, int fastPeriod, int slowPeriod, string name)
+        public ADOSC(DataBars db, double fastPeriod, double slowPeriod, string name)
             : base(db, name)
         {
             int begin = 0, length = 0;
@@ -121,7 +121,7 @@ namespace Indicators
 
             double[] output = new double[db.Count];
 
-            retCode = Core.AdOsc(0, db.Count - 1, db.High.Values, db.Low.Values, db.Close.Values, db.Volume.Values, fastPeriod, slowPeriod, out begin, out length, output);
+            retCode = Core.AdOsc(0, db.Count - 1, db.High.Values, db.Low.Values, db.Close.Values, db.Volume.Values, (int)fastPeriod, (int)slowPeriod, out begin, out length, output);
 
             if (retCode != Core.RetCode.Success) return;
             //Assign first bar that contains indicator data

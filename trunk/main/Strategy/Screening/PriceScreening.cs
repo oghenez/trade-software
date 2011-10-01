@@ -44,8 +44,8 @@ namespace Strategy
         {
             int Bar = data.Close.Count-1;
             if (Bar <= 1) return;
-            
-            int period = parameters[0];
+
+            int period = (int)parameters[0];
             DataSeries sma = Indicators.SMA.Series(data.Close,period,"");
 
             //Tim cac stocks co Price hom nay lon hon SMA

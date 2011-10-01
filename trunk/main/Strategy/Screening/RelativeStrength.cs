@@ -23,7 +23,7 @@ namespace Strategy
 //            if (Bar == vnidxData.Close.Count - 1)
             {
 
-                int period = parameters[0];
+                int period = (int)parameters[0];
 
                 Indicators.ROCR100 roc = Indicators.ROCR100.Series(data.Close, period, "");
                 Indicators.ROCR100 roc_index = Indicators.ROCR100.Series(vnidxData.Close, period, "");

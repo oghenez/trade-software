@@ -16,8 +16,8 @@ namespace Strategy
     {
         protected override void  StrategyExecute()
         {
-            int CONSECUTIVE_DOWN = parameters[0];
-            int CONSECUTIVE_UP = parameters[1];
+            int CONSECUTIVE_DOWN = (int)parameters[0];
+            int CONSECUTIVE_UP = (int)parameters[1];
 
             bool is_2days_down, is_3days_up = false;
 

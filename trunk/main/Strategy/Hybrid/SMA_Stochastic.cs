@@ -11,11 +11,11 @@ namespace Strategy
     {
         override protected void StrategyExecute()
         {
-            int sma_short_period = parameters[0];
-            int sma_long_period = parameters[1];
-            int fastK = parameters[2];
-            int slowK = parameters[3];
-            int slowD = parameters[4];
+            int sma_short_period = (int)parameters[0];
+            int sma_long_period = (int)parameters[1];
+            int fastK = (int)parameters[2];
+            int slowK = (int)parameters[3];
+            int slowD = (int)parameters[4];
 
             DataSeries short_sma = Indicators.SMA.Series(data.Close,sma_short_period,"");
             DataSeries long_sma = Indicators.SMA.Series(data.Close, sma_long_period, "");

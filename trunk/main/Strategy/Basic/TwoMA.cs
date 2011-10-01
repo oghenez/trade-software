@@ -139,7 +139,7 @@ namespace Strategy
     {
         override protected void StrategyExecute()
         {
-            TwoSMARule rule = new TwoSMARule(data.Close, parameters[0], parameters[1]);
+            TwoSMARule rule = new TwoSMARule(data.Close, (int)parameters[0], (int)parameters[1]);
             if (rule.isValid())
             {
                 int Bar = data.Close.Count - 1;

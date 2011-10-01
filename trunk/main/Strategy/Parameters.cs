@@ -5,7 +5,7 @@ namespace Strategy
     public class Parameters
     {
         public int numOfParams;
-        public int[] Params;
+        public double[] Params;
 
         public Parameters()
         {
@@ -15,49 +15,50 @@ namespace Strategy
         public Parameters(int p1, int p2)
         {
             numOfParams = 2;
-            Params = new int[numOfParams];
+            Params = new double[numOfParams];
             Params[0] = p1;
             Params[1] = p2;
         }
 
-        public Parameters(int p1, int p2,int p3)
+        public Parameters(double p1, double p2, double p3)
         {
             numOfParams = 3;
-            Params = new int[numOfParams];
+            Params = new double[numOfParams];
             Params[0] = p1;
             Params[1] = p2;
             Params[2] = p3;
         }
 
 
-        public Parameters(int p1, int p2, int p3,int p4)
+        public Parameters(double p1, double p2, double p3, double p4)
         {
             numOfParams = 4;
-            Params = new int[numOfParams];
+            Params = new double[numOfParams];
             Params[0] = p1;
             Params[1] = p2;
             Params[2] = p3;
             Params[3] = p4;
         }
 
-        public Parameters(int[] p)
+        public Parameters(double[] p)
         {
             numOfParams = p.Length;
             if (numOfParams > 0)
             {
-                Params=new int[numOfParams];
+                Params = new double[numOfParams];
                 Array.Copy(p, Params, numOfParams);
             }
         }
 
-        public int getParameter(int index){
+        public double getParameter(int index)
+        {
             if (index<numOfParams)
                 return Params[index];
             else
                 throw new IndexOutOfRangeException("Params out of index");
         }
 
-        public int this[int index]
+        public double this[int index]
         {            
             get {
                 if (index >= numOfParams)

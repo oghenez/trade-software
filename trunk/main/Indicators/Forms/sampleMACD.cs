@@ -35,7 +35,7 @@ namespace Indicators.forms
         }
         protected override void CollectMetaData(Meta meta)
         {
-            meta.Parameters = new int[] { (int)fastParaEd.Value, (int)slowParaEd.Value, (int)signalParaEd.Value };
+            meta.Parameters = new double[] { (int)fastParaEd.Value, (int)slowParaEd.Value, (int)signalParaEd.Value };
             meta.DrawInNewWindow = inNewPaneChk.Checked;
 
             meta.Output = new Meta.OutputInfo[3];

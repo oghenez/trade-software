@@ -19,15 +19,15 @@ namespace Strategy.forms
             SetPara(meta);
             tabControl.SendToBack();
         }
-        public int[] Parameters
+        public double[] Parameters
         {
             get 
             {
-                int val = 0;
-                int[] paras = new int[paramGrid.Rows.Count];
+                double val = 0;
+                double[] paras = new double[paramGrid.Rows.Count];
                 for (int idx = 0; idx < paramGrid.Rows.Count; idx++)
                 {
-                    paras[idx] = (int.TryParse(paramGrid[1, idx].Value.ToString(), out val) ? val : 0);
+                    paras[idx] = (double.TryParse(paramGrid[1, idx].Value.ToString(), out val) ? val : 0);
                 }
                 return paras;
             }
@@ -56,7 +56,7 @@ namespace Strategy.forms
             {
                 paramGrid.Rows.Add(keys[idx],values[idx]);
             }
-            paraDescEd.Text = common.system.List2String(meta.ParameterDescriptions);
+            paraDescEd.Text = common.system.ToString(meta.ParameterDescriptions);
             hintTextEd.Text = meta.Description + common.Consts.constCRLF + meta.URL;
         }
         protected override bool BeforeAcceptProcess() 

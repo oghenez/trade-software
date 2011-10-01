@@ -28,24 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.paramGrid = new common.controls.baseDataGridView();
-            this.nameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.valueColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.paraPg = new System.Windows.Forms.TabPage();
             this.baseLabel1 = new common.controls.baseLabel();
             this.paraLbl = new common.controls.baseLabel();
             this.outputGrid = new common.controls.baseDataGridView();
-            this.inNewPaneChk = new common.controls.baseCheckBox();
-            this.paraDescEd = new common.controls.baseTextBox();
-            this.hintPg = new System.Windows.Forms.TabPage();
-            this.hintTextEd = new common.controls.baseTextBox();
             this.outNameolumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.outColorColumn = new common.controls.ColorPickerColumn();
             this.outWeightColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.outChartTypeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.inNewPaneChk = new common.controls.baseCheckBox();
+            this.paraDescEd = new common.controls.baseTextBox();
+            this.hintPg = new System.Windows.Forms.TabPage();
+            this.hintTextEd = new common.controls.baseTextBox();
+            this.nameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.valueColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.paramGrid)).BeginInit();
             this.tabControl.SuspendLayout();
             this.paraPg.SuspendLayout();
@@ -89,23 +89,6 @@
             this.paramGrid.Size = new System.Drawing.Size(385, 115);
             this.paramGrid.TabIndex = 1;
             this.paramGrid.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.paramGrid_DataError);
-            // 
-            // nameColumn
-            // 
-            this.nameColumn.HeaderText = "Names";
-            this.nameColumn.Name = "nameColumn";
-            this.nameColumn.ReadOnly = true;
-            this.nameColumn.Width = 185;
-            // 
-            // valueColumn
-            // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.Format = "N0";
-            dataGridViewCellStyle1.NullValue = null;
-            this.valueColumn.DefaultCellStyle = dataGridViewCellStyle1;
-            this.valueColumn.HeaderText = "Values";
-            this.valueColumn.Name = "valueColumn";
-            this.valueColumn.Width = 155;
             // 
             // tabControl
             // 
@@ -178,6 +161,34 @@
             this.outputGrid.Size = new System.Drawing.Size(387, 111);
             this.outputGrid.TabIndex = 11;
             // 
+            // outNameolumn
+            // 
+            this.outNameolumn.HeaderText = "Names";
+            this.outNameolumn.Name = "outNameolumn";
+            this.outNameolumn.ReadOnly = true;
+            this.outNameolumn.Width = 185;
+            // 
+            // outColorColumn
+            // 
+            this.outColorColumn.HeaderText = "Colors";
+            this.outColorColumn.Name = "outColorColumn";
+            // 
+            // outWeightColumn
+            // 
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.Format = "N0";
+            dataGridViewCellStyle2.NullValue = null;
+            this.outWeightColumn.DefaultCellStyle = dataGridViewCellStyle2;
+            this.outWeightColumn.HeaderText = "Weight";
+            this.outWeightColumn.Name = "outWeightColumn";
+            this.outWeightColumn.Width = 55;
+            // 
+            // outChartTypeColumn
+            // 
+            this.outChartTypeColumn.HeaderText = "ChartType";
+            this.outChartTypeColumn.Name = "outChartTypeColumn";
+            this.outChartTypeColumn.Visible = false;
+            // 
             // inNewPaneChk
             // 
             this.inNewPaneChk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -228,33 +239,22 @@
             this.hintTextEd.Size = new System.Drawing.Size(389, 254);
             this.hintTextEd.TabIndex = 1;
             // 
-            // outNameolumn
+            // nameColumn
             // 
-            this.outNameolumn.HeaderText = "Names";
-            this.outNameolumn.Name = "outNameolumn";
-            this.outNameolumn.ReadOnly = true;
-            this.outNameolumn.Width = 185;
+            this.nameColumn.HeaderText = "Names";
+            this.nameColumn.Name = "nameColumn";
+            this.nameColumn.ReadOnly = true;
+            this.nameColumn.Width = 185;
             // 
-            // outColorColumn
+            // valueColumn
             // 
-            this.outColorColumn.HeaderText = "Colors";
-            this.outColorColumn.Name = "outColorColumn";
-            // 
-            // outWeightColumn
-            // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.Format = "N0";
-            dataGridViewCellStyle2.NullValue = null;
-            this.outWeightColumn.DefaultCellStyle = dataGridViewCellStyle2;
-            this.outWeightColumn.HeaderText = "Weight";
-            this.outWeightColumn.Name = "outWeightColumn";
-            this.outWeightColumn.Width = 55;
-            // 
-            // outChartTypeColumn
-            // 
-            this.outChartTypeColumn.HeaderText = "ChartType";
-            this.outChartTypeColumn.Name = "outChartTypeColumn";
-            this.outChartTypeColumn.Visible = false;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.Format = "N2";
+            dataGridViewCellStyle1.NullValue = null;
+            this.valueColumn.DefaultCellStyle = dataGridViewCellStyle1;
+            this.valueColumn.HeaderText = "Values";
+            this.valueColumn.Name = "valueColumn";
+            this.valueColumn.Width = 155;
             // 
             // commonForm
             // 
@@ -292,12 +292,12 @@
         protected common.controls.baseDataGridView outputGrid;
         private common.controls.baseLabel paraLbl;
         private common.controls.baseLabel baseLabel1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nameColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn valueColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn outNameolumn;
         private common.controls.ColorPickerColumn outColorColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn outWeightColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn outChartTypeColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn valueColumn;
 
     }
 }

@@ -78,7 +78,7 @@
             0,
             0});
             this.fetchStockEd.Name = "fetchStockEd";
-            this.fetchStockEd.Size = new System.Drawing.Size(51, 23);
+            this.fetchStockEd.Size = new System.Drawing.Size(58, 23);
             this.fetchStockEd.TabIndex = 2;
             this.fetchStockEd.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.fetchStockEd.Value = new decimal(new int[] {
@@ -91,7 +91,7 @@
             // 
             this.fetchStockLbl2.AutoSize = true;
             this.fetchStockLbl2.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fetchStockLbl2.Location = new System.Drawing.Point(226, 25);
+            this.fetchStockLbl2.Location = new System.Drawing.Point(230, 25);
             this.fetchStockLbl2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.fetchStockLbl2.Name = "fetchStockLbl2";
             this.fetchStockLbl2.Size = new System.Drawing.Size(37, 16);
@@ -102,7 +102,7 @@
             // 
             this.tradeAlertLbl2.AutoSize = true;
             this.tradeAlertLbl2.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tradeAlertLbl2.Location = new System.Drawing.Point(228, 51);
+            this.tradeAlertLbl2.Location = new System.Drawing.Point(230, 51);
             this.tradeAlertLbl2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.tradeAlertLbl2.Name = "tradeAlertLbl2";
             this.tradeAlertLbl2.Size = new System.Drawing.Size(37, 16);
@@ -130,7 +130,7 @@
             0,
             0});
             this.tradeAlertEd.Name = "tradeAlertEd";
-            this.tradeAlertEd.Size = new System.Drawing.Size(51, 23);
+            this.tradeAlertEd.Size = new System.Drawing.Size(58, 23);
             this.tradeAlertEd.TabIndex = 11;
             this.tradeAlertEd.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.tradeAlertEd.Value = new decimal(new int[] {

@@ -142,8 +142,8 @@ namespace Strategy
             Indicators.MACD macd = Indicators.MACD.Series(data.Close, parameters[0], parameters[1], parameters[2], "");
             DataSeries hist = macd.HistSeries;
 
-            int cutlosslevel=parameters[3];
-            int takeprofitlevel = parameters[4];
+            int cutlosslevel = (int)parameters[3];
+            int takeprofitlevel = (int)parameters[4];
 
             decimal delta = 0, lastDelta = 0;
             for (int idx = 1; idx < macd.Count; idx++)

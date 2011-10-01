@@ -46,7 +46,8 @@
             this.runMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.openMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.profitEstimateMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.profitDetailMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.allProfitDetailMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.addToWatchListMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.fullViewMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -54,8 +55,6 @@
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.exportResultMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exportEstimationMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
-            this.optionsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.myDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.resultDataGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.myTmpDS)).BeginInit();
@@ -228,16 +227,15 @@
             this.runMenuItem,
             this.toolStripSeparator2,
             this.openMenuItem,
-            this.profitEstimateMenu,
+            this.profitDetailMenu,
+            this.allProfitDetailMenu,
             this.addToWatchListMenuItem,
             this.toolStripSeparator1,
             this.fullViewMenuItem,
             this.estimationMenuItem,
             this.toolStripSeparator3,
             this.exportResultMenuItem,
-            this.exportEstimationMenuItem,
-            this.toolStripSeparator4,
-            this.optionsMenuItem});
+            this.exportEstimationMenuItem});
             this.mainMenuItem.Name = "mainMenuItem";
             this.mainMenuItem.Size = new System.Drawing.Size(101, 20);
             this.mainMenuItem.Text = "Back Testing";
@@ -261,12 +259,19 @@
             this.openMenuItem.Text = "Open";
             this.openMenuItem.Click += new System.EventHandler(this.openMenuItem_Click);
             // 
-            // profitEstimateMenu
+            // profitDetailMenu
             // 
-            this.profitEstimateMenu.Name = "profitEstimateMenu";
-            this.profitEstimateMenu.Size = new System.Drawing.Size(202, 22);
-            this.profitEstimateMenu.Text = "Profit Estimation";
-            this.profitEstimateMenu.Click += new System.EventHandler(this.profitEstimateMenu_Click);
+            this.profitDetailMenu.Name = "profitDetailMenu";
+            this.profitDetailMenu.Size = new System.Drawing.Size(202, 22);
+            this.profitDetailMenu.Text = "Profit Details";
+            this.profitDetailMenu.Click += new System.EventHandler(this.profitDetailMenu_Click);
+            // 
+            // allProfitDetailMenu
+            // 
+            this.allProfitDetailMenu.Name = "allProfitDetailMenu";
+            this.allProfitDetailMenu.Size = new System.Drawing.Size(202, 22);
+            this.allProfitDetailMenu.Text = "All Profit Details";
+            this.allProfitDetailMenu.Click += new System.EventHandler(this.allProfitDetailMenu_Click);
             // 
             // addToWatchListMenuItem
             // 
@@ -312,18 +317,6 @@
             this.exportEstimationMenuItem.Size = new System.Drawing.Size(202, 22);
             this.exportEstimationMenuItem.Text = "Export Estimation";
             this.exportEstimationMenuItem.Click += new System.EventHandler(this.exportEstimationMenuItem_Click);
-            // 
-            // toolStripSeparator4
-            // 
-            this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(199, 6);
-            // 
-            // optionsMenuItem
-            // 
-            this.optionsMenuItem.Name = "optionsMenuItem";
-            this.optionsMenuItem.Size = new System.Drawing.Size(202, 22);
-            this.optionsMenuItem.Text = "Options";
-            this.optionsMenuItem.Click += new System.EventHandler(this.optionsMenuItem_Click);
             // 
             // backTesting
             // 
@@ -383,9 +376,8 @@
         private System.Windows.Forms.ToolStripMenuItem openMenuItem;
         private System.Windows.Forms.ToolStripMenuItem addToWatchListMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
-        private System.Windows.Forms.ToolStripMenuItem profitEstimateMenu;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
-        private System.Windows.Forms.ToolStripMenuItem optionsMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem allProfitDetailMenu;
         private baseClass.controls.stockCodeSelect stockCodeSelectLb;
+        private System.Windows.Forms.ToolStripMenuItem profitDetailMenu;
     }
 }

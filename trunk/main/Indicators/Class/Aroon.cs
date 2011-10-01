@@ -43,7 +43,7 @@ namespace Indicators
         /// <param name="period"></param>
         /// <param name="name"></param>
         /// <returns></returns>
-        public static Aroon Series(DataBars ds, int period, string name)
+        public static Aroon Series(DataBars ds, double period, string name)
         {
             //Build description
             string description = "(" + name + "," + period.ToString() + ")";
@@ -64,7 +64,7 @@ namespace Indicators
         /// <param name="db">data to calculate Aroon</param>        
         /// <param name="period">period to calculate</param>
         /// <param name="name"></param>
-        public Aroon(DataBars db, int period, string name)
+        public Aroon(DataBars db, double period, string name)
             : base(db, name)
         {
             int begin = 0, length = 0;
@@ -73,7 +73,7 @@ namespace Indicators
             double[] outputDown = new double[db.Count];
             double[] outputUp = new double[db.Count];
 
-            retCode = Core.Aroon(0, db.Count - 1, db.High.Values, db.Low.Values, period, out begin, out length, outputDown, outputUp);
+            retCode = Core.Aroon(0, db.Count - 1, db.High.Values, db.Low.Values, (int)period, out begin, out length, outputDown, outputUp);
 
             if (retCode != Core.RetCode.Success) return;
             //Assign first bar that contains indicator data
@@ -122,7 +122,7 @@ namespace Indicators
         /// <param name="period"></param>
         /// <param name="name"></param>
         /// <returns></returns>
-        public static AroonOsc Series(DataBars ds, int period, string name)
+        public static AroonOsc Series(DataBars ds, double period, string name)
         {
             //Build description
             string description = "(" + name + "," + period.ToString() + ")";
@@ -143,7 +143,7 @@ namespace Indicators
         /// <param name="db">data to calculate Aroon oscillator</param>        
         /// <param name="period">period to calculate</param>
         /// <param name="name"></param>
-        public AroonOsc(DataBars db, int period, string name)
+        public AroonOsc(DataBars db, double period, string name)
             : base(db, name)
         {
             int begin = 0, length = 0;
@@ -151,7 +151,7 @@ namespace Indicators
 
             double[] output = new double[db.Count];
 
-            retCode = Core.AroonOsc(0, db.Count - 1, db.High.Values, db.Low.Values, period, out begin, out length, output);
+            retCode = Core.AroonOsc(0, db.Count - 1, db.High.Values, db.Low.Values, (int)period, out begin, out length, output);
 
             if (retCode != Core.RetCode.Success) return;
             //Assign first bar that contains indicator data

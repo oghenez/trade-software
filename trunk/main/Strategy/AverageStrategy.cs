@@ -16,9 +16,9 @@ namespace Strategy
     {
         override protected void StrategyExecute()
         {
-            int NUM_AVERAGE = parameters[0] ;
-            int PERCENT_BUY = parameters[1];
-            int PERCENT_SELL = parameters[2];
+            int NUM_AVERAGE = (int)parameters[0];
+            int PERCENT_BUY = (int)parameters[1];
+            int PERCENT_SELL = (int)parameters[2];
             
             double value, distance,distance1;
             
