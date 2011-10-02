@@ -1,9 +1,0 @@
-C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\HQStocks\dlls\test.exe
-C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\HQStocks\dlls\test.pdb
-C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\HQStocks\test\obj\Release\ResolveAssemblyReference.cache
-C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\HQStocks\test\obj\Release\test.testPanel.resources
-C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\HQStocks\test\obj\Release\test.Form1.resources
-C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\HQStocks\test\obj\Release\test.Properties.Resources.resources
-C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\HQStocks\test\obj\Release\test.csproj.GenerateResource.Cache
-C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\HQStocks\test\obj\Release\test.exe
-C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\HQStocks\test\obj\Release\test.pdb
