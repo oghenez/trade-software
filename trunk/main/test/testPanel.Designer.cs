@@ -28,13 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.basePanel1 = new common.control.basePanel();
+            this.basePanel1 = new common.controls.basePanel();
             this.trBtn = new System.Windows.Forms.Button();
             this.blBtn = new System.Windows.Forms.Button();
             this.brBtn = new System.Windows.Forms.Button();
             this.tlBtn = new System.Windows.Forms.Button();
-            this.baseComboBox1 = new common.control.baseComboBox();
-            this.locationLbl = new common.control.baseLabel();
+            this.baseComboBox1 = new common.controls.baseComboBox();
+            this.locationLbl = new common.controls.baseLabel();
             this.SuspendLayout();
             // 
             // basePanel1
@@ -46,8 +46,8 @@
             this.basePanel1.isVisible = true;
             this.basePanel1.Location = new System.Drawing.Point(8, 45);
             this.basePanel1.Margin = new System.Windows.Forms.Padding(4);
-            this.basePanel1.myIconLocations = common.control.basePanel.IconLocations.TopLeft;
-            this.basePanel1.mySizingOptions = common.control.basePanel.SizingOptions.None;
+            this.basePanel1.myIconLocations = common.controls.basePanel.IconLocations.TopLeft;
+            this.basePanel1.mySizingOptions = common.controls.basePanel.SizingOptions.None;
             this.basePanel1.myWeight = 0;
             this.basePanel1.Name = "basePanel1";
             this.basePanel1.Size = new System.Drawing.Size(487, 245);
@@ -144,13 +144,13 @@
 
         #endregion
 
-        private common.control.basePanel basePanel1;
+        private common.controls.basePanel basePanel1;
         private System.Windows.Forms.Button trBtn;
         private System.Windows.Forms.Button blBtn;
         private System.Windows.Forms.Button brBtn;
         private System.Windows.Forms.Button tlBtn;
-        private common.control.baseComboBox baseComboBox1;
-        private common.control.baseLabel locationLbl;
+        private common.controls.baseComboBox baseComboBox1;
+        private common.controls.baseLabel locationLbl;
 
 
     }

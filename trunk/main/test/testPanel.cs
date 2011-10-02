@@ -32,11 +32,11 @@ namespace test
         {
             switch(baseComboBox1.SelectedIndex)
             {
-                case 0 : basePanel1.myIconLocations = common.control.basePanel.IconLocations.TopLeft; break;
-                case 1: basePanel1.myIconLocations = common.control.basePanel.IconLocations.TopRight; break;
-                case 2: basePanel1.myIconLocations = common.control.basePanel.IconLocations.BottomLeft; break;
-                case 3: basePanel1.myIconLocations = common.control.basePanel.IconLocations.BottomRight; break;
-                default: basePanel1.myIconLocations = common.control.basePanel.IconLocations.None; break;  
+                case 0 : basePanel1.myIconLocations = common.controls.basePanel.IconLocations.TopLeft; break;
+                case 1: basePanel1.myIconLocations = common.controls.basePanel.IconLocations.TopRight; break;
+                case 2: basePanel1.myIconLocations = common.controls.basePanel.IconLocations.BottomLeft; break;
+                case 3: basePanel1.myIconLocations = common.controls.basePanel.IconLocations.BottomRight; break;
+                default: basePanel1.myIconLocations = common.controls.basePanel.IconLocations.None; break;  
             }
             basePanel1.isExpanded = false;
         }
