@@ -31,7 +31,7 @@ namespace Indicators
         /// <param name="period"></param>
         /// <param name="name"></param>
         /// <returns></returns>
-        public static T3 Series(DataSeries ds, int period, double optInVFactor, string name)
+        public static T3 Series(DataSeries ds, double period, double optInVFactor, string name)
         {
             //Build description
             string description = "(" + name + period.ToString() + ")";
@@ -51,7 +51,7 @@ namespace Indicators
         /// <param name="db">data to calculate CCI</param>        
         /// <param name="period">period to calculate</param>
         /// <param name="name"></param>
-        public T3(DataSeries db, int period,double optInVFactor, string name)
+        public T3(DataSeries db, double period,double optInVFactor, string name)
             : base(db, name)
         {
             int begin = 0, length = 0;
@@ -59,7 +59,7 @@ namespace Indicators
 
             double[] output = new double[db.Count];
 
-            retCode = Core.T3(0, db.Count - 1, db.Values, period,optInVFactor, out begin, out length, output);
+            retCode = Core.T3(0, db.Count - 1, db.Values,(int) period,optInVFactor, out begin, out length, output);
 
             if (retCode != Core.RetCode.Success) return;
             //Assign first bar that contains indicator data

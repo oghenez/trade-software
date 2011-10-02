@@ -33,7 +33,7 @@ namespace Indicators
         /// <param name="period"></param>
         /// <param name="name"></param>
         /// <returns></returns>
-        public static CORREL Series(DataSeries ds, int period, string name)
+        public static CORREL Series(DataSeries ds, double period, string name)
         {
             //Build description
             string description = "(" + name + "," + period.ToString() + ")";
@@ -53,7 +53,7 @@ namespace Indicators
         /// <param name="db">data to calculate CORREL</param>
         /// <param name="period">the period</param>
         /// <param name="name"></param>
-        public CORREL(DataSeries db, int period, string name)
+        public CORREL(DataSeries db, double period, string name)
             : base(db, name)
         {
             int begin = 0, length = 0;
@@ -61,7 +61,7 @@ namespace Indicators
 
             double[] output = new double[db.Count];
 
-            retCode = Core.Correl(0, db.Count - 1,db.Values ,db.Values, period, out begin, out length, output);
+            retCode = Core.Correl(0, db.Count - 1,db.Values ,db.Values, (int)period, out begin, out length, output);
 
             if (retCode != Core.RetCode.Success) return;
             //Assign first bar that contains indicator data

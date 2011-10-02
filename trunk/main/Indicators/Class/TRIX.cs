@@ -31,7 +31,7 @@ namespace Indicators
         /// <param name="period"></param>
         /// <param name="name"></param>
         /// <returns></returns>
-        public static TRIX Series(DataSeries ds, int period, string name)
+        public static TRIX Series(DataSeries ds, double period, string name)
         {
             //Build description
             string description = "(" + name + period.ToString() + ")";
@@ -51,7 +51,7 @@ namespace Indicators
         /// <param name="ds">data to calculate CCI</param>        
         /// <param name="period">period to calculate</param>
         /// <param name="name"></param>
-        public TRIX(DataSeries ds, int period, string name)
+        public TRIX(DataSeries ds, double period, string name)
             : base(ds, name)
         {
             int begin = 0, length = 0;
@@ -59,7 +59,7 @@ namespace Indicators
 
             double[] output = new double[ds.Count];
 
-            retCode = Core.Trix(0, ds.Count - 1, ds.Values, period, out begin, out length, output);
+            retCode = Core.Trix(0, ds.Count - 1, ds.Values, (int)period, out begin, out length, output);
 
             if (retCode != Core.RetCode.Success) return;
             //Assign first bar that contains indicator data

@@ -26,7 +26,7 @@ namespace Indicators
         /// <param name="period"></param>
         /// <param name="name"></param>
         /// <returns></returns>
-        public static STDDEV Series(DataSeries ds, int period,double optInNbDev, string name)
+        public static STDDEV Series(DataSeries ds, double period,double optInNbDev, string name)
         {
             //Build description
             string description = "(" + name + period.ToString() + ")";
@@ -46,7 +46,7 @@ namespace Indicators
         /// <param name="db">data to calculate CCI</param>        
         /// <param name="period">period to calculate</param>
         /// <param name="name"></param>
-        public STDDEV(DataSeries db, int period,double optInNbDev, string name)
+        public STDDEV(DataSeries db, double period,double optInNbDev, string name)
             : base(db, name)
         {
             int begin = 0, length = 0;
@@ -54,7 +54,7 @@ namespace Indicators
 
             double[] output = new double[db.Count];
 
-            retCode = Core.StdDev(0, db.Count - 1, db.Values, period, optInNbDev, out begin, out length, output);
+            retCode = Core.StdDev(0, db.Count - 1, db.Values, (int)period, optInNbDev, out begin, out length, output);
 
             if (retCode != Core.RetCode.Success) return;
             //Assign first bar that contains indicator data
