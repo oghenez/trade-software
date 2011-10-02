@@ -1,7 +1,0 @@
-D:\work\stockProject\new-code\analasys\obj\Debug\ResolveAssemblyReference.cache
-D:\work\stockProject\new-code\analasys\obj\Debug\analasys.Properties.Resources.resources
-D:\work\stockProject\new-code\analasys\obj\Debug\analasys.csproj.GenerateResource.Cache
-D:\work\stockProject\new-code\analasys\bin\Debug\analasys.dll
-D:\work\stockProject\new-code\analasys\bin\Debug\analasys.pdb
-D:\work\stockProject\new-code\analasys\obj\Debug\analasys.dll
-D:\work\stockProject\new-code\analasys\obj\Debug\analasys.pdb
