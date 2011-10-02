@@ -1,8 +1,0 @@
-D:\work\nhansu\code\dlls\main.exe
-D:\work\nhansu\code\dlls\main.pdb
-D:\work\nhansu\code\main\obj\Debug\ResolveAssemblyReference.cache
-D:\work\nhansu\code\main\obj\Debug\main.main.resources
-D:\work\nhansu\code\main\obj\Debug\main.Properties.Resources.resources
-D:\work\nhansu\code\main\obj\Debug\hmr.csproj.GenerateResource.Cache
-D:\work\nhansu\code\main\obj\Debug\main.exe
-D:\work\nhansu\code\main\obj\Debug\main.pdb

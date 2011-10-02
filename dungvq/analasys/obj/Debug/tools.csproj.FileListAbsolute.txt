@@ -1,8 +1,0 @@
-D:\work\stockProject\new-code\analasys\obj\Debug\ResolveAssemblyReference.cache
-D:\work\stockProject\new-code\analasys\obj\Debug\tools.forms.tradeAnalysis.resources
-D:\work\stockProject\new-code\analasys\obj\Debug\tools.Properties.Resources.resources
-D:\work\stockProject\new-code\analasys\obj\Debug\tools.csproj.GenerateResource.Cache
-D:\work\stockProject\new-code\dlls\tools.dll
-D:\work\stockProject\new-code\dlls\tools.pdb
-D:\work\stockProject\new-code\analasys\obj\Debug\tools.dll
-D:\work\stockProject\new-code\analasys\obj\Debug\tools.pdb

@@ -1,8 +1,0 @@
-D:\work\stockProject\new-code\test\obj\Debug\ResolveAssemblyReference.cache
-D:\work\stockProject\new-code\test\obj\Debug\test.Form1.resources
-D:\work\stockProject\new-code\test\obj\Debug\test.Properties.Resources.resources
-D:\work\stockProject\new-code\test\obj\Debug\test.csproj.GenerateResource.Cache
-D:\work\stockProject\new-code\dlls\test.exe
-D:\work\stockProject\new-code\dlls\test.pdb
-D:\work\stockProject\new-code\test\obj\Debug\test.exe
-D:\work\stockProject\new-code\test\obj\Debug\test.pdb
