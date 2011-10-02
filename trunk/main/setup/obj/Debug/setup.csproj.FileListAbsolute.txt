@@ -1,0 +1,48 @@
+D:\work\nhansu\code\setup\obj\Debug\ResolveAssemblyReference.cache
+D:\work\nhansu\code\setup\obj\Debug\setup.AboutBox.resources
+D:\work\nhansu\code\setup\obj\Debug\setup.forms.configFile.resources
+D:\work\nhansu\code\setup\obj\Debug\setup.forms.sysOptionsMenuItem.resources
+D:\work\nhansu\code\setup\obj\Debug\setup.main.resources
+D:\work\nhansu\code\setup\obj\Debug\setup.Properties.Resources.resources
+D:\work\nhansu\code\setup\obj\Debug\setup.csproj.GenerateResource.Cache
+D:\work\nhansu\code\dlls\setup.exe.config
+D:\work\nhansu\code\dlls\setup.exe
+D:\work\nhansu\code\dlls\setup.pdb
+D:\work\nhansu\code\setup\obj\Debug\setup.exe
+D:\work\nhansu\code\setup\obj\Debug\setup.pdb
+D:\work\stockProject\code\setup\obj\Debug\ResolveAssemblyReference.cache
+D:\work\stockProject\code\setup\obj\Debug\setup.AboutBox.resources
+D:\work\stockProject\code\setup\obj\Debug\setup.forms.configFile.resources
+D:\work\stockProject\code\setup\obj\Debug\setup.forms.sysOptionsMenuItem.resources
+D:\work\stockProject\code\setup\obj\Debug\setup.main.resources
+D:\work\stockProject\code\setup\obj\Debug\setup.Properties.Resources.resources
+D:\work\stockProject\code\setup\obj\Debug\setup.csproj.GenerateResource.Cache
+D:\work\stockProject\code\setup\obj\Debug\setup.exe
+D:\work\stockProject\code\setup\obj\Debug\setup.pdb
+D:\work\stockProject\code\dlls\setup.exe.config
+D:\work\stockProject\code\dlls\setup.exe
+D:\work\stockProject\code\dlls\setup.pdb
+D:\work\stockProject\new-code\setup\obj\Debug\ResolveAssemblyReference.cache
+D:\work\stockProject\new-code\setup\obj\Debug\setup.AboutBox.resources
+D:\work\stockProject\new-code\setup\obj\Debug\setup.forms.configFile.resources
+D:\work\stockProject\new-code\setup\obj\Debug\setup.forms.sysOptionsMenuItem.resources
+D:\work\stockProject\new-code\setup\obj\Debug\setup.main.resources
+D:\work\stockProject\new-code\setup\obj\Debug\setup.Properties.Resources.resources
+D:\work\stockProject\new-code\setup\obj\Debug\setup.csproj.GenerateResource.Cache
+D:\work\stockProject\new-code\setup\obj\Debug\setup.exe
+D:\work\stockProject\new-code\setup\obj\Debug\setup.pdb
+D:\work\stockProject\new-code\dlls\setup.exe.config
+D:\work\stockProject\new-code\dlls\setup.exe
+D:\work\stockProject\new-code\dlls\setup.pdb
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\HQStocks\dlls\setup.exe.config
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\HQStocks\dlls\setup.exe
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\HQStocks\dlls\setup.pdb
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\HQStocks\setup\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\HQStocks\setup\obj\Debug\setup.AboutBox.resources
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\HQStocks\setup\obj\Debug\setup.forms.configFile.resources
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\HQStocks\setup\obj\Debug\setup.forms.sysOptionsMenuItem.resources
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\HQStocks\setup\obj\Debug\setup.main.resources
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\HQStocks\setup\obj\Debug\setup.Properties.Resources.resources
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\HQStocks\setup\obj\Debug\setup.csproj.GenerateResource.Cache
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\HQStocks\setup\obj\Debug\setup.exe
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\HQStocks\setup\obj\Debug\setup.pdb

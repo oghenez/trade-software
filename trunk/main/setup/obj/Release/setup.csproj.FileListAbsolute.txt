@@ -1,0 +1,24 @@
+D:\work\ketoan-moi\setup\obj\Release\ResolveAssemblyReference.cache
+D:\work\ketoan-moi\setup\obj\Release\setup.AboutBox.resources
+D:\work\ketoan-moi\setup\obj\Release\setup.forms.sysOptionsMenuItem.resources
+D:\work\ketoan-moi\setup\obj\Release\setup.main.resources
+D:\work\ketoan-moi\setup\obj\Release\setup.Properties.Resources.resources
+D:\work\ketoan-moi\setup\obj\Release\setup.csproj.GenerateResource.Cache
+D:\work\ketoan-moi\dlls\setup.exe.config
+D:\work\ketoan-moi\dlls\setup.exe
+D:\work\ketoan-moi\dlls\setup.pdb
+D:\work\ketoan-moi\setup\obj\Release\setup.exe
+D:\work\ketoan-moi\setup\obj\Release\setup.pdb
+D:\work\ketoan-moi\setup\obj\Release\setup.forms.configFile.resources
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\HQStocks\dlls\setup.exe.config
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\HQStocks\dlls\setup.exe
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\HQStocks\dlls\setup.pdb
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\HQStocks\setup\obj\Release\ResolveAssemblyReference.cache
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\HQStocks\setup\obj\Release\setup.AboutBox.resources
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\HQStocks\setup\obj\Release\setup.forms.configFile.resources
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\HQStocks\setup\obj\Release\setup.forms.sysOptionsMenuItem.resources
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\HQStocks\setup\obj\Release\setup.main.resources
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\HQStocks\setup\obj\Release\setup.Properties.Resources.resources
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\HQStocks\setup\obj\Release\setup.csproj.GenerateResource.Cache
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\HQStocks\setup\obj\Release\setup.exe
+C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\HQStocks\setup\obj\Release\setup.pdb
