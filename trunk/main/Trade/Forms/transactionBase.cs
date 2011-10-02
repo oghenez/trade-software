@@ -17,30 +17,36 @@ namespace Trade.Forms
             try
             {
                 InitializeComponent();
-                transTypeCb.LoadData();
-                portfolioCb.LoadData();
-                statusCb.LoadData();
-
-                //Color
-                transCodeEd.BackColor = common.settings.sysColorHiLightBG1; transCodeEd.ForeColor = common.settings.sysColorHiLightBG1;
-
-                stockCodeEd.BackColor = common.settings.sysColorNormalBG; stockCodeEd.ForeColor = common.settings.sysColorNormalFG;
-                transTypeCb.BackColor = common.settings.sysColorNormalBG; transTypeCb.ForeColor = common.settings.sysColorNormalFG;
-                portfolioCb.BackColor = common.settings.sysColorNormalBG; portfolioCb.ForeColor = common.settings.sysColorNormalFG;
-                onTimeEd.BackColor = common.settings.sysColorHiLightBG1; onTimeEd.ForeColor = common.settings.sysColorHiLightFG1;
-
-                qtyEd.BackColor = common.settings.sysColorNormalBG; qtyEd.ForeColor = common.settings.sysColorNormalFG;
-                priceEd.BackColor = common.settings.sysColorNormalBG; priceEd.ForeColor = common.settings.sysColorNormalFG;
-                subTotalEd.BackColor = common.settings.sysColorHiLightBG2; subTotalEd.ForeColor = common.settings.sysColorHiLightFG2;
-                feePercEd.BackColor = common.settings.sysColorNormalBG; feePercEd.ForeColor = common.settings.sysColorNormalFG;
-                feeAmtEd.BackColor = common.settings.sysColorNormalBG; feeAmtEd.ForeColor = common.settings.sysColorNormalFG;
-                totalAmtEd.BackColor = common.settings.sysColorHiLightBG3; totalAmtEd.ForeColor = common.settings.sysColorHiLightFG3;
+                Init();
             }
             catch (Exception er)
             {
                 this.ShowError(er);
             }
         }
+
+        public void Init()
+        {
+            transTypeCb.LoadData();
+            portfolioCb.LoadData(sysLibs.sysLoginCode,false);
+            statusCb.LoadData();
+
+            //Color
+            transCodeEd.BackColor = common.settings.sysColorHiLightBG1; transCodeEd.ForeColor = common.settings.sysColorHiLightBG1;
+
+            stockCodeEd.BackColor = common.settings.sysColorNormalBG; stockCodeEd.ForeColor = common.settings.sysColorNormalFG;
+            transTypeCb.BackColor = common.settings.sysColorNormalBG; transTypeCb.ForeColor = common.settings.sysColorNormalFG;
+            portfolioCb.BackColor = common.settings.sysColorNormalBG; portfolioCb.ForeColor = common.settings.sysColorNormalFG;
+            onTimeEd.BackColor = common.settings.sysColorHiLightBG1; onTimeEd.ForeColor = common.settings.sysColorHiLightFG1;
+
+            qtyEd.BackColor = common.settings.sysColorNormalBG; qtyEd.ForeColor = common.settings.sysColorNormalFG;
+            priceEd.BackColor = common.settings.sysColorNormalBG; priceEd.ForeColor = common.settings.sysColorNormalFG;
+            subTotalEd.BackColor = common.settings.sysColorHiLightBG2; subTotalEd.ForeColor = common.settings.sysColorHiLightFG2;
+            feePercEd.BackColor = common.settings.sysColorNormalBG; feePercEd.ForeColor = common.settings.sysColorNormalFG;
+            feeAmtEd.BackColor = common.settings.sysColorNormalBG; feeAmtEd.ForeColor = common.settings.sysColorNormalFG;
+            totalAmtEd.BackColor = common.settings.sysColorHiLightBG3; totalAmtEd.ForeColor = common.settings.sysColorHiLightFG3;
+        }
+
         /// <summary>
         /// Calculate total,subtotal,fee when qty was changed
         /// </summary>

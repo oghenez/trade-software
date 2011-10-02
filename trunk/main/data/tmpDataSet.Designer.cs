@@ -29,6 +29,8 @@ namespace data {
         
         private tradeEstimateDataTable tabletradeEstimate;
         
+        private codeListDataTable tablecodeList;
+        
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -60,6 +62,9 @@ namespace data {
                 }
                 if ((ds.Tables["tradeEstimate"] != null)) {
                     base.Tables.Add(new tradeEstimateDataTable(ds.Tables["tradeEstimate"]));
+                }
+                if ((ds.Tables["codeList"] != null)) {
+                    base.Tables.Add(new codeListDataTable(ds.Tables["codeList"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -94,6 +99,15 @@ namespace data {
         public tradeEstimateDataTable tradeEstimate {
             get {
                 return this.tabletradeEstimate;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public codeListDataTable codeList {
+            get {
+                return this.tablecodeList;
             }
         }
         
@@ -162,6 +176,9 @@ namespace data {
                 if ((ds.Tables["tradeEstimate"] != null)) {
                     base.Tables.Add(new tradeEstimateDataTable(ds.Tables["tradeEstimate"]));
                 }
+                if ((ds.Tables["codeList"] != null)) {
+                    base.Tables.Add(new codeListDataTable(ds.Tables["codeList"]));
+                }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
                 this.Namespace = ds.Namespace;
@@ -204,6 +221,12 @@ namespace data {
                     this.tabletradeEstimate.InitVars();
                 }
             }
+            this.tablecodeList = ((codeListDataTable)(base.Tables["codeList"]));
+            if ((initTable == true)) {
+                if ((this.tablecodeList != null)) {
+                    this.tablecodeList.InitVars();
+                }
+            }
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -216,6 +239,8 @@ namespace data {
             base.Tables.Add(this.tablestockCode);
             this.tabletradeEstimate = new tradeEstimateDataTable();
             base.Tables.Add(this.tabletradeEstimate);
+            this.tablecodeList = new codeListDataTable();
+            base.Tables.Add(this.tablecodeList);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -225,6 +250,11 @@ namespace data {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         private bool ShouldSerializetradeEstimate() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        private bool ShouldSerializecodeList() {
             return false;
         }
         
@@ -284,6 +314,8 @@ namespace data {
         public delegate void stockCodeRowChangeEventHandler(object sender, stockCodeRowChangeEvent e);
         
         public delegate void tradeEstimateRowChangeEventHandler(object sender, tradeEstimateRowChangeEvent e);
+        
+        public delegate void codeListRowChangeEventHandler(object sender, codeListRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -1082,6 +1114,278 @@ namespace data {
         }
         
         /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class codeListDataTable : global::System.Data.TypedTableBase<codeListRow> {
+            
+            private global::System.Data.DataColumn columncode;
+            
+            private global::System.Data.DataColumn columndescription;
+            
+            private global::System.Data.DataColumn columnbyteValue;
+            
+            private global::System.Data.DataColumn columnintValue;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public codeListDataTable() {
+                this.TableName = "codeList";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            internal codeListDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected codeListDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn codeColumn {
+                get {
+                    return this.columncode;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn descriptionColumn {
+                get {
+                    return this.columndescription;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn byteValueColumn {
+                get {
+                    return this.columnbyteValue;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn intValueColumn {
+                get {
+                    return this.columnintValue;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public codeListRow this[int index] {
+                get {
+                    return ((codeListRow)(this.Rows[index]));
+                }
+            }
+            
+            public event codeListRowChangeEventHandler codeListRowChanging;
+            
+            public event codeListRowChangeEventHandler codeListRowChanged;
+            
+            public event codeListRowChangeEventHandler codeListRowDeleting;
+            
+            public event codeListRowChangeEventHandler codeListRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void AddcodeListRow(codeListRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public codeListRow AddcodeListRow(string code, string description, byte byteValue, int intValue) {
+                codeListRow rowcodeListRow = ((codeListRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        code,
+                        description,
+                        byteValue,
+                        intValue};
+                rowcodeListRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowcodeListRow);
+                return rowcodeListRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public codeListRow FindBycode(string code) {
+                return ((codeListRow)(this.Rows.Find(new object[] {
+                            code})));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public override global::System.Data.DataTable Clone() {
+                codeListDataTable cln = ((codeListDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new codeListDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            internal void InitVars() {
+                this.columncode = base.Columns["code"];
+                this.columndescription = base.Columns["description"];
+                this.columnbyteValue = base.Columns["byteValue"];
+                this.columnintValue = base.Columns["intValue"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            private void InitClass() {
+                this.columncode = new global::System.Data.DataColumn("code", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncode);
+                this.columndescription = new global::System.Data.DataColumn("description", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columndescription);
+                this.columnbyteValue = new global::System.Data.DataColumn("byteValue", typeof(byte), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnbyteValue);
+                this.columnintValue = new global::System.Data.DataColumn("intValue", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnintValue);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columncode}, true));
+                this.columncode.AllowDBNull = false;
+                this.columncode.Unique = true;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public codeListRow NewcodeListRow() {
+                return ((codeListRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new codeListRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override global::System.Type GetRowType() {
+                return typeof(codeListRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.codeListRowChanged != null)) {
+                    this.codeListRowChanged(this, new codeListRowChangeEvent(((codeListRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.codeListRowChanging != null)) {
+                    this.codeListRowChanging(this, new codeListRowChangeEvent(((codeListRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.codeListRowDeleted != null)) {
+                    this.codeListRowDeleted(this, new codeListRowChangeEvent(((codeListRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.codeListRowDeleting != null)) {
+                    this.codeListRowDeleting(this, new codeListRowChangeEvent(((codeListRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void RemovecodeListRow(codeListRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                tmpDS ds = new tmpDS();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "codeListDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
@@ -1687,6 +1991,106 @@ namespace data {
         }
         
         /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
+        public partial class codeListRow : global::System.Data.DataRow {
+            
+            private codeListDataTable tablecodeList;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            internal codeListRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tablecodeList = ((codeListDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string code {
+                get {
+                    return ((string)(this[this.tablecodeList.codeColumn]));
+                }
+                set {
+                    this[this.tablecodeList.codeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string description {
+                get {
+                    try {
+                        return ((string)(this[this.tablecodeList.descriptionColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'description\' in table \'codeList\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablecodeList.descriptionColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public byte byteValue {
+                get {
+                    try {
+                        return ((byte)(this[this.tablecodeList.byteValueColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'byteValue\' in table \'codeList\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablecodeList.byteValueColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public int intValue {
+                get {
+                    try {
+                        return ((int)(this[this.tablecodeList.intValueColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'intValue\' in table \'codeList\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablecodeList.intValueColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsdescriptionNull() {
+                return this.IsNull(this.tablecodeList.descriptionColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetdescriptionNull() {
+                this[this.tablecodeList.descriptionColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsbyteValueNull() {
+                return this.IsNull(this.tablecodeList.byteValueColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetbyteValueNull() {
+                this[this.tablecodeList.byteValueColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsintValueNull() {
+                return this.IsNull(this.tablecodeList.intValueColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetintValueNull() {
+                this[this.tablecodeList.intValueColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
@@ -1735,6 +2139,37 @@ namespace data {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public tradeEstimateRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
+        public class codeListRowChangeEvent : global::System.EventArgs {
+            
+            private codeListRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public codeListRowChangeEvent(codeListRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public codeListRow Row {
                 get {
                     return this.eventRow;
                 }

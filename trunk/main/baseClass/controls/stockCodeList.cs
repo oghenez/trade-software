@@ -32,9 +32,6 @@ namespace baseClass.controls
         {
             stockCodeLb.SelectionMode = SelectionMode.MultiExtended;
             return stockCodeLb;
-            //lbStockCode lbox = new lbStockCode();
-            //lbox.SelectionMode = SelectionMode.MultiExtended;
-            //return lbox;
         }
         protected override common.forms.baseListSelection CreateCodeSelectionForm()
         {

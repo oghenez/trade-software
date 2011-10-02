@@ -100,6 +100,7 @@ namespace baseClass.forms
             application.dataLibs.LoadPortfolioByInvestor(this.myDataSet.portfolio, this.myInvestorCode, this.myWatchListType);
             interestedStrategy.myStockCode = "";
             interestedStrategy.Clear();
+            portfolioSource_CurrentChanged(null, null);
         }
         protected override bool DataValid(bool showMsg)
         {

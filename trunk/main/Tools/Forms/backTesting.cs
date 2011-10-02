@@ -67,8 +67,12 @@ namespace Tools.Forms
             if (saveFileDialog.ShowDialog() == DialogResult.Cancel) return;
             common.Export.ExportToExcel((DataTable)strategyEstimationGrid.DataSource, saveFileDialog.FileName);
         }
+
+        private bool fExecute = false;
         public void Execute()
         {
+            if (fExecute) return;
+            fExecute = true;
             this.ShowMessage("");
             try
             {
@@ -86,6 +90,7 @@ namespace Tools.Forms
             }
             finally
             {
+                fExecute = false;
                 progressBar.Visible = false;
             }
         }

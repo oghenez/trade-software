@@ -227,6 +227,10 @@ namespace Strategy
         //public double[] Resistance;
         //public double[] Support;
         public double Weight = 0;
+        public override string ToString()
+        {
+            return "N/A";
+        }
     }
 
     //Information of one trading point (suggested by analysis process)
@@ -849,6 +853,22 @@ namespace Strategy
             StringCollection aValues = new StringCollection();
             aValues.Add(common.system.ToString(meta.Parameters));
             configuration.SetUserSettings(sysLibs.sysLoginCode, meta.ClassType.FullName, aFields, aValues);
+        }
+
+        //Load strategy to table
+        public static void LoadStrategy(data.tmpDS.codeListDataTable tbl, AppTypes.StrategyTypes type)
+        {
+            Meta meta;
+            data.tmpDS.codeListRow row;
+            for(int idx=0;idx<Data.MetaList.Values.Length;idx++)
+            {
+                meta = (Meta)Data.MetaList.Values[idx];
+                if (meta.Type != type) continue;
+                row = tbl.NewcodeListRow();
+                row.code = ((Meta)Data.MetaList.Values[idx]).Code;
+                row.description = ((Meta)Data.MetaList.Values[idx]).Name;
+                tbl.AddcodeListRow(row);
+            }
         }
     }
 

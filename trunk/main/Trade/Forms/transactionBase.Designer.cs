@@ -345,7 +345,6 @@
             this.portfolioCb.Name = "portfolioCb";
             this.portfolioCb.Size = new System.Drawing.Size(158, 24);
             this.portfolioCb.TabIndex = 11;
-            this.portfolioCb.WatchType = application.AppTypes.PortfolioTypes.Portfolio;
             // 
             // stockCodeEd
             // 

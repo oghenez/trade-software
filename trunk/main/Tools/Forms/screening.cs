@@ -44,8 +44,11 @@ namespace Tools.Forms
             common.Data.dataCache.Add(cacheKey, form);
             return form;
         }
+        private bool fExecute = false;
         public void Execute()
         {
+            if (fExecute) return;
+            fExecute = true;
             try
             {
                 this.ShowMessage("");
@@ -65,6 +68,7 @@ namespace Tools.Forms
             }
             finally
             {
+                fExecute = false;
                 progressBar.Visible = false;
             }
         }
