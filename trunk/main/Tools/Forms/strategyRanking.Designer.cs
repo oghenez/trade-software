@@ -123,7 +123,7 @@
             this.cbTimeScale.FormattingEnabled = true;
             this.cbTimeScale.Location = new System.Drawing.Point(346, 5);
             this.cbTimeScale.Name = "cbTimeScale";
-            this.cbTimeScale.Size = new System.Drawing.Size(102, 21);
+            this.cbTimeScale.Size = new System.Drawing.Size(102, 24);
             this.cbTimeScale.TabIndex = 2;
             // 
             // allTimeRangeChk
@@ -304,17 +304,16 @@
             this.resultTab.Size = new System.Drawing.Size(576, 674);
             this.resultTab.TabIndex = 317;
             // 
-            // stockRanking
+            // strategyRanking
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(1050, 702);
             this.Controls.Add(this.optionPnl);
             this.Controls.Add(this.menuStrip);
             this.Controls.Add(this.resultTab);
-            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip;
-            this.Name = "stockRanking";
+            this.Name = "strategyRanking";
             this.Text = "Strategy Ranking";
             this.Load += new System.EventHandler(this.Form_Load);
             this.Resize += new System.EventHandler(this.form_Resize);

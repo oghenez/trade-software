@@ -18,7 +18,7 @@ namespace Tools.Forms
             {
                 InitializeComponent();
                 stockCodeSelectLb.LoadData();
-
+                cbTimeScale.LoadData();
                 strategyClb.LoadData(AppTypes.StrategyTypes.Strategy, true, false);
                 AppTypes.TimeRanges[] timeRanges = new AppTypes.TimeRanges[]
                 {
@@ -26,7 +26,6 @@ namespace Tools.Forms
                     AppTypes.TimeRanges.Y1,AppTypes.TimeRanges.Y2,AppTypes.TimeRanges.Y3,AppTypes.TimeRanges.Y4,AppTypes.TimeRanges.Y5,
                 };
                 timeRangeLb.LoadData(timeRanges);
-                cbTimeScale.LoadData();
                 optionPnl.Location = new Point(0, 0);
             }
             catch (Exception er)
@@ -157,6 +156,8 @@ namespace Tools.Forms
                 }
                 column.Name = idx.ToString();
             }
+            grid.AllowUserToAddRows = false;
+            grid.AllowUserToDeleteRows = false;
             AdjustTestGridSize(grid);
         }
         private void CreateContextMenu(common.controls.baseDataGridView gridView)
@@ -172,8 +173,8 @@ namespace Tools.Forms
             menuItem = contextMenuStrip.Items.Add(allProfitDetailMenu.Text);
             menuItem.Click += new System.EventHandler(allProfitDetailMenu_Click);
 
-            //menuItem = contextMenuStrip.Items.Add(addToWatchListMenuItem.Text);
-            //menuItem.Click += new System.EventHandler(addToWatchListMenuItem_Click);
+            menuItem = contextMenuStrip.Items.Add(addToWatchListMenuItem.Text);
+            menuItem.Click += new System.EventHandler(addToWatchListMenuItem_Click);
 
             gridView.ContextMenuStrip = contextMenuStrip;
         }
@@ -323,6 +324,11 @@ namespace Tools.Forms
             CreateContextMenu(dataGridView);
             return dataGridView;
         }
+        private void AddStockToWatchList(string stockCode,StringCollection strategyCodes,AppTypes.TimeScale timeScale)
+        {
+            addToWatchList_StockAndStrategy myForm = addToWatchList_StockAndStrategy.GetForm("");
+            myForm.ShowForm(stockCode,strategyCodes,timeScale);
+        }
 
         private void Amount2Percent(common.controls.baseDataGridView dataGrid)
         {
@@ -349,6 +355,11 @@ namespace Tools.Forms
                     dataTbl.Rows[rowId][colId] = (val * this.Amount2PercentDenominator) / 100;
                 }
             }
+        }
+        private void AddStockToWatchList(StringCollection stockCodes)
+        {
+            addToWatchList_StockOnly myForm = addToWatchList_StockOnly.GetForm("");
+            myForm.ShowForm(stockCodes);
         }
 
         protected override void Amount2Percent()
@@ -483,27 +494,23 @@ namespace Tools.Forms
                 this.ShowError(er);
             }
         }
+       
         private void addToWatchListMenuItem_Click(object sender, EventArgs e)
         {
             try
             {
-                //common.controls.baseDataGridView resultDataGrid = this.CurrentDataGridView;
-                //if (resultDataGrid == null) return;
+                common.controls.baseDataGridView resultDataGrid = this.CurrentDataGridView;
+                if (resultDataGrid == null) return;
 
-                //string stockCode = resultTab.SelectedTab.Name;  
-
-                //StringCollection stockCodes = new StringCollection();
-                //if (resultDataGrid.SelectedRows.Count > 0)
-                //{
-                //    for (int idx = 0; idx < resultDataGrid.SelectedRows.Count; idx++)
-                //        stockCodes.Add(resultDataGrid.SelectedRows[idx].Cells[0].Value.ToString());
-                //}
-                //else
-                //{
-                //    if (resultDataGrid.CurrentRow != null)
-                //        stockCodes.Add(resultDataGrid.CurrentRow.Cells[0].Value.ToString());
-                //}
-                //if (stockCodes.Count > 0) this.AddStockToWatchList(stockCodes);
+                string stockCode = resultTab.SelectedTab.Name;
+                StringCollection strategyCodes = new StringCollection();
+                for (int idx = 0; idx < resultDataGrid.SelectedRows.Count; idx++)
+                {
+                    if (resultDataGrid.SelectedRows[idx] == null) continue;
+                    Strategy.Meta meta = Strategy.Libs.FindMetaByName(resultDataGrid.SelectedRows[idx].Cells[0].Value.ToString());
+                    strategyCodes.Add(meta.Code);
+                }
+                if (strategyCodes.Count > 0) this.AddStockToWatchList(stockCode, strategyCodes,cbTimeScale.myValue);
             }
             catch (Exception er)
             {

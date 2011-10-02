@@ -37,7 +37,7 @@ namespace Tools.Forms
             this.stockCodeEd.Text = common.system.ToString(this.myStockCodes);
             this.ShowDialog();
         }
-        protected override void SaveWatchList()
+        protected override void SaveData()
         {
             data.baseDS.portfolioDetailDataTable defaPortfolioDataTbl = application.dataLibs.GetDefaultPortfolioData();
             data.baseDS.portfolioDetailDataTable portfolioDataTbl = new data.baseDS.portfolioDetailDataTable();

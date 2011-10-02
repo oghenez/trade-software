@@ -24,8 +24,16 @@ namespace Tools.Forms
                 this.ShowError(er);
             }
         }
-        protected virtual void SaveWatchList()
+        protected virtual void SaveData(){}
+        protected virtual bool DataValid() 
         {
+            errorProvider.Clear();
+            if (watchListLb.myCheckedValues.Count == 0)
+            {
+                errorProvider.SetError(listNameLbl, "Invalid data");
+                return false;
+            }
+            return true;
         }
         private void Form_myOnProcess(object sender, common.baseDialogEvent e)
         {
@@ -35,13 +43,8 @@ namespace Tools.Forms
                 myFormStatus.acceptClose = true;
                 return;
             }
-            errorProvider.Clear();
-            if (watchListLb.myCheckedValues.Count==0)
-            {
-                errorProvider.SetError(listNameLbl, "Invalid data"); 
-                return;
-            }
-            SaveWatchList();
+            if (!DataValid()) return;
+            SaveData();
             myFormStatus.acceptClose = true;
         }
         private void newWatchListBtn_Click(object sender, EventArgs e)

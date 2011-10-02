@@ -48,11 +48,7 @@ namespace Tools.Forms
         protected virtual void Amount2Percent() { }
         protected virtual void Percent2Amount() { }
 
-        protected virtual void AddStockToWatchList(StringCollection stockCodes)
-        {
-            addToWatchList_StockOnly myForm = addToWatchList_StockOnly.GetForm("");
-            myForm.ShowForm(stockCodes);
-        }
+       
         protected void ShowStock(data.baseDS.stockCodeRow stockCodeRow, AppTypes.TimeRanges timeRange, AppTypes.TimeScale timeScale)
         {
             if (myShowStock == null) return;

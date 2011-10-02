@@ -327,6 +327,11 @@ namespace Tools.Forms
             if (meta == null) return;
             Strategy.Libs.ShowStrategyForm(meta);
         }
+        private void AddStockToWatchList(StringCollection stockCodes)
+        {
+            addToWatchList_StockOnly myForm = addToWatchList_StockOnly.GetForm("");
+            myForm.ShowForm(stockCodes);
+        }
 
         #region event handler
 

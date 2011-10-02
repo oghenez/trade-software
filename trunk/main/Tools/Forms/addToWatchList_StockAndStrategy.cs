@@ -12,14 +12,19 @@ namespace Tools.Forms
 {
     public partial class addToWatchList_StockAndStrategy : baseAddToWatchList
     {
-        private data.baseDS.portfolioDataTable portfolioTbl = new data.baseDS.portfolioDataTable();
         private StringCollection myStrategyCodes = null;
-        private string myStockCode = null;
-        private AppTypes.TimeRanges myTimeRange = AppTypes.TimeRanges.All;
-
         public addToWatchList_StockAndStrategy()
         {
-            InitializeComponent();
+            try
+            {
+                InitializeComponent();
+                stockCodeEd.BackColor = watchListLb.BackColor;
+                timeScaleCb.LoadData();
+            }
+            catch (Exception er)
+            {
+                this.ShowError(er);
+            }
         }
         public static addToWatchList_StockAndStrategy GetForm(string formName)
         {
@@ -30,52 +35,57 @@ namespace Tools.Forms
             common.Data.dataCache.Add(cacheKey, form);
             return form;
         }
-        public void ShowForm(StringCollection strategyCodes, AppTypes.TimeRanges timeRange)
+        public void ShowForm(string stockCode,  StringCollection strategyCodes, AppTypes.TimeScale timeScale)
         {
             watchListLb.LoadData(sysLibs.sysLoginCode, false);
             this.myStrategyCodes = strategyCodes;
-            this.myTimeRange = timeRange;
+            this.stockCodeEd.Text = stockCode;
+            this.timeScaleCb.myValue = timeScale;
+            strategyLb.Items.Clear();
+            for (int idx = 0; idx < strategyCodes.Count; idx++)
+            {
+                strategyLb.Items.Add(Strategy.Libs.GetMetaName(strategyCodes[idx]));
+            }
+            this.timeScaleCb.myValue = timeScale;
             this.ShowDialog();
         }
-        protected override void SaveWatchList()
+        protected override void SaveData()
         {
+            common.MultiValueString mvString = new common.MultiValueString();
+            data.baseDS.portfolioDataTable portfolioTbl = new data.baseDS.portfolioDataTable();
             data.baseDS.portfolioDetailDataTable portfolioDataTbl = new data.baseDS.portfolioDetailDataTable();
             portfolioTbl.Clear();
             for (int portfolioIdx = 0; portfolioIdx < watchListLb.myCheckedValues.Count; portfolioIdx++)
             {
                 data.baseDS.portfolioRow portfolioRow = dataLibs.FindAndCache(portfolioTbl, watchListLb.myCheckedValues[portfolioIdx]);
                 if (portfolioRow == null) continue;
+                mvString.myFormatString = portfolioRow.interestedStock;
+                mvString.Add(stockCodeEd.Text);
+                portfolioRow.interestedStock = mvString.myFormatString;
+
                 portfolioDataTbl.Clear();
                 application.dataLibs.LoadData(portfolioDataTbl, portfolioRow.code);
                 data.baseDS.portfolioDetailRow dataRow;
-                common.MultiValueString mvString = new common.MultiValueString();
                 for (int idx = 0; idx < myStrategyCodes.Count; idx++)
                 {
-                    dataRow = portfolioDataTbl.FindByportfoliocodesubCode(portfolioRow.code, this.myStockCode, this.myStrategyCodes[idx]);
+                    dataRow = portfolioDataTbl.FindByportfoliocodesubCode(portfolioRow.code, this.stockCodeEd.Text, this.myStrategyCodes[idx]);
                     if (dataRow == null)
                     {
                         dataRow = portfolioDataTbl.NewportfolioDetailRow();
                         dataLibs.InitData(dataRow);
                         dataRow.portfolio = portfolioRow.code;
-                        dataRow.code = this.myStockCode;
+                        dataRow.code = stockCodeEd.Text;
                         dataRow.subCode = this.myStrategyCodes[idx];
                         portfolioDataTbl.AddportfolioDetailRow(dataRow);
                     }
-                    mvString.myFormatString = dataRow.data; 
-                    //mvString.Add(this.myTimeRange.ToString());
+                    mvString.myFormatString = dataRow.data;
+                    mvString.Add(timeScaleCb.myValue.Code);
+                    dataRow.data = mvString.myFormatString;
                 }
+                dataLibs.UpdateData(portfolioRow);
                 dataLibs.UpdateData(portfolioDataTbl);
             }
             common.system.ShowMessage("Data ware saved.");
-        }
-        private void DeletePortfolioData(data.baseDS.portfolioDetailDataTable dataTbl, string portfolioCode,string code)
-        {
-            for (int idx = 0; idx < dataTbl.Count; idx++)
-            {
-                if (dataTbl[idx].RowState== DataRowState.Deleted) continue;
-                if ( (dataTbl[idx].portfolio==portfolioCode) && (dataTbl[idx].code==code) ) 
-                    dataTbl[idx].Delete();
-            }
         }
     }
 }
