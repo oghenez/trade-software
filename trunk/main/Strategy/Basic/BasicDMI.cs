@@ -133,8 +133,8 @@ namespace Strategy
         override protected void StrategyExecute()
         {
             Rule rule = new BasicDMIRule(data.Bars, parameters[0], parameters[1]);
-            Indicators.MIN min = Indicators.MIN.Series(data.Close, parameters[0], "");
-            Indicators.MAX max = Indicators.MAX.Series(data.Close, parameters[1], "");
+            Indicators.MIN min = Indicators.MIN.Series(data.Close, parameters[0], "min");
+            Indicators.MAX max = Indicators.MAX.Series(data.Close, parameters[1], "max");
 
             for (int idx = 0; idx < data.Close.Count-1; idx++)
             {
