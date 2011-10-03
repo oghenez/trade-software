@@ -88,23 +88,5 @@ namespace Strategy
             }            
         }
     }
-
-    public class TwoSMAMACDSCR : GenericStrategy
-    {
-        /// <summary>
-        /// Screening following basic MACD rule
-        /// </summary>
-        override protected void StrategyExecute()
-        {
-            BasicMACDRule rule = new BasicMACDRule(data.Close, (int)parameters[0], (int)parameters[1], (int)parameters[2]);
-            TwoSMARule rule1 = new TwoSMARule(data.Close, (int)parameters[3], (int)parameters[4]);
-            if (rule.isValid()&&rule1.isValid())
-            {
-                int Bar = data.Close.Count - 1;
-                BusinessInfo info = new BusinessInfo();
-                info.Weight = rule.macd[Bar] * 100;
-                SelectStock(Bar, info);
-            }
-        }
-    }
+    
 }

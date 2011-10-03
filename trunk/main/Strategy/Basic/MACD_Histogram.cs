@@ -7,11 +7,6 @@ namespace Strategy
         public MACD_Histogram_Helper() : base(typeof(MACD_Histogram)) { }
     }
 
-    public class MACD_HistogramNEW_Helper : baseHelper
-    {
-        public MACD_HistogramNEW_Helper() : base(typeof(MACD_HistogramNEW)) { }
-    }
-
     public class MACD_HistogramSCR_Helper : baseHelper
     {
         public MACD_HistogramSCR_Helper() : base(typeof(MACD_HistogramSCR)) { }
@@ -95,31 +90,10 @@ namespace Strategy
         }
     }
 
-    public class MACD_Histogram:GenericStrategy
-    {
-        override protected void StrategyExecute()
-        {
-            Indicators.MACD macd = Indicators.MACD.Series(data.Close, parameters[0], parameters[1], parameters[2], "");
-            DataSeries ema = macd.SignalSeries;
-            DataSeries hist = macd.HistSeries;
-
-            double delta = 0, lastDelta = 0;
-            for (int idx = 1; idx < macd.Count; idx++)
-            {
-                delta = (hist[idx] - hist[idx - 1]);
-                if (delta > 0 && lastDelta < 0)
-                    BuyAtClose(idx);
-                if (delta < 0 && lastDelta > 0)
-                    SellAtClose(idx);
-                lastDelta = delta;
-            }
-        }
-    }
-
     /// <summary>
     /// Strategy MACD using histogram changed
     /// </summary>
-    public class MACD_HistogramNEW : GenericStrategy
+    public class MACD_Histogram : GenericStrategy
     {
         override protected void StrategyExecute()
         {
@@ -130,7 +104,7 @@ namespace Strategy
                 if (rule.isValid_forBuy(idx))
                     BuyAtClose(idx);
                 if (rule.isValid_forSell(idx))
-                    SellAtClose(idx);
+                    SellAtClose(idx);                
             }
         }
     }
@@ -139,28 +113,44 @@ namespace Strategy
     {        
         override protected void StrategyExecute()
         {
-            Indicators.MACD macd = Indicators.MACD.Series(data.Close, parameters[0], parameters[1], parameters[2], "");
-            DataSeries hist = macd.HistSeries;
-
+            MACD_HistogramRule rule = new MACD_HistogramRule(data.Close, parameters);
             int cutlosslevel = (int)parameters[3];
             int takeprofitlevel = (int)parameters[4];
 
-            decimal delta = 0, lastDelta = 0;
-            for (int idx = 1; idx < macd.Count; idx++)
+            for (int idx = 1; idx < data.Close.Count - 1; idx++)
             {
-                delta = (decimal)(hist[idx] - hist[idx - 1]);
-                if (delta > 0 && lastDelta < 0)
+                if (rule.isValid_forBuy(idx))
                     BuyAtClose(idx);
-                if (delta < 0 && lastDelta > 0)
+                if (rule.isValid_forSell(idx))
                     SellAtClose(idx);
-
                 if (is_bought && CutLossCondition(data.Close[idx], buy_price, cutlosslevel))
                     SellCutLoss(idx);
 
                 if (is_bought && TakeProfitCondition(data.Close[idx], buy_price, takeprofitlevel))
                     SellTakeProfit(idx);
-                lastDelta = delta;
             }
+            //Indicators.MACD macd = Indicators.MACD.Series(data.Close, parameters[0], parameters[1], parameters[2], "");
+            //DataSeries hist = macd.HistSeries;
+
+            //int cutlosslevel = (int)parameters[3];
+            //int takeprofitlevel = (int)parameters[4];
+
+            //decimal delta = 0, lastDelta = 0;
+            //for (int idx = 1; idx < macd.Count; idx++)
+            //{
+            //    delta = (decimal)(hist[idx] - hist[idx - 1]);
+            //    if (delta > 0 && lastDelta < 0)
+            //        BuyAtClose(idx);
+            //    if (delta < 0 && lastDelta > 0)
+            //        SellAtClose(idx);
+
+            //    if (is_bought && CutLossCondition(data.Close[idx], buy_price, cutlosslevel))
+            //        SellCutLoss(idx);
+
+            //    if (is_bought && TakeProfitCondition(data.Close[idx], buy_price, takeprofitlevel))
+            //        SellTakeProfit(idx);
+            //    lastDelta = delta;
+            //}
         }
     }
 }
