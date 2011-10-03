@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.30729</ProductVersion>
+    <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{1463FC47-2B74-4E63-9710-2C3B8ED3DE8A}</ProjectGuid>
     <OutputType>Library</OutputType>
@@ -70,13 +70,13 @@
     <Compile Include="fomrs\baseStrategyForm.Designer.cs">
       <DependentUpon>baseStrategyForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="GenericStrategy.cs" />
-    <Compile Include="Hybrid\MACD_ADX.cs" />
+    <Compile Include="class\GenericStrategy.cs" />
+    <Compile Include="Hybrid\MACD_Hybrid.cs" />
     <Compile Include="Hybrid\MACD_Stochastic.cs" />
     <Compile Include="Hybrid\MACD_Stochastic_Bottom.cs" />
     <Compile Include="Basic\MACD_Histogram.cs" />
     <Compile Include="Basic\MACD_Line_Cut.cs" />
-    <Compile Include="Parameters.cs" />
+    <Compile Include="class\Parameters.cs" />
     <Compile Include="Hybrid\RSI_MACD_Histogram.cs" />
     <Compile Include="Basic\Price_2MA.cs" />
     <Compile Include="ConsecutiveUpAndDown.cs" />
@@ -93,7 +93,7 @@
     <Compile Include="Basic\StochasticFast.cs" />
     <Compile Include="Basic\StochasticSlow.cs" />
     <Compile Include="Hybrid\SMA_Stochastic.cs" />
-    <Compile Include="Screening\Rule.cs" />
+    <Compile Include="class\Rule.cs" />
     <Compile Include="strategyLib.cs" />
     <Compile Include="Basic\TwoMA.cs" />
     <Compile Include="Basic\TwoMA_Filters.cs" />
