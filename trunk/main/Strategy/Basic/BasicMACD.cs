@@ -15,10 +15,11 @@ namespace Strategy
         public BasicMACDSCR_Helper() : base(typeof(BasicMACDSCR)) { }
     }
 
-    public class TwoSMAMACDSCR_Helper : baseHelper
-    {
-        public TwoSMAMACDSCR_Helper() : base(typeof(TwoSMAMACDSCR)) { }
-    }
+    //???
+    //public class TwoSMAMACDSCR_Helper : baseHelper
+    //{
+    //    public TwoSMAMACDSCR_Helper() : base(typeof(TwoSMAMACDSCR)) { }
+    //}
 
     public class BasicMACD : GenericStrategy
     {

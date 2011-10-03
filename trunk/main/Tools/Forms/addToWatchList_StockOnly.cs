@@ -39,7 +39,8 @@ namespace Tools.Forms
         }
         protected override void SaveData()
         {
-            data.baseDS.portfolioDetailDataTable defaPortfolioDataTbl = application.dataLibs.GetDefaultPortfolioData();
+            data.baseDS.portfolioDetailDataTable defaPortfolioDataTbl = new data.baseDS.portfolioDetailDataTable();
+            application.dataLibs.LoadSysPortfolio(defaPortfolioDataTbl);
             data.baseDS.portfolioDetailDataTable portfolioDataTbl = new data.baseDS.portfolioDetailDataTable();
             portfolioTbl.Clear();
             for (int portfolioIdx = 0; portfolioIdx < watchListLb.myCheckedValues.Count; portfolioIdx++)

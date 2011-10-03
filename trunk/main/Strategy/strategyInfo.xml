@@ -2,9 +2,9 @@
   <STRATEGY>
     <SRC001 Type="SCREENING" />
     <SRC001 Category="TRE" />
-    <SRC001 Parameters="MACD Fast=12,MACD Slow=26,MACD Signal=9,Short Period=5,Long Period=10" />
+    <SRC001 Parameters="MACD Fast=12,MACD Slow=26,MACD Signal=9,Short Period=5,Long Period=10, sss=100  " />
     <SRC001 ParameterDescriptions="Period defines the input data for the strategy" />
-    <SRC001 Name="MACD and Two SMA Screening" />
+    <SRC001 Name="MACD and Two SMA Screening aaa" />
     <SRC001 Description="Screen stock macd line above 0 and Short term SMA is above Long term SMA" />
     <SRC001 URL="http://www.hqtrader.com" />
     <SRC001 Authors="Quan Nguyen" />

@@ -13,6 +13,7 @@ namespace Tools.Forms
 {
     public partial class screening : baseTesting
     {
+        private const int constDefaultMax = 1000;
         public screening()
         {
             try
@@ -153,7 +154,7 @@ namespace Tools.Forms
 
             DataGridViewCellStyle amountCellStyle = new System.Windows.Forms.DataGridViewCellStyle();
             amountCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            amountCellStyle.Format = "N" + Settings.sysPrecisionQty.ToString();
+            amountCellStyle.Format = "N" + Settings.sysPrecisionPrice.ToString();
             amountCellStyle.NullValue = null;
 
             grid.Columns.Clear();
@@ -164,7 +165,7 @@ namespace Tools.Forms
                 column.DataPropertyName = tbl.Columns[idx].ColumnName;
                 if (idx == 0)
                 {
-                    column.HeaderText = "Mã.CP";
+                    column.HeaderText = "Codes";
                     column.Width = 60;
                     column.Frozen = true;
                 }
@@ -471,12 +472,12 @@ namespace Tools.Forms
 
         }
 
-        private void AddCriteria(string code, bool selected)
+        private void AddCriteria(string code,bool selected)
         {
             Data.tmpDataSet.screeningCriteriaRow row = tmpDS.screeningCriteria.NewscreeningCriteriaRow();
             row.code = code;
             row.min = 0;
-            row.max = 0;
+            row.max = constDefaultMax;
             row.selected = selected;
             tmpDS.screeningCriteria.AddscreeningCriteriaRow(row);
         }

@@ -8,15 +8,15 @@ using System.Windows.Forms;
 
 namespace admin
 {
-    public partial class main : common.forms.baseApplication
-    //public partial class main : baseClass.forms.baseApplication
+    //public partial class main : common.forms.baseApplication
+    public partial class main : baseClass.forms.baseApplication
     {
         public main()
         {
             try
             {
                 InitializeComponent();
-                application.test.LoadTestConfig();
+                //application.test.LoadTestConfig();
             }
             catch (Exception er)
             {

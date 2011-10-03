@@ -56,6 +56,7 @@ namespace Strategy.forms
             {
                 paramGrid.Rows.Add(keys[idx],values[idx]);
             }
+            valueColumn.DefaultCellStyle.Format = "N" + meta.ParameterPrecision.ToString();
             paraDescEd.Text = common.system.ToString(meta.ParameterDescriptions);
             hintTextEd.Text = meta.Description + common.Consts.constCRLF + meta.URL;
         }

@@ -1,6 +1,7 @@
 <Configuration>
   <STRATEGY>
     <TwoSMAMACDSCR Type="SCREENING" />
+    <TwoSMAMACDSCR ParameterPrecision="1"/>
     <TwoSMAMACDSCR Code="SCR001" />
     <TwoSMAMACDSCR Category="TRE" />
     <TwoSMAMACDSCR Parameters="MACD Fast=12,MACD Slow=26,MACD Signal=9,Short Period=5,Long Period=10" />

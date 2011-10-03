@@ -19,6 +19,7 @@ namespace baseClass.forms
             {
                 InitializeComponent();
                 interestedStrategy.Init();
+                LoadData();
                 LockEdit(false);
             }
             catch (Exception er)
@@ -31,8 +32,9 @@ namespace baseClass.forms
         {
             data.baseDS.portfolioRow sysPortfolioRow = dataLibs.GetSystemPortfolio();
             data.baseDS.portfolioDetailDataTable myPortfolioDetailTbl = new data.baseDS.portfolioDetailDataTable();
-            application.dataLibs.LoadData(myPortfolioDetailTbl, sysPortfolioRow.code);
+            application.dataLibs.LoadSysPortfolio(myPortfolioDetailTbl);
             interestedStrategy.myDataTbl = myPortfolioDetailTbl;
+
             interestedStrategy.myPorfolioCode = sysPortfolioRow.code;
             interestedStrategy.myStockCode = sysPortfolioRow.code;
             interestedStrategy.Refresh();

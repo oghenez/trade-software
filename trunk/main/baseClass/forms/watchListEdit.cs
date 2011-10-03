@@ -31,7 +31,8 @@ namespace baseClass.forms
                 interestedStockClb.LoadData();
 
                 //Load default Portfolio Data
-                this.defaPortfolioDataTbl = application.dataLibs.GetDefaultPortfolioData();
+                this.defaPortfolioDataTbl.Clear();
+                application.dataLibs.LoadSysPortfolio(this.defaPortfolioDataTbl);
                 codeEd.BackColor = common.settings.sysColorDisableBG; codeEd.ForeColor = common.settings.sysColorDisableFG;
                 LockEdit(true);
             }

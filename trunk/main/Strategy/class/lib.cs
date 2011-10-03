@@ -55,12 +55,13 @@ namespace Strategy
             set
             {
                 string[] keys = this.ParameterList.Keys;
-                for (int idx = 0; idx < keys.Length; idx++)
+                for (int idx = 0; idx < keys.Length && idx < value.Length; idx++)
                 {
                     this.ParameterList.Add(keys[idx], value[idx]);
                 }
             }
         }
+        public int ParameterPrecision = 0;
 
         /// <summary>
         /// Set Parameters property from a formated string.
@@ -109,8 +110,11 @@ namespace Strategy
             aFields.Add("Name");
             aFields.Add("Description");
             aFields.Add("Category");
+
             aFields.Add("Parameters");
+            aFields.Add("ParameterPrecision");
             aFields.Add("ParameterDescriptions");
+           
             aFields.Add("URL");
             aFields.Add("Authors");
             aFields.Add("Version");
@@ -120,14 +124,16 @@ namespace Strategy
             meta.Code = aFields[1];
             meta.Name = aFields[2];
             meta.Description = aFields[3];
-
             meta.Category = aFields[4];
+
             meta.ParameterList = String2ParameterList(aFields[5]);
-            meta.ParameterDescriptions = common.system.String2List(aFields[6]);
+            int num = 0; int.TryParse(aFields[6], out num);
+            meta.ParameterPrecision = num;
+            meta.ParameterDescriptions = common.system.String2List(aFields[7]);
             
-            meta.URL = aFields[7];
-            meta.Authors = aFields[8];
-            meta.Version = aFields[9];
+            meta.URL = aFields[8];
+            meta.Authors = aFields[9];
+            meta.Version = aFields[10];
             return true;
         }
 
@@ -196,8 +202,8 @@ namespace Strategy
     public class BusinessInfo
     {
         public BusinessInfo() { }
-        
-        public BusinessInfo(AppTypes.MarketTrend shortTerm,AppTypes.MarketTrend mediumTerm,AppTypes.MarketTrend longTerm, double weight)
+
+        public BusinessInfo(AppTypes.MarketTrend shortTerm, AppTypes.MarketTrend mediumTerm, AppTypes.MarketTrend longTerm, double weight)
         {
             this.ShortTermTrend = shortTerm;
             this.MediumTermTrend = mediumTerm;
@@ -223,25 +229,26 @@ namespace Strategy
         public AppTypes.MarketTrend LongTermTrend = AppTypes.MarketTrend.Unspecified;
         public AppTypes.MarketTrend MediumTermTrend = AppTypes.MarketTrend.Unspecified;
         public AppTypes.MarketTrend ShortTermTrend = AppTypes.MarketTrend.Unspecified;
-        public double Short_Target=0;
-        public double Stop_Loss=0;
-        public double Short_Resistance=0;
-        public double Short_Support=0;
+        public double Short_Target = 0;
+        public double Stop_Loss = 0;
+        public double Short_Resistance = 0;
+        public double Short_Support = 0;
         public double Weight = 0;
 
 
         public override string ToString()
         {
-            string st="";
-            switch (ShortTermTrend){
+            string st = "";
+            switch (ShortTermTrend)
+            {
                 case (AppTypes.MarketTrend.Upward):
-                    st =st+ "Short term trend is upward. ";
+                    st = st + "Short term trend is upward. ";
                     break;
                 case AppTypes.MarketTrend.Downward:
-                    st =st+"Short term trend is downward. ";
+                    st = st + "Short term trend is downward. ";
                     break;
                 case AppTypes.MarketTrend.Sidebar:
-                    st =st+ "Short term trend is sideway. ";
+                    st = st + "Short term trend is sideway. ";
                     break;
                 case AppTypes.MarketTrend.Unspecified:
                     //st =st+ "Short term trend is unspecified. ";
@@ -253,13 +260,13 @@ namespace Strategy
             switch (MediumTermTrend)
             {
                 case (AppTypes.MarketTrend.Upward):
-                    st =st+ "Medium term trend is upward. ";
+                    st = st + "Medium term trend is upward. ";
                     break;
                 case AppTypes.MarketTrend.Downward:
-                    st =st+ "Medium term trend is downward. ";
+                    st = st + "Medium term trend is downward. ";
                     break;
                 case AppTypes.MarketTrend.Sidebar:
-                    st =st+ "Medium term trend is sideway. ";
+                    st = st + "Medium term trend is sideway. ";
                     break;
                 case AppTypes.MarketTrend.Unspecified:
                     //st =st+ "Medium term trend is unspecified.";
@@ -271,13 +278,13 @@ namespace Strategy
             switch (LongTermTrend)
             {
                 case (AppTypes.MarketTrend.Upward):
-                    st =st+ "Long term trend is upward. ";
+                    st = st + "Long term trend is upward. ";
                     break;
                 case AppTypes.MarketTrend.Downward:
-                    st =st+ "Long term trend is downward. ";
+                    st = st + "Long term trend is downward. ";
                     break;
                 case AppTypes.MarketTrend.Sidebar:
-                    st =st+ "Long term trend is sideway. ";
+                    st = st + "Long term trend is sideway. ";
                     break;
                 case AppTypes.MarketTrend.Unspecified:
                     //st = "Long term trend is unspecified.";
@@ -287,17 +294,18 @@ namespace Strategy
             }
 
             if (Short_Target != 0)
-                st += "Short Term Target is " + Short_Target.ToString()+". ";
+                st += "Short Term Target is " + Short_Target.ToString() + ". ";
 
             if (Stop_Loss != 0)
-                st += "Stop loss is " + Stop_Loss.ToString()+".";
+                st += "Stop loss is " + Stop_Loss.ToString() + ".";
 
             if (Short_Resistance != 0)
-                st += "Short term resistance is "+Short_Resistance.ToString()+".";
+                st += "Short term resistance is " + Short_Resistance.ToString() + ".";
             if (Short_Support != 0)
-                st += " Short term support is " + Short_Support.ToString() + "."; 
+                st += " Short term support is " + Short_Support.ToString() + ".";
             return st;
         }
+    }
 
 
     //Information of one trading point (suggested by analysis process)
