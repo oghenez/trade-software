@@ -228,7 +228,7 @@ namespace Strategy
         public double Short_Resistance=0;
         public double Short_Support=0;
         public double Weight = 0;
-<<<<<<< .mine
+
 
         public override string ToString()
         {
@@ -298,13 +298,7 @@ namespace Strategy
                 st += " Short term support is " + Short_Support.ToString() + "."; 
             return st;
         }
-=======
-        public override string ToString()
-        {
-            return "N/A";
-        }
->>>>>>> .r183
-    }
+
 
     //Information of one trading point (suggested by analysis process)
     public class TradePointInfo
