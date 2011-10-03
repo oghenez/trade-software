@@ -222,12 +222,19 @@ namespace baseClass.forms
         }
         private bool interestedStockClb_myOnRemoveItemList(object sender, StringCollection codes)
         {
-            for (int idx = 0; idx < myDataSet.portfolioDetail.Count; idx++)
+            int saveCount = 0;
+            DataView myView = new DataView(myDataSet.portfolioDetail);
+            string cond = common.system.MakeConditionStr(codes,myDataSet.portfolioDetail.codeColumn.ColumnName+"='","'"," OR ");
+            if (cond !="") cond = "("+ cond + ")";
+            cond += (cond=="" ? "":" AND ") + 
+                     myDataSet.portfolioDetail.portfolioColumn.ColumnName + "='" +  interestedStrategy.myPorfolioCode + "'";
+
+            myView.RowFilter = cond;
+            for (int idx = 0; idx < myView.Count; idx++)
             {
-                if (myDataSet.portfolioDetail[idx].RowState== DataRowState.Deleted)continue;
-                if ((myDataSet.portfolioDetail[idx].portfolio == interestedStrategy.myPorfolioCode) &&
-                    (codes.Contains(myDataSet.portfolioDetail[idx].code))) 
-                    myDataSet.portfolioDetail[idx].Delete();
+                saveCount = myView.Count;
+                myView[idx].Delete();
+                if (saveCount != myView.Count) idx--;
             }
             return true; 
         }

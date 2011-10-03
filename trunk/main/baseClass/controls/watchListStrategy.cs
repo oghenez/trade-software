@@ -32,7 +32,16 @@ namespace baseClass.controls
             }            
         }
 
-        public data.baseDS.portfolioDetailDataTable myDataTbl = null;
+        private data.baseDS.portfolioDetailDataTable _myDataTbl = null;
+        public data.baseDS.portfolioDetailDataTable myDataTbl
+        {
+            get { return _myDataTbl; }
+            set 
+            { 
+                _myDataTbl = value;
+            }
+        }
+
         public string myPorfolioCode = null;
         public string myStockCode = null;
 

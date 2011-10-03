@@ -33,16 +33,16 @@
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.treeGV = new AdvancedDataGridView.TreeGridView();
+            this.strategyColumn = new AdvancedDataGridView.TreeGridColumn();
+            this.timeScaleCodeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.imageStrip = new System.Windows.Forms.ImageList(this.components);
+            this.addAllBtn = new common.controls.baseButton();
+            this.deleteBtn = new common.controls.baseButton();
+            this.addNewBtn = new common.controls.baseButton();
             this.timeScaleLbl = new baseClass.controls.baseLabel();
             this.timeScaleClb = new baseClass.controls.clbTimeScale();
             this.strategyCb = new baseClass.controls.cbStrategy();
             this.strategyLbl = new baseClass.controls.baseLabel();
-            this.addAllBtn = new common.controls.baseButton();
-            this.deleteBtn = new common.controls.baseButton();
-            this.addNewBtn = new common.controls.baseButton();
-            this.strategyColumn = new AdvancedDataGridView.TreeGridColumn();
-            this.timeScaleCodeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.treeGV)).BeginInit();
             this.SuspendLayout();
             // 
@@ -79,14 +79,72 @@
             this.treeGV.RowHeadersVisible = false;
             this.treeGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.treeGV.ShowLines = false;
-            this.treeGV.Size = new System.Drawing.Size(572, 199);
+            this.treeGV.Size = new System.Drawing.Size(572, 338);
             this.treeGV.TabIndex = 100;
+            // 
+            // strategyColumn
+            // 
+            this.strategyColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.strategyColumn.DefaultNodeImage = null;
+            this.strategyColumn.HeaderText = "Strategy";
+            this.strategyColumn.Name = "strategyColumn";
+            this.strategyColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.strategyColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // timeScaleCodeColumn
+            // 
+            this.timeScaleCodeColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.timeScaleCodeColumn.FillWeight = 1F;
+            this.timeScaleCodeColumn.HeaderText = "";
+            this.timeScaleCodeColumn.Name = "timeScaleCodeColumn";
+            this.timeScaleCodeColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.timeScaleCodeColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.timeScaleCodeColumn.Width = 20;
             // 
             // imageStrip
             // 
             this.imageStrip.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
             this.imageStrip.ImageSize = new System.Drawing.Size(16, 16);
             this.imageStrip.TransparentColor = System.Drawing.Color.Transparent;
+            // 
+            // addAllBtn
+            // 
+            this.addAllBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.addAllBtn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addAllBtn.Image = global::baseClass.Properties.Resources.addAll;
+            this.addAllBtn.isDownState = false;
+            this.addAllBtn.Location = new System.Drawing.Point(524, 23);
+            this.addAllBtn.Name = "addAllBtn";
+            this.addAllBtn.Size = new System.Drawing.Size(24, 23);
+            this.addAllBtn.TabIndex = 11;
+            this.addAllBtn.UseVisualStyleBackColor = true;
+            this.addAllBtn.Click += new System.EventHandler(this.addAllBtn_Click);
+            // 
+            // deleteBtn
+            // 
+            this.deleteBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.deleteBtn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.deleteBtn.Image = global::baseClass.Properties.Resources.delete;
+            this.deleteBtn.isDownState = false;
+            this.deleteBtn.Location = new System.Drawing.Point(548, 23);
+            this.deleteBtn.Name = "deleteBtn";
+            this.deleteBtn.Size = new System.Drawing.Size(24, 23);
+            this.deleteBtn.TabIndex = 12;
+            this.deleteBtn.UseVisualStyleBackColor = true;
+            this.deleteBtn.Click += new System.EventHandler(this.deleteBtn_Click);
+            // 
+            // addNewBtn
+            // 
+            this.addNewBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.addNewBtn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addNewBtn.Image = global::baseClass.Properties.Resources.adddata;
+            this.addNewBtn.isDownState = false;
+            this.addNewBtn.Location = new System.Drawing.Point(500, 23);
+            this.addNewBtn.Name = "addNewBtn";
+            this.addNewBtn.Size = new System.Drawing.Size(24, 23);
+            this.addNewBtn.TabIndex = 10;
+            this.addNewBtn.UseVisualStyleBackColor = true;
+            this.addNewBtn.Click += new System.EventHandler(this.addNewBtn_Click);
             // 
             // timeScaleLbl
             // 
@@ -106,7 +164,7 @@
             this.timeScaleClb.CheckOnClick = true;
             this.timeScaleClb.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.timeScaleClb.FormattingEnabled = true;
-            this.timeScaleClb.Location = new System.Drawing.Point(415, 23);
+            this.timeScaleClb.Location = new System.Drawing.Point(417, 23);
             this.timeScaleClb.Margin = new System.Windows.Forms.Padding(4);
             this.timeScaleClb.myCheckedItems = ((System.Collections.ArrayList)(resources.GetObject("timeScaleClb.myCheckedItems")));
             this.timeScaleClb.myCheckedValues = ((System.Collections.Specialized.StringCollection)(resources.GetObject("timeScaleClb.myCheckedValues")));
@@ -132,7 +190,8 @@
             this.strategyCb.Margin = new System.Windows.Forms.Padding(4);
             this.strategyCb.myValue = "";
             this.strategyCb.Name = "strategyCb";
-            this.strategyCb.Size = new System.Drawing.Size(416, 24);
+            this.strategyCb.SelectedValue = "";
+            this.strategyCb.Size = new System.Drawing.Size(420, 24);
             this.strategyCb.TabIndex = 1;
             // 
             // strategyLbl
@@ -145,64 +204,6 @@
             this.strategyLbl.Size = new System.Drawing.Size(66, 16);
             this.strategyLbl.TabIndex = 258;
             this.strategyLbl.Text = "Strategy";
-            // 
-            // addAllBtn
-            // 
-            this.addAllBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.addAllBtn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addAllBtn.Image = global::baseClass.Properties.Resources.addAll;
-            this.addAllBtn.isDownState = false;
-            this.addAllBtn.Location = new System.Drawing.Point(520, 22);
-            this.addAllBtn.Name = "addAllBtn";
-            this.addAllBtn.Size = new System.Drawing.Size(25, 24);
-            this.addAllBtn.TabIndex = 11;
-            this.addAllBtn.UseVisualStyleBackColor = true;
-            this.addAllBtn.Click += new System.EventHandler(this.addAllBtn_Click);
-            // 
-            // deleteBtn
-            // 
-            this.deleteBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.deleteBtn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.deleteBtn.Image = global::baseClass.Properties.Resources.delete;
-            this.deleteBtn.isDownState = false;
-            this.deleteBtn.Location = new System.Drawing.Point(547, 22);
-            this.deleteBtn.Name = "deleteBtn";
-            this.deleteBtn.Size = new System.Drawing.Size(25, 24);
-            this.deleteBtn.TabIndex = 12;
-            this.deleteBtn.UseVisualStyleBackColor = true;
-            this.deleteBtn.Click += new System.EventHandler(this.deleteBtn_Click);
-            // 
-            // addNewBtn
-            // 
-            this.addNewBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.addNewBtn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addNewBtn.Image = global::baseClass.Properties.Resources.adddata;
-            this.addNewBtn.isDownState = false;
-            this.addNewBtn.Location = new System.Drawing.Point(496, 22);
-            this.addNewBtn.Name = "addNewBtn";
-            this.addNewBtn.Size = new System.Drawing.Size(25, 24);
-            this.addNewBtn.TabIndex = 10;
-            this.addNewBtn.UseVisualStyleBackColor = true;
-            this.addNewBtn.Click += new System.EventHandler(this.addNewBtn_Click);
-            // 
-            // strategyColumn
-            // 
-            this.strategyColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.strategyColumn.DefaultNodeImage = null;
-            this.strategyColumn.HeaderText = "Strategy";
-            this.strategyColumn.Name = "strategyColumn";
-            this.strategyColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.strategyColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // timeScaleCodeColumn
-            // 
-            this.timeScaleCodeColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.timeScaleCodeColumn.FillWeight = 1F;
-            this.timeScaleCodeColumn.HeaderText = "";
-            this.timeScaleCodeColumn.Name = "timeScaleCodeColumn";
-            this.timeScaleCodeColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.timeScaleCodeColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.timeScaleCodeColumn.Width = 20;
             // 
             // watchListStrategy
             // 
@@ -217,7 +218,7 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "watchListStrategy";
-            this.Size = new System.Drawing.Size(573, 249);
+            this.Size = new System.Drawing.Size(573, 389);
             ((System.ComponentModel.ISupportInitialize)(this.treeGV)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
