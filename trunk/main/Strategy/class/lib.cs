@@ -223,14 +223,87 @@ namespace Strategy
         public AppTypes.MarketTrend LongTermTrend = AppTypes.MarketTrend.Unspecified;
         public AppTypes.MarketTrend MediumTermTrend = AppTypes.MarketTrend.Unspecified;
         public AppTypes.MarketTrend ShortTermTrend = AppTypes.MarketTrend.Unspecified;
-        //public double[] Target;
-        //public double[] Resistance;
-        //public double[] Support;
+        public double Short_Target=0;
+        public double Stop_Loss=0;
+        public double Short_Resistance=0;
+        public double Short_Support=0;
         public double Weight = 0;
+<<<<<<< .mine
+
+        public override string ToString()
+        {
+            string st="";
+            switch (ShortTermTrend){
+                case (AppTypes.MarketTrend.Upward):
+                    st =st+ "Short term trend is upward. ";
+                    break;
+                case AppTypes.MarketTrend.Downward:
+                    st =st+"Short term trend is downward. ";
+                    break;
+                case AppTypes.MarketTrend.Sidebar:
+                    st =st+ "Short term trend is sideway. ";
+                    break;
+                case AppTypes.MarketTrend.Unspecified:
+                    //st =st+ "Short term trend is unspecified. ";
+                    break;
+                default:
+                    break;
+            }
+
+            switch (MediumTermTrend)
+            {
+                case (AppTypes.MarketTrend.Upward):
+                    st =st+ "Medium term trend is upward. ";
+                    break;
+                case AppTypes.MarketTrend.Downward:
+                    st =st+ "Medium term trend is downward. ";
+                    break;
+                case AppTypes.MarketTrend.Sidebar:
+                    st =st+ "Medium term trend is sideway. ";
+                    break;
+                case AppTypes.MarketTrend.Unspecified:
+                    //st =st+ "Medium term trend is unspecified.";
+                    break;
+                default:
+                    break;
+            }
+
+            switch (LongTermTrend)
+            {
+                case (AppTypes.MarketTrend.Upward):
+                    st =st+ "Long term trend is upward. ";
+                    break;
+                case AppTypes.MarketTrend.Downward:
+                    st =st+ "Long term trend is downward. ";
+                    break;
+                case AppTypes.MarketTrend.Sidebar:
+                    st =st+ "Long term trend is sideway. ";
+                    break;
+                case AppTypes.MarketTrend.Unspecified:
+                    //st = "Long term trend is unspecified.";
+                    break;
+                default:
+                    break;
+            }
+
+            if (Short_Target != 0)
+                st += "Short Term Target is " + Short_Target.ToString()+". ";
+
+            if (Stop_Loss != 0)
+                st += "Stop loss is " + Stop_Loss.ToString()+".";
+
+            if (Short_Resistance != 0)
+                st += "Short term resistance is "+Short_Resistance.ToString()+".";
+            if (Short_Support != 0)
+                st += " Short term support is " + Short_Support.ToString() + "."; 
+            return st;
+        }
+=======
         public override string ToString()
         {
             return "N/A";
         }
+>>>>>>> .r183
     }
 
     //Information of one trading point (suggested by analysis process)
