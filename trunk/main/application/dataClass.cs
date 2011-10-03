@@ -274,7 +274,6 @@ namespace application
             get { return _Name; }
             set { _Name = value; }
         }
-        //public Dictionary<string, DataSeries> Cache = new Dictionary<string, DataSeries>();
         public common.DictionaryList Cache = new common.DictionaryList();
 
         public DataSeries Open = new DataSeries();
@@ -282,6 +281,7 @@ namespace application
         public DataSeries Low = new DataSeries();
         public DataSeries Close = new DataSeries();
         public DataSeries Volume = new DataSeries();
+        public DataSeries DateTime = new DataSeries();
         public int Count
         {
             get
@@ -289,13 +289,14 @@ namespace application
                 return High.Count;
             }
         }
-        public void Add(double _open, double _high, double _low, double _close, double _volume)
+        public void Add(double _open, double _high, double _low, double _close, double _volume, double _dateTime)
         {
             Open.Add(_open);
             High.Add(_high);
             Low.Add(_low);
             Close.Add(_close);
             Volume.Add(_volume);
+            DateTime.Add(_dateTime);
             return;
         }
         public void Remove(int idx)
@@ -306,6 +307,7 @@ namespace application
             Low.Remove(idx);
             Close.Remove(idx);
             Volume.Remove(idx);
+            DateTime.Remove(idx);
         }
 
         public static DataBars operator +(DataBars d1, DataBars d2)
@@ -347,6 +349,7 @@ namespace application
             retVal.Low = ds.Low >> n;
             retVal.Close = ds.Close >> n;
             retVal.Volume = ds.Volume >> n;
+            retVal.DateTime = ds.DateTime >> n;
             return retVal;
         }
         public static DataBars operator <<(DataBars ds, int n)
@@ -357,6 +360,7 @@ namespace application
             retVal.Low = ds.Low << n;
             retVal.Close = ds.Close << n;
             retVal.Volume = ds.Volume << n;
+            retVal.DateTime = ds.DateTime << n;
             return retVal;
         }
     }
@@ -615,7 +619,8 @@ namespace application
             for (int idx = startIdx; idx < dataTbl.Count; idx++)
             {
                 bars.Add((double)dataTbl[idx].openPrice, (double)dataTbl[idx].highPrice,
-                         (double)dataTbl[idx].lowPrice, (double)dataTbl[idx].closePrice, (double)dataTbl[idx].volume);
+                         (double)dataTbl[idx].lowPrice, (double)dataTbl[idx].closePrice, 
+                         (double)dataTbl[idx].volume, dataTbl[idx].onDate.ToOADate());
             }
             return bars;
         }
