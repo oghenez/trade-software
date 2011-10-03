@@ -61,6 +61,7 @@ namespace Strategy
                 }
             }
         }
+        public int ParameterPrecision = 0;
 
         /// <summary>
         /// Set Parameters property from a formated string.
@@ -109,8 +110,11 @@ namespace Strategy
             aFields.Add("Name");
             aFields.Add("Description");
             aFields.Add("Category");
+
             aFields.Add("Parameters");
+            aFields.Add("ParameterPrecision");
             aFields.Add("ParameterDescriptions");
+
             aFields.Add("URL");
             aFields.Add("Authors");
             aFields.Add("Version");
@@ -120,14 +124,16 @@ namespace Strategy
             meta.Code = aFields[1];
             meta.Name = aFields[2];
             meta.Description = aFields[3];
-
             meta.Category = aFields[4];
+
             meta.ParameterList = String2ParameterList(aFields[5]);
-            meta.ParameterDescriptions = common.system.String2List(aFields[6]);
-            
-            meta.URL = aFields[7];
-            meta.Authors = aFields[8];
-            meta.Version = aFields[9];
+            int num = 0; int.TryParse(aFields[6], out num);
+            meta.ParameterPrecision = num;
+            meta.ParameterDescriptions = common.system.String2List(aFields[7]);
+
+            meta.URL = aFields[8];
+            meta.Authors = aFields[9];
+            meta.Version = aFields[10];
             return true;
         }
 
@@ -163,7 +169,7 @@ namespace Strategy
             aValues.Add(meta.Category);
             aValues.Add(meta.ParameterToString());
             aValues.Add(meta.ParameterDescriptions.ToString());
-            
+
             aValues.Add(meta.URL);
             aValues.Add(meta.Authors);
             aValues.Add(meta.Version);
