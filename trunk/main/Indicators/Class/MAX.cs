@@ -25,7 +25,7 @@ namespace Indicators
     public class MAX : DataSeries
     {
         /// <summary>
-        /// Static method to create Arron DataSeries
+        /// Static method to create MAX
         /// </summary>
         /// <param name="ds"></param>
         /// <param name="period"></param>
@@ -46,21 +46,19 @@ namespace Indicators
         }
 
         /// <summary>
-        /// Calculation of CCI indicators
+        /// Calculation of MAX indicators
         /// </summary>
-        /// <param name="db">data to calculate CCI</param>        
+        /// <param name="db">data to calculate MAX</param>        
         /// <param name="period">period to calculate</param>
         /// <param name="name"></param>
-        public MAX(DataSeries db, double period, string name)
-            : base(db, name)
+        public MAX(DataSeries ds, double period, string name)
+            : base(ds, name)
         {
             int begin = 0, length = 0;
             Core.RetCode retCode = Core.RetCode.UnknownErr;
 
-            double[] output = new double[db.Count];
-
-            retCode = Core.Max(0, db.Count - 1, db.Values,(int) period, out begin, out length, output);
-            
+            double[] output = new double[ds.Count];
+            retCode = Core.Max(0, ds.Count - 1, ds.Values,(int) period, out begin, out length, output);
 
             if (retCode != Core.RetCode.Success) return;
             //Assign first bar that contains indicator data
