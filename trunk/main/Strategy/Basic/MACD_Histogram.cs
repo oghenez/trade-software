@@ -22,34 +22,21 @@ namespace Strategy
         public Indicators.MACD macd;
         public DataSeries ema, hist;
 
-        public MACD_HistogramRule(DataSeries ds,Parameters parameters)
+        public MACD_HistogramRule(DataSeries ds, double fast, double slow, double signal)
         {
-            macd = Indicators.MACD.Series(ds, parameters[0], parameters[1], parameters[2], "");
+            macd = Indicators.MACD.Series(ds, fast, slow,signal, "macd");
             ema = macd.SignalSeries;
             hist = macd.HistSeries;
         }
 
         public override bool isValid()
         {
-            decimal delta = 0, lastDelta = 0;
-            int idx = macd.Count - 1;
-            if (idx < 2) return false;
-            lastDelta = (decimal)(hist[idx - 1] - hist[idx - 2]); 
-            delta = (decimal)(hist[idx] - hist[idx - 1]);
-            if (delta > 0 && lastDelta < 0)
-                return true;     
-            return false;
+            return isValid_forBuy(macd.Count - 1);
         }
 
         public override bool isValid(int idx)
         {
-            decimal delta = 0, lastDelta = 0;
-            if (idx < 2) return false;
-            lastDelta = (decimal)(hist[idx - 1] - hist[idx - 2]);
-            delta = (decimal)(hist[idx] - hist[idx - 1]);
-            if (delta > 0 && lastDelta < 0)
-                return true;
-            return false;
+            return isValid_forBuy(idx);
         }
 
         override public bool isValid_forBuy(int idx)
@@ -79,7 +66,7 @@ namespace Strategy
     {
         override protected void StrategyExecute()
         {
-            Rule rule = new MACD_HistogramRule(data.Close, parameters);
+            Rule rule = new MACD_HistogramRule(data.Close, parameters[0],parameters[1],parameters[2]);
             if (rule.isValid())
             {
                 int Bar = data.Close.Count - 1;
@@ -97,7 +84,7 @@ namespace Strategy
     {
         override protected void StrategyExecute()
         {
-            MACD_HistogramRule rule = new MACD_HistogramRule(data.Close, parameters);
+            MACD_HistogramRule rule = new MACD_HistogramRule(data.Close, parameters[0],parameters[1],parameters[2]);
 
             for (int idx = 1; idx < data.Close.Count-1; idx++)
             {
@@ -113,9 +100,9 @@ namespace Strategy
     {        
         override protected void StrategyExecute()
         {
-            MACD_HistogramRule rule = new MACD_HistogramRule(data.Close, parameters);
-            int cutlosslevel = (int)parameters[3];
-            int takeprofitlevel = (int)parameters[4];
+            MACD_HistogramRule rule = new MACD_HistogramRule(data.Close, parameters[0], parameters[1], parameters[2]);
+            double cutlosslevel = parameters[3];
+            double takeprofitlevel = parameters[4];
 
             for (int idx = 1; idx < data.Close.Count - 1; idx++)
             {
@@ -128,29 +115,7 @@ namespace Strategy
 
                 if (is_bought && TakeProfitCondition(data.Close[idx], buy_price, takeprofitlevel))
                     SellTakeProfit(idx);
-            }
-            //Indicators.MACD macd = Indicators.MACD.Series(data.Close, parameters[0], parameters[1], parameters[2], "");
-            //DataSeries hist = macd.HistSeries;
-
-            //int cutlosslevel = (int)parameters[3];
-            //int takeprofitlevel = (int)parameters[4];
-
-            //decimal delta = 0, lastDelta = 0;
-            //for (int idx = 1; idx < macd.Count; idx++)
-            //{
-            //    delta = (decimal)(hist[idx] - hist[idx - 1]);
-            //    if (delta > 0 && lastDelta < 0)
-            //        BuyAtClose(idx);
-            //    if (delta < 0 && lastDelta > 0)
-            //        SellAtClose(idx);
-
-            //    if (is_bought && CutLossCondition(data.Close[idx], buy_price, cutlosslevel))
-            //        SellCutLoss(idx);
-
-            //    if (is_bought && TakeProfitCondition(data.Close[idx], buy_price, takeprofitlevel))
-            //        SellTakeProfit(idx);
-            //    lastDelta = delta;
-            //}
+            }            
         }
     }
 }

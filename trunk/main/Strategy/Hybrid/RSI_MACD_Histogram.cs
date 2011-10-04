@@ -22,28 +22,43 @@ namespace Strategy
             int cutlosslevel = (int)parameters[6];
             int takeprofitlevel = (int)parameters[7];
 
-            double delta = 0, lastDelta = 0;
-            
-            DataSeries line1 = Indicators.RSI.Series(data.Close,rsi_period,"");
-            Indicators.MACD macd = Indicators.MACD.Series(data.Close, fast_macd, slow_macd, signal_macd, "");
-            DataSeries hist = macd.HistSeries;
+            //double delta = 0, lastDelta = 0;
 
-            for (int idx = 1; idx < line1.Count; idx++)
+            //DataSeries line1 = Indicators.RSI.Series(data.Close, rsi_period, "");
+            //Indicators.MACD macd = Indicators.MACD.Series(data.Close, fast_macd, slow_macd, signal_macd, "");
+            //DataSeries hist = macd.HistSeries;
+
+            MACD_HistogramRule macdrule = new MACD_HistogramRule(data.Close, fast_macd, slow_macd, signal_macd);
+            BasicRSI_Rule rsirule = new BasicRSI_Rule(data.Close, rsi_period, RSI_LOWER_LEVEL, RSI_UPPER_LEVEL);
+          
+            for (int idx = 1; idx < data.Close.Count; idx++)
             {
-                delta = (hist[idx] - hist[idx - 1]);
-                if (line1[idx] < RSI_LOWER_LEVEL && delta > 0 && lastDelta < 0)
+                if (rsirule.isValid_forBuy(idx)&&macdrule.isValid_forBuy(idx))
                     BuyAtClose(idx);
-                if (is_bought)
-                    if ((delta < 0 && lastDelta > 0) || line1[idx] > RSI_UPPER_LEVEL)
-                        SellAtClose(idx);
+                if (rsirule.isValid_forSell(idx) || macdrule.isValid_forSell(idx))
+                    SellAtClose(idx);
                 if (is_bought && CutLossCondition(data.Close[idx], buy_price, cutlosslevel))
                     SellCutLoss(idx);
-
                 if (is_bought && TakeProfitCondition(data.Close[idx], buy_price, takeprofitlevel))
                     SellTakeProfit(idx);
-
-                lastDelta = delta;
             }
+
+            //for (int idx = 1; idx < line1.Count; idx++)
+            //{
+            //    delta = (hist[idx] - hist[idx - 1]);
+            //    if (line1[idx] < RSI_LOWER_LEVEL && delta > 0 && lastDelta < 0)
+            //        BuyAtClose(idx);
+            //    if (is_bought)
+            //        if ((delta < 0 && lastDelta > 0) || line1[idx] > RSI_UPPER_LEVEL)
+            //            SellAtClose(idx);
+            //    if (is_bought && CutLossCondition(data.Close[idx], buy_price, cutlosslevel))
+            //        SellCutLoss(idx);
+
+            //    if (is_bought && TakeProfitCondition(data.Close[idx], buy_price, takeprofitlevel))
+            //        SellTakeProfit(idx);
+
+            //    lastDelta = delta;
+            //}
         }
     }
 }

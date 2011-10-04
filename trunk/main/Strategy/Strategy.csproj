@@ -59,6 +59,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AverageStrategy.cs" />
+    <Compile Include="Basic\BasicRSI.cs" />
     <Compile Include="Basic\Price_3MA.cs" />
     <Compile Include="Basic\BasicDMI.cs" />
     <Compile Include="Basic\BasicMACD.cs" />

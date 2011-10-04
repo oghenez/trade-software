@@ -69,6 +69,21 @@ namespace Strategy
             }
             return false;
         }
+
+        public override bool isValid_forBuy(int idx)
+        {
+            return base.isValid_forBuy(idx);
+        }
+
+        public override bool isValid_forSell(int idx)
+        {
+            return base.isValid_forSell(idx);
+        }
+
+        public override bool isValid(int index)
+        {
+            return base.isValid(index);
+        }
     }
 
     public class BasicMACDSCR : GenericStrategy
