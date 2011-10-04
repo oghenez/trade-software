@@ -1,0 +1,29 @@
+<Configuration>
+  <A00000004>
+    <Indicators.RSI params="14" />
+  </A00000004>
+  <A00000004>
+    <Indicators.RSI output="Blue:1" />
+  </A00000004>
+  <A00000004>
+    <Indicators.RSI drawInNewWindow="True" />
+  </A00000004>
+  <A00000004>
+    <Indicators.PlusDM params="14" />
+  </A00000004>
+  <A00000004>
+    <Indicators.PlusDM output="Blue:1" />
+  </A00000004>
+  <A00000004>
+    <Indicators.PlusDM drawInNewWindow="True" />
+  </A00000004>
+  <A00000004>
+    <Indicators.SAR params="2 2" />
+  </A00000004>
+  <A00000004>
+    <Indicators.SAR output="Red:1" />
+  </A00000004>
+  <A00000004>
+    <Indicators.SAR drawInNewWindow="False" />
+  </A00000004>
+</Configuration>

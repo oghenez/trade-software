@@ -314,24 +314,13 @@
   <STRATEGY>
     <RSI_MACD_Histogram Code="STR014"/>
     <RSI_MACD_Histogram Category="HFT" />
-    <RSI_MACD_Histogram Parameters="MACD Fast=12,MACD Slow=26,MACD Signal=9, RSI Period=14, RSI Over Sold=30, RSI Over Bought=70,,Cut Loss Level (%)=5,Take Profit Level (%)=200" />
+    <RSI_MACD_Histogram Parameters="MACD Fast=12,MACD Slow=26,MACD Signal=9, RSI Period=14, RSI Over Sold=30, RSI Over Bought=70,Cut Loss Level (%)=5,Take Profit Level (%)=200" />
     <RSI_MACD_Histogram ParameterDescriptions="Period defines the input data for the strategy" />
     <RSI_MACD_Histogram Name="MACD and RSI strategy" />
     <RSI_MACD_Histogram Description="MACD and RSI strategy" />
     <RSI_MACD_Histogram URL="http://www.hqtrader.com" />
     <RSI_MACD_Histogram Authors="Quan Nguyen" />
     <RSI_MACD_Histogram Version="1.0" />
-  </STRATEGY>
-  <STRATEGY>
-    <MACD_HistogramNEW Code="STR015"/>
-    <MACD_HistogramNEW Category="TRE" />
-    <MACD_HistogramNEW Parameters="MACD Fast=12,MACD Slow=26,MACD Signal=9" />
-    <MACD_HistogramNEW ParameterDescriptions="Period defines the input data for the strategy" />
-    <MACD_HistogramNEW Name="NEW MACD strategy using histogram changes" />
-    <MACD_HistogramNEW Description="NEW MACD strategy using histogram changes" />
-    <MACD_HistogramNEW URL="http://www.hqtrader.com" />
-    <MACD_HistogramNEW Authors="Quan Nguyen" />
-    <MACD_HistogramNEW Version="1.0" />
   </STRATEGY>
   <STRATEGY>
     <MACD_Histogram Code="STR016"/>
