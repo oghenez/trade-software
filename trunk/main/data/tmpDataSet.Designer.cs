@@ -31,6 +31,8 @@ namespace data {
         
         private codeListDataTable tablecodeList;
         
+        private marketDataDataTable tablemarketData;
+        
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -65,6 +67,9 @@ namespace data {
                 }
                 if ((ds.Tables["codeList"] != null)) {
                     base.Tables.Add(new codeListDataTable(ds.Tables["codeList"]));
+                }
+                if ((ds.Tables["marketData"] != null)) {
+                    base.Tables.Add(new marketDataDataTable(ds.Tables["marketData"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -108,6 +113,15 @@ namespace data {
         public codeListDataTable codeList {
             get {
                 return this.tablecodeList;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public marketDataDataTable marketData {
+            get {
+                return this.tablemarketData;
             }
         }
         
@@ -179,6 +193,9 @@ namespace data {
                 if ((ds.Tables["codeList"] != null)) {
                     base.Tables.Add(new codeListDataTable(ds.Tables["codeList"]));
                 }
+                if ((ds.Tables["marketData"] != null)) {
+                    base.Tables.Add(new marketDataDataTable(ds.Tables["marketData"]));
+                }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
                 this.Namespace = ds.Namespace;
@@ -227,6 +244,12 @@ namespace data {
                     this.tablecodeList.InitVars();
                 }
             }
+            this.tablemarketData = ((marketDataDataTable)(base.Tables["marketData"]));
+            if ((initTable == true)) {
+                if ((this.tablemarketData != null)) {
+                    this.tablemarketData.InitVars();
+                }
+            }
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -241,6 +264,8 @@ namespace data {
             base.Tables.Add(this.tabletradeEstimate);
             this.tablecodeList = new codeListDataTable();
             base.Tables.Add(this.tablecodeList);
+            this.tablemarketData = new marketDataDataTable();
+            base.Tables.Add(this.tablemarketData);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -255,6 +280,11 @@ namespace data {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         private bool ShouldSerializecodeList() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        private bool ShouldSerializemarketData() {
             return false;
         }
         
@@ -316,6 +346,8 @@ namespace data {
         public delegate void tradeEstimateRowChangeEventHandler(object sender, tradeEstimateRowChangeEvent e);
         
         public delegate void codeListRowChangeEventHandler(object sender, codeListRowChangeEvent e);
+        
+        public delegate void marketDataRowChangeEventHandler(object sender, marketDataRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -1386,6 +1418,256 @@ namespace data {
         }
         
         /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class marketDataDataTable : global::System.Data.TypedTableBase<marketDataRow> {
+            
+            private global::System.Data.DataColumn columnonDate;
+            
+            private global::System.Data.DataColumn columnval0;
+            
+            private global::System.Data.DataColumn columnval1;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public marketDataDataTable() {
+                this.TableName = "marketData";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            internal marketDataDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected marketDataDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn onDateColumn {
+                get {
+                    return this.columnonDate;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn val0Column {
+                get {
+                    return this.columnval0;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn val1Column {
+                get {
+                    return this.columnval1;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public marketDataRow this[int index] {
+                get {
+                    return ((marketDataRow)(this.Rows[index]));
+                }
+            }
+            
+            public event marketDataRowChangeEventHandler marketDataRowChanging;
+            
+            public event marketDataRowChangeEventHandler marketDataRowChanged;
+            
+            public event marketDataRowChangeEventHandler marketDataRowDeleting;
+            
+            public event marketDataRowChangeEventHandler marketDataRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void AddmarketDataRow(marketDataRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public marketDataRow AddmarketDataRow(System.DateTime onDate, double val0, double val1) {
+                marketDataRow rowmarketDataRow = ((marketDataRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        onDate,
+                        val0,
+                        val1};
+                rowmarketDataRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowmarketDataRow);
+                return rowmarketDataRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public override global::System.Data.DataTable Clone() {
+                marketDataDataTable cln = ((marketDataDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new marketDataDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            internal void InitVars() {
+                this.columnonDate = base.Columns["onDate"];
+                this.columnval0 = base.Columns["val0"];
+                this.columnval1 = base.Columns["val1"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            private void InitClass() {
+                this.columnonDate = new global::System.Data.DataColumn("onDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnonDate);
+                this.columnval0 = new global::System.Data.DataColumn("val0", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnval0);
+                this.columnval1 = new global::System.Data.DataColumn("val1", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnval1);
+                this.columnonDate.AllowDBNull = false;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public marketDataRow NewmarketDataRow() {
+                return ((marketDataRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new marketDataRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override global::System.Type GetRowType() {
+                return typeof(marketDataRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.marketDataRowChanged != null)) {
+                    this.marketDataRowChanged(this, new marketDataRowChangeEvent(((marketDataRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.marketDataRowChanging != null)) {
+                    this.marketDataRowChanging(this, new marketDataRowChangeEvent(((marketDataRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.marketDataRowDeleted != null)) {
+                    this.marketDataRowDeleted(this, new marketDataRowChangeEvent(((marketDataRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.marketDataRowDeleting != null)) {
+                    this.marketDataRowDeleting(this, new marketDataRowChangeEvent(((marketDataRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void RemovemarketDataRow(marketDataRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                tmpDS ds = new tmpDS();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "marketDataDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
@@ -2091,6 +2373,81 @@ namespace data {
         }
         
         /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
+        public partial class marketDataRow : global::System.Data.DataRow {
+            
+            private marketDataDataTable tablemarketData;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            internal marketDataRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tablemarketData = ((marketDataDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public System.DateTime onDate {
+                get {
+                    return ((global::System.DateTime)(this[this.tablemarketData.onDateColumn]));
+                }
+                set {
+                    this[this.tablemarketData.onDateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public double val0 {
+                get {
+                    try {
+                        return ((double)(this[this.tablemarketData.val0Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'val0\' in table \'marketData\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablemarketData.val0Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public double val1 {
+                get {
+                    try {
+                        return ((double)(this[this.tablemarketData.val1Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'val1\' in table \'marketData\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablemarketData.val1Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool Isval0Null() {
+                return this.IsNull(this.tablemarketData.val0Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void Setval0Null() {
+                this[this.tablemarketData.val0Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool Isval1Null() {
+                return this.IsNull(this.tablemarketData.val1Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void Setval1Null() {
+                this[this.tablemarketData.val1Column] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
@@ -2170,6 +2527,37 @@ namespace data {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public codeListRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
+        public class marketDataRowChangeEvent : global::System.EventArgs {
+            
+            private marketDataRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public marketDataRowChangeEvent(marketDataRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public marketDataRow Row {
                 get {
                     return this.eventRow;
                 }

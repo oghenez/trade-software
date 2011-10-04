@@ -10,7 +10,6 @@ using System.Windows.Forms;
 using System.Reflection;
 using System.IO;
 using application;
-using Indicators;
 
 namespace test
 {
@@ -20,18 +19,24 @@ namespace test
         {
             application.test.LoadTestConfig();
             InitializeComponent();
+            stockCodeSelectLb.LoadData();
+            dateRangeEd.LoadData();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-            application.Data data = new application.Data();
-            data.DataStockCode = "SSI";
-            data.DataTimeRange = AppTypes.TimeRanges.M2;
-            data.DataTimeScale = application.AppTypes.TimeScaleFromCode("D1");
-            data.Reload();
+            application.Data stockData = new Data(dateRangeEd.myTimeRange, dateRangeEd.myTimeScale, "SSI");
+            MarketData data = new MarketData(stockData);
+            //Get market indicator series
+            DataSeries ds = data.AdvancingIssues;
+            ds = data.AdvancingVolume;
+            ds = data.AdvancingDateTime;
 
-            application.Data vnIndexData = data.New("^VNINDEX");
-            data.Sync(vnIndexData);
+            ds = data.DecliningIssues;
+            ds = data.DecliningVolume;
+
+            ds = data.NonChangeIssues;
+            ds = data.NonChangeVolume;  
         }
     }
 }
