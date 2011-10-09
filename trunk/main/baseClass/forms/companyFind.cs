@@ -24,6 +24,17 @@ namespace baseClass.forms
             common.Data.dataCache.Add(cacheKey, form);
             return form;
         }
+        public override void SetLanguage()
+        {
+            base.SetLanguage();
+            this.Text = language.GetString("find");
+            findBtn.Text = language.GetString("find");
+            selectBtn.Text = language.GetString("select");
+            closeBtn.Text = language.GetString("close");
+
+            codeColumn.HeaderText = language.GetString("code");
+            nameColumn.HeaderText = language.GetString("name");
+        }
 
         public data.baseDS.stockCodeRow selectedDataRow = null;
         protected bool fullMode

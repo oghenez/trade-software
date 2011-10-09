@@ -17,6 +17,21 @@ namespace baseClass.forms
             InitializeComponent();
             fullMode = false;
         }
+        public override void SetLanguage()
+        {
+            base.SetLanguage();
+            this.Text = language.GetString("investor");
+
+            findBtn.Text = language.GetString("find");
+            selectBtn.Text = language.GetString("select");
+            closeBtn.Text = language.GetString("close");
+            newBtn.Text = language.GetString("new");
+
+            codeColumn.HeaderText = language.GetString("code") + " 1";
+            displayNameColumn.HeaderText = language.GetString("name");
+            addressColumn.HeaderText = language.GetString("address");
+        }
+
         public data.baseDS.stockCodeRow selectedDataRow = null;
         protected bool fullMode
         {

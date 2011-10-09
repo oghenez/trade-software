@@ -66,11 +66,13 @@
             // 
             this.exitBtn.Location = new System.Drawing.Point(468, 7);
             this.exitBtn.Size = new System.Drawing.Size(93, 39);
+            this.exitBtn.Text = "Close";
             // 
             // saveBtn
             // 
             this.saveBtn.Location = new System.Drawing.Point(96, 7);
             this.saveBtn.Size = new System.Drawing.Size(93, 39);
+            this.saveBtn.Text = "Save";
             // 
             // deleteBtn
             // 
@@ -79,8 +81,10 @@
             // 
             // editBtn
             // 
+            this.editBtn.Image = ((System.Drawing.Image)(resources.GetObject("editBtn.Image")));
             this.editBtn.Location = new System.Drawing.Point(282, 7);
             this.editBtn.Size = new System.Drawing.Size(93, 39);
+            this.editBtn.Text = "Lock";
             // 
             // addNewBtn
             // 
@@ -90,6 +94,7 @@
             // toExcelBtn
             // 
             this.toExcelBtn.Location = new System.Drawing.Point(875, 7);
+            this.toExcelBtn.Text = "Export";
             this.toExcelBtn.Visible = false;
             // 
             // findBtn
@@ -105,6 +110,7 @@
             // printBtn
             // 
             this.printBtn.Location = new System.Drawing.Point(805, 7);
+            this.printBtn.Text = "&Print";
             this.printBtn.Visible = false;
             // 
             // unLockBtn
@@ -196,9 +202,9 @@
             this.interestedStrategy.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.interestedStrategy.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.interestedStrategy.Location = new System.Drawing.Point(24, 245);
             this.interestedStrategy.Margin = new System.Windows.Forms.Padding(4);
+            this.interestedStrategy.myDataTbl = null;
             this.interestedStrategy.Name = "interestedStrategy";
             this.interestedStrategy.Size = new System.Drawing.Size(537, 219);
             this.interestedStrategy.TabIndex = 21;
@@ -358,7 +364,6 @@
             this.ClientSize = new System.Drawing.Size(1030, 701);
             this.Controls.Add(this.portfolioGrid);
             this.Controls.Add(this.xpPanelGroup_Info);
-            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "watchListEdit";
             this.Text = "Watch List";

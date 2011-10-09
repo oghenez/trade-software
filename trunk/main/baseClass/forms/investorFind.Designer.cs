@@ -35,18 +35,18 @@
             this.myBaseDS = new data.baseDS();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGrid = new common.controls.baseDataGridView();
+            this.codeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.displayNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.addressColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.findCriteria = new baseClass.controls.investorCriteria();
             this.closeBtn = new baseClass.controls.baseButton();
             this.selectBtn = new baseClass.controls.baseButton();
             this.newBtn = new baseClass.controls.baseButton();
             this.findBtn = new baseClass.controls.baseButton();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.findCriteria = new baseClass.controls.investorCriteria();
-            this.codeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.displayNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.address1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.investorSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.myBaseDS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).BeginInit();
@@ -84,12 +84,12 @@
             this.dataGrid.AutoGenerateColumns = false;
             this.dataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.codeDataGridViewTextBoxColumn,
-            this.displayNameDataGridViewTextBoxColumn,
-            this.address1});
+            this.codeColumn,
+            this.displayNameColumn,
+            this.addressColumn});
             this.dataGrid.DataSource = this.investorSource;
             this.dataGrid.DisableReadOnlyColumn = true;
-            this.dataGrid.Location = new System.Drawing.Point(0, 153);
+            this.dataGrid.Location = new System.Drawing.Point(0, 154);
             this.dataGrid.Name = "dataGrid";
             this.dataGrid.ReadOnly = true;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -99,6 +99,29 @@
             this.dataGrid.TabIndex = 2;
             this.dataGrid.DoubleClick += new System.EventHandler(this.selectBtn_Click);
             this.dataGrid.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.grid_DataError);
+            // 
+            // codeColumn
+            // 
+            this.codeColumn.DataPropertyName = "code";
+            this.codeColumn.HeaderText = "Code";
+            this.codeColumn.Name = "codeColumn";
+            this.codeColumn.ReadOnly = true;
+            // 
+            // displayNameColumn
+            // 
+            this.displayNameColumn.DataPropertyName = "displayName";
+            this.displayNameColumn.HeaderText = "Name";
+            this.displayNameColumn.Name = "displayNameColumn";
+            this.displayNameColumn.ReadOnly = true;
+            this.displayNameColumn.Width = 200;
+            // 
+            // addressColumn
+            // 
+            this.addressColumn.DataPropertyName = "address1";
+            this.addressColumn.HeaderText = "Address";
+            this.addressColumn.Name = "addressColumn";
+            this.addressColumn.ReadOnly = true;
+            this.addressColumn.Width = 250;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -123,6 +146,23 @@
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             this.dataGridViewTextBoxColumn3.ReadOnly = true;
             this.dataGridViewTextBoxColumn3.Width = 350;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "mobile";
+            this.dataGridViewTextBoxColumn4.HeaderText = "Di.động";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            this.dataGridViewTextBoxColumn4.Width = 220;
+            // 
+            // findCriteria
+            // 
+            this.findCriteria.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.findCriteria.Location = new System.Drawing.Point(62, 2);
+            this.findCriteria.Margin = new System.Windows.Forms.Padding(4);
+            this.findCriteria.Name = "findCriteria";
+            this.findCriteria.Size = new System.Drawing.Size(390, 151);
+            this.findCriteria.TabIndex = 1;
             // 
             // closeBtn
             // 
@@ -185,46 +225,6 @@
             this.findBtn.UseVisualStyleBackColor = true;
             this.findBtn.Click += new System.EventHandler(this.findBtn_Click);
             // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "mobile";
-            this.dataGridViewTextBoxColumn4.HeaderText = "Di.động";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            this.dataGridViewTextBoxColumn4.Width = 220;
-            // 
-            // findCriteria
-            // 
-            this.findCriteria.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.findCriteria.Location = new System.Drawing.Point(62, 2);
-            this.findCriteria.Margin = new System.Windows.Forms.Padding(4);
-            this.findCriteria.Name = "findCriteria";
-            this.findCriteria.Size = new System.Drawing.Size(390, 151);
-            this.findCriteria.TabIndex = 1;
-            // 
-            // codeDataGridViewTextBoxColumn
-            // 
-            this.codeDataGridViewTextBoxColumn.DataPropertyName = "code";
-            this.codeDataGridViewTextBoxColumn.HeaderText = "Code";
-            this.codeDataGridViewTextBoxColumn.Name = "codeDataGridViewTextBoxColumn";
-            this.codeDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // displayNameDataGridViewTextBoxColumn
-            // 
-            this.displayNameDataGridViewTextBoxColumn.DataPropertyName = "displayName";
-            this.displayNameDataGridViewTextBoxColumn.HeaderText = "Name";
-            this.displayNameDataGridViewTextBoxColumn.Name = "displayNameDataGridViewTextBoxColumn";
-            this.displayNameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.displayNameDataGridViewTextBoxColumn.Width = 200;
-            // 
-            // address1
-            // 
-            this.address1.DataPropertyName = "address1";
-            this.address1.HeaderText = "Address";
-            this.address1.Name = "address1";
-            this.address1.ReadOnly = true;
-            this.address1.Width = 250;
-            // 
             // investorFind
             // 
             this.ClientSize = new System.Drawing.Size(610, 570);
@@ -268,8 +268,8 @@
         protected baseClass.controls.baseButton selectBtn;
         protected baseClass.controls.baseButton closeBtn;
         protected controls.investorCriteria findCriteria;
-        private System.Windows.Forms.DataGridViewTextBoxColumn codeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn displayNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn address1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn codeColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn displayNameColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn addressColumn;
     }
 }

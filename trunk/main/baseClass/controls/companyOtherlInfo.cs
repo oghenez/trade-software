@@ -19,6 +19,11 @@ namespace baseClass.controls
             InitializeComponent();
             SetMaxLength();
         }
+        public override void SetLanguage()
+        {
+            base.SetLanguage();
+            bizSectorLbl.Text = language.GetString("bizSector");
+        }
         private void SetMaxLength()
         {
             data.baseDS.stockCodeDataTable tbl = new data.baseDS.stockCodeDataTable();

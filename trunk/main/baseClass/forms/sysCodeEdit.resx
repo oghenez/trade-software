@@ -152,6 +152,9 @@
   <data name="exitBtn.Size" type="System.Drawing.Size, System.Drawing">
     <value>68, 39</value>
   </data>
+  <data name="exitBtn.Text" xml:space="preserve">
+    <value>Close</value>
+  </data>
   <data name="&gt;&gt;exitBtn.Name" xml:space="preserve">
     <value>exitBtn</value>
   </data>
@@ -172,6 +175,9 @@
   </data>
   <data name="saveBtn.Size" type="System.Drawing.Size, System.Drawing">
     <value>68, 39</value>
+  </data>
+  <data name="saveBtn.Text" xml:space="preserve">
+    <value>Save</value>
   </data>
   <data name="&gt;&gt;saveBtn.Name" xml:space="preserve">
     <value>saveBtn</value>
@@ -206,6 +212,24 @@
   <data name="&gt;&gt;deleteBtn.ZOrder" xml:space="preserve">
     <value>7</value>
   </data>
+  <data name="editBtn.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAYAAAAfSC3RAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAAlwSFlzAAALEwAA
+        CxMBAJqcGAAAAn9JREFUOE9lkF9IU1Ecx6/inNvQFVmCD/UQUVzpKXpKe1yaPmhlJK07rJnmegjJsUnZ
+        W/QHmqFgktMyU/yHf9Iprjk1k2n70/4IEZZkpA8lmtfNuevut3tuWYYHPpzvOd/v+f3OOTHUtqEpZiQX
+        8tUr/d2D8lV2VXSUSUoqJy8z1NHatMtc38xtz1Ozn+ZiyEa50bD4xGyGw+FCQ2MTGp81Y3ragzpzA8qN
+        xkWS2cr+LeD1zwhmJd8zMMQXFmq54eHX7OCQlb18Rcv1Waz8TcMt3usL4L+OZFGqu4G2TgsKLhVh2uko
+        2wq893lMBWot2rssIJkdBxmNBi86XiH/vGaHmXdWjZdd/WAY5p+3yP5Is9t7UZS7h2/p00OnOcI/ry/A
+        0zq1wEUQXcoc5lt69biam8zbR/uwwC4dpTzeN7TpTg6WHYcQ+paB8HwG1r4eR/DLMRGiw/PpCC2cxPLk
+        QZCs2ztOUy6/j66qzEF4XIqNuUREPySDmz2A8OdkEaKjH/eJXmQiAabb2XD5fDTl9U3RtYZscN1KrL3b
+        C96RAs6jhKksVYRo3pGKkDMFmz1K1BqzQc5Q7sAkXWM8jUi7BKERCbiRJESdMuhO/SbqlGNzVIJ1eywi
+        bQrUGISrBiZoaiowQz+qOAe2Mx7rNgoRaxwwFo+x+/tFiOZssUJRCkEhQ7JTgYDQ0W+jq42ZCLcmIGIR
+        OlgU2HhLgZ1UiBAdHVAKnlC4PRbVFSq4/cLnOD1Oukp/BsGuRITtUsAmA6xyATL/0Ta54MUh2CPDY30u
+        XB43Tc2v/KSrH95FSTqFayoFdKrdYLLioc2UijBZUlwX3lqikqH4hNDxwT3MLX1P+wXahq8F1VfeGQAA
+        AABJRU5ErkJggg==
+</value>
+  </data>
   <data name="editBtn.Location" type="System.Drawing.Point, System.Drawing">
     <value>209, 12</value>
   </data>
@@ -214,6 +238,9 @@
   </data>
   <data name="editBtn.Size" type="System.Drawing.Size, System.Drawing">
     <value>68, 39</value>
+  </data>
+  <data name="editBtn.Text" xml:space="preserve">
+    <value>Lock</value>
   </data>
   <data name="&gt;&gt;editBtn.Name" xml:space="preserve">
     <value>editBtn</value>
@@ -256,6 +283,9 @@
   </data>
   <data name="toExcelBtn.Size" type="System.Drawing.Size, System.Drawing">
     <value>64, 39</value>
+  </data>
+  <data name="toExcelBtn.Text" xml:space="preserve">
+    <value>Export</value>
   </data>
   <data name="&gt;&gt;toExcelBtn.Name" xml:space="preserve">
     <value>toExcelBtn</value>
@@ -313,6 +343,9 @@
   </data>
   <data name="printBtn.Size" type="System.Drawing.Size, System.Drawing">
     <value>68, 39</value>
+  </data>
+  <data name="printBtn.Text" xml:space="preserve">
+    <value>&amp;Print</value>
   </data>
   <data name="&gt;&gt;printBtn.Name" xml:space="preserve">
     <value>printBtn</value>
@@ -432,67 +465,67 @@
   <data name="syscodeGrid.ColumnHeadersHeight" type="System.Int32, mscorlib">
     <value>25</value>
   </data>
-  <metadata name="gridSyscode.UserAddedColumn" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="codeColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <data name="gridSyscode.HeaderText" xml:space="preserve">
+  <data name="codeColumn.HeaderText" xml:space="preserve">
     <value>Code</value>
   </data>
-  <data name="gridDescription1.HeaderText" xml:space="preserve">
+  <data name="description1Column.HeaderText" xml:space="preserve">
     <value>Description</value>
   </data>
-  <data name="gridDescription1.Width" type="System.Int32, mscorlib">
+  <data name="description1Column.Width" type="System.Int32, mscorlib">
     <value>230</value>
   </data>
-  <data name="gridDescription2.HeaderText" xml:space="preserve">
+  <data name="description2Column.HeaderText" xml:space="preserve">
     <value>Description 2</value>
   </data>
-  <data name="gridDescription2.Visible" type="System.Boolean, mscorlib">
+  <data name="description2Column.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
-  <data name="gridDescription2.Width" type="System.Int32, mscorlib">
+  <data name="description2Column.Width" type="System.Int32, mscorlib">
     <value>250</value>
   </data>
-  <metadata name="inGroup.UserAddedColumn" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="inGroupColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <data name="inGroup.HeaderText" xml:space="preserve">
+  <data name="inGroupColumn.HeaderText" xml:space="preserve">
     <value>Group</value>
   </data>
-  <data name="inGroup.Width" type="System.Int32, mscorlib">
+  <data name="inGroupColumn.Width" type="System.Int32, mscorlib">
     <value>80</value>
   </data>
-  <metadata name="weight.UserAddedColumn" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="weightColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <data name="weight.HeaderText" xml:space="preserve">
+  <data name="weightColumn.HeaderText" xml:space="preserve">
     <value>Weight</value>
   </data>
-  <data name="weight.Width" type="System.Int32, mscorlib">
+  <data name="weightColumn.Width" type="System.Int32, mscorlib">
     <value>65</value>
   </data>
-  <metadata name="isSystem.UserAddedColumn" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="isSystemColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <data name="isSystem.HeaderText" xml:space="preserve">
+  <data name="isSystemColumn.HeaderText" xml:space="preserve">
     <value>S</value>
   </data>
-  <data name="isSystem.Visible" type="System.Boolean, mscorlib">
+  <data name="isSystemColumn.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
-  <data name="isSystem.Width" type="System.Int32, mscorlib">
+  <data name="isSystemColumn.Width" type="System.Int32, mscorlib">
     <value>25</value>
   </data>
-  <metadata name="isVisible.UserAddedColumn" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="isVisibleColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <data name="isVisible.HeaderText" xml:space="preserve">
+  <data name="isVisibleColumn.HeaderText" xml:space="preserve">
     <value>V</value>
   </data>
-  <data name="isVisible.Visible" type="System.Boolean, mscorlib">
+  <data name="isVisibleColumn.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
-  <data name="isVisible.Width" type="System.Int32, mscorlib">
+  <data name="isVisibleColumn.Width" type="System.Int32, mscorlib">
     <value>25</value>
   </data>
   <metadata name="sysCodeSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
@@ -561,70 +594,70 @@
   <data name="&gt;&gt;systemChk.ZOrder" xml:space="preserve">
     <value>8</value>
   </data>
-  <data name="typeLbl.AutoSize" type="System.Boolean, mscorlib">
+  <data name="categoryLbl.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="typeLbl.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="categoryLbl.Font" type="System.Drawing.Font, System.Drawing">
     <value>Tahoma, 9.75pt, style=Bold</value>
   </data>
-  <data name="typeLbl.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="categoryLbl.Location" type="System.Drawing.Point, System.Drawing">
     <value>24, 49</value>
   </data>
-  <data name="typeLbl.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="categoryLbl.Size" type="System.Drawing.Size, System.Drawing">
     <value>68, 16</value>
   </data>
-  <data name="typeLbl.TabIndex" type="System.Int32, mscorlib">
+  <data name="categoryLbl.TabIndex" type="System.Int32, mscorlib">
     <value>146</value>
   </data>
-  <data name="typeLbl.Text" xml:space="preserve">
+  <data name="categoryLbl.Text" xml:space="preserve">
     <value>Categoty</value>
   </data>
-  <data name="&gt;&gt;typeLbl.Name" xml:space="preserve">
-    <value>typeLbl</value>
+  <data name="&gt;&gt;categoryLbl.Name" xml:space="preserve">
+    <value>categoryLbl</value>
   </data>
-  <data name="&gt;&gt;typeLbl.Type" xml:space="preserve">
+  <data name="&gt;&gt;categoryLbl.Type" xml:space="preserve">
     <value>baseClass.controls.baseLabel, baseClass, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
-  <data name="&gt;&gt;typeLbl.Parent" xml:space="preserve">
+  <data name="&gt;&gt;categoryLbl.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;typeLbl.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;categoryLbl.ZOrder" xml:space="preserve">
     <value>6</value>
   </data>
-  <data name="isVisibleChk.Enabled" type="System.Boolean, mscorlib">
+  <data name="visibleChk.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
-  <data name="isVisibleChk.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+  <data name="visibleChk.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>System</value>
   </data>
-  <data name="isVisibleChk.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="visibleChk.Font" type="System.Drawing.Font, System.Drawing">
     <value>Tahoma, 9.75pt, style=Bold</value>
   </data>
-  <data name="isVisibleChk.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="visibleChk.Location" type="System.Drawing.Point, System.Drawing">
     <value>132, 149</value>
   </data>
-  <data name="isVisibleChk.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
+  <data name="visibleChk.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
     <value>Yes</value>
   </data>
-  <data name="isVisibleChk.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="visibleChk.Size" type="System.Drawing.Size, System.Drawing">
     <value>87, 21</value>
   </data>
-  <data name="isVisibleChk.TabIndex" type="System.Int32, mscorlib">
+  <data name="visibleChk.TabIndex" type="System.Int32, mscorlib">
     <value>147</value>
   </data>
-  <data name="isVisibleChk.Text" xml:space="preserve">
+  <data name="visibleChk.Text" xml:space="preserve">
     <value>Display</value>
   </data>
-  <data name="&gt;&gt;isVisibleChk.Name" xml:space="preserve">
-    <value>isVisibleChk</value>
+  <data name="&gt;&gt;visibleChk.Name" xml:space="preserve">
+    <value>visibleChk</value>
   </data>
-  <data name="&gt;&gt;isVisibleChk.Type" xml:space="preserve">
+  <data name="&gt;&gt;visibleChk.Type" xml:space="preserve">
     <value>baseClass.controls.baseCheckBox, baseClass, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
-  <data name="&gt;&gt;isVisibleChk.Parent" xml:space="preserve">
+  <data name="&gt;&gt;visibleChk.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;isVisibleChk.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;visibleChk.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
   <data name="notesEd.Enabled" type="System.Boolean, mscorlib">
@@ -657,34 +690,34 @@
   <data name="&gt;&gt;notesEd.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
-  <data name="notesLbl.AutoSize" type="System.Boolean, mscorlib">
+  <data name="noteLbl.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="notesLbl.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="noteLbl.Font" type="System.Drawing.Font, System.Drawing">
     <value>Tahoma, 9.75pt, style=Bold</value>
   </data>
-  <data name="notesLbl.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="noteLbl.Location" type="System.Drawing.Point, System.Drawing">
     <value>24, 101</value>
   </data>
-  <data name="notesLbl.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="noteLbl.Size" type="System.Drawing.Size, System.Drawing">
     <value>45, 16</value>
   </data>
-  <data name="notesLbl.TabIndex" type="System.Int32, mscorlib">
+  <data name="noteLbl.TabIndex" type="System.Int32, mscorlib">
     <value>149</value>
   </data>
-  <data name="notesLbl.Text" xml:space="preserve">
+  <data name="noteLbl.Text" xml:space="preserve">
     <value>Notes</value>
   </data>
-  <data name="&gt;&gt;notesLbl.Name" xml:space="preserve">
-    <value>notesLbl</value>
+  <data name="&gt;&gt;noteLbl.Name" xml:space="preserve">
+    <value>noteLbl</value>
   </data>
-  <data name="&gt;&gt;notesLbl.Type" xml:space="preserve">
+  <data name="&gt;&gt;noteLbl.Type" xml:space="preserve">
     <value>baseClass.controls.baseLabel, baseClass, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
-  <data name="&gt;&gt;notesLbl.Parent" xml:space="preserve">
+  <data name="&gt;&gt;noteLbl.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;notesLbl.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;noteLbl.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
   <data name="tag2Ed.Font" type="System.Drawing.Font, System.Drawing">
@@ -781,7 +814,7 @@
     <value>NoControl</value>
   </data>
   <data name="tag1Lbl.Location" type="System.Drawing.Point, System.Drawing">
-    <value>90, 167</value>
+    <value>94, 167</value>
   </data>
   <data name="tag1Lbl.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>5, 0, 5, 0</value>
@@ -927,37 +960,37 @@
   <data name="&gt;&gt;editNoteEd.ZOrder" xml:space="preserve">
     <value>7</value>
   </data>
-  <data name="label6.AutoSize" type="System.Boolean, mscorlib">
+  <data name="editNoteLbl.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="label6.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="editNoteLbl.Font" type="System.Drawing.Font, System.Drawing">
     <value>Tahoma, 9.75pt, style=Bold</value>
   </data>
-  <data name="label6.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="editNoteLbl.Location" type="System.Drawing.Point, System.Drawing">
     <value>22, 221</value>
   </data>
-  <data name="label6.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+  <data name="editNoteLbl.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>5, 0, 5, 0</value>
   </data>
-  <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="editNoteLbl.Size" type="System.Drawing.Size, System.Drawing">
     <value>45, 16</value>
   </data>
-  <data name="label6.TabIndex" type="System.Int32, mscorlib">
+  <data name="editNoteLbl.TabIndex" type="System.Int32, mscorlib">
     <value>233</value>
   </data>
-  <data name="label6.Text" xml:space="preserve">
+  <data name="editNoteLbl.Text" xml:space="preserve">
     <value>Notes</value>
   </data>
-  <data name="&gt;&gt;label6.Name" xml:space="preserve">
-    <value>label6</value>
+  <data name="&gt;&gt;editNoteLbl.Name" xml:space="preserve">
+    <value>editNoteLbl</value>
   </data>
-  <data name="&gt;&gt;label6.Type" xml:space="preserve">
+  <data name="&gt;&gt;editNoteLbl.Type" xml:space="preserve">
     <value>baseClass.controls.baseLabel, baseClass, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
-  <data name="&gt;&gt;label6.Parent" xml:space="preserve">
+  <data name="&gt;&gt;editNoteLbl.Parent" xml:space="preserve">
     <value>editPnl</value>
   </data>
-  <data name="&gt;&gt;label6.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;editNoteLbl.ZOrder" xml:space="preserve">
     <value>8</value>
   </data>
   <data name="inGroupEd.Font" type="System.Drawing.Font, System.Drawing">
@@ -1329,9 +1362,6 @@
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
     <value>1014, 575</value>
   </data>
-  <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Tahoma, 9.75pt, style=Bold</value>
-  </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAEAEBAAAAEAIABIBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
@@ -1373,53 +1403,53 @@
   <data name="&gt;&gt;myToolTip.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolTip, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;codeColumn.Name" xml:space="preserve">
+    <value>codeColumn</value>
+  </data>
+  <data name="&gt;&gt;codeColumn.Type" xml:space="preserve">
+    <value>common.controls.DataGridViewTextBoxColumnExt, common, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;description1Column.Name" xml:space="preserve">
+    <value>description1Column</value>
+  </data>
+  <data name="&gt;&gt;description1Column.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;description2Column.Name" xml:space="preserve">
+    <value>description2Column</value>
+  </data>
+  <data name="&gt;&gt;description2Column.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;inGroupColumn.Name" xml:space="preserve">
+    <value>inGroupColumn</value>
+  </data>
+  <data name="&gt;&gt;inGroupColumn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;weightColumn.Name" xml:space="preserve">
+    <value>weightColumn</value>
+  </data>
+  <data name="&gt;&gt;weightColumn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;isSystemColumn.Name" xml:space="preserve">
+    <value>isSystemColumn</value>
+  </data>
+  <data name="&gt;&gt;isSystemColumn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewCheckBoxColumn, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;isVisibleColumn.Name" xml:space="preserve">
+    <value>isVisibleColumn</value>
+  </data>
+  <data name="&gt;&gt;isVisibleColumn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewCheckBoxColumn, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;sysCodeSource.Name" xml:space="preserve">
     <value>sysCodeSource</value>
   </data>
   <data name="&gt;&gt;sysCodeSource.Type" xml:space="preserve">
     <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;gridSyscode.Name" xml:space="preserve">
-    <value>gridSyscode</value>
-  </data>
-  <data name="&gt;&gt;gridSyscode.Type" xml:space="preserve">
-    <value>common.controls.DataGridViewTextBoxColumnExt, common, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;gridDescription1.Name" xml:space="preserve">
-    <value>gridDescription1</value>
-  </data>
-  <data name="&gt;&gt;gridDescription1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;gridDescription2.Name" xml:space="preserve">
-    <value>gridDescription2</value>
-  </data>
-  <data name="&gt;&gt;gridDescription2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;inGroup.Name" xml:space="preserve">
-    <value>inGroup</value>
-  </data>
-  <data name="&gt;&gt;inGroup.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;weight.Name" xml:space="preserve">
-    <value>weight</value>
-  </data>
-  <data name="&gt;&gt;weight.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;isSystem.Name" xml:space="preserve">
-    <value>isSystem</value>
-  </data>
-  <data name="&gt;&gt;isSystem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewCheckBoxColumn, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;isVisible.Name" xml:space="preserve">
-    <value>isVisible</value>
-  </data>
-  <data name="&gt;&gt;isVisible.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewCheckBoxColumn, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>sysCodeEdit</value>

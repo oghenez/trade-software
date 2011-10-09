@@ -31,12 +31,12 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(investorList));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGrid = new common.controls.baseDataGridView();
+            this.codeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.displayNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.findPnl = new System.Windows.Forms.Panel();
             this.filterBtn = new baseClass.controls.baseButton();
             this.closeFindBtn = new baseClass.controls.baseButton();
             this.findCriteria = new baseClass.controls.investorCriteria();
-            this.codeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.displayNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.investorSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.portfolioSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.watchListSource)).BeginInit();
@@ -55,13 +55,28 @@
             // 
             this.firstNameEd.Margin = new System.Windows.Forms.Padding(3);
             // 
+            // nameLbl
+            // 
+            this.nameLbl.Size = new System.Drawing.Size(75, 16);
+            this.nameLbl.Text = "First Name";
+            // 
             // lastNameEd
             // 
             this.lastNameEd.Margin = new System.Windows.Forms.Padding(3);
             // 
+            // lastNameLbl
+            // 
+            this.lastNameLbl.Size = new System.Drawing.Size(75, 16);
+            this.lastNameLbl.Text = "Last Name";
+            // 
             // address1Ed
             // 
             this.address1Ed.Margin = new System.Windows.Forms.Padding(3);
+            // 
+            // address1Lbl
+            // 
+            this.address1Lbl.Size = new System.Drawing.Size(74, 16);
+            this.address1Lbl.Text = "Address 1";
             // 
             // address2Ed
             // 
@@ -74,6 +89,26 @@
             // accountEd
             // 
             this.accountEd.Margin = new System.Windows.Forms.Padding(2);
+            // 
+            // passwordLbl
+            // 
+            this.passwordLbl.Size = new System.Drawing.Size(71, 16);
+            this.passwordLbl.Text = "Password";
+            // 
+            // statusLbl
+            // 
+            this.statusLbl.Size = new System.Drawing.Size(51, 16);
+            this.statusLbl.Text = "Status";
+            // 
+            // investorCatLbl
+            // 
+            this.investorCatLbl.Size = new System.Drawing.Size(68, 16);
+            this.investorCatLbl.Text = "Category";
+            // 
+            // expireDateLbl
+            // 
+            this.expireDateLbl.Size = new System.Drawing.Size(90, 16);
+            this.expireDateLbl.Text = "Expired Date";
             // 
             // countryCb
             // 
@@ -183,8 +218,8 @@
             this.dataGrid.AutoGenerateColumns = false;
             this.dataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.codeDataGridViewTextBoxColumn,
-            this.displayNameDataGridViewTextBoxColumn});
+            this.codeColumn,
+            this.displayNameColumn});
             this.dataGrid.DataSource = this.investorSource;
             this.dataGrid.DisableReadOnlyColumn = true;
             this.dataGrid.Location = new System.Drawing.Point(485, -1);
@@ -196,6 +231,21 @@
             this.dataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGrid.Size = new System.Drawing.Size(419, 617);
             this.dataGrid.TabIndex = 231;
+            // 
+            // codeColumn
+            // 
+            this.codeColumn.DataPropertyName = "code";
+            this.codeColumn.HeaderText = "Code";
+            this.codeColumn.Name = "codeColumn";
+            this.codeColumn.ReadOnly = true;
+            // 
+            // displayNameColumn
+            // 
+            this.displayNameColumn.DataPropertyName = "displayName";
+            this.displayNameColumn.HeaderText = "Name";
+            this.displayNameColumn.Name = "displayNameColumn";
+            this.displayNameColumn.ReadOnly = true;
+            this.displayNameColumn.Width = 260;
             // 
             // findPnl
             // 
@@ -251,21 +301,6 @@
             this.findCriteria.Size = new System.Drawing.Size(293, 150);
             this.findCriteria.TabIndex = 1;
             // 
-            // codeDataGridViewTextBoxColumn
-            // 
-            this.codeDataGridViewTextBoxColumn.DataPropertyName = "code";
-            this.codeDataGridViewTextBoxColumn.HeaderText = "Code";
-            this.codeDataGridViewTextBoxColumn.Name = "codeDataGridViewTextBoxColumn";
-            this.codeDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // displayNameDataGridViewTextBoxColumn
-            // 
-            this.displayNameDataGridViewTextBoxColumn.DataPropertyName = "displayName";
-            this.displayNameDataGridViewTextBoxColumn.HeaderText = "Name";
-            this.displayNameDataGridViewTextBoxColumn.Name = "displayNameDataGridViewTextBoxColumn";
-            this.displayNameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.displayNameDataGridViewTextBoxColumn.Width = 260;
-            // 
             // investorList
             // 
             this.ClientSize = new System.Drawing.Size(903, 643);
@@ -301,7 +336,7 @@
         protected controls.investorCriteria findCriteria;
         protected System.Windows.Forms.Panel findPnl;
         protected common.controls.baseDataGridView dataGrid;
-        private System.Windows.Forms.DataGridViewTextBoxColumn codeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn displayNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn codeColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn displayNameColumn;
     }
 }

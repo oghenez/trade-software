@@ -20,11 +20,23 @@ namespace baseClass.controls
             SetMaxLength();
             codeEd.isToUpperCase = true;
         }
+        public override void SetLanguage()
+        {
+            base.SetLanguage();
+            codeLbl.Text = language.GetString("exchange");
+            nameLbl.Text = language.GetString("name");
+            enNameLbl.Text = language.GetString("name") + "(English)";
+            addressLbl1.Text = language.GetString("address") + " 1";
+            addressLbl2.Text = language.GetString("address") + " 2";
+            nationLbl.Text = language.GetString("nationality");
+            phoneLbl.Text = language.GetString("phone");
+            websiteLbl.Text = language.GetString("website");
+        }
         private void SetMaxLength()
         {
             data.baseDS.stockCodeDataTable tbl = new data.baseDS.stockCodeDataTable();
             codeEd.MaxLength = tbl.codeColumn.MaxLength;
-            nameEd.MaxLength = tbl.nameColumn.MaxLength;
+            enNameEd.MaxLength = tbl.nameColumn.MaxLength;
             addressEd1.MaxLength = tbl.address1Column.MaxLength;
             addressEd2.MaxLength = tbl.address2Column.MaxLength;
             phoneEd.MaxLength = tbl.phoneColumn.MaxLength;
@@ -44,11 +56,11 @@ namespace baseClass.controls
             this.codeEd.DataBindings.Clear();
             this.codeEd.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.myDataSource, tbl.codeColumn.ColumnName, true));
 
-            this.nameEd.DataBindings.Clear();
-            this.nameEd.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.myDataSource, tbl.nameColumn.ColumnName, true));
-
             this.enNameEd.DataBindings.Clear();
-            this.enNameEd.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.myDataSource, tbl.nameEnColumn.ColumnName, true));
+            this.enNameEd.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.myDataSource, tbl.nameColumn.ColumnName, true));
+
+            this.nameEd.DataBindings.Clear();
+            this.nameEd.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.myDataSource, tbl.nameEnColumn.ColumnName, true));
 
             this.addressEd1.DataBindings.Clear();
             this.addressEd1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.myDataSource, tbl.address1Column.ColumnName, true));
@@ -81,9 +93,9 @@ namespace baseClass.controls
                 NotifyError(codeLbl);
                 retVal = false;
             }
-            if (nameEd.Text.Trim() == "") 
+            if (enNameEd.Text.Trim() == "") 
             {
-                NotifyError(nameLbl);
+                NotifyError(enNameLbl);
                 retVal = false;
             }
             if (addressEd1.Text.Trim() == "") 
@@ -96,8 +108,8 @@ namespace baseClass.controls
         public virtual void LockEdit(bool state)
         {
             codeEd.ReadOnly = state;
-            nameEd.ReadOnly = state;
             enNameEd.ReadOnly = state;
+            nameEd.ReadOnly = state;
             addressEd1.ReadOnly = state;
             addressEd2.ReadOnly = state;
             phoneEd.ReadOnly = state;

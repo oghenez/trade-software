@@ -31,12 +31,12 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(companyList));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGrid = new common.controls.baseDataGridView();
+            this.codeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.findPnl = new System.Windows.Forms.Panel();
             this.filterBtn = new baseClass.controls.baseButton();
             this.closeFindBtn = new baseClass.controls.baseButton();
             this.findCriteria = new baseClass.controls.companyCriteria();
-            this.codeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.xpPanelGroup_Info)).BeginInit();
             this.xpPanelGroup_Info.SuspendLayout();
             this.xpPanel_OtherInfo.SuspendLayout();
@@ -68,12 +68,14 @@
             // 
             this.exitBtn.Margin = new System.Windows.Forms.Padding(2);
             this.exitBtn.Size = new System.Drawing.Size(69, 39);
+            this.exitBtn.Text = "Close";
             // 
             // saveBtn
             // 
             this.saveBtn.Location = new System.Drawing.Point(71, 7);
             this.saveBtn.Margin = new System.Windows.Forms.Padding(2);
             this.saveBtn.Size = new System.Drawing.Size(69, 39);
+            this.saveBtn.Text = "Save";
             // 
             // deleteBtn
             // 
@@ -100,6 +102,7 @@
             this.toExcelBtn.Location = new System.Drawing.Point(746, 15);
             this.toExcelBtn.Margin = new System.Windows.Forms.Padding(2);
             this.toExcelBtn.Size = new System.Drawing.Size(44, 31);
+            this.toExcelBtn.Text = "Export";
             // 
             // findBtn
             // 
@@ -118,6 +121,7 @@
             this.printBtn.Location = new System.Drawing.Point(789, 15);
             this.printBtn.Margin = new System.Windows.Forms.Padding(2);
             this.printBtn.Size = new System.Drawing.Size(44, 31);
+            this.printBtn.Text = "&Print";
             // 
             // unLockBtn
             // 
@@ -160,6 +164,21 @@
             this.dataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGrid.Size = new System.Drawing.Size(463, 716);
             this.dataGrid.TabIndex = 231;
+            // 
+            // codeColumn
+            // 
+            this.codeColumn.DataPropertyName = "code";
+            this.codeColumn.HeaderText = "Code";
+            this.codeColumn.Name = "codeColumn";
+            this.codeColumn.ReadOnly = true;
+            // 
+            // nameColumn
+            // 
+            this.nameColumn.DataPropertyName = "nameEn";
+            this.nameColumn.HeaderText = "Name";
+            this.nameColumn.Name = "nameColumn";
+            this.nameColumn.ReadOnly = true;
+            this.nameColumn.Width = 300;
             // 
             // findPnl
             // 
@@ -215,21 +234,6 @@
             this.findCriteria.Name = "findCriteria";
             this.findCriteria.Size = new System.Drawing.Size(392, 101);
             this.findCriteria.TabIndex = 1;
-            // 
-            // codeColumn
-            // 
-            this.codeColumn.DataPropertyName = "code";
-            this.codeColumn.HeaderText = "Code";
-            this.codeColumn.Name = "codeColumn";
-            this.codeColumn.ReadOnly = true;
-            // 
-            // nameColumn
-            // 
-            this.nameColumn.DataPropertyName = "nameEn";
-            this.nameColumn.HeaderText = "Name";
-            this.nameColumn.Name = "nameColumn";
-            this.nameColumn.ReadOnly = true;
-            this.nameColumn.Width = 300;
             // 
             // companyList
             // 

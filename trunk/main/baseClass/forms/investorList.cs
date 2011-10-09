@@ -24,6 +24,16 @@ namespace baseClass.forms
                 this.ShowMessage(er.Message);
             }
         }
+        public override void SetLanguage()
+        {
+            base.SetLanguage();
+            this.Text = language.GetString("find");
+            findBtn.Text = language.GetString("find");
+            closeFindBtn.Text = language.GetString("close");
+
+            codeColumn.HeaderText = language.GetString("code") + " 1";
+            displayNameColumn.HeaderText = language.GetString("name");
+        }
         protected override bool FindData()
         {
             ShowFindPanel(true);

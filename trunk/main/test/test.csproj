@@ -64,6 +64,16 @@
     <Reference Include="WeifenLuo.WinFormsUI.Docking, Version=2.5.0.18386, Culture=neutral, processorArchitecture=MSIL" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="langs\myRes.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>myRes.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="testPanel.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,6 +88,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="langs\myRes.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>myRes.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="langs\myRes.vi-VN.resx" />
     <EmbeddedResource Include="testPanel.resx">
       <DependentUpon>testPanel.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -91,11 +106,6 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -107,34 +117,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\candeleStick.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\data.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\lineChart2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\ruler.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\barChart2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\barChart1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\indicator2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\refresh.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\close.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\delete.png" />
+    <Folder Include="Resources\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

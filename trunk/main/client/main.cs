@@ -5,7 +5,7 @@ using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
+using System.Globalization;
 using System.Text;
 using System.Windows.Forms;
 using WeifenLuo.WinFormsUI.Docking;
@@ -16,30 +16,6 @@ namespace client
     public partial class main : common.forms.baseApplication
     //public partial class main : baseClass.forms.baseApplication
     {
-        private enum Language {Vi,En };
-        private Language language
-        {
-            get
-            {
-                if (vietnameseMenuItem.Checked) return Language.Vi;
-                return Language.En;
-            }
-            set
-            {
-                switch (value)
-                { 
-                    case Language.En:
-                         vietnameseMenuItem.Checked = false;
-                         englishMenuItem.Checked = true;
-                         break;
-                    default: 
-                         vietnameseMenuItem.Checked = true;
-                         englishMenuItem.Checked = false;
-                         break;
-                }
-            }
-        }
-
         const int constPaneLeftWidth = 13; //In percentage
         const string constFormNameIndicator = "indicator-";
         const string constFormNameStock = "stock-";
@@ -72,6 +48,26 @@ namespace client
         {
             return true;
         }
+
+        private CultureInfo vnCultureInfo = null, enCultureInfo = null;
+        private void LanguageChanged(string code)
+        {
+            switch(code)
+            {
+                case "vi-VN":
+                    if (vnCultureInfo == null) vnCultureInfo = common.language.CreateCulture("vi-VN");
+                    common.language.SetLanguage(vnCultureInfo);
+                    englishMenuItem.Checked = false;
+                    break;
+            
+                case "en-US":
+                    if (enCultureInfo == null) enCultureInfo = common.language.CreateCulture("en-US");
+                    common.language.SetLanguage(enCultureInfo);
+                    vietnameseMenuItem.Checked = false;
+                    break;
+            }
+        }
+
 
         private void Init()
         {
@@ -1009,6 +1005,32 @@ namespace client
             try
             {
                 Tools.Forms.options.GetForm("").ShowDialog();
+            }
+            catch (Exception er)
+            {
+                this.ShowError(er);
+            }
+        }
+
+
+        private void vietnameseMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                LanguageChanged("vi-VN");
+            }
+            catch (Exception er)
+            {
+                this.ShowError(er);
+            }
+        }
+
+        
+        private void englishMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                LanguageChanged("en-US");
             }
             catch (Exception er)
             {

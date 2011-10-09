@@ -75,7 +75,7 @@ namespace baseClass.forms
             if (!companyGeneral.CheckData()) retVal = false;
             if (!companyOtherInfo.CheckData()) retVal = false;
             if (!companyStock.CheckData()) retVal = false;
-            if (!retVal && showMsg) this.ShowMessage("Dữ liệu không hợp lệ.");
+            if (!retVal && showMsg) this.ShowMessage(language.GetString("invalidData"));
             return retVal;
         }
         protected override void UpdateData(DataRow row)

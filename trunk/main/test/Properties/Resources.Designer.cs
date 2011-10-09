@@ -60,73 +60,12 @@ namespace test.Properties {
             }
         }
         
-        internal static System.Drawing.Bitmap adddata {
+        /// <summary>
+        ///   Looks up a localized string similar to Add.
+        /// </summary>
+        internal static string add {
             get {
-                object obj = ResourceManager.GetObject("adddata", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        internal static System.Drawing.Bitmap barChart1 {
-            get {
-                object obj = ResourceManager.GetObject("barChart1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        internal static System.Drawing.Bitmap barChart2 {
-            get {
-                object obj = ResourceManager.GetObject("barChart2", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        internal static System.Drawing.Bitmap candeleStick {
-            get {
-                object obj = ResourceManager.GetObject("candeleStick", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        internal static System.Drawing.Bitmap data {
-            get {
-                object obj = ResourceManager.GetObject("data", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        internal static System.Drawing.Bitmap delete {
-            get {
-                object obj = ResourceManager.GetObject("delete", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        internal static System.Drawing.Bitmap indicator2 {
-            get {
-                object obj = ResourceManager.GetObject("indicator2", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        internal static System.Drawing.Bitmap lineChart2 {
-            get {
-                object obj = ResourceManager.GetObject("lineChart2", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        internal static System.Drawing.Bitmap refresh {
-            get {
-                object obj = ResourceManager.GetObject("refresh", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        internal static System.Drawing.Bitmap ruler {
-            get {
-                object obj = ResourceManager.GetObject("ruler", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ResourceManager.GetString("add", resourceCulture);
             }
         }
     }

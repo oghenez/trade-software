@@ -55,8 +55,8 @@
             // 
             // expireDatelbl
             // 
-            this.expireDatelbl.Location = new System.Drawing.Point(506, 433);
-            this.expireDatelbl.Visible = false;
+            this.expireDateLbl.Location = new System.Drawing.Point(506, 433);
+            this.expireDateLbl.Visible = false;
             // 
             // investorCatCb
             // 

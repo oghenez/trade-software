@@ -43,6 +43,32 @@ namespace baseClass.forms
                 ShowError(er);
             }
         }
+        public override void SetLanguage()
+        {
+            base.SetLanguage();
+            this.Text = language.GetString("portfolio");
+
+            codeColumn.HeaderText = language.GetString("code");
+            nameColumn.HeaderText = language.GetString("name");
+
+            xpPane_generalInfo.Caption = language.GetString("generalInfo");
+            codeLbl.Text = language.GetString("code");
+            nameLbl.Text = language.GetString("name");
+            descriptionLbl.Text = language.GetString("description");
+
+            xpPanel_Investment.Caption = language.GetString("investment");
+            capitalAmtLbl.Text = language.GetString("capitalAmt");
+            usedAmtLbl.Text = language.GetString("usedAmt");
+            cashAmtLbl.Text = language.GetString("cashAmt");
+            maxBuyAmtPercLbl.Text = language.GetString("maxBuyAmtPercent");
+            maxAccumulatePercLbl.Text = language.GetString("maxAccumulatePercent");
+            maxReducePercLbl.Text = language.GetString("maxReducePercent");
+
+            xpPane_ownedStock.Caption = language.GetString("ownedList");
+            stockCodeColumn.HeaderText = language.GetString("code");
+            stockNameColumn.HeaderText = language.GetString("name");
+            qtyColumn.HeaderText = language.GetString("qty");
+        }
 
         private void CalculateCashAmt()
         {
@@ -131,7 +157,7 @@ namespace baseClass.forms
                 NotifyError(descriptionLbl);
                 retVal = false;
             }
-            if (!retVal) this.ShowMessage("Dữ liệu không hợp lệ");
+            if (!retVal) this.ShowMessage(language.GetString("invalidData"));
             return retVal;
         }
         public override void AddNew(string code)

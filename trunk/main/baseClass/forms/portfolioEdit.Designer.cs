@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(portfolioEdit));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.portfolioSource = new System.Windows.Forms.BindingSource(this.components);
             this.investorStockSource = new System.Windows.Forms.BindingSource(this.components);
             this.stockCodeSource = new System.Windows.Forms.BindingSource(this.components);
@@ -39,6 +39,9 @@
             this.xpPanelGroup_Info = new UIComponents.XPPanelGroup();
             this.xpPane_ownedStock = new UIComponents.XPPanel(352);
             this.stockGrid = new common.controls.baseDataGridView();
+            this.stockCodeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.stockNameColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.qtyColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.xpPanel_Investment = new UIComponents.XPPanel(163);
             this.cashAmtEd = new common.controls.numberTextBox();
             this.usedAmtLbl = new baseClass.controls.baseLabel();
@@ -49,11 +52,11 @@
             this.capitalAmtLbl = new baseClass.controls.baseLabel();
             this.stockAccumulatePercEd = new common.controls.numberTextBox();
             this.maxBuyAmtPercEd = new common.controls.numberTextBox();
-            this.stockReducePercLbl = new baseClass.controls.baseLabel();
+            this.maxReducePercLbl = new baseClass.controls.baseLabel();
             this.maxBuyAmtPercLbl = new baseClass.controls.baseLabel();
             this.stockReducePercEd = new common.controls.numberTextBox();
             this.capitalAmtEd = new common.controls.numberTextBox();
-            this.stockAccumulatePercLbl = new baseClass.controls.baseLabel();
+            this.maxAccumulatePercLbl = new baseClass.controls.baseLabel();
             this.xpPane_generalInfo = new UIComponents.XPPanel(214);
             this.descriptionEd = new common.controls.baseTextBox();
             this.codeLbl = new baseClass.controls.baseLabel();
@@ -62,9 +65,6 @@
             this.nameEd = new common.controls.baseTextBox();
             this.descriptionLbl = new baseClass.controls.baseLabel();
             this.portfolioGrid = new common.controls.baseDataGridView();
-            this.stockCodeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.stockNameColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.qtyColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.codeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.myDataSet)).BeginInit();
@@ -92,11 +92,13 @@
             // 
             this.exitBtn.Location = new System.Drawing.Point(404, 5);
             this.exitBtn.Size = new System.Drawing.Size(80, 39);
+            this.exitBtn.Text = "Close";
             // 
             // saveBtn
             // 
             this.saveBtn.Location = new System.Drawing.Point(84, 5);
             this.saveBtn.Size = new System.Drawing.Size(80, 39);
+            this.saveBtn.Text = "Save";
             // 
             // deleteBtn
             // 
@@ -105,8 +107,10 @@
             // 
             // editBtn
             // 
+            this.editBtn.Image = ((System.Drawing.Image)(resources.GetObject("editBtn.Image")));
             this.editBtn.Location = new System.Drawing.Point(244, 5);
             this.editBtn.Size = new System.Drawing.Size(80, 39);
+            this.editBtn.Text = "Lock";
             // 
             // addNewBtn
             // 
@@ -116,6 +120,7 @@
             // toExcelBtn
             // 
             this.toExcelBtn.Location = new System.Drawing.Point(875, 7);
+            this.toExcelBtn.Text = "Export";
             this.toExcelBtn.Visible = false;
             // 
             // findBtn
@@ -131,6 +136,7 @@
             // printBtn
             // 
             this.printBtn.Location = new System.Drawing.Point(805, 7);
+            this.printBtn.Text = "&Print";
             this.printBtn.Visible = false;
             // 
             // unLockBtn
@@ -234,6 +240,37 @@
             this.stockGrid.Size = new System.Drawing.Size(479, 314);
             this.stockGrid.TabIndex = 40;
             // 
+            // stockCodeColumn
+            // 
+            this.stockCodeColumn.DataPropertyName = "stockCode";
+            this.stockCodeColumn.HeaderText = "Code";
+            this.stockCodeColumn.Name = "stockCodeColumn";
+            this.stockCodeColumn.ReadOnly = true;
+            this.stockCodeColumn.Width = 80;
+            // 
+            // stockNameColumn
+            // 
+            this.stockNameColumn.DataPropertyName = "stockCode";
+            this.stockNameColumn.DataSource = this.stockCodeSource;
+            this.stockNameColumn.DisplayMember = "name";
+            this.stockNameColumn.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.stockNameColumn.HeaderText = "Name";
+            this.stockNameColumn.Name = "stockNameColumn";
+            this.stockNameColumn.ReadOnly = true;
+            this.stockNameColumn.ValueMember = "code";
+            this.stockNameColumn.Width = 220;
+            // 
+            // qtyColumn
+            // 
+            this.qtyColumn.DataPropertyName = "qty";
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle1.Format = "N0";
+            dataGridViewCellStyle1.NullValue = null;
+            this.qtyColumn.DefaultCellStyle = dataGridViewCellStyle1;
+            this.qtyColumn.HeaderText = "Qty";
+            this.qtyColumn.Name = "qtyColumn";
+            this.qtyColumn.ReadOnly = true;
+            // 
             // xpPanel_Investment
             // 
             this.xpPanel_Investment.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
@@ -255,11 +292,11 @@
             this.xpPanel_Investment.Controls.Add(this.capitalAmtLbl);
             this.xpPanel_Investment.Controls.Add(this.stockAccumulatePercEd);
             this.xpPanel_Investment.Controls.Add(this.maxBuyAmtPercEd);
-            this.xpPanel_Investment.Controls.Add(this.stockReducePercLbl);
+            this.xpPanel_Investment.Controls.Add(this.maxReducePercLbl);
             this.xpPanel_Investment.Controls.Add(this.maxBuyAmtPercLbl);
             this.xpPanel_Investment.Controls.Add(this.stockReducePercEd);
             this.xpPanel_Investment.Controls.Add(this.capitalAmtEd);
-            this.xpPanel_Investment.Controls.Add(this.stockAccumulatePercLbl);
+            this.xpPanel_Investment.Controls.Add(this.maxAccumulatePercLbl);
             this.xpPanel_Investment.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xpPanel_Investment.ForeColor = System.Drawing.SystemColors.WindowText;
             this.xpPanel_Investment.HorzAlignment = System.Drawing.StringAlignment.Near;
@@ -407,15 +444,15 @@
             0,
             0});
             // 
-            // stockReducePercLbl
+            // maxReducePercLbl
             // 
-            this.stockReducePercLbl.AutoSize = true;
-            this.stockReducePercLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.stockReducePercLbl.Location = new System.Drawing.Point(289, 104);
-            this.stockReducePercLbl.Name = "stockReducePercLbl";
-            this.stockReducePercLbl.Size = new System.Drawing.Size(73, 16);
-            this.stockReducePercLbl.TabIndex = 361;
-            this.stockReducePercLbl.Text = "Reduction";
+            this.maxReducePercLbl.AutoSize = true;
+            this.maxReducePercLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.maxReducePercLbl.Location = new System.Drawing.Point(289, 104);
+            this.maxReducePercLbl.Name = "maxReducePercLbl";
+            this.maxReducePercLbl.Size = new System.Drawing.Size(73, 16);
+            this.maxReducePercLbl.TabIndex = 361;
+            this.maxReducePercLbl.Text = "Reduction";
             // 
             // maxBuyAmtPercLbl
             // 
@@ -423,9 +460,9 @@
             this.maxBuyAmtPercLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.maxBuyAmtPercLbl.Location = new System.Drawing.Point(26, 104);
             this.maxBuyAmtPercLbl.Name = "maxBuyAmtPercLbl";
-            this.maxBuyAmtPercLbl.Size = new System.Drawing.Size(89, 16);
+            this.maxBuyAmtPercLbl.Size = new System.Drawing.Size(117, 16);
             this.maxBuyAmtPercLbl.TabIndex = 362;
-            this.maxBuyAmtPercLbl.Text = "Max Buy Qty";
+            this.maxBuyAmtPercLbl.Text = "Max Buy Amount";
             // 
             // stockReducePercEd
             // 
@@ -468,15 +505,15 @@
             0});
             this.capitalAmtEd.Validating += new System.ComponentModel.CancelEventHandler(this.capitalAmtEd_Validating);
             // 
-            // stockAccumulatePercLbl
+            // maxAccumulatePercLbl
             // 
-            this.stockAccumulatePercLbl.AutoSize = true;
-            this.stockAccumulatePercLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.stockAccumulatePercLbl.Location = new System.Drawing.Point(157, 104);
-            this.stockAccumulatePercLbl.Name = "stockAccumulatePercLbl";
-            this.stockAccumulatePercLbl.Size = new System.Drawing.Size(95, 16);
-            this.stockAccumulatePercLbl.TabIndex = 360;
-            this.stockAccumulatePercLbl.Text = "Accumulation";
+            this.maxAccumulatePercLbl.AutoSize = true;
+            this.maxAccumulatePercLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.maxAccumulatePercLbl.Location = new System.Drawing.Point(157, 104);
+            this.maxAccumulatePercLbl.Name = "maxAccumulatePercLbl";
+            this.maxAccumulatePercLbl.Size = new System.Drawing.Size(95, 16);
+            this.maxAccumulatePercLbl.TabIndex = 360;
+            this.maxAccumulatePercLbl.Text = "Accumulation";
             // 
             // xpPane_generalInfo
             // 
@@ -601,37 +638,6 @@
             this.portfolioGrid.TabIndex = 361;
             this.portfolioGrid.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.grid_DataError);
             // 
-            // stockCodeColumn
-            // 
-            this.stockCodeColumn.DataPropertyName = "stockCode";
-            this.stockCodeColumn.HeaderText = "Code";
-            this.stockCodeColumn.Name = "stockCodeColumn";
-            this.stockCodeColumn.ReadOnly = true;
-            this.stockCodeColumn.Width = 80;
-            // 
-            // stockNameColumn
-            // 
-            this.stockNameColumn.DataPropertyName = "stockCode";
-            this.stockNameColumn.DataSource = this.stockCodeSource;
-            this.stockNameColumn.DisplayMember = "name";
-            this.stockNameColumn.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
-            this.stockNameColumn.HeaderText = "Name";
-            this.stockNameColumn.Name = "stockNameColumn";
-            this.stockNameColumn.ReadOnly = true;
-            this.stockNameColumn.ValueMember = "code";
-            this.stockNameColumn.Width = 220;
-            // 
-            // qtyColumn
-            // 
-            this.qtyColumn.DataPropertyName = "qty";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle2.Format = "N0";
-            dataGridViewCellStyle2.NullValue = null;
-            this.qtyColumn.DefaultCellStyle = dataGridViewCellStyle2;
-            this.qtyColumn.HeaderText = "Qty";
-            this.qtyColumn.Name = "qtyColumn";
-            this.qtyColumn.ReadOnly = true;
-            // 
             // codeColumn
             // 
             this.codeColumn.DataPropertyName = "code";
@@ -711,11 +717,11 @@
         protected baseClass.controls.baseLabel capitalAmtLbl;
         protected common.controls.numberTextBox stockAccumulatePercEd;
         protected common.controls.numberTextBox maxBuyAmtPercEd;
-        protected baseClass.controls.baseLabel stockReducePercLbl;
+        protected baseClass.controls.baseLabel maxReducePercLbl;
         protected baseClass.controls.baseLabel maxBuyAmtPercLbl;
         protected common.controls.numberTextBox stockReducePercEd;
         protected common.controls.numberTextBox capitalAmtEd;
-        protected baseClass.controls.baseLabel stockAccumulatePercLbl;
+        protected baseClass.controls.baseLabel maxAccumulatePercLbl;
         protected UIComponents.XPPanel xpPane_ownedStock;
         protected common.controls.baseDataGridView stockGrid;
         private System.Windows.Forms.DataGridViewTextBoxColumn stockCodeColumn;

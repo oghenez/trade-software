@@ -32,7 +32,7 @@
             this.selectCodeEd = new common.controls.baseTextBox();
             this.optionPnl = new System.Windows.Forms.Panel();
             this.selectCodeBtn = new baseClass.controls.baseButton();
-            this.showOnlyCheckedChk = new baseClass.controls.baseCheckBox();
+            this.onlySeletedChk = new baseClass.controls.baseCheckBox();
             this.selectAllChk = new baseClass.controls.baseCheckBox();
             this.stockCodeClb = new baseClass.controls.clbStockCode();
             this.bizSectorTypesSelection = new baseClass.controls.BizSectorTypesSelection();
@@ -55,7 +55,7 @@
             this.optionPnl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.optionPnl.Controls.Add(this.selectCodeBtn);
-            this.optionPnl.Controls.Add(this.showOnlyCheckedChk);
+            this.optionPnl.Controls.Add(this.onlySeletedChk);
             this.optionPnl.Controls.Add(this.selectCodeEd);
             this.optionPnl.Controls.Add(this.selectAllChk);
             this.optionPnl.Location = new System.Drawing.Point(0, 377);
@@ -75,17 +75,17 @@
             this.selectCodeBtn.UseVisualStyleBackColor = true;
             this.selectCodeBtn.Click += new System.EventHandler(this.selectCodeBtn_Click);
             // 
-            // showOnlyCheckedChk
+            // onlySeletedChk
             // 
-            this.showOnlyCheckedChk.AutoSize = true;
-            this.showOnlyCheckedChk.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.showOnlyCheckedChk.Location = new System.Drawing.Point(98, 2);
-            this.showOnlyCheckedChk.Name = "showOnlyCheckedChk";
-            this.showOnlyCheckedChk.Size = new System.Drawing.Size(115, 20);
-            this.showOnlyCheckedChk.TabIndex = 2;
-            this.showOnlyCheckedChk.Text = "Only Selected";
-            this.showOnlyCheckedChk.UseVisualStyleBackColor = true;
-            this.showOnlyCheckedChk.CheckedChanged += new System.EventHandler(this.showOnlyCheckedChk_CheckedChanged);
+            this.onlySeletedChk.AutoSize = true;
+            this.onlySeletedChk.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.onlySeletedChk.Location = new System.Drawing.Point(98, 2);
+            this.onlySeletedChk.Name = "onlySeletedChk";
+            this.onlySeletedChk.Size = new System.Drawing.Size(115, 20);
+            this.onlySeletedChk.TabIndex = 2;
+            this.onlySeletedChk.Text = "Only Selected";
+            this.onlySeletedChk.UseVisualStyleBackColor = true;
+            this.onlySeletedChk.CheckedChanged += new System.EventHandler(this.onlySeletedChk_CheckedChanged);
             // 
             // selectAllChk
             // 
@@ -155,6 +155,6 @@
         protected common.controls.baseTextBox selectCodeEd;
         protected System.Windows.Forms.Panel optionPnl;
         protected baseButton selectCodeBtn;
-        protected baseCheckBox showOnlyCheckedChk;
+        protected baseCheckBox onlySeletedChk;
     }
 }

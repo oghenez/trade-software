@@ -25,6 +25,11 @@ namespace baseClass.controls
                 ErrorHandler(this, er); ;
             }
         }
+        public override void SetLanguage()
+        {
+            base.SetLanguage();
+            selectAllChk.Text = language.GetString("selectAll");
+        }
         public StringCollection myCheckedValues
         {
             get { return strategyClb.myCheckedValues; }

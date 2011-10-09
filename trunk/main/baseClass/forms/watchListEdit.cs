@@ -63,6 +63,25 @@ namespace baseClass.forms
 
  
         #region override funcs
+        public override void SetLanguage()
+        {
+            base.SetLanguage();
+            this.Text = language.GetString("watchList");
+
+            codeColumn.HeaderText = language.GetString("code");
+            nameColumn.HeaderText = language.GetString("name");
+
+            xpPane_generalInfo.Caption = language.GetString("generalInfo");
+            codeLbl.Text = language.GetString("code");
+            nameLbl.Text = language.GetString("name");
+            descriptionLbl.Text = language.GetString("description");
+
+            xpPanel_options.Caption = language.GetString("option");
+            interestedStockLbl.Text = language.GetString("interestedCode");
+
+            interestedStrategy.SetLanguage();
+        }
+
         public override void LockEdit(bool lockState)
         {
             base.LockEdit(lockState);
@@ -122,7 +141,7 @@ namespace baseClass.forms
                 NotifyError(interestedStockLbl);
                 retVal = false;
             }
-            if (!retVal) this.ShowMessage("Dữ liệu không hợp lệ");
+            if (!retVal) this.ShowMessage(language.GetString("invalidData"));
             return retVal;
         }
         protected override void UpdateData(DataRow row)

@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.codeEd = new common.controls.baseTextBox();
-            this.nameLbl = new baseClass.controls.baseLabel();
-            this.nameEd = new common.controls.baseTextBox();
+            this.enNameLbl = new baseClass.controls.baseLabel();
+            this.enNameEd = new common.controls.baseTextBox();
             this.codeLbl = new baseClass.controls.baseLabel();
             this.addressLbl1 = new baseClass.controls.baseLabel();
             this.addressEd1 = new common.controls.baseTextBox();
@@ -39,15 +39,15 @@
             this.addressEd2 = new common.controls.baseTextBox();
             this.websiteLbl = new baseClass.controls.baseLabel();
             this.countryCb = new baseClass.controls.cbCountry();
-            this.countryLbl = new baseClass.controls.baseLabel();
+            this.nationLbl = new baseClass.controls.baseLabel();
             this.emailEd = new common.controls.baseTextBox();
             this.faxEd = new common.controls.baseTextBox();
             this.emailLbl = new baseClass.controls.baseLabel();
             this.phoneLbl = new baseClass.controls.baseLabel();
             this.faxLbl = new baseClass.controls.baseLabel();
             this.phoneEd = new common.controls.baseTextBox();
-            this.enNameLbl = new baseClass.controls.baseLabel();
-            this.enNameEd = new common.controls.baseTextBox();
+            this.nameLbl = new baseClass.controls.baseLabel();
+            this.nameEd = new common.controls.baseTextBox();
             this.SuspendLayout();
             // 
             // codeEd
@@ -59,24 +59,24 @@
             this.codeEd.Size = new System.Drawing.Size(107, 24);
             this.codeEd.TabIndex = 1;
             // 
-            // nameLbl
+            // enNameLbl
             // 
-            this.nameLbl.AutoSize = true;
-            this.nameLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nameLbl.Location = new System.Drawing.Point(0, 50);
-            this.nameLbl.Name = "nameLbl";
-            this.nameLbl.Size = new System.Drawing.Size(103, 16);
-            this.nameLbl.TabIndex = 286;
-            this.nameLbl.Text = "Name (English)";
+            this.enNameLbl.AutoSize = true;
+            this.enNameLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.enNameLbl.Location = new System.Drawing.Point(0, 50);
+            this.enNameLbl.Name = "enNameLbl";
+            this.enNameLbl.Size = new System.Drawing.Size(103, 16);
+            this.enNameLbl.TabIndex = 286;
+            this.enNameLbl.Text = "Name (English)";
             // 
-            // nameEd
+            // enNameEd
             // 
-            this.nameEd.BackColor = System.Drawing.SystemColors.Window;
-            this.nameEd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nameEd.Location = new System.Drawing.Point(0, 69);
-            this.nameEd.Name = "nameEd";
-            this.nameEd.Size = new System.Drawing.Size(440, 22);
-            this.nameEd.TabIndex = 3;
+            this.enNameEd.BackColor = System.Drawing.SystemColors.Window;
+            this.enNameEd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.enNameEd.Location = new System.Drawing.Point(0, 69);
+            this.enNameEd.Name = "enNameEd";
+            this.enNameEd.Size = new System.Drawing.Size(440, 22);
+            this.enNameEd.TabIndex = 3;
             // 
             // codeLbl
             // 
@@ -156,15 +156,15 @@
             this.countryCb.Size = new System.Drawing.Size(223, 21);
             this.countryCb.TabIndex = 6;
             // 
-            // countryLbl
+            // nationLbl
             // 
-            this.countryLbl.AutoSize = true;
-            this.countryLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.countryLbl.Location = new System.Drawing.Point(-2, 190);
-            this.countryLbl.Name = "countryLbl";
-            this.countryLbl.Size = new System.Drawing.Size(49, 16);
-            this.countryLbl.TabIndex = 292;
-            this.countryLbl.Text = "Nation";
+            this.nationLbl.AutoSize = true;
+            this.nationLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nationLbl.Location = new System.Drawing.Point(-2, 190);
+            this.nationLbl.Name = "nationLbl";
+            this.nationLbl.Size = new System.Drawing.Size(49, 16);
+            this.nationLbl.TabIndex = 292;
+            this.nationLbl.Text = "Nation";
             // 
             // emailEd
             // 
@@ -228,33 +228,33 @@
             this.phoneEd.Size = new System.Drawing.Size(108, 22);
             this.phoneEd.TabIndex = 7;
             // 
-            // enNameLbl
+            // nameLbl
             // 
-            this.enNameLbl.AutoSize = true;
-            this.enNameLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.enNameLbl.Location = new System.Drawing.Point(104, 1);
-            this.enNameLbl.Name = "enNameLbl";
-            this.enNameLbl.Size = new System.Drawing.Size(135, 16);
-            this.enNameLbl.TabIndex = 303;
-            this.enNameLbl.Text = "Name (Vietnamese)";
+            this.nameLbl.AutoSize = true;
+            this.nameLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nameLbl.Location = new System.Drawing.Point(104, 1);
+            this.nameLbl.Name = "nameLbl";
+            this.nameLbl.Size = new System.Drawing.Size(135, 16);
+            this.nameLbl.TabIndex = 303;
+            this.nameLbl.Text = "Name (Vietnamese)";
             // 
-            // enNameEd
+            // nameEd
             // 
-            this.enNameEd.BackColor = System.Drawing.SystemColors.Window;
-            this.enNameEd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.enNameEd.Location = new System.Drawing.Point(107, 21);
-            this.enNameEd.Name = "enNameEd";
-            this.enNameEd.Size = new System.Drawing.Size(333, 22);
-            this.enNameEd.TabIndex = 2;
+            this.nameEd.BackColor = System.Drawing.SystemColors.Window;
+            this.nameEd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nameEd.Location = new System.Drawing.Point(107, 21);
+            this.nameEd.Name = "nameEd";
+            this.nameEd.Size = new System.Drawing.Size(333, 22);
+            this.nameEd.TabIndex = 2;
             // 
             // companyGeneralInfo
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.Controls.Add(this.enNameLbl);
-            this.Controls.Add(this.enNameEd);
-            this.Controls.Add(this.codeEd);
             this.Controls.Add(this.nameLbl);
             this.Controls.Add(this.nameEd);
+            this.Controls.Add(this.codeEd);
+            this.Controls.Add(this.enNameLbl);
+            this.Controls.Add(this.enNameEd);
             this.Controls.Add(this.codeLbl);
             this.Controls.Add(this.addressLbl1);
             this.Controls.Add(this.addressEd1);
@@ -263,7 +263,7 @@
             this.Controls.Add(this.addressEd2);
             this.Controls.Add(this.websiteLbl);
             this.Controls.Add(this.countryCb);
-            this.Controls.Add(this.countryLbl);
+            this.Controls.Add(this.nationLbl);
             this.Controls.Add(this.emailEd);
             this.Controls.Add(this.faxEd);
             this.Controls.Add(this.emailLbl);
@@ -280,8 +280,8 @@
         #endregion
 
         protected common.controls.baseTextBox codeEd;
-        protected baseLabel nameLbl;
-        protected common.controls.baseTextBox nameEd;
+        protected baseLabel enNameLbl;
+        protected common.controls.baseTextBox enNameEd;
         protected baseLabel codeLbl;
         protected baseLabel addressLbl1;
         protected common.controls.baseTextBox addressEd1;
@@ -290,15 +290,15 @@
         protected common.controls.baseTextBox addressEd2;
         protected baseLabel websiteLbl;
         private cbCountry countryCb;
-        protected baseLabel countryLbl;
+        protected baseLabel nationLbl;
         protected common.controls.baseTextBox emailEd;
         protected common.controls.baseTextBox faxEd;
         protected baseLabel emailLbl;
         protected baseLabel phoneLbl;
         protected baseLabel faxLbl;
         protected common.controls.baseTextBox phoneEd;
-        protected baseLabel enNameLbl;
-        protected common.controls.baseTextBox enNameEd;
+        protected baseLabel nameLbl;
+        protected common.controls.baseTextBox nameEd;
 
 
     }

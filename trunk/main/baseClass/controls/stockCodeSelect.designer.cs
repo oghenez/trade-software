@@ -70,7 +70,7 @@
             // 
             // showOnlyCheckedChk
             // 
-            this.showOnlyCheckedChk.Location = new System.Drawing.Point(97, 3);
+            this.onlySeletedChk.Location = new System.Drawing.Point(97, 3);
             // 
             // stockSelectionCb
             // 

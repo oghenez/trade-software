@@ -70,12 +70,31 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="appConst.cs" />
+    <Compile Include="langs\myResources.vi-VN.Designer.cs">
+      <DependentUpon>myResources.vi-VN.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="langs\myResources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>myResources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="language.cs" />
     <Compile Include="sysLibs.cs" />
     <Compile Include="dataClass.cs" />
     <Compile Include="appLibs.cs">
     </Compile>
     <Compile Include="dataLibs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="langs\myResources.vi-VN.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>myResources.vi-VN.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="langs\myResources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>myResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

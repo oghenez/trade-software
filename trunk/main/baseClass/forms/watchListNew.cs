@@ -53,7 +53,15 @@ namespace baseClass.forms
             this.ShowDialog();
             return this.myPortfolioRow;
         }
-        
+
+        public override void SetLanguage()
+        {
+            base.SetLanguage();
+            this.Text = language.GetString("watchList");
+            saveBtn.Text = language.GetString("save");
+            exitBtn.Text = language.GetString("close");
+        }
+
         protected bool DataValid()
         {
             ClearNotifyError();

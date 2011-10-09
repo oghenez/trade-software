@@ -799,16 +799,20 @@
             // vietnameseMenuItem
             // 
             this.vietnameseMenuItem.Checked = true;
+            this.vietnameseMenuItem.CheckOnClick = true;
             this.vietnameseMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.vietnameseMenuItem.Name = "vietnameseMenuItem";
             this.vietnameseMenuItem.Size = new System.Drawing.Size(156, 22);
             this.vietnameseMenuItem.Text = "Vietnamese";
+            this.vietnameseMenuItem.Click += new System.EventHandler(this.vietnameseMenuItem_Click);
             // 
             // englishMenuItem
             // 
+            this.englishMenuItem.CheckOnClick = true;
             this.englishMenuItem.Name = "englishMenuItem";
             this.englishMenuItem.Size = new System.Drawing.Size(156, 22);
             this.englishMenuItem.Text = "English";
+            this.englishMenuItem.Click += new System.EventHandler(this.englishMenuItem_Click);
             // 
             // toolStripSeparator10
             // 

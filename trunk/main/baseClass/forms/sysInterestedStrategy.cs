@@ -27,6 +27,15 @@ namespace baseClass.forms
                 ShowError(er);
             }
         }
+        public override void SetLanguage()
+        {
+            base.SetLanguage();
+            this.Text = language.GetString("interestedStrategy");
+
+            saveBtn.Text = language.GetString("save");
+            refreshBtn.Text = language.GetString("reload");
+            exitBtn.Text = language.GetString("close");
+        }
 
         private void LoadData()
         {
@@ -62,7 +71,7 @@ namespace baseClass.forms
             {
                 this.ShowMessage("");
                 dataLibs.UpdateData(interestedStrategy.myDataTbl);
-                this.ShowMessage("Data were saved.");
+                this.ShowMessage(language.GetString("dataSaved"));
             }
             catch (Exception er)
             {
@@ -78,7 +87,7 @@ namespace baseClass.forms
             try
             {
                 if (!DataChanged()) return;
-                DialogResult dialogResult = MessageBox.Show("Save data before closing ?", common.settings.sysApplicationName, 
+                DialogResult dialogResult = MessageBox.Show(language.GetString("saveDataBeforeClose"), common.settings.sysApplicationName, 
                                                              MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
                 if (dialogResult== DialogResult.Cancel)
                 {
@@ -88,7 +97,7 @@ namespace baseClass.forms
                 if (dialogResult== DialogResult.Yes)
                 {
                     application.dataLibs.UpdateData(interestedStrategy.myDataTbl);
-                    this.ShowMessage("Data were saved.");
+                    this.ShowMessage(language.GetString("dataSaved"));
                 }
             }
             catch (Exception er)

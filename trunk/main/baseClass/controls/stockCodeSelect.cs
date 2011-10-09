@@ -33,7 +33,7 @@ namespace baseClass.controls
             bizSectorTypesSelection.Enabled = (stockSelectionCb.myValue == cbStockSelection.Options.Others);
             LoadStockList();
             selectAllChk.Checked = false;
-            showOnlyCheckedChk.Checked = false;
+            onlySeletedChk.Checked = false;
         }
 
         public override void LoadStockList()

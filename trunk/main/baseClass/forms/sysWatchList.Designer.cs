@@ -41,6 +41,7 @@
             // 
             // xpPanel_options
             // 
+            this.xpPanel_options.Caption = "Option";
             this.xpPanel_options.ImageItems.ImageSet = null;
             this.xpPanel_options.Size = new System.Drawing.Size(563, 466);
             // 
@@ -54,11 +55,12 @@
             // interestedStrategy
             // 
             this.interestedStrategy.Location = new System.Drawing.Point(600, 138);
-            this.interestedStrategy.Size = new System.Drawing.Size(537, 308);
+            this.interestedStrategy.Size = new System.Drawing.Size(537, 0);
             this.interestedStrategy.Visible = false;
             // 
             // xpPane_generalInfo
             // 
+            this.xpPane_generalInfo.Caption = "General information";
             this.xpPane_generalInfo.ImageItems.ImageSet = null;
             // 
             // xpPanelGroup_Info

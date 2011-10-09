@@ -49,6 +49,15 @@ namespace baseClass.controls
             }            
         }
         private enum watchListTypes : byte { None, All, StockExchange, WatchList, SysWatchList,Others};
+
+        public override void SetLanguage()
+        {
+            base.SetLanguage();
+            stockExchangeColumn.HeaderText = language.GetString("exchange");
+            codeColumn.HeaderText = language.GetString("code");
+            priceColumn.HeaderText = language.GetString("price");
+        }
+
         protected virtual void SetListColor()
         {
             decimal variant = 0;
@@ -127,7 +136,7 @@ namespace baseClass.controls
             dataLibs.LoadPortfolioByInvestor(portfolioTbl,sysLibs.sysLoginCode,AppTypes.PortfolioTypes.SysWatchList);
             if (portfolioTbl.Count > 0)
             {
-                item = new common.myKeyValueExt("--System--", "");
+                item = new common.myKeyValueExt("--"+ language.GetString("system") +"--", "");
                 item.Attribute1 = ((byte)watchListTypes.SysWatchList).ToString();
                 watchListCb.Items.Add(item);
             }
@@ -141,7 +150,7 @@ namespace baseClass.controls
             dataLibs.LoadPortfolioByInvestor(portfolioTbl, sysLibs.sysLoginCode, AppTypes.PortfolioTypes.WatchList);
             if (portfolioTbl.Count > 0)
             {
-                item = new common.myKeyValueExt("--Watch List--", "");
+                item = new common.myKeyValueExt("--"+language.GetString("watchList")+"--", "");
                 item.Attribute1 = ((byte)watchListTypes.WatchList).ToString();
                 watchListCb.Items.Add(item);
             }

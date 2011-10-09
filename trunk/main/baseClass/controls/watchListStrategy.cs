@@ -70,6 +70,14 @@ namespace baseClass.controls
             treeGV.Nodes.Clear();
             CreateTreeView(this.myDataTbl, treeGV);
         }
+        public override void SetLanguage()
+        {
+            base.SetLanguage();
+            strategyLbl.Text = language.GetString("strategy");
+            timeScaleLbl.Text = language.GetString("timeScale");
+
+            timeScaleClb.LoadData();
+        }
 
         private class nodeData
         {
@@ -181,7 +189,7 @@ namespace baseClass.controls
             {
                 if (treeGV.SelectedRows.Count == 0)
                 {
-                    common.system.ShowErrorMessage("Please select one or more rows!");
+                    common.system.ShowErrorMessage(language.GetString("pleaseSelectRows"));
                     treeGV.Focus();
                     return;
                 }

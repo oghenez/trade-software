@@ -33,90 +33,92 @@
             common.license.myLicenseItem myLicenseItem1 = new common.license.myLicenseItem();
             this.SuspendLayout();
             // 
+            // viewLicenceBtn
+            // 
+            this.viewLicenceBtn.Text = "View";
+            // 
+            // exportBtn
+            // 
+            this.exportBtn.Text = "Export";
+            // 
             // vendorNameLbl
             // 
-            this.vendorNameLbl.Location = new System.Drawing.Point(25, 34);
-            // 
-            // vendorNameEd
-            // 
-            this.vendorNameEd.Location = new System.Drawing.Point(26, 53);
-            // 
-            // faxLbl
-            // 
-            this.faxLbl.Location = new System.Drawing.Point(349, 174);
+            this.vendorNameLbl.Size = new System.Drawing.Size(55, 16);
+            this.vendorNameLbl.Text = "Vendor";
             // 
             // faxEd
             // 
             this.faxEd.BackColor = System.Drawing.SystemColors.Info;
-            this.faxEd.Location = new System.Drawing.Point(349, 194);
             // 
             // phoneLbl
             // 
-            this.phoneLbl.Location = new System.Drawing.Point(259, 174);
+            this.phoneLbl.Size = new System.Drawing.Size(48, 16);
+            this.phoneLbl.Text = "Phone";
             // 
             // phoneEd
             // 
             this.phoneEd.BackColor = System.Drawing.SystemColors.Info;
-            this.phoneEd.Location = new System.Drawing.Point(259, 194);
             // 
             // addressLbl
             // 
-            this.addressLbl.Location = new System.Drawing.Point(25, 125);
+            this.addressLbl.Size = new System.Drawing.Size(74, 16);
+            this.addressLbl.Text = "Address 1";
             // 
             // addressEd
             // 
             this.addressEd.BackColor = System.Drawing.SystemColors.Info;
-            this.addressEd.Location = new System.Drawing.Point(26, 145);
             // 
             // prodCodeLbl
             // 
-            this.prodCodeLbl.Location = new System.Drawing.Point(314, 34);
-            // 
-            // prodCodeEd
-            // 
-            this.prodCodeEd.Location = new System.Drawing.Point(313, 53);
+            this.prodCodeLbl.Size = new System.Drawing.Size(95, 16);
+            this.prodCodeLbl.Text = "Product Code";
             // 
             // serialLbl
             // 
-            this.serialLbl.Location = new System.Drawing.Point(134, 219);
+            this.serialLbl.Size = new System.Drawing.Size(64, 16);
+            this.serialLbl.Text = "Serial No";
             // 
             // serialEd
             // 
             this.serialEd.BackColor = System.Drawing.SystemColors.Info;
-            this.serialEd.Location = new System.Drawing.Point(136, 240);
             // 
             // toDateLbl
             // 
-            this.toDateLbl.Location = new System.Drawing.Point(25, 219);
+            this.toDateLbl.Size = new System.Drawing.Size(75, 16);
+            this.toDateLbl.Text = "Expired on";
             // 
             // toDateEd
             // 
             this.toDateEd.BackColor = System.Drawing.SystemColors.Info;
-            this.toDateEd.Location = new System.Drawing.Point(26, 240);
-            // 
-            // emailLbl
-            // 
-            this.emailLbl.Location = new System.Drawing.Point(25, 175);
             // 
             // emailEd
             // 
             this.emailEd.BackColor = System.Drawing.SystemColors.Info;
-            this.emailEd.Location = new System.Drawing.Point(26, 194);
             // 
             // companyLbl
             // 
-            this.companyLbl.Location = new System.Drawing.Point(25, 80);
+            this.companyLbl.Size = new System.Drawing.Size(67, 16);
+            this.companyLbl.Text = "Company";
             // 
             // companyEd
             // 
             this.companyEd.BackColor = System.Drawing.SystemColors.Info;
-            this.companyEd.Location = new System.Drawing.Point(26, 99);
+            // 
+            // hwInfoBtn
+            // 
+            this.hwInfoBtn.Text = "Hardware";
+            // 
+            // closeBtn
+            // 
+            this.closeBtn.Text = "Close";
+            // 
+            // okBtn
+            // 
+            this.okBtn.Text = "Ok";
             // 
             // licenseCheck
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
-            
-            this.ClientSize = new System.Drawing.Size(464, 352);
+            this.ClientSize = new System.Drawing.Size(477, 319);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.myHwInfo = mySysInfo1;
             this.myLicense = myLicenseItem1;

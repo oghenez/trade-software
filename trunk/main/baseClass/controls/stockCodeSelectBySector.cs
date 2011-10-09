@@ -42,6 +42,14 @@ namespace baseClass.controls
                 ErrorHandler(this, er);
             }            
         }
+        public override void SetLanguage()
+        {
+            base.SetLanguage();
+            onlySeletedChk.Text = language.GetString("onlySeleted");
+            selectAllChk.Text = language.GetString("selectAll");
+        }
+
+
         protected void ClearCache()
         {
             this._stockCodeTbl = null;
@@ -78,7 +86,7 @@ namespace baseClass.controls
             }
             set
             {
-                showOnlyCheckedChk.Checked = value;
+                onlySeletedChk.Checked = value;
                 this.stockCodeClb.ShowCheckedOnly = value;
             }
         }
@@ -95,7 +103,7 @@ namespace baseClass.controls
         {
             this.Enabled = !state;
             this.stockCodeClb.Enabled = !state;
-            showOnlyCheckedChk.Enabled = !state;
+            onlySeletedChk.Enabled = !state;
             bizSectorTypesSelection.LockEdit(state);
         }
         public virtual void LoadStockList()
@@ -125,11 +133,11 @@ namespace baseClass.controls
         }
 
 
-        private void showOnlyCheckedChk_CheckedChanged(object sender, EventArgs e)
+        private void onlySeletedChk_CheckedChanged(object sender, EventArgs e)
         {
             try
             {
-                this.stockCodeClb.ShowCheckedOnly = showOnlyCheckedChk.Checked;
+                this.stockCodeClb.ShowCheckedOnly = onlySeletedChk.Checked;
             }
             catch (Exception er)
             {
@@ -143,7 +151,7 @@ namespace baseClass.controls
                 LoadStockList();
 
                 selectAllChk.Checked = false; 
-                showOnlyCheckedChk.Checked = false; 
+                onlySeletedChk.Checked = false; 
             }
             catch (Exception er)
             {
