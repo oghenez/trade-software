@@ -17,7 +17,7 @@ namespace Indicators
     {
         public CORRELHelper()
         {
-            Init(typeof(CORREL), typeof(forms.commonForm), typeof(DataBars));
+            Init(typeof(CORREL), typeof(forms.commonForm));
         }
     }
 

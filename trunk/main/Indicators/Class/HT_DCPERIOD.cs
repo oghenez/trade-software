@@ -17,7 +17,7 @@ namespace Indicators
     {
         public HT_DCPERIODHelper()
         {
-            Init(typeof(HT_DCPERIOD), typeof(forms.commonForm), typeof(DataBars));
+            Init(typeof(HT_DCPERIOD), typeof(forms.commonForm));
         }
     }
 
