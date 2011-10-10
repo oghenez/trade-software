@@ -20,4 +20,13 @@
   <A00000004>
     <Strategy.TwoSMAMACDSCR params="12 26 9 5 10" />
   </A00000004>
+  <A00000004>
+    <Indicators.ADX params="14" />
+  </A00000004>
+  <A00000004>
+    <Indicators.ADX output="Blue:1" />
+  </A00000004>
+  <A00000004>
+    <Indicators.ADX drawInNewWindow="True" />
+  </A00000004>
 </Configuration>

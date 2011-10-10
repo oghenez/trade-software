@@ -1,3 +1,12 @@
+<<<<<<< .mine
+<Configuration>
+  <ENVIRONMENT>
+    <Login LoginName="" />
+  </ENVIRONMENT>
+  <ENVIRONMENT>
+    <Login loginLocationId="jbIksur+Co8418sxRi6a4A==" />
+  </ENVIRONMENT>
+</Configuration>=======
 <Configuration>
   <DBCONNECTION>
     <dbConInfo0 dbServerName="UFgJ30q7O3cPO2qdp6ZJBA==" />
@@ -23,4 +32,4 @@
   <ENVIRONMENT>
     <Login loginLocationId="Qivs4xlMKfhcld4XESkALCbo0gnVtn5ZYgw0F4WLwDs=" />
   </ENVIRONMENT>
-</Configuration>
+</Configuration>>>>>>>> .r216
