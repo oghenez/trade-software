@@ -232,6 +232,29 @@ namespace application
             retVal.FirstValidValue = ds.FirstValidValue;
             return retVal;
         }
+
+        public static DataSeries operator /(DataSeries d1, DataSeries d2)
+        {
+            DataSeries retVal = new DataSeries();
+
+            if (d1.Count <= d2.Count)
+            {
+                for (int idx = 0; idx < d1.Count; idx++)
+                    if (d2[idx] != 0) retVal.Add(d1[idx] / d2[idx]);
+                    else retVal.Add(0);
+                for (int idx = d1.Count; idx < d2.Count; idx++) retVal.Add(d2[idx]);
+            }
+            else
+            {
+                for (int idx = 0; idx < d2.Count; idx++)
+                    if (d2[idx] != 0) retVal.Add(d1[idx] / d2[idx]);
+                    else retVal.Add(0);
+                for (int idx = d2.Count; idx < d1.Count; idx++) retVal.Add(d1[idx]);
+            }
+
+            return retVal;
+        }
+
         public static DataSeries operator >>(DataSeries ds, int n)
         {
             DataSeries retVal = new DataSeries();
