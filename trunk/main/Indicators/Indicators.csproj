@@ -110,6 +110,17 @@
     <Compile Include="class\HT_PHASOR.cs" />
     <Compile Include="class\HT_TRENDLINE.cs" />
     <Compile Include="class\KAMA.cs" />
+    <Compile Include="langs\myResources.vi-VN.Designer.cs">
+      <DependentUpon>myResources.vi-VN.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="langs\myResources.Designer.cs">
+      <DependentUpon>myResources.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Libs\language.cs" />
     <Compile Include="Libs\lib.cs" />
     <Compile Include="class\LINEARREG_SLOPE.cs" />
     <Compile Include="class\MAX.cs" />
@@ -130,6 +141,14 @@
     <EmbeddedResource Include="forms\sampleMACD.resx">
       <DependentUpon>sampleMACD.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="langs\myResources.vi-VN.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>myResources.vi-VN.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="langs\myResources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>myResources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

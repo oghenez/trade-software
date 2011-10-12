@@ -30,19 +30,19 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(backTesting));
             this.resultDataGrid = new common.controls.baseDataGridView();
-            this.dateRangeLbl = new baseClass.controls.baseLabel();
-            this.dateRangeEd = new baseClass.controls.chartTiming();
+            this.periodicityLbl = new baseClass.controls.baseLabel();
+            this.periodicityEd = new baseClass.controls.chartTiming();
             this.myTmpDS = new data.tmpDS();
             this.dataPnl = new System.Windows.Forms.Panel();
             this.strategyEstimationPnl = new common.controls.basePanel();
             this.strategyEstimationGrid = new common.controls.baseDataGridView();
             this.optionPnl = new System.Windows.Forms.Panel();
-            this.stockCodeSelectLb = new baseClass.controls.stockCodeSelect();
-            this.stockCodeLbl = new baseClass.controls.baseLabel();
+            this.codeSelectLb = new baseClass.controls.stockCodeSelect();
+            this.codeListLbl = new baseClass.controls.baseLabel();
             this.strategyLbl = new baseClass.controls.baseLabel();
             this.strategyClb = new baseClass.controls.strategySelect();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
-            this.mainMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.backTestMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.runMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.openMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -81,25 +81,25 @@
             this.resultDataGrid.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGrid_CellContentDoubleClick);
             this.resultDataGrid.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.grid_DataError);
             // 
-            // dateRangeLbl
+            // periodicityLbl
             // 
-            this.dateRangeLbl.AutoSize = true;
-            this.dateRangeLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateRangeLbl.Location = new System.Drawing.Point(22, 3);
-            this.dateRangeLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.dateRangeLbl.Name = "dateRangeLbl";
-            this.dateRangeLbl.Size = new System.Drawing.Size(76, 16);
-            this.dateRangeLbl.TabIndex = 311;
-            this.dateRangeLbl.Text = "Periodicity";
+            this.periodicityLbl.AutoSize = true;
+            this.periodicityLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.periodicityLbl.Location = new System.Drawing.Point(22, 3);
+            this.periodicityLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.periodicityLbl.Name = "periodicityLbl";
+            this.periodicityLbl.Size = new System.Drawing.Size(76, 16);
+            this.periodicityLbl.TabIndex = 311;
+            this.periodicityLbl.Text = "Periodicity";
             // 
-            // dateRangeEd
+            // periodicityEd
             // 
-            this.dateRangeEd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateRangeEd.Location = new System.Drawing.Point(21, 21);
-            this.dateRangeEd.myTimeRange = application.AppTypes.TimeRanges.Y5;
-            this.dateRangeEd.Name = "dateRangeEd";
-            this.dateRangeEd.Size = new System.Drawing.Size(378, 24);
-            this.dateRangeEd.TabIndex = 1;
+            this.periodicityEd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.periodicityEd.Location = new System.Drawing.Point(21, 21);
+            this.periodicityEd.myTimeRange = application.AppTypes.TimeRanges.Y5;
+            this.periodicityEd.Name = "periodicityEd";
+            this.periodicityEd.Size = new System.Drawing.Size(378, 24);
+            this.periodicityEd.TabIndex = 1;
             // 
             // myTmpDS
             // 
@@ -153,41 +153,41 @@
             // optionPnl
             // 
             this.optionPnl.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.optionPnl.Controls.Add(this.stockCodeSelectLb);
-            this.optionPnl.Controls.Add(this.stockCodeLbl);
+            this.optionPnl.Controls.Add(this.codeSelectLb);
+            this.optionPnl.Controls.Add(this.codeListLbl);
             this.optionPnl.Controls.Add(this.strategyLbl);
             this.optionPnl.Controls.Add(this.strategyClb);
-            this.optionPnl.Controls.Add(this.dateRangeEd);
-            this.optionPnl.Controls.Add(this.dateRangeLbl);
+            this.optionPnl.Controls.Add(this.periodicityEd);
+            this.optionPnl.Controls.Add(this.periodicityLbl);
             this.optionPnl.Location = new System.Drawing.Point(2, 30);
             this.optionPnl.Name = "optionPnl";
             this.optionPnl.Size = new System.Drawing.Size(428, 654);
             this.optionPnl.TabIndex = 315;
             // 
-            // stockCodeSelectLb
+            // codeSelectLb
             // 
-            this.stockCodeSelectLb.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            this.codeSelectLb.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)));
-            this.stockCodeSelectLb.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.stockCodeSelectLb.Location = new System.Drawing.Point(21, 250);
-            this.stockCodeSelectLb.Margin = new System.Windows.Forms.Padding(2);
-            this.stockCodeSelectLb.myItemString = "";
-            this.stockCodeSelectLb.myValues = ((System.Collections.Specialized.StringCollection)(resources.GetObject("stockCodeSelectLb.myValues")));
-            this.stockCodeSelectLb.Name = "stockCodeSelectLb";
-            this.stockCodeSelectLb.ShowCheckedOnly = false;
-            this.stockCodeSelectLb.Size = new System.Drawing.Size(379, 398);
-            this.stockCodeSelectLb.TabIndex = 5;
+            this.codeSelectLb.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.codeSelectLb.Location = new System.Drawing.Point(21, 250);
+            this.codeSelectLb.Margin = new System.Windows.Forms.Padding(2);
+            this.codeSelectLb.myItemString = "";
+            this.codeSelectLb.myValues = ((System.Collections.Specialized.StringCollection)(resources.GetObject("codeSelectLb.myValues")));
+            this.codeSelectLb.Name = "codeSelectLb";
+            this.codeSelectLb.ShowCheckedOnly = false;
+            this.codeSelectLb.Size = new System.Drawing.Size(379, 398);
+            this.codeSelectLb.TabIndex = 5;
             // 
-            // stockCodeLbl
+            // codeListLbl
             // 
-            this.stockCodeLbl.AutoSize = true;
-            this.stockCodeLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.stockCodeLbl.Location = new System.Drawing.Point(22, 232);
-            this.stockCodeLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.stockCodeLbl.Name = "stockCodeLbl";
-            this.stockCodeLbl.Size = new System.Drawing.Size(63, 16);
-            this.stockCodeLbl.TabIndex = 318;
-            this.stockCodeLbl.Text = "Code list";
+            this.codeListLbl.AutoSize = true;
+            this.codeListLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.codeListLbl.Location = new System.Drawing.Point(22, 232);
+            this.codeListLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.codeListLbl.Name = "codeListLbl";
+            this.codeListLbl.Size = new System.Drawing.Size(63, 16);
+            this.codeListLbl.TabIndex = 318;
+            this.codeListLbl.Text = "Code list";
             // 
             // strategyLbl
             // 
@@ -214,16 +214,16 @@
             // 
             this.menuStrip.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mainMenuItem});
+            this.backTestMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.Size = new System.Drawing.Size(842, 24);
             this.menuStrip.TabIndex = 316;
             this.menuStrip.Text = "menuStrip1";
             // 
-            // mainMenuItem
+            // backTestMenuItem
             // 
-            this.mainMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.backTestMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.runMenuItem,
             this.toolStripSeparator2,
             this.openMenuItem,
@@ -236,9 +236,9 @@
             this.toolStripSeparator3,
             this.exportResultMenuItem,
             this.exportEstimationMenuItem});
-            this.mainMenuItem.Name = "mainMenuItem";
-            this.mainMenuItem.Size = new System.Drawing.Size(101, 20);
-            this.mainMenuItem.Text = "Back Testing";
+            this.backTestMenuItem.Name = "backTestMenuItem";
+            this.backTestMenuItem.Size = new System.Drawing.Size(101, 20);
+            this.backTestMenuItem.Text = "Back Testing";
             // 
             // runMenuItem
             // 
@@ -325,7 +325,6 @@
             this.Controls.Add(this.dataPnl);
             this.Controls.Add(this.optionPnl);
             this.Controls.Add(this.menuStrip);
-            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip;
             this.Name = "backTesting";
@@ -354,18 +353,18 @@
         #endregion
 
         protected common.controls.baseDataGridView resultDataGrid;
-        protected baseClass.controls.baseLabel dateRangeLbl;
-        protected baseClass.controls.chartTiming dateRangeEd;
+        protected baseClass.controls.baseLabel periodicityLbl;
+        protected baseClass.controls.chartTiming periodicityEd;
         private data.tmpDS myTmpDS;
         protected System.Windows.Forms.Panel dataPnl;
         protected common.controls.baseDataGridView strategyEstimationGrid;
         protected System.Windows.Forms.Panel optionPnl;
         protected baseClass.controls.baseLabel strategyLbl;
         protected baseClass.controls.strategySelect strategyClb;
-        protected baseClass.controls.baseLabel stockCodeLbl;
+        protected baseClass.controls.baseLabel codeListLbl;
         protected System.Windows.Forms.MenuStrip menuStrip;
         private common.controls.basePanel strategyEstimationPnl;
-        private System.Windows.Forms.ToolStripMenuItem mainMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem backTestMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exportResultMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exportEstimationMenuItem;
         private System.Windows.Forms.ToolStripMenuItem runMenuItem;
@@ -377,7 +376,7 @@
         private System.Windows.Forms.ToolStripMenuItem addToWatchListMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripMenuItem allProfitDetailMenu;
-        private baseClass.controls.stockCodeSelect stockCodeSelectLb;
+        private baseClass.controls.stockCodeSelect codeSelectLb;
         private System.Windows.Forms.ToolStripMenuItem profitDetailMenu;
     }
 }

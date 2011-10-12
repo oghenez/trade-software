@@ -18,12 +18,17 @@ namespace Indicators.forms
         {
             InitializeComponent();
         }
-
         public baseIndicatorForm(Meta meta)
         {
             InitializeComponent();
             Libs.GetUserSettings(meta);
             this.FormMeta = meta;
+        }
+        public override void SetLanguage()
+        {
+            base.SetLanguage();
+            okBtn.Text = language.GetString("draw");
+            saveBtn.Text = language.GetString("saveSetting");
         }
         public delegate void PlotChart(baseIndicatorForm sender,bool removeChart);
         public event PlotChart onPlotChart = null;
@@ -40,7 +45,7 @@ namespace Indicators.forms
         {
             CollectMetaData(this.FormMeta);
             Libs.SaveUserSettings(this.FormMeta);
-            this.ShowMessage("Settings was saved");
+            this.ShowMessage(language.GetString("settingSaved"));
         }
 
         private void baseIndicator_myOnProcess(object sender, common.baseDialogEvent e)

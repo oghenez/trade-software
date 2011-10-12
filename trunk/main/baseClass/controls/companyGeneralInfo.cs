@@ -23,6 +23,7 @@ namespace baseClass.controls
         public override void SetLanguage()
         {
             base.SetLanguage();
+            countryCb.SetLanguage();
             codeLbl.Text = language.GetString("exchange");
             nameLbl.Text = language.GetString("name");
             enNameLbl.Text = language.GetString("name") + "(English)";

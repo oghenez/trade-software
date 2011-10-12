@@ -31,11 +31,11 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(strategyRanking));
             this.myTmpDS = new data.tmpDS();
             this.optionPnl = new System.Windows.Forms.Panel();
-            this.stockCodeSelectLb = new baseClass.controls.stockCodeSelect();
+            this.codeListLb = new baseClass.controls.stockCodeSelect();
             this.timeScaleLbl = new baseClass.controls.baseLabel();
-            this.cbTimeScale = new baseClass.controls.cbTimeScale();
+            this.timeScaleCb = new baseClass.controls.cbTimeScale();
             this.allTimeRangeChk = new System.Windows.Forms.CheckBox();
-            this.stockCodeLbl = new baseClass.controls.baseLabel();
+            this.codeListLbl = new baseClass.controls.baseLabel();
             this.timeRangeLb = new baseClass.controls.clbTimeRange();
             this.strategyLbl = new baseClass.controls.baseLabel();
             this.strategyClb = new baseClass.controls.strategySelect();
@@ -76,11 +76,11 @@
             this.optionPnl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)));
             this.optionPnl.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.optionPnl.Controls.Add(this.stockCodeSelectLb);
+            this.optionPnl.Controls.Add(this.codeListLb);
             this.optionPnl.Controls.Add(this.timeScaleLbl);
-            this.optionPnl.Controls.Add(this.cbTimeScale);
+            this.optionPnl.Controls.Add(this.timeScaleCb);
             this.optionPnl.Controls.Add(this.allTimeRangeChk);
-            this.optionPnl.Controls.Add(this.stockCodeLbl);
+            this.optionPnl.Controls.Add(this.codeListLbl);
             this.optionPnl.Controls.Add(this.timeRangeLb);
             this.optionPnl.Controls.Add(this.strategyLbl);
             this.optionPnl.Controls.Add(this.strategyClb);
@@ -89,20 +89,20 @@
             this.optionPnl.Size = new System.Drawing.Size(471, 651);
             this.optionPnl.TabIndex = 315;
             // 
-            // stockCodeSelectLb
+            // codeListLb
             // 
-            this.stockCodeSelectLb.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            this.codeListLb.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.stockCodeSelectLb.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.stockCodeSelectLb.Location = new System.Drawing.Point(21, 383);
-            this.stockCodeSelectLb.Margin = new System.Windows.Forms.Padding(2);
-            this.stockCodeSelectLb.myItemString = "";
-            this.stockCodeSelectLb.myValues = ((System.Collections.Specialized.StringCollection)(resources.GetObject("stockCodeSelectLb.myValues")));
-            this.stockCodeSelectLb.Name = "stockCodeSelectLb";
-            this.stockCodeSelectLb.ShowCheckedOnly = false;
-            this.stockCodeSelectLb.Size = new System.Drawing.Size(426, 263);
-            this.stockCodeSelectLb.TabIndex = 30;
+            this.codeListLb.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.codeListLb.Location = new System.Drawing.Point(21, 383);
+            this.codeListLb.Margin = new System.Windows.Forms.Padding(2);
+            this.codeListLb.myItemString = "";
+            this.codeListLb.myValues = ((System.Collections.Specialized.StringCollection)(resources.GetObject("codeListLb.myValues")));
+            this.codeListLb.Name = "codeListLb";
+            this.codeListLb.ShowCheckedOnly = false;
+            this.codeListLb.Size = new System.Drawing.Size(426, 263);
+            this.codeListLb.TabIndex = 30;
             // 
             // timeScaleLbl
             // 
@@ -116,15 +116,15 @@
             this.timeScaleLbl.TabIndex = 327;
             this.timeScaleLbl.Text = "Time scale";
             // 
-            // cbTimeScale
+            // timeScaleCb
             // 
-            this.cbTimeScale.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbTimeScale.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbTimeScale.FormattingEnabled = true;
-            this.cbTimeScale.Location = new System.Drawing.Point(346, 5);
-            this.cbTimeScale.Name = "cbTimeScale";
-            this.cbTimeScale.Size = new System.Drawing.Size(102, 24);
-            this.cbTimeScale.TabIndex = 2;
+            this.timeScaleCb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.timeScaleCb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.timeScaleCb.FormattingEnabled = true;
+            this.timeScaleCb.Location = new System.Drawing.Point(346, 4);
+            this.timeScaleCb.Name = "timeScaleCb";
+            this.timeScaleCb.Size = new System.Drawing.Size(102, 24);
+            this.timeScaleCb.TabIndex = 2;
             // 
             // allTimeRangeChk
             // 
@@ -138,16 +138,16 @@
             this.allTimeRangeChk.UseVisualStyleBackColor = true;
             this.allTimeRangeChk.CheckedChanged += new System.EventHandler(this.allTimeRangeChk_CheckedChanged);
             // 
-            // stockCodeLbl
+            // codeListLbl
             // 
-            this.stockCodeLbl.AutoSize = true;
-            this.stockCodeLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.stockCodeLbl.Location = new System.Drawing.Point(21, 365);
-            this.stockCodeLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.stockCodeLbl.Name = "stockCodeLbl";
-            this.stockCodeLbl.Size = new System.Drawing.Size(63, 16);
-            this.stockCodeLbl.TabIndex = 326;
-            this.stockCodeLbl.Text = "Code list";
+            this.codeListLbl.AutoSize = true;
+            this.codeListLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.codeListLbl.Location = new System.Drawing.Point(21, 365);
+            this.codeListLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.codeListLbl.Name = "codeListLbl";
+            this.codeListLbl.Size = new System.Drawing.Size(63, 16);
+            this.codeListLbl.TabIndex = 326;
+            this.codeListLbl.Text = "Code list";
             // 
             // timeRangeLb
             // 
@@ -216,8 +216,8 @@
             this.toolStripSeparator3,
             this.exportResultMenuItem});
             this.mainMenuItem.Name = "mainMenuItem";
-            this.mainMenuItem.Size = new System.Drawing.Size(111, 20);
-            this.mainMenuItem.Text = "Stock Ranking";
+            this.mainMenuItem.Size = new System.Drawing.Size(133, 20);
+            this.mainMenuItem.Text = "Strategy Ranking";
             // 
             // runMenuItem
             // 
@@ -352,10 +352,10 @@
         protected System.Windows.Forms.CheckBox allTimeRangeChk;
         private System.Windows.Forms.ToolStripMenuItem profitDetailMenu;
         protected System.Windows.Forms.TabControl resultTab;
-        protected baseClass.controls.baseLabel stockCodeLbl;
-        protected baseClass.controls.cbTimeScale cbTimeScale;
+        protected baseClass.controls.baseLabel codeListLbl;
+        protected baseClass.controls.cbTimeScale timeScaleCb;
         protected baseClass.controls.baseLabel timeScaleLbl;
-        private baseClass.controls.stockCodeSelect stockCodeSelectLb;
+        private baseClass.controls.stockCodeSelect codeListLb;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
         private System.Windows.Forms.ToolStripMenuItem allProfitDetailMenu;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;

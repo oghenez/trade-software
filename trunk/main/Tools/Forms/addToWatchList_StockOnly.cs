@@ -21,6 +21,12 @@ namespace Tools.Forms
             InitializeComponent();
             stockCodeEd.BackColor = watchListLb.BackColor;
         }
+        public override void SetLanguage()
+        {
+            base.SetLanguage();
+            codeLbl.Text = language.GetString("code");
+        }
+
         public static addToWatchList_StockOnly GetForm(string formName)
         {
             string cacheKey = typeof(addToWatchList_StockOnly).FullName + (formName == null || formName.Trim() == "" ? "" : "-" + formName);
@@ -62,7 +68,7 @@ namespace Tools.Forms
                 dataLibs.UpdateData(portfolioRow);
                 dataLibs.UpdateData(portfolioDataTbl);
             }
-            common.system.ShowMessage("Data ware saved.");
+            common.system.ShowMessage(language.GetString("dataSaved"));
         }
         private void DeletePortfolioData(data.baseDS.portfolioDetailDataTable dataTbl, string portfolioCode,string code)
         {

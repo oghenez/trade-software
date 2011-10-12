@@ -30,8 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(screening));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataPnl = new System.Windows.Forms.Panel();
             this.resultDataGrid = new common.controls.baseDataGridView();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
@@ -45,7 +45,7 @@
             this.openMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addToWatchListMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.stockCodeLb = new baseClass.controls.stockCodeSelect();
-            this.stockCodeLbl = new baseClass.controls.baseLabel();
+            this.codeListLbl = new baseClass.controls.baseLabel();
             this.optionPnl = new System.Windows.Forms.Panel();
             this.strategyGb = new System.Windows.Forms.GroupBox();
             this.criteriaGridLbl = new baseClass.controls.baseLabel();
@@ -70,11 +70,11 @@
             this.editColumn = new common.controls.gridViewImageColumn();
             this.delBtn = new System.Windows.Forms.Button();
             this.addBtn = new System.Windows.Forms.Button();
-            this.baseLabel4 = new baseClass.controls.baseLabel();
+            this.descriptionLbl = new baseClass.controls.baseLabel();
             this.strategyDescEd = new common.controls.baseTextBox();
             this.maxLbl = new baseClass.controls.baseLabel();
             this.minLbl = new baseClass.controls.baseLabel();
-            this.strategyLbl = new baseClass.controls.baseLabel();
+            this.criteriaLbl = new baseClass.controls.baseLabel();
             ((System.ComponentModel.ISupportInitialize)(this.myDataSet)).BeginInit();
             this.dataPnl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.resultDataGrid)).BeginInit();
@@ -212,22 +212,22 @@
             this.stockCodeLb.Size = new System.Drawing.Size(464, 247);
             this.stockCodeLb.TabIndex = 2;
             // 
-            // stockCodeLbl
+            // codeListLbl
             // 
-            this.stockCodeLbl.AutoSize = true;
-            this.stockCodeLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.stockCodeLbl.Location = new System.Drawing.Point(0, 374);
-            this.stockCodeLbl.Name = "stockCodeLbl";
-            this.stockCodeLbl.Size = new System.Drawing.Size(67, 16);
-            this.stockCodeLbl.TabIndex = 316;
-            this.stockCodeLbl.Text = "Code List";
-            this.stockCodeLbl.Click += new System.EventHandler(this.strategyLbl_Click);
+            this.codeListLbl.AutoSize = true;
+            this.codeListLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.codeListLbl.Location = new System.Drawing.Point(0, 374);
+            this.codeListLbl.Name = "codeListLbl";
+            this.codeListLbl.Size = new System.Drawing.Size(67, 16);
+            this.codeListLbl.TabIndex = 316;
+            this.codeListLbl.Text = "Code List";
+            this.codeListLbl.Click += new System.EventHandler(this.strategyLbl_Click);
             // 
             // optionPnl
             // 
-            this.optionPnl.Controls.Add(this.strategyGb);
-            this.optionPnl.Controls.Add(this.stockCodeLbl);
+            this.optionPnl.Controls.Add(this.codeListLbl);
             this.optionPnl.Controls.Add(this.stockCodeLb);
+            this.optionPnl.Controls.Add(this.strategyGb);
             this.optionPnl.Location = new System.Drawing.Point(0, -1);
             this.optionPnl.Name = "optionPnl";
             this.optionPnl.Size = new System.Drawing.Size(466, 642);
@@ -244,11 +244,11 @@
             this.strategyGb.Controls.Add(this.criteriaGrid);
             this.strategyGb.Controls.Add(this.delBtn);
             this.strategyGb.Controls.Add(this.addBtn);
-            this.strategyGb.Controls.Add(this.baseLabel4);
+            this.strategyGb.Controls.Add(this.descriptionLbl);
             this.strategyGb.Controls.Add(this.strategyDescEd);
             this.strategyGb.Controls.Add(this.maxLbl);
             this.strategyGb.Controls.Add(this.minLbl);
-            this.strategyGb.Controls.Add(this.strategyLbl);
+            this.strategyGb.Controls.Add(this.criteriaLbl);
             this.strategyGb.Location = new System.Drawing.Point(3, -2);
             this.strategyGb.Name = "strategyGb";
             this.strategyGb.Size = new System.Drawing.Size(460, 373);
@@ -434,20 +434,20 @@
             // minColumn
             // 
             this.minColumn.DataPropertyName = "min";
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.Format = "N0";
-            dataGridViewCellStyle1.NullValue = null;
-            this.minColumn.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.Format = "N0";
+            dataGridViewCellStyle3.NullValue = null;
+            this.minColumn.DefaultCellStyle = dataGridViewCellStyle3;
             this.minColumn.HeaderText = "Min";
             this.minColumn.Name = "minColumn";
             // 
             // maxColumn
             // 
             this.maxColumn.DataPropertyName = "max";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.Format = "N0";
-            dataGridViewCellStyle2.NullValue = null;
-            this.maxColumn.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.Format = "N0";
+            dataGridViewCellStyle4.NullValue = null;
+            this.maxColumn.DefaultCellStyle = dataGridViewCellStyle4;
             this.maxColumn.HeaderText = "Max";
             this.maxColumn.Name = "maxColumn";
             // 
@@ -485,15 +485,15 @@
             this.addBtn.UseVisualStyleBackColor = true;
             this.addBtn.Click += new System.EventHandler(this.addBtn_Click);
             // 
-            // baseLabel4
+            // descriptionLbl
             // 
-            this.baseLabel4.AutoSize = true;
-            this.baseLabel4.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.baseLabel4.Location = new System.Drawing.Point(23, 52);
-            this.baseLabel4.Name = "baseLabel4";
-            this.baseLabel4.Size = new System.Drawing.Size(81, 16);
-            this.baseLabel4.TabIndex = 324;
-            this.baseLabel4.Text = "Description";
+            this.descriptionLbl.AutoSize = true;
+            this.descriptionLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.descriptionLbl.Location = new System.Drawing.Point(23, 52);
+            this.descriptionLbl.Name = "descriptionLbl";
+            this.descriptionLbl.Size = new System.Drawing.Size(81, 16);
+            this.descriptionLbl.TabIndex = 324;
+            this.descriptionLbl.Text = "Description";
             // 
             // strategyDescEd
             // 
@@ -526,15 +526,15 @@
             this.minLbl.Text = "Min";
             this.minLbl.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // strategyLbl
+            // criteriaLbl
             // 
-            this.strategyLbl.AutoSize = true;
-            this.strategyLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.strategyLbl.Location = new System.Drawing.Point(23, 10);
-            this.strategyLbl.Name = "strategyLbl";
-            this.strategyLbl.Size = new System.Drawing.Size(56, 16);
-            this.strategyLbl.TabIndex = 318;
-            this.strategyLbl.Text = "Criteria";
+            this.criteriaLbl.AutoSize = true;
+            this.criteriaLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.criteriaLbl.Location = new System.Drawing.Point(23, 10);
+            this.criteriaLbl.Name = "criteriaLbl";
+            this.criteriaLbl.Size = new System.Drawing.Size(56, 16);
+            this.criteriaLbl.TabIndex = 318;
+            this.criteriaLbl.Text = "Criteria";
             // 
             // screening
             // 
@@ -586,13 +586,13 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripMenuItem openMenuItem;
         private System.Windows.Forms.ToolStripMenuItem addToWatchListMenuItem;
-        protected baseClass.controls.baseLabel stockCodeLbl;
+        protected baseClass.controls.baseLabel codeListLbl;
         private System.Windows.Forms.Panel optionPnl;
-        protected baseClass.controls.baseLabel strategyLbl;
+        protected baseClass.controls.baseLabel criteriaLbl;
         protected baseClass.controls.baseLabel maxLbl;
         protected baseClass.controls.baseLabel minLbl;
         private System.Windows.Forms.GroupBox strategyGb;
-        protected baseClass.controls.baseLabel baseLabel4;
+        protected baseClass.controls.baseLabel descriptionLbl;
         protected System.Windows.Forms.Button addBtn;
         protected System.Windows.Forms.Button delBtn;
         protected System.Windows.Forms.BindingSource criteriaSource;

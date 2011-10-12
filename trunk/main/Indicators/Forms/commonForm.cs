@@ -19,6 +19,20 @@ namespace Indicators.forms
 
             SetPara(meta);
         }
+        public override void SetLanguage()
+        {
+            base.SetLanguage();
+            this.Text = language.GetString("indicator");
+            paraPg.Text = language.GetString("parameter");
+            hintPg.Text = language.GetString("description");
+            paraLbl.Text = language.GetString("parameter");
+            nameColumn.HeaderText = language.GetString("name");
+            valueColumn.HeaderText = language.GetString("value");
+            outNameolumn.HeaderText = language.GetString("name");
+            outColorColumn.HeaderText = language.GetString("color");
+            outWeightColumn.HeaderText = language.GetString("weight");
+            inNewPaneChk.Text = language.GetString("inNewPane");
+        }
         protected override void CollectMetaData(Meta meta) 
         {
             double val = 0;

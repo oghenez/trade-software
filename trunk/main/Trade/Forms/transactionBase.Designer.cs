@@ -46,13 +46,13 @@
             this.onTimeLbl = new common.controls.baseLabel();
             this.onTimeEd = new common.controls.baseDate();
             this.portfolioLbl = new common.controls.baseLabel();
-            this.stockCodeLbl = new common.controls.baseLabel();
+            this.codeLbl = new common.controls.baseLabel();
             this.transTypeLbl = new common.controls.baseLabel();
             this.portfolioCb = new baseClass.controls.cbWatchList();
-            this.stockCodeEd = new baseClass.controls.txtStockCode();
+            this.codeEd = new baseClass.controls.txtStockCode();
             this.transCodeEd = new common.controls.baseTextBox();
             this.transTypeCb = new baseClass.controls.cbTradeAction();
-            this.codeLbl = new common.controls.baseLabel();
+            this.transactionNoLbl = new common.controls.baseLabel();
             this.editGB1.SuspendLayout();
             this.editGB2.SuspendLayout();
             this.SuspendLayout();
@@ -133,23 +133,23 @@
             // 
             // totalAmtLbl
             // 
-            this.totalAmtLbl.AutoSize = true;
             this.totalAmtLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.totalAmtLbl.Location = new System.Drawing.Point(29, 114);
+            this.totalAmtLbl.Location = new System.Drawing.Point(16, 114);
             this.totalAmtLbl.Name = "totalAmtLbl";
-            this.totalAmtLbl.Size = new System.Drawing.Size(93, 16);
+            this.totalAmtLbl.Size = new System.Drawing.Size(108, 16);
             this.totalAmtLbl.TabIndex = 173;
             this.totalAmtLbl.Text = "Total amount";
+            this.totalAmtLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // qtyLbl
             // 
-            this.qtyLbl.AutoSize = true;
             this.qtyLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.qtyLbl.Location = new System.Drawing.Point(91, 19);
+            this.qtyLbl.Location = new System.Drawing.Point(16, 19);
             this.qtyLbl.Name = "qtyLbl";
-            this.qtyLbl.Size = new System.Drawing.Size(31, 16);
+            this.qtyLbl.Size = new System.Drawing.Size(108, 16);
             this.qtyLbl.TabIndex = 163;
             this.qtyLbl.Text = "Qty";
+            this.qtyLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // priceEd
             // 
@@ -172,23 +172,23 @@
             // 
             // feeAmtLbl
             // 
-            this.feeAmtLbl.AutoSize = true;
             this.feeAmtLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.feeAmtLbl.Location = new System.Drawing.Point(50, 90);
+            this.feeAmtLbl.Location = new System.Drawing.Point(16, 90);
             this.feeAmtLbl.Name = "feeAmtLbl";
-            this.feeAmtLbl.Size = new System.Drawing.Size(74, 16);
+            this.feeAmtLbl.Size = new System.Drawing.Size(108, 16);
             this.feeAmtLbl.TabIndex = 171;
             this.feeAmtLbl.Text = "Trans Fee ";
+            this.feeAmtLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // priceLbl
             // 
-            this.priceLbl.AutoSize = true;
             this.priceLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.priceLbl.Location = new System.Drawing.Point(82, 43);
+            this.priceLbl.Location = new System.Drawing.Point(16, 43);
             this.priceLbl.Name = "priceLbl";
-            this.priceLbl.Size = new System.Drawing.Size(40, 16);
+            this.priceLbl.Size = new System.Drawing.Size(108, 16);
             this.priceLbl.TabIndex = 165;
             this.priceLbl.Text = "Price";
+            this.priceLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // feeAmtEd
             // 
@@ -230,13 +230,13 @@
             // 
             // subTotalLbl
             // 
-            this.subTotalLbl.AutoSize = true;
             this.subTotalLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.subTotalLbl.Location = new System.Drawing.Point(63, 66);
+            this.subTotalLbl.Location = new System.Drawing.Point(16, 66);
             this.subTotalLbl.Name = "subTotalLbl";
-            this.subTotalLbl.Size = new System.Drawing.Size(59, 16);
+            this.subTotalLbl.Size = new System.Drawing.Size(108, 16);
             this.subTotalLbl.TabIndex = 167;
             this.subTotalLbl.Text = "Amount";
+            this.subTotalLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // editGB2
             // 
@@ -245,13 +245,13 @@
             this.editGB2.Controls.Add(this.onTimeLbl);
             this.editGB2.Controls.Add(this.onTimeEd);
             this.editGB2.Controls.Add(this.portfolioLbl);
-            this.editGB2.Controls.Add(this.stockCodeLbl);
+            this.editGB2.Controls.Add(this.codeLbl);
             this.editGB2.Controls.Add(this.transTypeLbl);
             this.editGB2.Controls.Add(this.portfolioCb);
-            this.editGB2.Controls.Add(this.stockCodeEd);
+            this.editGB2.Controls.Add(this.codeEd);
             this.editGB2.Controls.Add(this.transCodeEd);
             this.editGB2.Controls.Add(this.transTypeCb);
-            this.editGB2.Controls.Add(this.codeLbl);
+            this.editGB2.Controls.Add(this.transactionNoLbl);
             this.editGB2.Location = new System.Drawing.Point(3, -1);
             this.editGB2.Name = "editGB2";
             this.editGB2.Size = new System.Drawing.Size(354, 173);
@@ -260,13 +260,13 @@
             // 
             // statusLbl
             // 
-            this.statusLbl.AutoSize = true;
             this.statusLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.statusLbl.Location = new System.Drawing.Point(65, 143);
+            this.statusLbl.Location = new System.Drawing.Point(10, 143);
             this.statusLbl.Name = "statusLbl";
-            this.statusLbl.Size = new System.Drawing.Size(51, 16);
+            this.statusLbl.Size = new System.Drawing.Size(114, 16);
             this.statusLbl.TabIndex = 163;
             this.statusLbl.Text = "Status";
+            this.statusLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // statusCb
             // 
@@ -283,13 +283,13 @@
             // 
             // onTimeLbl
             // 
-            this.onTimeLbl.AutoSize = true;
             this.onTimeLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.onTimeLbl.Location = new System.Drawing.Point(44, 118);
+            this.onTimeLbl.Location = new System.Drawing.Point(10, 118);
             this.onTimeLbl.Name = "onTimeLbl";
-            this.onTimeLbl.Size = new System.Drawing.Size(72, 16);
+            this.onTimeLbl.Size = new System.Drawing.Size(114, 16);
             this.onTimeLbl.TabIndex = 161;
             this.onTimeLbl.Text = "Date Time";
+            this.onTimeLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // onTimeEd
             // 
@@ -308,33 +308,33 @@
             // 
             // portfolioLbl
             // 
-            this.portfolioLbl.AutoSize = true;
             this.portfolioLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.portfolioLbl.Location = new System.Drawing.Point(53, 93);
+            this.portfolioLbl.Location = new System.Drawing.Point(10, 93);
             this.portfolioLbl.Name = "portfolioLbl";
-            this.portfolioLbl.Size = new System.Drawing.Size(63, 16);
+            this.portfolioLbl.Size = new System.Drawing.Size(114, 16);
             this.portfolioLbl.TabIndex = 152;
             this.portfolioLbl.Text = "Portfolio";
+            this.portfolioLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // stockCodeLbl
+            // codeLbl
             // 
-            this.stockCodeLbl.AutoSize = true;
-            this.stockCodeLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.stockCodeLbl.Location = new System.Drawing.Point(76, 18);
-            this.stockCodeLbl.Name = "stockCodeLbl";
-            this.stockCodeLbl.Size = new System.Drawing.Size(40, 16);
-            this.stockCodeLbl.TabIndex = 159;
-            this.stockCodeLbl.Text = "Code";
+            this.codeLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.codeLbl.Location = new System.Drawing.Point(10, 18);
+            this.codeLbl.Name = "codeLbl";
+            this.codeLbl.Size = new System.Drawing.Size(114, 16);
+            this.codeLbl.TabIndex = 159;
+            this.codeLbl.Text = "Code";
+            this.codeLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // transTypeLbl
             // 
-            this.transTypeLbl.AutoSize = true;
             this.transTypeLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.transTypeLbl.Location = new System.Drawing.Point(32, 68);
+            this.transTypeLbl.Location = new System.Drawing.Point(10, 68);
             this.transTypeLbl.Name = "transTypeLbl";
-            this.transTypeLbl.Size = new System.Drawing.Size(84, 16);
+            this.transTypeLbl.Size = new System.Drawing.Size(114, 16);
             this.transTypeLbl.TabIndex = 157;
             this.transTypeLbl.Text = "Transaction";
+            this.transTypeLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // portfolioCb
             // 
@@ -346,16 +346,16 @@
             this.portfolioCb.Size = new System.Drawing.Size(158, 24);
             this.portfolioCb.TabIndex = 11;
             // 
-            // stockCodeEd
+            // codeEd
             // 
-            this.stockCodeEd.BackColor = System.Drawing.Color.White;
-            this.stockCodeEd.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.stockCodeEd.ForeColor = System.Drawing.Color.Black;
-            this.stockCodeEd.Location = new System.Drawing.Point(128, 14);
-            this.stockCodeEd.Name = "stockCodeEd";
-            this.stockCodeEd.Size = new System.Drawing.Size(81, 24);
-            this.stockCodeEd.TabIndex = 1;
-            this.stockCodeEd.TabStop = false;
+            this.codeEd.BackColor = System.Drawing.Color.White;
+            this.codeEd.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.codeEd.ForeColor = System.Drawing.Color.Black;
+            this.codeEd.Location = new System.Drawing.Point(128, 14);
+            this.codeEd.Name = "codeEd";
+            this.codeEd.Size = new System.Drawing.Size(81, 24);
+            this.codeEd.TabIndex = 1;
+            this.codeEd.TabStop = false;
             // 
             // transCodeEd
             // 
@@ -370,23 +370,22 @@
             // transTypeCb
             // 
             this.transTypeCb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.transTypeCb.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.transTypeCb.Location = new System.Drawing.Point(128, 62);
             this.transTypeCb.myValue = application.AppTypes.TradeActions.None;
             this.transTypeCb.Name = "transTypeCb";
             this.transTypeCb.SelectedValue = ((byte)(0));
-            this.transTypeCb.Size = new System.Drawing.Size(158, 24);
+            this.transTypeCb.Size = new System.Drawing.Size(158, 21);
             this.transTypeCb.TabIndex = 10;
             // 
-            // codeLbl
+            // transactionNoLbl
             // 
-            this.codeLbl.AutoSize = true;
-            this.codeLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.codeLbl.Location = new System.Drawing.Point(35, 43);
-            this.codeLbl.Name = "codeLbl";
-            this.codeLbl.Size = new System.Drawing.Size(81, 16);
-            this.codeLbl.TabIndex = 156;
-            this.codeLbl.Text = "Order Code";
+            this.transactionNoLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.transactionNoLbl.Location = new System.Drawing.Point(10, 43);
+            this.transactionNoLbl.Name = "transactionNoLbl";
+            this.transactionNoLbl.Size = new System.Drawing.Size(114, 16);
+            this.transactionNoLbl.TabIndex = 156;
+            this.transactionNoLbl.Text = "Transaction No";
+            this.transactionNoLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // transactionBase
             // 
@@ -428,12 +427,12 @@
         protected common.controls.baseLabel onTimeLbl;
         protected common.controls.baseDate onTimeEd;
         protected common.controls.baseLabel portfolioLbl;
-        protected common.controls.baseLabel stockCodeLbl;
+        protected common.controls.baseLabel codeLbl;
         protected common.controls.baseLabel transTypeLbl;
         protected baseClass.controls.cbWatchList portfolioCb;
-        protected baseClass.controls.txtStockCode stockCodeEd;
+        protected baseClass.controls.txtStockCode codeEd;
         protected common.controls.baseTextBox transCodeEd;
         protected baseClass.controls.cbTradeAction transTypeCb;
-        protected common.controls.baseLabel codeLbl;
+        protected common.controls.baseLabel transactionNoLbl;
     }
 }

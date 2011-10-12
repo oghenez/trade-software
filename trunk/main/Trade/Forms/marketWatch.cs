@@ -23,6 +23,11 @@ namespace Trade.Forms
                 this.ShowError(er);
             }
         }
+        public override void SetLanguage()
+        {
+            base.SetLanguage();
+            stockCodeList.SetLanguage();
+        }
         public void Export()
         {
             stockCodeList.Export();

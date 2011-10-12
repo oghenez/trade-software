@@ -17,8 +17,8 @@ namespace Tools.Forms
             try
             {
                 InitializeComponent();
-                stockCodeSelectLb.LoadData();
-                cbTimeScale.LoadData();
+                codeListLb.LoadData();
+                timeScaleCb.LoadData();
                 strategyClb.LoadData(AppTypes.StrategyTypes.Strategy, true, false);
                 AppTypes.TimeRanges[] timeRanges = new AppTypes.TimeRanges[]
                 {
@@ -33,6 +33,31 @@ namespace Tools.Forms
                 this.ShowError(er);
             }
         }
+        public override void SetLanguage()
+        {
+            base.SetLanguage();
+            this.Text = language.GetString("strategyRanking");
+            allTimeRangeChk.Text = language.GetString("periodicity");
+            timeScaleLbl.Text = language.GetString("timeScale");
+            strategyLbl.Text = language.GetString("strategy");
+            codeListLbl.Text = language.GetString("codeList");
+
+            timeRangeLb.SetLanguage();
+            timeScaleCb.SetLanguage();
+            strategyClb.SetLanguage();
+            codeListLb.SetLanguage();
+
+            //Menu
+            mainMenuItem.Text = language.GetString("strategyRanking");
+            exportResultMenuItem.Text = language.GetString("export");
+            runMenuItem.Text = language.GetString("run");
+            fullViewMenuItem.Text = language.GetString("fullView");
+            openMenuItem.Text = language.GetString("open");
+            addToWatchListMenuItem.Text = language.GetString("addToWatchList");
+            profitDetailMenu.Text = language.GetString("profitDetail");
+            allProfitDetailMenu.Text = language.GetString("allProfitDetail");
+        }
+
         public static strategyRanking GetForm(string formName)
         {
             string cacheKey = typeof(strategyRanking).FullName + (formName != null && formName.Trim() == "" ? "-" + formName.Trim() : "");
@@ -77,7 +102,7 @@ namespace Tools.Forms
                 DateTime endTime = DateTime.Now;
                 this.myFormMode = formMode.OptionWithData;
                 FormResize();
-                this.ShowMessage(" Hòan tất : " + common.dateTimeLibs.TimeSpan2String(endTime.Subtract(startTime)));
+                this.ShowMessage(language.GetString("finished") + " : " + common.dateTimeLibs.TimeSpan2String(endTime.Subtract(startTime)));
             }
             catch (Exception er)
             {
@@ -221,7 +246,7 @@ namespace Tools.Forms
             {
                 case formMode.OptionOnly:
                     optionPnl.Height = this.ClientRectangle.Height - optionPnl.Location.Y - SystemInformation.CaptionHeight;
-                    stockCodeSelectLb.Height = optionPnl.Height - stockCodeSelectLb.Location.Y;
+                    codeListLb.Height = optionPnl.Height - codeListLb.Location.Y;
                     this.Width = optionPnl.Width+5;
                     break;
                 case formMode.DataOnly:
@@ -231,7 +256,7 @@ namespace Tools.Forms
                     break;
                 case formMode.OptionWithData:
                     optionPnl.Height = this.ClientRectangle.Height - optionPnl.Location.Y - SystemInformation.CaptionHeight;
-                    stockCodeSelectLb.Height = optionPnl.Height - stockCodeSelectLb.Location.Y;
+                    codeListLb.Height = optionPnl.Height - codeListLb.Location.Y;
 
                     resultTab.Location = new Point(optionPnl.Location.X + optionPnl.Width, 0);
                     resultTab.Width = this.ClientRectangle.Width - resultTab.Location.X;
@@ -252,9 +277,9 @@ namespace Tools.Forms
         {
             bool retVal = true;
             ClearNotifyError();
-            if (this.stockCodeSelectLb.Enabled && this.stockCodeSelectLb.myValues.Count == 0)
+            if (this.codeListLb.Enabled && this.codeListLb.myValues.Count == 0)
             {
-                NotifyError(stockCodeLbl);
+                NotifyError(codeListLbl);
                 retVal = false;
             }
             if (this.strategyClb.myCheckedValues.Count == 0)
@@ -276,7 +301,7 @@ namespace Tools.Forms
             this.Amount2PercentDenominator = application.Settings.sysStockTotalCapAmt;
 
             resultTab.TabPages.Clear();
-            StringCollection stockCodeList = stockCodeSelectLb.myValues;
+            StringCollection stockCodeList = codeListLb.myValues;
             StringCollection strategyList = strategyClb.myCheckedValues;
             StringCollection timeRangeList = timeRangeLb.myCheckedValues;
             progressBar.Value = 0; progressBar.Minimum = 0; progressBar.Maximum = stockCodeList.Count * timeRangeList.Count;
@@ -291,7 +316,7 @@ namespace Tools.Forms
                     AppTypes.TimeRanges timeRange = AppTypes.TimeRangeFromCode(timeRangeList[colId]);
                     decimal profit = 0;
 
-                    application.Data analysisData = new application.Data(timeRange, cbTimeScale.myValue, stockCode);
+                    application.Data analysisData = new application.Data(timeRange, timeScaleCb.myValue, stockCode);
                     for (int rowId = 0; rowId < strategyList.Count; rowId++)
                     {
                         profit = 0;
@@ -426,7 +451,7 @@ namespace Tools.Forms
                 if (stockCodeRow == null) return;
 
                 string strategyCode = resultDataGrid.CurrentRow.Cells[0].Value.ToString();
-                ShowTradeTransactions(stockCodeRow, strategyCode, timeRange,cbTimeScale.myValue);
+                ShowTradeTransactions(stockCodeRow, strategyCode, timeRange,timeScaleCb.myValue);
             }
             catch (Exception er)
             {
@@ -491,7 +516,7 @@ namespace Tools.Forms
 
                 int colId = resultDataGrid.CurrentCell.ColumnIndex;
                 AppTypes.TimeRanges timeRange = AppTypes.TimeRangeFromCode(resultDataGrid.Columns[colId].DataPropertyName);
-                ShowStock(stockCodeRow, timeRange, cbTimeScale.myValue);
+                ShowStock(stockCodeRow, timeRange, timeScaleCb.myValue);
             }
             catch (Exception er)
             {
@@ -514,7 +539,7 @@ namespace Tools.Forms
                     Strategy.Meta meta = Strategy.Libs.FindMetaByName(resultDataGrid.SelectedRows[idx].Cells[0].Value.ToString());
                     strategyCodes.Add(meta.Code);
                 }
-                if (strategyCodes.Count > 0) this.AddStockToWatchList(stockCode, strategyCodes,cbTimeScale.myValue);
+                if (strategyCodes.Count > 0) this.AddStockToWatchList(stockCode, strategyCodes,timeScaleCb.myValue);
             }
             catch (Exception er)
             {
@@ -541,7 +566,7 @@ namespace Tools.Forms
                         for (int idx = 1; idx < resultDataGrid.ColumnCount; idx++)
                         {
                             AppTypes.TimeRanges timeRange = AppTypes.TimeRangeFromCode(resultDataGrid.Columns[idx].DataPropertyName);
-                            ShowTradeTransactions(stockCodeRow, meta.Code, timeRange, cbTimeScale.myValue);
+                            ShowTradeTransactions(stockCodeRow, meta.Code, timeRange, timeScaleCb.myValue);
                         }
                     }
                 }
@@ -553,7 +578,7 @@ namespace Tools.Forms
                         for (int idx = 1; idx < resultDataGrid.ColumnCount; idx++)
                         {
                             AppTypes.TimeRanges timeRange = AppTypes.TimeRangeFromCode(resultDataGrid.Columns[idx].DataPropertyName);
-                            ShowTradeTransactions(stockCodeRow, meta.Code, timeRange, cbTimeScale.myValue);
+                            ShowTradeTransactions(stockCodeRow, meta.Code, timeRange, timeScaleCb.myValue);
                         }
                     }
                 }
@@ -578,7 +603,7 @@ namespace Tools.Forms
 
                 int colId = resultDataGrid.CurrentCell.ColumnIndex;
                 AppTypes.TimeRanges timeRange = AppTypes.TimeRangeFromCode(resultDataGrid.Columns[colId].DataPropertyName);
-                ShowTradeTransactions(stockCodeRow, meta.Code, timeRange, cbTimeScale.myValue);
+                ShowTradeTransactions(stockCodeRow, meta.Code, timeRange, timeScaleCb.myValue);
             }
             catch (Exception er)
             {

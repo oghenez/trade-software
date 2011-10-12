@@ -115,6 +115,17 @@
     <Compile Include="Forms\tradeAlertList.designer.cs">
       <DependentUpon>tradeAlertList.cs</DependentUpon>
     </Compile>
+    <Compile Include="langs\myResources.vi-VN.Designer.cs">
+      <DependentUpon>myResources.vi-VN.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="langs\myResources.Designer.cs">
+      <DependentUpon>myResources.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="libs\language.cs" />
     <Compile Include="libs\libs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Forms\alertFilter.resx">
@@ -146,6 +157,14 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\transactionView.resx">
       <DependentUpon>transactionView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="langs\myResources.vi-VN.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>myResources.vi-VN.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="langs\myResources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>myResources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -238,9 +257,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\addNew.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Controls\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

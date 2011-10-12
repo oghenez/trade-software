@@ -56,7 +56,7 @@
             this.watchListCb.Location = new System.Drawing.Point(0, 0);
             this.watchListCb.myValue = "";
             this.watchListCb.Name = "watchListCb";
-            this.watchListCb.Size = new System.Drawing.Size(244, 24);
+            this.watchListCb.Size = new System.Drawing.Size(258, 24);
             this.watchListCb.TabIndex = 1;
             this.watchListCb.SelectionChangeCommitted += new System.EventHandler(this.watchListCb_SelectionChangeCommitted);
             // 
@@ -82,7 +82,7 @@
             this.stockGV.ReadOnly = true;
             this.stockGV.RowHeadersWidth = 20;
             this.stockGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.stockGV.Size = new System.Drawing.Size(264, 348);
+            this.stockGV.Size = new System.Drawing.Size(278, 348);
             this.stockGV.TabIndex = 10;
             this.stockGV.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.stockGV_CellDoubleClick);
             this.stockGV.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.stockGV_DataBindingComplete);
@@ -107,7 +107,7 @@
             this.refreshBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.refreshBtn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.refreshBtn.Image = global::baseClass.Properties.Resources.refresh;
-            this.refreshBtn.Location = new System.Drawing.Point(244, 1);
+            this.refreshBtn.Location = new System.Drawing.Point(258, 1);
             this.refreshBtn.Margin = new System.Windows.Forms.Padding(4);
             this.refreshBtn.Name = "refreshBtn";
             this.refreshBtn.Size = new System.Drawing.Size(18, 21);
@@ -129,7 +129,7 @@
             this.codeColumn.HeaderText = "Code";
             this.codeColumn.Name = "codeColumn";
             this.codeColumn.ReadOnly = true;
-            this.codeColumn.Width = 45;
+            this.codeColumn.Width = 55;
             // 
             // priceColumn
             // 
@@ -166,13 +166,13 @@
             // stockCodeSelectByWatchList
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.Controls.Add(this.stockGV);
             this.Controls.Add(this.refreshBtn);
             this.Controls.Add(this.watchListCb);
+            this.Controls.Add(this.stockGV);
             this.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "stockCodeSelectByWatchList";
-            this.Size = new System.Drawing.Size(266, 375);
+            this.Size = new System.Drawing.Size(280, 375);
             this.Resize += new System.EventHandler(this.form_Resize);
             ((System.ComponentModel.ISupportInitialize)(this.stockGV)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.stockSource)).EndInit();

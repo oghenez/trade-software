@@ -33,10 +33,15 @@
             this.strategyLb = new common.controls.baseListBox();
             this.timeScaleCb = new baseClass.controls.cbTimeScale();
             this.timeScaleLbl = new baseClass.controls.baseLabel();
-            this.stockCodLbl = new baseClass.controls.baseLabel();
-            this.stockCodeEd = new common.controls.baseTextBox();
+            this.codeLbl = new baseClass.controls.baseLabel();
+            this.codeEd = new common.controls.baseTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
+            // 
+            // addToLbl
+            // 
+            this.addToLbl.Size = new System.Drawing.Size(119, 16);
+            this.addToLbl.Text = "Add to watch list";
             // 
             // watchListLb
             // 
@@ -62,7 +67,7 @@
             // strategyLbl
             // 
             this.strategyLbl.AutoSize = true;
-            this.strategyLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.strategyLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
             this.strategyLbl.Location = new System.Drawing.Point(18, 165);
             this.strategyLbl.Name = "strategyLbl";
             this.strategyLbl.Size = new System.Drawing.Size(66, 16);
@@ -75,11 +80,12 @@
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.strategyLb.FormattingEnabled = true;
+            this.strategyLb.ItemHeight = 16;
             this.strategyLb.Location = new System.Drawing.Point(18, 182);
             this.strategyLb.myItemString = "";
             this.strategyLb.myItemValues = ((System.Collections.Specialized.StringCollection)(resources.GetObject("strategyLb.myItemValues")));
             this.strategyLb.Name = "strategyLb";
-            this.strategyLb.Size = new System.Drawing.Size(333, 95);
+            this.strategyLb.Size = new System.Drawing.Size(333, 84);
             this.strategyLb.TabIndex = 20;
             this.strategyLb.TabStop = false;
             // 
@@ -91,7 +97,7 @@
             this.timeScaleCb.FormattingEnabled = true;
             this.timeScaleCb.Location = new System.Drawing.Point(190, 140);
             this.timeScaleCb.Name = "timeScaleCb";
-            this.timeScaleCb.Size = new System.Drawing.Size(162, 21);
+            this.timeScaleCb.Size = new System.Drawing.Size(162, 24);
             this.timeScaleCb.TabIndex = 11;
             // 
             // timeScaleLbl
@@ -105,49 +111,48 @@
             this.timeScaleLbl.TabIndex = 328;
             this.timeScaleLbl.Text = "Time scale";
             // 
-            // stockCodLbl
+            // codeLbl
             // 
-            this.stockCodLbl.AutoSize = true;
-            this.stockCodLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.stockCodLbl.Location = new System.Drawing.Point(15, 120);
-            this.stockCodLbl.Name = "stockCodLbl";
-            this.stockCodLbl.Size = new System.Drawing.Size(40, 16);
-            this.stockCodLbl.TabIndex = 329;
-            this.stockCodLbl.Text = "Code";
+            this.codeLbl.AutoSize = true;
+            this.codeLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.codeLbl.Location = new System.Drawing.Point(15, 120);
+            this.codeLbl.Name = "codeLbl";
+            this.codeLbl.Size = new System.Drawing.Size(40, 16);
+            this.codeLbl.TabIndex = 329;
+            this.codeLbl.Text = "Code";
             // 
-            // stockCodeEd
+            // codeEd
             // 
-            this.stockCodeEd.Location = new System.Drawing.Point(19, 140);
-            this.stockCodeEd.Name = "stockCodeEd";
-            this.stockCodeEd.ReadOnly = true;
-            this.stockCodeEd.Size = new System.Drawing.Size(171, 20);
-            this.stockCodeEd.TabIndex = 10;
-            this.stockCodeEd.TabStop = false;
+            this.codeEd.Location = new System.Drawing.Point(19, 140);
+            this.codeEd.Name = "codeEd";
+            this.codeEd.ReadOnly = true;
+            this.codeEd.Size = new System.Drawing.Size(171, 23);
+            this.codeEd.TabIndex = 10;
+            this.codeEd.TabStop = false;
             // 
             // addToWatchList_StockAndStrategy
             // 
             this.ClientSize = new System.Drawing.Size(372, 346);
-            this.Controls.Add(this.stockCodeEd);
-            this.Controls.Add(this.stockCodLbl);
+            this.Controls.Add(this.codeEd);
+            this.Controls.Add(this.codeLbl);
             this.Controls.Add(this.timeScaleLbl);
             this.Controls.Add(this.timeScaleCb);
             this.Controls.Add(this.strategyLb);
             this.Controls.Add(this.strategyLbl);
-            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "addToWatchList_StockAndStrategy";
             this.Controls.SetChildIndex(this.newWatchListBtn, 0);
             this.Controls.SetChildIndex(this.TitleLbl, 0);
             this.Controls.SetChildIndex(this.okBtn, 0);
             this.Controls.SetChildIndex(this.closeBtn, 0);
-            this.Controls.SetChildIndex(this.listNameLbl, 0);
+            this.Controls.SetChildIndex(this.addToLbl, 0);
             this.Controls.SetChildIndex(this.watchListLb, 0);
             this.Controls.SetChildIndex(this.strategyLbl, 0);
             this.Controls.SetChildIndex(this.strategyLb, 0);
             this.Controls.SetChildIndex(this.timeScaleCb, 0);
             this.Controls.SetChildIndex(this.timeScaleLbl, 0);
-            this.Controls.SetChildIndex(this.stockCodLbl, 0);
-            this.Controls.SetChildIndex(this.stockCodeEd, 0);
+            this.Controls.SetChildIndex(this.codeLbl, 0);
+            this.Controls.SetChildIndex(this.codeEd, 0);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -160,7 +165,7 @@
         private common.controls.baseListBox strategyLb;
         protected baseClass.controls.cbTimeScale timeScaleCb;
         protected baseClass.controls.baseLabel timeScaleLbl;
-        protected baseClass.controls.baseLabel stockCodLbl;
-        private common.controls.baseTextBox stockCodeEd;
+        protected baseClass.controls.baseLabel codeLbl;
+        private common.controls.baseTextBox codeEd;
     }
 }

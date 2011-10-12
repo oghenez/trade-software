@@ -24,13 +24,22 @@ namespace Tools.Forms
                 this.ShowError(er);
             }
         }
+        public override void SetLanguage()
+        {
+            base.SetLanguage();
+            this.Text = language.GetString("addToWatchList");
+            addToLbl.Text = language.GetString("addToWatchList");
+            newWatchListBtn.Text = language.GetString("addNew");
+            watchListLb.SetLanguage();
+        }
+
         protected virtual void SaveData(){}
         protected virtual bool DataValid() 
         {
             errorProvider.Clear();
             if (watchListLb.myCheckedValues.Count == 0)
             {
-                errorProvider.SetError(listNameLbl, "Invalid data");
+                errorProvider.SetError(addToLbl, "Invalid data");
                 return false;
             }
             return true;

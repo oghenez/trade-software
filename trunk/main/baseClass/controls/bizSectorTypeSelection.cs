@@ -32,6 +32,14 @@ namespace baseClass.controls
                 ErrorHandler(this, er);
             }            
         }
+
+        public override void SetLanguage()
+        {
+            base.SetLanguage();
+            bizSectorTypesCb.SetLanguage();
+            bizSectorCb.SetLanguage();
+        }
+
         public application.AppTypes.BizSectorTypes myBizSectorType
         {
             get { return bizSectorTypesCb.myValue; }

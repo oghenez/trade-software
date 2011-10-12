@@ -28,12 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.paramGrid = new common.controls.baseDataGridView();
+            this.nameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.valueColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.paraPg = new System.Windows.Forms.TabPage();
-            this.baseLabel1 = new common.controls.baseLabel();
+            this.outputLbl = new common.controls.baseLabel();
             this.paraLbl = new common.controls.baseLabel();
             this.outputGrid = new common.controls.baseDataGridView();
             this.outNameolumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -44,8 +46,6 @@
             this.paraDescEd = new common.controls.baseTextBox();
             this.hintPg = new System.Windows.Forms.TabPage();
             this.hintTextEd = new common.controls.baseTextBox();
-            this.nameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.valueColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.paramGrid)).BeginInit();
             this.tabControl.SuspendLayout();
             this.paraPg.SuspendLayout();
@@ -66,6 +66,7 @@
             // okBtn
             // 
             this.okBtn.Location = new System.Drawing.Point(168, 301);
+            this.okBtn.Text = "Ok";
             // 
             // TitleLbl
             // 
@@ -90,6 +91,23 @@
             this.paramGrid.TabIndex = 1;
             this.paramGrid.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.paramGrid_DataError);
             // 
+            // nameColumn
+            // 
+            this.nameColumn.HeaderText = "Names";
+            this.nameColumn.Name = "nameColumn";
+            this.nameColumn.ReadOnly = true;
+            this.nameColumn.Width = 185;
+            // 
+            // valueColumn
+            // 
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.Format = "N2";
+            dataGridViewCellStyle1.NullValue = null;
+            this.valueColumn.DefaultCellStyle = dataGridViewCellStyle1;
+            this.valueColumn.HeaderText = "Values";
+            this.valueColumn.Name = "valueColumn";
+            this.valueColumn.Width = 155;
+            // 
             // tabControl
             // 
             this.tabControl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
@@ -106,7 +124,7 @@
             // 
             // paraPg
             // 
-            this.paraPg.Controls.Add(this.baseLabel1);
+            this.paraPg.Controls.Add(this.outputLbl);
             this.paraPg.Controls.Add(this.paraLbl);
             this.paraPg.Controls.Add(this.outputGrid);
             this.paraPg.Controls.Add(this.inNewPaneChk);
@@ -121,15 +139,15 @@
             this.paraPg.Text = "Parameters";
             this.paraPg.UseVisualStyleBackColor = true;
             // 
-            // baseLabel1
+            // outputLbl
             // 
-            this.baseLabel1.AutoSize = true;
-            this.baseLabel1.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.baseLabel1.Location = new System.Drawing.Point(0, 140);
-            this.baseLabel1.Name = "baseLabel1";
-            this.baseLabel1.Size = new System.Drawing.Size(60, 16);
-            this.baseLabel1.TabIndex = 13;
-            this.baseLabel1.Text = "Outputs";
+            this.outputLbl.AutoSize = true;
+            this.outputLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.outputLbl.Location = new System.Drawing.Point(0, 140);
+            this.outputLbl.Name = "outputLbl";
+            this.outputLbl.Size = new System.Drawing.Size(60, 16);
+            this.outputLbl.TabIndex = 13;
+            this.outputLbl.Text = "Outputs";
             // 
             // paraLbl
             // 
@@ -239,23 +257,6 @@
             this.hintTextEd.Size = new System.Drawing.Size(389, 254);
             this.hintTextEd.TabIndex = 1;
             // 
-            // nameColumn
-            // 
-            this.nameColumn.HeaderText = "Names";
-            this.nameColumn.Name = "nameColumn";
-            this.nameColumn.ReadOnly = true;
-            this.nameColumn.Width = 185;
-            // 
-            // valueColumn
-            // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.Format = "N2";
-            dataGridViewCellStyle1.NullValue = null;
-            this.valueColumn.DefaultCellStyle = dataGridViewCellStyle1;
-            this.valueColumn.HeaderText = "Values";
-            this.valueColumn.Name = "valueColumn";
-            this.valueColumn.Width = 155;
-            // 
             // commonForm
             // 
             this.ClientSize = new System.Drawing.Size(389, 364);
@@ -291,7 +292,7 @@
         protected common.controls.baseCheckBox inNewPaneChk;
         protected common.controls.baseDataGridView outputGrid;
         private common.controls.baseLabel paraLbl;
-        private common.controls.baseLabel baseLabel1;
+        private common.controls.baseLabel outputLbl;
         private System.Windows.Forms.DataGridViewTextBoxColumn outNameolumn;
         private common.controls.ColorPickerColumn outColorColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn outWeightColumn;

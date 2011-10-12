@@ -22,6 +22,7 @@ namespace baseClass.controls
         public override void SetLanguage()
         {
             base.SetLanguage();
+            bizSectorLb.SetLanguage();
             bizSectorLbl.Text = language.GetString("bizSector");
         }
         private void SetMaxLength()

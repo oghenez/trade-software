@@ -19,6 +19,16 @@ namespace Strategy.forms
             SetPara(meta);
             tabControl.SendToBack();
         }
+        public override void SetLanguage()
+        {
+            base.SetLanguage();
+            this.Text = language.GetString("strategy");
+            paraPg.Text = language.GetString("parameter");
+            hintPg.Text = language.GetString("description");
+            nameColumn.HeaderText = language.GetString("name");
+            valueColumn.HeaderText = language.GetString("value");
+            saveBtn.Text = language.GetString("saveSetting");            
+        }
         public double[] Parameters
         {
             get 
@@ -70,7 +80,7 @@ namespace Strategy.forms
         {
             this.myMeta.Parameters = this.Parameters;
             Libs.SaveUserSettings(this.myMeta);
-            this.ShowMessage("Settings was saved");
+            this.ShowMessage(language.GetString("settingSaved"));
         }
 
         private void baseStrategy_myOnProcess(object sender, common.baseDialogEvent e)

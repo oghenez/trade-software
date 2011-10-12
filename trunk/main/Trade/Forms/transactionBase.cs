@@ -24,6 +24,24 @@ namespace Trade.Forms
                 this.ShowError(er);
             }
         }
+        public override void SetLanguage()
+        {
+            base.SetLanguage();
+            codeLbl.Text = language.GetString("code");
+            transactionNoLbl.Text = language.GetString("transactionNo");
+            portfolioLbl.Text = language.GetString("portfolio");
+            onTimeLbl.Text = language.GetString("onDate");
+            statusLbl.Text = language.GetString("status");
+            qtyLbl.Text = language.GetString("qty");
+            priceLbl.Text = language.GetString("price");
+            subTotalLbl.Text = language.GetString("subTotal");
+            feeAmtLbl.Text = language.GetString("feeAmt");
+            totalAmtLbl.Text = language.GetString("totalAmt");
+
+            portfolioCb.SetLanguage();
+            transTypeCb.SetLanguage();
+            statusCb.SetLanguage();
+        }
 
         public void Init()
         {
@@ -34,7 +52,7 @@ namespace Trade.Forms
             //Color
             transCodeEd.BackColor = common.settings.sysColorHiLightBG1; transCodeEd.ForeColor = common.settings.sysColorHiLightBG1;
 
-            stockCodeEd.BackColor = common.settings.sysColorNormalBG; stockCodeEd.ForeColor = common.settings.sysColorNormalFG;
+            codeEd.BackColor = common.settings.sysColorNormalBG; codeEd.ForeColor = common.settings.sysColorNormalFG;
             transTypeCb.BackColor = common.settings.sysColorNormalBG; transTypeCb.ForeColor = common.settings.sysColorNormalFG;
             portfolioCb.BackColor = common.settings.sysColorNormalBG; portfolioCb.ForeColor = common.settings.sysColorNormalFG;
             onTimeEd.BackColor = common.settings.sysColorHiLightBG1; onTimeEd.ForeColor = common.settings.sysColorHiLightFG1;
@@ -59,7 +77,7 @@ namespace Trade.Forms
         public void ClearEditData()
         {
             transCodeEd.Text = "";
-            stockCodeEd.Text = "";
+            codeEd.Text = "";
             onTimeEd.myDateTime = DateTime.Now;
             qtyEd.Value = 0; subTotalEd.Value = 0; feeAmtEd.Value = 0; totalAmtEd.Value = 0;
             transTypeCb.myValue = AppTypes.TradeActions.None;
@@ -67,12 +85,12 @@ namespace Trade.Forms
             CalculatePriceAndFeePercentage();
             feePercEd.Value = Settings.sysStockTransFeePercent;
 
-            stockCodeEd.Focus();
+            codeEd.Focus();
         }
         public void SetEditData(data.baseDS.transactionsRow row)
         {
             transCodeEd.Text = row.id.ToString();
-            stockCodeEd.Text = row.stockCode;
+            codeEd.Text = row.stockCode;
             onTimeEd.myDateTime = row.onTime;
             portfolioCb.myValue = row.portfolio; 
             qtyEd.Value = row.qty;
@@ -83,13 +101,13 @@ namespace Trade.Forms
             statusCb.myValue = (AppTypes.CommonStatus)row.status;
             CalculatePriceAndFeePercentage();
 
-            stockCodeEd.Focus();
+            codeEd.Focus();
         }
         public void SetEditData(data.baseDS.tradeAlertRow row)
         {
             transCodeEd.Text = "";
             feePercEd.Value = Settings.sysStockTransFeePercent;
-            stockCodeEd.Text = row.stockCode;
+            codeEd.Text = row.stockCode;
             onTimeEd.myDateTime = row.onTime;
             portfolioCb.myValue = row.portfolio;
             qtyEd.Value = 0; subTotalEd.Value = 0; feeAmtEd.Value = 0; totalAmtEd.Value = 0;
@@ -97,13 +115,13 @@ namespace Trade.Forms
             statusCb.myValue = AppTypes.CommonStatus.New;
             CalculatePriceAndFeePercentage();
 
-            stockCodeEd.Focus();
+            codeEd.Focus();
         }
 
         public override void LockEdit(bool lockState)
         {
             base.LockEdit(lockState);
-            stockCodeEd.ReadOnly = lockState;
+            codeEd.ReadOnly = lockState;
             onTimeEd.ReadOnly = lockState;
             qtyEd.ReadOnly = lockState;
             subTotalEd.ReadOnly = lockState;
@@ -112,18 +130,18 @@ namespace Trade.Forms
             portfolioCb.Enabled = !lockState;
             transTypeCb.Enabled = !lockState;
             statusCb.Enabled = false;
-            stockCodeEd.Focus();
+            codeEd.Focus();
         }
 
         protected virtual bool Save()
         {
             if (statusCb.myValue != AppTypes.CommonStatus.New)
             {
-                common.system.ShowErrorMessage("Không thể lưu lại giao dịch đã kết thúc.");
+                common.system.ShowErrorMessage(language.GetString("transactionIsClosed"));
                 return false;
             }
             data.baseDS.transactionsRow transRow =
-                            dataLibs.MakeStockTransaction(transTypeCb.myValue,stockCodeEd.Text, portfolioCb.myValue, 
+                            dataLibs.MakeStockTransaction(transTypeCb.myValue,codeEd.Text, portfolioCb.myValue, 
                                                           (int)qtyEd.Value,feePercEd.Value);
             if (transRow == null) return false;
             SetEditData(transRow);
@@ -141,9 +159,9 @@ namespace Trade.Forms
                 NotifyError(qtyLbl);
                 retVal = false;
             }
-            if (stockCodeEd.Text.Trim() == "")
+            if (codeEd.Text.Trim() == "")
             {
-                NotifyError(stockCodeLbl);
+                NotifyError(codeLbl);
                 retVal = false;
             }
             if (transTypeCb.myValue == AppTypes.TradeActions.None)

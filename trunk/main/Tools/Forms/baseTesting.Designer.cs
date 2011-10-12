@@ -65,8 +65,5 @@
 
         protected System.Windows.Forms.SaveFileDialog saveFileDialog;
         protected data.baseDS myDataSet;
-
-
-
     }
 }

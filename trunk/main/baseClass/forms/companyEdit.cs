@@ -35,6 +35,13 @@ namespace baseClass.forms
                 common.system.ShowErrorMessage(ex.Message.ToString());
             }
         }
+        public override void SetLanguage()
+        {
+            base.SetLanguage();
+            companyGeneral.SetLanguage();
+            companyStock.SetLanguage();
+            companyOtherInfo.SetLanguage();
+        }
 
         public void ShowCompany(string code)
         {

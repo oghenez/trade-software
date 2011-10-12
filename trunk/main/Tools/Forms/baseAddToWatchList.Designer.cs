@@ -32,7 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(baseAddToWatchList));
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.newWatchListBtn = new common.controls.baseButton();
-            this.listNameLbl = new baseClass.controls.baseLabel();
+            this.addToLbl = new baseClass.controls.baseLabel();
             this.watchListLb = new baseClass.controls.clbWatchList();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
@@ -48,6 +48,7 @@
             this.okBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.okBtn.Location = new System.Drawing.Point(21, 216);
             this.okBtn.Size = new System.Drawing.Size(90, 26);
+            this.okBtn.Text = "Ok";
             // 
             // TitleLbl
             // 
@@ -73,16 +74,15 @@
             this.newWatchListBtn.UseVisualStyleBackColor = true;
             this.newWatchListBtn.Click += new System.EventHandler(this.newWatchListBtn_Click);
             // 
-            // listNameLbl
+            // addToLbl
             // 
-            this.listNameLbl.AutoSize = true;
-            this.listNameLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listNameLbl.Location = new System.Drawing.Point(18, 4);
-            this.listNameLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.listNameLbl.Name = "listNameLbl";
-            this.listNameLbl.Size = new System.Drawing.Size(52, 16);
-            this.listNameLbl.TabIndex = 312;
-            this.listNameLbl.Text = "Add to";
+            this.addToLbl.AutoSize = true;
+            this.addToLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addToLbl.Location = new System.Drawing.Point(18, 4);
+            this.addToLbl.Name = "addToLbl";
+            this.addToLbl.Size = new System.Drawing.Size(52, 16);
+            this.addToLbl.TabIndex = 312;
+            this.addToLbl.Text = "Add to";
             // 
             // watchListLb
             // 
@@ -106,7 +106,7 @@
             // 
             this.ClientSize = new System.Drawing.Size(310, 270);
             this.Controls.Add(this.watchListLb);
-            this.Controls.Add(this.listNameLbl);
+            this.Controls.Add(this.addToLbl);
             this.Controls.Add(this.newWatchListBtn);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -117,7 +117,7 @@
             this.Controls.SetChildIndex(this.TitleLbl, 0);
             this.Controls.SetChildIndex(this.okBtn, 0);
             this.Controls.SetChildIndex(this.closeBtn, 0);
-            this.Controls.SetChildIndex(this.listNameLbl, 0);
+            this.Controls.SetChildIndex(this.addToLbl, 0);
             this.Controls.SetChildIndex(this.watchListLb, 0);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
@@ -127,7 +127,7 @@
 
         #endregion
 
-        protected baseClass.controls.baseLabel listNameLbl;
+        protected baseClass.controls.baseLabel addToLbl;
         protected System.Windows.Forms.ErrorProvider errorProvider;
         protected baseClass.controls.clbWatchList watchListLb;
         protected common.controls.baseButton newWatchListBtn;

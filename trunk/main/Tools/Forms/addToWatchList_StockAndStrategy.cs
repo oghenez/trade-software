@@ -18,13 +18,23 @@ namespace Tools.Forms
             try
             {
                 InitializeComponent();
-                stockCodeEd.BackColor = watchListLb.BackColor;
+                codeEd.BackColor = watchListLb.BackColor;
                 timeScaleCb.LoadData();
             }
             catch (Exception er)
             {
                 this.ShowError(er);
             }
+        }
+        public override void SetLanguage()
+        {
+            base.SetLanguage();
+            codeLbl.Text = language.GetString("code");
+            timeScaleLbl.Text = language.GetString("timeScale");
+            strategyLbl.Text = language.GetString("strategy");
+
+            timeScaleCb.SetLanguage();
+            strategyLb.SetLanguage();
         }
         public static addToWatchList_StockAndStrategy GetForm(string formName)
         {
@@ -39,7 +49,7 @@ namespace Tools.Forms
         {
             watchListLb.LoadData(sysLibs.sysLoginCode, false);
             this.myStrategyCodes = strategyCodes;
-            this.stockCodeEd.Text = stockCode;
+            this.codeEd.Text = stockCode;
             this.timeScaleCb.myValue = timeScale;
             strategyLb.Items.Clear();
             for (int idx = 0; idx < strategyCodes.Count; idx++)
@@ -60,7 +70,7 @@ namespace Tools.Forms
                 data.baseDS.portfolioRow portfolioRow = dataLibs.FindAndCache(portfolioTbl, watchListLb.myCheckedValues[portfolioIdx]);
                 if (portfolioRow == null) continue;
                 mvString.myFormatString = portfolioRow.interestedStock;
-                mvString.Add(stockCodeEd.Text);
+                mvString.Add(codeEd.Text);
                 portfolioRow.interestedStock = mvString.myFormatString;
 
                 portfolioDataTbl.Clear();
@@ -68,13 +78,13 @@ namespace Tools.Forms
                 data.baseDS.portfolioDetailRow dataRow;
                 for (int idx = 0; idx < myStrategyCodes.Count; idx++)
                 {
-                    dataRow = portfolioDataTbl.FindByportfoliocodesubCode(portfolioRow.code, this.stockCodeEd.Text, this.myStrategyCodes[idx]);
+                    dataRow = portfolioDataTbl.FindByportfoliocodesubCode(portfolioRow.code, this.codeEd.Text, this.myStrategyCodes[idx]);
                     if (dataRow == null)
                     {
                         dataRow = portfolioDataTbl.NewportfolioDetailRow();
                         dataLibs.InitData(dataRow);
                         dataRow.portfolio = portfolioRow.code;
-                        dataRow.code = stockCodeEd.Text;
+                        dataRow.code = codeEd.Text;
                         dataRow.subCode = this.myStrategyCodes[idx];
                         portfolioDataTbl.AddportfolioDetailRow(dataRow);
                     }
@@ -85,7 +95,7 @@ namespace Tools.Forms
                 dataLibs.UpdateData(portfolioRow);
                 dataLibs.UpdateData(portfolioDataTbl);
             }
-            common.system.ShowMessage("Data ware saved.");
+            common.system.ShowMessage(language.GetString("dataSaved"));
         }
     }
 }

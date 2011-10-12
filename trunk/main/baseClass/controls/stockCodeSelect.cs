@@ -27,13 +27,10 @@ namespace baseClass.controls
                 ErrorHandler(this, er);
             }            
         }
-
-        private void stockSelectionCb_SelectionChangeCommitted(object sender, EventArgs e)
+        public override void SetLanguage()
         {
-            bizSectorTypesSelection.Enabled = (stockSelectionCb.myValue == cbStockSelection.Options.Others);
-            LoadStockList();
-            selectAllChk.Checked = false;
-            onlySeletedChk.Checked = false;
+            base.SetLanguage();
+            stockSelectionCb.SetLanguage();
         }
 
         public override void LoadStockList()
@@ -45,49 +42,57 @@ namespace baseClass.controls
             switch (watchListType)
             {
                 case cbStockSelection.Options.All:
-                     stockCodeClb.myDataTbl = this.myStockCodeTbl;
-                     break;
+                    stockCodeClb.myDataTbl = this.myStockCodeTbl;
+                    break;
                 case cbStockSelection.Options.StockExchange:
-                     stockCodeView = new DataView(myStockCodeTbl);
-                     stockCodeView.Sort = myStockCodeTbl.codeColumn.ColumnName;
-                     stockCodeView.RowFilter = myStockCodeTbl.stockExchangeColumn.ColumnName + "='" + item.Value + "'";
-                     for (int idx = 0; idx < stockCodeView.Count; idx++)
-                     {
-                         stocCodeList.Add(stockCodeView[idx][myStockCodeTbl.codeColumn.ColumnName].ToString());
-                     }
-                     stockCodeClb.myItemValues = stocCodeList;
-                     break;
+                    stockCodeView = new DataView(myStockCodeTbl);
+                    stockCodeView.Sort = myStockCodeTbl.codeColumn.ColumnName;
+                    stockCodeView.RowFilter = myStockCodeTbl.stockExchangeColumn.ColumnName + "='" + item.Value + "'";
+                    for (int idx = 0; idx < stockCodeView.Count; idx++)
+                    {
+                        stocCodeList.Add(stockCodeView[idx][myStockCodeTbl.codeColumn.ColumnName].ToString());
+                    }
+                    stockCodeClb.myItemValues = stocCodeList;
+                    break;
                 case cbStockSelection.Options.SysWatchList:
                 case cbStockSelection.Options.WatchList:
-                     StringCollection watchList = new StringCollection();
-                     //All stock codes of  specified type ??
-                     if (item.Value != "")
-                     {
+                    StringCollection watchList = new StringCollection();
+                    //All stock codes of  specified type ??
+                    if (item.Value != "")
+                    {
                         watchList.Add(item.Value);
-                     }
-                     else
-                     {
+                    }
+                    else
+                    {
                         for (int idx = 0; idx < stockSelectionCb.Items.Count; idx++)
                         {
                             common.myKeyValueExt tmpItem = (common.myKeyValueExt)stockSelectionCb.Items[idx];
                             if (watchListType != (cbStockSelection.Options)byte.Parse(tmpItem.Attribute1) || (tmpItem.Value == "")) continue;
                             watchList.Add(tmpItem.Value);
                         }
-                     }
-                     data.tmpDS.stockCodeDataTable tbl = new data.tmpDS.stockCodeDataTable();
-                     dataLibs.LoadStockCode_ByWatchList(tbl, watchList);
-                     stockCodeView = new DataView(tbl);
-                     stockCodeView.Sort = myStockCodeTbl.codeColumn.ColumnName;
-                     for (int idx = 0; idx < stockCodeView.Count; idx++)
-                     {
-                         stocCodeList.Add(stockCodeView[idx][myStockCodeTbl.codeColumn.ColumnName].ToString());
-                     }
-                     stockCodeClb.myItemValues = stocCodeList;
-                     break;
+                    }
+                    data.tmpDS.stockCodeDataTable tbl = new data.tmpDS.stockCodeDataTable();
+                    dataLibs.LoadStockCode_ByWatchList(tbl, watchList);
+                    stockCodeView = new DataView(tbl);
+                    stockCodeView.Sort = myStockCodeTbl.codeColumn.ColumnName;
+                    for (int idx = 0; idx < stockCodeView.Count; idx++)
+                    {
+                        stocCodeList.Add(stockCodeView[idx][myStockCodeTbl.codeColumn.ColumnName].ToString());
+                    }
+                    stockCodeClb.myItemValues = stocCodeList;
+                    break;
                 case cbStockSelection.Options.Others:
-                     base.LoadStockList();
-                     break;
+                    base.LoadStockList();
+                    break;
             }
+        }
+
+        private void stockSelectionCb_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            bizSectorTypesSelection.Enabled = (stockSelectionCb.myValue == cbStockSelection.Options.Others);
+            LoadStockList();
+            selectAllChk.Checked = false;
+            onlySeletedChk.Checked = false;
         }
     }
 }

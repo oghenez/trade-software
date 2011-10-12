@@ -19,6 +19,27 @@ namespace Tools.Forms
             fShowChart = false;
             dataGrid.Location = new Point(0, 0);
         }
+        public override void SetLanguage()
+        {
+            base.SetLanguage();
+            this.Text = language.GetString("estimation");
+            //Menu
+            MainMenuStrip.Text = language.GetString("estimation");
+            allTransactionMenuItem.Text = language.GetString("allTransaction");
+            showChartMenuItem.Text = language.GetString("showChart");
+            reloadMenuItem.Text = language.GetString("reload");
+            exportMenuItem.Text = language.GetString("export");
+
+            //Grid
+            onDateColumn.HeaderText = language.GetString("onDate");
+            priceDataColumn.HeaderText = language.GetString("price");
+            qtyColumn.HeaderText = language.GetString("qty");
+            amountColumn.HeaderText = language.GetString("amount");
+            cashAmtColumn.HeaderText = language.GetString("cashAmt");
+            totalAmtColumn.HeaderText = language.GetString("totalAmt");
+            feeAmtColumn.HeaderText = language.GetString("feeAmt");
+            profitColumn.HeaderText = language.GetString("profit");
+        }
         private bool fShowChart
         {
             get { return chartPnl.isVisible; }

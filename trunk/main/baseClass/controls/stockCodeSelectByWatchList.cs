@@ -53,6 +53,7 @@ namespace baseClass.controls
         public override void SetLanguage()
         {
             base.SetLanguage();
+            LoadWatchList();
             stockExchangeColumn.HeaderText = language.GetString("exchange");
             codeColumn.HeaderText = language.GetString("code");
             priceColumn.HeaderText = language.GetString("price");

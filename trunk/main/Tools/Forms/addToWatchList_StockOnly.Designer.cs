@@ -29,10 +29,15 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(addToWatchList_StockOnly));
-            this.stockCodeLbl = new baseClass.controls.baseLabel();
+            this.codeLbl = new baseClass.controls.baseLabel();
             this.stockCodeEd = new common.controls.baseTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
+            // 
+            // addToLbl
+            // 
+            this.addToLbl.Size = new System.Drawing.Size(119, 16);
+            this.addToLbl.Text = "Add to watch list";
             // 
             // watchListLb
             // 
@@ -55,16 +60,16 @@
             // 
             this.okBtn.Location = new System.Drawing.Point(22, 189);
             // 
-            // stockCodeLbl
+            // codeLbl
             // 
-            this.stockCodeLbl.AutoSize = true;
-            this.stockCodeLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.stockCodeLbl.Location = new System.Drawing.Point(18, 123);
-            this.stockCodeLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.stockCodeLbl.Name = "stockCodeLbl";
-            this.stockCodeLbl.Size = new System.Drawing.Size(63, 16);
-            this.stockCodeLbl.TabIndex = 313;
-            this.stockCodeLbl.Text = "Code list";
+            this.codeLbl.AutoSize = true;
+            this.codeLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.codeLbl.Location = new System.Drawing.Point(18, 123);
+            this.codeLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.codeLbl.Name = "codeLbl";
+            this.codeLbl.Size = new System.Drawing.Size(63, 16);
+            this.codeLbl.TabIndex = 313;
+            this.codeLbl.Text = "Code list";
             // 
             // stockCodeEd
             // 
@@ -83,16 +88,16 @@
             // 
             this.ClientSize = new System.Drawing.Size(310, 245);
             this.Controls.Add(this.stockCodeEd);
-            this.Controls.Add(this.stockCodeLbl);
+            this.Controls.Add(this.codeLbl);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "addToWatchList_StockOnly";
             this.Controls.SetChildIndex(this.newWatchListBtn, 0);
             this.Controls.SetChildIndex(this.TitleLbl, 0);
             this.Controls.SetChildIndex(this.okBtn, 0);
             this.Controls.SetChildIndex(this.closeBtn, 0);
-            this.Controls.SetChildIndex(this.listNameLbl, 0);
+            this.Controls.SetChildIndex(this.addToLbl, 0);
             this.Controls.SetChildIndex(this.watchListLb, 0);
-            this.Controls.SetChildIndex(this.stockCodeLbl, 0);
+            this.Controls.SetChildIndex(this.codeLbl, 0);
             this.Controls.SetChildIndex(this.stockCodeEd, 0);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
@@ -102,7 +107,7 @@
 
         #endregion
 
-        protected baseClass.controls.baseLabel stockCodeLbl;
+        protected baseClass.controls.baseLabel codeLbl;
         private common.controls.baseTextBox stockCodeEd;
     }
 }

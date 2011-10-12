@@ -94,7 +94,7 @@
             this.printMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator20 = new System.Windows.Forms.ToolStripSeparator();
             this.exitMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.EditMenuStrip = new System.Windows.Forms.ToolStripMenuItem();
+            this.editMenuStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.undoMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.redoMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator9 = new System.Windows.Forms.ToolStripSeparator();
@@ -105,7 +105,7 @@
             this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
             this.selectAllMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewMenuStrip = new System.Windows.Forms.ToolStripMenuItem();
-            this.languagMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.languageMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.vietnameseMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.englishMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator10 = new System.Windows.Forms.ToolStripSeparator();
@@ -113,7 +113,6 @@
             this.tbStandardMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tbChartMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tbPeriodicityMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem21 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator11 = new System.Windows.Forms.ToolStripSeparator();
             this.marketWatchMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tradeAlertMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -136,13 +135,14 @@
             this.toolStripSeparator16 = new System.Windows.Forms.ToolStripSeparator();
             this.zoomInMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.zoomOutMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator21 = new System.Windows.Forms.ToolStripSeparator();
             this.chartVolumeMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator14 = new System.Windows.Forms.ToolStripSeparator();
             this.chartPropertyMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.screeningMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.backTestingMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.stockRankingMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.strategyRankingMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.orderMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator13 = new System.Windows.Forms.ToolStripSeparator();
@@ -333,7 +333,7 @@
             this.dataTimeRangeCb});
             this.chartStrip.Location = new System.Drawing.Point(180, 24);
             this.chartStrip.Name = "chartStrip";
-            this.chartStrip.Size = new System.Drawing.Size(300, 25);
+            this.chartStrip.Size = new System.Drawing.Size(333, 25);
             this.chartStrip.TabIndex = 11;
             // 
             // chartPropertiesBtn
@@ -540,7 +540,7 @@
             this.toolRunBtn,
             this.toolFullViewBtn,
             this.exportBtn});
-            this.toolsStrip.Location = new System.Drawing.Point(485, 24);
+            this.toolsStrip.Location = new System.Drawing.Point(518, 24);
             this.toolsStrip.Name = "toolsStrip";
             this.toolsStrip.Size = new System.Drawing.Size(79, 25);
             this.toolsStrip.TabIndex = 2;
@@ -582,7 +582,7 @@
             this.mainMenu.GripStyle = System.Windows.Forms.ToolStripGripStyle.Visible;
             this.mainMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.FileMenuStrip,
-            this.EditMenuStrip,
+            this.editMenuStrip,
             this.viewMenuStrip,
             this.chartMenuStrip,
             this.toolsMenuItem,
@@ -695,9 +695,9 @@
             this.exitMenuItem.Text = "E&xit";
             this.exitMenuItem.Click += new System.EventHandler(this.exitMenuItem_Click);
             // 
-            // EditMenuStrip
+            // editMenuStrip
             // 
-            this.EditMenuStrip.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.editMenuStrip.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.undoMenuItem,
             this.redoMenuItem,
             this.toolStripSeparator9,
@@ -707,9 +707,9 @@
             this.deleteMenuItem,
             this.toolStripSeparator8,
             this.selectAllMenuItem});
-            this.EditMenuStrip.Name = "EditMenuStrip";
-            this.EditMenuStrip.Size = new System.Drawing.Size(43, 20);
-            this.EditMenuStrip.Text = "Edit";
+            this.editMenuStrip.Name = "editMenuStrip";
+            this.editMenuStrip.Size = new System.Drawing.Size(43, 20);
+            this.editMenuStrip.Text = "Edit";
             // 
             // undoMenuItem
             // 
@@ -773,10 +773,9 @@
             // viewMenuStrip
             // 
             this.viewMenuStrip.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.languagMenuItem,
+            this.languageMenuItem,
             this.toolStripSeparator10,
             this.toolBarMenuItem,
-            this.toolStripMenuItem21,
             this.toolStripSeparator11,
             this.marketWatchMenuItem,
             this.tradeAlertMenuItem,
@@ -787,14 +786,14 @@
             this.viewMenuStrip.Size = new System.Drawing.Size(48, 20);
             this.viewMenuStrip.Text = "View";
             // 
-            // languagMenuItem
+            // languageMenuItem
             // 
-            this.languagMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.languageMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.vietnameseMenuItem,
             this.englishMenuItem});
-            this.languagMenuItem.Name = "languagMenuItem";
-            this.languagMenuItem.Size = new System.Drawing.Size(172, 22);
-            this.languagMenuItem.Text = "Language";
+            this.languageMenuItem.Name = "languageMenuItem";
+            this.languageMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.languageMenuItem.Text = "Language";
             // 
             // vietnameseMenuItem
             // 
@@ -859,12 +858,6 @@
             this.tbPeriodicityMenuItem.Text = "Periodicity";
             this.tbPeriodicityMenuItem.Click += new System.EventHandler(this.View_ToolBar_MenuClick);
             // 
-            // toolStripMenuItem21
-            // 
-            this.toolStripMenuItem21.Name = "toolStripMenuItem21";
-            this.toolStripMenuItem21.Size = new System.Drawing.Size(172, 22);
-            this.toolStripMenuItem21.Text = "Status";
-            // 
             // toolStripSeparator11
             // 
             this.toolStripSeparator11.Name = "toolStripSeparator11";
@@ -918,6 +911,7 @@
             this.toolStripSeparator16,
             this.zoomInMenuItem,
             this.zoomOutMenuItem,
+            this.toolStripSeparator21,
             this.chartVolumeMenuItem,
             this.toolStripSeparator14,
             this.chartPropertyMenuItem});
@@ -1023,6 +1017,11 @@
             this.zoomOutMenuItem.Size = new System.Drawing.Size(161, 22);
             this.zoomOutMenuItem.Text = "Zoom Out";
             // 
+            // toolStripSeparator21
+            // 
+            this.toolStripSeparator21.Name = "toolStripSeparator21";
+            this.toolStripSeparator21.Size = new System.Drawing.Size(158, 6);
+            // 
             // chartVolumeMenuItem
             // 
             this.chartVolumeMenuItem.Name = "chartVolumeMenuItem";
@@ -1048,7 +1047,7 @@
             this.toolsMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.screeningMenuItem,
             this.backTestingMenuItem,
-            this.stockRankingMenuItem,
+            this.strategyRankingMenuItem,
             this.toolStripSeparator6,
             this.orderMenuItem,
             this.toolStripSeparator13,
@@ -1076,12 +1075,12 @@
             this.backTestingMenuItem.Text = "Back Testing";
             this.backTestingMenuItem.Click += new System.EventHandler(this.backTestingMenuItem_Click);
             // 
-            // stockRankingMenuItem
+            // strategyRankingMenuItem
             // 
-            this.stockRankingMenuItem.Name = "stockRankingMenuItem";
-            this.stockRankingMenuItem.Size = new System.Drawing.Size(198, 22);
-            this.stockRankingMenuItem.Text = "Strategy Ranking";
-            this.stockRankingMenuItem.Click += new System.EventHandler(this.strategyRankingMenuItem_Click);
+            this.strategyRankingMenuItem.Name = "strategyRankingMenuItem";
+            this.strategyRankingMenuItem.Size = new System.Drawing.Size(198, 22);
+            this.strategyRankingMenuItem.Text = "Strategy Ranking";
+            this.strategyRankingMenuItem.Click += new System.EventHandler(this.strategyRankingMenuItem_Click);
             // 
             // toolStripSeparator6
             // 
@@ -1228,7 +1227,7 @@
             this.formatStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.amountBtn,
             this.percentBtn});
-            this.formatStrip.Location = new System.Drawing.Point(567, 24);
+            this.formatStrip.Location = new System.Drawing.Point(600, 24);
             this.formatStrip.Name = "formatStrip";
             this.formatStrip.Size = new System.Drawing.Size(56, 25);
             this.formatStrip.TabIndex = 148;
@@ -1257,7 +1256,7 @@
             this.periodicityStrip.Dock = System.Windows.Forms.DockStyle.None;
             this.periodicityStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.dummyStripBtn});
-            this.periodicityStrip.Location = new System.Drawing.Point(628, 24);
+            this.periodicityStrip.Location = new System.Drawing.Point(661, 24);
             this.periodicityStrip.Name = "periodicityStrip";
             this.periodicityStrip.Size = new System.Drawing.Size(84, 25);
             this.periodicityStrip.TabIndex = 147;
@@ -1357,7 +1356,7 @@
         private System.Windows.Forms.ToolStripMenuItem printMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator20;
         private System.Windows.Forms.ToolStripMenuItem exitMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem EditMenuStrip;
+        private System.Windows.Forms.ToolStripMenuItem editMenuStrip;
         private System.Windows.Forms.ToolStripMenuItem undoMenuItem;
         private System.Windows.Forms.ToolStripMenuItem redoMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator9;
@@ -1368,7 +1367,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator8;
         private System.Windows.Forms.ToolStripMenuItem selectAllMenuItem;
         private System.Windows.Forms.ToolStripMenuItem viewMenuStrip;
-        private System.Windows.Forms.ToolStripMenuItem languagMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem languageMenuItem;
         protected System.Windows.Forms.ToolStripMenuItem vietnameseMenuItem;
         private System.Windows.Forms.ToolStripMenuItem englishMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator10;
@@ -1376,7 +1375,6 @@
         private System.Windows.Forms.ToolStripMenuItem tbStandardMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tbChartMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tbPeriodicityMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem21;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator11;
         private System.Windows.Forms.ToolStripMenuItem marketWatchMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tradeAlertMenuItem;
@@ -1404,7 +1402,7 @@
         private System.Windows.Forms.ToolStripMenuItem chartPropertyMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toolsMenuItem;
         private System.Windows.Forms.ToolStripMenuItem backTestingMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem stockRankingMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem strategyRankingMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator13;
         private System.Windows.Forms.ToolStripMenuItem companyListMenuItem;
@@ -1435,6 +1433,7 @@
         private System.Windows.Forms.ToolStripMenuItem markovToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem screeningListMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator21;
     }
 }
 

@@ -19,13 +19,23 @@ namespace baseClass.controls
             try
             {
                 InitializeComponent();
-                BizSectorTypesSelection.LoadData();
+                bizSectorTypesSelection.LoadData();
             }
             catch (Exception er)
             {
                 ErrorHandler(this, er);
             }            
         }
+
+        public override void SetLanguage()
+        {
+            base.SetLanguage();
+            bizSectorTypesSelection.SetLanguage();
+            subSectorListClb.SetLanguage();
+            showOnlyCheckedChk.Text = language.GetString("onlySelected");
+            selectAllChk.Text = language.GetString("selectAll");
+        }
+
         public StringCollection myCheckedValues
         {
             get { return subSectorListClb.myCheckedValues;}
@@ -69,7 +79,7 @@ namespace baseClass.controls
             this.Enabled = !state;
             this.subSectorListClb.Enabled = !state;
             showOnlyCheckedChk.Enabled = !state;
-            BizSectorTypesSelection.LockEdit(state);
+            bizSectorTypesSelection.LockEdit(state);
         }
 
         private void showOnlyCheckedChk_CheckedChanged(object sender, EventArgs e)
@@ -87,12 +97,12 @@ namespace baseClass.controls
         {
             try
             {
-                BizSectorTypesSelection.Width = this.Width;
+                bizSectorTypesSelection.Width = this.Width;
 
                 showOnlyCheckedChk.Location = new Point(0, this.Height - showOnlyCheckedChk.Height);
                 selectAllChk.Location = new Point(showOnlyCheckedChk.Width+10, showOnlyCheckedChk.Location.Y);
 
-                subSectorListClb.Location = new Point(0, BizSectorTypesSelection.Height);
+                subSectorListClb.Location = new Point(0, bizSectorTypesSelection.Height);
                 subSectorListClb.Size = new Size(this.Width, selectAllChk.Location.Y - subSectorListClb.Location.Y);
             }
             catch (Exception er)
@@ -104,7 +114,7 @@ namespace baseClass.controls
         {
             try
             {
-                subSectorListClb.myItemValues = BizSectorTypesSelection.myCurrentSubSectorCodes;
+                subSectorListClb.myItemValues = bizSectorTypesSelection.myCurrentSubSectorCodes;
                 showOnlyCheckedChk.Checked = false;
                 selectAllChk.Checked = false;
             }

@@ -35,6 +35,8 @@ namespace baseClass.forms
             saveBtn.Text = language.GetString("save");
             refreshBtn.Text = language.GetString("reload");
             exitBtn.Text = language.GetString("close");
+             
+            interestedStrategy.SetLanguage();
         }
 
         private void LoadData()

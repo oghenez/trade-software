@@ -29,23 +29,23 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(subSectorSelect));
-            this.BizSectorTypesSelection = new baseClass.controls.BizSectorTypesSelection();
+            this.bizSectorTypesSelection = new baseClass.controls.BizSectorTypesSelection();
             this.showOnlyCheckedChk = new baseClass.controls.baseCheckBox();
             this.subSectorListClb = new baseClass.controls.clbBizSubSector();
             this.selectAllChk = new baseClass.controls.baseCheckBox();
             this.SuspendLayout();
             // 
-            // BizSectorTypesSelection
+            // bizSectorTypesSelection
             // 
-            this.BizSectorTypesSelection.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BizSectorTypesSelection.Location = new System.Drawing.Point(0, 0);
-            this.BizSectorTypesSelection.Margin = new System.Windows.Forms.Padding(2);
-            this.BizSectorTypesSelection.myBizSectorCode = "";
-            this.BizSectorTypesSelection.myBizSectorType = application.AppTypes.BizSectorTypes.None;
-            this.BizSectorTypesSelection.Name = "BizSectorTypesSelection";
-            this.BizSectorTypesSelection.Size = new System.Drawing.Size(433, 24);
-            this.BizSectorTypesSelection.TabIndex = 1;
-            this.BizSectorTypesSelection.mySectorSelectionChange += new baseClass.controls.BizSectorTypesSelection.SectorSelectionChange(this.BizSectorTypesSelection_mySectorSelectionChange);
+            this.bizSectorTypesSelection.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bizSectorTypesSelection.Location = new System.Drawing.Point(0, 0);
+            this.bizSectorTypesSelection.Margin = new System.Windows.Forms.Padding(2);
+            this.bizSectorTypesSelection.myBizSectorCode = "";
+            this.bizSectorTypesSelection.myBizSectorType = application.AppTypes.BizSectorTypes.None;
+            this.bizSectorTypesSelection.Name = "bizSectorTypesSelection";
+            this.bizSectorTypesSelection.Size = new System.Drawing.Size(433, 24);
+            this.bizSectorTypesSelection.TabIndex = 1;
+            this.bizSectorTypesSelection.mySectorSelectionChange += new baseClass.controls.BizSectorTypesSelection.SectorSelectionChange(this.BizSectorTypesSelection_mySectorSelectionChange);
             // 
             // showOnlyCheckedChk
             // 
@@ -89,7 +89,7 @@
             // subSectorSelect
             // 
             this.Controls.Add(this.selectAllChk);
-            this.Controls.Add(this.BizSectorTypesSelection);
+            this.Controls.Add(this.bizSectorTypesSelection);
             this.Controls.Add(this.showOnlyCheckedChk);
             this.Controls.Add(this.subSectorListClb);
             this.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -106,7 +106,7 @@
 
         private clbBizSubSector subSectorListClb;
         private baseClass.controls.baseCheckBox showOnlyCheckedChk;
-        protected BizSectorTypesSelection BizSectorTypesSelection;
+        protected BizSectorTypesSelection bizSectorTypesSelection;
         protected baseCheckBox selectAllChk;
     }
 }

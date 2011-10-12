@@ -30,6 +30,8 @@ namespace baseClass.forms
             codeColumn.HeaderText = language.GetString("code") + " 1";
             displayNameColumn.HeaderText = language.GetString("name");
             addressColumn.HeaderText = language.GetString("address");
+
+            findCriteria.SetLanguage();
         }
 
         public data.baseDS.stockCodeRow selectedDataRow = null;

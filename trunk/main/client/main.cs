@@ -36,6 +36,88 @@ namespace client
                 this.ShowError(er);
             }
         }
+        public override void SetLanguage()
+        {
+            base.SetLanguage();
+            this.FileMenuStrip.Text = language.GetString("file");
+            this.loginMenuItem.Text = language.GetString("login");
+            this.logOutMenuItem.Text = language.GetString("logout");
+            this.MyProfileMenuItem.Text = language.GetString("myProfile"); ;
+            this.NewChartMenuItem.Text = language.GetString("newChart");
+            this.closeChartMenuItem.Text = language.GetString("closeChart");
+
+            this.printSetupMenuItem.Text = language.GetString("printSetup");
+            this.printPreViewMenuItem.Text = language.GetString("printPreview");
+            this.printMenuItem.Text = language.GetString("print");
+            this.exitMenuItem.Text = language.GetString("exit");
+
+            this.editMenuStrip.Text = language.GetString("edit");
+            this.undoMenuItem.Text = language.GetString("undo");
+            this.redoMenuItem.Text = language.GetString("redo");
+            this.copyMenuItem.Text = language.GetString("copy");
+            this.cutMenuItem.Text = language.GetString("cut");
+            this.pasteMenuItem.Text = language.GetString("paste");
+            this.deleteMenuItem.Text = language.GetString("delete");
+            this.selectAllMenuItem.Text = language.GetString("selectAll");
+
+            this.viewMenuStrip.Text = language.GetString("view");
+            this.languageMenuItem.Text = language.GetString("language");
+            this.englishMenuItem.Text = language.GetString("english");
+            this.vietnameseMenuItem.Text = language.GetString("vietnamese");
+
+            this.toolBarMenuItem.Text = language.GetString("toolBar");
+            this.tbStandardMenuItem.Text = language.GetString("standard");
+            this.tbChartMenuItem.Text = language.GetString("chart");
+            this.tbPeriodicityMenuItem.Text = language.GetString("periodicity");
+
+            this.marketWatchMenuItem.Text = language.GetString("marketWatch");
+            this.tradeAlertMenuItem.Text = language.GetString("tradeAlert");
+            this.transHistoryMenuItem.Text = language.GetString("transHistory");
+            this.myPortfolioMenuItem.Text = language.GetString("myPortfolio");
+
+            this.chartMenuStrip.Text = language.GetString("chart");
+            this.indicatorMenuItem.Text = language.GetString("indicator");
+            this.chartMenuItem.Text = language.GetString("chart");
+            this.lineChartMenuItem.Text = language.GetString("lineChart");
+            this.barChartMenuItem.Text = language.GetString("barChart");
+            this.candleSticksMenuItem.Text = language.GetString("candleSticks");
+            this.chartGridMenuItem.Text = language.GetString("chartGrid");
+            this.periodicityMenuItem.Text = language.GetString("periodicity");
+            this.zoomInMenuItem.Text = language.GetString("zoomIn");
+            this.zoomOutMenuItem.Text = language.GetString("zoomOut");
+            this.chartVolumeMenuItem.Text = language.GetString("chartVolume");
+            this.chartPropertyMenuItem.Text = language.GetString("chartProperty");
+
+            this.toolsMenuItem.Text = language.GetString("tools");
+            this.backTestingMenuItem.Text = language.GetString("backTesting");
+            this.strategyRankingMenuItem.Text = language.GetString("strategyRanking");
+            this.companyListMenuItem.Text = language.GetString("companyList");
+            this.toolOptionMenuItem.Text = language.GetString("toolOption");
+            this.windowsMenuItem.Text = language.GetString("windows");
+            this.closeAllMenuItem.Text = language.GetString("closeAll");
+
+            this.helpMenuItem.Text = language.GetString("help");
+            this.contentsMenuItem.Text = language.GetString("contents");
+            this.indexMenuItem.Text = language.GetString("index");
+            this.searchMenuItem.Text = language.GetString("search");
+            this.aboutMenuItem.Text = language.GetString("about");
+
+
+            this.screeningMenuItem.Text = language.GetString("screening");
+            this.orderMenuItem.Text = language.GetString("order");
+            this.strategyListMenuItem.Text = language.GetString("strategy");
+            this.screeningListMenuItem.Text = language.GetString("screening");
+
+            dataTimeRangeCb.SetLanguage();
+
+            //Strategy menu
+            strategyListMenuItem.DropDownItems.Clear();
+            Strategy.Libs.CreateMenu(AppTypes.StrategyTypes.Strategy, strategyListMenuItem, StrategyParaEditHandler);
+
+            screeningListMenuItem.DropDownItems.Clear();
+            Strategy.Libs.CreateMenu(AppTypes.StrategyTypes.Screening, screeningListMenuItem, StrategyParaEditHandler);
+
+        }
 
         private common.DictionaryList cachedForms = new common.DictionaryList();  // To cache used forms 
 
@@ -49,22 +131,39 @@ namespace client
             return true;
         }
 
-        private CultureInfo vnCultureInfo = null, enCultureInfo = null;
-        private void LanguageChanged(string code)
+        private CultureInfo _vnCultureInfo = null, _enCultureInfo = null, _currentCultureInfo=null;
+        private CultureInfo vnCultureInfo
         {
-            switch(code)
+            get
             {
-                case "vi-VN":
-                    if (vnCultureInfo == null) vnCultureInfo = common.language.CreateCulture("vi-VN");
-                    common.language.SetLanguage(vnCultureInfo);
+                if (_vnCultureInfo == null) _vnCultureInfo = common.language.CreateCulture("vi-VN");
+                return _vnCultureInfo;
+            }
+        }
+        private CultureInfo enCultureInfo
+        {
+            get
+            {
+                if (_enCultureInfo == null) _enCultureInfo = common.language.CreateCulture("en-US");
+                return _enCultureInfo;
+            }
+        }
+        private CultureInfo currentCultureInfo
+        {
+            set
+            {
+                _currentCultureInfo = value;
+                common.language.SetLanguage();
+                application.language.SetLanguage();
+                common.language.SetLanguageForAllOpenForms(_currentCultureInfo);
+                if (vnCultureInfo.LCID == _currentCultureInfo.LCID)
+                {
+                    vietnameseMenuItem.Checked = true;
                     englishMenuItem.Checked = false;
-                    break;
-            
-                case "en-US":
-                    if (enCultureInfo == null) enCultureInfo = common.language.CreateCulture("en-US");
-                    common.language.SetLanguage(enCultureInfo);
-                    vietnameseMenuItem.Checked = false;
-                    break;
+                    return;
+                }
+                vietnameseMenuItem.Checked = false;
+                englishMenuItem.Checked = true;
             }
         }
 
@@ -112,6 +211,9 @@ namespace client
             dockPanel.DockLeftPortion = (double)constPaneLeftWidth/100;
             dockPanel.AllowDrop = true;
             dockPanel.ActiveAutoHideContent = null;
+            
+            //Language default
+            currentCultureInfo = vnCultureInfo;
         }
         private void CreatePeriodicityStrip(ToolStrip toStrip,ToolStripMenuItem toMenu)
         {
@@ -1017,7 +1119,7 @@ namespace client
         {
             try
             {
-                LanguageChanged("vi-VN");
+                currentCultureInfo = vnCultureInfo;
             }
             catch (Exception er)
             {
@@ -1030,7 +1132,7 @@ namespace client
         {
             try
             {
-                LanguageChanged("en-US");
+                currentCultureInfo = enCultureInfo;
             }
             catch (Exception er)
             {

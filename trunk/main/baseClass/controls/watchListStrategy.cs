@@ -76,7 +76,8 @@ namespace baseClass.controls
             strategyLbl.Text = language.GetString("strategy");
             timeScaleLbl.Text = language.GetString("timeScale");
 
-            timeScaleClb.LoadData();
+            strategyCb.SetLanguage();
+            timeScaleClb.SetLanguage();
         }
 
         private class nodeData

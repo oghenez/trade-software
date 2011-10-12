@@ -35,7 +35,25 @@ namespace Tools.Forms
                 this.ShowError(er);
             }
         }
+        public override void SetLanguage()
+        {
+            base.SetLanguage();
+            this.Text = language.GetString("screening");
+            criteriaLbl.Text = language.GetString("criteria");
+            descriptionLbl.Text = language.GetString("description");
+            minLbl.Text = language.GetString("min");
+            maxLbl.Text = language.GetString("max");
+            addBtn.Text = language.GetString("add");
+            delBtn.Text = language.GetString("delete");
+            codeListLbl.Text = language.GetString("codeList");
 
+            codeColumn.HeaderText = language.GetString("criteria");
+            minColumn.HeaderText = language.GetString("min");
+            maxColumn.HeaderText = language.GetString("max");
+
+            stockCodeLb.SetLanguage();
+            strategyCb.SetLanguage();
+        }
         public static screening GetForm()
         {
             string cacheKey = typeof(screening).FullName;
@@ -45,6 +63,7 @@ namespace Tools.Forms
             common.Data.dataCache.Add(cacheKey, form);
             return form;
         }
+
         private bool fExecute = false;
         public void Execute()
         {
@@ -61,7 +80,7 @@ namespace Tools.Forms
                 this.fullViewMenuItem.Enabled = true;
                 this.exportResultMenuItem.Enabled = true;
                 DateTime endTime = DateTime.Now;
-                this.ShowMessage(" Hòan tất : " + common.dateTimeLibs.TimeSpan2String(endTime.Subtract(startTime)));
+                this.ShowMessage(language.GetString("finished") + " : " + common.dateTimeLibs.TimeSpan2String(endTime.Subtract(startTime)));
             }
             catch (Exception er)
             {
@@ -78,7 +97,7 @@ namespace Tools.Forms
         {
             if (resultDataGrid.DataSource == null)
             {
-                common.system.ShowErrorMessage("Không có dữ liệu.");
+                common.system.ShowErrorMessage(language.GetString("noData"));
                 return;
             }
             if (saveFileDialog.ShowDialog() == DialogResult.Cancel) return;
@@ -230,7 +249,7 @@ namespace Tools.Forms
             ClearNotifyError();
             if (this.stockCodeLb.myValues.Count == 0)
             {
-                NotifyError(stockCodeLbl);
+                NotifyError(codeListLbl);
                 retVal = false;
             }
 

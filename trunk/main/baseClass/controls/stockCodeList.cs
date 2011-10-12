@@ -28,6 +28,13 @@ namespace baseClass.controls
                 ErrorHandler(this, er);
             }            
         }
+
+        public override void SetLanguage()
+        {
+            base.SetLanguage();
+            stockCodeLb.SetLanguage();
+        }
+
         protected override common.controls.baseListBox CreateListObj()
         {
             stockCodeLb.SelectionMode = SelectionMode.MultiExtended;

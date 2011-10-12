@@ -47,6 +47,9 @@ namespace baseClass.controls
             base.SetLanguage();
             onlySeletedChk.Text = language.GetString("onlySeleted");
             selectAllChk.Text = language.GetString("selectAll");
+
+            bizSectorTypesSelection.SetLanguage();
+            stockCodeClb.SetLanguage();
         }
 
 

@@ -21,8 +21,8 @@ namespace Tools.Forms
                 strategyEstimationPnl.isVisible = false;
 
                 strategyClb.LoadData(AppTypes.StrategyTypes.Strategy, true, false);
-                stockCodeSelectLb.LoadData();
-                dateRangeEd.LoadData();
+                codeSelectLb.LoadData();
+                periodicityEd.LoadData();
                 resultDataGrid.DisableReadOnlyColumn = false;
                 strategyEstimationGrid.DisableReadOnlyColumn = false;
 
@@ -32,6 +32,30 @@ namespace Tools.Forms
             {
                 this.ShowError(er);
             }
+        }
+        
+        public override void SetLanguage()
+        {
+            base.SetLanguage();
+            this.Text = language.GetString("backTest");
+
+            periodicityLbl.Text = language.GetString("periodicity");
+            codeListLbl.Text = language.GetString("codeList");
+            //Menu
+            backTestMenuItem.Text = language.GetString("backTest");
+            exportResultMenuItem.Text = language.GetString("exportResult");
+            exportEstimationMenuItem.Text = language.GetString("exportEstimation");
+            runMenuItem.Text = language.GetString("run");
+            fullViewMenuItem.Text = language.GetString("fullView");
+            estimationMenuItem.Text = language.GetString("estimation");
+            openMenuItem.Text = language.GetString("open");
+            addToWatchListMenuItem.Text = language.GetString("addToWatchList");
+            allProfitDetailMenu.Text = language.GetString("allProfitDetail");
+            profitDetailMenu.Text = language.GetString("profitDetail");
+
+            periodicityEd.SetLanguage();
+            strategyClb.SetLanguage();
+            codeSelectLb.SetLanguage();
         }
         public bool IsFullScreen
         {
@@ -51,7 +75,7 @@ namespace Tools.Forms
         {
             if (resultDataGrid.DataSource == null)
             {
-                common.system.ShowErrorMessage("Không có dữ liệu.");
+                common.system.ShowErrorMessage(language.GetString("noData"));
                 return;
             }
             if (saveFileDialog.ShowDialog() == DialogResult.Cancel) return;
@@ -61,7 +85,7 @@ namespace Tools.Forms
         {
             if (resultDataGrid.DataSource == null)
             {
-                common.system.ShowErrorMessage("Không có dữ liệu.");
+                common.system.ShowErrorMessage(language.GetString("noData"));
                 return;
             }
             if (saveFileDialog.ShowDialog() == DialogResult.Cancel) return;
@@ -82,7 +106,7 @@ namespace Tools.Forms
                 DateTime startTime = DateTime.Now;
                 DoBackTest();
                 DateTime endTime = DateTime.Now;
-                this.ShowMessage(" Hòan tất : " + common.dateTimeLibs.TimeSpan2String(endTime.Subtract(startTime)));
+                this.ShowMessage(language.GetString("finished") + " : " + common.dateTimeLibs.TimeSpan2String(endTime.Subtract(startTime)));
             }
             catch (Exception er)
             {
@@ -248,14 +272,14 @@ namespace Tools.Forms
                 NotifyError(strategyLbl);
                 retVal = false;
             }
-            if (this.stockCodeSelectLb.Enabled && this.stockCodeSelectLb.myValues.Count == 0)
+            if (this.codeSelectLb.Enabled && this.codeSelectLb.myValues.Count == 0)
             {
-                NotifyError(stockCodeLbl);
+                NotifyError(codeListLbl);
                 retVal = false;
             }
-            if (!this.dateRangeEd.GetDate())
+            if (!this.periodicityEd.GetDate())
             {
-                NotifyError(dateRangeLbl);
+                NotifyError(periodicityLbl);
                 retVal = false;
             }
             return retVal;
@@ -265,7 +289,7 @@ namespace Tools.Forms
             this.myValueType = ValueTypes.Amount;
             this.Amount2PercentDenominator = application.Settings.sysStockTotalCapAmt;
             StringCollection strategyList = strategyClb.myCheckedValues;
-            StringCollection stockCodeList = stockCodeSelectLb.myValues;
+            StringCollection stockCodeList = codeSelectLb.myValues;
             DataTable testRetsultTbl = CreateDataTable(strategyList);
             SetDataGrid(resultDataGrid, testRetsultTbl);
 
@@ -276,7 +300,7 @@ namespace Tools.Forms
                 stockCodeRow = application.dataLibs.FindAndCache(myDataSet.stockCode, stockCodeList[rowId]);
                 if (stockCodeRow == null) continue;
                 decimal profit = 0;
-                application.Data analysisData = new application.Data(dateRangeEd.myTimeRange, dateRangeEd.myTimeScale, stockCodeRow.code);
+                application.Data analysisData = new application.Data(periodicityEd.myTimeRange, periodicityEd.myTimeScale, stockCodeRow.code);
                 DataRow row = testRetsultTbl.Rows.Add(stockCodeList[rowId]);
                 for (int colId = 0; colId < strategyList.Count; colId++)
                 {
@@ -383,13 +407,13 @@ namespace Tools.Forms
                 {
                     stockCodeRow = application.dataLibs.FindAndCache(myDataSet.stockCode, stockCode);
                     if (stockCodeRow != null) return;
-                    ShowStock(stockCodeRow, dateRangeEd.myTimeRange,dateRangeEd.myTimeScale);
+                    ShowStock(stockCodeRow, periodicityEd.myTimeRange,periodicityEd.myTimeScale);
                     return;
                 }
 
                 stockCodeRow = application.dataLibs.FindAndCache(myDataSet.stockCode, stockCode);
                 string strategyCode = strategyClb.myCheckedValues[e.ColumnIndex - 1];
-                ShowTradeTransactions(stockCodeRow, strategyCode, dateRangeEd.myTimeRange, dateRangeEd.myTimeScale);
+                ShowTradeTransactions(stockCodeRow, strategyCode, periodicityEd.myTimeRange, periodicityEd.myTimeScale);
             }
             catch (Exception er)
             {
@@ -488,7 +512,7 @@ namespace Tools.Forms
                     {
                         stockCode = resultDataGrid.SelectedRows[idx].Cells[0].Value.ToString();
                         stockCodeRow = application.dataLibs.FindAndCache(myDataSet.stockCode, stockCode);
-                        if (stockCodeRow != null) ShowStock(stockCodeRow, dateRangeEd.myTimeRange, dateRangeEd.myTimeScale);
+                        if (stockCodeRow != null) ShowStock(stockCodeRow, periodicityEd.myTimeRange, periodicityEd.myTimeScale);
                     }
                 }
                 else
@@ -497,7 +521,7 @@ namespace Tools.Forms
                     {
                         stockCode = resultDataGrid.CurrentRow.Cells[0].Value.ToString();
                         stockCodeRow = application.dataLibs.FindAndCache(myDataSet.stockCode, stockCode);
-                        if (stockCodeRow != null) ShowStock(stockCodeRow, dateRangeEd.myTimeRange, dateRangeEd.myTimeScale);
+                        if (stockCodeRow != null) ShowStock(stockCodeRow, periodicityEd.myTimeRange, periodicityEd.myTimeScale);
                     }
                 }
             }
@@ -548,7 +572,7 @@ namespace Tools.Forms
                         for (int idx2 = 0; idx2 < strategyClb.myCheckedValues.Count; idx2++)
                         {
                             ShowTradeTransactions(stockCodeRow, strategyClb.myCheckedValues[idx2],
-                                                  dateRangeEd.myTimeRange,dateRangeEd.myTimeScale);
+                                                  periodicityEd.myTimeRange,periodicityEd.myTimeScale);
                         }
                     }
                 }
@@ -562,7 +586,7 @@ namespace Tools.Forms
                         for (int idx2 = 0; idx2 < strategyClb.myCheckedValues.Count; idx2++)
                         {
                             ShowTradeTransactions(stockCodeRow, strategyClb.myCheckedValues[idx2],
-                                                  dateRangeEd.myTimeRange, dateRangeEd.myTimeScale);
+                                                  periodicityEd.myTimeRange, periodicityEd.myTimeScale);
                         }
                     }
                 }
@@ -583,7 +607,7 @@ namespace Tools.Forms
                 data.baseDS.stockCodeRow stockCodeRow = application.dataLibs.FindAndCache(myDataSet.stockCode, stockCode);
                 if (stockCodeRow == null) return;
                 ShowTradeTransactions(stockCodeRow, strategyClb.myCheckedValues[resultDataGrid.CurrentCell.ColumnIndex-1],
-                                      dateRangeEd.myTimeRange, dateRangeEd.myTimeScale);
+                                      periodicityEd.myTimeRange, periodicityEd.myTimeScale);
             }
             catch (Exception er)
             {

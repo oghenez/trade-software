@@ -29,6 +29,8 @@ namespace baseClass.controls
         {
             base.SetLanguage();
             selectAllChk.Text = language.GetString("selectAll");
+            strategyCatCb.SetLanguage();
+            strategyClb.SetLanguage();
         }
         public StringCollection myCheckedValues
         {
