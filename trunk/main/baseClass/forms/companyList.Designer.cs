@@ -52,30 +52,28 @@
             // xpPanel_OtherInfo
             // 
             this.xpPanel_OtherInfo.ImageItems.ImageSet = null;
-            this.xpPanel_OtherInfo.Size = new System.Drawing.Size(483, 185);
+            this.xpPanel_OtherInfo.Size = new System.Drawing.Size(483, 203);
             // 
             // xpPanel_StockInfo
             // 
             this.xpPanel_StockInfo.ImageItems.ImageSet = null;
-            this.xpPanel_StockInfo.Size = new System.Drawing.Size(483, 325);
+            this.xpPanel_StockInfo.Size = new System.Drawing.Size(483, 212);
             // 
             // xpPanel_GeneralInfo
             // 
             this.xpPanel_GeneralInfo.ImageItems.ImageSet = null;
-            this.xpPanel_GeneralInfo.Size = new System.Drawing.Size(483, 320);
+            this.xpPanel_GeneralInfo.Size = new System.Drawing.Size(483, 340);
             // 
             // exitBtn
             // 
             this.exitBtn.Margin = new System.Windows.Forms.Padding(2);
             this.exitBtn.Size = new System.Drawing.Size(69, 39);
-            this.exitBtn.Text = "Close";
             // 
             // saveBtn
             // 
             this.saveBtn.Location = new System.Drawing.Point(71, 7);
             this.saveBtn.Margin = new System.Windows.Forms.Padding(2);
             this.saveBtn.Size = new System.Drawing.Size(69, 39);
-            this.saveBtn.Text = "Save";
             // 
             // deleteBtn
             // 
@@ -102,7 +100,6 @@
             this.toExcelBtn.Location = new System.Drawing.Point(746, 15);
             this.toExcelBtn.Margin = new System.Windows.Forms.Padding(2);
             this.toExcelBtn.Size = new System.Drawing.Size(44, 31);
-            this.toExcelBtn.Text = "Export";
             // 
             // findBtn
             // 
@@ -121,7 +118,6 @@
             this.printBtn.Location = new System.Drawing.Point(789, 15);
             this.printBtn.Margin = new System.Windows.Forms.Padding(2);
             this.printBtn.Size = new System.Drawing.Size(44, 31);
-            this.printBtn.Text = "&Print";
             // 
             // unLockBtn
             // 

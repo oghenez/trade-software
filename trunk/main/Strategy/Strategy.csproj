@@ -130,9 +130,6 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="..\dlls\strategyInfo.xml">
-      <Link>strategyInfo.xml</Link>
-    </Content>
     <None Include="Resources\save.png" />
     <Content Include="strategyInfo.xml" />
   </ItemGroup>

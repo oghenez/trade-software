@@ -110,12 +110,17 @@ namespace client
 
             dataTimeRangeCb.SetLanguage();
 
+            //Create indicator menu
+            indicatorMenuItem.DropDownItems.Clear();
+            Indicators.Libs.CreateIndicatorMenu(indicatorMenuItem, showIndicatorHandler);
+
             //Strategy menu
             strategyListMenuItem.DropDownItems.Clear();
             Strategy.Libs.CreateMenu(AppTypes.StrategyTypes.Strategy, strategyListMenuItem, StrategyParaEditHandler);
 
             screeningListMenuItem.DropDownItems.Clear();
             Strategy.Libs.CreateMenu(AppTypes.StrategyTypes.Screening, screeningListMenuItem, StrategyParaEditHandler);
+
 
         }
 
@@ -131,56 +136,46 @@ namespace client
             return true;
         }
 
-        private CultureInfo _vnCultureInfo = null, _enCultureInfo = null, _currentCultureInfo=null;
-        private CultureInfo vnCultureInfo
+        private common.DictionaryList cultureCache = new common.DictionaryList();
+        private void SetCulture()
         {
-            get
-            {
-                if (_vnCultureInfo == null) _vnCultureInfo = common.language.CreateCulture("vi-VN");
-                return _vnCultureInfo;
-            }
+            SetCulture("vi-VN");
         }
-        private CultureInfo enCultureInfo
+        private void SetCulture(string code)
         {
-            get
+            CultureInfo cultureInfo = null;
+            object obj = cultureCache.Find(code);
+            if (obj == null)
             {
-                if (_enCultureInfo == null) _enCultureInfo = common.language.CreateCulture("en-US");
-                return _enCultureInfo;
+                cultureInfo = common.language.CreateCulture(code);
+                cultureCache.Add(code, cultureInfo);
             }
-        }
-        private CultureInfo currentCultureInfo
-        {
-            set
+            else
             {
-                _currentCultureInfo = value;
-                common.language.SetLanguage();
-                application.language.SetLanguage();
-                common.language.SetLanguageForAllOpenForms(_currentCultureInfo);
-                if (vnCultureInfo.LCID == _currentCultureInfo.LCID)
-                {
+                cultureInfo = (CultureInfo)obj;
+            }
+            switch (cultureInfo.Name)
+            { 
+                case "vi-VN":
                     vietnameseMenuItem.Checked = true;
                     englishMenuItem.Checked = false;
-                    return;
-                }
-                vietnameseMenuItem.Checked = false;
-                englishMenuItem.Checked = true;
+                    break;
+                default:
+                    vietnameseMenuItem.Checked = false;
+                    englishMenuItem.Checked = true;
+                    break;
             }
+            common.language.SetLanguage();
+            application.language.SetLanguage();
+            Strategy.Data.Clear();
+            Indicators.Data.Clear();
+            common.language.SetLanguageForAllOpenForms(cultureInfo);
+            SetLanguage();
         }
 
 
         private void Init()
         {
-            //Create indicator menu
-            indicatorMenuItem.DropDownItems.Clear();
-            Indicators.Libs.CreateIndicatorMenu(indicatorMenuItem, showIndicatorHandler);
-
-            //Strategy menu
-            strategyListMenuItem.DropDownItems.Clear();
-            Strategy.Libs.CreateMenu(AppTypes.StrategyTypes.Strategy,strategyListMenuItem, StrategyParaEditHandler);
-
-            screeningListMenuItem.DropDownItems.Clear();
-            Strategy.Libs.CreateMenu(AppTypes.StrategyTypes.Screening, screeningListMenuItem, StrategyParaEditHandler);
-
             //Combobox that allow user to set date range of used data.
             dataTimeRangeCb.LoadData();
 
@@ -213,7 +208,7 @@ namespace client
             dockPanel.ActiveAutoHideContent = null;
             
             //Language default
-            currentCultureInfo = vnCultureInfo;
+            SetCulture();
         }
         private void CreatePeriodicityStrip(ToolStrip toStrip,ToolStripMenuItem toMenu)
         {
@@ -1119,20 +1114,19 @@ namespace client
         {
             try
             {
-                currentCultureInfo = vnCultureInfo;
+                SetCulture("vi-VN");
             }
             catch (Exception er)
             {
                 this.ShowError(er);
             }
         }
-
         
         private void englishMenuItem_Click(object sender, EventArgs e)
         {
             try
             {
-                currentCultureInfo = enCultureInfo;
+                SetCulture("en-US");
             }
             catch (Exception er)
             {

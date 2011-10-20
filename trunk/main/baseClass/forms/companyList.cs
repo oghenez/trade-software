@@ -28,7 +28,7 @@ namespace baseClass.forms
         public override void SetLanguage()
         {
             base.SetLanguage();
-            this.Text = language.GetString("find");
+            this.Text = language.GetString("companyList");
             filterBtn.Text = language.GetString("find");
             closeFindBtn.Text = language.GetString("close");
 

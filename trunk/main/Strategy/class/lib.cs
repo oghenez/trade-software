@@ -603,14 +603,6 @@ namespace Strategy
             CreateMenu(Data.MetaList,strategyType, toMenu, handler);
         }
 
-        /// <summary>
-        /// Clear cache that keep caculated data to speed up performance.
-        /// </summary>
-        public static void ClearCache()
-        {
-            Data.ClearCache();
-            //_metaList = null; 
-        }
 
         #region strategy estimation
         public class EstimateOptions
@@ -954,7 +946,8 @@ namespace Strategy
         {
             get
             {
-                return common.fileFuncs.ConcatFileName(sysFileDirectory, constMetaFileName);
+                string path = common.fileFuncs.ConcatFileName(sysFileDirectory, common.language.myCulture.Name);
+                return common.fileFuncs.ConcatFileName(path, constMetaFileName);
             }
         }
         public static string sysFileDirectory
@@ -975,9 +968,19 @@ namespace Strategy
         {
             dataCache.Add(key,obj);
         }
+
+        /// <summary>
+        /// Clear cache that keep caculated data to speed up performance.
+        /// </summary>
         public static void ClearCache()
         {
             dataCache.Clear();
+        }
+
+        public static void Clear()
+        {
+            ClearCache();
+            _metaList = null;
         }
 
         /// <summary>

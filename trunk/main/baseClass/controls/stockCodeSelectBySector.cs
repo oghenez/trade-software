@@ -45,7 +45,7 @@ namespace baseClass.controls
         public override void SetLanguage()
         {
             base.SetLanguage();
-            onlySeletedChk.Text = language.GetString("onlySeleted");
+            onlySeletedChk.Text = language.GetString("onlySelected");
             selectAllChk.Text = language.GetString("selectAll");
 
             bizSectorTypesSelection.SetLanguage();

@@ -144,6 +144,9 @@
   <data name="bizSector" xml:space="preserve">
     <value>Business Sectors</value>
   </data>
+  <data name="bookPrice" xml:space="preserve">
+    <value>Book price</value>
+  </data>
   <data name="boughtAmt" xml:space="preserve">
     <value>Bought Amt</value>
   </data>
@@ -179,6 +182,9 @@
   </data>
   <data name="color" xml:space="preserve">
     <value>Color</value>
+  </data>
+  <data name="companyList" xml:space="preserve">
+    <value>Company list</value>
   </data>
   <data name="configure" xml:space="preserve">
     <value>Configure</value>
@@ -222,6 +228,9 @@
   <data name="foreground" xml:space="preserve">
     <value>Foreground</value>
   </data>
+  <data name="foreignOwnQty" xml:space="preserve">
+    <value>Foreign Owned </value>
+  </data>
   <data name="generalInfo" xml:space="preserve">
     <value>General information</value>
   </data>
@@ -264,6 +273,9 @@
   <data name="lineGraph" xml:space="preserve">
     <value>Line graph</value>
   </data>
+  <data name="listedQty" xml:space="preserve">
+    <value>Listed Qty</value>
+  </data>
   <data name="logo" xml:space="preserve">
     <value>logo</value>
   </data>
@@ -300,6 +312,9 @@
   <data name="others" xml:space="preserve">
     <value>Others</value>
   </data>
+  <data name="outstandingQty" xml:space="preserve">
+    <value>Outstanding qty</value>
+  </data>
   <data name="ownedList" xml:space="preserve">
     <value>Owned list</value>
   </data>
@@ -332,6 +347,9 @@
   </data>
   <data name="qty" xml:space="preserve">
     <value>Qty</value>
+  </data>
+  <data name="regDate" xml:space="preserve">
+    <value>Reg. date</value>
   </data>
   <data name="reload" xml:space="preserve">
     <value>Reload</value>
@@ -381,14 +399,23 @@
   <data name="tag" xml:space="preserve">
     <value>Tag</value>
   </data>
+  <data name="targetPrice" xml:space="preserve">
+    <value>Target price</value>
+  </data>
   <data name="test" xml:space="preserve">
     <value>Test</value>
+  </data>
+  <data name="ticker" xml:space="preserve">
+    <value>Ticker</value>
   </data>
   <data name="timeRange" xml:space="preserve">
     <value>Periodicity</value>
   </data>
   <data name="timeScale" xml:space="preserve">
     <value>Time Scale</value>
+  </data>
+  <data name="treasuryQty" xml:space="preserve">
+    <value>Treasury</value>
   </data>
   <data name="usedAmt" xml:space="preserve">
     <value>Used amount</value>

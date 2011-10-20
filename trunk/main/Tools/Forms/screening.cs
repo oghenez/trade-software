@@ -53,6 +53,8 @@ namespace Tools.Forms
 
             stockCodeLb.SetLanguage();
             strategyCb.SetLanguage();
+
+            LoadScreeningCodes();
         }
         public static screening GetForm()
         {
@@ -122,6 +124,7 @@ namespace Tools.Forms
         private void LoadScreeningCodes()
         {
             tmpDS.screeningCode.Clear();
+            tmpDS.screeningCriteria.Clear();
             string[] screeningKeys = Strategy.Data.MetaList.Keys;
             object[] screeningValues = Strategy.Data.MetaList.Values;
             Data.tmpDataSet.screeningCodeRow row;

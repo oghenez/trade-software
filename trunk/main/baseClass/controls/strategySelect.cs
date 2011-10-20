@@ -32,6 +32,13 @@ namespace baseClass.controls
             strategyCatCb.SetLanguage();
             strategyClb.SetLanguage();
         }
+
+        public StringCollection test
+        {
+            get { return strategyClb.myItemValues; }
+        }
+
+
         public StringCollection myCheckedValues
         {
             get { return strategyClb.myCheckedValues; }
@@ -54,6 +61,7 @@ namespace baseClass.controls
         {
             this.strategyClb.LoadData(type);
             this.strategyCatCb.LoadData(true);
+            //strategyCatCb_SelectedIndexChanged(null,null);
         }
         public virtual void DataBining(BindingSource source, string fldName)
         {

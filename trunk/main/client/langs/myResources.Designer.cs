@@ -268,7 +268,7 @@ namespace client.langs {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Lline chart.
+        ///   Looks up a localized string similar to Line chart.
         /// </summary>
         internal static string lineChart {
             get {

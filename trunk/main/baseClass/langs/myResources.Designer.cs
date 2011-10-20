@@ -142,6 +142,15 @@ namespace baseClass.langs {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Book price.
+        /// </summary>
+        internal static string bookPrice {
+            get {
+                return ResourceManager.GetString("bookPrice", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Bought Amt.
         /// </summary>
         internal static string boughtAmt {
@@ -246,6 +255,15 @@ namespace baseClass.langs {
         internal static string color {
             get {
                 return ResourceManager.GetString("color", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Company list.
+        /// </summary>
+        internal static string companyList {
+            get {
+                return ResourceManager.GetString("companyList", resourceCulture);
             }
         }
         
@@ -376,6 +394,15 @@ namespace baseClass.langs {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Foreign Owned .
+        /// </summary>
+        internal static string foreignOwnQty {
+            get {
+                return ResourceManager.GetString("foreignOwnQty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to General information.
         /// </summary>
         internal static string generalInfo {
@@ -502,6 +529,15 @@ namespace baseClass.langs {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Listed Qty.
+        /// </summary>
+        internal static string listedQty {
+            get {
+                return ResourceManager.GetString("listedQty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to logo.
         /// </summary>
         internal static string logo {
@@ -610,6 +646,15 @@ namespace baseClass.langs {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Outstanding qty.
+        /// </summary>
+        internal static string outstandingQty {
+            get {
+                return ResourceManager.GetString("outstandingQty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Owned list.
         /// </summary>
         internal static string ownedList {
@@ -705,6 +750,15 @@ namespace baseClass.langs {
         internal static string qty {
             get {
                 return ResourceManager.GetString("qty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reg. date.
+        /// </summary>
+        internal static string regDate {
+            get {
+                return ResourceManager.GetString("regDate", resourceCulture);
             }
         }
         
@@ -853,11 +907,29 @@ namespace baseClass.langs {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Target price.
+        /// </summary>
+        internal static string targetPrice {
+            get {
+                return ResourceManager.GetString("targetPrice", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Test.
         /// </summary>
         internal static string test {
             get {
                 return ResourceManager.GetString("test", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ticker.
+        /// </summary>
+        internal static string ticker {
+            get {
+                return ResourceManager.GetString("ticker", resourceCulture);
             }
         }
         
@@ -876,6 +948,15 @@ namespace baseClass.langs {
         internal static string timeScale {
             get {
                 return ResourceManager.GetString("timeScale", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Treasury.
+        /// </summary>
+        internal static string treasuryQty {
+            get {
+                return ResourceManager.GetString("treasuryQty", resourceCulture);
             }
         }
         

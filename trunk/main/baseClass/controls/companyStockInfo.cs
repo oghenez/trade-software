@@ -47,46 +47,6 @@ namespace baseClass.controls
             this.foreignOwnStockEd.DataBindings.Clear();
             this.foreignOwnStockEd.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.myDataSource, tbl.noForeignOwnedStockColumn.ColumnName, true));
 
-            this.capitalUnitCb.DataBindings.Clear();
-            this.capitalUnitCb.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.myDataSource, tbl.capitalUnitColumn.ColumnName, true));
-
-            this.workingCapitalEd.DataBindings.Clear();
-            this.workingCapitalEd.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.myDataSource, tbl.workingCapColumn.ColumnName, true));
-            
-            this.equityEd.DataBindings.Clear();
-            this.equityEd.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.myDataSource, tbl.equityColumn.ColumnName, true));
-
-            this.totalAssetEd.DataBindings.Clear();
-            this.totalAssetEd.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.myDataSource, tbl.totaAssetsColumn.ColumnName, true));
-
-            this.totalDebtEd.DataBindings.Clear();
-            this.totalDebtEd.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.myDataSource, tbl.totalDebtColumn.ColumnName, true));
-
-            this.salesEd.DataBindings.Clear();
-            this.salesEd.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.myDataSource, tbl.salesColumn.ColumnName, true));
-            
-            this.profitEd.DataBindings.Clear();
-            this.profitEd.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.myDataSource, tbl.profitColumn.ColumnName, true));
-
-            this.pricePerBookEd.DataBindings.Clear();
-            this.pricePerBookEd.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.myDataSource, tbl.PBColumn.ColumnName, true));
-
-            this.earnPerShareEd.DataBindings.Clear();
-            this.earnPerShareEd.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.myDataSource, tbl.EPSColumn.ColumnName, true));
-
-            this.prixePerEarningEd.DataBindings.Clear();
-            this.prixePerEarningEd.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.myDataSource, tbl.PEColumn.ColumnName, true));
-
-            this.roaEd.DataBindings.Clear();
-            this.roaEd.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.myDataSource, tbl.ROAColumn.ColumnName, true));
-
-            this.roeEd.DataBindings.Clear();
-            this.roeEd.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.myDataSource, tbl.ROEColumn.ColumnName, true));
-
-            this.betaEd.DataBindings.Clear();
-            this.betaEd.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.myDataSource, tbl.BETAColumn.ColumnName, true));
-
-
             this.bookPriceEd.DataBindings.Clear();
             this.bookPriceEd.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.myDataSource, tbl.bookPriceColumn.ColumnName, true));
 
@@ -108,13 +68,31 @@ namespace baseClass.controls
             stockCodeEd.MaxLength = tbl.codeColumn.MaxLength;
             tickerCodeEd.MaxLength = tbl.tickerCodeColumn.MaxLength;
         }
+
+        public override void SetLanguage()
+        {
+            base.SetLanguage();
+            stockMarketCb.SetLanguage();
+            statusCb.SetLanguage();
+
+            stockCodeLbl.Text = language.GetString("code");
+            stockMarketLbl.Text = language.GetString("exchange");
+            tickerCodeLbl.Text = language.GetString("ticker");
+            noListedStockLbl.Text = language.GetString("listedQty");
+            outstandingStockLbl.Text = language.GetString("outstandingQty");
+            treasuryStockLbl.Text = language.GetString("treasuryQty");
+            foreignOwnStockLbl.Text = language.GetString("foreignOwnQty");
+            bookPriceLbl.Text = language.GetString("bookPrice");
+            targetPriceLbl.Text = language.GetString("targetPrice");
+            regDateLbl.Text = language.GetString("regDate");
+            statusLblb.Text = language.GetString("status");
+        }
+
         public virtual void Init() 
         {
             stockMarketCb.LoadData();
             statusCb.LoadData();
-            capitalUnitCb.LoadData();
         }
-
         public virtual bool CheckData()
         {
             myDataSource.EndEdit();
@@ -154,21 +132,6 @@ namespace baseClass.controls
             this.outstandingStockEd.Enabled = state;
             this.foreignOwnStockEd.Enabled = state;
 
-            this.capitalUnitCb.Enabled = state;
-            this.workingCapitalEd.Enabled = state;
-            this.equityEd.Enabled = state;
-
-            this.totalAssetEd.Enabled = state;
-            this.totalDebtEd.Enabled = state;
-            this.salesEd.Enabled = state;
-            this.profitEd.Enabled = state;
-
-            this.pricePerBookEd.Enabled = state;
-            this.earnPerShareEd.Enabled = state;
-            this.prixePerEarningEd.Enabled = state;
-            this.roaEd.Enabled = state;
-            this.roeEd.Enabled = state;
-            this.betaEd.Enabled = state;
 
             this.bookPriceEd.Enabled = state;
             this.targetPriceEd.Enabled = state;

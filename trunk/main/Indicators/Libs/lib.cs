@@ -23,7 +23,8 @@ namespace Indicators
         {
             get
             {
-                return common.fileFuncs.ConcatFileName(sysFileDirectory, constMetaFileName);
+                string path = common.fileFuncs.ConcatFileName(sysFileDirectory, common.language.myCulture.Name);
+                return common.fileFuncs.ConcatFileName(path, constMetaFileName);
             }
         }
         public static string sysFileDirectory
@@ -32,6 +33,10 @@ namespace Indicators
             {
                 return Application.StartupPath;
             }
+        }
+        public static void Clear()
+        {
+            _Metas = null;
         }
 
         private static common.DictionaryList _Metas = null;

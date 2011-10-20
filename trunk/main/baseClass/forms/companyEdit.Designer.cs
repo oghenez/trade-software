@@ -30,11 +30,11 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(companyEdit));
             this.xpPanelGroup_Info = new UIComponents.XPPanelGroup();
-            this.xpPanel_OtherInfo = new UIComponents.XPPanel(185);
+            this.xpPanel_OtherInfo = new UIComponents.XPPanel(209);
             this.companyOtherInfo = new baseClass.controls.companyOtherInfo();
-            this.xpPanel_StockInfo = new UIComponents.XPPanel(325);
+            this.xpPanel_StockInfo = new UIComponents.XPPanel(216);
             this.companyStock = new baseClass.controls.companyStockInfo();
-            this.xpPanel_GeneralInfo = new UIComponents.XPPanel(320);
+            this.xpPanel_GeneralInfo = new UIComponents.XPPanel(344);
             this.companyGeneral = new baseClass.controls.companyGeneralInfo();
             ((System.ComponentModel.ISupportInitialize)(this.myDataSet)).BeginInit();
             this.toolBox.SuspendLayout();
@@ -53,11 +53,13 @@
             // 
             this.exitBtn.Location = new System.Drawing.Point(416, 7);
             this.exitBtn.Size = new System.Drawing.Size(83, 39);
+            this.exitBtn.Text = "Close";
             // 
             // saveBtn
             // 
             this.saveBtn.Location = new System.Drawing.Point(84, 7);
             this.saveBtn.Size = new System.Drawing.Size(83, 39);
+            this.saveBtn.Text = "Save";
             // 
             // deleteBtn
             // 
@@ -66,8 +68,10 @@
             // 
             // editBtn
             // 
+            this.editBtn.Image = ((System.Drawing.Image)(resources.GetObject("editBtn.Image")));
             this.editBtn.Location = new System.Drawing.Point(250, 7);
             this.editBtn.Size = new System.Drawing.Size(83, 39);
+            this.editBtn.Text = "Lock";
             // 
             // addNewBtn
             // 
@@ -77,6 +81,7 @@
             // toExcelBtn
             // 
             this.toExcelBtn.Location = new System.Drawing.Point(875, 7);
+            this.toExcelBtn.Text = "Export";
             this.toExcelBtn.Visible = false;
             // 
             // findBtn
@@ -92,6 +97,7 @@
             // printBtn
             // 
             this.printBtn.Location = new System.Drawing.Point(805, 7);
+            this.printBtn.Text = "&Print";
             this.printBtn.Visible = false;
             // 
             // xpPanelGroup_Info
@@ -125,12 +131,12 @@
             this.xpPanel_OtherInfo.ForeColor = System.Drawing.SystemColors.WindowText;
             this.xpPanel_OtherInfo.HorzAlignment = System.Drawing.StringAlignment.Near;
             this.xpPanel_OtherInfo.ImageItems.ImageSet = null;
-            this.xpPanel_OtherInfo.Location = new System.Drawing.Point(0, 645);
+            this.xpPanel_OtherInfo.Location = new System.Drawing.Point(0, 560);
             this.xpPanel_OtherInfo.Name = "xpPanel_OtherInfo";
             this.xpPanel_OtherInfo.PanelGradient.End = System.Drawing.SystemColors.Control;
             this.xpPanel_OtherInfo.PanelGradient.Start = System.Drawing.SystemColors.Control;
             this.xpPanel_OtherInfo.PanelGradientMode = System.Drawing.Drawing2D.LinearGradientMode.Horizontal;
-            this.xpPanel_OtherInfo.Size = new System.Drawing.Size(483, 185);
+            this.xpPanel_OtherInfo.Size = new System.Drawing.Size(483, 209);
             this.xpPanel_OtherInfo.Spacing = new System.Drawing.Point(0, 0);
             this.xpPanel_OtherInfo.TabIndex = 2;
             this.xpPanel_OtherInfo.TextColors.Foreground = System.Drawing.SystemColors.Control;
@@ -140,9 +146,9 @@
             // 
             // companyOtherInfo
             // 
-            this.companyOtherInfo.Location = new System.Drawing.Point(30, 29);
+            this.companyOtherInfo.Location = new System.Drawing.Point(30, 36);
             this.companyOtherInfo.Name = "companyOtherInfo";
-            this.companyOtherInfo.Size = new System.Drawing.Size(440, 150);
+            this.companyOtherInfo.Size = new System.Drawing.Size(440, 156);
             this.companyOtherInfo.TabIndex = 0;
             // 
             // xpPanel_StockInfo
@@ -161,12 +167,12 @@
             this.xpPanel_StockInfo.ForeColor = System.Drawing.SystemColors.WindowText;
             this.xpPanel_StockInfo.HorzAlignment = System.Drawing.StringAlignment.Near;
             this.xpPanel_StockInfo.ImageItems.ImageSet = null;
-            this.xpPanel_StockInfo.Location = new System.Drawing.Point(0, 320);
+            this.xpPanel_StockInfo.Location = new System.Drawing.Point(0, 344);
             this.xpPanel_StockInfo.Name = "xpPanel_StockInfo";
             this.xpPanel_StockInfo.PanelGradient.End = System.Drawing.SystemColors.Control;
             this.xpPanel_StockInfo.PanelGradient.Start = System.Drawing.SystemColors.Control;
             this.xpPanel_StockInfo.PanelGradientMode = System.Drawing.Drawing2D.LinearGradientMode.Horizontal;
-            this.xpPanel_StockInfo.Size = new System.Drawing.Size(483, 325);
+            this.xpPanel_StockInfo.Size = new System.Drawing.Size(483, 216);
             this.xpPanel_StockInfo.Spacing = new System.Drawing.Point(0, 0);
             this.xpPanel_StockInfo.TabIndex = 1;
             this.xpPanel_StockInfo.TextColors.Foreground = System.Drawing.SystemColors.Control;
@@ -177,10 +183,10 @@
             // companyStock
             // 
             this.companyStock.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.companyStock.Location = new System.Drawing.Point(30, 29);
+            this.companyStock.Location = new System.Drawing.Point(30, 46);
             this.companyStock.Margin = new System.Windows.Forms.Padding(2);
             this.companyStock.Name = "companyStock";
-            this.companyStock.Size = new System.Drawing.Size(440, 291);
+            this.companyStock.Size = new System.Drawing.Size(443, 143);
             this.companyStock.TabIndex = 0;
             // 
             // xpPanel_GeneralInfo
@@ -204,7 +210,7 @@
             this.xpPanel_GeneralInfo.PanelGradient.End = System.Drawing.SystemColors.Control;
             this.xpPanel_GeneralInfo.PanelGradient.Start = System.Drawing.SystemColors.Control;
             this.xpPanel_GeneralInfo.PanelGradientMode = System.Drawing.Drawing2D.LinearGradientMode.Horizontal;
-            this.xpPanel_GeneralInfo.Size = new System.Drawing.Size(483, 320);
+            this.xpPanel_GeneralInfo.Size = new System.Drawing.Size(483, 344);
             this.xpPanel_GeneralInfo.Spacing = new System.Drawing.Point(0, 0);
             this.xpPanel_GeneralInfo.TabIndex = 0;
             this.xpPanel_GeneralInfo.TextColors.Foreground = System.Drawing.SystemColors.Control;
@@ -214,7 +220,7 @@
             // 
             // companyGeneral
             // 
-            this.companyGeneral.Location = new System.Drawing.Point(30, 28);
+            this.companyGeneral.Location = new System.Drawing.Point(30, 42);
             this.companyGeneral.Name = "companyGeneral";
             this.companyGeneral.Size = new System.Drawing.Size(440, 280);
             this.companyGeneral.TabIndex = 0;
@@ -224,6 +230,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(500, 738);
             this.Controls.Add(this.xpPanelGroup_Info);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "companyEdit";
             this.Text = "Company";

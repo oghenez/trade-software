@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(companyList));
             this.findPnl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.xpPanelGroup_Info)).BeginInit();
             this.xpPanelGroup_Info.SuspendLayout();
@@ -38,6 +39,14 @@
             this.toolBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.myMasterSource)).BeginInit();
             this.SuspendLayout();
+            // 
+            // closeFindBtn
+            // 
+            this.closeFindBtn.Text = "Close";
+            // 
+            // filterBtn
+            // 
+            this.filterBtn.Text = "Find";
             // 
             // findCriteria
             // 
@@ -50,17 +59,22 @@
             // xpPanel_OtherInfo
             // 
             this.xpPanel_OtherInfo.ImageItems.ImageSet = null;
-            this.xpPanel_OtherInfo.Size = new System.Drawing.Size(483, 185);
+            this.xpPanel_OtherInfo.Size = new System.Drawing.Size(483, 203);
             // 
             // xpPanel_StockInfo
             // 
             this.xpPanel_StockInfo.ImageItems.ImageSet = null;
-            this.xpPanel_StockInfo.Size = new System.Drawing.Size(483, 325);
+            this.xpPanel_StockInfo.Size = new System.Drawing.Size(483, 212);
             // 
             // xpPanel_GeneralInfo
             // 
             this.xpPanel_GeneralInfo.ImageItems.ImageSet = null;
-            this.xpPanel_GeneralInfo.Size = new System.Drawing.Size(483, 320);
+            this.xpPanel_GeneralInfo.Size = new System.Drawing.Size(483, 340);
+            // 
+            // editBtn
+            // 
+            this.editBtn.Image = ((System.Drawing.Image)(resources.GetObject("editBtn.Image")));
+            this.editBtn.Text = "Lock";
             // 
             // unLockBtn
             // 
@@ -84,6 +98,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(962, 740);
             this.Name = "companyList";
+            this.Text = "Company list";
             this.findPnl.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.xpPanelGroup_Info)).EndInit();
             this.xpPanelGroup_Info.ResumeLayout(false);

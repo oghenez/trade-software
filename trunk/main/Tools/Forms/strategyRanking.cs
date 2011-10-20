@@ -148,6 +148,7 @@ namespace Tools.Forms
         {
             get
             {
+                if (resultTab.SelectedTab == null) return null;
                 for (int idx = 0; idx < resultTab.SelectedTab.Controls.Count; idx++)
                 {
                     if (resultTab.SelectedTab.Controls[idx].GetType() == typeof(common.controls.baseDataGridView))
@@ -506,8 +507,9 @@ namespace Tools.Forms
         {
             try
             {
+                if (this.CurrentDataGridView == null) return;
                 common.controls.baseDataGridView resultDataGrid = this.CurrentDataGridView;
-                if (resultDataGrid == null || resultDataGrid.CurrentCell==null) return;
+                if (resultDataGrid.CurrentCell==null) return;
                 if(resultDataGrid.CurrentCell.ColumnIndex<=0) return;
 
                 string stockCode = resultTab.SelectedTab.Name;  
