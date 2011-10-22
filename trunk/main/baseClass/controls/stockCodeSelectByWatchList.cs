@@ -33,8 +33,8 @@ namespace baseClass.controls
                 stockNameColumn.Name = gridColumnName.StockName.ToString();
                 priceColumn.Name = gridColumnName.Price.ToString();
                 priceVariantColumn.Name = gridColumnName.PriceVariant.ToString();
-                priceColumn.DefaultCellStyle.Format = "N" + Settings.sysPrecisionPrice.ToString();
-                priceVariantColumn.DefaultCellStyle.Format = "N" + Settings.sysPrecisionPercentage.ToString();
+                priceColumn.DefaultCellStyle.Format = "N" + application.Settings.sysPrecisionPrice.ToString();
+                priceVariantColumn.DefaultCellStyle.Format = "N" + application.Settings.sysPrecisionPercentage.ToString();
 
                 myTmpDS.stockCode.priceColumn.ReadOnly = false;
                 myTmpDS.stockCode.priceVariantColumn.ReadOnly = false;
@@ -117,7 +117,7 @@ namespace baseClass.controls
         private void LoadWatchList()
         {
             watchListCb.Items.Clear();
-            common.myKeyValueExt item = new common.myKeyValueExt(Settings.sysString_All_Description,Settings.sysString_All_Code);
+            common.myKeyValueExt item = new common.myKeyValueExt(application.Settings.sysString_All_Description, application.Settings.sysString_All_Code);
             item.Attribute1 = ((byte)watchListTypes.All).ToString();
             watchListCb.Items.Add(item);        
 

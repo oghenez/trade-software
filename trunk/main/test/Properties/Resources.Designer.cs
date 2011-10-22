@@ -68,5 +68,19 @@ namespace test.Properties {
                 return ResourceManager.GetString("add", resourceCulture);
             }
         }
+        
+        internal static System.Drawing.Bitmap zoomIn {
+            get {
+                object obj = ResourceManager.GetObject("zoomIn", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap zoomOut {
+            get {
+                object obj = ResourceManager.GetObject("zoomOut", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }
