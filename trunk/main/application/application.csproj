@@ -83,8 +83,6 @@
     <Compile Include="language.cs" />
     <Compile Include="sysLibs.cs" />
     <Compile Include="dataClass.cs" />
-    <Compile Include="appLibs.cs">
-    </Compile>
     <Compile Include="dataLibs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="langs\myResources.vi-VN.resx">

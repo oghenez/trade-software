@@ -36,6 +36,7 @@
       <HintPath>..\dlls\application.dll</HintPath>
     </Reference>
     <Reference Include="baseClass, Version=1.3.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="Charts, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="client, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <ExecutableExtension>.exe</ExecutableExtension>
     </Reference>

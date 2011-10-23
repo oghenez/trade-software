@@ -102,8 +102,8 @@ namespace Tools.Forms
             //Handle bug in graph for curve with only on point ????
             if (ySeries.Count > 1)
             {
-                CurveItem curveItem = AppLibs.PlotChartBar(chartPnl.myGraphPane, xSeries, ySeries, "",
-                                                           Settings.sysChartVolumesColor, Settings.sysChartVolumesColor, 1);
+                chartPnl.myGraphObj.SetSeriesX(xSeries.Values, Charts.Controls.myAxisType.DateAsOrdinal);
+                CurveItem curveItem = chartPnl.myGraphObj.AddCurveBar("profit", ySeries.Values, Settings.sysChartVolumesColor, Settings.sysChartVolumesColor, 1);
                 chartPnl.PlotGraph();
             }
 

@@ -184,9 +184,6 @@
     <None Include="Resources\remove.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="..\dlls\indicators.xml">
-      <Link>indicators.xml</Link>
-    </Content>
     <None Include="Resources\save.png" />
     <Content Include="_indicators.xml" />
   </ItemGroup>

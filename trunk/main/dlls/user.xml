@@ -29,4 +29,22 @@
   <A00000004>
     <Indicators.ADX drawInNewWindow="True" />
   </A00000004>
+  <A00000004>
+    <Indicators.SMA params="5" />
+  </A00000004>
+  <A00000004>
+    <Indicators.SMA output="Red:2" />
+  </A00000004>
+  <A00000004>
+    <Indicators.SMA drawInNewWindow="False" />
+  </A00000004>
+  <A00000004>
+    <Indicators.MACD params="12 26 9" />
+  </A00000004>
+  <A00000004>
+    <Indicators.MACD output="Blue:1,Green:1,Navy:1" />
+  </A00000004>
+  <A00000004>
+    <Indicators.MACD drawInNewWindow="True" />
+  </A00000004>
 </Configuration>

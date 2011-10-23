@@ -40,7 +40,7 @@
             this.tradeEstimateSource = new System.Windows.Forms.BindingSource(this.components);
             this.myTmpDS = new data.tmpDS();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
-            this.chartPnl = new common.controls.baseGraphPanel();
+            this.chartPnl = new Charts.Controls.baseGraphPanel();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.estimationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.allTransactionMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -353,7 +353,7 @@
         private data.tmpDS myTmpDS;
         protected common.controls.baseDataGridView dataGrid;
         protected System.Windows.Forms.SaveFileDialog saveFileDialog;
-        protected common.controls.baseGraphPanel chartPnl;
+        protected Charts.Controls.baseGraphPanel chartPnl;
         protected System.Windows.Forms.MenuStrip menuStrip;
         private System.Windows.Forms.ToolStripMenuItem estimationToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem allTransactionMenuItem;

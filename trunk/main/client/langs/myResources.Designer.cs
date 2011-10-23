@@ -529,7 +529,7 @@ namespace client.langs {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to zoomIn.
+        ///   Looks up a localized string similar to Zoom In.
         /// </summary>
         internal static string zoomIn {
             get {
@@ -538,7 +538,7 @@ namespace client.langs {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to zoomOut.
+        ///   Looks up a localized string similar to Zoom Out.
         /// </summary>
         internal static string zoomOut {
             get {
