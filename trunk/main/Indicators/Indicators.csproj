@@ -145,10 +145,12 @@
     <EmbeddedResource Include="langs\myResources.vi-VN.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>myResources.vi-VN.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="langs\myResources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>myResources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

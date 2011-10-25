@@ -2,7 +2,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.30729</ProductVersion>
+    <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{19674D3E-1CE6-4C34-9E3B-CB9D9E86F868}</ProjectGuid>
     <OutputType>Library</OutputType>
@@ -88,10 +88,12 @@
     <EmbeddedResource Include="langs\myResources.vi-VN.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>myResources.vi-VN.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="langs\myResources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>myResources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
