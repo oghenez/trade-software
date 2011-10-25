@@ -29,6 +29,20 @@
   <A00000004>
     <Indicators.ADX drawInNewWindow="True" />
   </A00000004>
+<<<<<<< .mine
+  <A00000004>
+    <Indicators.Market_TRIN params="" />
+  </A00000004>
+  <A00000004>
+    <Indicators.Market_TRIN output="Blue:1" />
+  </A00000004>
+  <A00000004>
+    <Indicators.Market_TRIN drawInNewWindow="True" />
+  </A00000004>
+  <A00000004>
+    <Strategy.StochFastSCR params="14 3" />
+  </A00000004>
+=======
   <A00000004>
     <Indicators.SMA params="5" />
   </A00000004>
@@ -47,4 +61,5 @@
   <A00000004>
     <Indicators.MACD drawInNewWindow="True" />
   </A00000004>
+>>>>>>> .r237
 </Configuration>
