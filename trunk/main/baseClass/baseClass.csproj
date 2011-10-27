@@ -59,7 +59,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="consts.cs" />
     <Compile Include="controls\baseControl.cs">
       <SubType>Component</SubType>
     </Compile>

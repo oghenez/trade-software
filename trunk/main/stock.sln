@@ -27,7 +27,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "test", "test\test.csproj", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Strategy", "Strategy\Strategy.csproj", "{1463FC47-2B74-4E63-9710-2C3B8ED3DE8A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "common", "..\..\ketoan-moi\code\common\common.csproj", "{B7600D70-3D5D-4F1D-836D-F867120E3FC2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "common", "..\..\ketoan-moi\code\common\common.csproj", "{90A73556-87A1-4887-BB82-F482669A7784}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "charts", "charts\charts.csproj", "{B4BB5B7E-B7E1-4F82-9C4B-B373A46B08F8}"
 EndProject
@@ -89,10 +89,10 @@ Global
 		{1463FC47-2B74-4E63-9710-2C3B8ED3DE8A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1463FC47-2B74-4E63-9710-2C3B8ED3DE8A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1463FC47-2B74-4E63-9710-2C3B8ED3DE8A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B7600D70-3D5D-4F1D-836D-F867120E3FC2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B7600D70-3D5D-4F1D-836D-F867120E3FC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B7600D70-3D5D-4F1D-836D-F867120E3FC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B7600D70-3D5D-4F1D-836D-F867120E3FC2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{90A73556-87A1-4887-BB82-F482669A7784}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{90A73556-87A1-4887-BB82-F482669A7784}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{90A73556-87A1-4887-BB82-F482669A7784}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{90A73556-87A1-4887-BB82-F482669A7784}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B4BB5B7E-B7E1-4F82-9C4B-B373A46B08F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B4BB5B7E-B7E1-4F82-9C4B-B373A46B08F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B4BB5B7E-B7E1-4F82-9C4B-B373A46B08F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
