@@ -19,43 +19,77 @@ namespace test
             myData.DataTimeRange = application.AppTypes.TimeRanges.All;
             myData.Reload();
 
-            myGraphObj.SetSeriesX(myData.DateTime.Values, Charts.Controls.myAxisType.DateAsOrdinal);
-            myGraphObj.AddCurveLine("Line1", myData.Close.Values, ZedGraph.SymbolType.None, Color.Red,1);
-            //myGraphObj.AddCurveBar("Line2", myData.Low.Values, Color.Red,Color.Green,1);
-            //myGraphObj.AddCurveStick("Line3", myData.Open.Values, Color.Violet);
-            myGraphObj.AddCandleStick("CandleStick", myData.High.Values,myData.Low.Values,myData.Open.Values,
+            myPriceGraphObj.SetSeriesX(myData.DateTime.Values, Charts.Controls.myAxisType.DateAsOrdinal);
+            myPriceGraphObj.AddCurveLine("Line1", myData.Close.Values, ZedGraph.SymbolType.None, Color.Red,1);
+            myPriceGraphObj.AddCandleStick("CandleStick", myData.High.Values,myData.Low.Values,myData.Open.Values,
                                       myData.Close.Values,myData.Volume.Values,Color.Red, Color.Green,Color.Violet,Color.Black);
+
+            myVolumeGraphObj.SetSeriesX(myData.DateTime.Values, Charts.Controls.myAxisType.DateAsOrdinal);
+            myVolumeGraphObj.AddCurveStick("Stick", myData.Volume.Values, Color.Green);
+
+
+
+            myPriceGraphObj.Width = this.ClientRectangle.Width;
+            myVolumeGraphObj.Width = this.ClientRectangle.Width;
+
+            myPriceGraphObj.Location = new Point(0,myPriceGraphObj.Location.Y);
+            myVolumeGraphObj.Location = new Point(0, myVolumeGraphObj.Location.Y);
+
+            //myPriceGraphObj.myGraphPane.YAxis.IsVisible = false;
+            //myVolumeGraphObj.myGraphPane.YAxis.IsVisible = false;
+
+            //myPriceGraphObj.myGraphPane.Margin.Left = 35;
+            //myVolumeGraphObj.myGraphPane.Margin.Left = 100;
+
+            //myVolumeGraphObj.myGraphPane.YAxis.MinSpace = 100;
+            //myVolumeGraphObj.myGraphPane.Margin.Left = 100;
         }
 
         private void Form_Load(object sender, EventArgs e)
         {
-            myGraphObj.DefaultViewport();
+            Reload();
+        }
+
+        private void Reload()
+        {
+            myPriceGraphObj.DefaultViewport();
+            myVolumeGraphObj.DefaultViewport();
         }
 
         private void reload_Click(object sender, EventArgs e)
         {
-            myGraphObj.DefaultViewport();
+            Reload();
         }
 
         private void prevBtn_Click(object sender, EventArgs e)
         {
-            myGraphObj.MoveBackward();
+            myPriceGraphObj.MoveBackward();
         }
 
         private void nextBtn_Click(object sender, EventArgs e)
         {
-            myGraphObj.MoveForward();
+            myPriceGraphObj.MoveForward();
         }
-
 
         private void zoomInBtn_Click(object sender, EventArgs e)
         {
-            myGraphObj.ZoomIn();
+            myPriceGraphObj.ZoomIn();
         }
 
         private void zoomOutBtn_Click(object sender, EventArgs e)
         {
-            myGraphObj.ZoomOut();
+            myPriceGraphObj.ZoomOut();
+        }
+
+
+        //Sync to chart
+        private void myPriceGraphObj_myOnViewportChanged(object sender, Charts.Controls.myGraphControl.ViewportState state)
+        {
+            myVolumeGraphObj.myViewportX = state.Range;
+        }
+        private void myVolumeGraphObj_myOnViewportChanged(object sender, Charts.Controls.myGraphControl.ViewportState state)
+        {
+            myPriceGraphObj.myViewportX = state.Range;
         }
     }
 }

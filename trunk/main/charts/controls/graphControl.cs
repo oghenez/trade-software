@@ -69,15 +69,36 @@ namespace Charts.Controls
             this.ZoomButtons2 = MouseButtons.None;
             this.ZoomStepFraction = 0;
 
+            this.myGraphPane.Legend.IsVisible = false;
+            this.myGraphPane.Title.IsVisible = false;
+            this.myGraphPane.YAxis.MajorGrid.IsVisible = true;
+            this.myGraphPane.YAxis.Title.IsVisible = false;
+            this.myGraphPane.XAxis.Title.IsVisible = false;
+            this.myGraphPane.Border.IsVisible = false;
+
             this.MouseWheel += new System.Windows.Forms.MouseEventHandler(MouseWheelHandler);
             this.MouseDownEvent += new ZedGraph.ZedGraphControl.ZedMouseEventHandler(MouseDownHandler);
             this.MouseUpEvent += new ZedGraph.ZedGraphControl.ZedMouseEventHandler(MouseUpHandler);
             this.MouseMoveEvent += new ZedGraph.ZedGraphControl.ZedMouseEventHandler(MouseMoveHandler);
         }
 
+        public class ViewportState
+        {
+            public IntRange Range = new IntRange();
+            public StateType state = StateType.None; 
+            public enum StateType:byte    //Resevered 
+            {
+                None = 0,
+                Zoom = 1,
+                Pan = 2
+            }
+        }
+
+        public delegate void OnViewportChanged(object sender, ViewportState state);
+        public event OnViewportChanged myOnViewportChanged = null;
+
         //Chart may have several curves with the same X-Axis data. 
         // [mySeriesX] is used to keet the common X-Axis data
-        //private application.DataSeries mySeriesX = null;
         private double[] mySeriesX = null;
 
         // To make the chart verically fit in the defined viewport, we must calculate [min,max] in Y-Axis for all curves.
@@ -164,8 +185,9 @@ namespace Charts.Controls
         }
         #endregion
 
-
         #region public functions
+        private bool fProcessing = false;
+
         // The varriable definded the viewport of the chart. View port is the portion of the chart that is shown to users.
         // In the control, viewport is defined as a range [min,max] in X-Axis
         private IntRange _myViewportX = new IntRange();
@@ -174,19 +196,40 @@ namespace Charts.Controls
             get { return _myViewportX; }
             set
             {
+                if (fProcessing) return;
                 if (this.mySeriesX == null) return;
                 if ((value.Min >= value.Max) || (value.Min < 0) || (value.Max >= this.mySeriesX.Length)) return;
 
-                _myViewportX.Set(value.Min, value.Max);
-                ValueRange viewportY = GetViewportY();
+                try
+                {
+                    //Turn on to detect loop
+                    fProcessing = true;
 
-                this.myGraphPane.XAxis.Scale.Max = this.myViewportX.Max;
-                this.myGraphPane.XAxis.Scale.Min = this.myViewportX.Min;
+                    _myViewportX.Set(value.Min, value.Max);
+                    ValueRange viewportY = GetViewportY();
 
-                this.myGraphPane.YAxis.Scale.Max = viewportY.Max;
-                this.myGraphPane.YAxis.Scale.Min = viewportY.Min;
+                    this.myGraphPane.XAxis.Scale.Max = this.myViewportX.Max;
+                    this.myGraphPane.XAxis.Scale.Min = this.myViewportX.Min;
 
-                UpdateChart();
+                    this.myGraphPane.YAxis.Scale.Max = viewportY.Max;
+                    this.myGraphPane.YAxis.Scale.Min = viewportY.Min;
+
+                    UpdateChart();
+                    if (myOnViewportChanged != null)
+                    {
+                        ViewportState state = new ViewportState();
+                        state.Range = value;
+                        myOnViewportChanged(this, state);
+                    }
+                }
+                catch (Exception er) 
+                { 
+                    common.system.ThrowException(er); 
+                }
+                finally
+                {
+                    fProcessing = false;
+                }
             }
         }
 
@@ -309,7 +352,10 @@ namespace Charts.Controls
             //myCurve.Stick.RisingBorder.Color = fallingColor;
             myCurve.Stick.RisingFill.Color = risingColor;
 
+            //Add 2 series to ensure that the viewport max/min points are in th viewport.
             this.mySeriesY.Add(name, seriesHigh);
+            this.mySeriesY.Add(name+"1", seriesLow);
+
             return myCurve;
         }
         #endregion Chart

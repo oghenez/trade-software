@@ -29,12 +29,15 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            Charts.Controls.IntRange intRange1 = new Charts.Controls.IntRange();
+            Charts.Controls.IntRange intRange2 = new Charts.Controls.IntRange();
             this.zoomOutBtn = new System.Windows.Forms.Button();
             this.zoomInBtn = new System.Windows.Forms.Button();
             this.prevBtn = new System.Windows.Forms.Button();
             this.nextBtn = new System.Windows.Forms.Button();
             this.reloadBtn = new System.Windows.Forms.Button();
-            this.myGraphObj = new Charts.Controls.myGraphControl();
+            this.myPriceGraphObj = new Charts.Controls.myGraphControl();
+            this.myVolumeGraphObj = new Charts.Controls.myGraphControl();
             this.SuspendLayout();
             // 
             // zoomOutBtn
@@ -87,41 +90,71 @@
             this.reloadBtn.UseVisualStyleBackColor = true;
             this.reloadBtn.Click += new System.EventHandler(this.reload_Click);
             // 
-            // myGraphObj
+            // myPriceGraphObj
             // 
-            this.myGraphObj.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            this.myPriceGraphObj.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.myGraphObj.IsEnableHPan = false;
-            this.myGraphObj.IsEnableHZoom = false;
-            this.myGraphObj.IsEnableVPan = false;
-            this.myGraphObj.IsEnableVZoom = false;
-            this.myGraphObj.isPanning = false;
-            this.myGraphObj.Location = new System.Drawing.Point(2, 28);
-            this.myGraphObj.Name = "myGraphObj";
-            this.myGraphObj.PanButtons = System.Windows.Forms.MouseButtons.None;
-            this.myGraphObj.PanButtons2 = System.Windows.Forms.MouseButtons.None;
-            this.myGraphObj.ScrollGrace = 0;
-            this.myGraphObj.ScrollMaxX = 0;
-            this.myGraphObj.ScrollMaxY = 0;
-            this.myGraphObj.ScrollMaxY2 = 0;
-            this.myGraphObj.ScrollMinX = 0;
-            this.myGraphObj.ScrollMinY = 0;
-            this.myGraphObj.ScrollMinY2 = 0;
-            this.myGraphObj.Size = new System.Drawing.Size(1094, 669);
-            this.myGraphObj.TabIndex = 6;
-            this.myGraphObj.ZoomButtons = System.Windows.Forms.MouseButtons.None;
-            this.myGraphObj.ZoomStepFraction = 0;
+            this.myPriceGraphObj.IsEnableHPan = false;
+            this.myPriceGraphObj.IsEnableHZoom = false;
+            this.myPriceGraphObj.IsEnableVPan = false;
+            this.myPriceGraphObj.IsEnableVZoom = false;
+            this.myPriceGraphObj.isPanning = false;
+            this.myPriceGraphObj.Location = new System.Drawing.Point(0, 31);
+            this.myPriceGraphObj.myViewportX = intRange1;
+            this.myPriceGraphObj.Name = "myPriceGraphObj";
+            this.myPriceGraphObj.PanButtons = System.Windows.Forms.MouseButtons.None;
+            this.myPriceGraphObj.PanButtons2 = System.Windows.Forms.MouseButtons.None;
+            this.myPriceGraphObj.ScrollGrace = 0;
+            this.myPriceGraphObj.ScrollMaxX = 0;
+            this.myPriceGraphObj.ScrollMaxY = 0;
+            this.myPriceGraphObj.ScrollMaxY2 = 0;
+            this.myPriceGraphObj.ScrollMinX = 0;
+            this.myPriceGraphObj.ScrollMinY = 0;
+            this.myPriceGraphObj.ScrollMinY2 = 0;
+            this.myPriceGraphObj.Size = new System.Drawing.Size(1244, 457);
+            this.myPriceGraphObj.TabIndex = 6;
+            this.myPriceGraphObj.ZoomButtons = System.Windows.Forms.MouseButtons.None;
+            this.myPriceGraphObj.ZoomStepFraction = 0;
+            this.myPriceGraphObj.myOnViewportChanged += new Charts.Controls.myGraphControl.OnViewportChanged(this.myPriceGraphObj_myOnViewportChanged);
+            // 
+            // myVolumeGraphObj
+            // 
+            this.myVolumeGraphObj.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.myVolumeGraphObj.IsEnableHPan = false;
+            this.myVolumeGraphObj.IsEnableHZoom = false;
+            this.myVolumeGraphObj.IsEnableVPan = false;
+            this.myVolumeGraphObj.IsEnableVZoom = false;
+            this.myVolumeGraphObj.isPanning = false;
+            this.myVolumeGraphObj.Location = new System.Drawing.Point(0, 484);
+            this.myVolumeGraphObj.myViewportX = intRange2;
+            this.myVolumeGraphObj.Name = "myVolumeGraphObj";
+            this.myVolumeGraphObj.PanButtons = System.Windows.Forms.MouseButtons.None;
+            this.myVolumeGraphObj.PanButtons2 = System.Windows.Forms.MouseButtons.None;
+            this.myVolumeGraphObj.ScrollGrace = 0;
+            this.myVolumeGraphObj.ScrollMaxX = 0;
+            this.myVolumeGraphObj.ScrollMaxY = 0;
+            this.myVolumeGraphObj.ScrollMaxY2 = 0;
+            this.myVolumeGraphObj.ScrollMinX = 0;
+            this.myVolumeGraphObj.ScrollMinY = 0;
+            this.myVolumeGraphObj.ScrollMinY2 = 0;
+            this.myVolumeGraphObj.Size = new System.Drawing.Size(1225, 231);
+            this.myVolumeGraphObj.TabIndex = 12;
+            this.myVolumeGraphObj.ZoomButtons = System.Windows.Forms.MouseButtons.None;
+            this.myVolumeGraphObj.ZoomStepFraction = 0;
+            this.myVolumeGraphObj.myOnViewportChanged += new Charts.Controls.myGraphControl.OnViewportChanged(this.myVolumeGraphObj_myOnViewportChanged);
             // 
             // Form2
             // 
-            this.ClientSize = new System.Drawing.Size(1094, 673);
+            this.ClientSize = new System.Drawing.Size(1225, 748);
+            this.Controls.Add(this.myVolumeGraphObj);
             this.Controls.Add(this.zoomOutBtn);
             this.Controls.Add(this.zoomInBtn);
             this.Controls.Add(this.prevBtn);
             this.Controls.Add(this.nextBtn);
             this.Controls.Add(this.reloadBtn);
-            this.Controls.Add(this.myGraphObj);
+            this.Controls.Add(this.myPriceGraphObj);
             this.Name = "Form2";
             this.Load += new System.EventHandler(this.Form_Load);
             this.ResumeLayout(false);
@@ -135,6 +168,7 @@
         private System.Windows.Forms.Button prevBtn;
         private System.Windows.Forms.Button nextBtn;
         private System.Windows.Forms.Button reloadBtn;
-        private Charts.Controls.myGraphControl myGraphObj;
+        private Charts.Controls.myGraphControl myPriceGraphObj;
+        private Charts.Controls.myGraphControl myVolumeGraphObj;
     }
 }

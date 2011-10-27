@@ -9,7 +9,7 @@ namespace Charts
     {
         // Zoom out/in means that the number of points will be increased/decreased respectively 
         // The value defines the scale for zooming 
-        public static int sysZoomScale = 2;
+        public static int sysZoomScale = 5;
 
         // Chart can be move back and forth.
         // The value defines the number of points to move from the current loccation (viewport).
