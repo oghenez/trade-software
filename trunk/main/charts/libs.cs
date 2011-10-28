@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.Text;
 using ZedGraph;
 
@@ -96,16 +97,32 @@ namespace Charts
             this.Cache.Clear();
         }
 
-        public int NumberOfCurves(string paneName)
+        public DrawCurve[] CurveInPane(string paneName)
         {
-            int count = 0;
+            DrawCurve[] list = new DrawCurve[0];
             object[] items = Cache.Values;
             for (int idx = 0; idx < items.Length; idx++)
             {
                 DrawCurve drawCurve = (DrawCurve)items[idx];
-                if (drawCurve.PaneName == paneName) count++;
+                if (drawCurve.PaneName == paneName) 
+                {
+                    Array.Resize(ref list, list.Length + 1);
+                    list[list.Length-1] = (DrawCurve)items[idx];
+                }
             }
-            return count;
+            return list;
         }
+
+        //public int NumberOfCurves(string paneName)
+        //{
+        //    int count = 0;
+        //    object[] items = Cache.Values;
+        //    for (int idx = 0; idx < items.Length; idx++)
+        //    {
+        //        DrawCurve drawCurve = (DrawCurve)items[idx];
+        //        if (drawCurve.PaneName == paneName) count++;
+        //    }
+        //    return count;
+        //}
     }
 }

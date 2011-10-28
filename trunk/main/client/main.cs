@@ -267,17 +267,39 @@ namespace client
                     ToolStripMenuItem item = (ToolStripMenuItem)periodicityMenuItem.DropDownItems[idx];
                     item.Checked =  ((AppTypes.TimeScale)item.Tag == value);
                 }
-                if (saveTimeScale != this.ChartTimeScale)
-                {
-                    Tools.Forms.tradeAnalysis activeForm = GetActiveStockForm();
-                    if (activeForm != null)
-                    {
-                        activeForm.ChartTimeScale = value;
-                        activeForm.ReloadChart();
-                    }
-                }
             }
         }
+
+        //??
+        private enum SetFormOptions : byte
+        {
+            PricePane = 0, VolumePane = 1, ChartType =4, HaveGrid =8, TimeScale=16, All = 255
+        }
+        private void SetActiveForm()
+        {
+            SetActiveForm(SetFormOptions.All);
+        }
+        private void SetActiveForm(SetFormOptions parts)
+        {
+            Tools.Forms.tradeAnalysis activeForm = GetActiveStockForm();
+            if (activeForm == null) return;
+
+            if ((parts & SetFormOptions.VolumePane) != 0) 
+                activeForm.ChartVolumeVisibility = true;
+
+            if ((parts & SetFormOptions.ChartType) != 0) 
+                activeForm.ChartPriceType = this.ChartType;
+
+            if ((parts & SetFormOptions.HaveGrid) != 0) 
+                activeForm.ChartHaveGrid = this.ChartHaveGrid;
+
+            if ((parts & SetFormOptions.TimeScale) != 0)
+            {
+                activeForm.ChartTimeScale = this.ChartTimeScale;
+                activeForm.ReloadChart();
+            }
+        }
+
         private AppTypes.ChartTypes ChartType
         {
             get
@@ -318,32 +340,15 @@ namespace client
                         candleSticksMenuItem.Checked = false;
                         break;
                 }
-                Tools.Forms.tradeAnalysis activeForm = GetActiveStockForm();
-                if (activeForm != null) activeForm.ChartPriceType = value;
             }
         }
-        private bool ChartVolumeVisibility
-        {
-            get
-            {
-                return chartVolumeBtn.Checked;
-            }
-            set
-            {
-                Tools.Forms.tradeAnalysis activeForm = GetActiveStockForm();
-                if (activeForm != null) activeForm.ChartVolumeVisibility = value;
-            }
-        }
+        
         private bool ChartHaveGrid
         {
             get { return chartGridMenuItem.Checked; }
-            set 
-            { 
-                chartGridMenuItem.Checked = value;
-                Tools.Forms.tradeAnalysis activeForm = GetActiveStockForm();
-                if (activeForm != null) activeForm.ChartHaveGrid = value;
-            }
+            set { chartGridMenuItem.Checked = value;}
         }
+
         private void Export()
         {
             object activeObj = dockPanel.ActiveContent;
@@ -454,16 +459,19 @@ namespace client
             {
                 myForm = new Tools.Forms.tradeAnalysis();
                 myForm.Name = formName;
-                myForm.ChartTimeRange = dataTimeRangeCb.myValue;
-                myForm.ChartPriceType = this.ChartType;
-                myForm.UseStock(stockRow);
 
+                myForm.ChartTimeRange = dataTimeRangeCb.myValue;
+                myForm.UseStock(stockRow);  //Get data first
+
+                
+                myForm.ChartPriceType = this.ChartType;
                 myForm.Activated += new System.EventHandler(this.tradeAnalysisActivatedHandler);
 
                 //Cache it if no error occured
                 cachedForms.Add(formName, myForm);
             }
             myForm.Show(dockPanel);
+            SetActiveForm(SetFormOptions.ChartType); 
         }
         private void ShowStockChart(data.baseDS.stockCodeRow stockRow,AppTypes.TimeRanges timeRange, AppTypes.TimeScale timeScale)
         {
@@ -485,6 +493,7 @@ namespace client
                 cachedForms.Add(formName, myForm);
             }
             myForm.Show(dockPanel);
+            SetActiveForm(SetFormOptions.ChartType); 
         }
 
         /// <summary>
@@ -505,7 +514,7 @@ namespace client
         /// <summary>
         /// Refresh/Re-draw charts for all active trade analaysis forms.
         /// </summary>
-        private void RefreshChart()
+        private void RefreshAllCharts()
         {
             Tools.Forms.tradeAnalysis tradeAnalysisForm;
             object[] foundForms = cachedForms.FindAll(constFormNameStock);
@@ -540,10 +549,12 @@ namespace client
             try
             {
                 Tools.Forms.tradeAnalysis activeForm = (Tools.Forms.tradeAnalysis)sender;
+                if (activeForm == null) return;
                 this.ChartType = activeForm.ChartPriceType;
                 this.ChartTimeScale = activeForm.ChartTimeScale;
-                this.ChartVolumeVisibility = activeForm.ChartVolumeVisibility;
                 this.ChartHaveGrid = activeForm.ChartHaveGrid;
+                
+                activeForm.Test();
             }
             catch (Exception er)
             {
@@ -553,7 +564,7 @@ namespace client
         private void chartPropertyHandler(object sender, common.baseDialogEvent e)
         {
             if (e != null && e.isCloseClick) return;
-            RefreshChart();
+            RefreshAllCharts();
         }
         private void showIndicatorHandler(object sender, EventArgs e)
         {
@@ -618,24 +629,29 @@ namespace client
         private void ChartTypeButton_Click(object sender, EventArgs e)
         {
             this.ChartType = (AppTypes.ChartTypes)((ToolStripButton)sender).Tag;
+            SetActiveForm(SetFormOptions.ChartType); 
         }
         private void ChartTypeMenu_Click(object sender, EventArgs e)
         {
             this.ChartType = (AppTypes.ChartTypes)((ToolStripMenuItem)sender).Tag;
+            Tools.Forms.tradeAnalysis activeForm = GetActiveStockForm();
+            SetActiveForm(SetFormOptions.ChartType); 
         }
 
         private void PeriodicityButon_Click(object sender, EventArgs e)
         {
             this.ChartTimeScale = ((AppTypes.TimeScale)((ToolStripButton)sender).Tag);
+            SetActiveForm(SetFormOptions.TimeScale); 
         }
         private void PeriodicityMenu_Click(object sender, EventArgs e)
         {
             this.ChartTimeScale = ((AppTypes.TimeScale)((ToolStripMenuItem)sender).Tag);
+            SetActiveForm(SetFormOptions.TimeScale); 
         }
 
         private void ChartVolume_Click(object sender, EventArgs e)
         {
-            this.ChartVolumeVisibility = true;
+            SetActiveForm(SetFormOptions.VolumePane);
         }
         private void ChartGridMenuItem_Click(object sender, EventArgs e)
         {
@@ -644,11 +660,7 @@ namespace client
 
         private void ChartRefreshBtn_Click(object sender, EventArgs e)
         {
-            Tools.Forms.tradeAnalysis activeForm = GetActiveStockForm();
-            if (activeForm != null)
-            {
-                activeForm.RefreshChart();
-            }
+            SetActiveForm(SetFormOptions.ChartType); 
         }
 
         private void NewChartMenuItem_Click(object sender, EventArgs e)

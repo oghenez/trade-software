@@ -282,4 +282,22 @@
   <data name="noData" xml:space="preserve">
     <value>Không có dữ liệu</value>
   </data>
+  <data name="date" xml:space="preserve">
+    <value>Ngày</value>
+  </data>
+  <data name="month" xml:space="preserve">
+    <value>Tháng</value>
+  </data>
+  <data name="volume" xml:space="preserve">
+    <value>Khối lượng</value>
+  </data>
+  <data name="week" xml:space="preserve">
+    <value>Tuần</value>
+  </data>
+  <data name="year" xml:space="preserve">
+    <value>Năm</value>
+  </data>
+  <data name="time" xml:space="preserve">
+    <value>Giờ</value>
+  </data>
 </root>

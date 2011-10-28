@@ -37,10 +37,7 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\dlls\application.dll</HintPath>
     </Reference>
-    <Reference Include="common, Version=1.5.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\dlls\common.dll</HintPath>
-    </Reference>
+    <Reference Include="common, Version=1.5.0.0, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="data, Version=2.1.0.0, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core">

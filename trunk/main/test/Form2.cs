@@ -28,6 +28,8 @@ namespace test
             myVolumeGraphObj.AddCurveStick("Stick", myData.Volume.Values, Color.Green);
 
 
+            myPriceGraphObj.myGraphPane.BaseDimension = 8.0F;
+            myVolumeGraphObj.myGraphPane.BaseDimension = 8.0F;
 
             myPriceGraphObj.Width = this.ClientRectangle.Width;
             myVolumeGraphObj.Width = this.ClientRectangle.Width;
@@ -35,14 +37,22 @@ namespace test
             myPriceGraphObj.Location = new Point(0,myPriceGraphObj.Location.Y);
             myVolumeGraphObj.Location = new Point(0, myVolumeGraphObj.Location.Y);
 
-            //myPriceGraphObj.myGraphPane.YAxis.IsVisible = false;
-            //myVolumeGraphObj.myGraphPane.YAxis.IsVisible = false;
+            //myPriceGraphObj.myGraphPane.Title.IsVisible = true;
+            //myPriceGraphObj.myGraphPane.Legend.IsVisible = true;
+            myPriceGraphObj.myGraphPane.XAxis.Title.IsVisible = true;
+            myPriceGraphObj.myGraphPane.Y2Axis.Title.IsVisible = true;
 
-            //myPriceGraphObj.myGraphPane.Margin.Left = 35;
-            //myVolumeGraphObj.myGraphPane.Margin.Left = 100;
+            myPriceGraphObj.myGraphPane.YAxis.Scale.FontSpec.Size = 8;
+            myVolumeGraphObj.myGraphPane.YAxis.Scale.FontSpec.Size = 12;
 
-            //myVolumeGraphObj.myGraphPane.YAxis.MinSpace = 100;
-            //myVolumeGraphObj.myGraphPane.Margin.Left = 100;
+            myPriceGraphObj.myGraphPane.Chart.Rect = new RectangleF(50, 0, myPriceGraphObj.Width-100, myPriceGraphObj.Height-0);
+            //myPriceGraphObj.AxisChange();
+            //myPriceGraphObj.Invalidate();
+
+            
+            myVolumeGraphObj.myGraphPane.Chart.Rect = new RectangleF(50,0, myVolumeGraphObj.Width-100, myVolumeGraphObj.Height-20);
+            //myVolumeGraphObj.AxisChange();
+            //myVolumeGraphObj.Invalidate();
         }
 
         private void Form_Load(object sender, EventArgs e)

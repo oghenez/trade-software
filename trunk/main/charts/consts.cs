@@ -24,8 +24,13 @@ namespace Charts
         public static int sysSensibilityPAN = 3; //5
 
         // Padding
-        public static double sysPadTOP = 0.1;
-        public static double sysPadBOT = 0.1; 
+        public static double sysPadTOP = 0.2;
+        public static double sysPadBOT = 0.2;
 
+        //Default margins of the rectangle where charts are in.
+        public static int sysChartMarginLEFT = 50;
+        public static int sysChartMarginRIGHT = 0;
+        public static int sysChartMarginTOP = 0;
+        public static int sysChartMarginBOTTOM = 3;
     }
 }

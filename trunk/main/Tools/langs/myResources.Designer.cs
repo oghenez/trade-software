@@ -187,6 +187,15 @@ namespace Tools.langs {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Date.
+        /// </summary>
+        internal static string date {
+            get {
+                return ResourceManager.GetString("date", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Day.
         /// </summary>
         internal static string days {
@@ -345,6 +354,15 @@ namespace Tools.langs {
         internal static string min {
             get {
                 return ResourceManager.GetString("min", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Month.
+        /// </summary>
+        internal static string month {
+            get {
+                return ResourceManager.GetString("month", resourceCulture);
             }
         }
         
@@ -511,6 +529,15 @@ namespace Tools.langs {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Time.
+        /// </summary>
+        internal static string time {
+            get {
+                return ResourceManager.GetString("time", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Time Scale.
         /// </summary>
         internal static string timeScale {
@@ -547,11 +574,38 @@ namespace Tools.langs {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Volume.
+        /// </summary>
+        internal static string volume {
+            get {
+                return ResourceManager.GetString("volume", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Volume ratio.
         /// </summary>
         internal static string volumeWeight {
             get {
                 return ResourceManager.GetString("volumeWeight", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Week.
+        /// </summary>
+        internal static string week {
+            get {
+                return ResourceManager.GetString("week", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Year.
+        /// </summary>
+        internal static string year {
+            get {
+                return ResourceManager.GetString("year", resourceCulture);
             }
         }
     }

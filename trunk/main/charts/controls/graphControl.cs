@@ -57,6 +57,7 @@ namespace Charts.Controls
     {
         public myGraphControl()
         {
+            this.IsShowPointValues = true;
             this.IsEnableHZoom = false;
             this.IsEnableVZoom = false;
             this.IsEnableHPan = false;
@@ -80,7 +81,14 @@ namespace Charts.Controls
             this.MouseDownEvent += new ZedGraph.ZedGraphControl.ZedMouseEventHandler(MouseDownHandler);
             this.MouseUpEvent += new ZedGraph.ZedGraphControl.ZedMouseEventHandler(MouseUpHandler);
             this.MouseMoveEvent += new ZedGraph.ZedGraphControl.ZedMouseEventHandler(MouseMoveHandler);
+
+            this.PointValueEvent += new ZedGraphControl.PointValueHandler(GraphPointValueHandler);
+            
         }
+        public int ChartMarginLEFT = Settings.sysChartMarginLEFT;
+        public int ChartMarginRIGHT = Settings.sysChartMarginRIGHT;
+        public int ChartMarginTOP = Settings.sysChartMarginTOP;
+        public int ChartMarginBOTTOM = Settings.sysChartMarginBOTTOM;
 
         public class ViewportState
         {
@@ -96,6 +104,10 @@ namespace Charts.Controls
 
         public delegate void OnViewportChanged(object sender, ViewportState state);
         public event OnViewportChanged myOnViewportChanged = null;
+
+        public delegate string OnPointValue(CurveItem curve, int iPt);
+        public event OnPointValue myOnPointValue = null;
+
 
         //Chart may have several curves with the same X-Axis data. 
         // [mySeriesX] is used to keet the common X-Axis data
@@ -182,6 +194,12 @@ namespace Charts.Controls
                 this.mouseMoveCount = 0;
             }
             return default(bool);
+        }
+
+        private string GraphPointValueHandler(ZedGraphControl sender, GraphPane pane, CurveItem curve, int iPt)
+        {
+            if (myOnPointValue != null) return myOnPointValue(curve, iPt);
+            return "";
         }
         #endregion
 
@@ -292,6 +310,13 @@ namespace Charts.Controls
         {
             this.AxisChange();
             this.Invalidate();
+        }
+
+        public virtual void CalcGraphSize()
+        {
+            this.myGraphPane.Chart.Rect = new RectangleF(this.ChartMarginLEFT, this.ChartMarginTOP,
+                                                         this.Width - this.ChartMarginRIGHT,
+                                                         this.Height - this.ChartMarginBOTTOM);
         }
 
         public MouseButtons myPanButton = MouseButtons.Left;
