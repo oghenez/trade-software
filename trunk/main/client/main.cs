@@ -92,7 +92,13 @@ namespace client
             this.backTestingMenuItem.Text = language.GetString("backTesting");
             this.strategyRankingMenuItem.Text = language.GetString("strategyRanking");
             this.companyListMenuItem.Text = language.GetString("companyList");
-            this.toolOptionMenuItem.Text = language.GetString("toolOption");
+            
+            this.toolOptionMenu.Text = language.GetString("toolAllOptions");
+            this.toolOptionsMenuItem.Text = language.GetString("toolOption");
+            this.strategyOptionsMenuItem.Text = language.GetString("strategyOption");
+            this.screeningOptionsMenuItem.Text = language.GetString("screeningOption");
+
+
             this.windowsMenuItem.Text = language.GetString("windows");
             this.closeAllMenuItem.Text = language.GetString("closeAll");
 
@@ -106,7 +112,7 @@ namespace client
             this.screeningMenuItem.Text = language.GetString("screening");
             this.orderMenuItem.Text = language.GetString("order");
             this.strategyListMenuItem.Text = language.GetString("strategy");
-            this.screeningListMenuItem.Text = language.GetString("screening");
+            this.screeningMenuItem.Text = language.GetString("screening");
 
             dataTimeRangeCb.SetLanguage();
 
@@ -116,12 +122,16 @@ namespace client
 
             //Strategy menu
             strategyListMenuItem.DropDownItems.Clear();
-            Strategy.Libs.CreateMenu(AppTypes.StrategyTypes.Strategy, strategyListMenuItem, StrategyParaEditHandler);
+            Strategy.Libs.CreateMenu(AppTypes.StrategyTypes.Strategy, strategyListMenuItem, PlotTradepointHandler);
 
-            screeningListMenuItem.DropDownItems.Clear();
-            Strategy.Libs.CreateMenu(AppTypes.StrategyTypes.Screening, screeningListMenuItem, StrategyParaEditHandler);
+            strategyOptionsMenuItem.DropDownItems.Clear();
+            Strategy.Libs.CreateMenu(AppTypes.StrategyTypes.Strategy, strategyOptionsMenuItem,StrategyParaEditHandler);
 
+            screeningOptionsMenuItem.DropDownItems.Clear();
+            Strategy.Libs.CreateMenu(AppTypes.StrategyTypes.Screening, screeningOptionsMenuItem,StrategyParaEditHandler);
 
+            strategyCbStrip.Items.Clear();
+            strategyCbStrip.LoadData();
         }
 
         private common.DictionaryList cachedForms = new common.DictionaryList();  // To cache used forms 
@@ -139,7 +149,7 @@ namespace client
         private common.DictionaryList cultureCache = new common.DictionaryList();
         private void SetCulture()
         {
-            SetCulture("vi-VN");
+            SetCulture("en-US");
         }
         private void SetCulture(string code)
         {
@@ -198,6 +208,8 @@ namespace client
             periodicityMenuItem.DropDownItems.Clear();
             CreatePeriodicityStrip(periodicityStrip, periodicityMenuItem);
 
+            strategyCbStrip.SelectedIndexChanged += new EventHandler(PlotTradepointHandler);
+
             this.ChartType = AppTypes.ChartTypes.Line;
             this.ChartTimeScale = AppTypes.MainDataTimeScale;
 
@@ -210,6 +222,7 @@ namespace client
             //Language default
             SetCulture();
         }
+
         private void CreatePeriodicityStrip(ToolStrip toStrip,ToolStripMenuItem toMenu)
         {
             ToolStripButton btn;
@@ -240,6 +253,7 @@ namespace client
                 toMenu.DropDownItems.Add(menuItem);
             }
         }
+
         private AppTypes.TimeScale ChartTimeScale
         {
             get
@@ -270,30 +284,32 @@ namespace client
             }
         }
 
-        //??
-        private enum SetFormOptions : byte
+        /// <summary>
+        /// Update waht part in the active form
+        /// </summary>
+        private enum FormOptions : byte
         {
             PricePane = 0, VolumePane = 1, ChartType =4, HaveGrid =8, TimeScale=16, All = 255
         }
-        private void SetActiveForm()
+        private void UpdateActiveForm()
         {
-            SetActiveForm(SetFormOptions.All);
+            UpdateActiveForm(FormOptions.All);
         }
-        private void SetActiveForm(SetFormOptions parts)
+        private void UpdateActiveForm(FormOptions parts)
         {
             Tools.Forms.tradeAnalysis activeForm = GetActiveStockForm();
             if (activeForm == null) return;
 
-            if ((parts & SetFormOptions.VolumePane) != 0) 
+            if ((parts & FormOptions.VolumePane) != 0) 
                 activeForm.ChartVolumeVisibility = true;
 
-            if ((parts & SetFormOptions.ChartType) != 0) 
+            if ((parts & FormOptions.ChartType) != 0) 
                 activeForm.ChartPriceType = this.ChartType;
 
-            if ((parts & SetFormOptions.HaveGrid) != 0) 
+            if ((parts & FormOptions.HaveGrid) != 0) 
                 activeForm.ChartHaveGrid = this.ChartHaveGrid;
 
-            if ((parts & SetFormOptions.TimeScale) != 0)
+            if ((parts & FormOptions.TimeScale) != 0)
             {
                 activeForm.ChartTimeScale = this.ChartTimeScale;
                 activeForm.ReloadChart();
@@ -471,7 +487,7 @@ namespace client
                 cachedForms.Add(formName, myForm);
             }
             myForm.Show(dockPanel);
-            SetActiveForm(SetFormOptions.ChartType); 
+            UpdateActiveForm(FormOptions.ChartType); 
         }
         private void ShowStockChart(data.baseDS.stockCodeRow stockRow,AppTypes.TimeRanges timeRange, AppTypes.TimeScale timeScale)
         {
@@ -493,7 +509,7 @@ namespace client
                 cachedForms.Add(formName, myForm);
             }
             myForm.Show(dockPanel);
-            SetActiveForm(SetFormOptions.ChartType); 
+            UpdateActiveForm(FormOptions.ChartType); 
         }
 
         /// <summary>
@@ -522,7 +538,7 @@ namespace client
             {
                 tradeAnalysisForm = (Tools.Forms.tradeAnalysis)foundForms[idx];
                 if (tradeAnalysisForm.IsDisposed) continue;
-                tradeAnalysisForm.RefreshChart();
+                tradeAnalysisForm.ReDrawChart();
             }
         }
 
@@ -532,7 +548,7 @@ namespace client
         /// <returns>Null if there is no active form.</returns>
         private Tools.Forms.tradeAnalysis GetActiveStockForm()
         {
-            object activeObj = dockPanel.ActiveContent;
+            object activeObj = dockPanel.ActiveDocument;
             if (activeObj == null) return null;
             Type activeType = activeObj.GetType();
             if (activeType == typeof(Tools.Forms.tradeAnalysis))
@@ -553,8 +569,8 @@ namespace client
                 this.ChartType = activeForm.ChartPriceType;
                 this.ChartTimeScale = activeForm.ChartTimeScale;
                 this.ChartHaveGrid = activeForm.ChartHaveGrid;
-                
-                activeForm.Test();
+
+                activeForm.RestoreChart();
             }
             catch (Exception er)
             {
@@ -581,6 +597,7 @@ namespace client
                 this.ShowError(er);
             }
         }
+        
         private void StrategyParaEditHandler(object sender, EventArgs e)
         {
             try
@@ -593,6 +610,26 @@ namespace client
                 common.system.ShowErrorMessage(er.Message);
             }
         }
+
+        private void PlotTradepointHandler(object sender, EventArgs e)
+        {
+            try
+            {
+                Tools.Forms.tradeAnalysis activeForm = GetActiveStockForm();
+                if (activeForm == null) return;
+
+                baseClass.controls.ToolStripCbStrategy item = (baseClass.controls.ToolStripCbStrategy)sender;
+                Strategy.Meta meta = Strategy.Libs.FindMetaByCode(item.myValue);
+                if (meta == null) activeForm.ClearStrategyTradepoints();
+                else activeForm.PlotStrategyTradepoints(meta); 
+            }
+            catch (Exception er)
+            {
+                common.system.ShowErrorMessage(er.Message);
+            }
+        }
+
+
         private void ShowStockHandler(data.baseDS.stockCodeRow stockCodeRow,AppTypes.TimeRanges timeRange, AppTypes.TimeScale timeScale)
         {
             try
@@ -629,29 +666,29 @@ namespace client
         private void ChartTypeButton_Click(object sender, EventArgs e)
         {
             this.ChartType = (AppTypes.ChartTypes)((ToolStripButton)sender).Tag;
-            SetActiveForm(SetFormOptions.ChartType); 
+            UpdateActiveForm(FormOptions.ChartType); 
         }
         private void ChartTypeMenu_Click(object sender, EventArgs e)
         {
             this.ChartType = (AppTypes.ChartTypes)((ToolStripMenuItem)sender).Tag;
             Tools.Forms.tradeAnalysis activeForm = GetActiveStockForm();
-            SetActiveForm(SetFormOptions.ChartType); 
+            UpdateActiveForm(FormOptions.ChartType); 
         }
 
         private void PeriodicityButon_Click(object sender, EventArgs e)
         {
             this.ChartTimeScale = ((AppTypes.TimeScale)((ToolStripButton)sender).Tag);
-            SetActiveForm(SetFormOptions.TimeScale); 
+            UpdateActiveForm(FormOptions.TimeScale); 
         }
         private void PeriodicityMenu_Click(object sender, EventArgs e)
         {
             this.ChartTimeScale = ((AppTypes.TimeScale)((ToolStripMenuItem)sender).Tag);
-            SetActiveForm(SetFormOptions.TimeScale); 
+            UpdateActiveForm(FormOptions.TimeScale); 
         }
 
         private void ChartVolume_Click(object sender, EventArgs e)
         {
-            SetActiveForm(SetFormOptions.VolumePane);
+            UpdateActiveForm(FormOptions.VolumePane);
         }
         private void ChartGridMenuItem_Click(object sender, EventArgs e)
         {
@@ -660,7 +697,7 @@ namespace client
 
         private void ChartRefreshBtn_Click(object sender, EventArgs e)
         {
-            SetActiveForm(SetFormOptions.ChartType); 
+            UpdateActiveForm(FormOptions.ChartType); 
         }
 
         private void NewChartMenuItem_Click(object sender, EventArgs e)
@@ -1121,7 +1158,6 @@ namespace client
             }
         }
 
-
         private void vietnameseMenuItem_Click(object sender, EventArgs e)
         {
             try
@@ -1145,6 +1181,35 @@ namespace client
                 this.ShowError(er);
             }
         }
+        
+
+        private void zoomInMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Tools.Forms.tradeAnalysis activeForm = GetActiveStockForm();
+                if (activeForm == null) return;
+                activeForm.ZoomIn();
+            }
+            catch (Exception er)
+            {
+                this.ShowError(er);
+            }
+        }
+        private void zoomOutMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Tools.Forms.tradeAnalysis activeForm = GetActiveStockForm();
+                if (activeForm == null) return;
+                activeForm.ZoomOut();
+            }
+            catch (Exception er)
+            {
+                this.ShowError(er);
+            }
+        }
+
         #endregion event handler
     }
 }

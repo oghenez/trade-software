@@ -19,12 +19,12 @@ namespace test
             myData.DataTimeRange = application.AppTypes.TimeRanges.All;
             myData.Reload();
 
-            myPriceGraphObj.SetSeriesX(myData.DateTime.Values, Charts.Controls.myAxisType.DateAsOrdinal);
+            myPriceGraphObj.SetSeriesX(myData.DateTime.Values, Charts.Controls.myAxisType.Date);
             myPriceGraphObj.AddCurveLine("Line1", myData.Close.Values, ZedGraph.SymbolType.None, Color.Red,1);
             myPriceGraphObj.AddCandleStick("CandleStick", myData.High.Values,myData.Low.Values,myData.Open.Values,
                                       myData.Close.Values,myData.Volume.Values,Color.Red, Color.Green,Color.Violet,Color.Black);
 
-            myVolumeGraphObj.SetSeriesX(myData.DateTime.Values, Charts.Controls.myAxisType.DateAsOrdinal);
+            myVolumeGraphObj.SetSeriesX(myData.DateTime.Values, Charts.Controls.myAxisType.Date);
             myVolumeGraphObj.AddCurveStick("Stick", myData.Volume.Values, Color.Green);
 
 

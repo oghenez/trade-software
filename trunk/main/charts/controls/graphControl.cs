@@ -11,7 +11,7 @@ namespace Charts.Controls
 {
     public enum myAxisType :byte
     {
-        DateAsOrdinal = 0, Linear = 1
+        DateAsOrdinal = 0, Date = 1, Linear = 2
     }
     public class IntRange
     {
@@ -62,6 +62,7 @@ namespace Charts.Controls
             this.IsEnableVZoom = false;
             this.IsEnableHPan = false;
             this.IsEnableVPan = false;
+            this.IsShowContextMenu = false;
 
             this.PanButtons = MouseButtons.None;
             this.PanButtons2 = MouseButtons.None;
@@ -110,8 +111,10 @@ namespace Charts.Controls
 
 
         //Chart may have several curves with the same X-Axis data. 
-        // [mySeriesX] is used to keet the common X-Axis data
+        // - [mySeriesX] is used to keep the common X-Axis data
+        // - [myAxisType] is used to keep the common X-Axis type
         private double[] mySeriesX = null;
+        private myAxisType myAxisType = myAxisType.Linear;
 
         // To make the chart verically fit in the defined viewport, we must calculate [min,max] in Y-Axis for all curves.
         // So we need to keep the Y-Axis data in [mySeriesY] for the calculation, see GetViewportY().
@@ -224,11 +227,22 @@ namespace Charts.Controls
                     fProcessing = true;
 
                     _myViewportX.Set(value.Min, value.Max);
+                    
+                    //Depend on [myAxisType], [Min,Max] should be assigned different values.
+                    switch (this.myAxisType)
+                    { 
+                        case myAxisType.Date:
+                             this.myGraphPane.XAxis.Scale.Max = this.mySeriesX[this.myViewportX.Max];
+                             this.myGraphPane.XAxis.Scale.Min = this.mySeriesX[this.myViewportX.Min];
+                             break;
+                        case myAxisType.DateAsOrdinal:
+                        default:
+                             this.myGraphPane.XAxis.Scale.Max = this.mySeriesX[this.myViewportX.Max];
+                             this.myGraphPane.XAxis.Scale.Min = this.mySeriesX[this.myViewportX.Min];
+                             break;
+                    }
+
                     ValueRange viewportY = GetViewportY();
-
-                    this.myGraphPane.XAxis.Scale.Max = this.myViewportX.Max;
-                    this.myGraphPane.XAxis.Scale.Min = this.myViewportX.Min;
-
                     this.myGraphPane.YAxis.Scale.Max = viewportY.Max;
                     this.myGraphPane.YAxis.Scale.Min = viewportY.Min;
 
@@ -264,11 +278,18 @@ namespace Charts.Controls
 
         public void SetSeriesX(double[] xSeries, myAxisType axisType)
         {
+            this.myAxisType = axisType;
             this.mySeriesX = xSeries;
             switch (axisType)
             { 
                 case myAxisType.DateAsOrdinal :
                      this.myGraphPane.XAxis.Type = ZedGraph.AxisType.DateAsOrdinal;
+                     break;
+                case myAxisType.Date:
+                     this.myGraphPane.XAxis.Type = ZedGraph.AxisType.Date;
+                     break;
+                default:
+                     this.myGraphPane.XAxis.Type = ZedGraph.AxisType.Linear;
                      break;
             }
         }
@@ -317,6 +338,11 @@ namespace Charts.Controls
             this.myGraphPane.Chart.Rect = new RectangleF(this.ChartMarginLEFT, this.ChartMarginTOP,
                                                          this.Width - this.ChartMarginRIGHT,
                                                          this.Height - this.ChartMarginBOTTOM);
+
+            this.myGraphPane.Margin.Left = this.ChartMarginLEFT;
+            this.myGraphPane.Margin.Top = this.ChartMarginTOP;
+            this.myGraphPane.Margin.Right = this.ChartMarginRIGHT;
+            this.myGraphPane.Margin.Bottom = this.ChartMarginBOTTOM;
         }
 
         public MouseButtons myPanButton = MouseButtons.Left;

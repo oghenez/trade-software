@@ -60,6 +60,27 @@ namespace Tools.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap actionBUY {
+            get {
+                object obj = ResourceManager.GetObject("actionBUY", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap actionOTHER {
+            get {
+                object obj = ResourceManager.GetObject("actionOTHER", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap actionSELL {
+            get {
+                object obj = ResourceManager.GetObject("actionSELL", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap adddata {
             get {
                 object obj = ResourceManager.GetObject("adddata", resourceCulture);

@@ -216,6 +216,9 @@
   <data name="exchange" xml:space="preserve">
     <value>Exchange</value>
   </data>
+  <data name="exit" xml:space="preserve">
+    <value>Exit</value>
+  </data>
   <data name="expireDate" xml:space="preserve">
     <value>Expired Date</value>
   </data>
@@ -275,6 +278,9 @@
   </data>
   <data name="listedQty" xml:space="preserve">
     <value>Listed Qty</value>
+  </data>
+  <data name="login" xml:space="preserve">
+    <value>Login</value>
   </data>
   <data name="logo" xml:space="preserve">
     <value>logo</value>

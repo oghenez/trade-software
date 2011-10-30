@@ -138,7 +138,7 @@
             this.chartPnl.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.chartPnl.haveCloseButton = true;
             this.chartPnl.isExpanded = true;
-            this.chartPnl.isVisible = true;
+            this.chartPnl.Visible = true;
             this.chartPnl.Location = new System.Drawing.Point(0, 397);
             this.chartPnl.myIconLocations = common.controls.basePanel.IconLocations.None;
             this.chartPnl.mySizingOptions = common.controls.basePanel.SizingOptions.Top;

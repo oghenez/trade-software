@@ -216,6 +216,9 @@
   <data name="exchange" xml:space="preserve">
     <value>Sàn giao dịch</value>
   </data>
+  <data name="exit" xml:space="preserve">
+    <value>Thóat</value>
+  </data>
   <data name="expireDate" xml:space="preserve">
     <value>Ngày hết hạn</value>
   </data>
@@ -275,6 +278,9 @@
   </data>
   <data name="listedQty" xml:space="preserve">
     <value>SL đăng ký</value>
+  </data>
+  <data name="login" xml:space="preserve">
+    <value>Đăng nhập</value>
   </data>
   <data name="logo" xml:space="preserve">
     <value>Biểu trưng</value>

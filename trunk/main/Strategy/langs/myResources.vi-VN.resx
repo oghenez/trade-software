@@ -138,4 +138,7 @@
   <data name="value" xml:space="preserve">
     <value>Giá trị</value>
   </data>
+  <data name="others" xml:space="preserve">
+    <value>Khác</value>
+  </data>
 </root>

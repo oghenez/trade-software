@@ -6,290 +6,110 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using ZedGraph;
 
 namespace test
 {
-    public partial class Form1 : Form
+    public partial class Form1 : baseClass.forms.baseGraphForm
     {
+        const int constPriceChartMarginBOTTOM = 40;
+        const string constPaneNamePrice = "pricePanel";
+        const string constPaneNameVolume = "volumePanel";
+        const string constPaneNameNew = "newPanel";
+        const string constCurveNamePrefixIndicator = "Indicator-";
         
         application.Data myData = new application.Data();
-        myGraphControl myGraphObj = null;
         public Form1()
         {
             InitializeComponent();
             data.system.dbConnectionString = "Data Source=(local);Initial Catalog=stock;Integrated Security=True";
             myData.DataStockCode = "SSI";
-            myData.DataTimeRange = application.AppTypes.TimeRanges.All;
+            myData.DataTimeRange = application.AppTypes.TimeRanges.Y1;
             myData.Reload();
-
-            myGraphObj = new myGraphControl(graphObj);
-            myGraphObj.SetSeriesX(myData.DateTime); 
-
-            myGraphObj.AddCurve(myData.Low, "Line1", Color.Red);
-            myGraphObj.AddCurve(myData.High, "Line2", Color.Green);
-        }
-        
-        public class IntRange 
-        {
-            public int Max = int.MinValue, Min = int.MaxValue;
-            public IntRange(){}
-            public IntRange(int min, int max)
-            {
-                Min = min;  Max = max;
-            }
-            public void Reset()
-            {
-                this.Max = int.MaxValue;
-                this.Min = int.MinValue;
-            }
-            public void Set(int min,int max)
-            {
-                this.Max = max;
-                this.Min = min;
-            }
-        }
-        public class ValueRange
-        {
-            public double Max = double.MinValue, Min = double.MaxValue;
-            public ValueRange() { }
-            public ValueRange(double min, double max)
-            {
-                Min = min; Max = max;
-            }
-            public void Reset()
-            {
-                this.Max = double.MaxValue;
-                this.Min = double.MinValue;
-            }
-            public void Set(double min, double max)
-            {
-                this.Max = max;
-                this.Min = min;
-            }
-
-        }
-
-        public class myGraphControl 
-        {
-            private IntRange viewportX = new IntRange();
-            private ValueRange viewportY = new ValueRange();
-            private bool _isPanning = false;
-            public bool isPanning
-            {
-                get
-                {
-                    return _isPanning;
-                }
-                set
-                {
-                    _isPanning = value;
-                    Cursor.Current = (value ? Cursors.Hand : Cursors.Default);
-                }
-            }
-            private Point lastMouseLocation = new Point();
-            private int mouseMoveCount = 0;
-
-            public MouseButtons myPanButton = MouseButtons.Left;
-            
-            private ZedGraph.GraphPane myGraphPane
-            {
-                get
-                {
-                    return _myGraphControl.MasterPane[0];
-                }
-            }
-            private ZedGraph.ZedGraphControl _myGraphControl = null;
-            public myGraphControl(ZedGraph.ZedGraphControl obj)
-            {
-                _myGraphControl = obj;
-                obj.IsEnableHZoom = false;
-                obj.IsEnableVZoom = false;
-                obj.IsEnableHPan = false;
-                obj.IsEnableVPan = false;
-
-                obj.PanButtons = MouseButtons.None;
-                obj.PanButtons2 = MouseButtons.None;
-
-                obj.ZoomButtons = MouseButtons.None;
-                obj.ZoomButtons2 = MouseButtons.None;
-                obj.ZoomStepFraction = 0;
-
-                obj.MouseWheel += new System.Windows.Forms.MouseEventHandler(MouseWheelHandler);
-                obj.MouseDownEvent += new ZedGraph.ZedGraphControl.ZedMouseEventHandler(MouseDownHandler);
-                obj.MouseUpEvent += new ZedGraph.ZedGraphControl.ZedMouseEventHandler(MouseUpHandler);
-                obj.MouseMoveEvent += new ZedGraph.ZedGraphControl.ZedMouseEventHandler(MouseMoveHandler);
-            }
-
-            private void MouseWheelHandler(object sender, System.Windows.Forms.MouseEventArgs e)
-            {
-                if (e.Delta > 0) ZoomOut();
-                else ZoomIn();
-            }
-            private bool MouseMoveHandler(ZedGraph.ZedGraphControl sender, MouseEventArgs e)
-            {
-                if (!isPanning)
-                {
-                    return default(bool);
-                }
-                if (e.Button == this.myPanButton)
-                {
-                    if (lastMouseLocation.X != e.Location.X) mouseMoveCount++;
-                    if (mouseMoveCount == settings.sysSensibilityPAN)
-                    {
-                        this.mouseMoveCount = 0;
-                        if (lastMouseLocation.X > e.Location.X)
-                        {
-                            this.MoveBackward();
-                        }
-                        if (lastMouseLocation.X < e.Location.X)
-                        {
-                            this.MoveForward();
-                        }
-                        this.lastMouseLocation = e.Location;
-                    }
-                }
-                return default(bool);
-            }
-            private bool MouseUpHandler(ZedGraph.ZedGraphControl sender, MouseEventArgs e)
-            {
-                if (e.Button == this.myPanButton) this.isPanning = false;
-                return default(bool);
-            }
-            private bool MouseDownHandler(ZedGraph.ZedGraphControl sender, MouseEventArgs e)
-            {
-                if (e.Button == this.myPanButton)
-                {
-                    this.isPanning = true;
-                    this.lastMouseLocation = e.Location;
-                    this.mouseMoveCount = 0;
-                }
-                return default(bool);
-            }
-
-            private application.DataSeries mySeriesX = null;
-            private common.DictionaryList mySeriesY = new common.DictionaryList();
-
-            /// <summary>
-            /// Get Y-Viewport(min,max) of all curves in the current X-Vieport.  
-            /// </summary>
-            /// <returns></returns>
-            private ValueRange GetViewportY()
-            {
-                ValueRange range = new ValueRange();
-                for (int count = 0; count < this.mySeriesY.Keys.Length; count++)
-                {
-                    double[] values = ((application.DataSeries)this.mySeriesY.Values[count]).Values;
-                    for (int idx = this.viewportX.Min; idx < this.viewportX.Max; idx++)
-                    {
-                        if (range.Min > values[idx])
-                        {
-                            range.Min = values[idx];
-                        }
-                        if (range.Max < values[idx])
-                        {
-                            range.Max = values[idx];
-                        }
-                    }
-                }
-                return range;
-            }
-            private bool SetViewport(int min,int max)
-            {
-                if ( (min>max) || (min < 0) || (max >= this.mySeriesX.Count)) return false;
-
-                this.viewportX.Set(min, max);
-                this.viewportY = GetViewportY();
-
-                this.myGraphPane.XAxis.Scale.Max = this.viewportX.Max;
-                this.myGraphPane.XAxis.Scale.Min = this.viewportX.Min;
-
-                this.myGraphPane.YAxis.Scale.Max = this.viewportY.Max;
-                this.myGraphPane.YAxis.Scale.Min = this.viewportY.Min;
-
-                UpdateChart();
-                return true;
-            }
-
-            public void SetSeriesX(application.DataSeries xSeries)
-            {
-                this.mySeriesX = xSeries;
-                this.myGraphPane.XAxis.Type = ZedGraph.AxisType.DateAsOrdinal;
-            }
-            public void AddCurve(application.DataSeries seriesY, string name, Color color)
-            {
-                myGraphPane.AddCurve(name, this.mySeriesX.Values, seriesY.Values, color, ZedGraph.SymbolType.None);
-                this.mySeriesY.Add(name, seriesY);
-            }
-
-            public void DefaultViewport()
-            {
-                int min = 0;
-                if (this.mySeriesX.Count > settings.sysNumberOfPoints)
-                     min = this.mySeriesX.Count - settings.sysNumberOfPoints;
-
-                SetViewport(min, this.mySeriesX.Count-1);
-            }
-            public void MoveBackward()
-            {
-                int max = this.viewportX.Max - settings.sysMoveStep;
-                int min = this.viewportX.Min - settings.sysMoveStep;
-                SetViewport(min,max);
-            }
-            public void MoveForward()
-            {
-                int max = this.viewportX.Max + settings.sysMoveStep;
-                int min = this.viewportX.Min + settings.sysMoveStep;
-                SetViewport(min, max);
-            }
-            public void ZoomOut()
-            {
-                int max = this.viewportX.Max;
-                int min = this.viewportX.Min + settings.sysZoomScale;
-                SetViewport(min, max);
-            }
-            public void ZoomIn()
-            {
-                int max = this.viewportX.Max;
-                int min = this.viewportX.Min - settings.sysZoomScale;
-                SetViewport(min, max);
-            }
-            public void UpdateChart()
-            {
-                _myGraphControl.AxisChange();
-                _myGraphControl.Invalidate();
-            }
+            test();
         }
 
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void test()
         {
-            myGraphObj.DefaultViewport();
+            graphPane.myGraphObj.SetSeriesX(myData.DateTime.Values, Charts.Controls.myAxisType.Date);
+            CurveItem curveItem = graphPane.myGraphObj.AddCurveLine("curveName", myData.Close.Values, SymbolType.None, Color.Red, 1);
+
+            PointPairList list = new PointPairList();
+            int[] idList = new int[] { 10, 30, 40, 52, 60, 80, 90, 95 };
+            for (int idx = 0; idx < idList.Length; idx++)
+            {
+                break;
+                PointPair point = curveItem.Points[idList[idx]];
+
+                TextObj text = new TextObj();
+                text.Text = "B";
+                text.Location.X = point.X;
+                text.Location.Y = point.Y;
+                text.Location.CoordinateFrame = CoordType.AxisXYScale;
+                text.FontSpec.FontColor = Color.Green;
+                text.FontSpec.IsBold = false;
+                text.FontSpec.Size = 12;
+                // Disable the border and background fill options for the text
+                text.FontSpec.Border.IsVisible = false;
+                text.FontSpec.Fill.IsVisible = false;
+                // Align the text such the the Left-Bottom corner is at the specified coordinates
+                //text.Location.AlignH = AlignH.Left;
+                //text.Location.AlignV = AlignV.Bottom;
+                graphPane.myGraphObj.myGraphPane.GraphObjList.Add(text);
+            }
+
+            for (int idx = 0; idx < idList.Length; idx++)
+            {
+                PointPair point = curveItem.Points[idList[idx]];
+
+                ImageObj text = new ImageObj();
+                text.Image = (idx%2==0?Properties.Resources.flag:Properties.Resources.budget);
+
+                text.Location.X = point.X;
+                text.Location.Y = point.Y;
+                text.Location.Width = 5.5;
+                text.Location.Height = 0.5;
+                text.Location.CoordinateFrame = CoordType.AxisXYScale;
+                // Align the text such the the Left-Bottom corner is at the specified coordinates
+                //text.Location.AlignH = AlignH.Left;
+                //text.Location.AlignV = AlignV.Bottom;
+                graphPane.myGraphObj.myGraphPane.GraphObjList.Add(text);
+            }
+
+
+            graphPane.myGraphObj.AxisChange();
+            graphPane.myGraphObj.Invalidate();
         }
 
-        private void reload_Click(object sender, EventArgs e)
+        private void testBtn_Click(object sender, EventArgs e)
         {
-            myGraphObj.DefaultViewport();
-        }
 
-        private void prevBtn_Click(object sender, EventArgs e)
-        {
-            myGraphObj.MoveBackward();
-        }
+            //PointPairList list = new PointPairList();
+            //int[]  idList = new int[] {10,30,40,52,60,80,90,95};
+            //for(int idx=0;idx<idList.Length;idx++)
+            //{
+            //    list.Add(new PointPair(myData.DateTime[idList[idx]], myData.Close[idList[idx]], idList[idx].ToString()));
+            //}
+            //var pointsCurve = pricePanel.myGraphObj.myGraphPane.AddCurve("", list, Color.Green);
+            //pricePanel.myGraphObj.AxisChange();
+            //pricePanel.myGraphObj.Invalidate();
 
-        private void nextBtn_Click(object sender, EventArgs e)
-        {
-            myGraphObj.MoveForward();
-        }
-       
 
-        private void zoomInBtn_Click(object sender, EventArgs e)
-        {
-            myGraphObj.ZoomIn();
-        }
+            //LineItem myCurve = myGraphPane.AddCurve(name, this.mySeriesX, seriesY, color, symbol);
 
-        private void zoomOutBtn_Click(object sender, EventArgs e)
-        {
-            myGraphObj.ZoomOut();
+            //ZedGraph.CurveItem curveItem = myPanel.myGraphObj.AddCurveLine("Line1", myData.Close.Values, ZedGraph.SymbolType.Diamond, Color.Red, 1);
+
+
+            //myPriceGraphObj.myGraphPane.XAxis.Scale.MajorStep = (myData.Close.Max - myData.Close.Min) / (myData.Close.Count*10);
+            //myPriceGraphObj.myGraphPane.XAxis.Scale.MinorStep = myPriceGraphObj.myGraphPane.XAxis.Scale.MinorStep / 2;
+            //myPriceGraphObj.myGraphPane.XAxis.Scale.MajorStep = (myData.Close.Max - myData.Close.Min) / (1*myData.Close.Count);
+            //myPriceGraphObj.myGraphPane.XAxis.Scale.MinorStep = myPriceGraphObj.myGraphPane.XAxis.Scale.MajorStep/2;
+
+            //myPriceGraphObj.myGraphPane.XAxis.Type = AxisType.Date;
+            //myPriceGraphObj.myGraphPane.XAxis.Scale.MajorUnit = DateUnit.Day;
+            //myPriceGraphObj.myGraphPane.XAxis.Scale.MinorUnit = DateUnit.Minute; 
+
         }
     }
 }

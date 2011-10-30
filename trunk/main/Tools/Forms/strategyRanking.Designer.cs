@@ -94,7 +94,6 @@
             this.codeListLb.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.codeListLb.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.codeListLb.Location = new System.Drawing.Point(21, 383);
             this.codeListLb.Margin = new System.Windows.Forms.Padding(2);
             this.codeListLb.myItemString = "";
@@ -129,10 +128,9 @@
             // allTimeRangeChk
             // 
             this.allTimeRangeChk.AutoSize = true;
-            this.allTimeRangeChk.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
             this.allTimeRangeChk.Location = new System.Drawing.Point(25, 4);
             this.allTimeRangeChk.Name = "allTimeRangeChk";
-            this.allTimeRangeChk.Size = new System.Drawing.Size(95, 20);
+            this.allTimeRangeChk.Size = new System.Drawing.Size(92, 21);
             this.allTimeRangeChk.TabIndex = 1;
             this.allTimeRangeChk.Text = "Periodicity";
             this.allTimeRangeChk.UseVisualStyleBackColor = true;
@@ -154,7 +152,6 @@
             this.timeRangeLb.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.timeRangeLb.CheckOnClick = true;
-            this.timeRangeLb.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.timeRangeLb.FormattingEnabled = true;
             this.timeRangeLb.Location = new System.Drawing.Point(22, 27);
             this.timeRangeLb.MultiColumn = true;
@@ -181,7 +178,6 @@
             // 
             this.strategyClb.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.strategyClb.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.strategyClb.Location = new System.Drawing.Point(22, 127);
             this.strategyClb.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.strategyClb.myCheckedValues = ((System.Collections.Specialized.StringCollection)(resources.GetObject("strategyClb.myCheckedValues")));

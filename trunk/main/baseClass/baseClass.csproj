@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.21022</ProductVersion>
+    <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{D14859F5-0C41-4D7E-91AD-ED1C9195234D}</ProjectGuid>
     <OutputType>Library</OutputType>
@@ -242,6 +242,12 @@
     <Compile Include="forms\configure.designer.cs">
       <DependentUpon>configure.cs</DependentUpon>
     </Compile>
+    <Compile Include="forms\_baseGraphForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\_baseGraphForm.designer.cs">
+      <DependentUpon>_baseGraphForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="forms\sysInterestedStrategy.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -469,6 +475,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="forms\configure.resx">
       <DependentUpon>configure.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\_baseGraphForm.resx">
+      <DependentUpon>_baseGraphForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\sysInterestedStrategy.resx">

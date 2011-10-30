@@ -279,4 +279,13 @@
   <data name="view" xml:space="preserve">
     <value>View</value>
   </data>
+  <data name="screeningOption" xml:space="preserve">
+    <value>Screening options</value>
+  </data>
+  <data name="strategyOption" xml:space="preserve">
+    <value>Strategy options</value>
+  </data>
+  <data name="toolAllOptions" xml:space="preserve">
+    <value>Options</value>
+  </data>
 </root>

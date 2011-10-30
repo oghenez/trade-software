@@ -69,6 +69,20 @@ namespace test.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap budget {
+            get {
+                object obj = ResourceManager.GetObject("budget", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap flag {
+            get {
+                object obj = ResourceManager.GetObject("flag", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap zoomIn {
             get {
                 object obj = ResourceManager.GetObject("zoomIn", resourceCulture);

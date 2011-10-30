@@ -42,10 +42,10 @@ namespace Tools.Forms
         }
         private bool fShowChart
         {
-            get { return chartPnl.isVisible; }
+            get { return chartPnl.Visible; }
             set 
             {
-                chartPnl.isVisible= value;
+                chartPnl.Visible= value;
                 //dataGrid.Height = this.ClientRectangle.Height - toolBoxPnl.Height - (value ? chartPnl.Height : 0)-5;
                 if (value) ShowChart();
                 FormResize();
@@ -102,7 +102,7 @@ namespace Tools.Forms
             //Handle bug in graph for curve with only on point ????
             if (ySeries.Count > 1)
             {
-                chartPnl.myGraphObj.SetSeriesX(xSeries.Values, Charts.Controls.myAxisType.DateAsOrdinal);
+                chartPnl.myGraphObj.SetSeriesX(xSeries.Values, Charts.Controls.myAxisType.Date);
                 CurveItem curveItem = chartPnl.myGraphObj.AddCurveBar("profit", ySeries.Values, Settings.sysChartVolumesColor, Settings.sysChartVolumesColor, 1);
                 chartPnl.PlotGraph();
             }

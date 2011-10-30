@@ -125,7 +125,7 @@
             this.strategyEstimationPnl.Controls.Add(this.strategyEstimationGrid);
             this.strategyEstimationPnl.haveCloseButton = true;
             this.strategyEstimationPnl.isExpanded = true;
-            this.strategyEstimationPnl.isVisible = true;
+            this.strategyEstimationPnl.Visible = true;
             this.strategyEstimationPnl.Location = new System.Drawing.Point(-1, 493);
             this.strategyEstimationPnl.myIconLocations = common.controls.basePanel.IconLocations.None;
             this.strategyEstimationPnl.mySizingOptions = common.controls.basePanel.SizingOptions.None;

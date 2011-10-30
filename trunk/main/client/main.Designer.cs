@@ -149,10 +149,13 @@
             this.companyListMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator25 = new System.Windows.Forms.ToolStripSeparator();
             this.strategyListMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.markovToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.screeningListMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolOptionMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolOptionMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolOptionsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator22 = new System.Windows.Forms.ToolStripSeparator();
+            this.strategyOptionsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.markovToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.screeningOptionsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.windowsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.closeAllMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
@@ -168,6 +171,8 @@
             this.percentBtn = new System.Windows.Forms.ToolStripButton();
             this.periodicityStrip = new System.Windows.Forms.ToolStrip();
             this.dummyStripBtn = new System.Windows.Forms.ToolStripButton();
+            this.strategyStrip = new System.Windows.Forms.ToolStrip();
+            this.strategyCbStrip = new baseClass.controls.ToolStripCbStrategy();
             this.chartStrip.SuspendLayout();
             this.standartStrip.SuspendLayout();
             this.toolsStrip.SuspendLayout();
@@ -175,6 +180,7 @@
             this.toolStripPanel.SuspendLayout();
             this.formatStrip.SuspendLayout();
             this.periodicityStrip.SuspendLayout();
+            this.strategyStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // TitleLbl
@@ -331,7 +337,7 @@
             this.chartRefreshBtn,
             this.toolStripSeparator29,
             this.dataTimeRangeCb});
-            this.chartStrip.Location = new System.Drawing.Point(180, 24);
+            this.chartStrip.Location = new System.Drawing.Point(162, 24);
             this.chartStrip.Name = "chartStrip";
             this.chartStrip.Size = new System.Drawing.Size(333, 25);
             this.chartStrip.TabIndex = 11;
@@ -410,6 +416,7 @@
             this.zoomInBtn.Name = "zoomInBtn";
             this.zoomInBtn.Size = new System.Drawing.Size(23, 22);
             this.zoomInBtn.ToolTipText = "Zoom In";
+            this.zoomInBtn.Click += new System.EventHandler(this.zoomInMenuItem_Click);
             // 
             // zoomOutBtn
             // 
@@ -420,6 +427,7 @@
             this.zoomOutBtn.Name = "zoomOutBtn";
             this.zoomOutBtn.Size = new System.Drawing.Size(23, 22);
             this.zoomOutBtn.ToolTipText = "Zoom Out";
+            this.zoomOutBtn.Click += new System.EventHandler(this.zoomOutMenuItem_Click);
             // 
             // toolStripSeparator19
             // 
@@ -540,7 +548,7 @@
             this.toolRunBtn,
             this.toolFullViewBtn,
             this.exportBtn});
-            this.toolsStrip.Location = new System.Drawing.Point(518, 24);
+            this.toolsStrip.Location = new System.Drawing.Point(500, 24);
             this.toolsStrip.Name = "toolsStrip";
             this.toolsStrip.Size = new System.Drawing.Size(79, 25);
             this.toolsStrip.TabIndex = 2;
@@ -1010,12 +1018,14 @@
             this.zoomInMenuItem.Name = "zoomInMenuItem";
             this.zoomInMenuItem.Size = new System.Drawing.Size(161, 22);
             this.zoomInMenuItem.Text = "Zoom In";
+            this.zoomInMenuItem.Click += new System.EventHandler(this.zoomInMenuItem_Click);
             // 
             // zoomOutMenuItem
             // 
             this.zoomOutMenuItem.Name = "zoomOutMenuItem";
             this.zoomOutMenuItem.Size = new System.Drawing.Size(161, 22);
             this.zoomOutMenuItem.Text = "Zoom Out";
+            this.zoomOutMenuItem.Click += new System.EventHandler(this.zoomOutMenuItem_Click);
             // 
             // toolStripSeparator21
             // 
@@ -1054,9 +1064,8 @@
             this.companyListMenuItem,
             this.toolStripSeparator25,
             this.strategyListMenuItem,
-            this.screeningListMenuItem,
             this.toolStripSeparator3,
-            this.toolOptionMenuItem});
+            this.toolOptionMenu});
             this.toolsMenuItem.Name = "toolsMenuItem";
             this.toolsMenuItem.Size = new System.Drawing.Size(51, 20);
             this.toolsMenuItem.Text = "&Tools";
@@ -1064,60 +1073,94 @@
             // screeningMenuItem
             // 
             this.screeningMenuItem.Name = "screeningMenuItem";
-            this.screeningMenuItem.Size = new System.Drawing.Size(198, 22);
+            this.screeningMenuItem.Size = new System.Drawing.Size(194, 22);
             this.screeningMenuItem.Text = "Screening";
             this.screeningMenuItem.Click += new System.EventHandler(this.screeningMenuItem_Click);
             // 
             // backTestingMenuItem
             // 
             this.backTestingMenuItem.Name = "backTestingMenuItem";
-            this.backTestingMenuItem.Size = new System.Drawing.Size(198, 22);
+            this.backTestingMenuItem.Size = new System.Drawing.Size(194, 22);
             this.backTestingMenuItem.Text = "Back Testing";
             this.backTestingMenuItem.Click += new System.EventHandler(this.backTestingMenuItem_Click);
             // 
             // strategyRankingMenuItem
             // 
             this.strategyRankingMenuItem.Name = "strategyRankingMenuItem";
-            this.strategyRankingMenuItem.Size = new System.Drawing.Size(198, 22);
+            this.strategyRankingMenuItem.Size = new System.Drawing.Size(194, 22);
             this.strategyRankingMenuItem.Text = "Strategy Ranking";
             this.strategyRankingMenuItem.Click += new System.EventHandler(this.strategyRankingMenuItem_Click);
             // 
             // toolStripSeparator6
             // 
             this.toolStripSeparator6.Name = "toolStripSeparator6";
-            this.toolStripSeparator6.Size = new System.Drawing.Size(195, 6);
+            this.toolStripSeparator6.Size = new System.Drawing.Size(191, 6);
             // 
             // orderMenuItem
             // 
             this.orderMenuItem.Name = "orderMenuItem";
-            this.orderMenuItem.Size = new System.Drawing.Size(198, 22);
+            this.orderMenuItem.Size = new System.Drawing.Size(194, 22);
             this.orderMenuItem.Text = "Order";
             this.orderMenuItem.Click += new System.EventHandler(this.orderMenuItem_Click);
             // 
             // toolStripSeparator13
             // 
             this.toolStripSeparator13.Name = "toolStripSeparator13";
-            this.toolStripSeparator13.Size = new System.Drawing.Size(195, 6);
+            this.toolStripSeparator13.Size = new System.Drawing.Size(191, 6);
             // 
             // companyListMenuItem
             // 
             this.companyListMenuItem.Name = "companyListMenuItem";
-            this.companyListMenuItem.Size = new System.Drawing.Size(198, 22);
+            this.companyListMenuItem.Size = new System.Drawing.Size(194, 22);
             this.companyListMenuItem.Text = "Company List";
             this.companyListMenuItem.Click += new System.EventHandler(this.companyListMenuItem_Click);
             // 
             // toolStripSeparator25
             // 
             this.toolStripSeparator25.Name = "toolStripSeparator25";
-            this.toolStripSeparator25.Size = new System.Drawing.Size(195, 6);
+            this.toolStripSeparator25.Size = new System.Drawing.Size(191, 6);
             // 
             // strategyListMenuItem
             // 
-            this.strategyListMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.markovToolStripMenuItem});
             this.strategyListMenuItem.Name = "strategyListMenuItem";
-            this.strategyListMenuItem.Size = new System.Drawing.Size(198, 22);
-            this.strategyListMenuItem.Text = "Strategy Options";
+            this.strategyListMenuItem.Size = new System.Drawing.Size(194, 22);
+            this.strategyListMenuItem.Text = "Strategy List";
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(191, 6);
+            // 
+            // toolOptionMenu
+            // 
+            this.toolOptionMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolOptionsMenuItem,
+            this.toolStripSeparator22,
+            this.strategyOptionsMenuItem,
+            this.screeningOptionsMenuItem});
+            this.toolOptionMenu.Name = "toolOptionMenu";
+            this.toolOptionMenu.Size = new System.Drawing.Size(194, 22);
+            this.toolOptionMenu.Text = "Options";
+            // 
+            // toolOptionsMenuItem
+            // 
+            this.toolOptionsMenuItem.Name = "toolOptionsMenuItem";
+            this.toolOptionsMenuItem.Size = new System.Drawing.Size(198, 22);
+            this.toolOptionsMenuItem.Text = "Tool Options";
+            this.toolOptionsMenuItem.Click += new System.EventHandler(this.toolOptionMenuItem_Click);
+            // 
+            // toolStripSeparator22
+            // 
+            this.toolStripSeparator22.Name = "toolStripSeparator22";
+            this.toolStripSeparator22.Size = new System.Drawing.Size(195, 6);
+            // 
+            // strategyOptionsMenuItem
+            // 
+            this.strategyOptionsMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.markovToolStripMenuItem});
+            this.strategyOptionsMenuItem.Name = "strategyOptionsMenuItem";
+            this.strategyOptionsMenuItem.Size = new System.Drawing.Size(198, 22);
+            this.strategyOptionsMenuItem.Text = "Strategy Options";
             // 
             // markovToolStripMenuItem
             // 
@@ -1125,23 +1168,11 @@
             this.markovToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
             this.markovToolStripMenuItem.Text = "Markov";
             // 
-            // screeningListMenuItem
+            // screeningOptionsMenuItem
             // 
-            this.screeningListMenuItem.Name = "screeningListMenuItem";
-            this.screeningListMenuItem.Size = new System.Drawing.Size(198, 22);
-            this.screeningListMenuItem.Text = "Screening Options";
-            // 
-            // toolStripSeparator3
-            // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(195, 6);
-            // 
-            // toolOptionMenuItem
-            // 
-            this.toolOptionMenuItem.Name = "toolOptionMenuItem";
-            this.toolOptionMenuItem.Size = new System.Drawing.Size(198, 22);
-            this.toolOptionMenuItem.Text = "Options";
-            this.toolOptionMenuItem.Click += new System.EventHandler(this.toolOptionMenuItem_Click);
+            this.screeningOptionsMenuItem.Name = "screeningOptionsMenuItem";
+            this.screeningOptionsMenuItem.Size = new System.Drawing.Size(198, 22);
+            this.screeningOptionsMenuItem.Text = "Screening Options";
             // 
             // windowsMenuItem
             // 
@@ -1214,6 +1245,7 @@
             this.toolStripPanel.Controls.Add(this.toolsStrip);
             this.toolStripPanel.Controls.Add(this.formatStrip);
             this.toolStripPanel.Controls.Add(this.periodicityStrip);
+            this.toolStripPanel.Controls.Add(this.strategyStrip);
             this.toolStripPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.toolStripPanel.Location = new System.Drawing.Point(0, 0);
             this.toolStripPanel.Name = "toolStripPanel";
@@ -1227,7 +1259,7 @@
             this.formatStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.amountBtn,
             this.percentBtn});
-            this.formatStrip.Location = new System.Drawing.Point(600, 24);
+            this.formatStrip.Location = new System.Drawing.Point(583, 24);
             this.formatStrip.Name = "formatStrip";
             this.formatStrip.Size = new System.Drawing.Size(56, 25);
             this.formatStrip.TabIndex = 148;
@@ -1256,7 +1288,7 @@
             this.periodicityStrip.Dock = System.Windows.Forms.DockStyle.None;
             this.periodicityStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.dummyStripBtn});
-            this.periodicityStrip.Location = new System.Drawing.Point(661, 24);
+            this.periodicityStrip.Location = new System.Drawing.Point(642, 24);
             this.periodicityStrip.Name = "periodicityStrip";
             this.periodicityStrip.Size = new System.Drawing.Size(84, 25);
             this.periodicityStrip.TabIndex = 147;
@@ -1269,6 +1301,24 @@
             this.dummyStripBtn.Name = "dummyStripBtn";
             this.dummyStripBtn.Size = new System.Drawing.Size(74, 22);
             this.dummyStripBtn.Text = "Auto created";
+            // 
+            // strategyStrip
+            // 
+            this.strategyStrip.Dock = System.Windows.Forms.DockStyle.None;
+            this.strategyStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.strategyCbStrip});
+            this.strategyStrip.Location = new System.Drawing.Point(727, 24);
+            this.strategyStrip.Name = "strategyStrip";
+            this.strategyStrip.Size = new System.Drawing.Size(312, 25);
+            this.strategyStrip.TabIndex = 149;
+            // 
+            // strategyCbStrip
+            // 
+            this.strategyCbStrip.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.strategyCbStrip.myValue = "";
+            this.strategyCbStrip.Name = "strategyCbStrip";
+            this.strategyCbStrip.SelectedValue = "";
+            this.strategyCbStrip.Size = new System.Drawing.Size(300, 25);
             // 
             // main
             // 
@@ -1302,6 +1352,8 @@
             this.formatStrip.PerformLayout();
             this.periodicityStrip.ResumeLayout(false);
             this.periodicityStrip.PerformLayout();
+            this.strategyStrip.ResumeLayout(false);
+            this.strategyStrip.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1407,7 +1459,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator13;
         private System.Windows.Forms.ToolStripMenuItem companyListMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator25;
-        private System.Windows.Forms.ToolStripMenuItem toolOptionMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toolOptionMenu;
         private System.Windows.Forms.ToolStripMenuItem windowsMenuItem;
         private System.Windows.Forms.ToolStripMenuItem closeAllMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
@@ -1430,10 +1482,15 @@
         private System.Windows.Forms.ToolStripButton amountBtn;
         private System.Windows.Forms.ToolStripButton percentBtn;
         private System.Windows.Forms.ToolStripMenuItem strategyListMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem markovToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem screeningListMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator21;
+        private System.Windows.Forms.ToolStripMenuItem toolOptionsMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator22;
+        private System.Windows.Forms.ToolStripMenuItem strategyOptionsMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem markovToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem screeningOptionsMenuItem;
+        private System.Windows.Forms.ToolStrip strategyStrip;
+        private baseClass.controls.ToolStripCbStrategy strategyCbStrip;
     }
 }
 

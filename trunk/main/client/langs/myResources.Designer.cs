@@ -403,6 +403,15 @@ namespace client.langs {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Screening options.
+        /// </summary>
+        internal static string screeningOption {
+            get {
+                return ResourceManager.GetString("screeningOption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Search.
         /// </summary>
         internal static string search {
@@ -439,11 +448,29 @@ namespace client.langs {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Strategy options.
+        /// </summary>
+        internal static string strategyOption {
+            get {
+                return ResourceManager.GetString("strategyOption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Strategy ranking.
         /// </summary>
         internal static string strategyRanking {
             get {
                 return ResourceManager.GetString("strategyRanking", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Options.
+        /// </summary>
+        internal static string toolAllOptions {
+            get {
+                return ResourceManager.GetString("toolAllOptions", resourceCulture);
             }
         }
         

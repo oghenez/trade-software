@@ -358,6 +358,15 @@ namespace baseClass.langs {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Exit.
+        /// </summary>
+        internal static string exit {
+            get {
+                return ResourceManager.GetString("exit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Expired Date.
         /// </summary>
         internal static string expireDate {
@@ -534,6 +543,15 @@ namespace baseClass.langs {
         internal static string listedQty {
             get {
                 return ResourceManager.GetString("listedQty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Login.
+        /// </summary>
+        internal static string login {
+            get {
+                return ResourceManager.GetString("login", resourceCulture);
             }
         }
         

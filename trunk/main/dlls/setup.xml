@@ -1,1 +1,8 @@
-﻿<Configuration />
+<Configuration>
+  <ENVIRONMENT>
+    <Login LoginName="HZHwhrhrGirxFhsjP+roTA==" />
+  </ENVIRONMENT>
+  <ENVIRONMENT>
+    <Login loginLocationId="Qivs4xlMKfhcld4XESkALCbo0gnVtn5ZYgw0F4WLwDs=" />
+  </ENVIRONMENT>
+</Configuration>

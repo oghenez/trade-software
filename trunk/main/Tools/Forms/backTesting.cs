@@ -18,7 +18,7 @@ namespace Tools.Forms
             {
                 InitializeComponent();
 
-                strategyEstimationPnl.isVisible = false;
+                strategyEstimationPnl.Visible = false;
 
                 strategyClb.LoadData(AppTypes.StrategyTypes.Strategy, true, false);
                 codeSelectLb.LoadData();
@@ -68,7 +68,7 @@ namespace Tools.Forms
         }
         public void ShowEstimationDataGeneral()
         {
-            strategyEstimationPnl.isVisible = true;
+            strategyEstimationPnl.Visible = true;
             DataPartResize();
         }
         public void ExportResult()
@@ -248,7 +248,7 @@ namespace Tools.Forms
         private void DataPartResize()
         {
             resultDataGrid.Width = dataPnl.Width - resultDataGrid.Location.X;
-            if (strategyEstimationPnl.isVisible)
+            if (strategyEstimationPnl.Visible)
             {
                 //Keep statistis height
                 //strategyEstimationGrid.Location = new Point(0, dataPnl.Height - strategyEstimationGrid.Height);
@@ -462,7 +462,7 @@ namespace Tools.Forms
         {
             try
             {
-                strategyEstimationPnl.isVisible = false;
+                strategyEstimationPnl.Visible = false;
                 DataPartResize();
                 return true;
             }

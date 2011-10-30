@@ -88,6 +88,15 @@ namespace strategy.langs {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Others.
+        /// </summary>
+        internal static string others {
+            get {
+                return ResourceManager.GetString("others", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Parameters.
         /// </summary>
         internal static string parameter {

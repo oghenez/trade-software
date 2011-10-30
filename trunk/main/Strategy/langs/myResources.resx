@@ -141,4 +141,7 @@
   <data name="value" xml:space="preserve">
     <value>Value</value>
   </data>
+  <data name="others" xml:space="preserve">
+    <value>Others</value>
+  </data>
 </root>

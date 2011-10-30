@@ -553,10 +553,10 @@ namespace Strategy
         /// <param name="toMenu">Menu where strategy menus are added</param>
         /// <param name="handler">Function fired on Click Event</param>
         private static void CreateMenu(common.DictionaryList Metas,AppTypes.StrategyTypes strategyType,
-                                       ToolStripMenuItem toMenu, System.EventHandler handler)
+                                       data.baseDS.strategyCatDataTable strategyCatTbl,
+                                       ToolStripMenuItem toMenu,System.EventHandler handler)
+            
         {
-            data.baseDS.strategyCatDataTable strategyCatTbl = new data.baseDS.strategyCatDataTable();
-            application.dataLibs.LoadData(strategyCatTbl);
             for (int idx1 = 0; idx1 < strategyCatTbl.Count; idx1++)
             {
                 Meta[] tmpMetas = Libs.FindMetaByCat(Metas,strategyType,strategyCatTbl[idx1].code);
@@ -591,6 +591,7 @@ namespace Strategy
             }
         }
 
+
         /// <summary>
         ///  Create menu listing all strategies with click events. 
         /// - strategy having category existed in strategyCat table are grouped to that category
@@ -598,11 +599,58 @@ namespace Strategy
         /// </summary>
         /// <param name="toMenu">Menu where strategy menus are added</param>
         /// <param name="handler">Function fired on Click Event</param>
-        public static void CreateMenu(AppTypes.StrategyTypes strategyType,ToolStripMenuItem toMenu, System.EventHandler handler)
+        public static void CreateMenu(AppTypes.StrategyTypes strategyType,
+                                      ToolStripMenuItem toMenu, System.EventHandler handler)
         {
-            CreateMenu(Data.MetaList,strategyType, toMenu, handler);
+            data.baseDS.strategyCatDataTable strategyCatTbl = new data.baseDS.strategyCatDataTable();
+            application.dataLibs.LoadData(strategyCatTbl);
+            if (toMenu!=null)
+                CreateMenu(Data.MetaList, strategyType, strategyCatTbl, toMenu, handler);
         }
 
+
+        /// <summary>
+        ///  Load all strategies of scpecific type. 
+        /// - strategy having category existed in strategyCat table are grouped to that category
+        /// - strategy having category NOT existed in strategyCat are placed under the category menus
+        /// </summary>
+        /// <param name="strategyType"></param>
+        /// <param name="toObj"></param>
+        public static void LoadStrategy(AppTypes.StrategyTypes strategyType, ToolStripComboBox toObj)
+        {
+            common.DictionaryList Metas = Strategy.Data.MetaList;
+
+            data.baseDS.strategyCatDataTable strategyCatTbl = new data.baseDS.strategyCatDataTable();
+            application.dataLibs.LoadData(strategyCatTbl);
+
+            toObj.Items.Clear();
+            for (int idx1 = 0; idx1 < strategyCatTbl.Count; idx1++)
+            {
+                Meta[] tmpMetas = Libs.FindMetaByCat(Metas, strategyType, strategyCatTbl[idx1].code);
+                if (tmpMetas == null || tmpMetas.Length == 0) continue;
+
+                toObj.Items.Add(new common.myComboBoxItem("--" + strategyCatTbl[idx1].description.Trim() + "--", ""));
+                for (int idx2 = 0; idx2 < tmpMetas.Length; idx2++)
+                {
+                    toObj.Items.Add(new common.myComboBoxItem(tmpMetas[idx2].Name, tmpMetas[idx2].Code));
+                }
+            }
+            //Donot have category
+            Meta meta;
+            bool flag = true;
+            for (int idx2 = 0; idx2 < Metas.Values.Length; idx2++)
+            {
+                if (flag)
+                {
+                    toObj.Items.Add(new common.myComboBoxItem("--" + language.GetString("others") + "--", ""));
+                    flag = false;
+                }
+                meta = (Meta)Metas.Values[idx2];
+                if (meta.Type != strategyType) continue;
+                if (strategyCatTbl.FindBycode(meta.Category.Trim()) != null) continue;
+                toObj.Items.Add(new common.myComboBoxItem(meta.Name, meta.Code));
+            }
+        }
 
         #region strategy estimation
         public class EstimateOptions

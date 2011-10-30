@@ -29,109 +29,87 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.graphObj = new ZedGraph.ZedGraphControl();
-            this.reloadBtn = new System.Windows.Forms.Button();
-            this.nextBtn = new System.Windows.Forms.Button();
-            this.prevBtn = new System.Windows.Forms.Button();
-            this.zoomInBtn = new System.Windows.Forms.Button();
-            this.zoomOutBtn = new System.Windows.Forms.Button();
+            Charts.Controls.IntRange intRange1 = new Charts.Controls.IntRange();
+            this.testBtn = new System.Windows.Forms.Button();
+            this.graphPane = new Charts.Controls.baseGraphPanel();
+            this.myGraphControl1 = new Charts.Controls.myGraphControl();
+            ((System.ComponentModel.ISupportInitialize)(this.myDataSet)).BeginInit();
             this.SuspendLayout();
             // 
-            // graphObj
+            // testBtn
             // 
-            this.graphObj.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.graphObj.IsEnableVPan = false;
-            this.graphObj.IsEnableVZoom = false;
-            this.graphObj.Location = new System.Drawing.Point(-1, 31);
-            this.graphObj.Name = "graphObj";
-            this.graphObj.ScrollGrace = 0;
-            this.graphObj.ScrollMaxX = 0;
-            this.graphObj.ScrollMaxY = 0;
-            this.graphObj.ScrollMaxY2 = 0;
-            this.graphObj.ScrollMinX = 0;
-            this.graphObj.ScrollMinY = 0;
-            this.graphObj.ScrollMinY2 = 0;
-            this.graphObj.Size = new System.Drawing.Size(754, 669);
-            this.graphObj.TabIndex = 0;
+            this.testBtn.Location = new System.Drawing.Point(0, 2);
+            this.testBtn.Name = "testBtn";
+            this.testBtn.Size = new System.Drawing.Size(75, 23);
+            this.testBtn.TabIndex = 8;
+            this.testBtn.Text = "Test";
+            this.testBtn.UseVisualStyleBackColor = true;
+            this.testBtn.Click += new System.EventHandler(this.testBtn_Click);
             // 
-            // reloadBtn
+            // graphPane
             // 
-            this.reloadBtn.Location = new System.Drawing.Point(1, 2);
-            this.reloadBtn.Name = "reloadBtn";
-            this.reloadBtn.Size = new System.Drawing.Size(75, 23);
-            this.reloadBtn.TabIndex = 1;
-            this.reloadBtn.Text = "Reload";
-            this.reloadBtn.UseVisualStyleBackColor = true;
-            this.reloadBtn.Click += new System.EventHandler(this.reload_Click);
+            this.graphPane.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.graphPane.haveCloseButton = true;
+            this.graphPane.isExpanded = true;
+            this.graphPane.Location = new System.Drawing.Point(0, 133);
+            this.graphPane.myIconLocations = common.controls.basePanel.IconLocations.None;
+            this.graphPane.mySizingOptions = common.controls.basePanel.SizingOptions.None;
+            this.graphPane.myWeight = 0;
+            this.graphPane.Name = "graphPane";
+            this.graphPane.Size = new System.Drawing.Size(954, 483);
+            this.graphPane.TabIndex = 247;
             // 
-            // nextBtn
+            // myGraphControl1
             // 
-            this.nextBtn.Location = new System.Drawing.Point(119, 2);
-            this.nextBtn.Name = "nextBtn";
-            this.nextBtn.Size = new System.Drawing.Size(36, 23);
-            this.nextBtn.TabIndex = 2;
-            this.nextBtn.Text = ">>";
-            this.nextBtn.UseVisualStyleBackColor = true;
-            this.nextBtn.Click += new System.EventHandler(this.nextBtn_Click);
-            // 
-            // prevBtn
-            // 
-            this.prevBtn.Location = new System.Drawing.Point(83, 2);
-            this.prevBtn.Name = "prevBtn";
-            this.prevBtn.Size = new System.Drawing.Size(36, 23);
-            this.prevBtn.TabIndex = 3;
-            this.prevBtn.Text = "<<";
-            this.prevBtn.UseVisualStyleBackColor = true;
-            this.prevBtn.Click += new System.EventHandler(this.prevBtn_Click);
-            // 
-            // zoomInBtn
-            // 
-            this.zoomInBtn.Image = global::test.Properties.Resources.zoomIn;
-            this.zoomInBtn.Location = new System.Drawing.Point(210, 2);
-            this.zoomInBtn.Name = "zoomInBtn";
-            this.zoomInBtn.Size = new System.Drawing.Size(27, 23);
-            this.zoomInBtn.TabIndex = 4;
-            this.zoomInBtn.UseVisualStyleBackColor = true;
-            this.zoomInBtn.Click += new System.EventHandler(this.zoomInBtn_Click);
-            // 
-            // zoomOutBtn
-            // 
-            this.zoomOutBtn.Image = global::test.Properties.Resources.zoomOut;
-            this.zoomOutBtn.Location = new System.Drawing.Point(238, 2);
-            this.zoomOutBtn.Name = "zoomOutBtn";
-            this.zoomOutBtn.Size = new System.Drawing.Size(27, 23);
-            this.zoomOutBtn.TabIndex = 5;
-            this.zoomOutBtn.UseVisualStyleBackColor = true;
-            this.zoomOutBtn.Click += new System.EventHandler(this.zoomOutBtn_Click);
+            this.myGraphControl1.IsEnableHPan = false;
+            this.myGraphControl1.IsEnableHZoom = false;
+            this.myGraphControl1.IsEnableVPan = false;
+            this.myGraphControl1.IsEnableVZoom = false;
+            this.myGraphControl1.isPanning = false;
+            this.myGraphControl1.IsShowContextMenu = false;
+            this.myGraphControl1.IsShowPointValues = true;
+            this.myGraphControl1.Location = new System.Drawing.Point(120, 12);
+            this.myGraphControl1.myViewportX = intRange1;
+            this.myGraphControl1.Name = "myGraphControl1";
+            this.myGraphControl1.PanButtons = System.Windows.Forms.MouseButtons.None;
+            this.myGraphControl1.PanButtons2 = System.Windows.Forms.MouseButtons.None;
+            this.myGraphControl1.ScrollGrace = 0;
+            this.myGraphControl1.ScrollMaxX = 0;
+            this.myGraphControl1.ScrollMaxY = 0;
+            this.myGraphControl1.ScrollMaxY2 = 0;
+            this.myGraphControl1.ScrollMinX = 0;
+            this.myGraphControl1.ScrollMinY = 0;
+            this.myGraphControl1.ScrollMinY2 = 0;
+            this.myGraphControl1.Size = new System.Drawing.Size(466, 94);
+            this.myGraphControl1.TabIndex = 248;
+            this.myGraphControl1.ZoomButtons = System.Windows.Forms.MouseButtons.None;
+            this.myGraphControl1.ZoomStepFraction = 0;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(752, 728);
-            this.Controls.Add(this.zoomOutBtn);
-            this.Controls.Add(this.zoomInBtn);
-            this.Controls.Add(this.prevBtn);
-            this.Controls.Add(this.nextBtn);
-            this.Controls.Add(this.reloadBtn);
-            this.Controls.Add(this.graphObj);
+            this.ClientSize = new System.Drawing.Size(954, 679);
+            this.Controls.Add(this.graphPane);
+            this.Controls.Add(this.myGraphControl1);
+            this.Controls.Add(this.testBtn);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "Form1";
             this.Text = "Form1";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Controls.SetChildIndex(this.testBtn, 0);
+            this.Controls.SetChildIndex(this.TitleLbl, 0);
+            this.Controls.SetChildIndex(this.myGraphControl1, 0);
+            this.Controls.SetChildIndex(this.graphPane, 0);
+            ((System.ComponentModel.ISupportInitialize)(this.myDataSet)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private ZedGraph.ZedGraphControl graphObj;
-        private System.Windows.Forms.Button reloadBtn;
-        private System.Windows.Forms.Button nextBtn;
-        private System.Windows.Forms.Button prevBtn;
-        private System.Windows.Forms.Button zoomInBtn;
-        private System.Windows.Forms.Button zoomOutBtn;
+        private System.Windows.Forms.Button testBtn;
+        private Charts.Controls.baseGraphPanel graphPane;
+        private Charts.Controls.myGraphControl myGraphControl1;
     }
 }

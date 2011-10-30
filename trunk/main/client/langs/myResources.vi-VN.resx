@@ -241,7 +241,7 @@
     <value>Thanh công cụ</value>
   </data>
   <data name="toolOption" xml:space="preserve">
-    <value>Tùy biến</value>
+    <value>Hệ thống</value>
   </data>
   <data name="tools" xml:space="preserve">
     <value>Công cụ</value>
@@ -278,5 +278,14 @@
   </data>
   <data name="view" xml:space="preserve">
     <value>Tầm nhìn</value>
+  </data>
+  <data name="screeningOption" xml:space="preserve">
+    <value>Lọc mã</value>
+  </data>
+  <data name="strategyOption" xml:space="preserve">
+    <value>Chiến luợc</value>
+  </data>
+  <data name="toolAllOptions" xml:space="preserve">
+    <value>Tùy biến</value>
   </data>
 </root>
