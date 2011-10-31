@@ -339,7 +339,7 @@
             this.dataTimeRangeCb});
             this.chartStrip.Location = new System.Drawing.Point(162, 24);
             this.chartStrip.Name = "chartStrip";
-            this.chartStrip.Size = new System.Drawing.Size(333, 25);
+            this.chartStrip.Size = new System.Drawing.Size(300, 25);
             this.chartStrip.TabIndex = 11;
             // 
             // chartPropertiesBtn
@@ -1326,7 +1326,6 @@
             this.ClientSize = new System.Drawing.Size(1284, 672);
             this.Controls.Add(this.dockPanel);
             this.Controls.Add(this.toolStripPanel);
-            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.mainMenu;

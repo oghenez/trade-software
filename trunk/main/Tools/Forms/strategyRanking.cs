@@ -314,26 +314,35 @@ namespace Tools.Forms
 
                 for (int colId = 0; colId < timeRangeList.Count; colId++)
                 {
-                    AppTypes.TimeRanges timeRange = AppTypes.TimeRangeFromCode(timeRangeList[colId]);
-                    decimal profit = 0;
-
-                    application.Data analysisData = new application.Data(timeRange, timeScaleCb.myValue, stockCode);
-                    for (int rowId = 0; rowId < strategyList.Count; rowId++)
+                    try
                     {
-                        profit = 0;
-                        //Analysis cached data so we MUST clear cache to ensure the system run correctly
-                        Strategy.Data.ClearCache();
-                        Strategy.TradePoints advices = Strategy.Libs.Analysis(analysisData, strategyList[rowId]);
-                        if (advices != null)
+                        progressBar.Value++;
+                        Application.DoEvents();
+
+                        AppTypes.TimeRanges timeRange = AppTypes.TimeRangeFromCode(timeRangeList[colId]);
+                        decimal profit = 0;
+
+                        application.Data analysisData = new application.Data(timeRange, timeScaleCb.myValue, stockCode);
+                        for (int rowId = 0; rowId < strategyList.Count; rowId++)
                         {
-                            myTmpDS.tradeEstimate.Clear();
-                            Strategy.Libs.EstimateTrading(analysisData, advices, new Strategy.Libs.EstimateOptions(), myTmpDS.tradeEstimate);
-                            profit = (myTmpDS.tradeEstimate.Count == 0 ? 0 : profit = myTmpDS.tradeEstimate[myTmpDS.tradeEstimate.Count - 1].profit);
+                            profit = 0;
+                            //Analysis cached data so we MUST clear cache to ensure the system run correctly
+                            Strategy.Data.ClearCache();
+                            Strategy.TradePoints advices = Strategy.Libs.Analysis(analysisData, strategyList[rowId]);
+                            if (advices != null)
+                            {
+                                myTmpDS.tradeEstimate.Clear();
+                                Strategy.Libs.EstimateTrading(analysisData, advices, new Strategy.Libs.EstimateOptions(), myTmpDS.tradeEstimate);
+                                profit = (myTmpDS.tradeEstimate.Count == 0 ? 0 : profit = myTmpDS.tradeEstimate[myTmpDS.tradeEstimate.Count - 1].profit);
+                            }
+                            testRetsultTbl.Rows[rowId][colId + 1] = profit;
                         }
-                        testRetsultTbl.Rows[rowId][colId + 1] = profit;
                     }
-                    progressBar.Value++;
-                    Application.DoEvents();
+                    catch (Exception er)
+                    {
+                        this.WriteError(stockCodeList[stockCodeId] + " : " + timeRangeList[colId] + " : " + strategyList[colId], er.Message);
+                        //this.ShowError(er);
+                    }
                 }
             }
             FormResize();

@@ -300,4 +300,7 @@
   <data name="year" xml:space="preserve">
     <value>Year</value>
   </data>
+  <data name="timeRange" xml:space="preserve">
+    <value>Time Range</value>
+  </data>
 </root>

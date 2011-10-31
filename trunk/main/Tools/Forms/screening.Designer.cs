@@ -30,8 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(screening));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataPnl = new System.Windows.Forms.Panel();
             this.resultDataGrid = new common.controls.baseDataGridView();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
@@ -48,6 +48,11 @@
             this.codeListLbl = new baseClass.controls.baseLabel();
             this.optionPnl = new System.Windows.Forms.Panel();
             this.strategyGb = new System.Windows.Forms.GroupBox();
+            this.timeScaleLbl = new baseClass.controls.baseLabel();
+            this.timeScaleCb = new baseClass.controls.cbTimeScale();
+            this.timeRangeLbl = new baseClass.controls.baseLabel();
+            this.timeRangeCb = new baseClass.controls.cbTimeRange();
+            this.selectAllChk = new common.controls.baseCheckBox();
             this.criteriaGridLbl = new baseClass.controls.baseLabel();
             this.editBtn = new System.Windows.Forms.Button();
             this.maxScrollBar = new System.Windows.Forms.HScrollBar();
@@ -62,12 +67,6 @@
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.strategyCb = new common.controls.baseComboBox();
             this.screeningCodeSource = new System.Windows.Forms.BindingSource(this.components);
-            this.criteriaGrid = new common.controls.baseDataGridView();
-            this.selectedColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.codeColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.minColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.maxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.editColumn = new common.controls.gridViewImageColumn();
             this.delBtn = new System.Windows.Forms.Button();
             this.addBtn = new System.Windows.Forms.Button();
             this.descriptionLbl = new baseClass.controls.baseLabel();
@@ -75,6 +74,12 @@
             this.maxLbl = new baseClass.controls.baseLabel();
             this.minLbl = new baseClass.controls.baseLabel();
             this.criteriaLbl = new baseClass.controls.baseLabel();
+            this.criteriaGrid = new common.controls.baseDataGridView();
+            this.selectedColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.codeColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.minColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.maxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.editColumn = new common.controls.gridViewImageColumn();
             ((System.ComponentModel.ISupportInitialize)(this.myDataSet)).BeginInit();
             this.dataPnl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.resultDataGrid)).BeginInit();
@@ -203,20 +208,20 @@
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.stockCodeLb.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.stockCodeLb.Location = new System.Drawing.Point(3, 392);
+            this.stockCodeLb.Location = new System.Drawing.Point(2, 439);
             this.stockCodeLb.Margin = new System.Windows.Forms.Padding(2);
             this.stockCodeLb.myItemString = "";
             this.stockCodeLb.myValues = ((System.Collections.Specialized.StringCollection)(resources.GetObject("stockCodeLb.myValues")));
             this.stockCodeLb.Name = "stockCodeLb";
             this.stockCodeLb.ShowCheckedOnly = false;
-            this.stockCodeLb.Size = new System.Drawing.Size(464, 247);
+            this.stockCodeLb.Size = new System.Drawing.Size(465, 200);
             this.stockCodeLb.TabIndex = 2;
             // 
             // codeListLbl
             // 
             this.codeListLbl.AutoSize = true;
             this.codeListLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.codeListLbl.Location = new System.Drawing.Point(0, 374);
+            this.codeListLbl.Location = new System.Drawing.Point(1, 421);
             this.codeListLbl.Name = "codeListLbl";
             this.codeListLbl.Size = new System.Drawing.Size(67, 16);
             this.codeListLbl.TabIndex = 316;
@@ -235,13 +240,17 @@
             // 
             // strategyGb
             // 
+            this.strategyGb.Controls.Add(this.timeScaleLbl);
+            this.strategyGb.Controls.Add(this.timeScaleCb);
+            this.strategyGb.Controls.Add(this.timeRangeLbl);
+            this.strategyGb.Controls.Add(this.timeRangeCb);
+            this.strategyGb.Controls.Add(this.selectAllChk);
             this.strategyGb.Controls.Add(this.criteriaGridLbl);
             this.strategyGb.Controls.Add(this.editBtn);
             this.strategyGb.Controls.Add(this.maxScrollBar);
             this.strategyGb.Controls.Add(this.minScrollBar);
             this.strategyGb.Controls.Add(this.screeningCodeNav);
             this.strategyGb.Controls.Add(this.strategyCb);
-            this.strategyGb.Controls.Add(this.criteriaGrid);
             this.strategyGb.Controls.Add(this.delBtn);
             this.strategyGb.Controls.Add(this.addBtn);
             this.strategyGb.Controls.Add(this.descriptionLbl);
@@ -249,17 +258,74 @@
             this.strategyGb.Controls.Add(this.maxLbl);
             this.strategyGb.Controls.Add(this.minLbl);
             this.strategyGb.Controls.Add(this.criteriaLbl);
-            this.strategyGb.Location = new System.Drawing.Point(3, -2);
+            this.strategyGb.Controls.Add(this.criteriaGrid);
+            this.strategyGb.Location = new System.Drawing.Point(3, -4);
             this.strategyGb.Name = "strategyGb";
-            this.strategyGb.Size = new System.Drawing.Size(460, 373);
+            this.strategyGb.Size = new System.Drawing.Size(460, 421);
             this.strategyGb.TabIndex = 1;
             this.strategyGb.TabStop = false;
+            // 
+            // timeScaleLbl
+            // 
+            this.timeScaleLbl.AutoSize = true;
+            this.timeScaleLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.timeScaleLbl.Location = new System.Drawing.Point(159, 10);
+            this.timeScaleLbl.Name = "timeScaleLbl";
+            this.timeScaleLbl.Size = new System.Drawing.Size(74, 16);
+            this.timeScaleLbl.TabIndex = 381;
+            this.timeScaleLbl.Text = "Time scale";
+            // 
+            // timeScaleCb
+            // 
+            this.timeScaleCb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.timeScaleCb.Enabled = false;
+            this.timeScaleCb.FormattingEnabled = true;
+            this.timeScaleCb.Location = new System.Drawing.Point(158, 28);
+            this.timeScaleCb.Name = "timeScaleCb";
+            this.timeScaleCb.Size = new System.Drawing.Size(137, 24);
+            this.timeScaleCb.TabIndex = 2;
+            this.timeScaleCb.TabStop = false;
+            // 
+            // timeRangeLbl
+            // 
+            this.timeRangeLbl.AutoSize = true;
+            this.timeRangeLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.timeRangeLbl.Location = new System.Drawing.Point(20, 10);
+            this.timeRangeLbl.Name = "timeRangeLbl";
+            this.timeRangeLbl.Size = new System.Drawing.Size(79, 16);
+            this.timeRangeLbl.TabIndex = 379;
+            this.timeRangeLbl.Text = "Time range";
+            // 
+            // timeRangeCb
+            // 
+            this.timeRangeCb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.timeRangeCb.Enabled = false;
+            this.timeRangeCb.FormattingEnabled = true;
+            this.timeRangeCb.Location = new System.Drawing.Point(23, 28);
+            this.timeRangeCb.myValue = application.AppTypes.TimeRanges.None;
+            this.timeRangeCb.Name = "timeRangeCb";
+            this.timeRangeCb.SelectedValue = ((byte)(0));
+            this.timeRangeCb.Size = new System.Drawing.Size(137, 24);
+            this.timeRangeCb.TabIndex = 1;
+            this.timeRangeCb.TabStop = false;
+            // 
+            // selectAllChk
+            // 
+            this.selectAllChk.AutoSize = true;
+            this.selectAllChk.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.selectAllChk.Location = new System.Drawing.Point(28, 246);
+            this.selectAllChk.Name = "selectAllChk";
+            this.selectAllChk.Size = new System.Drawing.Size(15, 14);
+            this.selectAllChk.TabIndex = 377;
+            this.selectAllChk.TabStop = false;
+            this.selectAllChk.UseVisualStyleBackColor = true;
+            this.selectAllChk.CheckedChanged += new System.EventHandler(this.selectAllChk_CheckedChanged);
             // 
             // criteriaGridLbl
             // 
             this.criteriaGridLbl.AutoSize = true;
             this.criteriaGridLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.criteriaGridLbl.Location = new System.Drawing.Point(4, 201);
+            this.criteriaGridLbl.Location = new System.Drawing.Point(4, 200);
             this.criteriaGridLbl.Name = "criteriaGridLbl";
             this.criteriaGridLbl.Size = new System.Drawing.Size(16, 16);
             this.criteriaGridLbl.TabIndex = 376;
@@ -269,7 +335,7 @@
             // 
             this.editBtn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.editBtn.Image = global::Tools.Properties.Resources.edit;
-            this.editBtn.Location = new System.Drawing.Point(438, 27);
+            this.editBtn.Location = new System.Drawing.Point(435, 75);
             this.editBtn.Name = "editBtn";
             this.editBtn.Size = new System.Drawing.Size(20, 20);
             this.editBtn.TabIndex = 2;
@@ -279,7 +345,7 @@
             // maxScrollBar
             // 
             this.maxScrollBar.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.criteriaSource, "max", true));
-            this.maxScrollBar.Location = new System.Drawing.Point(231, 144);
+            this.maxScrollBar.Location = new System.Drawing.Point(231, 186);
             this.maxScrollBar.Name = "maxScrollBar";
             this.maxScrollBar.Size = new System.Drawing.Size(208, 18);
             this.maxScrollBar.TabIndex = 11;
@@ -298,7 +364,7 @@
             // minScrollBar
             // 
             this.minScrollBar.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.criteriaSource, "min", true));
-            this.minScrollBar.Location = new System.Drawing.Point(23, 144);
+            this.minScrollBar.Location = new System.Drawing.Point(23, 186);
             this.minScrollBar.Name = "minScrollBar";
             this.minScrollBar.Size = new System.Drawing.Size(208, 18);
             this.minScrollBar.TabIndex = 10;
@@ -317,7 +383,7 @@
             this.bindingNavigatorMoveNextItem,
             this.bindingNavigatorMoveLastItem,
             this.bindingNavigatorSeparator2});
-            this.screeningCodeNav.Location = new System.Drawing.Point(23, 169);
+            this.screeningCodeNav.Location = new System.Drawing.Point(23, 210);
             this.screeningCodeNav.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
             this.screeningCodeNav.MoveLastItem = this.bindingNavigatorMoveLastItem;
             this.screeningCodeNav.MoveNextItem = this.bindingNavigatorMoveNextItem;
@@ -374,10 +440,10 @@
             this.strategyCb.DisplayMember = "description";
             this.strategyCb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.strategyCb.FormattingEnabled = true;
-            this.strategyCb.Location = new System.Drawing.Point(23, 28);
+            this.strategyCb.Location = new System.Drawing.Point(23, 74);
             this.strategyCb.myValue = "";
             this.strategyCb.Name = "strategyCb";
-            this.strategyCb.Size = new System.Drawing.Size(417, 24);
+            this.strategyCb.Size = new System.Drawing.Size(413, 24);
             this.strategyCb.TabIndex = 1;
             this.strategyCb.ValueMember = "code";
             this.strategyCb.SelectedIndexChanged += new System.EventHandler(this.strategyCb_SelectedIndexChanged);
@@ -386,6 +452,85 @@
             // 
             this.screeningCodeSource.DataMember = "screeningCode";
             this.screeningCodeSource.DataSource = this.tmpDS;
+            // 
+            // delBtn
+            // 
+            this.delBtn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.delBtn.Image = global::Tools.Properties.Resources.delete;
+            this.delBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.delBtn.Location = new System.Drawing.Point(364, 211);
+            this.delBtn.Name = "delBtn";
+            this.delBtn.Size = new System.Drawing.Size(74, 27);
+            this.delBtn.TabIndex = 21;
+            this.delBtn.Text = "  Delete";
+            this.delBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.delBtn.UseVisualStyleBackColor = true;
+            this.delBtn.Click += new System.EventHandler(this.delBtn_Click);
+            // 
+            // addBtn
+            // 
+            this.addBtn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addBtn.Image = global::Tools.Properties.Resources.adddata;
+            this.addBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.addBtn.Location = new System.Drawing.Point(289, 211);
+            this.addBtn.Name = "addBtn";
+            this.addBtn.Size = new System.Drawing.Size(74, 27);
+            this.addBtn.TabIndex = 20;
+            this.addBtn.Text = "Add";
+            this.addBtn.UseVisualStyleBackColor = true;
+            this.addBtn.Click += new System.EventHandler(this.addBtn_Click);
+            // 
+            // descriptionLbl
+            // 
+            this.descriptionLbl.AutoSize = true;
+            this.descriptionLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.descriptionLbl.Location = new System.Drawing.Point(23, 97);
+            this.descriptionLbl.Name = "descriptionLbl";
+            this.descriptionLbl.Size = new System.Drawing.Size(81, 16);
+            this.descriptionLbl.TabIndex = 324;
+            this.descriptionLbl.Text = "Description";
+            // 
+            // strategyDescEd
+            // 
+            this.strategyDescEd.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.screeningCodeSource, "description", true));
+            this.strategyDescEd.isToUpperCase = false;
+            this.strategyDescEd.Location = new System.Drawing.Point(23, 116);
+            this.strategyDescEd.Multiline = true;
+            this.strategyDescEd.Name = "strategyDescEd";
+            this.strategyDescEd.ReadOnly = true;
+            this.strategyDescEd.Size = new System.Drawing.Size(410, 50);
+            this.strategyDescEd.TabIndex = 15;
+            this.strategyDescEd.TabStop = false;
+            // 
+            // maxLbl
+            // 
+            this.maxLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.maxLbl.Location = new System.Drawing.Point(232, 167);
+            this.maxLbl.Name = "maxLbl";
+            this.maxLbl.Size = new System.Drawing.Size(207, 19);
+            this.maxLbl.TabIndex = 322;
+            this.maxLbl.Text = "Max";
+            this.maxLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // minLbl
+            // 
+            this.minLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.minLbl.Location = new System.Drawing.Point(23, 167);
+            this.minLbl.Name = "minLbl";
+            this.minLbl.Size = new System.Drawing.Size(206, 19);
+            this.minLbl.TabIndex = 321;
+            this.minLbl.Text = "Min";
+            this.minLbl.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // criteriaLbl
+            // 
+            this.criteriaLbl.AutoSize = true;
+            this.criteriaLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.criteriaLbl.Location = new System.Drawing.Point(25, 56);
+            this.criteriaLbl.Name = "criteriaLbl";
+            this.criteriaLbl.Size = new System.Drawing.Size(56, 16);
+            this.criteriaLbl.TabIndex = 318;
+            this.criteriaLbl.Text = "Criteria";
             // 
             // criteriaGrid
             // 
@@ -403,10 +548,10 @@
             this.editColumn});
             this.criteriaGrid.DataSource = this.criteriaSource;
             this.criteriaGrid.DisableReadOnlyColumn = false;
-            this.criteriaGrid.Location = new System.Drawing.Point(0, 200);
+            this.criteriaGrid.Location = new System.Drawing.Point(0, 242);
             this.criteriaGrid.Name = "criteriaGrid";
             this.criteriaGrid.RowHeadersWidth = 25;
-            this.criteriaGrid.Size = new System.Drawing.Size(463, 170);
+            this.criteriaGrid.Size = new System.Drawing.Size(463, 176);
             this.criteriaGrid.TabIndex = 375;
             this.criteriaGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.criteriaGrid_CellClick);
             // 
@@ -434,20 +579,20 @@
             // minColumn
             // 
             this.minColumn.DataPropertyName = "min";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.Format = "N0";
-            dataGridViewCellStyle3.NullValue = null;
-            this.minColumn.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.Format = "N0";
+            dataGridViewCellStyle1.NullValue = null;
+            this.minColumn.DefaultCellStyle = dataGridViewCellStyle1;
             this.minColumn.HeaderText = "Min";
             this.minColumn.Name = "minColumn";
             // 
             // maxColumn
             // 
             this.maxColumn.DataPropertyName = "max";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.Format = "N0";
-            dataGridViewCellStyle4.NullValue = null;
-            this.maxColumn.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.Format = "N0";
+            dataGridViewCellStyle2.NullValue = null;
+            this.maxColumn.DefaultCellStyle = dataGridViewCellStyle2;
             this.maxColumn.HeaderText = "Max";
             this.maxColumn.Name = "maxColumn";
             // 
@@ -457,84 +602,6 @@
             this.editColumn.myValue = "";
             this.editColumn.Name = "editColumn";
             this.editColumn.Width = 25;
-            // 
-            // delBtn
-            // 
-            this.delBtn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.delBtn.Image = global::Tools.Properties.Resources.delete;
-            this.delBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.delBtn.Location = new System.Drawing.Point(362, 169);
-            this.delBtn.Name = "delBtn";
-            this.delBtn.Size = new System.Drawing.Size(74, 27);
-            this.delBtn.TabIndex = 21;
-            this.delBtn.Text = "  Delete";
-            this.delBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.delBtn.UseVisualStyleBackColor = true;
-            this.delBtn.Click += new System.EventHandler(this.delBtn_Click);
-            // 
-            // addBtn
-            // 
-            this.addBtn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addBtn.Image = global::Tools.Properties.Resources.adddata;
-            this.addBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.addBtn.Location = new System.Drawing.Point(287, 169);
-            this.addBtn.Name = "addBtn";
-            this.addBtn.Size = new System.Drawing.Size(74, 27);
-            this.addBtn.TabIndex = 20;
-            this.addBtn.Text = "Add";
-            this.addBtn.UseVisualStyleBackColor = true;
-            this.addBtn.Click += new System.EventHandler(this.addBtn_Click);
-            // 
-            // descriptionLbl
-            // 
-            this.descriptionLbl.AutoSize = true;
-            this.descriptionLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.descriptionLbl.Location = new System.Drawing.Point(23, 52);
-            this.descriptionLbl.Name = "descriptionLbl";
-            this.descriptionLbl.Size = new System.Drawing.Size(81, 16);
-            this.descriptionLbl.TabIndex = 324;
-            this.descriptionLbl.Text = "Description";
-            // 
-            // strategyDescEd
-            // 
-            this.strategyDescEd.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.screeningCodeSource, "description", true));
-            this.strategyDescEd.Location = new System.Drawing.Point(23, 71);
-            this.strategyDescEd.Multiline = true;
-            this.strategyDescEd.Name = "strategyDescEd";
-            this.strategyDescEd.ReadOnly = true;
-            this.strategyDescEd.Size = new System.Drawing.Size(414, 50);
-            this.strategyDescEd.TabIndex = 15;
-            this.strategyDescEd.TabStop = false;
-            // 
-            // maxLbl
-            // 
-            this.maxLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.maxLbl.Location = new System.Drawing.Point(232, 125);
-            this.maxLbl.Name = "maxLbl";
-            this.maxLbl.Size = new System.Drawing.Size(207, 19);
-            this.maxLbl.TabIndex = 322;
-            this.maxLbl.Text = "Max";
-            this.maxLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // minLbl
-            // 
-            this.minLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.minLbl.Location = new System.Drawing.Point(23, 125);
-            this.minLbl.Name = "minLbl";
-            this.minLbl.Size = new System.Drawing.Size(206, 19);
-            this.minLbl.TabIndex = 321;
-            this.minLbl.Text = "Min";
-            this.minLbl.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // criteriaLbl
-            // 
-            this.criteriaLbl.AutoSize = true;
-            this.criteriaLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.criteriaLbl.Location = new System.Drawing.Point(23, 10);
-            this.criteriaLbl.Name = "criteriaLbl";
-            this.criteriaLbl.Size = new System.Drawing.Size(56, 16);
-            this.criteriaLbl.TabIndex = 318;
-            this.criteriaLbl.Text = "Criteria";
             // 
             // screening
             // 
@@ -617,5 +684,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn minColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn maxColumn;
         private common.controls.gridViewImageColumn editColumn;
+        private common.controls.baseCheckBox selectAllChk;
+        protected baseClass.controls.baseLabel timeRangeLbl;
+        private baseClass.controls.cbTimeRange timeRangeCb;
+        protected baseClass.controls.baseLabel timeScaleLbl;
+        private baseClass.controls.cbTimeScale timeScaleCb;
     }
 }

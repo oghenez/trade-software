@@ -271,7 +271,7 @@
     <value>Đánh giá chiến lược</value>
   </data>
   <data name="timeScale" xml:space="preserve">
-    <value>Thời gian</value>
+    <value>Khung thời gian</value>
   </data>
   <data name="dataSaved" xml:space="preserve">
     <value>Dữ liệu đã được lưu !</value>
@@ -299,5 +299,8 @@
   </data>
   <data name="time" xml:space="preserve">
     <value>Giờ</value>
+  </data>
+  <data name="timeRange" xml:space="preserve">
+    <value>Thời gian</value>
   </data>
 </root>

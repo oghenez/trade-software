@@ -237,8 +237,8 @@ namespace Charts.Controls
                              break;
                         case myAxisType.DateAsOrdinal:
                         default:
-                             this.myGraphPane.XAxis.Scale.Max = this.mySeriesX[this.myViewportX.Max];
-                             this.myGraphPane.XAxis.Scale.Min = this.mySeriesX[this.myViewportX.Min];
+                             this.myGraphPane.XAxis.Scale.Max = this.myViewportX.Max;
+                             this.myGraphPane.XAxis.Scale.Min = this.myViewportX.Min;
                              break;
                     }
 

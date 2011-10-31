@@ -538,6 +538,15 @@ namespace Tools.langs {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Time Range.
+        /// </summary>
+        internal static string timeRange {
+            get {
+                return ResourceManager.GetString("timeRange", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Time Scale.
         /// </summary>
         internal static string timeScale {

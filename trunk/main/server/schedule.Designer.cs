@@ -194,7 +194,7 @@
             this.basePanel1.Controls.Add(this.runBtn);
             this.basePanel1.haveCloseButton = false;
             this.basePanel1.isExpanded = true;
-            this.basePanel1.isVisible = true;
+            this.basePanel1.Visible = true;
             this.basePanel1.Location = new System.Drawing.Point(-1, -1);
             this.basePanel1.Margin = new System.Windows.Forms.Padding(2);
             this.basePanel1.myIconLocations = common.controls.basePanel.IconLocations.None;

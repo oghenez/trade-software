@@ -210,7 +210,7 @@ namespace client
 
             strategyCbStrip.SelectedIndexChanged += new EventHandler(PlotTradepointHandler);
 
-            this.ChartType = AppTypes.ChartTypes.Line;
+            this.ChartType = AppTypes.ChartTypes.CandleStick;
             this.ChartTimeScale = AppTypes.MainDataTimeScale;
 
             //dockPanel

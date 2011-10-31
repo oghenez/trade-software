@@ -19,26 +19,39 @@ namespace Tools.Forms
             try
             {
                 InitializeComponent();
+                this.fOnProccessing = true;
                 strategyDescEd.BackColor = strategyCb.BackColor;
                 stockCodeLb.LoadData();
                 resultDataGrid.DisableReadOnlyColumn = false;
-                LoadScreeningCodes();
                 LockOptions(true);
                 CreateContextMenu();
-                minScrollBar.Maximum = Int32.MaxValue-1;
-                maxScrollBar.Maximum = Int32.MaxValue-1;
+                minScrollBar.Maximum = Int32.MaxValue - 1;
+                maxScrollBar.Maximum = Int32.MaxValue - 1;
                 editColumn.myImageType = common.controls.imageType.Edit;
                 LockOptions(criteriaSource.Count <= 0);
+
+                timeScaleCb.BackColor = common.settings.sysColorDisableBG;
+                timeScaleCb.ForeColor = common.settings.sysColorDisableFG;
+
+                timeRangeCb.BackColor = common.settings.sysColorDisableBG;
+                timeRangeCb.ForeColor = common.settings.sysColorDisableFG;
             }
             catch (Exception er)
             {
                 this.ShowError(er);
+            }
+            finally
+            {
+                this.fOnProccessing = false;
             }
         }
         public override void SetLanguage()
         {
             base.SetLanguage();
             this.Text = language.GetString("screening");
+            timeRangeLbl.Text = language.GetString("timeRange");
+            timeScaleLbl.Text = language.GetString("timeScale");
+
             criteriaLbl.Text = language.GetString("criteria");
             descriptionLbl.Text = language.GetString("description");
             minLbl.Text = language.GetString("min");
@@ -50,6 +63,12 @@ namespace Tools.Forms
             codeColumn.HeaderText = language.GetString("criteria");
             minColumn.HeaderText = language.GetString("min");
             maxColumn.HeaderText = language.GetString("max");
+
+            timeRangeCb.LoadData();
+            timeScaleCb.LoadData();
+
+            timeRangeCb.myValue = Settings.sysScreeningTimeRange;
+            timeScaleCb.myValue = Settings.sysScreeningTimeScale;
 
             stockCodeLb.SetLanguage();
             strategyCb.SetLanguage();
@@ -66,11 +85,10 @@ namespace Tools.Forms
             return form;
         }
 
-        private bool fExecute = false;
         public void Execute()
         {
-            if (fExecute) return;
-            fExecute = true;
+            if (this.fOnProccessing) return;
+            this.fOnProccessing = true;
             try
             {
                 this.ShowMessage("");
@@ -83,14 +101,15 @@ namespace Tools.Forms
                 this.exportResultMenuItem.Enabled = true;
                 DateTime endTime = DateTime.Now;
                 this.ShowMessage(language.GetString("finished") + " : " + common.dateTimeLibs.TimeSpan2String(endTime.Subtract(startTime)));
+                fOnProccessing = false;
             }
             catch (Exception er)
             {
+                fOnProccessing = false;
                 this.ShowError(er);
             }
             finally
             {
-                fExecute = false;
                 progressBar.Visible = false;
             }
         }
@@ -221,7 +240,7 @@ namespace Tools.Forms
             switch (this.myFormMode)
             {
                 case formMode.OptionOnly:
-                    optionPnl.Height = this.ClientRectangle.Height - optionPnl.Location.Y - 10;
+                    optionPnl.Height = this.ClientRectangle.Height - optionPnl.Location.Y - SystemInformation.CaptionHeight-3;
                     this.Width = optionPnl.Width + SystemInformation.CaptionButtonSize.Width;
                     break;
                 case formMode.DataOnly:
@@ -303,30 +322,38 @@ namespace Tools.Forms
                 if (stockCodeRow == null) continue;
                 DataRow row = testRetsultTbl.NewRow();
                 row[0] = stockCodeList[rowId];
-                application.Data analysisData = new application.Data(Settings.sysScreeningTimeRange, Settings.sysScreeningTimeScale, stockCodeRow.code);
+                application.Data analysisData = new application.Data(timeRangeCb.myValue, timeScaleCb.myValue, stockCodeRow.code);
                 for (int colId = 0; colId < strategyList.Count; colId++)
                 {
-                    //Analysis cached data so we MUST clear cache to ensure the system run correctly
-                    Strategy.Data.ClearCache();
-                    Strategy.TradePoints tradePoints = Strategy.Libs.Analysis(analysisData, strategyList[colId]);
-                    // BusinessInfo.Weight value is used as estimation value. The higher value, the better chance to match user need.
-                    if (tradePoints != null && tradePoints.Count>0)
+                    try
                     {
-                        weight = (decimal)tradePoints.GetItem(tradePoints.Count - 1).BusinessInfo.Weight;
-                        DataView criteriaView = new DataView(tmpDS.screeningCriteria);
-                        criteriaView.RowFilter = tmpDS.screeningCriteria.codeColumn + "='" + strategyList[colId] + "' AND " +
-                                                 tmpDS.screeningCriteria.selectedColumn + "=1";
-                        Data.tmpDataSet.screeningCriteriaRow criteriaRow;
-                        // If there is more than one criteria for the same code,
-                        // matching one criteria is viewed as MATCHED , as OR operaror. 
-                        for (int idx = 0; idx < criteriaView.Count; idx++)
+                        //Analysis cached data so we MUST clear cache to ensure the system run correctly
+                        Strategy.Data.ClearCache();
+                        Strategy.TradePoints tradePoints = Strategy.Libs.Analysis(analysisData, strategyList[colId]);
+                        // BusinessInfo.Weight value is used as estimation value. The higher value, the better chance to match user need.
+                        if (tradePoints != null && tradePoints.Count > 0)
                         {
-                            criteriaRow = (Data.tmpDataSet.screeningCriteriaRow)criteriaView[idx].Row;
-                            if (weight < criteriaRow.min || weight > criteriaRow.max) continue;
-                            row[colId + 1] = weight;
-                            fMatched = true;
-                            break;
+                            weight = (decimal)tradePoints.GetItem(tradePoints.Count - 1).BusinessInfo.Weight;
+                            DataView criteriaView = new DataView(tmpDS.screeningCriteria);
+                            criteriaView.RowFilter = tmpDS.screeningCriteria.codeColumn + "='" + strategyList[colId] + "' AND " +
+                                                     tmpDS.screeningCriteria.selectedColumn + "=1";
+                            Data.tmpDataSet.screeningCriteriaRow criteriaRow;
+                            // If there is more than one criteria for the same code,
+                            // matching one criteria is viewed as MATCHED , as OR operaror. 
+                            for (int idx = 0; idx < criteriaView.Count; idx++)
+                            {
+                                criteriaRow = (Data.tmpDataSet.screeningCriteriaRow)criteriaView[idx].Row;
+                                if (weight < criteriaRow.min || weight > criteriaRow.max) continue;
+                                row[colId + 1] = weight;
+                                fMatched = true;
+                                break;
+                            }
                         }
+                    }
+                    catch (Exception er)
+                    {
+                        this.WriteError(stockCodeList[rowId] + " : " + strategyList[colId] , er.Message);
+                        this.ShowError(er);
                     }
                 }
                 if (fMatched) testRetsultTbl.Rows.Add(row);
@@ -350,7 +377,7 @@ namespace Tools.Forms
 
         private void EditScreeningOption(string code)
         {
-            Strategy.Meta meta = Strategy.Libs.FindMetaByName(code);
+            Strategy.Meta meta = Strategy.Libs.FindMetaByCode(code);
             if (meta == null) return;
             Strategy.Libs.ShowStrategyForm(meta);
         }
@@ -429,10 +456,14 @@ namespace Tools.Forms
         {
             try
             {
+                if (this.fOnProccessing) return;
+                this.fOnProccessing = true;
                 FormResize();
+                this.fOnProccessing = false;
             }
             catch (Exception er)
             {
+                this.fOnProccessing = false;
                 this.ShowError(er);
             }
         }
@@ -562,6 +593,7 @@ namespace Tools.Forms
         {
             try
             {
+                if (this.fOnProccessing) return;
                 criteriaSource.EndEdit();
             }
             catch (Exception er)
@@ -595,6 +627,21 @@ namespace Tools.Forms
             catch (Exception er)
             {
                 this.ShowMessage(er.Message); 
+            }
+        }
+        private void selectAllChk_CheckedChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                for (int idx = 0; idx < tmpDS.screeningCriteria.Count; idx++)
+                {
+                    if (tmpDS.screeningCriteria[idx].RowState == DataRowState.Deleted) continue;
+                    tmpDS.screeningCriteria[idx].selected = selectAllChk.Checked;
+                }
+            }
+            catch (Exception er)
+            {
+                this.ShowMessage(er.Message);
             }
         }
         #endregion

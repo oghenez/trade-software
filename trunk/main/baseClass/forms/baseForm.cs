@@ -18,5 +18,11 @@ namespace baseClass.forms
         {
             return application.commonLibs.GetFormPermission(this.myFormCode);
         }
+
+        public void WriteError(string code,string msg)
+        {
+            if (!application.Settings.sysLogError) return;
+            common.fileFuncs.WriteLog(DateTime.Now.ToString() + " : " + this.Name + " : " + code + " : " + msg);
+        }
     }
 }

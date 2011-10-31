@@ -1,11 +1,11 @@
 <Configuration>
   <A00000004>
-    <Indicators.SMA params="20" />
+    <Indicators.MACD params="12 26 9" />
   </A00000004>
   <A00000004>
-    <Indicators.SMA output="Red:1" />
+    <Indicators.MACD output="Blue:1,Red:1,DarkSalmon:1" />
   </A00000004>
   <A00000004>
-    <Indicators.SMA drawInNewWindow="False" />
+    <Indicators.MACD drawInNewWindow="True" />
   </A00000004>
 </Configuration>

@@ -579,9 +579,6 @@
     <None Include="Resources\%24this.Icon.ico" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\connection.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\find.png" />
   </ItemGroup>
   <ItemGroup>
@@ -612,9 +609,6 @@
     <None Include="Resources\delete.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\delete1.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\addAll.png" />
   </ItemGroup>
   <ItemGroup>
@@ -627,12 +621,11 @@
     <None Include="forms\app.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\book.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\glasses.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\connection.png" />
+    <None Include="Resources\book.png" />
     <Content Include="Resources\strategy_images.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
