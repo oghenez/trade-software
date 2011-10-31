@@ -78,6 +78,18 @@ namespace Charts.Controls
             this.myGraphPane.XAxis.Title.IsVisible = false;
             this.myGraphPane.Border.IsVisible = false;
 
+
+            this.myGraphPane.XAxis.Scale.FontSpec.Family = this.Font.FontFamily.Name;
+            this.myGraphPane.XAxis.Scale.FontSpec.Size = this.Font.Size;
+            this.myGraphPane.X2Axis.Scale.FontSpec.Family = this.Font.FontFamily.Name;
+            this.myGraphPane.X2Axis.Scale.FontSpec.Size = this.Font.Size;
+
+            this.myGraphPane.YAxis.Scale.FontSpec.Family = this.Font.FontFamily.Name;
+            this.myGraphPane.YAxis.Scale.FontSpec.Size = this.Font.Size;
+            this.myGraphPane.Y2Axis.Scale.FontSpec.Family = this.Font.FontFamily.Name;
+            this.myGraphPane.Y2Axis.Scale.FontSpec.Size = this.Font.Size;
+
+
             this.MouseWheel += new System.Windows.Forms.MouseEventHandler(MouseWheelHandler);
             this.MouseDownEvent += new ZedGraph.ZedGraphControl.ZedMouseEventHandler(MouseDownHandler);
             this.MouseUpEvent += new ZedGraph.ZedGraphControl.ZedMouseEventHandler(MouseUpHandler);

@@ -231,9 +231,6 @@
   <data name="onDate" xml:space="preserve">
     <value>Ngày</value>
   </data>
-  <data name="price" xml:space="preserve">
-    <value>Giá</value>
-  </data>
   <data name="profit" xml:space="preserve">
     <value>Lợi nhuận</value>
   </data>
@@ -302,5 +299,17 @@
   </data>
   <data name="timeRange" xml:space="preserve">
     <value>Thời gian</value>
+  </data>
+  <data name="closePrice" xml:space="preserve">
+    <value>Đóng</value>
+  </data>
+  <data name="highPrice" xml:space="preserve">
+    <value>Cao</value>
+  </data>
+  <data name="lowPrice" xml:space="preserve">
+    <value>Thấp</value>
+  </data>
+  <data name="openPrice" xml:space="preserve">
+    <value>Mở</value>
   </data>
 </root>

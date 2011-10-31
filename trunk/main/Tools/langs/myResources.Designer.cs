@@ -142,6 +142,15 @@ namespace Tools.langs {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Close.
+        /// </summary>
+        internal static string closePrice {
+            get {
+                return ResourceManager.GetString("closePrice", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Code.
         /// </summary>
         internal static string code {
@@ -286,6 +295,15 @@ namespace Tools.langs {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to High.
+        /// </summary>
+        internal static string highPrice {
+            get {
+                return ResourceManager.GetString("highPrice", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Investment.
         /// </summary>
         internal static string investment {
@@ -300,6 +318,15 @@ namespace Tools.langs {
         internal static string keepSellAdvice {
             get {
                 return ResourceManager.GetString("keepSellAdvice", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Low.
+        /// </summary>
+        internal static string lowPrice {
+            get {
+                return ResourceManager.GetString("lowPrice", resourceCulture);
             }
         }
         
@@ -403,6 +430,15 @@ namespace Tools.langs {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Open.
+        /// </summary>
+        internal static string openPrice {
+            get {
+                return ResourceManager.GetString("openPrice", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Options.
         /// </summary>
         internal static string option {
@@ -417,15 +453,6 @@ namespace Tools.langs {
         internal static string periodicity {
             get {
                 return ResourceManager.GetString("periodicity", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Price.
-        /// </summary>
-        internal static string price {
-            get {
-                return ResourceManager.GetString("price", resourceCulture);
             }
         }
         

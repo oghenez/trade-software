@@ -231,9 +231,6 @@
   <data name="onDate" xml:space="preserve">
     <value>On Date</value>
   </data>
-  <data name="price" xml:space="preserve">
-    <value>Price</value>
-  </data>
   <data name="profit" xml:space="preserve">
     <value>Profit</value>
   </data>
@@ -302,5 +299,17 @@
   </data>
   <data name="timeRange" xml:space="preserve">
     <value>Time Range</value>
+  </data>
+  <data name="closePrice" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="highPrice" xml:space="preserve">
+    <value>High</value>
+  </data>
+  <data name="lowPrice" xml:space="preserve">
+    <value>Low</value>
+  </data>
+  <data name="openPrice" xml:space="preserve">
+    <value>Open</value>
   </data>
 </root>

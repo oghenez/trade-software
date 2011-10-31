@@ -10,14 +10,8 @@ using ZedGraph;
 
 namespace test
 {
-    public partial class Form1 : baseClass.forms.baseGraphForm
+    public partial class Form1 : baseClass.forms.baseForm
     {
-        const int constPriceChartMarginBOTTOM = 40;
-        const string constPaneNamePrice = "pricePanel";
-        const string constPaneNameVolume = "volumePanel";
-        const string constPaneNameNew = "newPanel";
-        const string constCurveNamePrefixIndicator = "Indicator-";
-        
         application.Data myData = new application.Data();
         public Form1()
         {
@@ -32,84 +26,74 @@ namespace test
 
         private void test()
         {
-            graphPane.myGraphObj.SetSeriesX(myData.DateTime.Values, Charts.Controls.myAxisType.Date);
-            CurveItem curveItem = graphPane.myGraphObj.AddCurveLine("curveName", myData.Close.Values, SymbolType.None, Color.Red, 1);
+            int fontSize = 20;
 
+            //Graph 1
+            myGraph1.myGraphPane.GraphObjList.Clear();
+            myGraph1.myGraphPane.GraphObjList.Clear();
+            myGraph1.myGraphPane.XAxis.Scale.FontSpec.Size = fontSize;
+            myGraph1.myGraphPane.X2Axis.Scale.FontSpec.Size = fontSize;
+
+            myGraph1.myGraphPane.YAxis.Scale.FontSpec.Size = fontSize;
+            myGraph1.myGraphPane.Y2Axis.Scale.FontSpec.Size = fontSize;
+
+            myGraph1.myGraphPane.Y2Axis.IsVisible = false;
+
+
+            myGraph1.myGraphPane.Chart.Rect = new RectangleF(Charts.Settings.sysChartMarginLEFT,
+                                                            Charts.Settings.sysChartMarginTOP,
+                                                            myGraph1.Width - Charts.Settings.sysChartMarginRIGHT-60,
+                                                            myGraph1.Height - Charts.Settings.sysChartMarginBOTTOM);
+
+
+            myGraph1.SetSeriesX(myData.DateTime.Values, Charts.Controls.myAxisType.Date);
+            CurveItem curveItem1 = myGraph1.AddCurveLine("line1", myData.Close.Values, SymbolType.None, Color.Red,1);
+            myGraph1.DefaultViewport();
+
+            //Add 3 mmarkers at left, middle, right locations
             PointPairList list = new PointPairList();
-            int[] idList = new int[] { 10, 30, 40, 52, 60, 80, 90, 95 };
+            int[] idList = new int[] { 0, myData.Close.Count/2, myData.Close.Count - 1 };
             for (int idx = 0; idx < idList.Length; idx++)
             {
-                break;
-                PointPair point = curveItem.Points[idList[idx]];
+                PointPair point = curveItem1.Points[idList[idx]];
 
                 TextObj text = new TextObj();
-                text.Text = "B";
+                text.Text = "o";
                 text.Location.X = point.X;
                 text.Location.Y = point.Y;
                 text.Location.CoordinateFrame = CoordType.AxisXYScale;
                 text.FontSpec.FontColor = Color.Green;
                 text.FontSpec.IsBold = false;
                 text.FontSpec.Size = 12;
-                // Disable the border and background fill options for the text
-                text.FontSpec.Border.IsVisible = false;
-                text.FontSpec.Fill.IsVisible = false;
-                // Align the text such the the Left-Bottom corner is at the specified coordinates
-                //text.Location.AlignH = AlignH.Left;
-                //text.Location.AlignV = AlignV.Bottom;
-                graphPane.myGraphObj.myGraphPane.GraphObjList.Add(text);
+                myGraph1.myGraphPane.GraphObjList.Add(text);
             }
+            myGraph1.UpdateChart();
 
-            for (int idx = 0; idx < idList.Length; idx++)
-            {
-                PointPair point = curveItem.Points[idList[idx]];
+            //Graph 2
 
-                ImageObj text = new ImageObj();
-                text.Image = (idx%2==0?Properties.Resources.flag:Properties.Resources.budget);
-
-                text.Location.X = point.X;
-                text.Location.Y = point.Y;
-                text.Location.Width = 5.5;
-                text.Location.Height = 0.5;
-                text.Location.CoordinateFrame = CoordType.AxisXYScale;
-                // Align the text such the the Left-Bottom corner is at the specified coordinates
-                //text.Location.AlignH = AlignH.Left;
-                //text.Location.AlignV = AlignV.Bottom;
-                graphPane.myGraphObj.myGraphPane.GraphObjList.Add(text);
-            }
+            myGraph2.myGraphPane.GraphObjList.Clear();
 
 
-            graphPane.myGraphObj.AxisChange();
-            graphPane.myGraphObj.Invalidate();
+            //Set font size but it is not the same as myGraph1, why ??
+            myGraph2.myGraphPane.XAxis.Scale.FontSpec.Size = fontSize;
+            myGraph2.myGraphPane.X2Axis.Scale.FontSpec.Size = fontSize;
+            myGraph2.myGraphPane.YAxis.Scale.FontSpec.Size = fontSize;
+            myGraph2.myGraphPane.Y2Axis.Scale.FontSpec.Size = fontSize;
+
+            myGraph2.myGraphPane.Chart.Rect = new RectangleF(Charts.Settings.sysChartMarginLEFT,
+                                                Charts.Settings.sysChartMarginTOP,
+                                                myGraph1.Width - Charts.Settings.sysChartMarginRIGHT,
+                                                myGraph1.Height - Charts.Settings.sysChartMarginBOTTOM);
+
+
+            myGraph2.SetSeriesX(myData.DateTime.Values, Charts.Controls.myAxisType.Date);
+            CurveItem curveItem2 = myGraph2.AddCurveBar("line2", myData.Close.Values, Color.Green, Color.Navy, 1);
+            myGraph2.DefaultViewport();
+
         }
 
         private void testBtn_Click(object sender, EventArgs e)
         {
-
-            //PointPairList list = new PointPairList();
-            //int[]  idList = new int[] {10,30,40,52,60,80,90,95};
-            //for(int idx=0;idx<idList.Length;idx++)
-            //{
-            //    list.Add(new PointPair(myData.DateTime[idList[idx]], myData.Close[idList[idx]], idList[idx].ToString()));
-            //}
-            //var pointsCurve = pricePanel.myGraphObj.myGraphPane.AddCurve("", list, Color.Green);
-            //pricePanel.myGraphObj.AxisChange();
-            //pricePanel.myGraphObj.Invalidate();
-
-
-            //LineItem myCurve = myGraphPane.AddCurve(name, this.mySeriesX, seriesY, color, symbol);
-
-            //ZedGraph.CurveItem curveItem = myPanel.myGraphObj.AddCurveLine("Line1", myData.Close.Values, ZedGraph.SymbolType.Diamond, Color.Red, 1);
-
-
-            //myPriceGraphObj.myGraphPane.XAxis.Scale.MajorStep = (myData.Close.Max - myData.Close.Min) / (myData.Close.Count*10);
-            //myPriceGraphObj.myGraphPane.XAxis.Scale.MinorStep = myPriceGraphObj.myGraphPane.XAxis.Scale.MinorStep / 2;
-            //myPriceGraphObj.myGraphPane.XAxis.Scale.MajorStep = (myData.Close.Max - myData.Close.Min) / (1*myData.Close.Count);
-            //myPriceGraphObj.myGraphPane.XAxis.Scale.MinorStep = myPriceGraphObj.myGraphPane.XAxis.Scale.MajorStep/2;
-
-            //myPriceGraphObj.myGraphPane.XAxis.Type = AxisType.Date;
-            //myPriceGraphObj.myGraphPane.XAxis.Scale.MajorUnit = DateUnit.Day;
-            //myPriceGraphObj.myGraphPane.XAxis.Scale.MinorUnit = DateUnit.Minute; 
-
         }
     }
 }

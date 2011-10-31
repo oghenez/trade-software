@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.21022</ProductVersion>
+    <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{CD659AAB-1D6C-499C-8292-E63A9B43A281}</ProjectGuid>
     <OutputType>Library</OutputType>
@@ -226,15 +226,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\edit.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\actionOTHER.PNG" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\actionBUY.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\actionSELL.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
