@@ -1,0 +1,11 @@
+<Configuration>
+  <A00000004>
+    <Indicators.SMA params="20" />
+  </A00000004>
+  <A00000004>
+    <Indicators.SMA output="Red:1" />
+  </A00000004>
+  <A00000004>
+    <Indicators.SMA drawInNewWindow="False" />
+  </A00000004>
+</Configuration>

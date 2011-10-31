@@ -86,7 +86,7 @@ namespace Strategy
         {
             MACD_HistogramRule rule = new MACD_HistogramRule(data.Close, parameters[0],parameters[1],parameters[2]);
 
-            for (int idx = 1; idx < data.Close.Count-1; idx++)
+            for (int idx = rule.macd.FirstValidValue+2; idx < data.Close.Count-1; idx++)
             {
                 if (rule.isValid_forBuy(idx))
                     BuyAtClose(idx);
