@@ -64,12 +64,12 @@ namespace Strategy
         public DataSeries plusDmi_14;
         public BasicDMIRule(DataBars db,double minusperiod,double plusperiod)
         {
-            minusDmi_14 = new Indicators.MinusDI(db, minusperiod, "");
-            plusDmi_14 = new Indicators.PlusDI(db, plusperiod, "");
+            minusDmi_14 = new Indicators.MinusDI(db, minusperiod, "minusDmi");
+            plusDmi_14 = new Indicators.PlusDI(db, plusperiod, "plusDmi");
         }
         public override bool isValid()
         {
-            if (minusDmi_14.Count - 2 < 0)
+            if (minusDmi_14.Count - 2 < minusDmi_14.FirstValidValue)
                 return false;
 
             AppTypes.MarketTrend lastTrend = AppTypes.MarketTrend.Unspecified;
@@ -88,7 +88,7 @@ namespace Strategy
 
         public override bool isValid_forBuy(int idx)
         {
-            if (idx - 1 < 0) return false;
+            if (idx - 1 < minusDmi_14.FirstValidValue) return false;
 
             AppTypes.MarketTrend lastTrend = ((plusDmi_14[idx - 1] > minusDmi_14[idx - 1]) ? AppTypes.MarketTrend.Upward : AppTypes.MarketTrend.Downward);
             AppTypes.MarketTrend currentTrend = ((plusDmi_14[idx] > minusDmi_14[idx]) ? AppTypes.MarketTrend.Upward : AppTypes.MarketTrend.Downward);
@@ -100,7 +100,7 @@ namespace Strategy
 
         public override bool isValid_forSell(int idx)
         {
-            if (idx - 1 < 0)
+            if (idx - 1 < minusDmi_14.FirstValidValue)
                 return false;
 
             AppTypes.MarketTrend lastTrend = ((plusDmi_14[idx - 1] > minusDmi_14[idx - 1]) ? AppTypes.MarketTrend.Upward : AppTypes.MarketTrend.Downward);
@@ -132,7 +132,7 @@ namespace Strategy
     { 
         override protected void StrategyExecute()
         {
-            Rule rule = new BasicDMIRule(data.Bars, parameters[0], parameters[1]);
+            BasicDMIRule rule = new BasicDMIRule(data.Bars, parameters[0], parameters[1]);
             Indicators.MIN min = Indicators.MIN.Series(data.Close, parameters[0], "min");
             Indicators.MAX max = Indicators.MAX.Series(data.Close, parameters[1], "max");
 
@@ -144,7 +144,6 @@ namespace Strategy
                     info.SetTrend(AppTypes.MarketTrend.Upward, AppTypes.MarketTrend.Unspecified, AppTypes.MarketTrend.Unspecified);
                     info.Short_Target=max[idx];
                     info.Stop_Loss=min[idx];
-                    //info.Short_Target = NextTargetFibo(min[idx],max[idx],data.Close[idx]);
                     BuyAtClose(idx,info);
                 }
                 if (rule.isValid_forSell(idx))
@@ -163,23 +162,19 @@ namespace Strategy
     { 
         override protected void StrategyExecute()
         {
-            DataSeries minusDmi_14 = new Indicators.MinusDI(data.Bars, parameters[0], "");
-            DataSeries plusDmi_14 = new Indicators.PlusDI(data.Bars, parameters[1], "");
+            BasicDMIRule rule = new BasicDMIRule(data.Bars, parameters[0], parameters[1]);
+
             int cutlosslevel = (int)parameters[2];
             int takeprofitlevel = (int)parameters[3];
 
-            AppTypes.MarketTrend lastTrend = AppTypes.MarketTrend.Unspecified;
-            AppTypes.MarketTrend currentTrend = AppTypes.MarketTrend.Unspecified;
-
-            for (int idx = 0; idx < minusDmi_14.Count; idx++)
+            for (int idx = rule.minusDmi_14.FirstValidValue; idx < rule.minusDmi_14.Count; idx++)
             {
-                currentTrend = ((plusDmi_14[idx] > minusDmi_14[idx]) ? AppTypes.MarketTrend.Upward : AppTypes.MarketTrend.Downward);
                 //Buy Condition
-                if (lastTrend == AppTypes.MarketTrend.Downward && currentTrend == AppTypes.MarketTrend.Upward)
+                if (rule.isValid_forBuy(idx))
                     BuyAtClose(idx);
 
                 //Sell Condition
-                if (is_bought && lastTrend == AppTypes.MarketTrend.Upward && currentTrend == AppTypes.MarketTrend.Downward)
+                if (rule.isValid_forSell(idx))
                     SellAtClose(idx);
 
                 if (is_bought && CutLossCondition(data.Close[idx], buy_price, cutlosslevel))
@@ -187,8 +182,34 @@ namespace Strategy
 
                 if (is_bought && TakeProfitCondition(data.Close[idx], buy_price, takeprofitlevel))
                     SellTakeProfit(idx);
-                lastTrend = currentTrend;
             }
+
+            //DataSeries minusDmi_14 = new Indicators.MinusDI(data.Bars, parameters[0], "");
+            //DataSeries plusDmi_14 = new Indicators.PlusDI(data.Bars, parameters[1], "");
+            //int cutlosslevel = (int)parameters[2];
+            //int takeprofitlevel = (int)parameters[3];
+
+            //AppTypes.MarketTrend lastTrend = AppTypes.MarketTrend.Unspecified;
+            //AppTypes.MarketTrend currentTrend = AppTypes.MarketTrend.Unspecified;
+
+            //for (int idx = 0; idx < minusDmi_14.Count; idx++)
+            //{
+            //    currentTrend = ((plusDmi_14[idx] > minusDmi_14[idx]) ? AppTypes.MarketTrend.Upward : AppTypes.MarketTrend.Downward);
+            //    Buy Condition
+            //    if (lastTrend == AppTypes.MarketTrend.Downward && currentTrend == AppTypes.MarketTrend.Upward)
+            //        BuyAtClose(idx);
+
+            //    Sell Condition
+            //    if (is_bought && lastTrend == AppTypes.MarketTrend.Upward && currentTrend == AppTypes.MarketTrend.Downward)
+            //        SellAtClose(idx);
+
+            //    if (is_bought && CutLossCondition(data.Close[idx], buy_price, cutlosslevel))
+            //        SellCutLoss(idx);
+
+            //    if (is_bought && TakeProfitCondition(data.Close[idx], buy_price, takeprofitlevel))
+            //        SellTakeProfit(idx);
+            //    lastTrend = currentTrend;
+            //}
         }
     }
     #   endregion

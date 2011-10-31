@@ -25,22 +25,27 @@ namespace Strategy
     {
         override protected void StrategyExecute()
         {
-            Indicators.MACD macd = Indicators.MACD.Series(data.Close, parameters[0], parameters[1], parameters[2], "");
-            DataSeries ema = macd.SignalSeries;
-            DataSeries hist = macd.HistSeries;
+            BasicMACDRule rule = new BasicMACDRule(data.Close, (int)parameters[0], (int)parameters[1], (int)parameters[2]);
 
-            AppTypes.MarketTrend lastTrend = AppTypes.MarketTrend.Unspecified;
-            AppTypes.MarketTrend currentTrend = AppTypes.MarketTrend.Unspecified;
-
-            for (int idx = 0; idx < macd.Count; idx++)
+            for (int idx = 0; idx < rule.macd.Count; idx++)
             {
-                currentTrend = ((macd[idx] > 0 && macd[idx] > ema[idx]) ? AppTypes.MarketTrend.Upward : AppTypes.MarketTrend.Downward);
-                if (lastTrend == AppTypes.MarketTrend.Downward && currentTrend == AppTypes.MarketTrend.Upward)
+                if (rule.isValid_forBuy(idx))
                     BuyAtClose(idx);
-                if (lastTrend == AppTypes.MarketTrend.Upward && currentTrend == AppTypes.MarketTrend.Downward)
+                if (rule.isValid_forSell(idx))
                     SellAtClose(idx);
-                lastTrend = currentTrend;
             }
+            //AppTypes.MarketTrend lastTrend = AppTypes.MarketTrend.Unspecified;
+            //AppTypes.MarketTrend currentTrend = AppTypes.MarketTrend.Unspecified;
+
+            //for (int idx = 0; idx < macd.Count; idx++)
+            //{
+            //    currentTrend = ((macd[idx] > 0 && macd[idx] > ema[idx]) ? AppTypes.MarketTrend.Upward : AppTypes.MarketTrend.Downward);
+            //    if (lastTrend == AppTypes.MarketTrend.Downward && currentTrend == AppTypes.MarketTrend.Upward)
+            //        BuyAtClose(idx);
+            //    if (lastTrend == AppTypes.MarketTrend.Upward && currentTrend == AppTypes.MarketTrend.Downward)
+            //        SellAtClose(idx);
+            //    lastTrend = currentTrend;
+            //}
         }
     }
 
@@ -49,40 +54,53 @@ namespace Strategy
         public DataSeries ema;
         public BasicMACDRule(DataSeries ds,int fast,int slow,int signal)
         {
-            macd = Indicators.MACD.Series(ds, fast, slow, signal, "");
+            macd = Indicators.MACD.Series(ds, fast, slow, signal, "macd");
             ema = macd.SignalSeries;
         }
 
+        /// <summary>
+        /// Condition for Screening
+        /// </summary>
+        /// <returns></returns>
         public override bool isValid()
         {
-            if (macd.Count < 2) return false;
-
-            AppTypes.MarketTrend lastTrend = AppTypes.MarketTrend.Unspecified;
-            AppTypes.MarketTrend currentTrend = AppTypes.MarketTrend.Unspecified;
-
-            for (int idx = macd.Count-2; idx < macd.Count; idx++)
-            {
-                currentTrend = ((macd[idx] > 0 && macd[idx] > ema[idx]) ? AppTypes.MarketTrend.Upward : AppTypes.MarketTrend.Downward);
-                if (lastTrend == AppTypes.MarketTrend.Downward && currentTrend == AppTypes.MarketTrend.Upward)
-                    return true;
-                lastTrend = currentTrend;
-            }
-            return false;
+            return isValid_forBuy(macd.Count - 1);
         }
 
+        /// <summary>
+        /// If last Macd condition is downward and current Macd Condition upward then BUY
+        /// </summary>
+        /// <param name="idx"></param>
+        /// <returns></returns>
         public override bool isValid_forBuy(int idx)
         {
-            return base.isValid_forBuy(idx);
+            if (idx - 1 < macd.FirstValidValue) return false;
+            
+            AppTypes.MarketTrend lastTrend,currentTrend;
+            lastTrend = ((macd[idx-1] > 0 && macd[idx-1] > ema[idx-1]) ? AppTypes.MarketTrend.Upward : AppTypes.MarketTrend.Downward);
+            currentTrend = ((macd[idx] > 0 && macd[idx] > ema[idx]) ? AppTypes.MarketTrend.Upward : AppTypes.MarketTrend.Downward);
+            
+            if (lastTrend == AppTypes.MarketTrend.Downward && currentTrend == AppTypes.MarketTrend.Upward)
+                return true;
+            return false;
         }
 
         public override bool isValid_forSell(int idx)
         {
-            return base.isValid_forSell(idx);
+            if (idx - 1 < macd.FirstValidValue) return false;
+
+            AppTypes.MarketTrend lastTrend, currentTrend;
+            lastTrend = ((macd[idx - 1] > 0 && macd[idx - 1] > ema[idx - 1]) ? AppTypes.MarketTrend.Upward : AppTypes.MarketTrend.Downward);
+            currentTrend = ((macd[idx] > 0 && macd[idx] > ema[idx]) ? AppTypes.MarketTrend.Upward : AppTypes.MarketTrend.Downward);
+
+            if (lastTrend == AppTypes.MarketTrend.Upward && currentTrend == AppTypes.MarketTrend.Downward)
+                return true;
+            return false;
         }
 
         public override bool isValid(int index)
         {
-            return base.isValid(index);
+            return base.isValid_forBuy(index);
         }
     }
 
@@ -94,7 +112,6 @@ namespace Strategy
         override protected void StrategyExecute()
         {
             BasicMACDRule rule = new BasicMACDRule(data.Close, (int)parameters[0], (int)parameters[1], (int)parameters[2]);
-            //Rule rule1 = new TwoSMARule(data, 5, 10);
             if (rule.isValid())
             {
                 int Bar = data.Close.Count - 1;
