@@ -60,13 +60,13 @@ namespace application
         {
             _values = new double[ds.Count];
             Name = _name;
-            for (int idx = 0; idx < _values.Length; idx++) _values[idx] = double.NaN;
+            for (int idx = 0; idx < _values.Length; idx++) _values[idx] = 0;
         }
         public DataSeries(DataBars ds, string _name)
         {
             _values = new double[ds.Count];
             Name = _name;
-            for (int idx = 0; idx < _values.Length; idx++) _values[idx] = double.NaN;
+            for (int idx = 0; idx < _values.Length; idx++) _values[idx] = 0;
         }
         public DataSeries Clone()
         {
@@ -276,7 +276,7 @@ namespace application
         public static DataSeries operator >>(DataSeries ds, int n)
         {
             DataSeries retVal = new DataSeries();
-            for (int idx = 0; idx < n; idx++) retVal.Add(double.NaN);
+            for (int idx = 0; idx < n; idx++) retVal.Add(0);
             for (int idx = 0; idx < ds.Count; idx++) retVal.Add(ds[idx]);
             retVal.FirstValidValue = ds.FirstValidValue+n;
             return retVal;
@@ -462,11 +462,11 @@ namespace application
                 tmpIdx = checkData.FindDate(this.DateTime[idx], idx);
                 if (tmpIdx < 0)
                 {
-                    newClose[idx] = double.NaN;
-                    newOpen[idx] = double.NaN;
-                    newHigh[idx] = double.NaN;
-                    newLow[idx] = double.NaN;
-                    newVolume[idx] = double.NaN;
+                    newClose[idx] = 0;
+                    newOpen[idx] = 0;
+                    newHigh[idx] = 0;
+                    newLow[idx] = 0;
+                    newVolume[idx] = 0;
                     newDateTime[idx] = this.DateTime[idx];
                 }
                 else

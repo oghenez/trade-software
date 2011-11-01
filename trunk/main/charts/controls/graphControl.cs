@@ -63,6 +63,7 @@ namespace Charts.Controls
             this.IsEnableHPan = false;
             this.IsEnableVPan = false;
             this.IsShowContextMenu = false;
+            this.myGraphPane.IsFontsScaled = false;
 
             this.PanButtons = MouseButtons.None;
             this.PanButtons2 = MouseButtons.None;
@@ -98,6 +99,46 @@ namespace Charts.Controls
             this.PointValueEvent += new ZedGraphControl.PointValueHandler(GraphPointValueHandler);
             
         }
+        public void SetFont(Font font)
+        {
+            this.Font = font;
+
+            this.myGraphPane.XAxis.Scale.FontSpec.Family = font.FontFamily.Name;
+            this.myGraphPane.XAxis.Scale.FontSpec.Size = font.Size;
+            this.myGraphPane.XAxis.Scale.FontSpec.IsBold = font.Bold;
+            this.myGraphPane.XAxis.Scale.FontSpec.IsItalic = font.Italic;
+            this.myGraphPane.XAxis.Scale.FontSpec.IsUnderline = font.Underline;
+
+            this.myGraphPane.YAxis.Scale.FontSpec.Family = font.FontFamily.Name;
+            this.myGraphPane.YAxis.Scale.FontSpec.Size = font.Size;
+            this.myGraphPane.YAxis.Scale.FontSpec.IsBold = font.Bold;
+            this.myGraphPane.YAxis.Scale.FontSpec.IsItalic = font.Italic;
+            this.myGraphPane.YAxis.Scale.FontSpec.IsUnderline = font.Underline;
+
+            this.myGraphPane.X2Axis.Scale.FontSpec.Family = font.FontFamily.Name;
+            this.myGraphPane.X2Axis.Scale.FontSpec.Size = font.Size;
+            this.myGraphPane.X2Axis.Scale.FontSpec.IsBold = font.Bold;
+            this.myGraphPane.X2Axis.Scale.FontSpec.IsItalic = font.Italic;
+            this.myGraphPane.X2Axis.Scale.FontSpec.IsUnderline = font.Underline;
+
+            this.myGraphPane.Y2Axis.Scale.FontSpec.Family = font.FontFamily.Name;
+            this.myGraphPane.Y2Axis.Scale.FontSpec.Size = font.Size;
+            this.myGraphPane.Y2Axis.Scale.FontSpec.IsBold = font.Bold;
+            this.myGraphPane.Y2Axis.Scale.FontSpec.IsItalic = font.Italic;
+            this.myGraphPane.Y2Axis.Scale.FontSpec.IsUnderline = font.Underline;
+        }
+        public void SetFont(int fontSize)
+        {
+            this.Font = new Font(this.Font.FontFamily.Name, fontSize);
+
+            this.myGraphPane.XAxis.Scale.FontSpec.Size = fontSize;
+            this.myGraphPane.X2Axis.Scale.FontSpec.Size = fontSize;
+
+            this.myGraphPane.YAxis.Scale.FontSpec.Size = fontSize;
+            this.myGraphPane.Y2Axis.Scale.FontSpec.Size = fontSize;
+        }
+
+
         public int ChartMarginLEFT = Settings.sysChartMarginLEFT;
         public int ChartMarginRIGHT = Settings.sysChartMarginRIGHT;
         public int ChartMarginTOP = Settings.sysChartMarginTOP;

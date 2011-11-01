@@ -26,20 +26,11 @@ namespace test
 
         private void test()
         {
-            int fontSize = 20;
 
             //Graph 1
             myGraph1.myGraphPane.GraphObjList.Clear();
             myGraph1.myGraphPane.GraphObjList.Clear();
-            myGraph1.myGraphPane.XAxis.Scale.FontSpec.Size = fontSize;
-            myGraph1.myGraphPane.X2Axis.Scale.FontSpec.Size = fontSize;
-
-            myGraph1.myGraphPane.YAxis.Scale.FontSpec.Size = fontSize;
-            myGraph1.myGraphPane.Y2Axis.Scale.FontSpec.Size = fontSize;
-
-            myGraph1.myGraphPane.Y2Axis.IsVisible = false;
-
-
+            myGraph1.SetFont(12);
             myGraph1.myGraphPane.Chart.Rect = new RectangleF(Charts.Settings.sysChartMarginLEFT,
                                                             Charts.Settings.sysChartMarginTOP,
                                                             myGraph1.Width - Charts.Settings.sysChartMarginRIGHT-60,
@@ -52,7 +43,7 @@ namespace test
 
             //Add 3 mmarkers at left, middle, right locations
             PointPairList list = new PointPairList();
-            int[] idList = new int[] { 0, myData.Close.Count/2, myData.Close.Count - 1 };
+            int[] idList = new int[] { 4, myData.Close.Count/2, myData.Close.Count - 1 };
             for (int idx = 0; idx < idList.Length; idx++)
             {
                 PointPair point = curveItem1.Points[idList[idx]];
@@ -67,28 +58,24 @@ namespace test
                 text.FontSpec.Size = 12;
                 myGraph1.myGraphPane.GraphObjList.Add(text);
             }
-            myGraph1.UpdateChart();
-
             //Graph 2
 
             myGraph2.myGraphPane.GraphObjList.Clear();
 
-
             //Set font size but it is not the same as myGraph1, why ??
-            myGraph2.myGraphPane.XAxis.Scale.FontSpec.Size = fontSize;
-            myGraph2.myGraphPane.X2Axis.Scale.FontSpec.Size = fontSize;
-            myGraph2.myGraphPane.YAxis.Scale.FontSpec.Size = fontSize;
-            myGraph2.myGraphPane.Y2Axis.Scale.FontSpec.Size = fontSize;
-
+            myGraph2.SetFont(12);
+            
             myGraph2.myGraphPane.Chart.Rect = new RectangleF(Charts.Settings.sysChartMarginLEFT,
                                                 Charts.Settings.sysChartMarginTOP,
-                                                myGraph1.Width - Charts.Settings.sysChartMarginRIGHT,
-                                                myGraph1.Height - Charts.Settings.sysChartMarginBOTTOM);
-
+                                                myGraph2.Width - Charts.Settings.sysChartMarginRIGHT,
+                                                myGraph2.Height - Charts.Settings.sysChartMarginBOTTOM);
 
             myGraph2.SetSeriesX(myData.DateTime.Values, Charts.Controls.myAxisType.Date);
             CurveItem curveItem2 = myGraph2.AddCurveBar("line2", myData.Close.Values, Color.Green, Color.Navy, 1);
             myGraph2.DefaultViewport();
+
+            myGraph1.UpdateChart();
+            myGraph2.UpdateChart();
 
         }
 

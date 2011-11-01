@@ -67,6 +67,7 @@
             this.myGraph2.IsPrintScaleAll = false;
             this.myGraph2.IsShowContextMenu = false;
             this.myGraph2.IsShowCopyMessage = false;
+            this.myGraph2.IsShowPointValues = true;
             this.myGraph2.Location = new System.Drawing.Point(0, 490);
             this.myGraph2.myViewportX = intRange1;
             this.myGraph2.Name = "myGraph2";
@@ -79,7 +80,7 @@
             this.myGraph2.ScrollMinX = 0;
             this.myGraph2.ScrollMinY = 0;
             this.myGraph2.ScrollMinY2 = 0;
-            this.myGraph2.Size = new System.Drawing.Size(924, 202);
+            this.myGraph2.Size = new System.Drawing.Size(924, 186);
             this.myGraph2.TabIndex = 249;
             this.myGraph2.ZoomButtons = System.Windows.Forms.MouseButtons.None;
             this.myGraph2.ZoomStepFraction = 0;
