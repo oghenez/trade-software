@@ -67,8 +67,11 @@ namespace Indicators
             if (retCode != Core.RetCode.Success) return;
             //Assign first bar that contains indicator data
             DataSeries quadratureSeries= new DataSeries(ds, name + "-quadrature");
-            FirstValidValue = begin;
-            quadratureSeries.FirstValidValue = begin;
+            if (length <= 0)
+                FirstValidValue = begin + output.Length + 1;
+            else
+                FirstValidValue = begin;
+            quadratureSeries.FirstValidValue = FirstValidValue;
 
             this.Name = name;
             for (int i = begin, j = 0; j < length; i++, j++)

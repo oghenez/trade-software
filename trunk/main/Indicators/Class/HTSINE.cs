@@ -68,8 +68,13 @@ namespace Indicators
             DataSeries leadSineSeries = new DataSeries(ds, name + "-leadSine");
 
             //Assign first bar that contains indicator data
-            FirstValidValue = begin;
+            if (length <= 0)
+                FirstValidValue = begin + outsine.Length + 1;
+            else
+                FirstValidValue = begin;
+
             this.Name = name;
+            leadSineSeries.FirstValidValue = FirstValidValue;
 
             for (int i = begin, j = 0; j < length; i++, j++)
             {

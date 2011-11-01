@@ -66,10 +66,13 @@ namespace Indicators
             
             if (retCode != Core.RetCode.Success) return;
             //Assign first bar that contains indicator data
-            FirstValidValue = begin;
+            if (length <= 0)
+                FirstValidValue = begin + outmin.Length + 1;
+            else
+                FirstValidValue = begin;
             this.Name = name;
             DataSeries maxSeries = new DataSeries(db,name + "-max");
-            maxSeries.FirstValidValue = begin;
+            maxSeries.FirstValidValue = FirstValidValue;
 
             for (int i = begin, j = 0; j < length; i++, j++)
             {

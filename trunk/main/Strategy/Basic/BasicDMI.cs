@@ -46,7 +46,7 @@ namespace Strategy
         {
             Indicators.ADX adx = new Indicators.ADX(data.Bars, parameters[0], "");
             int Bar = adx.Count - 1;
-            if (Bar < 0) return;
+            if (Bar < adx.FirstValidValue) return;
             BusinessInfo info = new BusinessInfo();
             info.SetTrend(application.AppTypes.MarketTrend.Unspecified,
                 application.AppTypes.MarketTrend.Unspecified, application.AppTypes.MarketTrend.Unspecified);

@@ -41,10 +41,10 @@ namespace Strategy
 
         override public bool isValid_forBuy(int idx)
         {
-            decimal delta = 0, lastDelta = 0;
-            if (idx < 2) return false;
-            lastDelta = (decimal)(hist[idx - 1] - hist[idx - 2]);
-            delta = (decimal)(hist[idx] - hist[idx - 1]);
+            double delta = 0, lastDelta = 0;
+            if (idx -2 < hist.FirstValidValue) return false;
+            lastDelta = (hist[idx - 1] - hist[idx - 2]);
+            delta = (hist[idx] - hist[idx - 1]);
             if (delta > 0 && lastDelta < 0)
                 return true;
             return false;
@@ -52,10 +52,10 @@ namespace Strategy
 
         override public bool isValid_forSell(int idx)
         {
-            decimal delta = 0, lastDelta = 0;
-            if (idx < 2) return false;
-            lastDelta = (decimal)(hist[idx - 1] - hist[idx - 2]);
-            delta = (decimal)(hist[idx] - hist[idx - 1]);
+            double delta = 0, lastDelta = 0;
+            if (idx-2 < hist.FirstValidValue) return false;
+            lastDelta = (hist[idx - 1] - hist[idx - 2]);
+            delta = (hist[idx] - hist[idx - 1]);
             if (delta < 0 && lastDelta > 0)
                 return true;
             return false;
@@ -86,7 +86,7 @@ namespace Strategy
         {
             MACD_HistogramRule rule = new MACD_HistogramRule(data.Close, parameters[0],parameters[1],parameters[2]);
 
-            for (int idx = rule.macd.FirstValidValue+2; idx < data.Close.Count-1; idx++)
+            for (int idx = rule.macd.FirstValidValue; idx < data.Close.Count-1; idx++)
             {
                 if (rule.isValid_forBuy(idx))
                     BuyAtClose(idx);
@@ -104,7 +104,7 @@ namespace Strategy
             double cutlosslevel = parameters[3];
             double takeprofitlevel = parameters[4];
 
-            for (int idx = 1; idx < data.Close.Count - 1; idx++)
+            for (int idx = rule.macd.FirstValidValue; idx < data.Close.Count - 1; idx++)
             {
                 if (rule.isValid_forBuy(idx))
                     BuyAtClose(idx);

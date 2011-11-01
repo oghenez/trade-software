@@ -39,7 +39,10 @@ namespace Indicators
             }
             if (retCode != Core.RetCode.Success) return;
             //Assign first bar that contains indicator data
-            FirstValidValue = begin;
+            if (length <= 0)
+                FirstValidValue = begin + output.Length + 1;
+            else
+                FirstValidValue = begin;
             this.Name = name;
             for (int i = begin, j = 0; j < length; i++, j++) this[i] = output[j];
         }
@@ -104,12 +107,23 @@ namespace Indicators
                                              out begin, out length, output, sigOutput, histOutput);
 
             if (retCode != Core.RetCode.Success) return;
-            FirstValidValue = begin;
+            
             this.Name = name;
             DataSeries sigSeries =  new DataSeries(ds, name + "-signal");
             DataSeries histSeries = new DataSeries(ds, name + "-hist");
-            sigSeries.FirstValidValue = begin;
-            histSeries.FirstValidValue = begin;
+
+            if (length <= 0)
+            {
+                FirstValidValue = begin + output.Length + 1;
+                sigSeries.FirstValidValue = FirstValidValue;
+                histSeries.FirstValidValue = FirstValidValue;
+            }
+            else
+            {
+                FirstValidValue = begin;
+                sigSeries.FirstValidValue = begin;
+                histSeries.FirstValidValue = begin;
+            }
             for (int i = begin, j = 0; j < length; i++, j++)
             {
                 this[i] = output[j];
@@ -185,7 +199,10 @@ namespace Indicators
             }
             if (retCode != Core.RetCode.Success) return;
             //Assign first bar that contains indicator data
-            FirstValidValue = begin;
+            if (length <= 0)
+               FirstValidValue = begin + output.Length + 1;
+            else
+                FirstValidValue = begin;
             this.Name = name;
             for (int i = begin, j = 0; j < length; i++, j++) this[i] = output[j];
         }
@@ -257,10 +274,15 @@ namespace Indicators
                                                out begin, out length, outFastK, outFastD);
 
             if (retCode != Core.RetCode.Success) return;
-            FirstValidValue = begin;
+
+            if (length <= 0)            
+                FirstValidValue = begin + output.Length + 1;
+            else
+                FirstValidValue = begin;
             this.Name = name;
+            
             DataSeries fastDSeries = new DataSeries(ds, name + "-fastD");
-            fastDSeries.FirstValidValue = begin;
+            fastDSeries.FirstValidValue = FirstValidValue;
             for (int i = begin, j = 0; j < length; i++, j++)
             {
                 this[i] = outFastK[j];
@@ -316,12 +338,15 @@ namespace Indicators
                                                out begin, out length, outUpperList, outMiddleList, outLowerList);
 
             if (retCode != Core.RetCode.Success) return;
-            FirstValidValue = begin;
+            if (length <= 0)
+                FirstValidValue = begin + outUpperList.Length + 1;
+            else
+                FirstValidValue = begin;
             this.Name = name;
             DataSeries upperSeries = new DataSeries(ds, name + "-upper");
             DataSeries lowerSeries = new DataSeries(ds, name + "-lower");
-            upperSeries.FirstValidValue = begin;
-            lowerSeries.FirstValidValue = begin;
+            upperSeries.FirstValidValue = FirstValidValue;
+            lowerSeries.FirstValidValue = FirstValidValue;
             for (int i = begin, j = 0; j < length; i++, j++)
             {
                 this[i] = outMiddleList[j];
@@ -382,10 +407,15 @@ namespace Indicators
                                                            out begin, out length, outFastK, outFastD);
 
             if (retCode != Core.RetCode.Success) return;
-            FirstValidValue = begin;
+
+            if (length <= 0)
+                FirstValidValue = begin + outFastK.Length + 1;
+            else
+                FirstValidValue = begin;
             this.Name = name;
+            
             DataSeries fastDSeries = new DataSeries(db, name + "-fastD");
-            fastDSeries.FirstValidValue = begin;
+            fastDSeries.FirstValidValue = FirstValidValue;
             for (int i = begin, j = 0; j < length; i++, j++)
             {
                 this[i] = outFastK[j];
@@ -440,7 +470,10 @@ namespace Indicators
                                                 out begin, out length, outSlowK, outSlowD);
 
             if (retCode != Core.RetCode.Success) return;
-            FirstValidValue = begin;
+            if (length <= 0)
+                FirstValidValue = begin + outSlowK.Length + 1;
+            else
+                FirstValidValue = begin;
             this.Name = name;
             DataSeries slowDSeries = new DataSeries(db, name + "-slowD");
             slowDSeries.FirstValidValue = begin;

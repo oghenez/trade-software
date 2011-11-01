@@ -23,7 +23,7 @@ namespace Strategy
 
         public override bool isValid_forBuy(int idx)
         {
-            if (idx < 0) return false;
+            if (idx < rsi.FirstValidValue) return false;
             if (rsi[idx] < RSI_LOWER_LEVEL)
                 return true;
             return false;
@@ -31,7 +31,7 @@ namespace Strategy
 
         public override bool isValid_forSell(int idx)
         {
-            if (idx < 0) return false;
+            if (idx < rsi.FirstValidValue) return false;
             if (rsi[idx] > RSI_UPPER_LEVEL)
                 return true;
             return false;
@@ -39,8 +39,7 @@ namespace Strategy
 
         public override bool isValid()
         {
-            int idx = rsi.Count - 1;
-            return isValid_forBuy(idx);
+            return isValid_forBuy(rsi.Count - 1);
         }
 
         public override bool isValid(int index)

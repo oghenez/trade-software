@@ -73,7 +73,10 @@ namespace Indicators
 
             if (retCode != Core.RetCode.Success) return;
             //Assign first bar that contains indicator data
-            FirstValidValue = begin;
+            if (length <= 0)
+                FirstValidValue = begin + output.Length + 1;
+            else
+                FirstValidValue = begin;
             this.Name = name;
             for (int i = begin, j = 0; j < length; i++, j++) this[i] = output[j];
         }

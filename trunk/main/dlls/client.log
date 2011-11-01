@@ -1,0 +1,39 @@
+11/1/2011 9:24:13 AM : backTesting : PVD : STR014 : Exception has been thrown by the target of an invocation.
+11/1/2011 9:24:13 AM : backTesting : PVD : STR018 : Exception has been thrown by the target of an invocation.
+11/1/2011 9:25:11 AM : screening : BIC : SCR003 : Value was either too large or too small for a Decimal.
+11/1/2011 9:25:15 AM : screening : FDT : SCR003 : Value was either too large or too small for a Decimal.
+11/1/2011 9:25:15 AM : screening : FDT : SCR004 : Exception has been thrown by the target of an invocation.
+11/1/2011 9:25:15 AM : screening : GMX : SCR003 : Value was either too large or too small for a Decimal.
+11/1/2011 9:25:17 AM : screening : HOT : SCR004 : Exception has been thrown by the target of an invocation.
+11/1/2011 9:25:18 AM : screening : INC : SCR004 : Exception has been thrown by the target of an invocation.
+11/1/2011 9:25:19 AM : screening : L14 : SCR003 : Value was either too large or too small for a Decimal.
+11/1/2011 9:25:19 AM : screening : LCM : SCR003 : Value was either too large or too small for a Decimal.
+11/1/2011 9:25:19 AM : screening : LCM : SCR004 : Exception has been thrown by the target of an invocation.
+11/1/2011 9:25:20 AM : screening : NKD : SCR004 : Exception has been thrown by the target of an invocation.
+11/1/2011 9:25:21 AM : screening : PCT : SCR003 : Value was either too large or too small for a Decimal.
+11/1/2011 9:36:06 AM : backTesting : FDT : STR014 : Exception has been thrown by the target of an invocation.
+11/1/2011 9:36:06 AM : backTesting : FDT : STR016 : Exception has been thrown by the target of an invocation.
+11/1/2011 9:36:06 AM : backTesting : FDT : STR018 : Exception has been thrown by the target of an invocation.
+11/1/2011 9:36:19 AM : backTesting : HOT : STR014 : Exception has been thrown by the target of an invocation.
+11/1/2011 9:36:19 AM : backTesting : HOT : STR016 : Exception has been thrown by the target of an invocation.
+11/1/2011 9:36:19 AM : backTesting : HOT : STR018 : Exception has been thrown by the target of an invocation.
+11/1/2011 9:36:33 AM : backTesting : INC : STR014 : Exception has been thrown by the target of an invocation.
+11/1/2011 9:36:33 AM : backTesting : INC : STR016 : Exception has been thrown by the target of an invocation.
+11/1/2011 9:36:33 AM : backTesting : INC : STR018 : Exception has been thrown by the target of an invocation.
+11/1/2011 9:36:50 AM : backTesting : LCM : STR014 : Exception has been thrown by the target of an invocation.
+11/1/2011 9:36:50 AM : backTesting : LCM : STR016 : Exception has been thrown by the target of an invocation.
+11/1/2011 9:36:50 AM : backTesting : LCM : STR018 : Exception has been thrown by the target of an invocation.
+11/1/2011 9:43:40 AM : backTesting : FDT : STR014 : Exception has been thrown by the target of an invocation.
+11/1/2011 9:43:43 AM : backTesting : HOT : STR014 : Exception has been thrown by the target of an invocation.
+11/1/2011 9:43:45 AM : backTesting : INC : STR014 : Exception has been thrown by the target of an invocation.
+11/1/2011 9:43:47 AM : backTesting : LCM : STR014 : Exception has been thrown by the target of an invocation.
+11/1/2011 9:44:49 AM : backTesting : FDT : STR014 : Exception has been thrown by the target of an invocation.
+11/1/2011 9:44:52 AM : backTesting : HOT : STR014 : Exception has been thrown by the target of an invocation.
+11/1/2011 9:44:53 AM : backTesting : INC : STR014 : Exception has been thrown by the target of an invocation.
+11/1/2011 9:44:55 AM : backTesting : LCM : STR014 : Exception has been thrown by the target of an invocation.
+11/1/2011 9:47:16 AM : backTesting : FDT : STR014 : Exception has been thrown by the target of an invocation.
+11/1/2011 9:57:52 AM : backTesting : FDT : STR014 : Exception has been thrown by the target of an invocation.
+11/1/2011 9:59:22 AM : backTesting : FDT : STR014 : Exception has been thrown by the target of an invocation.
+11/1/2011 10:01:26 AM : backTesting : FDT : STR014 : Exception has been thrown by the target of an invocation.
+11/1/2011 10:01:29 AM : backTesting : FDT : STR014 : Exception has been thrown by the target of an invocation.
+11/1/2011 10:02:47 AM : backTesting : FDT : STR014 : Exception has been thrown by the target of an invocation.
