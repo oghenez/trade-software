@@ -13,8 +13,8 @@ using application;
 
 namespace client
 {
-    //public partial class main : common.forms.baseApplication
-    public partial class main : baseClass.forms.baseApplication
+    public partial class main : common.forms.baseApplication
+    //public partial class main : baseClass.forms.baseApplication
     {
         const int constPaneLeftWidth = 13; //In percentage
         const string constFormNameIndicator = "indicator-";
