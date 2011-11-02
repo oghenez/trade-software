@@ -8,6 +8,11 @@ namespace Strategy
         public RSI_MACD_Histogram_Helper() : base(typeof(RSI_MACD_Histogram)) { }
     }
 
+    public class TwoRSI_MACD_Hist_Helper : baseHelper
+    {
+        public TwoRSI_MACD_Hist_Helper() : base(typeof(TwoRSI_MACD_Histogram)) { }
+    }
+
     public class RSI_MACD_Histogram : GenericStrategy
     {
         override protected void StrategyExecute()
@@ -59,6 +64,44 @@ namespace Strategy
 
             //    lastDelta = delta;
             //}
+        }
+    }
+
+    public class TwoRSI_MACD_Histogram : GenericStrategy
+    {
+        override protected void StrategyExecute()
+        {
+            int fast_macd = (int)parameters[0];
+            int slow_macd = (int)parameters[1];
+            int signal_macd = (int)parameters[2];
+
+            int rsi_period = (int)parameters[3];
+            int RSI_LOWER_LEVEL = (int)parameters[4];
+            int RSI_UPPER_LEVEL = (int)parameters[5];
+            int cutlosslevel = (int)parameters[6];
+            int takeprofitlevel = (int)parameters[7];
+
+            MACD_HistogramRule macdrule = new MACD_HistogramRule(data.Close, fast_macd, slow_macd, signal_macd);
+            BasicRSI_Rule rsirule = new BasicRSI_Rule(data.Close, rsi_period, RSI_LOWER_LEVEL, RSI_UPPER_LEVEL);
+            
+            TwoSMARule rule = new TwoSMARule(rsirule.rsi, 5,10);
+
+            for (int idx = 1; idx < data.Close.Count; idx++)
+            {
+                //if (rsirule.isValid_forBuy(idx) && macdrule.isValid_forBuy(idx))
+                //    BuyAtClose(idx);
+                //if (rsirule.isValid_forSell(idx) || macdrule.isValid_forSell(idx))
+                //    SellAtClose(idx);
+                if (rule.isValid_forBuy(idx)&&
+                    macdrule.isValid_forBuy(idx))
+                        BuyAtClose(idx);
+                if (rule.isValid_forSell(idx) || macdrule.isValid_forSell(idx))
+                    SellAtClose(idx);
+                if (is_bought && CutLossCondition(data.Close[idx], buy_price, cutlosslevel))
+                    SellCutLoss(idx);
+                if (is_bought && TakeProfitCondition(data.Close[idx], buy_price, takeprofitlevel))
+                    SellTakeProfit(idx);
+            }            
         }
     }
 }
