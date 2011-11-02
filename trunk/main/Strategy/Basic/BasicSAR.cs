@@ -7,7 +7,7 @@ using application;
 
 namespace Strategy
 {
-    #region DMI Helper
+    #region SAR Helper
     public class BasicSAR_Helper : baseHelper
     {
         public BasicSAR_Helper()
@@ -33,7 +33,7 @@ namespace Strategy
     }   
     #   endregion
 
-    #region DMI Rule, Screening and Strategy
+    #region SAR Rule, Screening and Strategy
 
     
 
@@ -57,9 +57,9 @@ namespace Strategy
 
         public override bool isValid_forBuy(int idx)
         {
-            if (idx < sar.FirstValidValue)
+            if (idx -1< sar.FirstValidValue)
                 return false;
-            if (close[idx] > sar[idx])
+            if ((close[idx] > sar[idx])&&(close[idx-1]<=sar[idx-1]))
                 return true;
             return false;
         }
@@ -68,7 +68,7 @@ namespace Strategy
         {
             if (idx < sar.FirstValidValue)
                 return false;
-            if (close[idx] < sar[idx])
+            if ((close[idx] < sar[idx])&&(close[idx-1]>=sar[idx-1]))
                 return true;
             return false;
         }
@@ -95,8 +95,8 @@ namespace Strategy
         override protected void StrategyExecute()
         {
             BasicSARRule sarRule = new BasicSARRule(data.Bars, parameters[0], parameters[1]);
-            //TwoSMARule smarule = new TwoSMARule(data.Close, 5, 10);
-            BasicDMIRule dmiRule = new BasicDMIRule(data.Bars, 14, 14);
+            TwoSMARule smarule = new TwoSMARule(data.Close, 5, 10);
+            //BasicDMIRule dmiRule = new BasicDMIRule(data.Bars, 14, 14);
 
             int cutlosslevel = (int)parameters[2];
             int takeprofitlevel = (int)parameters[3];
@@ -106,8 +106,8 @@ namespace Strategy
 
             for (int idx = 0; idx < data.Close.Count - 1; idx++)
             {
-                //if ((!is_bought)&&((rule.isValid_forBuy(idx)||smarule.isValid_forBuy(idx))))
-                if (dmiRule.isValid_forBuy(idx)&&sarRule.isValid_forBuy(idx))
+                if ((!is_bought)&&((sarRule.isValid_forBuy(idx)&&smarule.isUpperTrend())))
+                //if (dmiRule.isValid_forBuy(idx)&&sarRule.isValid_forBuy(idx))
                 {
                     BusinessInfo info = new BusinessInfo();
                     info.SetTrend(AppTypes.MarketTrend.Upward, AppTypes.MarketTrend.Unspecified, AppTypes.MarketTrend.Unspecified);
@@ -115,8 +115,8 @@ namespace Strategy
                     info.Stop_Loss = min[idx];
                     BuyAtClose(idx, info);
                 }
-                //if (is_bought &&(rule.isValid_forSell(idx)||smarule.isValid_forSell(idx)))
-                if (dmiRule.isValid_forSell(idx))
+                if (is_bought &&(rule.isValid_forSell(idx)||smarule.isValid_forSell(idx)))
+                //if (dmiRule.isValid_forSell(idx))
                 {
                     BusinessInfo info = new BusinessInfo();
                     info.SetTrend(AppTypes.MarketTrend.Downward, AppTypes.MarketTrend.Unspecified, AppTypes.MarketTrend.Unspecified);

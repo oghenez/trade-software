@@ -148,6 +148,7 @@ namespace Strategy
                     info.Stop_Loss=min[idx];
                     BuyAtClose(idx,info);
                 }
+                else
                 if (rule.isValid_forSell(idx))
                 {
                     BusinessInfo info = new BusinessInfo();

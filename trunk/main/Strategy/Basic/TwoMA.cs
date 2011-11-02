@@ -87,6 +87,7 @@ namespace Strategy
             {
                 if (rule.isValid_forBuy(idx))
                     BuyAtClose(idx);
+                else
                 if (rule.isValid_forSell(idx))
                     SellAtClose(idx);
             }
