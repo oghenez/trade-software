@@ -60,24 +60,26 @@ namespace Strategy
     /// </summary>
     public class BasicDMIRule:Rule
     {
-        public DataSeries minusDmi_14;
-        public DataSeries plusDmi_14;
+        public DataSeries minusDmi;
+        public DataSeries plusDmi;
+        public DataSeries adx;
         public BasicDMIRule(DataBars db,double minusperiod,double plusperiod)
         {
-            minusDmi_14 = new Indicators.MinusDI(db, minusperiod, "minusDmi");
-            plusDmi_14 = new Indicators.PlusDI(db, plusperiod, "plusDmi");
+            minusDmi = new Indicators.MinusDI(db, minusperiod, "minusDmi");
+            plusDmi = new Indicators.PlusDI(db, plusperiod, "plusDmi");
+            adx = new Indicators.ADX(db, minusperiod, "adx");
         }
         public override bool isValid()
         {
-            if (minusDmi_14.Count - 2 < minusDmi_14.FirstValidValue)
+            if (minusDmi.Count - 2 < minusDmi.FirstValidValue)
                 return false;
 
             AppTypes.MarketTrend lastTrend = AppTypes.MarketTrend.Unspecified;
             AppTypes.MarketTrend currentTrend = AppTypes.MarketTrend.Unspecified;
 
-            for (int idx = minusDmi_14.Count - 2; idx < minusDmi_14.Count; idx++)
+            for (int idx = minusDmi.Count - 2; idx < minusDmi.Count; idx++)
             {
-                currentTrend = ((plusDmi_14[idx] > minusDmi_14[idx]) ? AppTypes.MarketTrend.Upward : AppTypes.MarketTrend.Downward);
+                currentTrend = ((plusDmi[idx] > minusDmi[idx]) ? AppTypes.MarketTrend.Upward : AppTypes.MarketTrend.Downward);
                 if (lastTrend == AppTypes.MarketTrend.Downward && currentTrend == AppTypes.MarketTrend.Upward)
                     return true;
                 lastTrend = currentTrend;
@@ -88,10 +90,10 @@ namespace Strategy
 
         public override bool isValid_forBuy(int idx)
         {
-            if (idx - 1 < minusDmi_14.FirstValidValue) return false;
+            if (idx - 1 < minusDmi.FirstValidValue) return false;
 
-            AppTypes.MarketTrend lastTrend = ((plusDmi_14[idx - 1] > minusDmi_14[idx - 1]) ? AppTypes.MarketTrend.Upward : AppTypes.MarketTrend.Downward);
-            AppTypes.MarketTrend currentTrend = ((plusDmi_14[idx] > minusDmi_14[idx]) ? AppTypes.MarketTrend.Upward : AppTypes.MarketTrend.Downward);
+            AppTypes.MarketTrend lastTrend = ((plusDmi[idx - 1] > minusDmi[idx - 1]) ? AppTypes.MarketTrend.Upward : AppTypes.MarketTrend.Downward);
+            AppTypes.MarketTrend currentTrend = ((plusDmi[idx] > minusDmi[idx]) ? AppTypes.MarketTrend.Upward : AppTypes.MarketTrend.Downward);
 
             if (lastTrend == AppTypes.MarketTrend.Downward && currentTrend == AppTypes.MarketTrend.Upward)
                 return true;
@@ -100,11 +102,11 @@ namespace Strategy
 
         public override bool isValid_forSell(int idx)
         {
-            if (idx - 1 < minusDmi_14.FirstValidValue)
+            if (idx - 1 < minusDmi.FirstValidValue)
                 return false;
 
-            AppTypes.MarketTrend lastTrend = ((plusDmi_14[idx - 1] > minusDmi_14[idx - 1]) ? AppTypes.MarketTrend.Upward : AppTypes.MarketTrend.Downward);
-            AppTypes.MarketTrend currentTrend = ((plusDmi_14[idx] > minusDmi_14[idx]) ? AppTypes.MarketTrend.Upward : AppTypes.MarketTrend.Downward);
+            AppTypes.MarketTrend lastTrend = ((plusDmi[idx - 1] > minusDmi[idx - 1]) ? AppTypes.MarketTrend.Upward : AppTypes.MarketTrend.Downward);
+            AppTypes.MarketTrend currentTrend = ((plusDmi[idx] > minusDmi[idx]) ? AppTypes.MarketTrend.Upward : AppTypes.MarketTrend.Downward);
 
             if (lastTrend == AppTypes.MarketTrend.Upward && currentTrend == AppTypes.MarketTrend.Downward)
                 return true;
@@ -167,7 +169,7 @@ namespace Strategy
             int cutlosslevel = (int)parameters[2];
             int takeprofitlevel = (int)parameters[3];
 
-            for (int idx = rule.minusDmi_14.FirstValidValue; idx < rule.minusDmi_14.Count; idx++)
+            for (int idx = rule.minusDmi.FirstValidValue; idx < rule.minusDmi.Count; idx++)
             {
                 //Buy Condition
                 if (rule.isValid_forBuy(idx))

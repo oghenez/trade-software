@@ -11,7 +11,7 @@ namespace Strategy
     /// </summary>
     class BasicRSI_Rule:Rule
     {
-        protected DataSeries rsi;
+        public DataSeries rsi;
         double RSI_LOWER_LEVEL, RSI_UPPER_LEVEL;
 
         public BasicRSI_Rule(DataSeries ds, double rsi_period, double _rsi_lower, double _rsi_upper)
