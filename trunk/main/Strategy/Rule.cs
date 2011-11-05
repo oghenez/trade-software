@@ -25,12 +25,22 @@ namespace Strategy
             return false;
         }
 
-        virtual public bool isValid_forBuy(int idx)
+        virtual public bool UpTrend(int index)
         {
             return false;
         }
 
-        virtual public bool isValid_forSell(int idx)
+        virtual public bool DownTrend(int index)
+        {
+            return false;
+        }
+
+        virtual public bool isValid_forBuy(int index)
+        {
+            return false;
+        }
+
+        virtual public bool isValid_forSell(int index)
         {
             return false;
         }

@@ -97,6 +97,7 @@ namespace Strategy
             BasicSARRule sarRule = new BasicSARRule(data.Bars, parameters[0], parameters[1]);
             TwoSMARule smarule = new TwoSMARule(data.Close, 5, 10);
             //BasicDMIRule dmiRule = new BasicDMIRule(data.Bars, 14, 14);
+            Indicators.ADX adx = new Indicators.ADX(data.Bars, 14, "");
 
             int cutlosslevel = (int)parameters[2];
             int takeprofitlevel = (int)parameters[3];
@@ -106,16 +107,19 @@ namespace Strategy
 
             for (int idx = 0; idx < data.Close.Count - 1; idx++)
             {
-                if ((!is_bought)&&((sarRule.isValid_forBuy(idx)&&smarule.isUpperTrend())))
-                //if (dmiRule.isValid_forBuy(idx)&&sarRule.isValid_forBuy(idx))
+                if (adx[idx] > 25)
                 {
-                    BusinessInfo info = new BusinessInfo();
-                    info.SetTrend(AppTypes.MarketTrend.Upward, AppTypes.MarketTrend.Unspecified, AppTypes.MarketTrend.Unspecified);
-                    info.Short_Target = max[idx];
-                    info.Stop_Loss = min[idx];
-                    BuyAtClose(idx, info);
+                    if ((!is_bought) && ((sarRule.isValid_forBuy(idx) && smarule.UpTrend(idx))))
+                    //if (dmiRule.isValid_forBuy(idx)&&sarRule.isValid_forBuy(idx))
+                    {
+                        BusinessInfo info = new BusinessInfo();
+                        info.SetTrend(AppTypes.MarketTrend.Upward, AppTypes.MarketTrend.Unspecified, AppTypes.MarketTrend.Unspecified);
+                        info.Short_Target = max[idx];
+                        info.Stop_Loss = min[idx];
+                        BuyAtClose(idx, info);
+                    }
                 }
-                if (is_bought &&(rule.isValid_forSell(idx)||smarule.isValid_forSell(idx)))
+                if (is_bought &&(sarRule.isValid_forSell(idx)||smarule.isValid_forSell(idx)))
                 //if (dmiRule.isValid_forSell(idx))
                 {
                     BusinessInfo info = new BusinessInfo();

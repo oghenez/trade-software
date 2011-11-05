@@ -207,21 +207,41 @@ namespace Strategy
 
         public override bool isValid_forBuy(int idx)
         {
-            if (idx < 0) return false;
+            if (idx - 1 < short_indicator.FirstValidValue) return false;
 
-            if (short_indicator[idx] > long_indicator[idx])
+            AppTypes.MarketTrend currentTrend = (short_indicator[idx] > long_indicator[idx]) ? AppTypes.MarketTrend.Upward : AppTypes.MarketTrend.Downward;
+            AppTypes.MarketTrend lastTrend = (short_indicator[idx - 1] > long_indicator[idx - 1]) ? AppTypes.MarketTrend.Upward : AppTypes.MarketTrend.Downward;
+            if (lastTrend == AppTypes.MarketTrend.Downward && currentTrend == AppTypes.MarketTrend.Upward)
                 return true;
 
             return false;
         }
 
-        public override bool isValid_forSell(int idx)
+        public override bool isValid_forSell(int index)
         {
-            if (idx < 0) return false;
+            if (index - 1 < short_indicator.FirstValidValue) return false;
 
-            if (short_indicator[idx] < long_indicator[idx])
+            AppTypes.MarketTrend currentTrend = (short_indicator[index] > long_indicator[index]) ? AppTypes.MarketTrend.Upward : AppTypes.MarketTrend.Downward;
+            AppTypes.MarketTrend lastTrend = (short_indicator[index - 1] > long_indicator[index - 1]) ? AppTypes.MarketTrend.Upward : AppTypes.MarketTrend.Downward;
+            if (lastTrend == AppTypes.MarketTrend.Upward && currentTrend == AppTypes.MarketTrend.Downward)
                 return true;
 
+            return false;
+        }
+
+        public override bool UpTrend(int index)
+        {
+            if (index< short_indicator.FirstValidValue) return false;
+            if (short_indicator[index] > long_indicator[index])
+                return true;
+            return false;
+        }
+
+        public override bool DownTrend(int index)
+        {
+            if (index < short_indicator.FirstValidValue) return false;
+            if (short_indicator[index] < long_indicator[index])
+                return true;
             return false;
         }
     }    
