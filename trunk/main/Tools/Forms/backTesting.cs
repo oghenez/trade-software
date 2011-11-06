@@ -53,6 +53,9 @@ namespace Tools.Forms
             allProfitDetailMenu.Text = language.GetString("allProfitDetail");
             profitDetailMenu.Text = language.GetString("profitDetail");
 
+            SetResultDataGridText();
+            SetEstimateStrategyGridText();
+
             periodicityEd.SetLanguage();
             strategyClb.SetLanguage();
             codeSelectLb.SetLanguage();
@@ -157,7 +160,7 @@ namespace Tools.Forms
             }
         }
 
-        private static void SetDataGrid(DataGridView grid, DataTable tbl)
+        private void SetDataGrid(DataGridView grid, DataTable tbl)
         {
             grid.DataSource = tbl;
 
@@ -174,8 +177,7 @@ namespace Tools.Forms
                 column.DataPropertyName = tbl.Columns[idx].ColumnName;
                 if (idx == 0)
                 {
-                    column.HeaderText = "Mã.CP";
-                    column.Width = 50;
+                    column.Width = 70;
                     column.Frozen = true;
                 }
                 else
@@ -186,25 +188,46 @@ namespace Tools.Forms
                 }
                 column.Name = idx.ToString();
             }
-            AdjustTestGridSize(grid);
+            SetResultDataGridText();
         }
-        private static void AdjustTestGridSize(DataGridView grid)
-        {
-            //if (grid.Columns.Count == 0) return;
-            //int maxVisibleCount = grid.Width / 90;
-            //if (grid.Columns.Count < maxVisibleCount) common.system.AutoFitGridColumn(grid);
-            //else
-            //{
-            //    for (int idx = 1; idx < grid.Columns.Count; idx++) grid.Columns[idx].Width = 90;
-            //}
-        }
-        private void SetEstimateStrateDataGrid(DataTable tbl)
+        private void SetEstimateDataGrid(DataTable tbl)
         {
             SetDataGrid(strategyEstimationGrid, tbl);
             strategyEstimationGrid.Columns[0].Width = 120;
-            strategyEstimationGrid.Columns[0].HeaderText = "Criteria";
             strategyEstimationGrid.Columns[0].Frozen = true;
+            SetEstimateStrategyGridText();
         }
+        
+        private void SetEstimateStrategyGridText()
+        {
+            DataTable tbl = (DataTable)strategyEstimationGrid.DataSource;
+            StringCollection text = Strategy.Libs.GetStrategyStatsText();
+            if (tbl == null || text.Count != strategyEstimationGrid.Rows.Count) return;
+            for (int idx = 0; idx < text.Count; idx++)
+            {
+                tbl.Rows[idx][0] = text[idx];
+            }
+            strategyEstimationGrid.Columns[0].HeaderText = language.GetString("criteria");
+            strategyEstimationGrid.Refresh();
+        }
+        private void SetResultDataGridText()
+        {
+            DataTable tbl = (DataTable)resultDataGrid.DataSource;
+            if (tbl == null || resultDataGrid.ColumnCount < 1) return;
+            for (int idx = 0; idx < tbl.Columns.Count; idx++)
+            {
+                if (idx == 0)
+                {
+                    resultDataGrid.Columns[idx].HeaderText = language.GetString("code");
+                }
+                else
+                {
+                    resultDataGrid.Columns[idx].HeaderText = Strategy.Libs.GetMetaName(tbl.Columns[idx].ColumnName);
+                }
+            }
+            resultDataGrid.Refresh();
+        }
+
         private DataTable CreateDataTable(StringCollection strategyCode)
         {
             // Define the new datatable
@@ -251,16 +274,13 @@ namespace Tools.Forms
             if (strategyEstimationPnl.Visible)
             {
                 //Keep statistis height
-                //strategyEstimationGrid.Location = new Point(0, dataPnl.Height - strategyEstimationGrid.Height);
                 strategyEstimationGrid.Width = resultDataGrid.Width;
                 resultDataGrid.Height = strategyEstimationPnl.Location.Y;
-                AdjustTestGridSize(strategyEstimationGrid);
             }
             else
             {
                 resultDataGrid.Height = dataPnl.Height;
             }
-            AdjustTestGridSize(resultDataGrid);
         }
 
         private bool DataValidate()
@@ -327,7 +347,7 @@ namespace Tools.Forms
                 progressBar.Value++;
                 Application.DoEvents();
             }
-            SetEstimateStrateDataGrid(Strategy.Libs.GetStrategyStats(testRetsultTbl));
+            SetEstimateDataGrid(Strategy.Libs.GetStrategyStats(testRetsultTbl));
             FormResize();
         }
 
@@ -346,6 +366,9 @@ namespace Tools.Forms
 
             menuItem = contextMenuStrip.Items.Add(allProfitDetailMenu.Text);
             menuItem.Click += new System.EventHandler(allProfitDetailMenu_Click);
+
+            menuItem = contextMenuStrip.Items.Add(estimationMenuItem.Text);
+            menuItem.Click += new System.EventHandler(estimationMenuItem_Click);
 
             resultDataGrid.ContextMenuStrip = contextMenuStrip;
         }

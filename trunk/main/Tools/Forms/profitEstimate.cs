@@ -143,6 +143,7 @@ namespace Tools.Forms
                 chartPnl.myGraphObj.ChartMarginBOTTOM = constProfitChartMarginBOTTOM;
 
                 CurveItem curveItem = chartPnl.myGraphObj.AddCurveBar("profit", ySeries.Values, Settings.sysChartVolumesColor, Settings.sysChartVolumesColor, 1);
+                chartPnl.myGraphObj.DefaultViewport();
                 chartPnl.PlotGraph();
             }
 

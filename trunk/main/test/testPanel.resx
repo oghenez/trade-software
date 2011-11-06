@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -117,46 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="description" xml:space="preserve">
-    <value>Mô tả</value>
-  </data>
-  <data name="strategy" xml:space="preserve">
-    <value>Chiến lược</value>
-  </data>
-  <data name="name" xml:space="preserve">
-    <value>Tên</value>
-  </data>
-  <data name="parameter" xml:space="preserve">
-    <value>Thông số</value>
-  </data>
-  <data name="saveSetting" xml:space="preserve">
-    <value>Lưu thiết lập</value>
-  </data>
-  <data name="settingSaved" xml:space="preserve">
-    <value>Thiết lập đã được lưu !</value>
-  </data>
-  <data name="value" xml:space="preserve">
-    <value>Giá trị</value>
-  </data>
-  <data name="others" xml:space="preserve">
-    <value>Khác</value>
-  </data>
-  <data name="averageLossAmt" xml:space="preserve">
-    <value>ST lỗ trung bình</value>
-  </data>
-  <data name="averageWinAmt" xml:space="preserve">
-    <value>ST lời trung bình</value>
-  </data>
-  <data name="lossStockPerc" xml:space="preserve">
-    <value>Tỉ lệ CP lỗ</value>
-  </data>
-  <data name="maxWinAmt" xml:space="preserve">
-    <value>GT lời lớn nhất</value>
-  </data>
-  <data name="winStockPerc" xml:space="preserve">
-    <value>Tỉ lệ CP lời</value>
-  </data>
-  <data name="maxLossAmt" xml:space="preserve">
-    <value>GT lỗ nhỏ nhất</value>
-  </data>
 </root>

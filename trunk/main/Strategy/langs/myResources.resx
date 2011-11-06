@@ -144,4 +144,22 @@
   <data name="others" xml:space="preserve">
     <value>Others</value>
   </data>
+  <data name="averageLossAmt" xml:space="preserve">
+    <value>Average loss amount</value>
+  </data>
+  <data name="averageWinAmt" xml:space="preserve">
+    <value>Average wining amount</value>
+  </data>
+  <data name="lossStockPerc" xml:space="preserve">
+    <value>Loss percentage</value>
+  </data>
+  <data name="maxWinAmt" xml:space="preserve">
+    <value>Max wining amount</value>
+  </data>
+  <data name="winStockPerc" xml:space="preserve">
+    <value>Winning percentage</value>
+  </data>
+  <data name="maxLossAmt" xml:space="preserve">
+    <value>Max loss amount</value>
+  </data>
 </root>

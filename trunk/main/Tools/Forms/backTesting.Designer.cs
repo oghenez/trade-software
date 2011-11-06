@@ -125,13 +125,12 @@
             this.strategyEstimationPnl.Controls.Add(this.strategyEstimationGrid);
             this.strategyEstimationPnl.haveCloseButton = true;
             this.strategyEstimationPnl.isExpanded = true;
-            this.strategyEstimationPnl.Visible = true;
-            this.strategyEstimationPnl.Location = new System.Drawing.Point(-1, 493);
+            this.strategyEstimationPnl.Location = new System.Drawing.Point(0, 486);
             this.strategyEstimationPnl.myIconLocations = common.controls.basePanel.IconLocations.None;
             this.strategyEstimationPnl.mySizingOptions = common.controls.basePanel.SizingOptions.None;
             this.strategyEstimationPnl.myWeight = 0;
             this.strategyEstimationPnl.Name = "strategyEstimationPnl";
-            this.strategyEstimationPnl.Size = new System.Drawing.Size(412, 159);
+            this.strategyEstimationPnl.Size = new System.Drawing.Size(412, 166);
             this.strategyEstimationPnl.TabIndex = 311;
             this.strategyEstimationPnl.myOnClosing += new common.controls.basePanel.OnClosing(this.strategyEstimationPnl_myOnClosing);
             // 
@@ -144,10 +143,10 @@
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.strategyEstimationGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.strategyEstimationGrid.DisableReadOnlyColumn = false;
-            this.strategyEstimationGrid.Location = new System.Drawing.Point(-2, -2);
+            this.strategyEstimationGrid.Location = new System.Drawing.Point(-2, 1);
             this.strategyEstimationGrid.Name = "strategyEstimationGrid";
             this.strategyEstimationGrid.ReadOnly = true;
-            this.strategyEstimationGrid.Size = new System.Drawing.Size(403, 156);
+            this.strategyEstimationGrid.Size = new System.Drawing.Size(409, 160);
             this.strategyEstimationGrid.TabIndex = 310;
             // 
             // optionPnl

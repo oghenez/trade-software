@@ -61,6 +61,24 @@ namespace strategy.langs {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Average loss amount.
+        /// </summary>
+        internal static string averageLossAmt {
+            get {
+                return ResourceManager.GetString("averageLossAmt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Average wining amount.
+        /// </summary>
+        internal static string averageWinAmt {
+            get {
+                return ResourceManager.GetString("averageWinAmt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Color.
         /// </summary>
         internal static string color {
@@ -75,6 +93,33 @@ namespace strategy.langs {
         internal static string description {
             get {
                 return ResourceManager.GetString("description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Loss percentage.
+        /// </summary>
+        internal static string lossStockPerc {
+            get {
+                return ResourceManager.GetString("lossStockPerc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Max loss amount.
+        /// </summary>
+        internal static string maxLossAmt {
+            get {
+                return ResourceManager.GetString("maxLossAmt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Max wining amount.
+        /// </summary>
+        internal static string maxWinAmt {
+            get {
+                return ResourceManager.GetString("maxWinAmt", resourceCulture);
             }
         }
         
@@ -138,6 +183,15 @@ namespace strategy.langs {
         internal static string value {
             get {
                 return ResourceManager.GetString("value", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Winning percentage.
+        /// </summary>
+        internal static string winStockPerc {
+            get {
+                return ResourceManager.GetString("winStockPerc", resourceCulture);
             }
         }
     }

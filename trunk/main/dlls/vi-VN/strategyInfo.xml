@@ -169,6 +169,18 @@
     <BasicDMISCR Version="1.0" />
   </STRATEGY>
   <STRATEGY>
+    <BasicSARSCR Type="SCREENING" />
+    <BasicSARSCR Code="SCR015" />
+    <BasicSARSCR Category="TRE" />
+    <BasicSARSCR Parameters="AF=0.02,Step=0.2" />
+    <BasicSARSCR ParameterDescriptions="The Acceleration Factor (AF), which is also referred to as the Step, dictates SAR sensitivity.Step gradually increases as the trend extends until it hits a maximum. SAR sensitivity can be decreased by decreasing the Step. A lower step moves SAR further from price, which makes a reversal less likely." />
+    <BasicSARSCR Name="SAR Screening" />
+    <BasicSARSCR Description="Screen stock with SAR" />
+    <BasicSARSCR URL="http://www.hqtrader.com" />
+    <BasicSARSCR Authors="Quan Nguyen" />
+    <BasicSARSCR Version="1.0" />
+  </STRATEGY>
+  <STRATEGY>
     <BuyAndHold Code="STR001"/>
     <BuyAndHold Category="TRE" />
     <BuyAndHold Parameters="" />
@@ -323,6 +335,17 @@
     <RSI_MACD_Histogram Version="1.0" />
   </STRATEGY>
   <STRATEGY>
+    <TwoRSI_MACD_Histogram Code="STR015"/>
+    <TwoRSI_MACD_Histogram Category="HFT" />
+    <TwoRSI_MACD_Histogram Parameters="MACD Fast=12,MACD Slow=26,MACD Signal=9, RSI Period=14, RSI Over Sold=30, RSI Over Bought=70,Cut Loss Level (%)=5,Take Profit Level (%)=200" />
+    <TwoRSI_MACD_Histogram ParameterDescriptions="Period defines the input data for the strategy" />
+    <TwoRSI_MACD_Histogram Name="MACD and Two RSI line strategy" />
+    <TwoRSI_MACD_Histogram Description="MACD and RSI strategy" />
+    <TwoRSI_MACD_Histogram URL="http://www.hqtrader.com" />
+    <TwoRSI_MACD_Histogram Authors="Quan Nguyen" />
+    <TwoRSI_MACD_Histogram Version="1.0" />
+  </STRATEGY>
+  <STRATEGY>
     <MACD_Histogram Code="STR016"/>
     <MACD_Histogram Category="TRE" />
     <MACD_Histogram Parameters="MACD Fast=12,MACD Slow=26,MACD Signal=9" />
@@ -455,5 +478,28 @@
     <ConsecutiveUpDown Authors="Quan Nguyen" />
     <ConsecutiveUpDown Version="1.0" />
   </STRATEGY>
-  
+
+  <STRATEGY>
+    <BasicSAR Code="STR028"/>
+    <BasicSAR Category="TRE" />
+    <BasicSAR Parameters="AF=0.02,Step=0.2,Cut Loss Level (%)=5,Take Profit Level (%)=200" />
+    <BasicSAR ParameterDescriptions="" />
+    <BasicSAR Name="Basic SAR" />
+    <BasicSAR Description="Buy when price above SAR line" />
+    <BasicSAR URL="http://www.hqtrader.com" />
+    <BasicSAR Authors="Quan Nguyen" />
+    <BasicSAR Version="1.0" />
+  </STRATEGY>
+
+  <STRATEGY>
+    <HybridSAR Code="STR029"/>
+    <HybridSAR Category="TRE" />
+    <HybridSAR Parameters="AF=0.02,Step=0.2,Cut Loss Level (%)=5,Take Profit Level (%)=200" />
+    <HybridSAR ParameterDescriptions="" />
+    <HybridSAR Name="Hybrid SAR" />
+    <HybridSAR Description="Buy when price above SAR line" />
+    <HybridSAR URL="http://www.hqtrader.com" />
+    <HybridSAR Authors="Quan Nguyen" />
+    <HybridSAR Version="1.0" />
+  </STRATEGY>
 </Configuration>

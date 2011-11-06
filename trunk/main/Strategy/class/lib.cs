@@ -895,6 +895,18 @@ namespace Strategy
             }
             return estData;
         }
+
+        public static StringCollection GetStrategyStatsText()
+        {
+            StringCollection text = new StringCollection();
+            text.Add("01." + language.GetString("winStockPerc"));
+            text.Add("02." + language.GetString("lossStockPerc"));
+            text.Add("03." + language.GetString("maxWinAmt"));
+            text.Add("04." + language.GetString("maxLossAmt"));
+            text.Add("05." + language.GetString("averageWinAmt"));
+            text.Add("06." + language.GetString("averageLossAmt"));
+            return text;
+        }
         public static DataTable GetStrategyStats(DataTable tbl)
         {
             ArrayList estDataList = new ArrayList();
@@ -908,12 +920,15 @@ namespace Strategy
             //Create table to store data
             DataTable retTbl = tbl.Clone();
             StrategyStats estData;
-            retTbl.Rows.Add("01.Tỉ lệ CP lời");         //winStockPerc; 
-            retTbl.Rows.Add("02.Tỉ lệ CP lỗ");          //lossStockPerc
-            retTbl.Rows.Add("03.ST lời lớn nhất");      //maxWinAmt 
-            retTbl.Rows.Add("04.ST lỗ lớn nhất");       //maxLossAmt
-            retTbl.Rows.Add("05.ST lời trung bình");    //avgWinAmt 
-            retTbl.Rows.Add("06.ST lỗ trung bình");     //avgLossAmt
+
+            //GetStrategyStatsText() will return text for this text
+            retTbl.Rows.Add("");
+            retTbl.Rows.Add("");
+            retTbl.Rows.Add("");
+            retTbl.Rows.Add("");
+            retTbl.Rows.Add("");
+            retTbl.Rows.Add(""); 
+
             //retTbl.Rows.Add("07.Số lượng CP lời");      //winStockCount 
             //retTbl.Rows.Add("08.Số lượng CP lỗ");       //lossStockCount
             //retTbl.Rows.Add("09.Tổng lời");             //totalWinAmt 

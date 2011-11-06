@@ -531,6 +531,7 @@ namespace client
             myForm.Show(dockPanel);
             UpdateActiveForm(FormOptions.ChartType); 
         }
+
         private void ShowStockChart(data.baseDS.stockCodeRow stockRow,AppTypes.TimeRanges timeRange, AppTypes.TimeScale timeScale)
         {
             DateTime frDate = common.Consts.constNullDate, toDate = common.Consts.constNullDate;
@@ -547,6 +548,7 @@ namespace client
                 myForm.ChartPriceType = this.ChartType;
                 myForm.UseStock(stockRow);
                 myForm.Activated += new System.EventHandler(this.tradeAnalysisActivatedHandler);
+                myForm.myEstimateTradePoints += new Tools.Forms.tradeAnalysis.EstimateTradePointFunc(EstimateTradePointHandler);
                 //Cache it if no error occured
                 cachedForms.Add(formName, myForm);
             }

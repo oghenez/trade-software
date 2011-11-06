@@ -33,10 +33,10 @@ namespace baseClass.controls
             strategyClb.SetLanguage();
         }
 
-        public StringCollection test
-        {
-            get { return strategyClb.myItemValues; }
-        }
+        //public StringCollection test
+        //{
+        //    get { return strategyClb.myItemValues; }
+        //}
 
 
         public StringCollection myCheckedValues
