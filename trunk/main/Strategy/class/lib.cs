@@ -321,7 +321,8 @@ namespace Strategy
             this.BusinessInfo.Set(BusinessInfo);
         }
 
-
+        //TradePoint can be estimated by some way to decide whether the trade point is valid. 
+        public bool isValid = true;
         // Data position where the trade point occured.
         // The index is used to get data (closePrice,openPrice...) of a trade point.
         public int DataIdx = 0;

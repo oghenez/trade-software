@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Charts.Controls.IntRange intRange1 = new Charts.Controls.IntRange();
-            Charts.Controls.IntRange intRange2 = new Charts.Controls.IntRange();
+            Charts.IntRange intRange1 = new Charts.IntRange();
+            Charts.IntRange intRange2 = new Charts.IntRange();
             this.zoomOutBtn = new System.Windows.Forms.Button();
             this.zoomInBtn = new System.Windows.Forms.Button();
             this.prevBtn = new System.Windows.Forms.Button();
@@ -99,7 +99,6 @@
             this.myPriceGraphObj.IsEnableHZoom = false;
             this.myPriceGraphObj.IsEnableVPan = false;
             this.myPriceGraphObj.IsEnableVZoom = false;
-            this.myPriceGraphObj.isPanning = false;
             this.myPriceGraphObj.Location = new System.Drawing.Point(0, 31);
             this.myPriceGraphObj.myViewportX = intRange1;
             this.myPriceGraphObj.Name = "myPriceGraphObj";
@@ -126,7 +125,6 @@
             this.myVolumeGraphObj.IsEnableHZoom = false;
             this.myVolumeGraphObj.IsEnableVPan = false;
             this.myVolumeGraphObj.IsEnableVZoom = false;
-            this.myVolumeGraphObj.isPanning = false;
             this.myVolumeGraphObj.Location = new System.Drawing.Point(0, 484);
             this.myVolumeGraphObj.myViewportX = intRange2;
             this.myVolumeGraphObj.Name = "myVolumeGraphObj";

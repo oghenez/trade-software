@@ -6,6 +6,77 @@ using ZedGraph;
 
 namespace Charts
 {
+    public enum AxisType : byte
+    {
+        DateAsOrdinal = 0, Date = 1, Linear = 2
+    }
+    public enum AxisUnit : byte
+    {
+        Second = 0, Minute = 1, Hour = 2, Day = 3, Month = 4, Year = 5
+    }
+    public class IntRange
+    {
+        public int Max = int.MinValue, Min = int.MaxValue;
+        public IntRange() { }
+        public IntRange(int min, int max)
+        {
+            Min = min; Max = max;
+        }
+        public void Reset()
+        {
+            this.Max = int.MaxValue;
+            this.Min = int.MinValue;
+        }
+        public void Set(int min, int max)
+        {
+            this.Max = max;
+            this.Min = min;
+        }
+    }
+    public class ValueRange
+    {
+        public double Max = double.MinValue, Min = double.MaxValue;
+        public ValueRange() { }
+        public ValueRange(double min, double max)
+        {
+            Min = min; Max = max;
+        }
+        public void Reset()
+        {
+            this.Max = double.MaxValue;
+            this.Min = double.MinValue;
+        }
+        public void Set(double min, double max)
+        {
+            this.Max = max;
+            this.Min = min;
+        }
+
+    }
+    public class ViewportState
+    {
+        public IntRange xRange = new IntRange();
+        public ValueRange yRange = new ValueRange();
+        public StateType state = StateType.None;
+        public enum StateType : byte
+        {
+            None = 0,
+            Zooming = 1,
+            Panning = 2
+        }
+        public bool isStickOutLEFT = false, isStickOutRIGHT = false;
+        public AxisType myAxisType = AxisType.Linear;
+        public AxisUnit myAxisUnit = AxisUnit.Day;
+
+        public void Reset()
+        {
+            xRange.Reset();
+            yRange.Reset();
+            isStickOutLEFT = false;
+            isStickOutRIGHT = false;
+            state = StateType.None;
+        }
+    }
     public class DrawCurve
     {
         public DrawCurve(CurveItem _curve, string _curveName, GraphPane _pane, string _paneName)
@@ -124,5 +195,86 @@ namespace Charts
         //    }
         //    return count;
         //}
+    }
+
+    public class Libs
+    {
+        public static void GetRangeY(CurveItem curve,int fromId, int toId,ref ValueRange range)
+        {
+            if (curve.GetType() == typeof(JapaneseCandleStickItem))
+            {
+                GetRangeY((curve as JapaneseCandleStickItem), fromId, toId, ref range);
+                return;
+            }
+
+            if (curve.GetType() == typeof(LineItem))
+            {
+                GetRangeY((curve as LineItem), fromId, toId, ref range);
+                return;
+            }
+
+            if (curve.GetType() == typeof(BarItem))
+            {
+                GetRangeY((curve as BarItem), fromId, toId, ref range);
+                return;
+            }
+
+            if (curve.GetType() == typeof(StickItem))
+            {
+                GetRangeY((curve as StickItem), fromId, toId, ref range);
+                return;
+            }
+        }
+        public static void GetRangeY(JapaneseCandleStickItem curve, int fromId, int toId, ref ValueRange yRange)
+        {
+            for (int idx = fromId; idx < toId; idx++)
+            {
+                StockPt item = (StockPt)curve.Points[idx];
+                if (item.Low < yRange.Min) yRange.Min = item.Low;
+                if (item.High > yRange.Max) yRange.Max = item.High;
+            }
+        }
+        public static void GetRangeY(LineItem curve, int fromId, int toId, ref ValueRange yRange)
+        {
+            for (int idx = fromId; idx < toId; idx++)
+            {
+                PointPair item = (PointPair)curve.Points[idx];
+                if (item.Y < yRange.Min) yRange.Min = item.Y;
+                if (item.Y > yRange.Max) yRange.Max = item.Y;
+            }
+        }
+        public static void GetRangeY(BarItem curve, int fromId, int toId, ref ValueRange yRange)
+        {
+            for (int idx = fromId; idx < toId; idx++)
+            {
+                PointPair item = (PointPair)curve.Points[idx];
+                if (item.Y < yRange.Min) yRange.Min = item.Y;
+                if (item.Y > yRange.Max) yRange.Max = item.Y;
+            }
+        }
+        public static void GetRangeY(StickItem curve, int fromId, int toId, ref ValueRange yRange)
+        {
+            for (int idx = fromId; idx < toId; idx++)
+            {
+                PointPair item = (PointPair)curve.Points[idx];
+                if (item.Y < yRange.Min) yRange.Min = item.Y;
+                if (item.Y > yRange.Max) yRange.Max = item.Y;
+            }
+        }
+
+        public static double[] GetSeriesX(CurveItem curve)
+        {
+            double[] seriesX = new double[curve.Points.Count];
+            for (int idx = 0; idx < curve.Points.Count; idx++) seriesX[idx] =((PointPair)curve.Points[idx]).X;
+            return seriesX;
+        }
+
+        public static void UpdateSeriesX(CurveItem curve,ref double[] list)
+        {
+            if (curve.Points.Count == list.Length) return;
+            int lastSz = list.Length;
+            Array.Resize(ref list,curve.Points.Count);
+            for (int idx = lastSz; idx < curve.Points.Count; idx++) list[idx] = ((PointPair)curve.Points[idx]).X;
+        }
     }
 }

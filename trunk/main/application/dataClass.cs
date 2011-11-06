@@ -505,7 +505,6 @@ namespace application
         {
             return FindDate(dt.ToOADate(),startIdx);
         }
-       
 
         private global::data.baseDS.priceDataDataTable priceDataTbl = null;
 
@@ -619,6 +618,28 @@ namespace application
         }
 
         public enum DataType : byte { High, Low, Open, Close, Volume, DateTime };
+
+        /// <summary>
+        /// Update data to the most recent from the last update.
+        /// </summary>
+        /// <returns>Number of updated items</returns>
+        public int UpdateDataFromLastTime()
+        {
+            int lastDataIdx = this.DateTime.Count - 1;
+            DateTime lastDate;
+            if (lastDataIdx < 0) lastDate = application.Settings.sysStartDataDate;
+            else lastDate = System.DateTime.FromOADate(this.DateTime[lastDataIdx]);
+            
+            //Delete the last data because the updated data will include this one.
+            if (lastDataIdx>=0) priceDataTbl[this.FirstDataStartAt + lastDataIdx].Delete();
+            dataLibs.LoadData(priceDataTbl,this.DataTimeScale.Code,lastDate,this.DataStockCode);
+            data.baseDS.priceDataDataTable tbl = new data.baseDS.priceDataDataTable();
+            dataLibs.LoadData(tbl, this.DataTimeScale.Code, lastDate, this.DataStockCode);
+
+            this.dataCache.Clear();
+            return this.DateTime.Count - 1 - lastDataIdx;
+        }
+
         public static DataSeries GetData(data.baseDS.priceDataDataTable dataTbl, int startIdx, DataType type)
         {
             DataSeries ds = new DataSeries();
@@ -626,28 +647,47 @@ namespace application
             {
                 case DataType.High:
                     for (int i = startIdx, j = 0; i < dataTbl.Count; i++, j++)
+                    {
+                        if (dataTbl[i].RowState == System.Data.DataRowState.Deleted) continue;
                         ds.Add((double)dataTbl[i].highPrice);
+                    }
                     break;
                 case DataType.Low:
                     for (int i = startIdx, j = 0; i < dataTbl.Count; i++, j++)
+                    {
+                        if (dataTbl[i].RowState == System.Data.DataRowState.Deleted) continue;
                         ds.Add((double)dataTbl[i].lowPrice);
+                    }
                     break;
                 case DataType.Open:
                     for (int i = startIdx, j = 0; i < dataTbl.Count; i++, j++)
+                    {
+                        if (dataTbl[i].RowState == System.Data.DataRowState.Deleted) continue;
                         ds.Add((double)dataTbl[i].openPrice);
+                    }
                     break;
                 case DataType.Close:
                     for (int i = startIdx, j = 0; i < dataTbl.Count; i++, j++)
+                    {
+                        if (dataTbl[i].RowState == System.Data.DataRowState.Deleted) continue;
                         ds.Add((double)dataTbl[i].closePrice);
+                    }
                     break;
                 case DataType.Volume:
                     for (int i = startIdx, j = 0; i < dataTbl.Count; i++, j++)
+                    {
+                        if (dataTbl[i].RowState == System.Data.DataRowState.Deleted) continue;
                         ds.Add((double)dataTbl[i].volume);
+                    }
                     break;
 
                 case DataType.DateTime:
                     for (int i = startIdx, j = 0; i < dataTbl.Count; i++, j++)
+                    {
+                        if (dataTbl[i].RowState == System.Data.DataRowState.Deleted) 
+                            continue;
                         ds.Add(dataTbl[i].onDate.ToOADate());
+                    }
                     break;
                 default:
                     common.system.ThrowException("Invalid dataField in MakeDataList()"); break;

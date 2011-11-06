@@ -12,12 +12,39 @@ namespace Tools.Forms
 {
     public partial class profitEstimate : baseClass.forms.baseDialogForm  
     {
+        const int constProfitChartMarginBOTTOM = 40;
+        const int constProfitChartMarginTOP = 5;
+
         public profitEstimate()
         {
-            InitializeComponent();
-            dataGrid.DisableReadOnlyColumn = false;
-            fShowChart = false;
-            dataGrid.Location = new Point(0, 0);
+            try
+            {
+                InitializeComponent();
+                dataGrid.DisableReadOnlyColumn = false;
+                IsShowChart = false;
+                dataGrid.Location = new Point(0, 0);
+                dataGrid.myFixedSizedColumns.Clear();
+                dataGrid.myFixedSizedColumns.Add(ignoredColumn.Name);
+                dataGrid.myFixedSizedColumns.Add(onDateColumn.Name);
+                dataGrid.myFixedSizedColumns.Add(tradeActionColumn.Name);
+                dataGrid.myFixedSizedColumns.Add(qtyColumn.Name);
+                dataGrid.myFixedSizedColumns.Add(priceDataColumn.Name);
+
+
+                mainContainer.BringToFront();
+                mainContainer.Reset();
+                mainContainer.Location = new Point(0, 0);
+                mainContainer.AddChild(dataPnl, "data");
+                mainContainer.AddChild(chartPnl, "chart");
+                mainContainer.myPaneDimensionSpecs = new[,] { { 1, 10, 10 }}; // Display scale (data:chart) = 10:10
+                mainContainer.ArrangeChildren();
+
+                CreateContextMenu();
+            }
+            catch (Exception er)
+            {
+                this.ShowError(er);
+            }
         }
         public override void SetLanguage()
         {
@@ -40,19 +67,6 @@ namespace Tools.Forms
             feeAmtColumn.HeaderText = language.GetString("feeAmt");
             profitColumn.HeaderText = language.GetString("profit");
         }
-        private bool fShowChart
-        {
-            get { return chartPnl.Visible; }
-            set 
-            {
-                chartPnl.Visible= value;
-                //dataGrid.Height = this.ClientRectangle.Height - toolBoxPnl.Height - (value ? chartPnl.Height : 0)-5;
-                if (value) ShowChart();
-                FormResize();
-            }
-        }
-        private Strategy.TradePoints myTradeAdvices = null;
-        private application.Data myAnalysisData = null;
 
         public static profitEstimate GetForm(string formName)
         {
@@ -63,7 +77,7 @@ namespace Tools.Forms
             common.Data.dataCache.Add(cacheKey, form);
             return form;
         }
-        public void Init(application.Data data,Strategy.TradePoints advices)
+        public void Init(application.Data data, Strategy.TradePoints advices)
         {
             this.myAnalysisData = data;
             this.myTradeAdvices = advices;
@@ -75,9 +89,9 @@ namespace Tools.Forms
             {
                 common.system.ThrowException("No data found"); return;
             }
-            EstimateAdvice(this.myAnalysisData, this.myTradeAdvices, new Strategy.Libs.EstimateOptions(),myTmpDS.tradeEstimate);
+            EstimateAdvice(this.myAnalysisData, this.myTradeAdvices, new Strategy.Libs.EstimateOptions(), myTmpDS.tradeEstimate);
             DoFilter();
-            fShowChart = fShowChart;
+            PlotProfitChart();
         }
         public void Export()
         {
@@ -85,7 +99,28 @@ namespace Tools.Forms
             common.Export.ExportToExcel(myTmpDS.tradeEstimate, saveFileDialog.FileName);
         }
 
-        private void ShowChart()
+        public bool IsShowChart
+        {
+            get { return chartPnl.Visible; }
+            set 
+            {
+                chartPnl.Visible= value;
+                FormResize();
+            }
+        }
+        public bool IsShowAllTransactions
+        {
+            get { return this.allTransactionMenuItem.Checked; }
+            set 
+            {
+                this.allTransactionMenuItem.Checked = value; ;
+            }
+        }
+
+        private Strategy.TradePoints myTradeAdvices = null;
+        private application.Data myAnalysisData = null;
+
+        private void PlotProfitChart()
         {
             data.tmpDS.tradeEstimateDataTable tbl = myTmpDS.tradeEstimate;
             chartPnl.ResetGraph();
@@ -102,7 +137,11 @@ namespace Tools.Forms
             //Handle bug in graph for curve with only on point ????
             if (ySeries.Count > 1)
             {
-                chartPnl.myGraphObj.SetSeriesX(xSeries.Values, Charts.Controls.myAxisType.Date);
+                chartPnl.myGraphObj.SetSeriesX(xSeries.Values, Charts.AxisType.DateAsOrdinal);
+                chartPnl.myGraphObj.SetFont(application.Settings.sysChartFontSize);
+                chartPnl.myGraphObj.ChartMarginTOP = constProfitChartMarginTOP;
+                chartPnl.myGraphObj.ChartMarginBOTTOM = constProfitChartMarginBOTTOM;
+
                 CurveItem curveItem = chartPnl.myGraphObj.AddCurveBar("profit", ySeries.Values, Settings.sysChartVolumesColor, Settings.sysChartVolumesColor, 1);
                 chartPnl.PlotGraph();
             }
@@ -110,21 +149,54 @@ namespace Tools.Forms
         }
         private void DoFilter()
         {
-            if (!allTransactionMenuItem.Checked)
+            if (!this.IsShowAllTransactions)
                 tradeEstimateSource.Filter = myTmpDS.tradeEstimate.ignoredColumn.ColumnName + "=0";
             else tradeEstimateSource.Filter = "";
             this.ShowReccount(tradeEstimateSource.Count);
         }
         private void FormResize()
         {
-            dataGrid.Size = new Size(this.ClientRectangle.Width, this.ClientSize.Height - dataGrid.Location.Y-SystemInformation.CaptionHeight);
-            chartPnl.Location = new Point(0, this.ClientSize.Height - chartPnl.Height);
-            common.system.AutoFitGridColumn(dataGrid);
+            mainContainer.Size = new Size(this.ClientRectangle.Width, this.ClientSize.Height);
+            mainContainer.Refresh();
+            dataGrid.Size = new Size(this.dataPnl.Width, this.dataPnl.Height - 10);
+            dataGrid.AutoFitGridColumn();
         }
 
-        protected virtual void EstimateAdvice(application.Data data,
-                                              Strategy.TradePoints advices, 
-                                              Strategy.Libs.EstimateOptions options,
+        private void CreateContextMenu()
+        {
+            ContextMenuStrip contextMenuStrip = new ContextMenuStrip();
+            ToolStripItem menuItem;
+            menuItem = contextMenuStrip.Items.Add(allTransactionMenuItem.Text);
+            menuItem.Click += new System.EventHandler(allTransactionMenuItem_Click);
+
+            menuItem = contextMenuStrip.Items.Add(showChartMenuItem.Text);
+            menuItem.Click += new System.EventHandler(showChartMenuItem_Click);
+
+            menuItem = contextMenuStrip.Items.Add(exportMenuItem.Text);
+            menuItem.Click += new System.EventHandler(exportMenuItem_Click);
+
+            dataGrid.ContextMenuStrip = contextMenuStrip;
+        }
+
+        /// <summary>
+        /// Estimate trade points and set tradepoint's [isValid] property to mark whether a tradepoint is valid or not.
+        /// </summary>
+        /// <param name="data"></param>
+        /// <param name="tradePoints"></param>
+        public void CheckTradepoints(application.Data data, Strategy.TradePoints tradePoints)
+        {
+            myTmpDS.tradeEstimate.Clear();
+            EstimateAdvice(data, tradePoints, new Strategy.Libs.EstimateOptions(), myTmpDS.tradeEstimate);
+            for (int idx = 0; idx < tradePoints.Count; idx++)
+            {
+                (tradePoints[idx] as Strategy.TradePointInfo).isValid = !myTmpDS.tradeEstimate[idx].ignored; 
+            }
+            this.IsShowAllTransactions = false;
+            DoFilter();
+            PlotProfitChart();
+        }
+
+        protected virtual void EstimateAdvice(application.Data data, Strategy.TradePoints advices, Strategy.Libs.EstimateOptions options,
                                               data.tmpDS.tradeEstimateDataTable toTbl)
         {
             Strategy.Data.ClearCache();
@@ -151,6 +223,7 @@ namespace Tools.Forms
         {
             try
             {
+                this.ShowMessage("");
                 FormResize();
             }
             catch (Exception er)
@@ -171,28 +244,18 @@ namespace Tools.Forms
             }
         }
 
-        private void chartPnl_myOnShowStateChanged(object sender)
+        private bool chartPnl_myOnClosing(object sender)
         {
-            try
-            {
-                fShowChart = chartPnl.isExpanded;
-            }
-            catch (Exception er)
-            {
-                this.ShowError(er);
-            }
+            chartPnl.Visible = false;
+            FormResize();
+            return true;
         }
-        private void closeThisBtn_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
         private void allTransactionMenuItem_Click(object sender, EventArgs e)
         {
             try
             {
+                IsShowAllTransactions = !IsShowAllTransactions;
                 DoFilter();
-                fShowChart = fShowChart;
             }
             catch (Exception er)
             {
@@ -203,7 +266,7 @@ namespace Tools.Forms
         {
             try
             {
-                fShowChart = true;
+                IsShowChart = true;
             }
             catch (Exception er)
             {

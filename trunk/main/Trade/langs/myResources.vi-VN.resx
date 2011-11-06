@@ -237,4 +237,7 @@
   <data name="strategy" xml:space="preserve">
     <value>Chiến lược</value>
   </data>
+  <data name="accept" xml:space="preserve">
+    <value>Đồng ý</value>
+  </data>
 </root>

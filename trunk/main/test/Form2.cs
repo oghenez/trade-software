@@ -19,12 +19,12 @@ namespace test
             myData.DataTimeRange = application.AppTypes.TimeRanges.All;
             myData.Reload();
 
-            myPriceGraphObj.SetSeriesX(myData.DateTime.Values, Charts.Controls.myAxisType.Date);
+            myPriceGraphObj.SetSeriesX(myData.DateTime.Values, Charts.AxisType.Date);
             myPriceGraphObj.AddCurveLine("Line1", myData.Close.Values, ZedGraph.SymbolType.None, Color.Red,1);
             myPriceGraphObj.AddCandleStick("CandleStick", myData.High.Values,myData.Low.Values,myData.Open.Values,
                                       myData.Close.Values,myData.Volume.Values,Color.Red, Color.Green,Color.Violet,Color.Black);
 
-            myVolumeGraphObj.SetSeriesX(myData.DateTime.Values, Charts.Controls.myAxisType.Date);
+            myVolumeGraphObj.SetSeriesX(myData.DateTime.Values, Charts.AxisType.Date);
             myVolumeGraphObj.AddCurveStick("Stick", myData.Volume.Values, Color.Green);
 
 
@@ -93,13 +93,13 @@ namespace test
 
 
         //Sync to chart
-        private void myPriceGraphObj_myOnViewportChanged(object sender, Charts.Controls.myGraphControl.ViewportState state)
+        private void myPriceGraphObj_myOnViewportChanged(object sender, Charts.ViewportState state)
         {
-            myVolumeGraphObj.myViewportX = state.Range;
+            myVolumeGraphObj.myViewportX = state.xRange;
         }
-        private void myVolumeGraphObj_myOnViewportChanged(object sender, Charts.Controls.myGraphControl.ViewportState state)
+        private void myVolumeGraphObj_myOnViewportChanged(object sender, Charts.ViewportState state)
         {
-            myPriceGraphObj.myViewportX = state.Range;
+            myPriceGraphObj.myViewportX = state.xRange;
         }
     }
 }

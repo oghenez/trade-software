@@ -23,14 +23,17 @@ namespace Charts
         // The higher value of [sysSensibilityPAN], the slower chart-moving speed is.
         public static int sysSensibilityPAN = 3; //5
 
-        // Padding
-        public static double sysPadTOP = 0.2;
-        public static double sysPadBOT = 0.2;
 
         //Default margins of the rectangle where charts are in.
         public static int sysChartMarginLEFT = 50;
         public static int sysChartMarginRIGHT = 0;
         public static int sysChartMarginTOP = 0;
         public static int sysChartMarginBOTTOM = 3;
+
+        //Viewport need some space arround to give the feelig of full display 
+        public static double sysViewportMarginLEFT  = 0.0; //In percent , 5%
+        public static double sysViewportMarginRIGHT = 0.1;  
+        public static double sysViewportMarginTOP = 0.2;  //In value
+        public static double sysViewportMarginBOT = 0.2;
     }
 }

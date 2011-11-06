@@ -351,6 +351,7 @@
             this.codeEd.BackColor = System.Drawing.Color.White;
             this.codeEd.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.codeEd.ForeColor = System.Drawing.Color.Black;
+            this.codeEd.isToUpperCase = true;
             this.codeEd.Location = new System.Drawing.Point(128, 14);
             this.codeEd.Name = "codeEd";
             this.codeEd.Size = new System.Drawing.Size(81, 24);
@@ -360,6 +361,7 @@
             // transCodeEd
             // 
             this.transCodeEd.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.transCodeEd.isToUpperCase = false;
             this.transCodeEd.Location = new System.Drawing.Point(128, 38);
             this.transCodeEd.Name = "transCodeEd";
             this.transCodeEd.ReadOnly = true;
@@ -374,7 +376,7 @@
             this.transTypeCb.myValue = application.AppTypes.TradeActions.None;
             this.transTypeCb.Name = "transTypeCb";
             this.transTypeCb.SelectedValue = ((byte)(0));
-            this.transTypeCb.Size = new System.Drawing.Size(158, 21);
+            this.transTypeCb.Size = new System.Drawing.Size(158, 24);
             this.transTypeCb.TabIndex = 10;
             // 
             // transactionNoLbl
@@ -392,7 +394,6 @@
             this.ClientSize = new System.Drawing.Size(358, 340);
             this.Controls.Add(this.editGB1);
             this.Controls.Add(this.editGB2);
-            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "transactionBase";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Controls.SetChildIndex(this.TitleLbl, 0);

@@ -237,4 +237,7 @@
   <data name="strategy" xml:space="preserve">
     <value>Strategy</value>
   </data>
+  <data name="accept" xml:space="preserve">
+    <value>Accept</value>
+  </data>
 </root>

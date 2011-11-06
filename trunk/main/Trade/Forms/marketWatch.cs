@@ -62,5 +62,17 @@ namespace Trade.Forms
         {
             this.ShowMessage(e.ToString());
         }
+
+        private void marketWatch_Resize(object sender, EventArgs e)
+        {
+            try
+            {
+                this.stockCodeList.Height = this.ClientRectangle.Height;
+            }
+            catch (Exception er)
+            {
+                this.ShowError(er);
+            }
+        }
     }
 }

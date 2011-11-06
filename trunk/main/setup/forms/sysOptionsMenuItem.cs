@@ -41,10 +41,10 @@ namespace setup.forms
             timeOutAutoKeyEd.Value = application.Settings.sysTimeOut_AutoKey;
 
             //Format
-            localAmtMaskEd.Text = application.Settings.sysLocalAmtMask;
-            foreignAmtMaskEd.Text = application.Settings.sysForeignAmtMask;
-            qtyMaskEd.Text = application.Settings.sysQtyMask;
-            percentMaskEd.Text = application.Settings.sysPercentMask;
+            localAmtMaskEd.Text = application.Settings.sysMaskLocalAmt;
+            foreignAmtMaskEd.Text = application.Settings.sysMaskForeignAmt;
+            qtyMaskEd.Text = application.Settings.sysMaskQty;
+            percentMaskEd.Text = application.Settings.sysMaskPercent;
 
             foreignAmtPrecisionEd.Value = application.Settings.sysPrecisionForeign;
             localAmtPrecisionEd.Value = application.Settings.sysPrecisionLocal;
@@ -107,10 +107,10 @@ namespace setup.forms
             application.Settings.sysTimeOut_AutoKey = (int)timeOutAutoKeyEd.Value;
 
             //Format
-            application.Settings.sysLocalAmtMask= localAmtMaskEd.Text;
-            application.Settings.sysForeignAmtMask = foreignAmtMaskEd.Text;
-            application.Settings.sysQtyMask = qtyMaskEd.Text;
-            application.Settings.sysPercentMask = percentMaskEd.Text;
+            application.Settings.sysMaskLocalAmt = localAmtMaskEd.Text;
+            application.Settings.sysMaskForeignAmt = foreignAmtMaskEd.Text;
+            application.Settings.sysMaskQty = qtyMaskEd.Text;
+            application.Settings.sysMaskPercent = percentMaskEd.Text;
 
             application.Settings.sysPrecisionForeign = (byte)foreignAmtPrecisionEd.Value;
             application.Settings.sysPrecisionLocal = (byte)localAmtPrecisionEd.Value;

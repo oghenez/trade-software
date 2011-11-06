@@ -34,7 +34,7 @@
             this.codeListLb = new baseClass.controls.stockCodeSelect();
             this.timeScaleLbl = new baseClass.controls.baseLabel();
             this.timeScaleCb = new baseClass.controls.cbTimeScale();
-            this.allTimeRangeChk = new System.Windows.Forms.CheckBox();
+            this.allTimeRangeChk = new common.controls.baseCheckBox();
             this.codeListLbl = new baseClass.controls.baseLabel();
             this.timeRangeLb = new baseClass.controls.clbTimeRange();
             this.strategyLbl = new baseClass.controls.baseLabel();
@@ -94,6 +94,7 @@
             this.codeListLb.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
+            this.codeListLb.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.codeListLb.Location = new System.Drawing.Point(21, 383);
             this.codeListLb.Margin = new System.Windows.Forms.Padding(2);
             this.codeListLb.myItemString = "";
@@ -106,14 +107,13 @@
             // timeScaleLbl
             // 
             this.timeScaleLbl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.timeScaleLbl.AutoSize = true;
             this.timeScaleLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.timeScaleLbl.Location = new System.Drawing.Point(268, 7);
-            this.timeScaleLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.timeScaleLbl.Location = new System.Drawing.Point(168, 5);
             this.timeScaleLbl.Name = "timeScaleLbl";
-            this.timeScaleLbl.Size = new System.Drawing.Size(74, 16);
+            this.timeScaleLbl.Size = new System.Drawing.Size(174, 18);
             this.timeScaleLbl.TabIndex = 327;
             this.timeScaleLbl.Text = "Time scale";
+            this.timeScaleLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // timeScaleCb
             // 
@@ -161,7 +161,7 @@
             this.timeRangeLb.myItemValues = ((System.Collections.Specialized.StringCollection)(resources.GetObject("timeRangeLb.myItemValues")));
             this.timeRangeLb.Name = "timeRangeLb";
             this.timeRangeLb.ShowCheckedOnly = false;
-            this.timeRangeLb.Size = new System.Drawing.Size(426, 76);
+            this.timeRangeLb.Size = new System.Drawing.Size(426, 64);
             this.timeRangeLb.TabIndex = 10;
             // 
             // strategyLbl
@@ -178,6 +178,7 @@
             // 
             this.strategyClb.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
+            this.strategyClb.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.strategyClb.Location = new System.Drawing.Point(22, 127);
             this.strategyClb.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.strategyClb.myCheckedValues = ((System.Collections.Specialized.StringCollection)(resources.GetObject("strategyClb.myCheckedValues")));
@@ -345,7 +346,7 @@
         private System.Windows.Forms.ToolStripMenuItem addToWatchListMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         protected baseClass.controls.clbTimeRange timeRangeLb;
-        protected System.Windows.Forms.CheckBox allTimeRangeChk;
+        protected common.controls.baseCheckBox allTimeRangeChk;
         private System.Windows.Forms.ToolStripMenuItem profitDetailMenu;
         protected System.Windows.Forms.TabControl resultTab;
         protected baseClass.controls.baseLabel codeListLbl;

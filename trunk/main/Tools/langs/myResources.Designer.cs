@@ -457,6 +457,15 @@ namespace Tools.langs {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Price.
+        /// </summary>
+        internal static string price {
+            get {
+                return ResourceManager.GetString("price", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Price ratio.
         /// </summary>
         internal static string priceWeight {

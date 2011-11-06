@@ -288,9 +288,9 @@ namespace client.langs {
         /// <summary>
         ///   Looks up a localized string similar to Log out.
         /// </summary>
-        internal static string logOut {
+        internal static string logout {
             get {
-                return ResourceManager.GetString("logOut", resourceCulture);
+                return ResourceManager.GetString("logout", resourceCulture);
             }
         }
         

@@ -312,4 +312,7 @@
   <data name="openPrice" xml:space="preserve">
     <value>Mở</value>
   </data>
+  <data name="price" xml:space="preserve">
+    <value>Giá</value>
+  </data>
 </root>

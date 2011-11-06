@@ -22,13 +22,20 @@ namespace client
         const string constFormNameWatchList = "WatchList-";
         const string constFormNameTradeAlert = "TradeAlert";
         const string constFormNameEstimateTrade = "EstimateTrade-";
-        
+
+        private bool fProcessing = false;
+
         public main()
         {
             try
             {
                 InitializeComponent();
-                //test.LoadTestConfig();
+                if (application.Settings.sysTimerIntervalInSecs > 0)
+                {
+                    sysTimer.Interval = application.Settings.sysTimerIntervalInSecs * 1000; //Convert to mili-seconds 
+                    sysTimer.Enabled = true;
+                }
+                test.LoadTestConfig();
                 Init();
             }
             catch (Exception er)
@@ -316,6 +323,41 @@ namespace client
             }
         }
 
+        /// <summary>
+        /// Refresh data  : the function will be called after each [sysTimerIntervalInSecs] seconds 
+        /// </summary>
+        private void RefreshData()
+        {
+            IDockContent[] fomrs = new IDockContent[0];
+            for (int idx = 0; idx < dockPanel.Contents.Count; idx++)
+            {
+                //Update stock charts
+                if (dockPanel.Contents[idx].GetType() == typeof(Tools.Forms.tradeAnalysis))
+                {
+                    (dockPanel.Contents[idx] as Tools.Forms.tradeAnalysis).UpdateDataFromLastTime();
+                    continue;
+                }
+                //Market watch
+                if (dockPanel.Contents[idx].GetType() == typeof(Trade.Forms.marketWatch))
+                {
+                    (dockPanel.Contents[idx] as Trade.Forms.marketWatch).Refresh();
+                    continue;
+                }
+                //Portfolio watch
+                if (dockPanel.Contents[idx].GetType() == typeof(Trade.Forms.portfolioWatch))
+                {
+                    (dockPanel.Contents[idx] as Trade.Forms.portfolioWatch).Refresh();
+                    continue;
+                }
+                //Trade Alert
+                if (dockPanel.Contents[idx].GetType() == typeof(Trade.Forms.tradeAlertList))
+                {
+                    (dockPanel.Contents[idx] as Trade.Forms.tradeAlertList).Refresh();
+                    continue;
+                }
+            }
+        }
+
         private AppTypes.ChartTypes ChartType
         {
             get
@@ -482,7 +524,7 @@ namespace client
                 
                 myForm.ChartPriceType = this.ChartType;
                 myForm.Activated += new System.EventHandler(this.tradeAnalysisActivatedHandler);
-
+                myForm.myEstimateTradePoints += new Tools.Forms.tradeAnalysis.EstimateTradePointFunc(EstimateTradePointHandler);
                 //Cache it if no error occured
                 cachedForms.Add(formName, myForm);
             }
@@ -558,8 +600,35 @@ namespace client
             return null;
         }
 
+        private IDockContent[] GetCurrentForms(Type type)
+        {
+            IDockContent[] fomrs = new IDockContent[0];
+            for (int idx = 0; idx < dockPanel.Contents.Count; idx++)
+            {
+                if (dockPanel.Contents[idx].GetType() != type) continue;
+                Array.Resize(ref fomrs, fomrs.Length + 1);
+                fomrs[fomrs.Length - 1] = dockPanel.Contents[idx];
+            }
+            return fomrs;
+        }
+
+
         #region event handler
 
+        private void EstimateTradePointHandler(Tools.Forms.tradeAnalysis sendder, Strategy.TradePoints tradePoints)
+        {
+            string formName = constFormNameEstimateTrade + "-" + sendder.myData.DataStockCode;
+            Tools.Forms.profitEstimate myForm = (Tools.Forms.profitEstimate)cachedForms.Find(formName);
+            if (myForm == null || myForm.IsDisposed)
+            {
+                myForm = new Tools.Forms.profitEstimate();
+                myForm.Name = formName;
+                cachedForms.Add(formName, myForm);
+            }
+            myForm.CheckTradepoints(sendder.myData, tradePoints);
+            myForm.IsShowChart = true;
+            myForm.Show(dockPanel, DockState.DockBottom);
+        }
         private void tradeAnalysisActivatedHandler(object sender, EventArgs e)
         {
             try
@@ -1210,6 +1279,23 @@ namespace client
             }
         }
 
+        
+        private void sysTimer_Tick(object sender, EventArgs e)
+        {
+            try
+            {
+                if (fProcessing) return;
+                fProcessing = true;
+
+                RefreshData();
+                fProcessing = false;
+            }
+            catch (Exception er)
+            {
+                fProcessing = false;
+                this.ShowError(er);
+            }
+        }
         #endregion event handler
     }
 }

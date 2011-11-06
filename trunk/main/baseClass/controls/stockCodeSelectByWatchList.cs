@@ -96,8 +96,10 @@ namespace baseClass.controls
 
         public override void Refresh()
         {
+            int lastPosition = stockSource.Position;
             LoadData();
             RefreshPriceData(myTmpDS.stockCode);
+            if (lastPosition >= 0) stockSource.Position = lastPosition;
             base.Refresh();
         }
         public void Export()

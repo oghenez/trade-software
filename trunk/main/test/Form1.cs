@@ -18,7 +18,7 @@ namespace test
             InitializeComponent();
             data.system.dbConnectionString = "Data Source=(local);Initial Catalog=stock;Integrated Security=True";
             myData.DataStockCode = "SSI";
-            myData.DataTimeRange = application.AppTypes.TimeRanges.Y1;
+            myData.DataTimeRange = application.AppTypes.TimeRanges.M3;
             myData.Reload();
             test();
         }
@@ -37,7 +37,7 @@ namespace test
                                                             myGraph1.Height - Charts.Settings.sysChartMarginBOTTOM);
 
 
-            myGraph1.SetSeriesX(myData.DateTime.Values, Charts.Controls.myAxisType.Date);
+            myGraph1.SetSeriesX(myData.DateTime.Values, Charts.AxisType.Date);
             CurveItem curveItem1 = myGraph1.AddCurveLine("line1", myData.Close.Values, SymbolType.None, Color.Red,1);
             myGraph1.DefaultViewport();
 
@@ -70,7 +70,7 @@ namespace test
                                                 myGraph2.Width - Charts.Settings.sysChartMarginRIGHT,
                                                 myGraph2.Height - Charts.Settings.sysChartMarginBOTTOM);
 
-            myGraph2.SetSeriesX(myData.DateTime.Values, Charts.Controls.myAxisType.Date);
+            myGraph2.SetSeriesX(myData.DateTime.Values, Charts.AxisType.Date);
             CurveItem curveItem2 = myGraph2.AddCurveBar("line2", myData.Close.Values, Color.Green, Color.Navy, 1);
             myGraph2.DefaultViewport();
 

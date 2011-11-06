@@ -312,4 +312,7 @@
   <data name="openPrice" xml:space="preserve">
     <value>Open</value>
   </data>
+  <data name="price" xml:space="preserve">
+    <value>Price</value>
+  </data>
 </root>

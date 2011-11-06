@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Charts.Controls.IntRange intRange1 = new Charts.Controls.IntRange();
-            Charts.Controls.IntRange intRange2 = new Charts.Controls.IntRange();
+            Charts.IntRange intRange1 = new Charts.IntRange();
+            Charts.IntRange intRange2 = new Charts.IntRange();
             this.testBtn = new System.Windows.Forms.Button();
             this.myGraph2 = new Charts.Controls.myGraphControl();
             this.myGraph1 = new Charts.Controls.myGraphControl();
@@ -61,7 +61,6 @@
             this.myGraph2.IsEnableVPan = false;
             this.myGraph2.IsEnableVZoom = false;
             this.myGraph2.IsEnableWheelZoom = false;
-            this.myGraph2.isPanning = false;
             this.myGraph2.IsPrintFillPage = false;
             this.myGraph2.IsPrintKeepAspectRatio = false;
             this.myGraph2.IsPrintScaleAll = false;
@@ -94,7 +93,6 @@
             this.myGraph1.IsEnableHZoom = false;
             this.myGraph1.IsEnableVPan = false;
             this.myGraph1.IsEnableVZoom = false;
-            this.myGraph1.isPanning = false;
             this.myGraph1.IsShowContextMenu = false;
             this.myGraph1.IsShowPointValues = true;
             this.myGraph1.Location = new System.Drawing.Point(0, 31);
