@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Charts.IntRange intRange1 = new Charts.IntRange();
             this.reloadBtn = new System.Windows.Forms.Button();
             this.resetBtn = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
@@ -41,14 +40,16 @@
             this.genDataBtn = new System.Windows.Forms.Button();
             this.baseLabel1 = new common.controls.baseLabel();
             this.intervalEd = new common.controls.numberTextBox();
-            this.myGraph1 = new Charts.Controls.myGraphControl();
             this.codeLbl = new common.controls.baseLabel();
             this.codeEd = new common.controls.baseTextBox();
             this.basePanel1 = new common.controls.basePanel();
             this.moveToEndBtn = new System.Windows.Forms.Button();
             this.cbTimeRange = new baseClass.controls.cbTimeRange();
             this.cbTimeScale = new baseClass.controls.cbTimeScale();
+            this.graphPane1 = new Charts.Controls.baseGraphPanel();
+            this.tmpDataSet1 = new Tools.Data.tmpDataSet();
             this.basePanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tmpDataSet1)).BeginInit();
             this.SuspendLayout();
             // 
             // TitleLbl
@@ -181,34 +182,6 @@
             0,
             0});
             // 
-            // myGraph1
-            // 
-            this.myGraph1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.myGraph1.IsEnableHPan = false;
-            this.myGraph1.IsEnableHZoom = false;
-            this.myGraph1.IsEnableVPan = false;
-            this.myGraph1.IsEnableVZoom = false;
-            this.myGraph1.IsShowContextMenu = false;
-            this.myGraph1.IsShowPointValues = true;
-            this.myGraph1.Location = new System.Drawing.Point(0, 44);
-            this.myGraph1.myViewportX = intRange1;
-            this.myGraph1.Name = "myGraph1";
-            this.myGraph1.PanButtons = System.Windows.Forms.MouseButtons.None;
-            this.myGraph1.PanButtons2 = System.Windows.Forms.MouseButtons.None;
-            this.myGraph1.ScrollGrace = 0;
-            this.myGraph1.ScrollMaxX = 0;
-            this.myGraph1.ScrollMaxY = 0;
-            this.myGraph1.ScrollMaxY2 = 0;
-            this.myGraph1.ScrollMinX = 0;
-            this.myGraph1.ScrollMinY = 0;
-            this.myGraph1.ScrollMinY2 = 0;
-            this.myGraph1.Size = new System.Drawing.Size(901, 533);
-            this.myGraph1.TabIndex = 248;
-            this.myGraph1.ZoomButtons = System.Windows.Forms.MouseButtons.None;
-            this.myGraph1.ZoomStepFraction = 0;
-            // 
             // codeLbl
             // 
             this.codeLbl.AutoSize = true;
@@ -287,19 +260,38 @@
             this.cbTimeScale.Size = new System.Drawing.Size(67, 21);
             this.cbTimeScale.TabIndex = 3;
             // 
+            // graphPane1
+            // 
+            this.graphPane1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.graphPane1.haveCloseButton = true;
+            this.graphPane1.isExpanded = true;
+            this.graphPane1.Location = new System.Drawing.Point(0, 42);
+            this.graphPane1.myIconLocations = common.controls.basePanel.IconLocations.None;
+            this.graphPane1.mySizingOptions = common.controls.basePanel.SizingOptions.None;
+            this.graphPane1.myWeight = 0;
+            this.graphPane1.Name = "graphPane1";
+            this.graphPane1.Size = new System.Drawing.Size(1034, 625);
+            this.graphPane1.TabIndex = 261;
+            // 
+            // tmpDataSet1
+            // 
+            this.tmpDataSet1.DataSetName = "tmpDataSet";
+            this.tmpDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // mainTest
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(1217, 756);
+            this.Controls.Add(this.graphPane1);
             this.Controls.Add(this.basePanel1);
-            this.Controls.Add(this.myGraph1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "mainTest";
             this.Controls.SetChildIndex(this.TitleLbl, 0);
-            this.Controls.SetChildIndex(this.myGraph1, 0);
             this.Controls.SetChildIndex(this.basePanel1, 0);
+            this.Controls.SetChildIndex(this.graphPane1, 0);
             this.basePanel1.ResumeLayout(false);
             this.basePanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tmpDataSet1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -308,7 +300,6 @@
         #endregion
 
         private System.Windows.Forms.Button reloadBtn;
-        private Charts.Controls.myGraphControl myGraph1;
         private System.Windows.Forms.Button resetBtn;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Button timerBtn;
@@ -325,5 +316,7 @@
         private baseClass.controls.cbTimeScale cbTimeScale;
         private baseClass.controls.cbTimeRange cbTimeRange;
         private System.Windows.Forms.Button moveToEndBtn;
+        private Charts.Controls.baseGraphPanel graphPane1;
+        private Tools.Data.tmpDataSet tmpDataSet1;
     }
 }

@@ -43,18 +43,18 @@ namespace test
         {
 
             myData.Reload();
-            myGraph1.myGraphPane.CurveList.Clear();
-            myGraph1.SetSeriesX(myData.DateTime.Values, Charts.AxisType.DateAsOrdinal);
+            graphPane1.myGraphObj.myGraphPane.CurveList.Clear();
+            graphPane1.myGraphObj.SetSeriesX(myData.DateTime.Values, Charts.AxisType.DateAsOrdinal);
 
-            //candleCurve = myGraph1.AddCandleStick(myData.DataStockCode, myData.High.Values, myData.Low.Values, myData.Open.Values, myData.Close.Values, myData.Volume.Values,
+            //candleCurve = graphPane1.myGraphObj.AddCandleStick(myData.DataStockCode, myData.High.Values, myData.Low.Values, myData.Open.Values, myData.Close.Values, myData.Volume.Values,
             //                                             Settings.sysChartBarUpColor, Settings.sysChartBarDnColor,
             //                                             Settings.sysChartBullCandleColor, Settings.sysChartBearCandleColor);
 
-            lineCurve = myGraph1.AddCurveLine(myData.DataStockCode, myData.Close.Values, SymbolType.Circle, Color.Red, 1);
-            barCurve = myGraph1.AddCurveBar(myData.DataStockCode, myData.Close.Values,Color.Navy,Color.Green, 1);
-            myGraph1.SetFont(14);
-            myGraph1.DefaultViewport();
-            myGraph1.UpdateChart();
+            lineCurve = graphPane1.myGraphObj.AddCurveLine(myData.DataStockCode, myData.Close.Values, SymbolType.Circle, Color.Red, 1);
+            barCurve = graphPane1.myGraphObj.AddCurveBar(myData.DataStockCode, myData.Close.Values,Color.Navy,Color.Green, 1);
+            graphPane1.myGraphObj.SetFont(14);
+            graphPane1.myGraphObj.DefaultViewport();
+            graphPane1.myGraphObj.UpdateChart();
         }
 
         private void UpdatePriceRandom()
@@ -85,10 +85,10 @@ namespace test
             (list as StockPointList).Add(item);
 
 
-            myGraph1.DefaultViewport();
+            graphPane1.myGraphObj.DefaultViewport();
             
 
-            myGraph1.UpdateChart();
+            graphPane1.myGraphObj.UpdateChart();
             this.Text = list.Count.ToString();
             Application.DoEvents();
         }
@@ -102,10 +102,10 @@ namespace test
             UpdatePrice(noOfUpdate, lineCurve);
             UpdatePrice(noOfUpdate, barCurve);
         
-            //myGraph1.SetSeriesX(myData.DateTime.Values, Charts.AxisType.DateAsOrdinal);
-            myGraph1.UpdateSeries();
-            myGraph1.MoveToEnd();
-            myGraph1.UpdateChart();
+            //graphPane1.myGraphObj.SetSeriesX(myData.DateTime.Values, Charts.AxisType.DateAsOrdinal);
+            graphPane1.myGraphObj.UpdateSeries();
+            graphPane1.myGraphObj.MoveToEnd();
+            graphPane1.myGraphObj.UpdateChart();
 
 
             this.Text = myData.DateTime.Count.ToString();
@@ -138,73 +138,85 @@ namespace test
             }
         }
 
+        private void DrawCurveIndicator(Indicators.Meta meta)
+        {
+            graphPane1.myGraphObj.myGraphPane.CurveList.Clear();
+
+            //Indicators.Meta meta = Indicators.Libs.FindMetaByName(indicatorName);
+            string curveName = meta.ClassType.Name + "-" + meta.ParameterString;
+            Charts.Controls.baseGraphPanel myGraphPanel = graphPane1;
+
+            DataSeries indicatorSeries = Indicators.Libs.GetIndicatorData(this.myData, meta);
+            this.myData.DateTime.FirstValidValue = indicatorSeries.FirstValidValue;
+            switch (meta.Output[0].ChartType)
+            {
+                case AppTypes.ChartTypes.Bar:
+                    PlotCurveBar(curveName, myGraphPanel, this.myData.DateTime, indicatorSeries,
+                                 meta.Output[0].Color, Color.Black, meta.Output[0].Weight);
+                    break;
+                case AppTypes.ChartTypes.Line:
+                    PlotCurveLine(curveName, myGraphPanel, this.myData.DateTime, indicatorSeries,
+                                  meta.Output[0].Color, meta.Output[0].Weight);
+                    break;
+            }
+            // Some indicator such as MACD having more than one output series.
+            // In such case, indicator form MUST have [form.ExtraInfo] propery to provide information for the output series. 
+            DataSeries[] extraSeries = null;
+            if (meta.Output.Length > 1) extraSeries = Indicators.Libs.GetIndicatorData(indicatorSeries, meta);
+            if (extraSeries != null)
+            {
+                for (int idx = 0, metaIdx = 1; idx < extraSeries.Length && metaIdx < meta.Output.Length; idx++, metaIdx++)
+                {
+                    this.myData.DateTime.FirstValidValue = extraSeries[idx].FirstValidValue;
+                    curveName = meta.ClassType.Name + "-" + meta.ParameterString + "-" + idx.ToString();
+                    switch (meta.Output[metaIdx].ChartType)
+                    {
+                        case AppTypes.ChartTypes.Bar:
+                            PlotCurveBar(curveName, myGraphPanel, this.myData.DateTime, extraSeries[idx],
+                                         meta.Output[metaIdx].Color, Color.Black, meta.Output[metaIdx].Weight);
+                            break;
+                        case AppTypes.ChartTypes.Line:
+                            PlotCurveLine(curveName, myGraphPanel, this.myData.DateTime, extraSeries[idx],
+                                                    meta.Output[metaIdx].Color, meta.Output[metaIdx].Weight);
+                            break;
+
+                    }
+                }
+            }
+            graphPane1.myGraphObj.DefaultViewport();
+            graphPane1.myGraphObj.UpdateChart(); 
+        }
+        private CurveItem PlotCurveBar(string curveName, Charts.Controls.baseGraphPanel graphPane, DataSeries xSeries, DataSeries ySeries,
+                                               Color color, Color bdColor, int weight)
+        {
+            graphPane1.myGraphObj.SetSeriesX(xSeries.Values, Charts.AxisType.DateAsOrdinal);
+            CurveItem curveItem = graphPane.myGraphObj.AddCurveBar(curveName, ySeries.Values, color, bdColor, weight);
+            return curveItem;
+        }
+        private CurveItem PlotCurveLine(string curveName, Charts.Controls.baseGraphPanel graphPane, DataSeries xSeries, DataSeries ySeries,
+                                       Color color, int weight)
+        {
+            graphPane1.myGraphObj.SetSeriesX(xSeries.Values, Charts.AxisType.DateAsOrdinal);
+            CurveItem curveItem = graphPane.myGraphObj.AddCurveLine(curveName, ySeries.Values, SymbolType.None, color, weight);
+            return curveItem;
+        }
+        private CurveItem PlotCandleStick(string curveName, Charts.Controls.baseGraphPanel graphPane, application.Data data,
+                                          Color barUpColor, Color barDnColor, Color bullCandleColor, Color bearCandleColor)
+        {
+            graphPane1.myGraphObj.SetSeriesX(data.DateTime.Values, Charts.AxisType.DateAsOrdinal);
+            CurveItem curveItem = graphPane.myGraphObj.AddCandleStick(curveName, data.High.Values, data.Low.Values, data.Open.Values, data.Close.Values, data.Volume.Values,
+                                                                      barUpColor, barDnColor, bullCandleColor, bearCandleColor);
+            return curveItem;
+        }
 
 
-        //??
-        //private void DrawCurveIndicator(Indicators.Meta meta)
-        //{
-        //    //Indicators.Meta meta = Indicators.Libs.FindMetaByName(indicatorName);
-        //    string curveName = constCurveNamePrefixIndicator + meta.ClassType.Name + "-" + meta.ParameterString;
-        //    //Remove the old one if any
-        //    if (this.CurrentEditCurveName.Trim() != "")
-        //    {
-        //        RemoveCurveIndicator(this.CurrentEditCurveName, true);
-        //        this.CurrentEditCurveName = curveName;
-        //    }
-
-        //    baseClass.controls.graphPanel myGraphPanel = (meta.DrawInNewWindow ? this.newPanel : this.pricePanel);
-
-        //    DataSeries indicatorSeries = Indicators.Libs.GetIndicatorData(this.myData, meta);
-        //    this.myData.DateTime.FirstValidValue = indicatorSeries.FirstValidValue;
-        //    switch (meta.Output[0].ChartType)
-        //    {
-        //        case AppTypes.ChartTypes.Bar:
-        //            PlotCurveBar(curveName, myGraphPanel, this.myData.DateTime, indicatorSeries,
-        //                         meta.Output[0].Color, Color.Black, meta.Output[0].Weight);
-        //            break;
-        //        case AppTypes.ChartTypes.Line:
-        //            PlotCurveLine(curveName, myGraphPanel, this.myData.DateTime, indicatorSeries,
-        //                          meta.Output[0].Color, meta.Output[0].Weight);
-        //            break;
-        //    }
-        //    // Some indicator such as MACD having more than one output series.
-        //    // In such case, indicator form MUST have [form.ExtraInfo] propery to provide information for the output series. 
-        //    DataSeries[] extraSeries = null;
-        //    if (meta.Output.Length > 1) extraSeries = Indicators.Libs.GetIndicatorData(indicatorSeries, meta);
-        //    if (extraSeries != null)
-        //    {
-        //        for (int idx = 0, metaIdx = 1; idx < extraSeries.Length && metaIdx < meta.Output.Length; idx++, metaIdx++)
-        //        {
-        //            this.myData.DateTime.FirstValidValue = extraSeries[idx].FirstValidValue;
-        //            curveName = constCurveNamePrefixIndicator + meta.ClassType.Name + "-" + meta.ParameterString + "-" + idx.ToString();
-        //            switch (meta.Output[metaIdx].ChartType)
-        //            {
-        //                case AppTypes.ChartTypes.Bar:
-        //                    PlotCurveBar(curveName, myGraphPanel, this.myData.DateTime, extraSeries[idx],
-        //                                 meta.Output[metaIdx].Color, Color.Black, meta.Output[metaIdx].Weight);
-        //                    break;
-        //                case AppTypes.ChartTypes.Line:
-        //                    PlotCurveLine(curveName, myGraphPanel, this.myData.DateTime, extraSeries[idx],
-        //                                            meta.Output[metaIdx].Color, meta.Output[metaIdx].Weight);
-        //                    break;
-
-        //            }
-        //        }
-        //    }
-
-        //    if (meta.DrawInNewWindow)
-        //        newPanel.myGraphObj.myViewportX = pricePanel.myGraphObj.myViewportX;
-
-        //    string paraStr = meta.ParameterString;
-        //    curveName = constCurveNamePrefixIndicator + meta.ClassType.Name + "-" + paraStr;
-        //    string text = meta.ClassType.Name + (paraStr == "" ? "" : "(" + paraStr + ")");
-        //    ListViewItem item = activeIndicatorLV.Add(curveName, text, meta.Output[0].Color);
-        //    item.Tag = new IndicatorCurveInfo(curveName, meta);
-        //}
 
         private void resetBtn_Click(object sender, EventArgs e)
         {
-            myGraph1.DefaultViewport();
+            graphPane1.myGraphObj.DefaultViewport();
+
+            Indicators.Meta meta = Indicators.Libs.FindMetaByName("SMA");
+            DrawCurveIndicator(meta);
         }
 
         bool fProcessing = false;
@@ -235,27 +247,27 @@ namespace test
 
         private void zoomInBtn_Click(object sender, EventArgs e)
         {
-            myGraph1.ZoomIn();
+            graphPane1.myGraphObj.ZoomIn();
         }
 
         private void zoomOutBtn_Click(object sender, EventArgs e)
         {
-            myGraph1.ZoomOut();
+            graphPane1.myGraphObj.ZoomOut();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            myGraph1.ZoomOut();
+            graphPane1.myGraphObj.ZoomOut();
         }
 
         private void backBtn_Click(object sender, EventArgs e)
         {
-            myGraph1.MoveBackward();
+            graphPane1.myGraphObj.MoveBackward();
         }
 
         private void fowardBtn_Click(object sender, EventArgs e)
         {
-            myGraph1.MoveForward();
+            graphPane1.myGraphObj.MoveForward();
         }
 
         private void reloadBtn_Click(object sender, EventArgs e)
@@ -282,7 +294,7 @@ namespace test
 
         private void moveToEndBtn_Click(object sender, EventArgs e)
         {
-            myGraph1.MoveToEnd();
+            graphPane1.myGraphObj.MoveToEnd();
         }
     }
 }
