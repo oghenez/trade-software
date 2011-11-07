@@ -12,8 +12,15 @@ namespace baseClass.forms
     {
         public companyFind()
         {
-            InitializeComponent();
-            fullMode = false;
+            try
+            {
+                InitializeComponent();
+                fullMode = false;
+            }
+            catch (Exception er)
+            {
+                this.ShowError(er);
+            }
         }
         public static companyFind GetForm(string formName)
         {
@@ -36,7 +43,7 @@ namespace baseClass.forms
             nameColumn.HeaderText = language.GetString("name");
         }
 
-        public data.baseDS.stockCodeRow selectedDataRow = null;
+        public data.tmpDS.stockCodeRow selectedDataRow = null;
         protected bool fullMode
         {
             get
@@ -53,7 +60,7 @@ namespace baseClass.forms
 
         public string keyFldName
         {
-            get { return myBaseDS.stockCode.codeColumn.ColumnName; }
+            get { return myTmpDS.stockCode.codeColumn.ColumnName; }
         }
 
         public bool Find(string code)
@@ -66,18 +73,13 @@ namespace baseClass.forms
             try
             {
                 selectedDataRow = null;
-                itemSource.Filter = "";
+                dataSource.Filter = "";
 
                 code = code.Trim();
                 if (code != "")
                 {
-                    this.myBaseDS.stockCode.Clear();
-                    application.dataLibs.LoadData(this.myBaseDS.stockCode, code);
-                    if (this.myBaseDS.stockCode.Count > 0)
-                    {
-                        selectedDataRow = (data.baseDS.stockCodeRow)(((DataRowView)itemSource.Current).Row);
-                        return true;
-                    }
+                    selectedDataRow = application.dataLibs.FindAndCache(myTmpDS.stockCode,code);
+                    if(selectedDataRow != null) return true;
                     if (!ShowSelectionIfNotFound) return false;
                 }
                 LoadData(); 
@@ -93,9 +95,9 @@ namespace baseClass.forms
        
         private void LoadData()
         {
-            myBaseDS.stockCode.Clear();
-            application.dataLibs.LoadFromSQL(myBaseDS.stockCode, findCriteria.GetSQL());
-            ShowReccount("["+myBaseDS.stockCode.Count.ToString()+"]");
+            myTmpDS.stockCode.Clear();
+            application.dataLibs.LoadFromSQL(myTmpDS.stockCode, findCriteria.GetSQL());
+            ShowReccount("["+myTmpDS.stockCode.Count.ToString()+"]");
         }
 
         private void findBtn_Click(object sender, EventArgs e)
@@ -136,8 +138,8 @@ namespace baseClass.forms
         }
         private void selectBtn_Click(object sender, EventArgs e)
         {
-            if (itemSource.Current == null) selectedDataRow =null;
-            else selectedDataRow = (data.baseDS.stockCodeRow)(((DataRowView)itemSource.Current).Row);
+            if (dataSource.Current == null) selectedDataRow =null;
+            else selectedDataRow = (data.tmpDS.stockCodeRow)(((DataRowView)dataSource.Current).Row);
             this.Close();
         }
     }

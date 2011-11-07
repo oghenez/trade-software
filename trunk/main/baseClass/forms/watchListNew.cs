@@ -83,7 +83,7 @@ namespace baseClass.forms
             this.myPortfolioRow = null;
             if (codeEd.Text.Trim() != "")
             {
-                this.myPortfolioRow = application.dataLibs.FindAndCache(myDataSet.portfolio, codeEd.Text);
+                this.myPortfolioRow = application.dataLibs.FindAndCache(myDataSet.portfolio,codeEd.Text);
             }
             if (this.myPortfolioRow == null)
             {

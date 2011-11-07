@@ -15,14 +15,14 @@ namespace baseClass.controls
 {
     public partial class stockCodeSelectBySector : common.controls.baseUserControl
     {
-        private data.baseDS.stockCodeDataTable _stockCodeTbl = null;
-        protected data.baseDS.stockCodeDataTable myStockCodeTbl
+        private data.tmpDS.stockCodeDataTable _stockCodeTbl = null;
+        protected data.tmpDS.stockCodeDataTable myStockCodeTbl
         {
             get
             {
                 if (this._stockCodeTbl == null)
                 {
-                    this._stockCodeTbl = new data.baseDS.stockCodeDataTable();
+                    this._stockCodeTbl = new data.tmpDS.stockCodeDataTable();
                     dataLibs.LoadData(this._stockCodeTbl,AppTypes.CommonStatus.Enable);
                 }
                 return this._stockCodeTbl;
@@ -118,8 +118,9 @@ namespace baseClass.controls
             }
             else
             {
+                data.baseDS.stockCodeDataTable codeTbl = new data.baseDS.stockCodeDataTable(); 
                 string cond = common.system.MakeConditionStr(subSectorCodeList,
-                                                     this.myStockCodeTbl.bizSectorsColumn.ColumnName + " LIKE '" +
+                                                     codeTbl.bizSectorsColumn.ColumnName + " LIKE '" +
                                                      common.Consts.SQL_CMD_ALL_MARKER + common.settings.sysListSeparatorPrefix,
                                                      common.settings.sysListSeparatorPostfix + common.Consts.SQL_CMD_ALL_MARKER + "'",
                                                      "OR");

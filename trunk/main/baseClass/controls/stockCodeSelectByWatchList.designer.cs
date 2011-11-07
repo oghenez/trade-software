@@ -31,34 +31,21 @@
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.watchListCb = new common.controls.baseComboBox();
             this.stockGV = new common.controls.baseDataGridView();
-            this.stockSource = new System.Windows.Forms.BindingSource(this.components);
-            this.myTmpDS = new data.tmpDS();
-            this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
-            this.refreshBtn = new baseClass.controls.baseButton();
             this.stockExchangeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.codeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.priceColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.priceVariantColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.stockNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.stockSource = new System.Windows.Forms.BindingSource(this.components);
+            this.myTmpDS = new data.tmpDS();
+            this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
+            this.refreshBtn = new baseClass.controls.baseButton();
+            this.codeGroupCb = new baseClass.controls.cbStockSelection();
             ((System.ComponentModel.ISupportInitialize)(this.stockGV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.stockSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.myTmpDS)).BeginInit();
             this.SuspendLayout();
-            // 
-            // watchListCb
-            // 
-            this.watchListCb.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.watchListCb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.watchListCb.FormattingEnabled = true;
-            this.watchListCb.Location = new System.Drawing.Point(0, 0);
-            this.watchListCb.myValue = "";
-            this.watchListCb.Name = "watchListCb";
-            this.watchListCb.Size = new System.Drawing.Size(258, 24);
-            this.watchListCb.TabIndex = 1;
-            this.watchListCb.SelectionChangeCommitted += new System.EventHandler(this.watchListCb_SelectionChangeCommitted);
             // 
             // stockGV
             // 
@@ -86,34 +73,6 @@
             this.stockGV.TabIndex = 10;
             this.stockGV.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.stockGV_CellDoubleClick);
             this.stockGV.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.stockGV_DataBindingComplete);
-            // 
-            // stockSource
-            // 
-            this.stockSource.DataMember = "stockCode";
-            this.stockSource.DataSource = this.myTmpDS;
-            // 
-            // myTmpDS
-            // 
-            this.myTmpDS.DataSetName = "tmpDS";
-            this.myTmpDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // saveFileDialog
-            // 
-            this.saveFileDialog.DefaultExt = "*.xls";
-            this.saveFileDialog.Filter = "(*.xls)|*.xls|All files (*.*)|*.*";
-            // 
-            // refreshBtn
-            // 
-            this.refreshBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.refreshBtn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.refreshBtn.Image = global::baseClass.Properties.Resources.refresh;
-            this.refreshBtn.Location = new System.Drawing.Point(258, 1);
-            this.refreshBtn.Margin = new System.Windows.Forms.Padding(4);
-            this.refreshBtn.Name = "refreshBtn";
-            this.refreshBtn.Size = new System.Drawing.Size(18, 21);
-            this.refreshBtn.TabIndex = 2;
-            this.refreshBtn.UseVisualStyleBackColor = true;
-            this.refreshBtn.Click += new System.EventHandler(this.refreshBtn_Click);
             // 
             // stockExchangeColumn
             // 
@@ -163,11 +122,52 @@
             this.stockNameColumn.ReadOnly = true;
             this.stockNameColumn.Visible = false;
             // 
+            // stockSource
+            // 
+            this.stockSource.DataMember = "stockCode";
+            this.stockSource.DataSource = this.myTmpDS;
+            // 
+            // myTmpDS
+            // 
+            this.myTmpDS.DataSetName = "tmpDS";
+            this.myTmpDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // saveFileDialog
+            // 
+            this.saveFileDialog.DefaultExt = "*.xls";
+            this.saveFileDialog.Filter = "(*.xls)|*.xls|All files (*.*)|*.*";
+            // 
+            // refreshBtn
+            // 
+            this.refreshBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.refreshBtn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.refreshBtn.Image = global::baseClass.Properties.Resources.refresh;
+            this.refreshBtn.Location = new System.Drawing.Point(258, 1);
+            this.refreshBtn.Margin = new System.Windows.Forms.Padding(4);
+            this.refreshBtn.Name = "refreshBtn";
+            this.refreshBtn.Size = new System.Drawing.Size(18, 21);
+            this.refreshBtn.TabIndex = 2;
+            this.refreshBtn.UseVisualStyleBackColor = true;
+            this.refreshBtn.Click += new System.EventHandler(this.refreshBtn_Click);
+            // 
+            // codeGroupCb
+            // 
+            this.codeGroupCb.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.codeGroupCb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.codeGroupCb.FormattingEnabled = true;
+            this.codeGroupCb.Location = new System.Drawing.Point(1, -1);
+            this.codeGroupCb.myValue = baseClass.controls.cbStockSelection.Options.None;
+            this.codeGroupCb.Name = "codeGroupCb";
+            this.codeGroupCb.Size = new System.Drawing.Size(256, 24);
+            this.codeGroupCb.TabIndex = 1;
+            this.codeGroupCb.SelectionChangeCommitted += new System.EventHandler(this.codeGroupCb_SelectionChangeCommitted);
+            // 
             // stockCodeSelectByWatchList
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.Controls.Add(this.codeGroupCb);
             this.Controls.Add(this.refreshBtn);
-            this.Controls.Add(this.watchListCb);
             this.Controls.Add(this.stockGV);
             this.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(2);
@@ -183,7 +183,6 @@
 
         #endregion
 
-        private common.controls.baseComboBox watchListCb;
         protected baseButton refreshBtn;
         protected System.Windows.Forms.BindingSource stockSource;
         protected common.controls.baseDataGridView stockGV;
@@ -194,6 +193,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn priceColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn priceVariantColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn stockNameColumn;
+        protected cbStockSelection codeGroupCb;
 
     }
 }

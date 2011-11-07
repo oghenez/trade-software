@@ -112,7 +112,7 @@ namespace baseClass.forms
             for (int idx = 0; idx < myDataSet.investorStock.Count; idx++)
             {
                 if (myDataSet.investorStock[idx].RowState == DataRowState.Deleted) continue;
-                application.dataLibs.FindAndCache(myDataSet.stockCode, myDataSet.investorStock[idx].stockCode);
+                application.dataLibs.FindAndCache_StockCodeShort(myDataSet.investorStock[idx].stockCode);
             }
             //Transaction history
             myDataSet.transactions.Clear();

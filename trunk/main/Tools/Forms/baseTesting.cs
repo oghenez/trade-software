@@ -24,7 +24,7 @@ namespace Tools.Forms
                 this.ShowError(er);
             }
         }
-        public delegate void ShowStockFunc(data.baseDS.stockCodeRow stockCodeRow, AppTypes.TimeRanges timeRange, AppTypes.TimeScale timeScale);
+        public delegate void ShowStockFunc(string stockCode, AppTypes.TimeRanges timeRange, AppTypes.TimeScale timeScale);
         public event ShowStockFunc myShowStock = null;
 
         public enum ValueTypes : byte { Amount,Percentage};
@@ -49,13 +49,13 @@ namespace Tools.Forms
         protected virtual void Percent2Amount() { }
 
        
-        protected void ShowStock(data.baseDS.stockCodeRow stockCodeRow, AppTypes.TimeRanges timeRange, AppTypes.TimeScale timeScale)
+        protected void ShowStock(string stockCode, AppTypes.TimeRanges timeRange, AppTypes.TimeScale timeScale)
         {
             if (myShowStock == null) return;
-            myShowStock(stockCodeRow, timeRange, timeScale);
+            myShowStock(stockCode, timeRange, timeScale);
         }
 
-        protected void ShowTradeTransactions(data.baseDS.stockCodeRow stockCodeRow, string strategyCode,
+        protected void ShowTradeTransactions(data.tmpDS.stockCodeRow stockCodeRow, string strategyCode,
                                                  AppTypes.TimeRanges timeRange,AppTypes.TimeScale timeScale)
         {
             application.Data data = new application.Data(timeRange, timeScale, stockCodeRow.code);

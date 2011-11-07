@@ -385,6 +385,8 @@ namespace data {
             
             private global::System.Data.DataColumn columnprofitVariantAmt;
             
+            private global::System.Data.DataColumn columnnameEn;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public stockCodeDataTable() {
                 this.TableName = "stockCode";
@@ -514,6 +516,13 @@ namespace data {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn nameEnColumn {
+                get {
+                    return this.columnnameEn;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -542,7 +551,7 @@ namespace data {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public stockCodeRow AddstockCodeRow(string code, string stockExchange, string tickerCode, string name, decimal price, decimal priceVariant, int qty, decimal boughtPrice, decimal amt, decimal boughtAmt, decimal profitVariantPerc, string notes, int volume, decimal profitVariantAmt) {
+            public stockCodeRow AddstockCodeRow(string code, string stockExchange, string tickerCode, string name, decimal price, decimal priceVariant, int qty, decimal boughtPrice, decimal amt, decimal boughtAmt, decimal profitVariantPerc, string notes, int volume, decimal profitVariantAmt, string nameEn) {
                 stockCodeRow rowstockCodeRow = ((stockCodeRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         code,
@@ -558,7 +567,8 @@ namespace data {
                         profitVariantPerc,
                         notes,
                         volume,
-                        profitVariantAmt};
+                        profitVariantAmt,
+                        nameEn};
                 rowstockCodeRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowstockCodeRow);
                 return rowstockCodeRow;
@@ -598,6 +608,7 @@ namespace data {
                 this.columnnotes = base.Columns["notes"];
                 this.columnvolume = base.Columns["volume"];
                 this.columnprofitVariantAmt = base.Columns["profitVariantAmt"];
+                this.columnnameEn = base.Columns["nameEn"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -630,6 +641,8 @@ namespace data {
                 base.Columns.Add(this.columnvolume);
                 this.columnprofitVariantAmt = new global::System.Data.DataColumn("profitVariantAmt", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnprofitVariantAmt);
+                this.columnnameEn = new global::System.Data.DataColumn("nameEn", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnameEn);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columncode}, true));
                 this.columncode.AllowDBNull = false;
@@ -652,6 +665,7 @@ namespace data {
                 this.columnnotes.MaxLength = 1;
                 this.columnvolume.ReadOnly = true;
                 this.columnprofitVariantAmt.ReadOnly = true;
+                this.columnnameEn.MaxLength = 255;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1872,6 +1886,21 @@ namespace data {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string nameEn {
+                get {
+                    try {
+                        return ((string)(this[this.tablestockCode.nameEnColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'nameEn\' in table \'stockCode\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablestockCode.nameEnColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public bool IspriceNull() {
                 return this.IsNull(this.tablestockCode.priceColumn);
             }
@@ -1969,6 +1998,16 @@ namespace data {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public void SetprofitVariantAmtNull() {
                 this[this.tablestockCode.profitVariantAmtColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsnameEnNull() {
+                return this.IsNull(this.tablestockCode.nameEnColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetnameEnNull() {
+                this[this.tablestockCode.nameEnColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -2704,6 +2743,7 @@ namespace data.tmpDSTableAdapters {
             tableMapping.ColumnMappings.Add("notes", "notes");
             tableMapping.ColumnMappings.Add("volume", "volume");
             tableMapping.ColumnMappings.Add("profitVariantAmt", "profitVariantAmt");
+            tableMapping.ColumnMappings.Add("nameEn", "nameEn");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -2715,33 +2755,37 @@ namespace data.tmpDSTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[4];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[5];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT code, stockExchange, tickerCode, name, 0 AS qty, 0 AS volume, 0.0 AS price,0.0 AS priceVariant,  0.0 AS boughtPrice, 0.0 AS amt, 0.0 AS boughtAmt, 0.0 AS profitVariantAmt, 0.0 AS profitVariantPerc, ' '  AS notes
+            this._commandCollection[0].CommandText = @"SELECT code, stockExchange, tickerCode, name,nameEn,  0 AS qty, 0 AS volume, 0.0 AS price,0.0 AS priceVariant,  0.0 AS boughtPrice, 0.0 AS amt, 0.0 AS boughtAmt, 0.0 AS profitVariantAmt, 0.0 AS profitVariantPerc, ' '  AS notes
  FROM stockCode WHERE (code = @code)";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@code", global::System.Data.SqlDbType.NVarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "code", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = @"SELECT code, stockExchange, tickerCode, name, 0 AS qty, 0 AS volume, 0.0 AS price,0.0 AS priceVariant,  0.0 AS boughtPrice, 0.0 AS amt, 0.0 AS boughtAmt, 0.0 AS profitVariantAmt, 0.0 AS profitVariantPerc, ' '  AS notes
-FROM stockCode WHERE (bizSectors LIKE @bizSectors) AND (status & @status > 0) ORDER BY code";
+            this._commandCollection[1].CommandText = "SELECT code, stockExchange, tickerCode, name,nameEn,  0 AS qty, 0 AS volume, 0.0 " +
+                "AS price,0.0 AS priceVariant,  0.0 AS boughtPrice, 0.0 AS amt, 0.0 AS boughtAmt," +
+                " 0.0 AS profitVariantAmt, 0.0 AS profitVariantPerc, \' \'  AS notes\r\n FROM stockCo" +
+                "de ";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@bizSectors", global::System.Data.SqlDbType.NVarChar, 1024, global::System.Data.ParameterDirection.Input, 0, 0, "bizSectors", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@status", global::System.Data.SqlDbType.VarChar, 1024, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = @"SELECT code, stockExchange, tickerCode, name, 0 AS qty, 0 AS volume, 0.0 AS price,0.0 AS priceVariant,  0.0 AS boughtPrice, 0.0 AS amt, 0.0 AS boughtAmt, 0.0 AS profitVariantAmt, 0.0 AS profitVariantPerc, ' '  AS notes
- FROM stockCode WHERE (status & @statusMask > 0) ORDER BY code";
+            this._commandCollection[2].CommandText = @"SELECT 0.0 AS amt, 0.0 AS boughtAmt, 0.0 AS boughtPrice, code, name, nameEn, ' ' AS notes, 0.0 AS price, 0.0 AS priceVariant, 0.0 AS profitVariantAmt, 0.0 AS profitVariantPerc, 0 AS qty, stockExchange, tickerCode, 0 AS volume FROM stockCode WHERE (bizSectors LIKE @bizSectors) AND (status & @status > 0) ORDER BY code";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@statusMask", global::System.Data.SqlDbType.VarChar, 1024, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@bizSectors", global::System.Data.SqlDbType.NVarChar, 1024, global::System.Data.ParameterDirection.Input, 0, 0, "bizSectors", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@status", global::System.Data.SqlDbType.VarChar, 1024, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[3].Connection = this.Connection;
-            this._commandCollection[3].CommandText = @"SELECT code, stockExchange, tickerCode, name, 0 AS qty, 0 AS volume, 0.0 AS price,0.0 AS priceVariant,  0.0 AS boughtPrice, 0.0 AS amt, 0.0 AS boughtAmt, 0.0 AS profitVariantAmt, 0.0 AS profitVariantPerc, ' '  AS notes
-FROM stockCode WHERE (stockExchange = @stockExchange) AND (status & @statusMask > 0) ORDER BY code";
+            this._commandCollection[3].CommandText = @"SELECT 0.0 AS amt, 0.0 AS boughtAmt, 0.0 AS boughtPrice, code, name, nameEn, ' ' AS notes, 0.0 AS price, 0.0 AS priceVariant, 0.0 AS profitVariantAmt, 0.0 AS profitVariantPerc, 0 AS qty, stockExchange, tickerCode, 0 AS volume FROM stockCode WHERE (status & @statusMask > 0) ORDER BY code";
             this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@stockExchange", global::System.Data.SqlDbType.NVarChar, 10, global::System.Data.ParameterDirection.Input, 0, 0, "stockExchange", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@statusMask", global::System.Data.SqlDbType.VarChar, 1024, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[4].Connection = this.Connection;
+            this._commandCollection[4].CommandText = @"SELECT 0.0 AS amt, 0.0 AS boughtAmt, 0.0 AS boughtPrice, code, name, nameEn, ' ' AS notes, 0.0 AS price, 0.0 AS priceVariant, 0.0 AS profitVariantAmt, 0.0 AS profitVariantPerc, 0 AS qty, stockExchange, tickerCode, 0 AS volume FROM stockCode WHERE (stockExchange = @stockExchange) AND (status & @statusMask > 0) ORDER BY code";
+            this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@stockExchange", global::System.Data.SqlDbType.NVarChar, 10, global::System.Data.ParameterDirection.Input, 0, 0, "stockExchange", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@statusMask", global::System.Data.SqlDbType.VarChar, 1024, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2781,8 +2825,30 @@ FROM stockCode WHERE (stockExchange = @stockExchange) AND (status & @statusMask 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillByBizSector(tmpDS.stockCodeDataTable dataTable, string bizSectors, string status) {
+        public virtual int Fill(tmpDS.stockCodeDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual tmpDS.stockCodeDataTable GetData() {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            tmpDS.stockCodeDataTable dataTable = new tmpDS.stockCodeDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByBizSector(tmpDS.stockCodeDataTable dataTable, string bizSectors, string status) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
             if ((bizSectors == null)) {
                 throw new global::System.ArgumentNullException("bizSectors");
             }
@@ -2806,7 +2872,7 @@ FROM stockCode WHERE (stockExchange = @stockExchange) AND (status & @statusMask 
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual tmpDS.stockCodeDataTable GetByBizSector(string bizSectors, string status) {
-            this.Adapter.SelectCommand = this.CommandCollection[1];
+            this.Adapter.SelectCommand = this.CommandCollection[2];
             if ((bizSectors == null)) {
                 throw new global::System.ArgumentNullException("bizSectors");
             }
@@ -2828,7 +2894,7 @@ FROM stockCode WHERE (stockExchange = @stockExchange) AND (status & @statusMask 
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
         public virtual int FillByStatusMask(tmpDS.stockCodeDataTable dataTable, string statusMask) {
-            this.Adapter.SelectCommand = this.CommandCollection[2];
+            this.Adapter.SelectCommand = this.CommandCollection[3];
             if ((statusMask == null)) {
                 throw new global::System.ArgumentNullException("statusMask");
             }
@@ -2846,7 +2912,7 @@ FROM stockCode WHERE (stockExchange = @stockExchange) AND (status & @statusMask 
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual tmpDS.stockCodeDataTable GetByStatusMask(string statusMask) {
-            this.Adapter.SelectCommand = this.CommandCollection[2];
+            this.Adapter.SelectCommand = this.CommandCollection[3];
             if ((statusMask == null)) {
                 throw new global::System.ArgumentNullException("statusMask");
             }
@@ -2862,7 +2928,7 @@ FROM stockCode WHERE (stockExchange = @stockExchange) AND (status & @statusMask 
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
         public virtual int FillByStockExchange(tmpDS.stockCodeDataTable dataTable, string stockExchange, string statusMask) {
-            this.Adapter.SelectCommand = this.CommandCollection[3];
+            this.Adapter.SelectCommand = this.CommandCollection[4];
             if ((stockExchange == null)) {
                 throw new global::System.ArgumentNullException("stockExchange");
             }
@@ -2886,7 +2952,7 @@ FROM stockCode WHERE (stockExchange = @stockExchange) AND (status & @statusMask 
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual tmpDS.stockCodeDataTable GetByStockExchange(string stockExchange, string statusMask) {
-            this.Adapter.SelectCommand = this.CommandCollection[3];
+            this.Adapter.SelectCommand = this.CommandCollection[4];
             if ((stockExchange == null)) {
                 throw new global::System.ArgumentNullException("stockExchange");
             }

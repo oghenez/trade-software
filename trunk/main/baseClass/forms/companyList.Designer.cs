@@ -52,11 +52,13 @@
             // xpPanel_OtherInfo
             // 
             this.xpPanel_OtherInfo.ImageItems.ImageSet = null;
+            this.xpPanel_OtherInfo.Location = new System.Drawing.Point(0, 552);
             this.xpPanel_OtherInfo.Size = new System.Drawing.Size(483, 203);
             // 
             // xpPanel_StockInfo
             // 
             this.xpPanel_StockInfo.ImageItems.ImageSet = null;
+            this.xpPanel_StockInfo.Location = new System.Drawing.Point(0, 340);
             this.xpPanel_StockInfo.Size = new System.Drawing.Size(483, 212);
             // 
             // xpPanel_GeneralInfo
@@ -113,12 +115,6 @@
             this.reloadBtn.Margin = new System.Windows.Forms.Padding(2);
             this.reloadBtn.Size = new System.Drawing.Size(69, 39);
             // 
-            // printBtn
-            // 
-            this.printBtn.Location = new System.Drawing.Point(789, 15);
-            this.printBtn.Margin = new System.Windows.Forms.Padding(2);
-            this.printBtn.Size = new System.Drawing.Size(44, 31);
-            // 
             // unLockBtn
             // 
             this.unLockBtn.Location = new System.Drawing.Point(579, 241);
@@ -130,6 +126,12 @@
             this.lockBtn.Location = new System.Drawing.Point(579, 214);
             this.lockBtn.Margin = new System.Windows.Forms.Padding(2);
             this.lockBtn.Size = new System.Drawing.Size(16, 17);
+            // 
+            // printBtn
+            // 
+            this.printBtn.Location = new System.Drawing.Point(789, 15);
+            this.printBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.printBtn.Size = new System.Drawing.Size(44, 31);
             // 
             // TitleLbl
             // 
@@ -193,14 +195,12 @@
             // 
             // filterBtn
             // 
-            this.filterBtn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
             this.filterBtn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.filterBtn.Image = global::baseClass.Properties.Resources.filter;
             this.filterBtn.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.filterBtn.Location = new System.Drawing.Point(251, 109);
+            this.filterBtn.Location = new System.Drawing.Point(247, 109);
             this.filterBtn.Name = "filterBtn";
-            this.filterBtn.Size = new System.Drawing.Size(86, 36);
+            this.filterBtn.Size = new System.Drawing.Size(86, 37);
             this.filterBtn.TabIndex = 10;
             this.filterBtn.Text = "Lọc";
             this.filterBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -209,14 +209,12 @@
             // 
             // closeFindBtn
             // 
-            this.closeFindBtn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
             this.closeFindBtn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.closeFindBtn.Image = global::baseClass.Properties.Resources.close;
             this.closeFindBtn.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.closeFindBtn.Location = new System.Drawing.Point(337, 109);
+            this.closeFindBtn.Location = new System.Drawing.Point(333, 109);
             this.closeFindBtn.Name = "closeFindBtn";
-            this.closeFindBtn.Size = new System.Drawing.Size(86, 36);
+            this.closeFindBtn.Size = new System.Drawing.Size(86, 37);
             this.closeFindBtn.TabIndex = 11;
             this.closeFindBtn.Text = "Đóng";
             this.closeFindBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -226,9 +224,9 @@
             // findCriteria
             // 
             this.findCriteria.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.findCriteria.Location = new System.Drawing.Point(34, 4);
+            this.findCriteria.Location = new System.Drawing.Point(62, 4);
             this.findCriteria.Name = "findCriteria";
-            this.findCriteria.Size = new System.Drawing.Size(392, 101);
+            this.findCriteria.Size = new System.Drawing.Size(358, 101);
             this.findCriteria.TabIndex = 1;
             // 
             // companyList

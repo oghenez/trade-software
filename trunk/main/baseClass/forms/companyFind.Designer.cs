@@ -31,10 +31,12 @@
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(companyFind));
-            this.itemSource = new System.Windows.Forms.BindingSource(this.components);
-            this.myBaseDS = new data.baseDS();
+            this.dataSource = new System.Windows.Forms.BindingSource(this.components);
+            this.myTmpDS = new data.tmpDS();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGrid = new common.controls.baseDataGridView();
+            this.codeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -43,10 +45,8 @@
             this.closeBtn = new baseClass.controls.baseButton();
             this.selectBtn = new baseClass.controls.baseButton();
             this.findBtn = new baseClass.controls.baseButton();
-            this.codeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.itemSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.myBaseDS)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.myTmpDS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -57,16 +57,15 @@
             this.TitleLbl.Text = "TÌM KIẾM";
             this.TitleLbl.Visible = false;
             // 
-            // itemSource
+            // dataSource
             // 
-            this.itemSource.DataMember = "stockCode";
-            this.itemSource.DataSource = this.myBaseDS;
+            this.dataSource.DataMember = "stockCode";
+            this.dataSource.DataSource = this.myTmpDS;
             // 
-            // myBaseDS
+            // myTmpDS
             // 
-            this.myBaseDS.DataSetName = "baseDS";
-            this.myBaseDS.EnforceConstraints = false;
-            this.myBaseDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.myTmpDS.DataSetName = "tmpDS";
+            this.myTmpDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // dataGridViewImageColumn1
             // 
@@ -83,7 +82,7 @@
             this.dataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.codeColumn,
             this.nameColumn});
-            this.dataGrid.DataSource = this.itemSource;
+            this.dataGrid.DataSource = this.dataSource;
             this.dataGrid.DisableReadOnlyColumn = false;
             this.dataGrid.Location = new System.Drawing.Point(0, 97);
             this.dataGrid.Name = "dataGrid";
@@ -95,6 +94,22 @@
             this.dataGrid.TabIndex = 2;
             this.dataGrid.DoubleClick += new System.EventHandler(this.selectBtn_Click);
             this.dataGrid.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.grid_DataError);
+            // 
+            // codeColumn
+            // 
+            this.codeColumn.DataPropertyName = "code";
+            this.codeColumn.HeaderText = "Code";
+            this.codeColumn.Name = "codeColumn";
+            this.codeColumn.ReadOnly = true;
+            this.codeColumn.Width = 80;
+            // 
+            // nameColumn
+            // 
+            this.nameColumn.DataPropertyName = "name";
+            this.nameColumn.HeaderText = "Name";
+            this.nameColumn.Name = "nameColumn";
+            this.nameColumn.ReadOnly = true;
+            this.nameColumn.Width = 300;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -182,22 +197,6 @@
             this.findBtn.UseVisualStyleBackColor = true;
             this.findBtn.Click += new System.EventHandler(this.findBtn_Click);
             // 
-            // codeColumn
-            // 
-            this.codeColumn.DataPropertyName = "code";
-            this.codeColumn.HeaderText = "Code";
-            this.codeColumn.Name = "codeColumn";
-            this.codeColumn.ReadOnly = true;
-            this.codeColumn.Width = 80;
-            // 
-            // nameColumn
-            // 
-            this.nameColumn.DataPropertyName = "name";
-            this.nameColumn.HeaderText = "Name";
-            this.nameColumn.Name = "nameColumn";
-            this.nameColumn.ReadOnly = true;
-            this.nameColumn.Width = 300;
-            // 
             // companyFind
             // 
             this.ClientSize = new System.Drawing.Size(439, 514);
@@ -216,8 +215,8 @@
             this.Controls.SetChildIndex(this.selectBtn, 0);
             this.Controls.SetChildIndex(this.closeBtn, 0);
             this.Controls.SetChildIndex(this.findCriteria, 0);
-            ((System.ComponentModel.ISupportInitialize)(this.itemSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.myBaseDS)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.myTmpDS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -226,9 +225,8 @@
 
         #endregion
 
-        private System.Windows.Forms.BindingSource itemSource;
+        private System.Windows.Forms.BindingSource dataSource;
         protected baseClass.controls.baseButton findBtn;
-        private data.baseDS myBaseDS;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
@@ -240,5 +238,6 @@
         protected controls.companyCriteria findCriteria;
         private System.Windows.Forms.DataGridViewTextBoxColumn codeColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameColumn;
+        protected data.tmpDS myTmpDS;
     }
 }

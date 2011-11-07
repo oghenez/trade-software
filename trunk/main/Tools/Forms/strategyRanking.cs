@@ -457,7 +457,7 @@ namespace Tools.Forms
 
                 if (resultDataGrid.CurrentRow == null) return;
                 AppTypes.TimeRanges timeRange = AppTypes.TimeRangeFromCode(resultDataGrid.Columns[e.ColumnIndex].DataPropertyName);
-                data.baseDS.stockCodeRow stockCodeRow = application.dataLibs.FindAndCache(myDataSet.stockCode, stockCode);
+                data.tmpDS.stockCodeRow stockCodeRow = application.dataLibs.FindAndCache_StockCodeShort(stockCode);
                 if (stockCodeRow == null) return;
 
                 string strategyCode = resultDataGrid.CurrentRow.Cells[0].Value.ToString();
@@ -522,12 +522,9 @@ namespace Tools.Forms
                 if(resultDataGrid.CurrentCell.ColumnIndex<=0) return;
 
                 string stockCode = resultTab.SelectedTab.Name;  
-                data.baseDS.stockCodeRow stockCodeRow = application.dataLibs.FindAndCache(myDataSet.stockCode, stockCode);
-                if (stockCodeRow == null) return;
-
                 int colId = resultDataGrid.CurrentCell.ColumnIndex;
                 AppTypes.TimeRanges timeRange = AppTypes.TimeRangeFromCode(resultDataGrid.Columns[colId].DataPropertyName);
-                ShowStock(stockCodeRow, timeRange, timeScaleCb.myValue);
+                ShowStock(stockCode, timeRange, timeScaleCb.myValue);
             }
             catch (Exception er)
             {
@@ -565,8 +562,8 @@ namespace Tools.Forms
                 common.controls.baseDataGridView resultDataGrid = this.CurrentDataGridView;
                 if (resultDataGrid == null) return;
 
-                string stockCode = resultTab.SelectedTab.Name;  
-                data.baseDS.stockCodeRow stockCodeRow = application.dataLibs.FindAndCache(myDataSet.stockCode, stockCode);
+                string stockCode = resultTab.SelectedTab.Name;
+                data.tmpDS.stockCodeRow stockCodeRow = application.dataLibs.FindAndCache_StockCodeShort(stockCode);
                 if (stockCodeRow == null) return;
 
                 if (resultDataGrid.SelectedRows.Count > 0)
@@ -608,7 +605,7 @@ namespace Tools.Forms
                 if (resultDataGrid.CurrentCell.ColumnIndex<=0) return;
 
                 string stockCode = resultTab.SelectedTab.Name;
-                data.baseDS.stockCodeRow stockCodeRow = application.dataLibs.FindAndCache(myDataSet.stockCode, stockCode);
+                data.tmpDS.stockCodeRow stockCodeRow = application.dataLibs.FindAndCache_StockCodeShort(stockCode);
                 if (stockCodeRow == null) return;
                 Strategy.Meta meta = Strategy.Libs.FindMetaByName(resultDataGrid.CurrentRow.Cells[0].Value.ToString());
 

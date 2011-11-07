@@ -42,15 +42,17 @@
             // 
             // closeFindBtn
             // 
+            this.closeFindBtn.Location = new System.Drawing.Point(330, 109);
             this.closeFindBtn.Text = "Close";
             // 
             // filterBtn
             // 
+            this.filterBtn.Location = new System.Drawing.Point(244, 109);
             this.filterBtn.Text = "Find";
             // 
             // findCriteria
             // 
-            this.findCriteria.Location = new System.Drawing.Point(35, 4);
+            this.findCriteria.Location = new System.Drawing.Point(55, 4);
             // 
             // xpPanelGroup_Info
             // 

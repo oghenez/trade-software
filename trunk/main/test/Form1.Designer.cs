@@ -30,10 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             Charts.IntRange intRange1 = new Charts.IntRange();
-            Charts.IntRange intRange2 = new Charts.IntRange();
             this.testBtn = new System.Windows.Forms.Button();
             this.myGraph2 = new Charts.Controls.myGraphControl();
-            this.myGraph1 = new Charts.Controls.myGraphControl();
+            this.graphControl1 = new ZedGraph.ZedGraphControl();
             this.SuspendLayout();
             // 
             // TitleLbl
@@ -54,6 +53,7 @@
             // 
             // myGraph2
             // 
+            this.myGraph2._save_myViewportX = intRange1;
             this.myGraph2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.myGraph2.IsEnableHPan = false;
@@ -84,49 +84,35 @@
             this.myGraph2.ZoomButtons = System.Windows.Forms.MouseButtons.None;
             this.myGraph2.ZoomStepFraction = 0;
             // 
-            // myGraph1
+            // graphControl1
             // 
-            this.myGraph1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.myGraph1.IsEnableHPan = false;
-            this.myGraph1.IsEnableHZoom = false;
-            this.myGraph1.IsEnableVPan = false;
-            this.myGraph1.IsEnableVZoom = false;
-            this.myGraph1.IsShowContextMenu = false;
-            this.myGraph1.IsShowPointValues = true;
-            this.myGraph1.Location = new System.Drawing.Point(0, 31);
-            this.myGraph1.myViewportX = intRange2;
-            this.myGraph1.Name = "myGraph1";
-            this.myGraph1.PanButtons = System.Windows.Forms.MouseButtons.None;
-            this.myGraph1.PanButtons2 = System.Windows.Forms.MouseButtons.None;
-            this.myGraph1.ScrollGrace = 0;
-            this.myGraph1.ScrollMaxX = 0;
-            this.myGraph1.ScrollMaxY = 0;
-            this.myGraph1.ScrollMaxY2 = 0;
-            this.myGraph1.ScrollMinX = 0;
-            this.myGraph1.ScrollMinY = 0;
-            this.myGraph1.ScrollMinY2 = 0;
-            this.myGraph1.Size = new System.Drawing.Size(924, 453);
-            this.myGraph1.TabIndex = 248;
-            this.myGraph1.ZoomButtons = System.Windows.Forms.MouseButtons.None;
-            this.myGraph1.ZoomStepFraction = 0;
+            this.graphControl1.Location = new System.Drawing.Point(0, 31);
+            this.graphControl1.Name = "graphControl1";
+            this.graphControl1.ScrollGrace = 0;
+            this.graphControl1.ScrollMaxX = 0;
+            this.graphControl1.ScrollMaxY = 0;
+            this.graphControl1.ScrollMaxY2 = 0;
+            this.graphControl1.ScrollMinX = 0;
+            this.graphControl1.ScrollMinY = 0;
+            this.graphControl1.ScrollMinY2 = 0;
+            this.graphControl1.Size = new System.Drawing.Size(952, 439);
+            this.graphControl1.TabIndex = 250;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(952, 717);
+            this.Controls.Add(this.graphControl1);
             this.Controls.Add(this.myGraph2);
-            this.Controls.Add(this.myGraph1);
             this.Controls.Add(this.testBtn);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "Form1";
             this.Text = "Form1";
             this.Controls.SetChildIndex(this.testBtn, 0);
             this.Controls.SetChildIndex(this.TitleLbl, 0);
-            this.Controls.SetChildIndex(this.myGraph1, 0);
             this.Controls.SetChildIndex(this.myGraph2, 0);
+            this.Controls.SetChildIndex(this.graphControl1, 0);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -135,7 +121,7 @@
         #endregion
 
         private System.Windows.Forms.Button testBtn;
-        private Charts.Controls.myGraphControl myGraph1;
         private Charts.Controls.myGraphControl myGraph2;
+        private ZedGraph.ZedGraphControl graphControl1;
     }
 }

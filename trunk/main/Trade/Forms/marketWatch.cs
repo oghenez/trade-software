@@ -52,9 +52,9 @@ namespace Trade.Forms
                 return stockCodeList.CurrentRow;
             }
         }
-        public override void Refresh()
+        public void RefreshPrice()
         {
-            stockCodeList.Refresh();
+            stockCodeList.RefreshPrice();
             base.Refresh();
         }
 

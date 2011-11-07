@@ -39,7 +39,7 @@ namespace imports.forms
             myDataSet.stockCode.Clear();
             myDataSet.bizSubSector.Clear();
 
-            application.dataLibs.LoadData(myDataSet.stockCode,application.AppTypes.CommonStatus.Enable);
+            application.dataLibs.LoadStockCode_ByStatus(myDataSet.stockCode,application.AppTypes.CommonStatus.Enable);
             application.dataLibs.LoadData(myDataSet.bizSubSector);
 
             mySubSectorView = new DataView(myDataSet.bizSubSector);

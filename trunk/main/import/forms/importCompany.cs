@@ -33,7 +33,7 @@ namespace imports.forms
             myDataSet.stockCode.Clear();
 
             myDataSet.stockExchange.Clear();
-            application.dataLibs.LoadData(myDataSet.stockCode,application.AppTypes.CommonStatus.Enable);
+            application.dataLibs.LoadStockCode_ByStatus(myDataSet.stockCode,application.AppTypes.CommonStatus.Enable);
 
             this.ShowMessage(" Import from sheet : " + dataFileNameEd.Text);
             common.fileFuncs.WriteLog("Import from sheet : " + dataFileNameEd.Text);

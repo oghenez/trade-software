@@ -313,12 +313,12 @@ namespace Tools.Forms
             SetDataGrid(resultDataGrid, testRetsultTbl);
 
             progressBar.Value = 0; progressBar.Minimum=0; progressBar.Maximum = stockCodeList.Count;
-            data.baseDS.stockCodeRow stockCodeRow;
+            data.tmpDS.stockCodeRow stockCodeRow;
             bool fMatched = false;
             for (int rowId = 0; rowId < stockCodeList.Count; rowId++)
             {
                 fMatched = false;
-                stockCodeRow = application.dataLibs.FindAndCache(myDataSet.stockCode, stockCodeList[rowId]);
+                stockCodeRow = application.dataLibs.FindAndCache_StockCodeShort(stockCodeList[rowId]);
                 if (stockCodeRow == null) continue;
                 DataRow row = testRetsultTbl.NewRow();
                 row[0] = stockCodeList[rowId];
@@ -418,9 +418,7 @@ namespace Tools.Forms
                 string stockCode = resultDataGrid.CurrentRow.Cells[0].Value.ToString();
                 if (e.ColumnIndex == 0)
                 {
-                    data.baseDS.stockCodeRow stockCodeRow;
-                    stockCodeRow = application.dataLibs.FindAndCache(myDataSet.stockCode, stockCode);
-                    if (stockCodeRow != null) ShowStock(stockCodeRow, Settings.sysScreeningTimeRange, Settings.sysScreeningTimeScale);
+                    ShowStock(stockCode, Settings.sysScreeningTimeRange, Settings.sysScreeningTimeScale);
                     return;
                 }
             }
@@ -473,14 +471,12 @@ namespace Tools.Forms
             try
             {
                 string stockCode;
-                data.baseDS.stockCodeRow stockCodeRow;
                 if (resultDataGrid.SelectedRows.Count > 0)
                 {
                     for (int idx = 0; idx < resultDataGrid.SelectedRows.Count; idx++)
                     {
                         stockCode = resultDataGrid.SelectedRows[idx].Cells[0].Value.ToString();
-                        stockCodeRow = application.dataLibs.FindAndCache(myDataSet.stockCode, stockCode);
-                        if (stockCodeRow != null) ShowStock(stockCodeRow,Settings.sysScreeningTimeRange, Settings.sysScreeningTimeScale);
+                        ShowStock(stockCode, Settings.sysScreeningTimeRange, Settings.sysScreeningTimeScale);
                     }
                 }
                 else
@@ -488,8 +484,7 @@ namespace Tools.Forms
                     if (resultDataGrid.CurrentRow != null)
                     {
                         stockCode = resultDataGrid.CurrentRow.Cells[0].Value.ToString();
-                        stockCodeRow = application.dataLibs.FindAndCache(myDataSet.stockCode, stockCode);
-                        if (stockCodeRow != null) ShowStock(stockCodeRow, Settings.sysScreeningTimeRange, Settings.sysScreeningTimeScale);
+                        ShowStock(stockCode, Settings.sysScreeningTimeRange, Settings.sysScreeningTimeScale);
                     }
                 }
             }

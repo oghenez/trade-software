@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(stockCodeSelect));
-            this.stockSelectionCb = new baseClass.controls.cbStockSelection();
+            this.codeGroupCb = new baseClass.controls.cbStockSelection();
             this.optionPnl.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -68,30 +68,30 @@
             // 
             this.selectCodeBtn.Location = new System.Drawing.Point(803, 2);
             // 
-            // showOnlyCheckedChk
+            // onlySeletedChk
             // 
             this.onlySeletedChk.Location = new System.Drawing.Point(97, 3);
             // 
-            // stockSelectionCb
+            // codeGroupCb
             // 
-            this.stockSelectionCb.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.codeGroupCb.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.stockSelectionCb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.stockSelectionCb.FormattingEnabled = true;
-            this.stockSelectionCb.Location = new System.Drawing.Point(0, 0);
-            this.stockSelectionCb.myValue = baseClass.controls.cbStockSelection.Options.None;
-            this.stockSelectionCb.Name = "stockSelectionCb";
-            this.stockSelectionCb.Size = new System.Drawing.Size(826, 24);
-            this.stockSelectionCb.TabIndex = 1;
-            this.stockSelectionCb.SelectionChangeCommitted += new System.EventHandler(this.stockSelectionCb_SelectionChangeCommitted);
+            this.codeGroupCb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.codeGroupCb.FormattingEnabled = true;
+            this.codeGroupCb.Location = new System.Drawing.Point(0, 0);
+            this.codeGroupCb.myValue = baseClass.controls.cbStockSelection.Options.None;
+            this.codeGroupCb.Name = "codeGroupCb";
+            this.codeGroupCb.Size = new System.Drawing.Size(826, 24);
+            this.codeGroupCb.TabIndex = 1;
+            this.codeGroupCb.SelectionChangeCommitted += new System.EventHandler(this.codeGroupCb_SelectionChangeCommitted);
             // 
             // stockCodeSelect
             // 
-            this.Controls.Add(this.stockSelectionCb);
+            this.Controls.Add(this.codeGroupCb);
             this.myValues = ((System.Collections.Specialized.StringCollection)(resources.GetObject("$this.myValues")));
             this.Name = "stockCodeSelect";
             this.Size = new System.Drawing.Size(826, 596);
-            this.Controls.SetChildIndex(this.stockSelectionCb, 0);
+            this.Controls.SetChildIndex(this.codeGroupCb, 0);
             this.Controls.SetChildIndex(this.bizSectorTypesSelection, 0);
             this.Controls.SetChildIndex(this.stockCodeClb, 0);
             this.Controls.SetChildIndex(this.optionPnl, 0);
@@ -103,6 +103,6 @@
 
         #endregion
 
-        protected cbStockSelection stockSelectionCb;
+        protected cbStockSelection codeGroupCb;
     }
 }

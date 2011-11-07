@@ -681,7 +681,7 @@ namespace Strategy
             decimal feePerc = options.TransFeecPerc / 100;
             short buy2SellInterval = options.Buy2SellInterval;
 
-            global::data.baseDS.stockCodeRow stockCodeRow = dataLibs.GetStockData(data.DataStockCode);
+            global::data.baseDS.stockCodeRow stockCodeRow = dataLibs.FindAndCache_StockCode(data.DataStockCode);
             if (stockCodeRow == null) return;
 
             data.tmpDS.tradeEstimateRow row;

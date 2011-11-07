@@ -96,7 +96,7 @@ namespace imports.forms
                         this.ShowMessage("Delete aggregation data...");
                         application.dataLibs.DeletePriceSumData();
                         this.ShowMessage("Loading data...");
-                        application.dataLibs.LoadData(myDataSet.stockCode, application.AppTypes.CommonStatus.Enable);
+                        application.dataLibs.LoadStockCode_ByStatus(myDataSet.stockCode, application.AppTypes.CommonStatus.Enable);
                         for (int idx = 0; idx < myDataSet.stockCode.Count; idx++)
                         {
                             if (fCanceled) break;

@@ -314,10 +314,10 @@ namespace Tools.Forms
             SetDataGrid(resultDataGrid, testRetsultTbl);
 
             progressBar.Value = 0; progressBar.Minimum = 0; progressBar.Maximum = stockCodeList.Count;
-            data.baseDS.stockCodeRow stockCodeRow;
+            data.tmpDS.stockCodeRow stockCodeRow;
             for (int rowId = 0; rowId < stockCodeList.Count; rowId++)
             {
-                stockCodeRow = application.dataLibs.FindAndCache(myDataSet.stockCode, stockCodeList[rowId]);
+                stockCodeRow = application.dataLibs.FindAndCache_StockCodeShort(stockCodeList[rowId]);
                 if (stockCodeRow == null) continue;
                 decimal profit = 0;
                 application.Data analysisData = new application.Data(periodicityEd.myTimeRange, periodicityEd.myTimeScale, stockCodeRow.code);
@@ -433,16 +433,13 @@ namespace Tools.Forms
             {
                 if (resultDataGrid.CurrentRow == null) return;
                 string stockCode = resultDataGrid.CurrentRow.Cells[0].Value.ToString();
-                data.baseDS.stockCodeRow stockCodeRow;
+                data.tmpDS.stockCodeRow stockCodeRow;
                 if (e.ColumnIndex == 0)
                 {
-                    stockCodeRow = application.dataLibs.FindAndCache(myDataSet.stockCode, stockCode);
-                    if (stockCodeRow != null) return;
-                    ShowStock(stockCodeRow, periodicityEd.myTimeRange,periodicityEd.myTimeScale);
+                    ShowStock(stockCode, periodicityEd.myTimeRange, periodicityEd.myTimeScale);
                     return;
                 }
-
-                stockCodeRow = application.dataLibs.FindAndCache(myDataSet.stockCode, stockCode);
+                stockCodeRow = application.dataLibs.FindAndCache_StockCodeShort(stockCode);
                 string strategyCode = strategyClb.myCheckedValues[e.ColumnIndex - 1];
                 ShowTradeTransactions(stockCodeRow, strategyCode, periodicityEd.myTimeRange, periodicityEd.myTimeScale);
             }
@@ -536,14 +533,12 @@ namespace Tools.Forms
             try
             {
                 string stockCode;
-                data.baseDS.stockCodeRow stockCodeRow;
                 if (resultDataGrid.SelectedRows.Count > 0)
                 {
                     for (int idx = 0; idx < resultDataGrid.SelectedRows.Count; idx++)
                     {
                         stockCode = resultDataGrid.SelectedRows[idx].Cells[0].Value.ToString();
-                        stockCodeRow = application.dataLibs.FindAndCache(myDataSet.stockCode, stockCode);
-                        if (stockCodeRow != null) ShowStock(stockCodeRow, periodicityEd.myTimeRange, periodicityEd.myTimeScale);
+                        ShowStock(stockCode, periodicityEd.myTimeRange, periodicityEd.myTimeScale);
                     }
                 }
                 else
@@ -551,8 +546,7 @@ namespace Tools.Forms
                     if (resultDataGrid.CurrentRow != null)
                     {
                         stockCode = resultDataGrid.CurrentRow.Cells[0].Value.ToString();
-                        stockCodeRow = application.dataLibs.FindAndCache(myDataSet.stockCode, stockCode);
-                        if (stockCodeRow != null) ShowStock(stockCodeRow, periodicityEd.myTimeRange, periodicityEd.myTimeScale);
+                        ShowStock(stockCode, periodicityEd.myTimeRange, periodicityEd.myTimeScale);
                     }
                 }
             }
@@ -592,13 +586,13 @@ namespace Tools.Forms
             try
             {
                 string stockCode;
-                data.baseDS.stockCodeRow stockCodeRow;
+                data.tmpDS.stockCodeRow stockCodeRow;
                 if (resultDataGrid.SelectedRows.Count > 0)
                 {
                     for (int idx1 = 0; idx1 < resultDataGrid.SelectedRows.Count; idx1++)
                     {
                         stockCode = resultDataGrid.SelectedRows[idx1].Cells[0].Value.ToString();
-                        stockCodeRow = application.dataLibs.FindAndCache(myDataSet.stockCode, stockCode);
+                        stockCodeRow = application.dataLibs.FindAndCache_StockCodeShort(stockCode);
                         if (stockCodeRow == null) continue;
                         for (int idx2 = 0; idx2 < strategyClb.myCheckedValues.Count; idx2++)
                         {
@@ -612,7 +606,7 @@ namespace Tools.Forms
                     if (resultDataGrid.CurrentRow != null)
                     {
                         stockCode = resultDataGrid.CurrentRow.Cells[0].Value.ToString();
-                        stockCodeRow = application.dataLibs.FindAndCache(myDataSet.stockCode, stockCode);
+                        stockCodeRow = application.dataLibs.FindAndCache_StockCodeShort(stockCode);
                         if (stockCodeRow == null) return;
                         for (int idx2 = 0; idx2 < strategyClb.myCheckedValues.Count; idx2++)
                         {
@@ -635,7 +629,7 @@ namespace Tools.Forms
                 if (resultDataGrid.CurrentCell.ColumnIndex <= 0) return;
 
                 string stockCode = resultDataGrid.CurrentRow.Cells[0].Value.ToString();
-                data.baseDS.stockCodeRow stockCodeRow = application.dataLibs.FindAndCache(myDataSet.stockCode, stockCode);
+                data.tmpDS.stockCodeRow stockCodeRow = application.dataLibs.FindAndCache_StockCodeShort(stockCode);
                 if (stockCodeRow == null) return;
                 ShowTradeTransactions(stockCodeRow, strategyClb.myCheckedValues[resultDataGrid.CurrentCell.ColumnIndex-1],
                                       periodicityEd.myTimeRange, periodicityEd.myTimeScale);

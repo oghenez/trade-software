@@ -16,7 +16,8 @@ namespace test
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new mainTest());
-            Application.Run(new testPanel());
+            //Application.Run(new testPanel());
+            Application.Run(new Form1());
         }
     }
 }

@@ -17,8 +17,8 @@ namespace test
         {
             InitializeComponent();
             data.system.dbConnectionString = "Data Source=(local);Initial Catalog=stock;Integrated Security=True";
-            myData.DataStockCode = "SSI";
-            myData.DataTimeRange = application.AppTypes.TimeRanges.M3;
+            myData.DataStockCode = "ACB";
+            myData.DataTimeRange = application.AppTypes.TimeRanges.Y1;
             myData.Reload();
             test();
         }
@@ -26,43 +26,51 @@ namespace test
 
         private void test()
         {
-
             //Graph 1
-            myGraph1.myGraphPane.GraphObjList.Clear();
-            myGraph1.myGraphPane.GraphObjList.Clear();
-            myGraph1.SetFont(12);
-            myGraph1.myGraphPane.Chart.Rect = new RectangleF(Charts.Settings.sysChartMarginLEFT,
-                                                            Charts.Settings.sysChartMarginTOP,
-                                                            myGraph1.Width - Charts.Settings.sysChartMarginRIGHT-60,
-                                                            myGraph1.Height - Charts.Settings.sysChartMarginBOTTOM);
+            graphControl1.MasterPane[0].GraphObjList.Clear();
+            //graphControl1.MasterPane[0].Chart.Rect = new RectangleF(Charts.Settings.sysChartMarginLEFT,
+            //                                                Charts.Settings.sysChartMarginTOP,
+            //                                                graphControl1.Width - Charts.Settings.sysChartMarginRIGHT - 60,
+            //                                                graphControl1.Height - Charts.Settings.sysChartMarginBOTTOM);
+
+            graphControl1.MasterPane[0].XAxis.IsVisible = true;
+            graphControl1.MasterPane[0].XAxis.MinSpace = 100;
+            graphControl1.MasterPane[0].XAxis.Scale.MinGrace = 10;
+            graphControl1.MasterPane[0].XAxis.Scale.MaxGrace = 10;
 
 
-            myGraph1.SetSeriesX(myData.DateTime.Values, Charts.AxisType.Date);
-            CurveItem curveItem1 = myGraph1.AddCurveLine("line1", myData.Close.Values, SymbolType.None, Color.Red,1);
-            myGraph1.DefaultViewport();
+            graphControl1.MasterPane[0].XAxis.Type = AxisType.DateAsOrdinal; 
+            CurveItem curveItem1 = graphControl1.MasterPane[0].AddCurve("line1",myData.DateTime.Values, myData.Close.Values,Color.Red);
+            
 
-            //Add 3 mmarkers at left, middle, right locations
-            PointPairList list = new PointPairList();
-            int[] idList = new int[] { 4, myData.Close.Count/2, myData.Close.Count - 1 };
-            for (int idx = 0; idx < idList.Length; idx++)
-            {
-                PointPair point = curveItem1.Points[idList[idx]];
+            ////Add 3 mmarkers at left, middle, right locations
+            //PointPairList list = new PointPairList();
+            //int[] idList = new int[] { 0, myData.Close.Count/2, myData.Close.Count - 1 };
 
-                TextObj text = new TextObj();
-                text.Text = "o";
-                text.Location.X = point.X;
-                text.Location.Y = point.Y;
-                text.Location.CoordinateFrame = CoordType.AxisXYScale;
-                text.FontSpec.FontColor = Color.Green;
-                text.FontSpec.IsBold = false;
-                text.FontSpec.Size = 12;
-                myGraph1.myGraphPane.GraphObjList.Add(text);
-            }
+            //for (int idx = 0; idx < curveItem1.Points.Count-1; idx += 2)
+            //{
+            //    PointPair point = curveItem1.Points[idx];
+
+            //    TextObj text = new TextObj();
+            //    text.Text = "o";
+            //    text.Location.CoordinateFrame = CoordType.AxisXYScale;
+            //    PointF p = graphControl1.MasterPane[0].GeneralTransform(point.X, point.Y, text.Location.CoordinateFrame);
+
+            //    text.Location.X = idx;
+            //    text.Location.Y = point.Y;
+
+            //    text.Location.AlignH = AlignH.Center;
+            //    text.Location.AlignV = AlignV.Top;
+                
+            //    text.FontSpec.FontColor = Color.Green;
+            //    text.FontSpec.IsBold = false;
+            //    text.FontSpec.Size = 12;
+            //    graphControl1.MasterPane[0].GraphObjList.Add(text);
+            //}
+
             //Graph 2
-
             myGraph2.myGraphPane.GraphObjList.Clear();
 
-            //Set font size but it is not the same as myGraph1, why ??
             myGraph2.SetFont(12);
             
             myGraph2.myGraphPane.Chart.Rect = new RectangleF(Charts.Settings.sysChartMarginLEFT,
@@ -74,13 +82,25 @@ namespace test
             CurveItem curveItem2 = myGraph2.AddCurveBar("line2", myData.Close.Values, Color.Green, Color.Navy, 1);
             myGraph2.DefaultViewport();
 
-            myGraph1.UpdateChart();
+            graphControl1.AxisChange();
+            graphControl1.Invalidate();
+
             myGraph2.UpdateChart();
 
         }
 
         private void testBtn_Click(object sender, EventArgs e)
         {
+            ShowStockChart("ACB");
+        }
+        private void ShowStockChart(string code)
+        {
+            data.baseDS.stockCodeRow stockRow = application.dataLibs.GetStockData(code);
+            string formName = stockRow.code.Trim();
+            Tools.Forms.test myForm = new Tools.Forms.test();
+            myForm.Name = formName;
+            myForm.UseStock(stockRow);  //Get data first
+            myForm.ShowDialog();
         }
     }
 }

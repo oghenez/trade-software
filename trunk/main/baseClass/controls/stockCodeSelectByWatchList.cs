@@ -39,8 +39,10 @@ namespace baseClass.controls
                 myTmpDS.stockCode.priceColumn.ReadOnly = false;
                 myTmpDS.stockCode.priceVariantColumn.ReadOnly = false;
 
-                LoadWatchList();
-                Refresh();
+                codeGroupCb.LoadData();
+                codeGroupCb.SelectedItem = cbStockSelection.Options.All;
+                LoadData();
+
                 common.dialogs.SetFileDialogEXCEL(saveFileDialog);
             }
             catch (Exception er)
@@ -53,7 +55,7 @@ namespace baseClass.controls
         public override void SetLanguage()
         {
             base.SetLanguage();
-            LoadWatchList();
+            codeGroupCb.SetLanguage();
             stockExchangeColumn.HeaderText = language.GetString("exchange");
             codeColumn.HeaderText = language.GetString("code");
             priceColumn.HeaderText = language.GetString("price");
@@ -94,14 +96,19 @@ namespace baseClass.controls
             stockGV.Columns[colName.ToString()].Visible = status;
         }
 
-        public override void Refresh()
+        public void RefreshAll()
         {
             int lastPosition = stockSource.Position;
             LoadData();
-            RefreshPriceData(myTmpDS.stockCode);
             if (lastPosition >= 0) stockSource.Position = lastPosition;
             base.Refresh();
         }
+        public void RefreshPrice()
+        {
+            RefreshPriceData(myTmpDS.stockCode);
+        }
+
+
         public void Export()
         {
             if (saveFileDialog.ShowDialog() == DialogResult.Cancel) return;
@@ -116,93 +123,41 @@ namespace baseClass.controls
             }
         }
 
-        private void LoadWatchList()
+        private  void LoadData()
         {
-            watchListCb.Items.Clear();
-            common.myKeyValueExt item = new common.myKeyValueExt(application.Settings.sysString_All_Description, application.Settings.sysString_All_Code);
-            item.Attribute1 = ((byte)watchListTypes.All).ToString();
-            watchListCb.Items.Add(item);        
-
-            //stockExchange
-            data.baseDS.stockExchangeDataTable stockExchangeTbl = new data.baseDS.stockExchangeDataTable();
-            stockExchangeTbl.Clear();
-            dataLibs.LoadData(stockExchangeTbl);
-            for (int idx = 0; idx < stockExchangeTbl.Count; idx++)
-            {
-                item = new common.myKeyValueExt(stockExchangeTbl[idx].code,stockExchangeTbl[idx].code);
-                item.Attribute1 = ((byte)watchListTypes.StockExchange).ToString();
-                watchListCb.Items.Add(item);        
-            }
-            //Portfolio
-            data.baseDS.portfolioDataTable portfolioTbl = new data.baseDS.portfolioDataTable();
-            portfolioTbl.Clear();
-            dataLibs.LoadPortfolioByInvestor(portfolioTbl,sysLibs.sysLoginCode,AppTypes.PortfolioTypes.SysWatchList);
-            if (portfolioTbl.Count > 0)
-            {
-                item = new common.myKeyValueExt("--"+ language.GetString("system") +"--", "");
-                item.Attribute1 = ((byte)watchListTypes.SysWatchList).ToString();
-                watchListCb.Items.Add(item);
-            }
-            for (int idx = 0; idx < portfolioTbl.Count; idx++)
-            {
-                item = new common.myKeyValueExt(portfolioTbl[idx].name, portfolioTbl[idx].code);
-                item.Attribute1 = ((byte)watchListTypes.SysWatchList).ToString();
-                watchListCb.Items.Add(item);
-            }
-            portfolioTbl.Clear();
-            dataLibs.LoadPortfolioByInvestor(portfolioTbl, sysLibs.sysLoginCode, AppTypes.PortfolioTypes.WatchList);
-            if (portfolioTbl.Count > 0)
-            {
-                item = new common.myKeyValueExt("--"+language.GetString("watchList")+"--", "");
-                item.Attribute1 = ((byte)watchListTypes.WatchList).ToString();
-                watchListCb.Items.Add(item);
-            }
-            for (int idx = 0; idx < portfolioTbl.Count; idx++)
-            {
-                item = new common.myKeyValueExt(portfolioTbl[idx].name, portfolioTbl[idx].code);
-                item.Attribute1 = ((byte)watchListTypes.WatchList).ToString();
-                watchListCb.Items.Add(item);
-            }
-            if (watchListCb.Items.Count > 0)
-            {
-                watchListCb.MaxDropDownItems = watchListCb.Items.Count;
-                watchListCb.SelectedIndex = 0;
-            }
-        }
-        private void LoadData()
-        {
-            if (watchListCb.SelectedItem == null) return;
-            common.myKeyValueExt item = (common.myKeyValueExt)watchListCb.SelectedItem;
-            watchListTypes watchListType = (watchListTypes)byte.Parse(item.Attribute1);
             myTmpDS.stockCode.Clear();
+            common.myKeyValueExt item = (common.myKeyValueExt)codeGroupCb.SelectedItem;
+            cbStockSelection.Options watchListType = (cbStockSelection.Options)byte.Parse(item.Attribute1);
+            StringCollection stocCodeList = new StringCollection();
             switch (watchListType)
-            { 
-                case watchListTypes.All:
-                     dataLibs.LoadData(myTmpDS.stockCode, AppTypes.CommonStatus.Enable); 
-                     break;
-                case watchListTypes.StockExchange:
-                     dataLibs.LoadStockCode_ByStockExchange(myTmpDS.stockCode, item.Value, AppTypes.CommonStatus.Enable);
-                     break;
-                case watchListTypes.SysWatchList:
-                case watchListTypes.WatchList:
-                     StringCollection watchList = new StringCollection();
-                     //All stock codes of  specified type ??
-                     if (item.Value != "")
-                     {
-                         watchList.Add(item.Value);
-                     }
-                     else
-                     {
-                         for (int idx = 0; idx < watchListCb.Items.Count; idx++)
-                         {
-                             common.myKeyValueExt tmpItem = (common.myKeyValueExt)watchListCb.Items[idx];
-                             if (watchListType != (watchListTypes)byte.Parse(tmpItem.Attribute1) || (tmpItem.Value == "") ) continue;
-                             watchList.Add(tmpItem.Value);
-                         }
-                     }
-                     dataLibs.LoadStockCode_ByWatchList(myTmpDS.stockCode, watchList);
-                     break;
+            {
+                case cbStockSelection.Options.All:
+                    dataLibs.LoadData(myTmpDS.stockCode, AppTypes.CommonStatus.Enable); 
+                    break;
+                case cbStockSelection.Options.StockExchange:
+                    dataLibs.LoadStockCode_ByStockExchange(myTmpDS.stockCode, item.Value, AppTypes.CommonStatus.Enable);
+                    break;
+                case cbStockSelection.Options.SysWatchList:
+                case cbStockSelection.Options.WatchList:
+                    StringCollection watchList = new StringCollection();
+                    //All stock codes of  specified type ??
+                    if (item.Value != "")
+                    {
+                        watchList.Add(item.Value);
+                    }
+                    else
+                    {
+                        for (int idx = 0; idx < codeGroupCb.Items.Count; idx++)
+                        {
+                            common.myKeyValueExt tmpItem = (common.myKeyValueExt)codeGroupCb.Items[idx];
+                            if (watchListType != (cbStockSelection.Options)byte.Parse(tmpItem.Attribute1) || (tmpItem.Value == "")) continue;
+                            watchList.Add(tmpItem.Value);
+                        }
+                    }
+                    dataLibs.LoadStockCode_ByWatchList(myTmpDS.stockCode, watchList);
+                    break;
             }
+            RefreshPrice();
         }
         private static void RefreshPriceData(data.tmpDS.stockCodeDataTable dataTbl)
         {
@@ -229,7 +184,7 @@ namespace baseClass.controls
                 ErrorHandler(this, er); ;
             }         
         }
-        private void watchListCb_SelectionChangeCommitted(object sender, EventArgs e)
+        private void codeGroupCb_SelectionChangeCommitted(object sender, EventArgs e)
         {
             try
             {
@@ -244,7 +199,7 @@ namespace baseClass.controls
         {
             try
             {
-                Refresh();
+                RefreshAll();
             }
             catch (Exception er)
             {

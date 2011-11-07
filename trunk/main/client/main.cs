@@ -340,7 +340,7 @@ namespace client
                 //Market watch
                 if (dockPanel.Contents[idx].GetType() == typeof(Trade.Forms.marketWatch))
                 {
-                    (dockPanel.Contents[idx] as Trade.Forms.marketWatch).Refresh();
+                    (dockPanel.Contents[idx] as Trade.Forms.marketWatch).RefreshPrice();
                     continue;
                 }
                 //Portfolio watch
@@ -505,13 +505,7 @@ namespace client
 
         private void ShowStockChart(string stockCode)
         {
-            data.baseDS.stockCodeRow stockRow = dataLibs.GetStockData(stockCode);
-            if (stockRow == null) return;
-            ShowStockChart(stockRow);
-        }
-        private void ShowStockChart(data.baseDS.stockCodeRow stockRow)
-        {
-            string formName = constFormNameStock + stockRow.code.Trim();
+            string formName = constFormNameStock + stockCode.Trim();
             Tools.Forms.tradeAnalysis myForm = (Tools.Forms.tradeAnalysis)cachedForms.Find(formName);
             if (myForm == null || myForm.IsDisposed)
             {
@@ -519,7 +513,7 @@ namespace client
                 myForm.Name = formName;
 
                 myForm.ChartTimeRange = dataTimeRangeCb.myValue;
-                myForm.UseStock(stockRow);  //Get data first
+                myForm.UseStock(application.dataLibs.FindAndCache_StockCodeShort(stockCode) );  //Get data first
 
                 
                 myForm.ChartPriceType = this.ChartType;
@@ -532,12 +526,12 @@ namespace client
             UpdateActiveForm(FormOptions.ChartType); 
         }
 
-        private void ShowStockChart(data.baseDS.stockCodeRow stockRow,AppTypes.TimeRanges timeRange, AppTypes.TimeScale timeScale)
+        private void ShowStockChart(string stockCode,AppTypes.TimeRanges timeRange, AppTypes.TimeScale timeScale)
         {
             DateTime frDate = common.Consts.constNullDate, toDate = common.Consts.constNullDate;
             if (!AppTypes.GetDate(timeRange, out frDate, out toDate)) return;
 
-            string formName = constFormNameStock + stockRow.code.Trim();
+            string formName = constFormNameStock + stockCode.Trim();
             Tools.Forms.tradeAnalysis myForm = (Tools.Forms.tradeAnalysis)cachedForms.Find(formName);
             if (myForm == null || myForm.IsDisposed)
             {
@@ -546,7 +540,7 @@ namespace client
                 myForm.ChartTimeRange = timeRange;
                 myForm.ChartTimeScale = timeScale;
                 myForm.ChartPriceType = this.ChartType;
-                myForm.UseStock(stockRow);
+                myForm.UseStock(application.dataLibs.FindAndCache_StockCodeShort(stockCode));
                 myForm.Activated += new System.EventHandler(this.tradeAnalysisActivatedHandler);
                 myForm.myEstimateTradePoints += new Tools.Forms.tradeAnalysis.EstimateTradePointFunc(EstimateTradePointHandler);
                 //Cache it if no error occured
@@ -701,11 +695,11 @@ namespace client
         }
 
 
-        private void ShowStockHandler(data.baseDS.stockCodeRow stockCodeRow,AppTypes.TimeRanges timeRange, AppTypes.TimeScale timeScale)
+        private void ShowStockHandler(string stockCode,AppTypes.TimeRanges timeRange, AppTypes.TimeScale timeScale)
         {
             try
             {
-                ShowStockChart(stockCodeRow, timeRange, timeScale);
+                ShowStockChart(stockCode, timeRange, timeScale);
             }
             catch (Exception er)
             {

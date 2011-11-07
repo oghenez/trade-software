@@ -20,7 +20,7 @@ namespace baseClass.controls
             try
             {
                 InitializeComponent();
-                stockSelectionCb.LoadData();
+                codeGroupCb.LoadData();
             }
             catch (Exception er)
             {
@@ -30,13 +30,13 @@ namespace baseClass.controls
         public override void SetLanguage()
         {
             base.SetLanguage();
-            stockSelectionCb.SetLanguage();
+            codeGroupCb.SetLanguage();
         }
 
         public override void LoadStockList()
         {
             DataView stockCodeView = null;
-            common.myKeyValueExt item = (common.myKeyValueExt)stockSelectionCb.SelectedItem;
+            common.myKeyValueExt item = (common.myKeyValueExt)codeGroupCb.SelectedItem;
             cbStockSelection.Options watchListType = (cbStockSelection.Options)byte.Parse(item.Attribute1);
             StringCollection stocCodeList = new StringCollection();
             switch (watchListType)
@@ -64,9 +64,9 @@ namespace baseClass.controls
                     }
                     else
                     {
-                        for (int idx = 0; idx < stockSelectionCb.Items.Count; idx++)
+                        for (int idx = 0; idx < codeGroupCb.Items.Count; idx++)
                         {
-                            common.myKeyValueExt tmpItem = (common.myKeyValueExt)stockSelectionCb.Items[idx];
+                            common.myKeyValueExt tmpItem = (common.myKeyValueExt)codeGroupCb.Items[idx];
                             if (watchListType != (cbStockSelection.Options)byte.Parse(tmpItem.Attribute1) || (tmpItem.Value == "")) continue;
                             watchList.Add(tmpItem.Value);
                         }
@@ -87,9 +87,9 @@ namespace baseClass.controls
             }
         }
 
-        private void stockSelectionCb_SelectionChangeCommitted(object sender, EventArgs e)
+        private void codeGroupCb_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            bizSectorTypesSelection.Enabled = (stockSelectionCb.myValue == cbStockSelection.Options.Others);
+            bizSectorTypesSelection.Enabled = (codeGroupCb.myValue == cbStockSelection.Options.Others);
             LoadStockList();
             selectAllChk.Checked = false;
             onlySeletedChk.Checked = false;

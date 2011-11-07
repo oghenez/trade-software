@@ -180,7 +180,7 @@ namespace Charts.Controls
 
         // The varriable definded the viewport of the chart. View port is the portion of the chart that is shown to users.
         // In the control, viewport is defined as a range [min,max] in X-Axis
-        public IntRange myViewportX
+        public IntRange _save_myViewportX
         {
             get { return myViewportState.xRange; }
             set
@@ -199,7 +199,7 @@ namespace Charts.Controls
                     if (myViewportX.Max >= this.mySeriesX.Length - 1 && this.myViewportState.isStickOutRIGHT &&
                         this.myViewportState.state == ViewportState.StateType.Panning) return;
                     value.Max = this.mySeriesX.Length - 1;
-                    addToRight = (int)((myViewportX.Max - myViewportX.Min) * Settings.sysViewportMarginRIGHT)+1;
+                    addToRight = (int)((myViewportX.Max - myViewportX.Min) * Settings.sysViewportMarginRIGHT) + 1;
                     fStickOutRIGHT = (myViewportX.Max > myViewportX.Min);
                 }
                 else
@@ -212,7 +212,7 @@ namespace Charts.Controls
                 {
                     if (myViewportX.Min <= 0 && this.myViewportState.isStickOutLEFT) return;
                     value.Min = 0;
-                    addToLeft = (int)((myViewportX.Max - myViewportX.Min) * Settings.sysViewportMarginLEFT)+1;
+                    addToLeft = (int)((myViewportX.Max - myViewportX.Min) * Settings.sysViewportMarginLEFT) + 1;
                     fStickOutLEFT = (myViewportX.Max > myViewportX.Min);
                 }
                 else
@@ -285,6 +285,60 @@ namespace Charts.Controls
                 }
             }
         }
+
+        public IntRange myViewportX
+        {
+            get { return myViewportState.xRange; }
+            set
+            {
+                if (fProcessing) return;
+                if (this.mySeriesX == null) return;
+                if ((value.Min >= value.Max) || (value.Min < 0) || (value.Max >= this.mySeriesX.Length)) return;
+
+                try
+                {
+                    //Turn on to detect loop
+                    fProcessing = true;
+
+                    myViewportState.xRange.Set(value.Min, value.Max);
+
+                    //Depend on [myAxisType], [Min,Max] should be assigned different values.
+                    switch (this.myViewportState.myAxisType)
+                    {
+                        case AxisType.Date:
+                            this.myGraphPane.XAxis.Scale.Max = this.mySeriesX[this.myViewportX.Max];
+                            this.myGraphPane.XAxis.Scale.Min = this.mySeriesX[this.myViewportX.Min];
+                            break;
+                        case AxisType.DateAsOrdinal:
+                        default:
+                            this.myGraphPane.XAxis.Scale.Max = this.myViewportX.Max;
+                            this.myGraphPane.XAxis.Scale.Min = this.myViewportX.Min;
+                            break;
+                    }
+
+                    ValueRange viewportY = GetViewportY();
+                    this.myGraphPane.YAxis.Scale.Max = viewportY.Max;
+                    this.myGraphPane.YAxis.Scale.Min = viewportY.Min;
+
+                    UpdateChart();
+                    if (myOnViewportChanged != null)
+                    {
+                        ViewportState state = new ViewportState();
+                        state.xRange = value;
+                        myOnViewportChanged(this, state);
+                    }
+                }
+                catch (Exception er)
+                {
+                    common.system.ThrowException(er);
+                }
+                finally
+                {
+                    fProcessing = false;
+                }
+            }
+        }
+
 
         // Different DateTime format for different X-Scale
         private void SetDateTimeFormat()
