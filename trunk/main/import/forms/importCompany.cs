@@ -74,7 +74,7 @@ namespace imports.forms
                     stockExchangeRow = libs.AddStockExchange(myDataSet.stockExchange, stockExchangeCode);
                     //stockCode
                     comCode = tbl.Rows[count][0].ToString().Trim();
-                    stockCodeRow = application.dataLibs.FindAndCache(myDataSet.stockCode, comCode);
+                    stockCodeRow = FindAndCache(myDataSet.stockCode, comCode);
                     if (stockCodeRow == null)
                     {
                         stockCodeRow = myDataSet.stockCode.NewstockCodeRow();
