@@ -29,7 +29,7 @@ namespace Strategy
             if (support == -1) return;
             if ((data.Close[Bar] - support) / support*100 < distance)
             {
-                BusinessInfo info = new BusinessInfo();
+                wsData.BusinessInfo info = new wsData.BusinessInfo();
                 info.Weight = support;
                 SelectStock(Bar, info);
             }
@@ -50,7 +50,7 @@ namespace Strategy
 
             if ((resistance - data.Close[Bar]) / data.Close[Bar]*100 < distance)
             {
-                BusinessInfo info = new BusinessInfo();
+                wsData.BusinessInfo info = new wsData.BusinessInfo();
                 info.Weight = resistance;
                 SelectStock(Bar, info);
             }

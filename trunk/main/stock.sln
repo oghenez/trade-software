@@ -31,6 +31,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "common", "..\..\ketoan-moi\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "charts", "charts\charts.csproj", "{B4BB5B7E-B7E1-4F82-9C4B-B373A46B08F8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "wsStockServices", "wsData\wsStockServices.csproj", "{6B0CCF86-3F30-4295-A42A-604FD6AC83A3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "wsClient", "wsClient\wsClient.csproj", "{76192812-3B70-469B-85BF-24135ECDE708}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -97,6 +101,14 @@ Global
 		{B4BB5B7E-B7E1-4F82-9C4B-B373A46B08F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B4BB5B7E-B7E1-4F82-9C4B-B373A46B08F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B4BB5B7E-B7E1-4F82-9C4B-B373A46B08F8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6B0CCF86-3F30-4295-A42A-604FD6AC83A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B0CCF86-3F30-4295-A42A-604FD6AC83A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B0CCF86-3F30-4295-A42A-604FD6AC83A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B0CCF86-3F30-4295-A42A-604FD6AC83A3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{76192812-3B70-469B-85BF-24135ECDE708}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{76192812-3B70-469B-85BF-24135ECDE708}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{76192812-3B70-469B-85BF-24135ECDE708}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{76192812-3B70-469B-85BF-24135ECDE708}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

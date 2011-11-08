@@ -47,7 +47,7 @@ namespace Strategy
             Indicators.ADX adx = new Indicators.ADX(data.Bars, parameters[0], "");
             int Bar = adx.Count - 1;
             if (Bar < adx.FirstValidValue) return;
-            BusinessInfo info = new BusinessInfo();
+            wsData.BusinessInfo info = new wsData.BusinessInfo();
             info.SetTrend(application.AppTypes.MarketTrend.Unspecified,
                 application.AppTypes.MarketTrend.Unspecified, application.AppTypes.MarketTrend.Unspecified);
             info.Weight = adx[Bar];
@@ -122,7 +122,7 @@ namespace Strategy
             if (rule.isValid())
             {
                 int Bar = data.Close.Count - 1;
-                BusinessInfo info = new BusinessInfo();
+                wsData.BusinessInfo info = new wsData.BusinessInfo();
                 info.SetTrend(AppTypes.MarketTrend.Upward, AppTypes.MarketTrend.Unspecified, AppTypes.MarketTrend.Unspecified);
                 info.Weight = data.Close[Bar];
                 SelectStock(Bar, info);
@@ -142,7 +142,7 @@ namespace Strategy
             {
                 if (rule.isValid_forBuy(idx))
                 {
-                    BusinessInfo info = new BusinessInfo();
+                    wsData.BusinessInfo info = new wsData.BusinessInfo();
                     info.SetTrend(AppTypes.MarketTrend.Upward, AppTypes.MarketTrend.Unspecified, AppTypes.MarketTrend.Unspecified);
                     info.Short_Target=max[idx];
                     info.Stop_Loss=min[idx];
@@ -151,7 +151,7 @@ namespace Strategy
                 else
                 if (rule.isValid_forSell(idx))
                 {
-                    BusinessInfo info = new BusinessInfo();
+                    wsData.BusinessInfo info = new wsData.BusinessInfo();
                     info.SetTrend(AppTypes.MarketTrend.Downward, AppTypes.MarketTrend.Unspecified, AppTypes.MarketTrend.Unspecified);
                     info.Short_Target = min[idx];
                     info.Stop_Loss = max[idx];

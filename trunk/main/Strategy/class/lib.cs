@@ -195,161 +195,6 @@ namespace Strategy
             return true;
         }
     }
-    
-    /// <summary>
-    /// Forcasting information (market,priority...) generated from analysis process    
-    /// </summary>
-    public class BusinessInfo
-    {
-        public BusinessInfo() { }
-        
-        public BusinessInfo(AppTypes.MarketTrend shortTerm,AppTypes.MarketTrend mediumTerm,AppTypes.MarketTrend longTerm, double weight)
-        {
-            this.ShortTermTrend = shortTerm;
-            this.MediumTermTrend = mediumTerm;
-            this.LongTermTrend = longTerm;
-            this.Weight = weight;
-        }
-
-        public void Set(BusinessInfo info)
-        {
-            this.ShortTermTrend = info.ShortTermTrend;
-            this.MediumTermTrend = info.MediumTermTrend;
-            this.LongTermTrend = info.LongTermTrend;
-            this.Weight = info.Weight;
-        }
-
-        public void SetTrend(AppTypes.MarketTrend shortTerm, AppTypes.MarketTrend mediumTerm, AppTypes.MarketTrend longTerm)
-        {
-            this.ShortTermTrend = shortTerm;
-            this.MediumTermTrend = mediumTerm;
-            this.LongTermTrend = longTerm;
-        }
-
-        public AppTypes.MarketTrend LongTermTrend = AppTypes.MarketTrend.Unspecified;
-        public AppTypes.MarketTrend MediumTermTrend = AppTypes.MarketTrend.Unspecified;
-        public AppTypes.MarketTrend ShortTermTrend = AppTypes.MarketTrend.Unspecified;
-        public double Short_Target=0;
-        public double Stop_Loss=0;
-        public double Short_Resistance=0;
-        public double Short_Support=0;
-        public double Weight = 0;
-
-        public override string ToString()
-        {
-            string st = "";
-            switch (ShortTermTrend)
-            {
-                case (AppTypes.MarketTrend.Upward):
-                    st = st + "Short term trend is upward. ";
-                    break;
-                case AppTypes.MarketTrend.Downward:
-                    st = st + "Short term trend is downward. ";
-                    break;
-                case AppTypes.MarketTrend.Sidebar:
-                    st = st + "Short term trend is sideway. ";
-                    break;
-                case AppTypes.MarketTrend.Unspecified:
-                    //st =st+ "Short term trend is unspecified. ";
-                    break;
-                default:
-                    break;
-            }
-
-            switch (MediumTermTrend)
-            {
-                case (AppTypes.MarketTrend.Upward):
-                    st = st + "Medium term trend is upward. ";
-                    break;
-                case AppTypes.MarketTrend.Downward:
-                    st = st + "Medium term trend is downward. ";
-                    break;
-                case AppTypes.MarketTrend.Sidebar:
-                    st = st + "Medium term trend is sideway. ";
-                    break;
-                case AppTypes.MarketTrend.Unspecified:
-                    //st =st+ "Medium term trend is unspecified.";
-                    break;
-                default:
-                    break;
-            }
-
-            switch (LongTermTrend)
-            {
-                case (AppTypes.MarketTrend.Upward):
-                    st = st + "Long term trend is upward. ";
-                    break;
-                case AppTypes.MarketTrend.Downward:
-                    st = st + "Long term trend is downward. ";
-                    break;
-                case AppTypes.MarketTrend.Sidebar:
-                    st = st + "Long term trend is sideway. ";
-                    break;
-                case AppTypes.MarketTrend.Unspecified:
-                    //st = "Long term trend is unspecified.";
-                    break;
-                default:
-                    break;
-            }
-
-            if (Short_Target != 0)
-                st += "Short Term Target is " + Short_Target.ToString() + ". ";
-
-            if (Stop_Loss != 0)
-                st += "Stop loss is " + Stop_Loss.ToString() + ".";
-
-            if (Short_Resistance != 0)
-                st += "Short term resistance is " + Short_Resistance.ToString() + ".";
-            if (Short_Support != 0)
-                st += " Short term support is " + Short_Support.ToString() + ".";
-            return st;
-        }
-    }
-
-    //Information of one trading point (suggested by analysis process)
-    public class TradePointInfo
-    {
-        public TradePointInfo(AppTypes.TradeActions action, int dataIdx)
-        {
-            this.TradeAction = action;
-            this.DataIdx = dataIdx;
-        }
-        public TradePointInfo(AppTypes.TradeActions action, int dataIdx, BusinessInfo BusinessInfo)
-        {
-            this.TradeAction = action;
-            this.DataIdx = dataIdx;
-            this.BusinessInfo.Set(BusinessInfo);
-        }
-
-        //TradePoint can be estimated by some way to decide whether the trade point is valid. 
-        public bool isValid = true;
-        // Data position where the trade point occured.
-        // The index is used to get data (closePrice,openPrice...) of a trade point.
-        public int DataIdx = 0;
-        public AppTypes.TradeActions TradeAction = AppTypes.TradeActions.None;
-        //public OHLCV data = new OHLCV();
-
-        public BusinessInfo BusinessInfo = new BusinessInfo();
-    }
-
-    //List of all possible trading points
-    public class TradePoints : ArrayList
-    {
-        public TradePoints() { }
-        public void Add(AppTypes.TradeActions action, int idx, BusinessInfo info)
-        {
-            this.Add(new TradePointInfo(action, idx, info));
-        }
-        public void Add(AppTypes.TradeActions action, int idx)
-        {
-            this.Add(new TradePointInfo(action, idx));
-        }
-        public TradePointInfo GetItem(int idx)
-        {
-            return (TradePointInfo)this[idx];
-        }
-    }
-
     public class Libs
     {
         public static string GetMetaName(string code)
@@ -365,7 +210,7 @@ namespace Strategy
         /// <param name="myData"> Data used to calculate strategy data.</param>
         /// <param name="meta">strategy meta data</param>
         /// <returns>Null if error</returns>
-        public static TradePoints Analysis(application.Data myData, Meta meta)
+        public static wsData.TradePoints Analysis(application.Data myData, Meta meta)
         {
             string cacheName = "data-" + myData.DataStockCode + "-" + meta.ClassType.Name;
 
@@ -373,19 +218,19 @@ namespace Strategy
             processParas[0] = myData;
             processParas[1] = meta.Parameters;
             //First , find in cache
-            TradePoints tradePoints = (TradePoints)Data.FindInCache(cacheName);
+            wsData.TradePoints tradePoints = (wsData.TradePoints)Data.FindInCache(cacheName);
             if (tradePoints != null) return tradePoints;
 
             //Then, Call Execute() method to get trading points.
             object strategyInstance = GetStrategyInstance(meta.ClassType);
             if (strategyInstance == null) return null;
-            tradePoints = (TradePoints)meta.ClassType.InvokeMember("Execute",
+            tradePoints = (wsData.TradePoints)meta.ClassType.InvokeMember("Execute",
                                 BindingFlags.InvokeMethod | BindingFlags.Instance | BindingFlags.Public, null, strategyInstance, processParas);
 
             Data.AddToCache(cacheName, tradePoints);
             return tradePoints;
         }
-        public static TradePoints Analysis(application.Data myData, string strategyCode)
+        public static wsData.TradePoints Analysis(application.Data myData, string strategyCode)
         { 
             Meta meta = FindMetaByCode(strategyCode);
             if (meta == null) return null;
@@ -654,17 +499,6 @@ namespace Strategy
         }
 
         #region strategy estimation
-        public class EstimateOptions
-        {
-            public decimal TotalCapAmt = Settings.sysStockTotalCapAmt;
-            public decimal MaxBuyAmtPerc = Settings.sysStockMaxBuyAmtPerc;
-            public decimal QtyReducePerc = Settings.sysStockReduceQtyPerc;
-            public decimal QtyAccumulatePerc = Settings.sysStockAccumulateQtyPerc;
-            public decimal TransFeecPerc = Settings.sysStockTransFeePercent;
-            public decimal PriceWeight = Settings.sysStockPriceWeight;
-            public decimal MaxBuyQtyPerc = Settings.sysStockMaxBuyQtyPerc;
-            public short Buy2SellInterval = Settings.sysStockSell2BuyInterval;
-        }
         /// <summary>
         /// Estimate the profit from advices produced by analysis process. 
         /// The function will produce a list of "transactions" assuming to be done from analysis advices. 
@@ -673,7 +507,7 @@ namespace Strategy
         /// <param name="tradePoints"> Trade point list generated by analysis process</param>
         /// <param name="options">User- specific options : captital, max Buy...</param>
         /// <param name="toTbl"> Table of assumed transactions. Each row procides detail information of a transcation and it's profit</param>
-        public static void EstimateTrading(application.Data data, TradePoints tradePoints, EstimateOptions options,
+        public static void EstimateTrading(application.Data data, wsData.TradePoints tradePoints, wsData.EstimateOptions options,
                                            data.tmpDS.tradeEstimateDataTable toTbl)
         {
             decimal initCapAmt = options.TotalCapAmt * options.MaxBuyAmtPerc / 100;

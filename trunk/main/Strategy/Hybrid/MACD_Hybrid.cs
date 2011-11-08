@@ -1,5 +1,6 @@
 ﻿//Copyright by NHQ, HCM city, 2011 
 using Indicators;
+using application;
 
 namespace Strategy
 {
@@ -89,7 +90,7 @@ namespace Strategy
             if (rule.isValid() && rule1.isValid())
             {
                 int Bar = data.Close.Count - 1;
-                BusinessInfo info = new BusinessInfo();
+                wsData.BusinessInfo info = new wsData.BusinessInfo();
                 info.Weight = rule.macd[Bar] * 100;
                 SelectStock(Bar, info);
             }

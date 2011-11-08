@@ -70,7 +70,7 @@ namespace Strategy
             if (rule.isValid())
             {
                 int Bar = data.Close.Count - 1;
-                BusinessInfo info = new BusinessInfo();
+                wsData.BusinessInfo info = new wsData.BusinessInfo();
                 info.Weight = data.Close[Bar];
                 SelectStock(Bar, info);
             }            

@@ -328,11 +328,11 @@ namespace Tools.Forms
                             profit = 0;
                             //Analysis cached data so we MUST clear cache to ensure the system run correctly
                             Strategy.Data.ClearCache();
-                            Strategy.TradePoints advices = Strategy.Libs.Analysis(analysisData, strategyList[rowId]);
+                            wsData.TradePoints advices = Strategy.Libs.Analysis(analysisData, strategyList[rowId]);
                             if (advices != null)
                             {
                                 myTmpDS.tradeEstimate.Clear();
-                                Strategy.Libs.EstimateTrading(analysisData, advices, new Strategy.Libs.EstimateOptions(), myTmpDS.tradeEstimate);
+                                Strategy.Libs.EstimateTrading(analysisData, advices, new application.wsData.EstimateOptions(), myTmpDS.tradeEstimate);
                                 profit = (myTmpDS.tradeEstimate.Count == 0 ? 0 : profit = myTmpDS.tradeEstimate[myTmpDS.tradeEstimate.Count - 1].profit);
                             }
                             testRetsultTbl.Rows[rowId][colId + 1] = profit;

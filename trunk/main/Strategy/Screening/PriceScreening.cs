@@ -36,7 +36,7 @@ namespace Strategy
         {
             int Bar = data.Close.Count - 1;
             if (Bar <= 1) return;
-            BusinessInfo info = new BusinessInfo();
+            wsData.BusinessInfo info = new wsData.BusinessInfo();
             info.Weight = data.Close[Bar];
             SelectStock(Bar, info);
         }
@@ -51,7 +51,7 @@ namespace Strategy
             if (Bar-period < 0) return;
 
             //Tim cac stocks co Price hom nay lon hon SMA
-            BusinessInfo info = new BusinessInfo();
+            wsData.BusinessInfo info = new wsData.BusinessInfo();
             if (data.Close[Bar - period] != 0)
                 info.Weight = (data.Close[Bar] - data.Close[Bar - period]) / data.Close[Bar - period] * 100;
             else
@@ -73,7 +73,7 @@ namespace Strategy
             //Tim cac stocks co Price hom nay lon hon SMA
             if (data.Close[Bar] > sma[Bar])
             {
-                BusinessInfo info = new BusinessInfo();
+                wsData.BusinessInfo info = new wsData.BusinessInfo();
                 info.Weight = sma[Bar];
                 SelectStock(Bar, info);
             }
@@ -86,7 +86,7 @@ namespace Strategy
         {
             int Bar = data.Close.Count - 1;
             if (Bar <= 1) return;
-            BusinessInfo info = new BusinessInfo();
+            wsData.BusinessInfo info = new wsData.BusinessInfo();
             info.Weight = data.Volume[Bar];
             SelectStock(Bar, info);
         }
@@ -102,7 +102,7 @@ namespace Strategy
             //Tim cac stocks co volume hom nay lon hon hom truoc
             if (data.Volume[Bar] > data.Volume[Bar - 1])
             {
-                BusinessInfo info = new BusinessInfo();
+                wsData.BusinessInfo info = new wsData.BusinessInfo();
                 info.Weight = data.Volume[Bar];
                 SelectStock(Bar, info);
             }

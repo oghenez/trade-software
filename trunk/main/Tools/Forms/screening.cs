@@ -329,7 +329,7 @@ namespace Tools.Forms
                     {
                         //Analysis cached data so we MUST clear cache to ensure the system run correctly
                         Strategy.Data.ClearCache();
-                        Strategy.TradePoints tradePoints = Strategy.Libs.Analysis(analysisData, strategyList[colId]);
+                        wsData.TradePoints tradePoints = Strategy.Libs.Analysis(analysisData, strategyList[colId]);
                         // BusinessInfo.Weight value is used as estimation value. The higher value, the better chance to match user need.
                         if (tradePoints != null && tradePoints.Count > 0)
                         {

@@ -14,7 +14,7 @@ namespace Strategy
         /// <summary>
         /// Advice info
         /// </summary>
-        public TradePoints adviceInfo=null;
+        public wsData.TradePoints adviceInfo=null;
         public bool is_bought = false;
         public int last_position;
         public double buy_price;
@@ -25,7 +25,7 @@ namespace Strategy
         public GenericStrategy()
         {
             if (adviceInfo==null)
-                adviceInfo = new TradePoints(); 
+                adviceInfo = new wsData.TradePoints(); 
         }
 
         /// <summary>
@@ -35,7 +35,7 @@ namespace Strategy
         public GenericStrategy(application.Data d)
         {
             this.data = d;
-            this.adviceInfo = new TradePoints();
+            this.adviceInfo = new wsData.TradePoints();
             this.last_position = 0;
         }
 
@@ -43,8 +43,8 @@ namespace Strategy
         {
             this.data = d;
             this.parameters = p;
-            if (adviceInfo == null) 
-                this.adviceInfo = new TradePoints();
+            if (adviceInfo == null)
+                this.adviceInfo = new wsData.TradePoints();
             this.last_position = 0;
         }
 
@@ -53,7 +53,7 @@ namespace Strategy
         /// </summary>
         /// <param name="index"></param>
         /// <param name="info"></param>
-        public void SelectStock(int index,BusinessInfo info)
+        public void SelectStock(int index, wsData.BusinessInfo info)
         {
             adviceInfo.Add(AppTypes.TradeActions.Select, index, info);
             is_bought = true;
@@ -78,7 +78,7 @@ namespace Strategy
         /// </summary>
         /// <param name="index"></param>
         /// <param name="info"></param>
-        public void BuyAtClose(int index, BusinessInfo info)
+        public void BuyAtClose(int index, wsData.BusinessInfo info)
         {
             adviceInfo.Add(AppTypes.TradeActions.Buy, index,info);
             is_bought = true;
@@ -102,7 +102,7 @@ namespace Strategy
         /// </summary>
         /// <param name="index"></param>
         /// <param name="info"></param>
-        public void SellAtClose(int index, BusinessInfo info)
+        public void SellAtClose(int index, wsData.BusinessInfo info)
         {
             is_bought = false;
             adviceInfo.Add(AppTypes.TradeActions.Sell, index,info);
@@ -147,7 +147,7 @@ namespace Strategy
         /// </summary>
         /// <param name="index"></param>
         /// <param name="info"></param>
-        public void AccumulateAtClose(int index, BusinessInfo info)
+        public void AccumulateAtClose(int index, wsData.BusinessInfo info)
         {
             is_bought = true;
             adviceInfo.Add(AppTypes.TradeActions.Accumulate, index, info);
@@ -167,7 +167,7 @@ namespace Strategy
         /// Reduce
         /// </summary>
         /// <param name="index"></param>
-        public void ReduceAtClose(int index,  BusinessInfo info)
+        public void ReduceAtClose(int index, wsData.BusinessInfo info)
         {
             //adviceInfo.Add(AppTypes.TradeActions.Reduce,index,info);
         }
@@ -210,30 +210,30 @@ namespace Strategy
             return false;
         }
 
-        virtual public TradePoints Execute(application.Data data, double[] paras)
+        virtual public wsData.TradePoints Execute(application.Data data, double[] paras)
         {
             this.data = data;
             parameters = new Parameters(paras);
             if (adviceInfo==null)
-                adviceInfo = new TradePoints();
+                adviceInfo = new wsData.TradePoints();
             StrategyExecute();
             return adviceInfo;
         }
         
         //Trading rule with cut loss strategy
-        virtual public TradePoints Execute_CutLoss()
+        virtual public wsData.TradePoints Execute_CutLoss()
         {
             return null;
         }
 
         //Trading rule with taking profit strategy
-        virtual public TradePoints Execute_TakeProfit()
+        virtual public wsData.TradePoints Execute_TakeProfit()
         {
             return null;
         }
 
         //Trading rule with full money management strategy
-        virtual public TradePoints Execute_MoneyManagement()
+        virtual public wsData.TradePoints Execute_MoneyManagement()
         {
             return null;
         }

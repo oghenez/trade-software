@@ -60,7 +60,7 @@ namespace Tools.Forms
         {
             application.Data data = new application.Data(timeRange, timeScale, stockCodeRow.code);
             Strategy.Data.ClearCache();
-            Strategy.TradePoints advices = Strategy.Libs.Analysis(data, strategyCode);
+            wsData.TradePoints advices = Strategy.Libs.Analysis(data, strategyCode);
             if (advices == null) return;
             string formName = data.DataStockCode.Trim() + "," + timeRange.ToString() + "," + Strategy.Libs.GetMetaName(strategyCode) + "," + timeScale.Code;
             profitEstimate myForm = profitEstimate.GetForm(formName);

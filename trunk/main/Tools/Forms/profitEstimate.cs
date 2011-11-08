@@ -77,7 +77,7 @@ namespace Tools.Forms
             common.Data.dataCache.Add(cacheKey, form);
             return form;
         }
-        public void Init(application.Data data, Strategy.TradePoints advices)
+        public void Init(application.Data data, wsData.TradePoints advices)
         {
             this.myAnalysisData = data;
             this.myTradeAdvices = advices;
@@ -89,7 +89,7 @@ namespace Tools.Forms
             {
                 common.system.ThrowException("No data found"); return;
             }
-            EstimateAdvice(this.myAnalysisData, this.myTradeAdvices, new Strategy.Libs.EstimateOptions(), myTmpDS.tradeEstimate);
+            EstimateAdvice(this.myAnalysisData, this.myTradeAdvices, new application.wsData.EstimateOptions(), myTmpDS.tradeEstimate);
             DoFilter();
             PlotProfitChart();
         }
@@ -117,7 +117,7 @@ namespace Tools.Forms
             }
         }
 
-        private Strategy.TradePoints myTradeAdvices = null;
+        private wsData.TradePoints myTradeAdvices = null;
         private application.Data myAnalysisData = null;
 
         private void PlotProfitChart()
@@ -184,20 +184,20 @@ namespace Tools.Forms
         /// </summary>
         /// <param name="data"></param>
         /// <param name="tradePoints"></param>
-        public void CheckTradepoints(application.Data data, Strategy.TradePoints tradePoints)
+        public void CheckTradepoints(application.Data data, wsData.TradePoints tradePoints)
         {
             myTmpDS.tradeEstimate.Clear();
-            EstimateAdvice(data, tradePoints, new Strategy.Libs.EstimateOptions(), myTmpDS.tradeEstimate);
+            EstimateAdvice(data, tradePoints, new application.wsData.EstimateOptions(), myTmpDS.tradeEstimate);
             for (int idx = 0; idx < tradePoints.Count; idx++)
             {
-                (tradePoints[idx] as Strategy.TradePointInfo).isValid = !myTmpDS.tradeEstimate[idx].ignored; 
+                (tradePoints[idx] as wsData.TradePointInfo).isValid = !myTmpDS.tradeEstimate[idx].ignored; 
             }
             this.IsShowAllTransactions = false;
             DoFilter();
             PlotProfitChart();
         }
 
-        protected virtual void EstimateAdvice(application.Data data, Strategy.TradePoints advices, Strategy.Libs.EstimateOptions options,
+        protected virtual void EstimateAdvice(application.Data data, wsData.TradePoints advices, wsData.EstimateOptions options,
                                               data.tmpDS.tradeEstimateDataTable toTbl)
         {
             Strategy.Data.ClearCache();

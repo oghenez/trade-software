@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using application;
 
 namespace Strategy
 {
@@ -20,7 +21,7 @@ namespace Strategy
             ////If Volume>2*Average Volume of 1 month
             Indicators.SMA smaVolume=new Indicators.SMA(data.Close,parameters[0],"sma");
             if (data.Volume[Bar]>1.5*smaVolume[Bar]){
-                BusinessInfo info = new BusinessInfo();
+                wsData.BusinessInfo info = new wsData.BusinessInfo();
                 info.Weight = data.Volume[Bar];
                 SelectStock(Bar, info);
             }

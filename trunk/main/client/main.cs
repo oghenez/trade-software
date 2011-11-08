@@ -611,7 +611,7 @@ namespace client
 
         #region event handler
 
-        private void EstimateTradePointHandler(Tools.Forms.tradeAnalysis sendder, Strategy.TradePoints tradePoints)
+        private void EstimateTradePointHandler(Tools.Forms.tradeAnalysis sendder, wsData.TradePoints tradePoints)
         {
             string formName = constFormNameEstimateTrade + "-" + sendder.myData.DataStockCode;
             Tools.Forms.profitEstimate myForm = (Tools.Forms.profitEstimate)cachedForms.Find(formName);
@@ -828,8 +828,8 @@ namespace client
             if (myForm == null || myForm.IsDisposed || !myForm.IsActivated) return null;
             return myForm;
         }
-        
-        private void backTestingOnShowEstimateTrade(application.Data data, string strategyCode, Strategy.TradePoints advices)
+
+        private void backTestingOnShowEstimateTrade(application.Data data, string strategyCode, wsData.TradePoints advices)
         {
             try
             {

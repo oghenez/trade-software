@@ -31,7 +31,7 @@ namespace Strategy
                 if (roc_index[Barindex] != 0)
                 {
                     double rs = roc[Bar] / roc_index[Barindex];
-                    BusinessInfo info = new BusinessInfo();
+                    wsData.BusinessInfo info = new wsData.BusinessInfo();
                     info.Weight = rs * 100;
                     SelectStock(Bar, info);
                 }
