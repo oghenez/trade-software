@@ -168,6 +168,7 @@
     <BasicDMISCR Authors="Quan Nguyen" />
     <BasicDMISCR Version="1.0" />
   </STRATEGY>
+  
   <STRATEGY>
     <BasicSARSCR Type="SCREENING" />
     <BasicSARSCR Code="SCR015" />
@@ -175,11 +176,38 @@
     <BasicSARSCR Parameters="AF=0.02,Step=0.2" />
     <BasicSARSCR ParameterDescriptions="The Acceleration Factor (AF), which is also referred to as the Step, dictates SAR sensitivity.Step gradually increases as the trend extends until it hits a maximum. SAR sensitivity can be decreased by decreasing the Step. A lower step moves SAR further from price, which makes a reversal less likely." />
     <BasicSARSCR Name="SAR Screening" />
-    <BasicSARSCR Description="Screen stock with SAR" />
+    <BasicSARSCR Description="Screen stock with SAR signal for buy" />
     <BasicSARSCR URL="http://www.hqtrader.com" />
     <BasicSARSCR Authors="Quan Nguyen" />
     <BasicSARSCR Version="1.0" />
   </STRATEGY>
+
+  <STRATEGY>
+    <PriceChangeSCR Type="SCREENING" />
+    <PriceChangeSCR Code="SCR016" />
+    <PriceChangeSCR Category="TRE" />
+    <PriceChangeSCR Parameters="Period=30" />
+    <PriceChangeSCR ParameterDescriptions="Period defines the input data for the screening" />
+    <PriceChangeSCR Name="Price change (%)" />
+    <PriceChangeSCR Description="Price change (%)" />
+    <PriceChangeSCR URL="http://www.hqtrader.com" />
+    <PriceChangeSCR Authors="Quan Nguyen" />
+    <PriceChangeSCR Version="1.0" />
+  </STRATEGY>
+
+  <STRATEGY>
+    <AbnormaliesSCR Type="SCREENING" />
+    <AbnormaliesSCR Code="SCR017" />
+    <AbnormaliesSCR Category="TRE" />
+    <AbnormaliesSCR Parameters="Period=30" />
+    <AbnormaliesSCR ParameterDescriptions="Period defines the input data for the screening" />
+    <AbnormaliesSCR Name="Abnormalies Screening" />
+    <AbnormaliesSCR Description="Finding stocks which have abnormaly behaviour" />
+    <AbnormaliesSCR URL="http://www.hqtrader.com" />
+    <AbnormaliesSCR Authors="Quan Nguyen" />
+    <AbnormaliesSCR Version="1.0" />
+  </STRATEGY>
+
   <STRATEGY>
     <BuyAndHold Code="STR001"/>
     <BuyAndHold Category="TRE" />
@@ -501,5 +529,29 @@
     <HybridSAR URL="http://www.hqtrader.com" />
     <HybridSAR Authors="Quan Nguyen" />
     <HybridSAR Version="1.0" />
+  </STRATEGY>
+
+  <STRATEGY>
+    <BasicAroon Code="STR030"/>
+    <BasicAroon Category="TRE" />
+    <BasicAroon Parameters="Period=25,Cut Loss Level (%)=5,Take Profit Level (%)=200" />
+    <BasicAroon ParameterDescriptions="" />
+    <BasicAroon Name="Basic Aroon" />
+    <BasicAroon Description="Basic Aroon strategy" />
+    <BasicAroon URL="http://www.hqtrader.com" />
+    <BasicAroon Authors="Quan Nguyen" />
+    <BasicAroon Version="1.0" />
+  </STRATEGY>
+
+  <STRATEGY>
+    <TSFLIN Code="STR030"/>
+    <TSFLIN Category="HYB" />
+    <TSFLIN Parameters=">Time Series Period=25,Linear Regression Period=25,Cut Loss Level (%)=5,Take Profit Level (%)=200" />
+    <TSFLIN ParameterDescriptions="" />
+    <TSFLIN Name="Time Series and Linear Regression" />
+    <TSFLIN Description="Time Series and Linear Regression" />
+    <TSFLIN URL="http://www.hqtrader.com" />
+    <TSFLIN Authors="Quan Nguyen" />
+    <TSFLIN Version="1.0" />
   </STRATEGY>
 </Configuration>

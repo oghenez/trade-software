@@ -35,7 +35,7 @@ namespace client
                     sysTimer.Interval = application.Settings.sysTimerIntervalInSecs * 1000; //Convert to mili-seconds 
                     sysTimer.Enabled = true;
                 }
-                test.LoadTestConfig();
+                //test.LoadTestConfig();
                 Init();
             }
             catch (Exception er)

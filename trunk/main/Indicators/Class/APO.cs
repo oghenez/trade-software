@@ -31,7 +31,7 @@ namespace Indicators
         /// <param name="period"></param>
         /// <param name="name"></param>
         /// <returns></returns>
-        public static APO Series(DataSeries ds, double fastperiod, double slowperiod, int matype, string name)
+        public static APO Series(DataSeries ds, double fastperiod, double slowperiod, double matype, string name)
         {
             //Build description
             string description = "(" + name + fastperiod.ToString()+","+slowperiod.ToString()+","+matype.ToString() + ")";
@@ -52,7 +52,7 @@ namespace Indicators
         /// <param name="db">data to calculate MFI</param>        
         /// <param name="period">period to calculate</param>
         /// <param name="name"></param>
-        public APO(DataSeries db, double fastperiod, double slowperiod, int matype, string name)
+        public APO(DataSeries db, double fastperiod, double slowperiod, double matype, string name)
             : base(db, name)
         {
             int begin = 0, length = 0;
@@ -60,7 +60,7 @@ namespace Indicators
 
             double[] output = new double[db.Count];
 
-            switch (matype)
+            switch ((int)matype)
             {
                 case 0:
                     retCode = Core.Apo(0, db.Count - 1, db.Values, (int)fastperiod, (int)slowperiod, Core.MAType.Dema, out begin, out length, output);

@@ -56,6 +56,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AverageStrategy.cs" />
+    <Compile Include="Basic\BasicAroon.cs" />
     <Compile Include="Basic\BasicRSI.cs" />
     <Compile Include="Basic\BasicSAR.cs" />
     <Compile Include="Basic\Price_3MA.cs" />
@@ -76,6 +77,7 @@
     <Compile Include="Hybrid\MACD_Stochastic_Bottom.cs" />
     <Compile Include="Basic\MACD_Histogram.cs" />
     <Compile Include="Basic\MACD_Line_Cut.cs" />
+    <Compile Include="Hybrid\TrendingSystem.cs" />
     <Compile Include="langs\myResources.Designer.cs">
       <DependentUpon>myResources.resx</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -90,6 +92,7 @@
     <Compile Include="Hybrid\RSI_MACD_Histogram.cs" />
     <Compile Include="Basic\Price_2MA.cs" />
     <Compile Include="ConsecutiveUpAndDown.cs" />
+    <Compile Include="Screening\AbnormaliesScreening.cs" />
     <Compile Include="Screening\RelativeStrength.cs" />
     <Compile Include="Screening\ResistanceScreening.cs" />
     <Compile Include="Screening\PriceScreening.cs" />

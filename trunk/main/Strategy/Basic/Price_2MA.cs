@@ -47,6 +47,20 @@ namespace Strategy
             return isValid_forBuy(idx);
         }
 
+        public override bool UpTrend(int index)
+        {
+            if ((price[index] > short_indicator[index]) && (short_indicator[index] > long_indicator[index]))
+                return true;
+            return false;
+        }
+
+        public override bool DownTrend(int index)
+        {
+            if ((price[index] < short_indicator[index]) || (short_indicator[index] < long_indicator[index]))
+                return true;
+            return base.DownTrend(index);
+        }
+
         public override bool isValid_forBuy(int idx)
         {
             if (idx-1 < short_indicator.FirstValidValue) return false;

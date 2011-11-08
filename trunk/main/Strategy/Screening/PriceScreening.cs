@@ -4,6 +4,11 @@ using System.Text;
 using application;
 namespace Strategy
 {
+    public class PriceChangeSCR_Helper : baseHelper
+    {
+        public PriceChangeSCR_Helper() : base(typeof(PriceChangeSCR)) { }
+    }
+
     public class PriceSCR_Helper : baseHelper
     {
         public PriceSCR_Helper() : base(typeof(PriceSCR)) { }
@@ -37,7 +42,24 @@ namespace Strategy
         }
     }
 
-    
+    public class PriceChangeSCR : GenericStrategy
+    {
+        override protected void StrategyExecute()
+        {
+            int Bar = data.Close.Count - 1;
+            int period = (int)parameters[0];//period la gia cua Bar phia truoc, default=30
+            if (Bar-period < 0) return;
+
+            //Tim cac stocks co Price hom nay lon hon SMA
+            BusinessInfo info = new BusinessInfo();
+            if (data.Close[Bar - period] != 0)
+                info.Weight = (data.Close[Bar] - data.Close[Bar - period]) / data.Close[Bar - period] * 100;
+            else
+                info.Weight = double.NegativeInfinity;
+            SelectStock(Bar, info);
+        }
+    }
+
     public class PriceSCR : GenericStrategy 
     {
         override protected void StrategyExecute()
