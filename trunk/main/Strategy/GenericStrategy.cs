@@ -18,6 +18,7 @@ namespace Strategy
         public bool is_bought = false;
         public int last_position;
         public double buy_price;
+        public double trailing_stop;
 
         /// <summary>
         /// constructor
@@ -37,6 +38,7 @@ namespace Strategy
             this.data = d;
             this.adviceInfo = new wsData.TradePoints();
             this.last_position = 0;
+            this.trailing_stop = -1;
         }
 
         public GenericStrategy(application.Data d, Parameters p)
@@ -46,6 +48,7 @@ namespace Strategy
             if (adviceInfo == null)
                 this.adviceInfo = new wsData.TradePoints();
             this.last_position = 0;
+            this.trailing_stop = -1;
         }
 
         /// <summary>
@@ -210,7 +213,29 @@ namespace Strategy
             return false;
         }
 
+<<<<<<< .mine
+        protected void TrailingStopWithBuyBack(Rule rule,double price,double trailingstoplevel,int idx)
+        {
+            //Trailing stop strategtest
+            double new_trailing_stop = data.Close[idx] * (1 - trailingstoplevel / 100);
+            if (new_trailing_stop > trailing_stop)
+            {
+                trailing_stop = new_trailing_stop;
+                //Buy back share if 
+                if ((!is_bought) && rule.UpTrend(idx)) BuyAtClose(idx);
+            }
+            else
+                if (data.Close[idx] < trailing_stop)
+                {
+                    SellTakeProfit(idx);
+                    trailing_stop = -1;
+                }
+        }
+
+        virtual public TradePoints Execute(application.Data data, double[] paras)
+=======
         virtual public wsData.TradePoints Execute(application.Data data, double[] paras)
+>>>>>>> .r287
         {
             this.data = data;
             parameters = new Parameters(paras);

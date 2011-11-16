@@ -95,12 +95,12 @@ namespace test
         }
         private void ShowStockChart(string code)
         {
-            data.baseDS.stockCodeRow stockRow = application.dataLibs.GetStockData(code);
-            string formName = stockRow.code.Trim();
-            Tools.Forms.test myForm = new Tools.Forms.test();
-            myForm.Name = formName;
-            myForm.UseStock(stockRow);  //Get data first
-            myForm.ShowDialog();
+            //data.baseDS.stockCodeRow stockRow = application.dataLibs.GetStockData(code);
+            //string formName = stockRow.code.Trim();
+            //Tools.Forms.test myForm = new Tools.Forms.test();
+            //myForm.Name = formName;
+            //myForm.UseStock(stockRow);  //Get data first
+            //myForm.ShowDialog();
         }
     }
 }

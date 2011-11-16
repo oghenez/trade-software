@@ -15,12 +15,9 @@ namespace Strategy
         public BasicMACDSCR_Helper() : base(typeof(BasicMACDSCR)) { }
     }
 
-    //???
-    //public class TwoSMAMACDSCR_Helper : baseHelper
-    //{
-    //    public TwoSMAMACDSCR_Helper() : base(typeof(TwoSMAMACDSCR)) { }
-    //}
-
+    /// <summary>
+    /// Strategy with MACD
+    /// </summary>
     public class BasicMACD : GenericStrategy
     {
         override protected void StrategyExecute()
@@ -33,19 +30,7 @@ namespace Strategy
                     BuyAtClose(idx);
                 if (rule.isValid_forSell(idx))
                     SellAtClose(idx);
-            }
-            //AppTypes.MarketTrend lastTrend = AppTypes.MarketTrend.Unspecified;
-            //AppTypes.MarketTrend currentTrend = AppTypes.MarketTrend.Unspecified;
-
-            //for (int idx = 0; idx < macd.Count; idx++)
-            //{
-            //    currentTrend = ((macd[idx] > 0 && macd[idx] > ema[idx]) ? AppTypes.MarketTrend.Upward : AppTypes.MarketTrend.Downward);
-            //    if (lastTrend == AppTypes.MarketTrend.Downward && currentTrend == AppTypes.MarketTrend.Upward)
-            //        BuyAtClose(idx);
-            //    if (lastTrend == AppTypes.MarketTrend.Upward && currentTrend == AppTypes.MarketTrend.Downward)
-            //        SellAtClose(idx);
-            //    lastTrend = currentTrend;
-            //}
+            }            
         }
     }
 
@@ -74,33 +59,37 @@ namespace Strategy
         /// <returns></returns>
         public override bool isValid_forBuy(int idx)
         {
-            if (idx - 1 < macd.FirstValidValue) return false;
-            
-            AppTypes.MarketTrend lastTrend,currentTrend;
-            lastTrend = ((macd[idx-1] > 0 && macd[idx-1] > ema[idx-1]) ? AppTypes.MarketTrend.Upward : AppTypes.MarketTrend.Downward);
-            currentTrend = ((macd[idx] > 0 && macd[idx] > ema[idx]) ? AppTypes.MarketTrend.Upward : AppTypes.MarketTrend.Downward);
-            
-            if (lastTrend == AppTypes.MarketTrend.Downward && currentTrend == AppTypes.MarketTrend.Upward)
-                return true;
+            if (DownTrend(idx-1)&&UpTrend(idx)) return true;
             return false;
         }
 
         public override bool isValid_forSell(int idx)
         {
-            if (idx - 1 < macd.FirstValidValue) return false;
-
-            AppTypes.MarketTrend lastTrend, currentTrend;
-            lastTrend = ((macd[idx - 1] > 0 && macd[idx - 1] > ema[idx - 1]) ? AppTypes.MarketTrend.Upward : AppTypes.MarketTrend.Downward);
-            currentTrend = ((macd[idx] > 0 && macd[idx] > ema[idx]) ? AppTypes.MarketTrend.Upward : AppTypes.MarketTrend.Downward);
-
-            if (lastTrend == AppTypes.MarketTrend.Upward && currentTrend == AppTypes.MarketTrend.Downward)
-                return true;
+            if (DownTrend(idx)&&UpTrend(idx-1)) return true;
             return false;
         }
 
         public override bool isValid(int index)
         {
             return base.isValid_forBuy(index);
+        }
+
+        public override bool DownTrend(int index)
+        {
+            if (index < macd.FirstValidValue) return false;
+
+            if ((macd[index] <= 0 || macd[index] <= ema[index]))
+                return true;
+            return false;
+        }
+
+        public override bool UpTrend(int index)
+        {
+            if (index < macd.FirstValidValue) return false;
+
+            if ((macd[index] > 0 && macd[index] > ema[index]))
+                return true;
+            return false;
         }
     }
 

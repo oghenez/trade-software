@@ -196,8 +196,21 @@
   </STRATEGY>
 
   <STRATEGY>
+    <BasicATRSCR Type="SCREENING" />
+    <BasicATRSCR Code="SCR017" />
+    <BasicATRSCR Category="TRE" />
+    <BasicATRSCR Parameters="Period=14" />
+    <BasicATRSCR ParameterDescriptions="Period defines the input data for the screening" />
+    <BasicATRSCR Name="Price volatility - ATR" />
+    <BasicATRSCR Description="Price volatility - ATR" />
+    <BasicATRSCR URL="http://www.hqtrader.com" />
+    <BasicATRSCR Authors="Quan Nguyen" />
+    <BasicATRSCR Version="1.0" />
+  </STRATEGY>
+
+  <STRATEGY>
     <AbnormaliesSCR Type="SCREENING" />
-    <AbnormaliesSCR Code="SCR017" />
+    <AbnormaliesSCR Code="SCR018" />
     <AbnormaliesSCR Category="TRE" />
     <AbnormaliesSCR Parameters="Period=30" />
     <AbnormaliesSCR ParameterDescriptions="Period defines the input data for the screening" />
@@ -323,7 +336,7 @@
     <MACD_Stochastic Category="HFT" />
     <MACD_Stochastic Parameters="Simple moving average=20,MACD Fast=12,MACD Slow=26,MACD Signal=9,Fast K Period=15,Slow K Period=5,Slow D Period=3" />
     <MACD_Stochastic ParameterDescriptions="Period defines the input data for the strategy" />
-    <MACD_Stochastic Name="MACD and Stochastic" />
+    <MACD_Stochastic Name="MACD Stochastic" />
     <MACD_Stochastic Description="Buy when there are differences in MACD signal and MACD lines, with Stochastic line K above D, and in up trend (defined by SMA condition)" />
     <MACD_Stochastic URL="http://www.hqtrader.com" />
     <MACD_Stochastic Authors="Quan Nguyen" />
@@ -345,7 +358,7 @@
     <MACD_Stochastic_Bottom_v1 Category="HFT" />
     <MACD_Stochastic_Bottom_v1 Parameters="Simple moving average=20,MACD Fast=12,MACD Slow=26,MACD Signal=9,Fast K Period=15,Slow K Period=5,Slow D Period=3" />
     <MACD_Stochastic_Bottom_v1 ParameterDescriptions="Period defines the input data for the strategy" />
-    <MACD_Stochastic_Bottom_v1 Name="MACD and Stochastic Extension" />
+    <MACD_Stochastic_Bottom_v1 Name="MACD and Stochastic Extension v1" />
     <MACD_Stochastic_Bottom_v1 Description="Buy when there are differences in MACD signal and MACD lines, &#xD;&#xA;                            with Stochastic line K above D, and in up trend (defined by SMA condition)&#xD;&#xA;                            and Stochastic Slow K below 70" />
     <MACD_Stochastic_Bottom_v1 URL="http://www.hqtrader.com" />
     <MACD_Stochastic_Bottom_v1 Authors="Quan Nguyen" />
@@ -378,7 +391,7 @@
     <MACD_Histogram Category="TRE" />
     <MACD_Histogram Parameters="MACD Fast=12,MACD Slow=26,MACD Signal=9" />
     <MACD_Histogram ParameterDescriptions="Period defines the input data for the strategy" />
-    <MACD_Histogram Name="MACD strategy using histogram changes" />
+    <MACD_Histogram Name="MACD Histogram" />
     <MACD_Histogram Description="MACD strategy using histogram changes" />
     <MACD_Histogram URL="http://www.hqtrader.com" />
     <MACD_Histogram Authors="Quan Nguyen" />
@@ -389,7 +402,7 @@
     <BasicMACD_LineCut Category="TRE" />
     <BasicMACD_LineCut Parameters="MACD Fast=12,MACD Slow=26,MACD Signal=9" />
     <BasicMACD_LineCut ParameterDescriptions="Period defines the input data for the strategy" />
-    <BasicMACD_LineCut Name="MACD using macd and signal line cut" />
+    <BasicMACD_LineCut Name="MACD Line" />
     <BasicMACD_LineCut Description="MACD using macd and signal line cut" />
     <BasicMACD_LineCut URL="http://www.hqtrader.com" />
     <BasicMACD_LineCut Authors="Quan Nguyen" />
@@ -400,7 +413,7 @@
     <MACD_Histogram_RiskMng Category="TRE" />
     <MACD_Histogram_RiskMng Parameters="MACD Fast=12,MACD Slow=26,MACD Signal=9,Cut Loss Level (%)=10,Take Profit Level (%)=200" />
     <MACD_Histogram_RiskMng ParameterDescriptions="Period defines the input data for the strategy" />
-    <MACD_Histogram_RiskMng Name="MACD strategy using histogram changes with risk management" />
+    <MACD_Histogram_RiskMng Name="MACD Histogram with risk management" />
     <MACD_Histogram_RiskMng Description="MACD strategy using histogram changes  with cut loss" />
     <MACD_Histogram_RiskMng URL="http://www.hqtrader.com" />
     <MACD_Histogram_RiskMng Authors="Quan Nguyen" />
@@ -420,7 +433,7 @@
   <STRATEGY>
     <PriceTwoSMA Code="STR020"/>
     <PriceTwoSMA Category="TRE" />
-    <PriceTwoSMA Parameters="Short Period = 5,Long Period=10," />
+    <PriceTwoSMA Parameters="Short Period = 5,Long Period=10" />
     <PriceTwoSMA ParameterDescriptions="Short Period is the period for the short term moving average line.&#xD;&#xA;                 Long Period is the period for the long term moving average line." />
     <PriceTwoSMA Name="Two Simple Moving Average Waves compared with Price" />
     <PriceTwoSMA Description="Two Simple Moving Average Waves compared with Price" />
@@ -444,7 +457,7 @@
     <Price_3SMA_Risk_Reward Category="TRE" />
     <Price_3SMA_Risk_Reward Parameters="Short Period=5,Medium Period=10,Long Period=20,Risk Reward Ratio=2,Period for Risk Reward Ratio=60" />
     <Price_3SMA_Risk_Reward ParameterDescriptions="Short Period is the period for the short term moving average line.&#xD;&#xA;                 Medium Period is the period for the medium term moving average line.&#xD;&#xA;                 Long Period is the period for the long term moving average line." />
-    <Price_3SMA_Risk_Reward Name="Three SMA Waves at Risk Reward Ratio" />
+    <Price_3SMA_Risk_Reward Name="3 SMA Waves with Risk Reward Ratio" />
     <Price_3SMA_Risk_Reward Description="Three SMA Waves at Risk Reward Ratio" />
     <Price_3SMA_Risk_Reward URL="http://www.hqtrader.com" />
     <Price_3SMA_Risk_Reward Authors="Quan Nguyen" />
@@ -521,7 +534,7 @@
 
   <STRATEGY>
     <HybridSAR Code="STR029"/>
-    <HybridSAR Category="TRE" />
+    <HybridSAR Category="HYB" />
     <HybridSAR Parameters="AF=0.02,Step=0.2,Cut Loss Level (%)=5,Take Profit Level (%)=200" />
     <HybridSAR ParameterDescriptions="" />
     <HybridSAR Name="Hybrid SAR" />
@@ -544,7 +557,7 @@
   </STRATEGY>
 
   <STRATEGY>
-    <TSFLIN Code="STR030"/>
+    <TSFLIN Code="STR031"/>
     <TSFLIN Category="HYB" />
     <TSFLIN Parameters=">Time Series Period=25,Linear Regression Period=25,Cut Loss Level (%)=5,Take Profit Level (%)=200" />
     <TSFLIN ParameterDescriptions="" />
@@ -553,5 +566,77 @@
     <TSFLIN URL="http://www.hqtrader.com" />
     <TSFLIN Authors="Quan Nguyen" />
     <TSFLIN Version="1.0" />
+  </STRATEGY>
+
+  <STRATEGY>
+    <BasicTRIX Code="STR032"/>
+    <BasicTRIX Category="TRE" />
+    <BasicTRIX Parameters="Period=25,Cut Loss Level (%)=5,Take Profit Level (%)=200" />
+    <BasicTRIX ParameterDescriptions="Period is the period for the short term moving average line." />
+    <BasicTRIX Name="TRIX strategy" />
+    <BasicTRIX Description="TRIX strategy" />
+    <BasicTRIX URL="http://www.hqtrader.com" />
+    <BasicTRIX Authors="Quan Nguyen" />
+    <BasicTRIX Version="1.0" />
+  </STRATEGY>
+
+  <STRATEGY>
+    <BasicTRIX_Trailing Code="STR033"/>
+    <BasicTRIX_Trailing Category="TRE" />
+    <BasicTRIX_Trailing Parameters="Period=25,Cut Loss Level (%)=5,Trailing Stop (%)=15, Take Profit Level (%)=200" />
+    <BasicTRIX_Trailing ParameterDescriptions="Period is the period for the short term moving average line." />
+    <BasicTRIX_Trailing Name="New TRIX strategy" />
+    <BasicTRIX_Trailing Description="TRIX strategy" />
+    <BasicTRIX_Trailing URL="http://www.hqtrader.com" />
+    <BasicTRIX_Trailing Authors="Quan Nguyen" />
+    <BasicTRIX_Trailing Version="1.0" />
+  </STRATEGY>
+  
+  <STRATEGY>
+    <TwoLineTRIX Code="STR034"/>
+    <TwoLineTRIX Category="TRE" />
+    <TwoLineTRIX Parameters="Short Period=10,Long Period=30,Cut Loss Level (%)=5, Take Profit Level (%)=200" />
+    <TwoLineTRIX ParameterDescriptions="Period is the period for the short term moving average line." />
+    <TwoLineTRIX Name="Two Line TRIX strategy" />
+    <TwoLineTRIX Description="Two Line TRIX strategy" />
+    <TwoLineTRIX URL="http://www.hqtrader.com" />
+    <TwoLineTRIX Authors="Quan Nguyen" />
+    <TwoLineTRIX Version="1.0" />
+  </STRATEGY>
+
+  <STRATEGY>
+    <EMASAR Code="STR035"/>
+    <EMASAR Category="HYB" />
+    <EMASAR Parameters="AF=0.02,Step=0.2,Short Period=5,Long Period=10,Cut Loss Level (%)=5,Take Profit Level (%)=200" />
+    <EMASAR ParameterDescriptions="" />
+    <EMASAR Name="Hybrid SAR-EMA" />
+    <EMASAR Description="Buy when price above SAR line and EMA lines satisfy" />
+    <EMASAR URL="http://www.hqtrader.com" />
+    <EMASAR Authors="Quan Nguyen" />
+    <EMASAR Version="1.0" />
+  </STRATEGY>
+
+  <STRATEGY>
+    <BasicATR Code="STR036"/>
+    <BasicATR Category="TRE" />
+    <BasicATR Parameters="ATR Period=14,Cut Loss Level (%)=5, Take Profit Level (%)=200" />
+    <BasicATR ParameterDescriptions="Period is the period for the short term moving average line." />
+    <BasicATR Name="Basic ATR" />
+    <BasicATR Description="Basic ATRs" />
+    <BasicATR URL="http://www.hqtrader.com" />
+    <BasicATR Authors="Quan Nguyen" />
+    <BasicATR Version="1.0" />
+  </STRATEGY>
+
+  <STRATEGY>
+    <HybridEMAATR Code="STR037"/>
+    <HybridEMAATR Category="HYB" />
+    <HybridEMAATR Parameters="ATR Period=14,EMA Short Period=5,EMA Long Period=10,Cut Loss Level (%)=5,Trailing Stop (%)=15, Take Profit Level (%)=200" />
+    <HybridEMAATR ParameterDescriptions="Period is the period for the short term moving average line." />
+    <HybridEMAATR Name="Hybrid ATR-EMA" />
+    <HybridEMAATR Description="Hybrid ATR-EMA" />
+    <HybridEMAATR URL="http://www.hqtrader.com" />
+    <HybridEMAATR Authors="Quan Nguyen" />
+    <HybridEMAATR Version="1.0" />
   </STRATEGY>
 </Configuration>

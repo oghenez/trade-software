@@ -24,6 +24,14 @@ namespace Strategy
         }
     }
 
+    public class EMASAR_Helper : baseHelper
+    {
+        public EMASAR_Helper()
+            : base(typeof(EMASAR))
+        {
+        }
+    }
+
     public class BasicSARScreening_Helper : baseHelper
     {
         public BasicSARScreening_Helper()
@@ -138,6 +146,41 @@ namespace Strategy
         }
     }
 
+    public class EMASAR : GenericStrategy
+    {
+        override protected void StrategyExecute()
+        {
+            BasicSARRule sarRule = new BasicSARRule(data.Bars, parameters[0], parameters[1]);
+            TwoEMARule emaRule=new TwoEMARule(data.Close,parameters[2],parameters[3]);
+            int cutlosslevel = (int)parameters[4];
+            int takeprofitlevel = (int)parameters[5];
+
+
+            for (int idx = 0; idx < data.Close.Count - 1; idx++)
+            {
+                if ((!is_bought) && ((sarRule.isValid_forBuy(idx) && emaRule.UpTrend(idx))))
+                {
+                    BusinessInfo info = new BusinessInfo();
+                    info.SetTrend(AppTypes.MarketTrend.Upward, AppTypes.MarketTrend.Unspecified, AppTypes.MarketTrend.Unspecified);
+                    BuyAtClose(idx, info);
+                }
+                if (is_bought && (sarRule.isValid_forSell(idx) || emaRule.isValid_forSell(idx)))
+                //if (dmiRule.isValid_forSell(idx))
+                {
+                    BusinessInfo info = new BusinessInfo();
+                    info.SetTrend(AppTypes.MarketTrend.Downward, AppTypes.MarketTrend.Unspecified, AppTypes.MarketTrend.Unspecified);
+                    SellAtClose(idx, info);
+                }
+
+                if (is_bought && CutLossCondition(data.Close[idx], buy_price, cutlosslevel))
+                    SellCutLoss(idx);
+
+                if (is_bought && TakeProfitCondition(data.Close[idx], buy_price, takeprofitlevel))
+                    SellTakeProfit(idx);
+            }
+        }
+    }
+
     public class BasicSAR : GenericStrategy
     {
         override protected void StrategyExecute()
@@ -146,8 +189,8 @@ namespace Strategy
             int cutlosslevel = (int)parameters[2];
             int takeprofitlevel = (int)parameters[3];
 
-            Indicators.MIN min = Indicators.MIN.Series(data.Close, parameters[0], "min");
-            Indicators.MAX max = Indicators.MAX.Series(data.Close, parameters[1], "max");
+            Indicators.MIN min = Indicators.MIN.Series(data.Close, 30, "min");
+            Indicators.MAX max = Indicators.MAX.Series(data.Close, 30, "max");
 
             for (int idx = 0; idx < data.Close.Count - 1; idx++)
             {

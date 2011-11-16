@@ -38,7 +38,7 @@ namespace Strategy
           
             for (int idx = 1; idx < data.Close.Count; idx++)
             {
-                if (rsirule.isValid_forBuy(idx)&&macdrule.isValid_forBuy(idx))
+                if (rsirule.isValid_forBuy(idx)||macdrule.isValid_forBuy(idx))
                     BuyAtClose(idx);
                 if (rsirule.isValid_forSell(idx) || macdrule.isValid_forSell(idx))
                     SellAtClose(idx);

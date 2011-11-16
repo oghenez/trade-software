@@ -222,11 +222,19 @@ namespace application
             retVal.FirstValidValue = d1.FirstValidValue;
             return retVal;
         }
-        public static DataSeries operator /(DataSeries ds, int d)
+        public static DataSeries operator /(DataSeries ds, double d)
         {
             DataSeries retVal = new DataSeries();
             if (d != 0) for (int idx = 0; idx < ds.Count; idx++) retVal.Add(ds[idx] / d);
             else for (int idx = 0; idx < ds.Count; idx++) retVal.Add(0);
+            retVal.FirstValidValue = ds.FirstValidValue;
+            return retVal;
+        }
+
+        public static DataSeries operator *(double d, DataSeries ds)
+        {
+            DataSeries retVal = new DataSeries();
+            for (int idx = 0; idx < ds.Count; idx++) retVal.Add(ds[idx] * d);
             retVal.FirstValidValue = ds.FirstValidValue;
             return retVal;
         }

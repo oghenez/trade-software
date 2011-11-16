@@ -82,14 +82,14 @@ namespace Strategy
         override protected void StrategyExecute()
         {
             TwoSMARule rule = new TwoSMARule(data.Close, parameters[0], parameters[1]);
-            
+
             for (int idx = 0; idx < data.Close.Count; idx++)
             {
                 if (rule.isValid_forBuy(idx))
                     BuyAtClose(idx);
                 else
-                if (rule.isValid_forSell(idx))
-                    SellAtClose(idx);
+                    if (rule.isValid_forSell(idx))
+                        SellAtClose(idx);
             }
         }
     }
@@ -117,9 +117,9 @@ namespace Strategy
             return isValid_forBuy(idx);
         }
 
-        public override bool isValid_forBuy(int idx)
+        public override bool UpTrend(int idx)
         {
-            if (idx < 0) return false;
+            if (idx < long_indicator.FirstValidValue) return false;
 
             if (short_indicator[idx] > long_indicator[idx])
                 return true;
@@ -127,13 +127,27 @@ namespace Strategy
             return false;
         }
 
-        public override bool isValid_forSell(int idx)
+        public override bool DownTrend(int idx)
         {
-            if (idx < 0) return false;
+            if (idx < long_indicator.FirstValidValue) return false;
 
             if (short_indicator[idx] < long_indicator[idx])
                 return true;
 
+            return false;
+        }
+
+        public override bool isValid_forBuy(int index)
+        {
+            if (DownTrend(index - 1) && UpTrend(index))
+                return true;
+            return false;
+        }
+
+        public override bool isValid_forSell(int index)
+        {
+            if (DownTrend(index) && UpTrend(index - 1))
+                return true;
             return false;
         }
     }
@@ -161,9 +175,9 @@ namespace Strategy
             return isValid_forBuy(idx);
         }
 
-        public override bool isValid_forBuy(int idx)
+        public override bool UpTrend(int idx)
         {
-            if (idx < 0) return false;
+            if (idx < long_indicator.FirstValidValue) return false;
 
             if (short_indicator[idx] > long_indicator[idx])
                 return true;
@@ -171,13 +185,27 @@ namespace Strategy
             return false;
         }
 
-        public override bool isValid_forSell(int idx)
+        public override bool DownTrend(int idx)
         {
-            if (idx < 0) return false;
+            if (idx < long_indicator.FirstValidValue) return false;
 
             if (short_indicator[idx] < long_indicator[idx])
                 return true;
 
+            return false;
+        }
+
+        public override bool isValid_forBuy(int index)
+        {
+            if (DownTrend(index - 1) && UpTrend(index))
+                return true;
+            return false;
+        }
+
+        public override bool isValid_forSell(int index)
+        {
+            if (DownTrend(index) && UpTrend(index - 1))
+                return true;
             return false;
         }
     }
@@ -231,7 +259,7 @@ namespace Strategy
 
         public override bool UpTrend(int index)
         {
-            if (index< short_indicator.FirstValidValue) return false;
+            if (index < short_indicator.FirstValidValue) return false;
             if (short_indicator[index] > long_indicator[index])
                 return true;
             return false;
@@ -244,7 +272,7 @@ namespace Strategy
                 return true;
             return false;
         }
-    }    
+    }
 
     /// <summary>
     /// Screening based on two SMA lines cut

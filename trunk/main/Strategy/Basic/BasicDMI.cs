@@ -62,53 +62,47 @@ namespace Strategy
     {
         public DataSeries minusDmi;
         public DataSeries plusDmi;
-        public DataSeries adx;
+        public DataSeries adx,emaadx;
         public BasicDMIRule(DataBars db,double minusperiod,double plusperiod)
         {
             minusDmi = new Indicators.MinusDI(db, minusperiod, "minusDmi");
             plusDmi = new Indicators.PlusDI(db, plusperiod, "plusDmi");
             adx = new Indicators.ADX(db, minusperiod, "adx");
+            emaadx = Indicators.EMA.Series(adx, 5, "emaadx");
         }
         public override bool isValid()
         {
-            if (minusDmi.Count - 2 < minusDmi.FirstValidValue)
-                return false;
-
-            AppTypes.MarketTrend lastTrend = AppTypes.MarketTrend.Unspecified;
-            AppTypes.MarketTrend currentTrend = AppTypes.MarketTrend.Unspecified;
-
-            for (int idx = minusDmi.Count - 2; idx < minusDmi.Count; idx++)
-            {
-                currentTrend = ((plusDmi[idx] > minusDmi[idx]) ? AppTypes.MarketTrend.Upward : AppTypes.MarketTrend.Downward);
-                if (lastTrend == AppTypes.MarketTrend.Downward && currentTrend == AppTypes.MarketTrend.Upward)
-                    return true;
-                lastTrend = currentTrend;
-            }
-
-            return false;
+            return isValid_forBuy(minusDmi.Count - 1);
         }
 
         public override bool isValid_forBuy(int idx)
         {
-            if (idx - 1 < minusDmi.FirstValidValue) return false;
-
-            AppTypes.MarketTrend lastTrend = ((plusDmi[idx - 1] > minusDmi[idx - 1]) ? AppTypes.MarketTrend.Upward : AppTypes.MarketTrend.Downward);
-            AppTypes.MarketTrend currentTrend = ((plusDmi[idx] > minusDmi[idx]) ? AppTypes.MarketTrend.Upward : AppTypes.MarketTrend.Downward);
-
-            if (lastTrend == AppTypes.MarketTrend.Downward && currentTrend == AppTypes.MarketTrend.Upward)
+            if (UpTrend(idx ) && DownTrend(idx-1)&&(emaadx[idx]<adx[idx]))
                 return true;
             return false;
         }
 
         public override bool isValid_forSell(int idx)
         {
-            if (idx - 1 < minusDmi.FirstValidValue)
+            if (UpTrend(idx - 1) && DownTrend(idx) && (emaadx[idx] < adx[idx]) )
+                return true;
+            return false;
+        }
+
+        public override bool DownTrend(int index)
+        {
+            if (index < minusDmi.FirstValidValue) 
                 return false;
+            if (minusDmi[index] > plusDmi[index])
+                return true;
+            return false;
+        }
 
-            AppTypes.MarketTrend lastTrend = ((plusDmi[idx - 1] > minusDmi[idx - 1]) ? AppTypes.MarketTrend.Upward : AppTypes.MarketTrend.Downward);
-            AppTypes.MarketTrend currentTrend = ((plusDmi[idx] > minusDmi[idx]) ? AppTypes.MarketTrend.Upward : AppTypes.MarketTrend.Downward);
-
-            if (lastTrend == AppTypes.MarketTrend.Upward && currentTrend == AppTypes.MarketTrend.Downward)
+        public override bool UpTrend(int index)
+        {
+            if (index < minusDmi.FirstValidValue)
+                return false;
+            if (minusDmi[index] <= plusDmi[index])
                 return true;
             return false;
         }
