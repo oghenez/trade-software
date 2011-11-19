@@ -145,7 +145,6 @@ namespace baseClass.forms
         {
             if (investorSource.Current == null) selectedDataRow =null;
             else selectedDataRow = (data.baseDS.stockCodeRow)(((DataRowView)investorSource.Current).Row);
-            //??this.Hide();
             this.Close();
         }
     }

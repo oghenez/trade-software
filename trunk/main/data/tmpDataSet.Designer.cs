@@ -979,12 +979,6 @@ namespace data {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public tradeEstimateRow FindByonDate(System.DateTime onDate) {
-                return ((tradeEstimateRow)(this.Rows.Find(new object[] {
-                            onDate})));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public override global::System.Data.DataTable Clone() {
                 tradeEstimateDataTable cln = ((tradeEstimateDataTable)(base.Clone()));
                 cln.InitVars();
@@ -1038,10 +1032,7 @@ namespace data {
                 base.Columns.Add(this.columnfeeAmt);
                 this.columnignored = new global::System.Data.DataColumn("ignored", typeof(bool), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnignored);
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnonDate}, true));
                 this.columnonDate.AllowDBNull = false;
-                this.columnonDate.Unique = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

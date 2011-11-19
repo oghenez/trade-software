@@ -123,7 +123,7 @@ namespace Strategy
             {
                 if (rule.isValid_forBuy(idx))
                 {
-                    BusinessInfo info = new BusinessInfo();
+                    wsData.BusinessInfo info = new wsData.BusinessInfo();
                     info.SetTrend(AppTypes.MarketTrend.Upward, AppTypes.MarketTrend.Unspecified, AppTypes.MarketTrend.Unspecified);
                     info.Short_Target = max[idx];
                     info.Stop_Loss = min[idx];
@@ -131,7 +131,7 @@ namespace Strategy
                 }
                 if (rule.isValid_forSell(idx))
                 {
-                    BusinessInfo info = new BusinessInfo();
+                    wsData.BusinessInfo info = new wsData.BusinessInfo();
                     info.SetTrend(AppTypes.MarketTrend.Downward, AppTypes.MarketTrend.Unspecified, AppTypes.MarketTrend.Unspecified);
                     info.Short_Target = min[idx];
                     info.Stop_Loss = max[idx];
@@ -170,7 +170,7 @@ namespace Strategy
             {
                 if (rule.isValid_forBuy(idx))
                 {
-                    BusinessInfo info = new BusinessInfo();
+                    wsData.BusinessInfo info = new wsData.BusinessInfo();
                     info.SetTrend(AppTypes.MarketTrend.Upward, AppTypes.MarketTrend.Unspecified, AppTypes.MarketTrend.Unspecified);
                     info.Short_Target = max[idx];
                     info.Stop_Loss = min[idx];
@@ -178,7 +178,7 @@ namespace Strategy
                 }
                 if (rule.isValid_forSell(idx))
                 {
-                    BusinessInfo info = new BusinessInfo();
+                    wsData.BusinessInfo info = new wsData.BusinessInfo();
                     info.SetTrend(AppTypes.MarketTrend.Downward, AppTypes.MarketTrend.Unspecified, AppTypes.MarketTrend.Unspecified);
                     info.Short_Target = min[idx];
                     info.Stop_Loss = max[idx];
@@ -228,7 +228,7 @@ namespace Strategy
             {
                 if (rule.isValid_forBuy(idx))
                 {
-                    BusinessInfo info = new BusinessInfo();
+                    wsData.BusinessInfo info = new wsData.BusinessInfo();
                     info.SetTrend(AppTypes.MarketTrend.Upward, AppTypes.MarketTrend.Unspecified, AppTypes.MarketTrend.Unspecified);
                     info.Short_Target = max[idx];
                     info.Stop_Loss = min[idx];
@@ -236,7 +236,7 @@ namespace Strategy
                 }
                 if (rule.isValid_forSell(idx))
                 {
-                    BusinessInfo info = new BusinessInfo();
+                    wsData.BusinessInfo info = new wsData.BusinessInfo();
                     info.SetTrend(AppTypes.MarketTrend.Downward, AppTypes.MarketTrend.Unspecified, AppTypes.MarketTrend.Unspecified);
                     info.Short_Target = min[idx];
                     info.Stop_Loss = max[idx];

@@ -95,29 +95,37 @@ namespace Tools.Forms
             common.Export.ExportToExcel((DataTable)strategyEstimationGrid.DataSource, saveFileDialog.FileName);
         }
 
-        private bool fExecute = false;
         public void Execute()
         {
-            if (fExecute) return;
-            fExecute = true;
-            this.ShowMessage("");
+            if (this.fOnProccessing) return;
             try
             {
                 if (!DataValidate()) return;
+
+                this.ShowMessage("");
+                this.fOnProccessing = true;
+
                 progressBar.Visible = true;
                 this.myFormMode = formMode.OptionWithData;
                 DateTime startTime = DateTime.Now;
-                DoBackTest();
+
+                if (application.Settings.sysUseWebservice) 
+                     DoBackTestUseWS();
+                else DoBackTestUseDB();
+                FormResize();
+
                 DateTime endTime = DateTime.Now;
                 this.ShowMessage(language.GetString("finished") + " : " + common.dateTimeLibs.TimeSpan2String(endTime.Subtract(startTime)));
+
+                this.fOnProccessing = false;
             }
             catch (Exception er)
             {
+                this.fOnProccessing = false;
                 this.ShowError(er);
             }
             finally
             {
-                fExecute = false;
                 progressBar.Visible = false;
             }
         }
@@ -228,22 +236,6 @@ namespace Tools.Forms
             resultDataGrid.Refresh();
         }
 
-        private DataTable CreateDataTable(StringCollection strategyCode)
-        {
-            // Define the new datatable
-            DataTable tbl = new DataTable();
-
-            // Define columns
-            DataColumn col = new DataColumn("item");
-            tbl.Columns.Add(col);
-            for (int colId = 0; colId < strategyCode.Count; colId++)
-            {
-                col = new DataColumn(strategyCode[colId].Trim(), typeof(Decimal));
-                tbl.Columns.Add(col);
-            }
-            return tbl;
-        }
-
         private void FormResize()
         {
             switch (this.myFormMode)
@@ -304,39 +296,47 @@ namespace Tools.Forms
             }
             return retVal;
         }
-        private void DoBackTest()
+        private static DataTable CreateEstimateTbl(StringCollection strategyCode)
+        {
+            DataTable tbl = new DataTable();
+
+            // Define columns
+            DataColumn col = new DataColumn("item");
+            tbl.Columns.Add(col);
+            for (int colId = 0; colId < strategyCode.Count; colId++)
+            {
+                col = new DataColumn(strategyCode[colId].Trim(), typeof(Decimal));
+                tbl.Columns.Add(col);
+            }
+            return tbl;
+        }
+
+        private void DoBackTestUseDB()
         {
             this.myValueType = ValueTypes.Amount;
-            this.Amount2PercentDenominator = application.Settings.sysStockTotalCapAmt;
+            this.Amount2PercentDenominator = Settings.sysStockTotalCapAmt;
             StringCollection strategyList = strategyClb.myCheckedValues;
             StringCollection stockCodeList = codeSelectLb.myValues;
-            DataTable testRetsultTbl = CreateDataTable(strategyList);
+            DataTable testRetsultTbl = CreateEstimateTbl(strategyList);
             SetDataGrid(resultDataGrid, testRetsultTbl);
 
             progressBar.Value = 0; progressBar.Minimum = 0; progressBar.Maximum = stockCodeList.Count;
-            data.tmpDS.stockCodeRow stockCodeRow;
             for (int rowId = 0; rowId < stockCodeList.Count; rowId++)
             {
-                stockCodeRow = application.dataLibs.FindAndCache_StockCodeShort(stockCodeList[rowId]);
-                if (stockCodeRow == null) continue;
-                decimal profit = 0;
-                application.Data analysisData = new application.Data(periodicityEd.myTimeRange, periodicityEd.myTimeScale, stockCodeRow.code);
+                application.Data analysisData = new application.Data(periodicityEd.myTimeRange, periodicityEd.myTimeScale, stockCodeList[rowId]);
                 DataRow row = testRetsultTbl.Rows.Add(stockCodeList[rowId]);
                 for (int colId = 0; colId < strategyList.Count; colId++)
                 {
                     try
                     {
-                        profit = 0;
                         //Analysis cached data so we MUST clear cache to ensure the system run correctly
                         Strategy.Data.ClearCache();
-                        wsData.TradePoints advices = Strategy.Libs.Analysis(analysisData, strategyList[colId]);
+                        Strategy.Data.TradePoints advices = Strategy.Libs.Analysis(analysisData, strategyList[colId]);
                         if (advices != null)
                         {
-                            myTmpDS.tradeEstimate.Clear();
-                            Strategy.Libs.EstimateTrading(analysisData, advices, new application.wsData.EstimateOptions(), myTmpDS.tradeEstimate);
-                            profit = (myTmpDS.tradeEstimate.Count == 0 ? 0 : profit = myTmpDS.tradeEstimate[myTmpDS.tradeEstimate.Count - 1].profit);
+                            row[colId + 1] = Strategy.Libs.EstimateTrading_Profit(analysisData, Strategy.Libs.ToTradePointInfo(advices), new wsData.EstimateOptions());
                         }
-                        row[colId + 1] = profit;
+                        else row[colId + 1] = 0;
                     }
                     catch (Exception er)
                     {
@@ -345,10 +345,54 @@ namespace Tools.Forms
                     }
                 }
                 progressBar.Value++;
+                this.ShowReccount(progressBar.Value.ToString() + "/" + progressBar.Maximum.ToString());
                 Application.DoEvents();
             }
             SetEstimateDataGrid(Strategy.Libs.GetStrategyStats(testRetsultTbl));
-            FormResize();
+        }
+        private void DoBackTestUseWS()
+        {
+            this.ShowReccount("");
+            this.myValueType = ValueTypes.Amount;
+            this.Amount2PercentDenominator = Settings.sysStockTotalCapAmt;
+            StringCollection strategyList = strategyClb.myCheckedValues;
+            StringCollection stockCodeList = codeSelectLb.myValues;
+            //Analysis cached data so we MUST reset to clear cache to ensure the system run correctly
+            wsAccess.libs.Reset();
+            wsData.EstimateOptions estimateOption = new wsData.EstimateOptions();
+
+            DataTable retsultTbl = CreateEstimateTbl(strategyList);
+            SetDataGrid(resultDataGrid, retsultTbl);
+
+            progressBar.Value = 0; progressBar.Minimum = 0; progressBar.Maximum = stockCodeList.Count;
+            application.AppTypes.TimeRanges timeRange = periodicityEd.myTimeRange;
+            string timeScaleCode = periodicityEd.myTimeScale.Code;
+            string[] strategy = common.system.Collection2List(strategyList);
+
+            this.ShowReccount(progressBar.Value.ToString() + "/" + progressBar.Maximum.ToString());
+
+            int codeStartIdx=0, codeEndIdx=0;
+            while (codeStartIdx < stockCodeList.Count)
+            {
+                codeEndIdx += application.Settings.sysNumberOfItemsInBatchProcess;
+                if (codeEndIdx >= stockCodeList.Count) codeEndIdx = stockCodeList.Count - 1;
+
+                string[] stocks = common.system.Collection2List(stockCodeList, codeStartIdx, codeEndIdx);
+                decimal[][] retList = wsAccess.libs.myClient.Estimate_Matrix_Profit(timeRange, timeScaleCode, stocks, strategy, estimateOption);
+                for (int idx = 0; idx < retList.Length; idx++)
+                {
+                    DataRow row = retsultTbl.Rows.Add(stockCodeList[idx + codeStartIdx]);
+                    for (int colId = 0; colId < retList[idx].Length; colId++)
+                    {
+                        row[colId + 1] = retList[idx][colId]; 
+                    }
+                    Application.DoEvents();
+                }
+                codeStartIdx = codeEndIdx + 1;
+                progressBar.Value = codeEndIdx+1;
+                this.ShowReccount(progressBar.Value.ToString() + "/" + progressBar.Maximum.ToString());
+            }
+            SetEstimateDataGrid(Strategy.Libs.GetStrategyStats(retsultTbl));
         }
 
         private void CreateContextMenu()
@@ -439,7 +483,7 @@ namespace Tools.Forms
                     ShowStock(stockCode, periodicityEd.myTimeRange, periodicityEd.myTimeScale);
                     return;
                 }
-                stockCodeRow = application.dataLibs.FindAndCache_StockCodeShort(stockCode);
+                stockCodeRow = dataLibs.FindAndCache_StockCodeShort(stockCode);
                 string strategyCode = strategyClb.myCheckedValues[e.ColumnIndex - 1];
                 ShowTradeTransactions(stockCodeRow, strategyCode, periodicityEd.myTimeRange, periodicityEd.myTimeScale);
             }
@@ -592,7 +636,7 @@ namespace Tools.Forms
                     for (int idx1 = 0; idx1 < resultDataGrid.SelectedRows.Count; idx1++)
                     {
                         stockCode = resultDataGrid.SelectedRows[idx1].Cells[0].Value.ToString();
-                        stockCodeRow = application.dataLibs.FindAndCache_StockCodeShort(stockCode);
+                        stockCodeRow = dataLibs.FindAndCache_StockCodeShort(stockCode);
                         if (stockCodeRow == null) continue;
                         for (int idx2 = 0; idx2 < strategyClb.myCheckedValues.Count; idx2++)
                         {
@@ -606,7 +650,7 @@ namespace Tools.Forms
                     if (resultDataGrid.CurrentRow != null)
                     {
                         stockCode = resultDataGrid.CurrentRow.Cells[0].Value.ToString();
-                        stockCodeRow = application.dataLibs.FindAndCache_StockCodeShort(stockCode);
+                        stockCodeRow = dataLibs.FindAndCache_StockCodeShort(stockCode);
                         if (stockCodeRow == null) return;
                         for (int idx2 = 0; idx2 < strategyClb.myCheckedValues.Count; idx2++)
                         {
@@ -629,7 +673,7 @@ namespace Tools.Forms
                 if (resultDataGrid.CurrentCell.ColumnIndex <= 0) return;
 
                 string stockCode = resultDataGrid.CurrentRow.Cells[0].Value.ToString();
-                data.tmpDS.stockCodeRow stockCodeRow = application.dataLibs.FindAndCache_StockCodeShort(stockCode);
+                data.tmpDS.stockCodeRow stockCodeRow = dataLibs.FindAndCache_StockCodeShort(stockCode);
                 if (stockCodeRow == null) return;
                 ShowTradeTransactions(stockCodeRow, strategyClb.myCheckedValues[resultDataGrid.CurrentCell.ColumnIndex-1],
                                       periodicityEd.myTimeRange, periodicityEd.myTimeScale);

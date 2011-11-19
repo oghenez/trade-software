@@ -88,15 +88,19 @@ namespace Tools.Forms
         public void Execute()
         {
             if (this.fOnProccessing) return;
-            this.fOnProccessing = true;
             try
             {
-                this.ShowMessage("");
                 if (!DataValidate()) return;
+
+                this.ShowMessage("");
+                this.fOnProccessing = true;
+
                 progressBar.Visible = true;
                 this.myFormMode = formMode.OptionWithData;
                 DateTime startTime = DateTime.Now;
-                DoScreening();
+                if (application.Settings.sysUseWebservice) DoScreeningWS();
+                else DoScreeningDB();
+                //DoScreeningDB();
                 this.fullViewMenuItem.Enabled = true;
                 this.exportResultMenuItem.Enabled = true;
                 DateTime endTime = DateTime.Now;
@@ -295,7 +299,7 @@ namespace Tools.Forms
             return retVal;
         }
 
-        private void DoScreening()
+        private void DoScreeningDB()
         {
             decimal weight = 0;
             StringCollection stockCodeList = stockCodeLb.myValues;
@@ -329,11 +333,11 @@ namespace Tools.Forms
                     {
                         //Analysis cached data so we MUST clear cache to ensure the system run correctly
                         Strategy.Data.ClearCache();
-                        wsData.TradePoints tradePoints = Strategy.Libs.Analysis(analysisData, strategyList[colId]);
+                        Strategy.Data.TradePoints tradePoints = Strategy.Libs.Analysis(analysisData, strategyList[colId]);
                         // BusinessInfo.Weight value is used as estimation value. The higher value, the better chance to match user need.
                         if (tradePoints != null && tradePoints.Count > 0)
                         {
-                            weight = (decimal)tradePoints.GetItem(tradePoints.Count - 1).BusinessInfo.Weight;
+                            weight = (decimal)(tradePoints[tradePoints.Count - 1] as wsData.TradePointInfo).BusinessInfo.Weight;
                             DataView criteriaView = new DataView(tmpDS.screeningCriteria);
                             criteriaView.RowFilter = tmpDS.screeningCriteria.codeColumn + "='" + strategyList[colId] + "' AND " +
                                                      tmpDS.screeningCriteria.selectedColumn + "=1";
@@ -358,6 +362,77 @@ namespace Tools.Forms
                 }
                 if (fMatched) testRetsultTbl.Rows.Add(row);
                 progressBar.Value++;
+                this.ShowReccount(progressBar.Value.ToString() + "/" + progressBar.Maximum);
+                Application.DoEvents();
+            }
+            this.ShowReccount(resultDataGrid.Rows.Count);
+        }
+        private void DoScreeningWS()
+        {
+            decimal weight = 0;
+            StringCollection stockCodeList = stockCodeLb.myValues;
+
+            StringCollection strategyList = new StringCollection();
+            for (int idx = 0; idx < tmpDS.screeningCriteria.Count; idx++)
+            {
+                if (tmpDS.screeningCriteria[idx].code != "" && tmpDS.screeningCriteria[idx].selected)
+                {
+                    if (strategyList.Contains(tmpDS.screeningCriteria[idx].code)) continue;
+                    strategyList.Add(tmpDS.screeningCriteria[idx].code);
+                }
+            }
+            DataTable retsultTbl = CreateDataTable(strategyList);
+            SetDataGrid(resultDataGrid, retsultTbl);
+
+            //Analysis cached data so we MUST clear cache to ensure the system run correctly
+            wsAccess.libs.myClient.ClearCache();
+
+            progressBar.Value = 0; progressBar.Minimum = 0; progressBar.Maximum = stockCodeList.Count;
+            this.ShowReccount(progressBar.Value.ToString() + "/" + progressBar.Maximum.ToString());
+
+            string[] strategy = common.system.Collection2List(strategyList);
+            this.ShowReccount(progressBar.Value.ToString() + "/" + progressBar.Maximum.ToString());
+            int codeStartIdx=0, codeEndIdx=0;
+            while (codeStartIdx < stockCodeList.Count)
+            {
+                codeEndIdx += application.Settings.sysNumberOfItemsInBatchProcess;
+                if (codeEndIdx >= stockCodeList.Count) codeEndIdx = stockCodeList.Count - 1;
+
+                string[] stocks = common.system.Collection2List(stockCodeList, codeStartIdx, codeEndIdx);
+                double[][] weightList = wsAccess.libs.myClient.Estimate_Matrix_LastBizWeight(timeRangeCb.myValue, timeScaleCb.myValue.Code, stocks, strategy);
+
+                for (int idx1 = 0, rowId = codeStartIdx; idx1 < weightList.Length; idx1++, rowId++)
+                {
+                    bool fMatched = false;
+                    DataRow row = retsultTbl.NewRow();
+                    row[0] = stockCodeList[rowId];
+
+                    for (int colId = 0; colId < weightList[idx1].Length; colId++)
+                    {
+                        if (double.IsNaN(weightList[idx1][colId])) continue;
+                        weight = (decimal)weightList[idx1][colId];
+                        DataView criteriaView = new DataView(tmpDS.screeningCriteria);
+                        criteriaView.RowFilter = tmpDS.screeningCriteria.codeColumn + "='" + strategyList[colId] + "' AND " +
+                                                 tmpDS.screeningCriteria.selectedColumn + "=1";
+                        Data.tmpDataSet.screeningCriteriaRow criteriaRow;
+                        // If there is more than one criteria for the same code,
+                        // matching one criteria is viewed as MATCHED , as OR operaror. 
+                        for (int idx = 0; idx < criteriaView.Count; idx++)
+                        {
+                            criteriaRow = (Data.tmpDataSet.screeningCriteriaRow)criteriaView[idx].Row;
+                            if (weight < criteriaRow.min || weight > criteriaRow.max) continue;
+                            row[colId + 1] = weight;
+                            fMatched = true;
+                            break;
+                        }
+                    }
+                    if (fMatched) retsultTbl.Rows.Add(row);
+                    //retsultTbl.Rows.Add(row);
+                    Application.DoEvents();
+                }
+                codeStartIdx = codeEndIdx + 1;
+                progressBar.Value = codeEndIdx + 1;
+                this.ShowReccount(progressBar.Value.ToString() + "/" + progressBar.Maximum.ToString());
                 Application.DoEvents();
             }
             this.ShowReccount(resultDataGrid.Rows.Count);

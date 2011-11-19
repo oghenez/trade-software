@@ -19,7 +19,7 @@ namespace server
             get
             {
                 if (_configFile == null)
-                    _configFile = common.system.MakeFileNameFromExecutablePath(".conf");
+                    _configFile = common.fileFuncs.MakeFileNameFromExecutablePath(".conf");
                 return _configFile;
             }
         }
@@ -58,7 +58,6 @@ namespace server
             application.configuration.withEncryption = true;
 
             application.configuration.Load_User_Envir();
-            application.configuration.Load_Db_Config();
             //Check data connection after db-setting were loaded
             if (!data.system.CheckAllDbConnection())
             {

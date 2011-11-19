@@ -160,14 +160,14 @@ namespace Strategy
             {
                 if ((!is_bought) && ((sarRule.isValid_forBuy(idx) && emaRule.UpTrend(idx))))
                 {
-                    BusinessInfo info = new BusinessInfo();
+                    wsData.BusinessInfo info = new wsData.BusinessInfo();
                     info.SetTrend(AppTypes.MarketTrend.Upward, AppTypes.MarketTrend.Unspecified, AppTypes.MarketTrend.Unspecified);
                     BuyAtClose(idx, info);
                 }
                 if (is_bought && (sarRule.isValid_forSell(idx) || emaRule.isValid_forSell(idx)))
                 //if (dmiRule.isValid_forSell(idx))
                 {
-                    BusinessInfo info = new BusinessInfo();
+                    wsData.BusinessInfo info = new wsData.BusinessInfo();
                     info.SetTrend(AppTypes.MarketTrend.Downward, AppTypes.MarketTrend.Unspecified, AppTypes.MarketTrend.Unspecified);
                     SellAtClose(idx, info);
                 }

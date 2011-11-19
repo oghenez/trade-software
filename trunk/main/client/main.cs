@@ -611,7 +611,7 @@ namespace client
 
         #region event handler
 
-        private void EstimateTradePointHandler(Tools.Forms.tradeAnalysis sendder, wsData.TradePoints tradePoints)
+        private void EstimateTradePointHandler(Tools.Forms.tradeAnalysis sendder, Strategy.Data.TradePoints tradePoints)
         {
             string formName = constFormNameEstimateTrade + "-" + sendder.myData.DataStockCode;
             Tools.Forms.profitEstimate myForm = (Tools.Forms.profitEstimate)cachedForms.Find(formName);
@@ -829,7 +829,7 @@ namespace client
             return myForm;
         }
 
-        private void backTestingOnShowEstimateTrade(application.Data data, string strategyCode, wsData.TradePoints advices)
+        private void backTestingOnShowEstimateTrade(application.Data data, string strategyCode, Strategy.Data.TradePoints advices)
         {
             try
             {

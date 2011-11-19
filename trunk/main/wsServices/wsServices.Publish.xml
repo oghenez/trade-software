@@ -1,0 +1,32 @@
+<publishData>
+  <publishTarget publishUrl="http://localhost">
+    <file relUrl="bin\vi-VN/common.resources.dll" publishTime="11/19/2011 22:41:41" />
+    <file relUrl="bin/wsServices.dll.config" publishTime="11/18/2011 18:20:37" />
+    <file relUrl="wsServices.DataLibs.svc" publishTime="11/19/2011 23:52:38" />
+    <file relUrl="bin/WeifenLuo.WinFormsUI.Docking.dll" publishTime="09/22/2011 10:12:53" />
+    <file relUrl="bin/common.dll" publishTime="11/19/2011 22:41:41" />
+    <file relUrl="bin\vi-VN/Indicators.resources.dll" publishTime="11/19/2011 23:41:15" />
+    <file relUrl="bin\vi-VN/strategy.resources.dll" publishTime="11/19/2011 23:43:14" />
+    <file relUrl="dataLibs.svc" publishTime="11/11/2011 07:31:08" />
+    <file relUrl="bin/application.pdb" publishTime="11/19/2011 23:41:07" />
+    <file relUrl="bin/LaMarvin.Windows.Forms.ColorPicker.dll" publishTime="02/27/2008 15:13:28" />
+    <file relUrl="bin/strategy.dll" publishTime="11/19/2011 23:43:14" />
+    <file relUrl="bin/strategy.pdb" publishTime="11/19/2011 23:43:14" />
+    <file relUrl="bin/data.dll" publishTime="11/18/2011 23:00:42" />
+    <file relUrl="bin/wsServices.pdb" publishTime="11/19/2011 23:52:38" />
+    <file relUrl="bin/Indicators.dll" publishTime="11/19/2011 23:41:15" />
+    <file relUrl="bin/Interop.WIALib.dll" publishTime="11/19/2011 22:41:25" />
+    <file relUrl="bin/wsServices.csproj.FileListAbsolute.txt" publishTime="11/19/2011 23:43:42" />
+    <file relUrl="bin/ResolveAssemblyReference.cache" publishTime="11/19/2011 15:32:27" />
+    <file relUrl="Web.config" publishTime="11/18/2011 18:20:37" />
+    <file relUrl="bin\vi-VN/application.resources.dll" publishTime="11/19/2011 23:41:07" />
+    <file relUrl="bin/common.pdb" publishTime="11/19/2011 22:41:41" />
+    <file relUrl="bin/PdfSharp.dll" publishTime="11/26/2009 12:06:32" />
+    <file relUrl="bin/Interop.WIA.dll" publishTime="11/19/2011 22:41:24" />
+    <file relUrl="bin/application.dll" publishTime="11/19/2011 23:41:07" />
+    <file relUrl="bin/Indicators.pdb" publishTime="11/19/2011 23:41:15" />
+    <file relUrl="bin/TA-Lib-Core.dll" publishTime="10/27/2011 18:38:49" />
+    <file relUrl="bin/data.pdb" publishTime="11/18/2011 23:00:42" />
+    <file relUrl="bin/wsServices.dll" publishTime="11/19/2011 23:52:38" />
+  </publishTarget>
+</publishData>

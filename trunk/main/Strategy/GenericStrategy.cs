@@ -14,7 +14,7 @@ namespace Strategy
         /// <summary>
         /// Advice info
         /// </summary>
-        public wsData.TradePoints adviceInfo=null;
+        public Data.TradePoints adviceInfo=null;
         public bool is_bought = false;
         public int last_position;
         public double buy_price;
@@ -26,7 +26,7 @@ namespace Strategy
         public GenericStrategy()
         {
             if (adviceInfo==null)
-                adviceInfo = new wsData.TradePoints(); 
+                adviceInfo = new Data.TradePoints(); 
         }
 
         /// <summary>
@@ -36,7 +36,7 @@ namespace Strategy
         public GenericStrategy(application.Data d)
         {
             this.data = d;
-            this.adviceInfo = new wsData.TradePoints();
+            this.adviceInfo = new Data.TradePoints();
             this.last_position = 0;
             this.trailing_stop = -1;
         }
@@ -46,7 +46,7 @@ namespace Strategy
             this.data = d;
             this.parameters = p;
             if (adviceInfo == null)
-                this.adviceInfo = new wsData.TradePoints();
+                this.adviceInfo = new Data.TradePoints();
             this.last_position = 0;
             this.trailing_stop = -1;
         }
@@ -213,7 +213,6 @@ namespace Strategy
             return false;
         }
 
-<<<<<<< .mine
         protected void TrailingStopWithBuyBack(Rule rule,double price,double trailingstoplevel,int idx)
         {
             //Trailing stop strategtest
@@ -231,34 +230,32 @@ namespace Strategy
                     trailing_stop = -1;
                 }
         }
-
-        virtual public TradePoints Execute(application.Data data, double[] paras)
-=======
-        virtual public wsData.TradePoints Execute(application.Data data, double[] paras)
->>>>>>> .r287
+        virtual public Data.TradePoints Execute(application.Data data, double[] paras)
         {
             this.data = data;
             parameters = new Parameters(paras);
-            if (adviceInfo==null)
-                adviceInfo = new wsData.TradePoints();
+            //??Bug fixed by Dung 11 Nov 2011
+            //if (adviceInfo == null)
+            //    this.adviceInfo = new Data.TradePoints();
+            adviceInfo = new Data.TradePoints();
             StrategyExecute();
             return adviceInfo;
         }
         
         //Trading rule with cut loss strategy
-        virtual public wsData.TradePoints Execute_CutLoss()
+        virtual public Data.TradePoints Execute_CutLoss()
         {
             return null;
         }
 
         //Trading rule with taking profit strategy
-        virtual public wsData.TradePoints Execute_TakeProfit()
+        virtual public Data.TradePoints Execute_TakeProfit()
         {
             return null;
         }
 
         //Trading rule with full money management strategy
-        virtual public wsData.TradePoints Execute_MoneyManagement()
+        virtual public Data.TradePoints Execute_MoneyManagement()
         {
             return null;
         }

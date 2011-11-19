@@ -77,7 +77,7 @@ namespace Tools.Forms
             common.Data.dataCache.Add(cacheKey, form);
             return form;
         }
-        public void Init(application.Data data, wsData.TradePoints advices)
+        public void Init(application.Data data, Strategy.Data.TradePoints advices)
         {
             this.myAnalysisData = data;
             this.myTradeAdvices = advices;
@@ -117,7 +117,7 @@ namespace Tools.Forms
             }
         }
 
-        private wsData.TradePoints myTradeAdvices = null;
+        private Strategy.Data.TradePoints myTradeAdvices = null;
         private application.Data myAnalysisData = null;
 
         private void PlotProfitChart()
@@ -184,7 +184,7 @@ namespace Tools.Forms
         /// </summary>
         /// <param name="data"></param>
         /// <param name="tradePoints"></param>
-        public void CheckTradepoints(application.Data data, wsData.TradePoints tradePoints)
+        public void CheckTradepoints(application.Data data, Strategy.Data.TradePoints tradePoints)
         {
             myTmpDS.tradeEstimate.Clear();
             EstimateAdvice(data, tradePoints, new application.wsData.EstimateOptions(), myTmpDS.tradeEstimate);
@@ -197,11 +197,11 @@ namespace Tools.Forms
             PlotProfitChart();
         }
 
-        protected virtual void EstimateAdvice(application.Data data, wsData.TradePoints advices, wsData.EstimateOptions options,
+        protected virtual void EstimateAdvice(application.Data data, Strategy.Data.TradePoints advices, wsData.EstimateOptions options,
                                               data.tmpDS.tradeEstimateDataTable toTbl)
         {
             Strategy.Data.ClearCache();
-            Strategy.Libs.EstimateTrading(data, advices, options, toTbl);
+            Strategy.Libs.EstimateTrading_Details(data, Strategy.Libs.ToTradePointInfo(advices), options, toTbl);
         }
 
         #region event handler

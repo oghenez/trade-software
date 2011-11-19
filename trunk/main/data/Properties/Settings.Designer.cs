@@ -26,8 +26,7 @@ namespace data.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=localhost;Initial Catalog=stock;Persist Security Info=True;User ID=sa" +
-            ";Password=1234567")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=localhost;Initial Catalog=stock;Persist Security Info=True;User ID=sa;Password=1234567")]
 
         public string dbConnectionString 
         {

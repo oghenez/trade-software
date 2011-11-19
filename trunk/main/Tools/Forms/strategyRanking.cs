@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.ComponentModel;
@@ -87,30 +88,34 @@ namespace Tools.Forms
             //if (saveFileDialog.ShowDialog() == DialogResult.Cancel) return;
             //common.Export.ExportToExcel((DataTable)resultDataGrid.DataSource, saveFileDialog.FileName);
         }
-        private bool fExecute = false;
         public void Execute()
         {
-            if (fExecute) return;
-            fExecute = true;
-            this.ShowMessage("");
+            if (this.fOnProccessing) return;
             try
             {
                 if (!DataValidate()) return;
+
+                this.ShowMessage("");
+                this.fOnProccessing = true;
+
                 progressBar.Visible = true;
                 DateTime startTime = DateTime.Now;
-                DoRanking();
+                if (application.Settings.sysUseWebservice) DoRankingWS();
+                else DoRankingDB();
+
                 DateTime endTime = DateTime.Now;
                 this.myFormMode = formMode.OptionWithData;
                 FormResize();
                 this.ShowMessage(language.GetString("finished") + " : " + common.dateTimeLibs.TimeSpan2String(endTime.Subtract(startTime)));
+                this.fOnProccessing = false;
             }
             catch (Exception er)
             {
+                this.fOnProccessing = false;
                 this.ShowError(er);
             }
             finally
             {
-                fExecute = false;
                 progressBar.Visible = false;
             }
         }
@@ -219,7 +224,7 @@ namespace Tools.Forms
                 for (int idx = 1; idx < grid.Columns.Count; idx++) grid.Columns[idx].Width = 90;
             }
         }
-        private static DataTable CreateDataTable(StringCollection timeRangeList,StringCollection strategyList)
+        private static DataTable CreateDataTable(StringCollection timeRangeList,string[] strategyList)
         {
             // Define the new datatable
             DataTable tbl = new DataTable();
@@ -234,7 +239,7 @@ namespace Tools.Forms
                 col.Caption = AppTypes.Type2Text(AppTypes.TimeRangeFromCode(timeRangeList[idx]));
                 tbl.Columns.Add(col);
             }
-            for (int rowId = 0; rowId < strategyList.Count; rowId++)
+            for (int rowId = 0; rowId < strategyList.Length; rowId++)
             {
                 tbl.Rows.Add(Strategy.Libs.GetMetaName(strategyList[rowId]));
             }
@@ -296,16 +301,19 @@ namespace Tools.Forms
             return retVal;
         }
 
-        private void DoRanking()
+        private void DoRankingDB()
         {
             this.myValueType = ValueTypes.Amount;
             this.Amount2PercentDenominator = application.Settings.sysStockTotalCapAmt;
 
             resultTab.TabPages.Clear();
             StringCollection stockCodeList = codeListLb.myValues;
-            StringCollection strategyList = strategyClb.myCheckedValues;
             StringCollection timeRangeList = timeRangeLb.myCheckedValues;
+            string[] strategyList = common.system.Collection2List(strategyClb.myCheckedValues);
             progressBar.Value = 0; progressBar.Minimum = 0; progressBar.Maximum = stockCodeList.Count * timeRangeList.Count;
+
+            application.wsData.EstimateOptions  estimateOption = new application.wsData.EstimateOptions();
+
             for (int stockCodeId = 0; stockCodeId < stockCodeList.Count; stockCodeId++)
             {
                 string stockCode = stockCodeList[stockCodeId].ToString();
@@ -318,24 +326,21 @@ namespace Tools.Forms
                     {
                         progressBar.Value++;
                         Application.DoEvents();
+                        this.ShowReccount(progressBar.Value.ToString() + "/" + progressBar.Maximum.ToString());
 
                         AppTypes.TimeRanges timeRange = AppTypes.TimeRangeFromCode(timeRangeList[colId]);
-                        decimal profit = 0;
-
                         application.Data analysisData = new application.Data(timeRange, timeScaleCb.myValue, stockCode);
-                        for (int rowId = 0; rowId < strategyList.Count; rowId++)
+                        for (int rowId = 0; rowId < strategyList.Length; rowId++)
                         {
-                            profit = 0;
+                            testRetsultTbl.Rows[rowId][colId + 1] = 0;
                             //Analysis cached data so we MUST clear cache to ensure the system run correctly
                             Strategy.Data.ClearCache();
-                            wsData.TradePoints advices = Strategy.Libs.Analysis(analysisData, strategyList[rowId]);
+                            Strategy.Data.TradePoints advices = Strategy.Libs.Analysis(analysisData, strategyList[rowId]);
                             if (advices != null)
                             {
-                                myTmpDS.tradeEstimate.Clear();
-                                Strategy.Libs.EstimateTrading(analysisData, advices, new application.wsData.EstimateOptions(), myTmpDS.tradeEstimate);
-                                profit = (myTmpDS.tradeEstimate.Count == 0 ? 0 : profit = myTmpDS.tradeEstimate[myTmpDS.tradeEstimate.Count - 1].profit);
+                                testRetsultTbl.Rows[rowId][colId + 1] = 
+                                    Strategy.Libs.EstimateTrading_Profit(analysisData,Strategy.Libs.ToTradePointInfo(advices),estimateOption);
                             }
-                            testRetsultTbl.Rows[rowId][colId + 1] = profit;
                         }
                     }
                     catch (Exception er)
@@ -345,7 +350,61 @@ namespace Tools.Forms
                     }
                 }
             }
-            FormResize();
+        }
+        private void DoRankingWS()
+        {
+            this.ShowReccount("");
+
+            this.myValueType = ValueTypes.Amount;
+            this.Amount2PercentDenominator = application.Settings.sysStockTotalCapAmt;
+
+            resultTab.TabPages.Clear();
+            StringCollection stockCodeList = codeListLb.myValues;
+            StringCollection timeRangeList = timeRangeLb.myCheckedValues;
+            string[] strategyList = common.system.Collection2List(strategyClb.myCheckedValues);
+            progressBar.Value = 0; progressBar.Minimum = 0; progressBar.Maximum = stockCodeList.Count;
+
+            string timeScaleCode = timeScaleCb.myValue.Code;
+            wsData.EstimateOptions estimateOption = new wsData.EstimateOptions();
+
+            wsAccess.libs.Reset();
+
+            ArrayList resulTblList = new ArrayList();
+            this.ShowReccount(progressBar.Value.ToString() + "/" + progressBar.Maximum.ToString());
+            int codeStartIdx=0, codeEndIdx=0;
+            while (codeStartIdx < stockCodeList.Count)
+            {
+                codeEndIdx += application.Settings.sysNumberOfItemsInBatchProcess;
+                if (codeEndIdx >= stockCodeList.Count) codeEndIdx = stockCodeList.Count - 1;
+
+                //Create Tab and grid for each code
+                resulTblList.Clear();
+                string[] processCodeList = new string[codeEndIdx-codeStartIdx+1];
+                for (int idx1 = codeStartIdx,idx2=0; idx1 <= codeEndIdx; idx1++,idx2++)
+                {
+                    resulTblList.Add(CreateDataTable(timeRangeList, strategyList));
+                    CreateResultGrid(stockCodeList[idx1], resulTblList[idx2] as DataTable);
+                    processCodeList[idx2] = stockCodeList[idx1];
+                }
+
+                for (int colId = 0; colId < timeRangeList.Count; colId++)
+                {
+                    AppTypes.TimeRanges timeRange = AppTypes.TimeRangeFromCode(timeRangeList[colId]);
+                    decimal[][] profitList = wsAccess.libs.myClient.Estimate_Matrix_Profit(timeRange, timeScaleCode, processCodeList, strategyList, estimateOption);
+                    for (int idx1 = 0; idx1 < profitList.Length; idx1++)
+                    {
+                        DataTable tbl = resulTblList[idx1] as DataTable;
+                        for (int idx2 = 0; idx2 < profitList[idx1].Length; idx2++)
+                        {
+                            tbl.Rows[idx2][colId + 1] = profitList[idx1][idx2];
+                        }
+                    }
+                    Application.DoEvents();
+                }
+                progressBar.Value = codeEndIdx+1;
+                this.ShowReccount(progressBar.Value.ToString() + "/" + progressBar.Maximum.ToString());
+                codeStartIdx = codeEndIdx + 1;
+            }
         }
 
         private common.controls.baseDataGridView CreateResultGrid(string stockCode, DataTable testRetsultTbl)

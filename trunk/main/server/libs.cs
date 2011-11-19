@@ -19,7 +19,7 @@ namespace server
             get
             {
                 if (_configFile == null)
-                    _configFile = common.system.MakeFileNameFromExecutablePath(".conf");
+                    _configFile = common.fileFuncs.MakeFileNameFromExecutablePath(".conf");
                 return _configFile;
             }
         }

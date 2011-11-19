@@ -12,6 +12,23 @@ using application;
 
 namespace Strategy
 {
+    public static class Settings
+    {
+        private static string _sysDirectory;
+        public static string sysDirectory
+        {
+            get
+            {
+                if (_sysDirectory == null)
+                    _sysDirectory = common.system.GetExecutePath();
+                return _sysDirectory;
+            }
+            set
+            {
+                _sysDirectory = value;
+            }
+        }
+    }
     //Meta data keeps descriptive information of a strategy
     public class Meta
     {
@@ -195,7 +212,7 @@ namespace Strategy
             return true;
         }
     }
-    public class Libs
+    public static class Libs
     {
         public static string GetMetaName(string code)
         {
@@ -210,27 +227,30 @@ namespace Strategy
         /// <param name="myData"> Data used to calculate strategy data.</param>
         /// <param name="meta">strategy meta data</param>
         /// <returns>Null if error</returns>
-        public static wsData.TradePoints Analysis(application.Data myData, Meta meta)
+        public static Data.TradePoints Analysis(application.Data myData, Meta meta)
         {
-            string cacheName = "data-" + myData.DataStockCode + "-" + meta.ClassType.Name;
+            string cacheName = "data-" + myData.DataStockCode + "-" + 
+                                         myData.DataTimeRange.ToString() + "-" +
+                                         myData.DataTimeScale.Code + "-" + 
+                                         meta.ClassType.Name;
 
             object[] processParas = new object[2];
             processParas[0] = myData;
             processParas[1] = meta.Parameters;
             //First , find in cache
-            wsData.TradePoints tradePoints = (wsData.TradePoints)Data.FindInCache(cacheName);
+            Data.TradePoints tradePoints = (Data.TradePoints)Data.FindInCache(cacheName);
             if (tradePoints != null) return tradePoints;
 
             //Then, Call Execute() method to get trading points.
             object strategyInstance = GetStrategyInstance(meta.ClassType);
             if (strategyInstance == null) return null;
-            tradePoints = (wsData.TradePoints)meta.ClassType.InvokeMember("Execute",
+            tradePoints = (Data.TradePoints)meta.ClassType.InvokeMember("Execute",
                                 BindingFlags.InvokeMethod | BindingFlags.Instance | BindingFlags.Public, null, strategyInstance, processParas);
 
             Data.AddToCache(cacheName, tradePoints);
             return tradePoints;
         }
-        public static wsData.TradePoints Analysis(application.Data myData, string strategyCode)
+        public static Data.TradePoints Analysis(application.Data myData, string strategyCode)
         { 
             Meta meta = FindMetaByCode(strategyCode);
             if (meta == null) return null;
@@ -355,7 +375,7 @@ namespace Strategy
         /// <param name="MetaList"></param>
         private static void GetMeta(string assemblyFile, common.DictionaryList MetaList)
         {
-            GetMeta(Assembly.LoadFile(assemblyFile), MetaList);
+            GetMeta(Assembly.LoadFrom(assemblyFile), MetaList);
         }
         private static void GetMeta(Assembly strategyAss, common.DictionaryList MetaList)
         {
@@ -367,10 +387,16 @@ namespace Strategy
                 if (type.BaseType.Name != strategyHelperTypeName) continue;
                 // get info about property
                 Type strategyType = strategyAss.GetType(type.FullName);
-                object strategyInstance = Activator.CreateInstance(strategyType);
-                Meta = (Meta)strategyType.InvokeMember("GetInfo",
-                                    BindingFlags.InvokeMethod | BindingFlags.Instance | BindingFlags.Public, null, strategyInstance, null);
-                MetaList.Add(Meta.ClassType.Name, Meta);
+                try
+                {
+                    object strategyInstance = Activator.CreateInstance(strategyType);
+                    Meta = (Meta)strategyType.InvokeMember("GetInfo",
+                                        BindingFlags.InvokeMethod | BindingFlags.Instance | BindingFlags.Public, null, strategyInstance, null);
+                    MetaList.Add(Meta.ClassType.Name, Meta);
+                }
+                catch(Exception er)
+                {
+                }
             }
             return;
         }
@@ -464,7 +490,7 @@ namespace Strategy
         /// <param name="toObj"></param>
         public static void LoadStrategy(AppTypes.StrategyTypes strategyType, ToolStripComboBox toObj)
         {
-            common.DictionaryList Metas = Strategy.Data.MetaList;
+            common.DictionaryList Metas = Data.MetaList;
 
             data.baseDS.strategyCatDataTable strategyCatTbl = new data.baseDS.strategyCatDataTable();
             application.dataLibs.LoadData(strategyCatTbl);
@@ -499,17 +525,58 @@ namespace Strategy
         }
 
         #region strategy estimation
+
+        public class EstimationData
+        {
+            public string  tradeAction = "";
+            public DateTime onDate = common.Consts.constNullDate;
+            public decimal price = 0;
+            public decimal qty=0;
+            public decimal amt = 0;
+            public decimal feeAmt = 0;
+            public decimal ownedQty = 0;
+            public decimal ownedAmt = 0;
+            public decimal cashAmt = 0;
+            public decimal profitAmt = 0;
+            public bool ignored = false;
+        }
+        public delegate void AfterEachEstimationFunc(EstimationData data,object retObj);
+        public delegate void AfterEstimationFunc(EstimationData data, object retObj);
+
+        /// <summary>
+        /// Find index in [data] where the date is greater or equal [minDate]
+        /// </summary>
+        /// <param name="data"></param>
+        /// <param name="startIdx">Index where start to find</param>
+        /// <param name="endIdx">Index where end the find</param>
+        /// <param name="minDate"></param>
+        /// <returns>Index of date in [data] or -1 if not found</returns>
+        private static int FindDateIdx(application.Data data, int startIdx, int endIdx, DateTime minDate)
+        {
+            for (int idx = startIdx; idx <= endIdx; idx++)
+            {
+                if (DateTime.FromOADate(data.DateTime[idx]).Date >= minDate)
+                    return idx;
+            }
+            return -1;
+        }
+
         /// <summary>
         /// Estimate the profit from advices produced by analysis process. 
         /// The function will produce a list of "transactions" assuming to be done from analysis advices. 
         /// </summary>
-        /// <param name="data"> Data used in the analysis </param>
-        /// <param name="tradePoints"> Trade point list generated by analysis process</param>
+        /// <param name="data"> Data used for analysis </param>
+        /// <param name="tradePoints">Trade point list generated by analysis process</param>
         /// <param name="options">User- specific options : captital, max Buy...</param>
-        /// <param name="toTbl"> Table of assumed transactions. Each row procides detail information of a transcation and it's profit</param>
-        public static void EstimateTrading(application.Data data, wsData.TradePoints tradePoints, wsData.EstimateOptions options,
-                                           data.tmpDS.tradeEstimateDataTable toTbl)
+        /// <param name="returnObj">Returned object </param>
+        /// <param name="afterEachEstimationFunc">Call-back function at the end of each tradepoind estimation</param>
+        /// <param name="afterEstimationFunc">Call-back function at the end of estimation process</param>
+        /// 
+        public static void EstimateTrading(application.Data data, wsData.TradePointInfo[] tradePoints, wsData.EstimateOptions options,
+                           object returnObj, AfterEachEstimationFunc afterEachEstimationFunc, AfterEstimationFunc afterEstimationFunc)
         {
+            EstimationData myEstimationData = new EstimationData();
+            
             decimal initCapAmt = options.TotalCapAmt * options.MaxBuyAmtPerc / 100;
             decimal priceWeight = options.PriceWeight;
             decimal feePerc = options.TransFeecPerc / 100;
@@ -518,24 +585,20 @@ namespace Strategy
             global::data.baseDS.stockCodeRow stockCodeRow = dataLibs.FindAndCache_StockCode(data.DataStockCode);
             if (stockCodeRow == null) return;
 
-            data.tmpDS.tradeEstimateRow row;
             int adviceDataIdx, lastBuyId = -1;
             decimal stockQty = 0, qty;
             decimal maxBuyQty = (decimal)(stockCodeRow.noOutstandingStock * options.MaxBuyQtyPerc / 100);
             decimal stockAmt = 0, stockPrice = 0, amt, feeAmt, totalFeeAmt = 0;
             decimal cashAmt = initCapAmt;
-            toTbl.Clear();
-
-            DateTime tmpDate, transDate = common.Consts.constNullDate; ;
-            data.baseDS.priceDataRow priceDataRow;
+            
+            DateTime transDate = common.Consts.constNullDate; ;
             bool keepInApplicableSell = true;
-            for (int idx = 0; idx < tradePoints.Count; idx++)
+            for (int idx = 0; idx < tradePoints.Length; idx++)
             {
-                adviceDataIdx = tradePoints.GetItem(idx).DataIdx;
+                adviceDataIdx = tradePoints[idx].DataIdx;
                 qty = 0; amt = 0;
-                row = toTbl.NewtradeEstimateRow();
-                row.ignored = false;
-                AppTypes.TradeActions action = tradePoints.GetItem(idx).TradeAction;
+                myEstimationData.ignored = false;
+                AppTypes.TradeActions action = tradePoints[idx].TradeAction;
 
                 stockPrice = (decimal)data.Close[adviceDataIdx];
                 transDate = DateTime.FromOADate(data.DateTime[adviceDataIdx]);
@@ -555,59 +618,60 @@ namespace Strategy
                             totalFeeAmt += feeAmt;
                             lastBuyId = adviceDataIdx;
                         }
-                        else row.ignored = true;
+                        else myEstimationData.ignored = true;
                         break;
                     case AppTypes.TradeActions.Sell:
                         //Can sell if own some stock
                         if (stockQty <= 0)
                         {
-                            row.ignored = true;
+                            myEstimationData.ignored = true;
                             break;
                         }
                         // Not applicable to sell
                         if (lastBuyId < 0)
                         {
-                            row.ignored = true;
+                            myEstimationData.ignored = true;
                             break;
                         }
+
+                        // T+4 contrainst ?
                         if (common.dateTimeLibs.DateDiffInDays(DateTime.FromOADate(data.DateTime[lastBuyId]).Date,
                                                                DateTime.FromOADate(data.DateTime[adviceDataIdx]).Date) < buy2SellInterval)
                         {
                             // Keep inapplicable Sells ??
                             if (keepInApplicableSell)
                             {
-                                string realTimeType = AppTypes.MainDataTimeScale.Code;
+                                int trandDataIdx = -1;
                                 DateTime minAllowSellDate = DateTime.FromOADate(data.DateTime[lastBuyId]).Date.AddDays(buy2SellInterval);
-                                for (int idx2 = idx + 1; idx2 < tradePoints.Count; idx2++)
+                                //If it is the last trade point, find the next applicable date 
+                                if (idx >= tradePoints.Length-1)
                                 {
-                                    //There is any advice from from [this date , this date +buy2SellInterval], ignore the inapplicable sell 
-                                    if (DateTime.FromOADate(data.DateTime[tradePoints.GetItem(idx2).DataIdx]).Date <= minAllowSellDate)
+                                    trandDataIdx = FindDateIdx(data, tradePoints[idx].DataIdx+1, data.DateTime.Count-1, minAllowSellDate);
+                                }
+                                else 
+                                {
+                                    //If the next trade point is before or at [minAllowSellDate], ignore this
+                                    if (DateTime.FromOADate(data.DateTime.Values[tradePoints[idx + 1].DataIdx]).Date <= minAllowSellDate)
                                     {
-                                        row.ignored = true;
-                                        break;
+                                        myEstimationData.ignored = true;
                                     }
-                                    //No advice, keep this inapplicable sell. 
-                                    if (DateTime.FromOADate(data.DateTime[tradePoints.GetItem(idx2).DataIdx]).Date > minAllowSellDate)
+                                    else
                                     {
-                                        // minAllowSellDate may be a holiday so we need to find a sell date in range [minAllowSellDate, data.DateTime[advices.GetItem(idx2).dataIdx].Date]
-                                        // We assume that there are no data on hodidays and use the price,date as transaction price/date
-                                        tmpDate = DateTime.FromOADate(data.DateTime[tradePoints.GetItem(idx2).DataIdx]).Date;
-                                        priceDataRow = dataLibs.GetNextPrice(minAllowSellDate, realTimeType, stockCodeRow.code);
-                                        //priceDataRow == null : there must be some error.
-                                        if (priceDataRow == null) row.ignored = true;
-                                        else
-                                        {
-                                            stockPrice = priceDataRow.closePrice;
-                                            transDate = priceDataRow.onDate;
-                                        }
-                                        break;
+                                        //Find the next applicable date after this point and before next point
+                                        trandDataIdx = FindDateIdx(data, tradePoints[idx].DataIdx+1, tradePoints[idx + 1].DataIdx-1, minAllowSellDate);
+                                    }
+                                    if (trandDataIdx < 0) myEstimationData.ignored = true;
+                                    else
+                                    {
+                                        stockPrice = (decimal)data.Close[trandDataIdx];
+                                        transDate = DateTime.FromOADate(data.DateTime[trandDataIdx]).Date;
                                     }
                                 }
                             }
-                            else row.ignored = true;
+                            else myEstimationData.ignored = true;
                         }
                         //Ok, sell it
-                        if (!row.ignored)
+                        if (!myEstimationData.ignored)
                         {
                             qty = stockQty;
                             amt = qty * stockPrice * priceWeight;
@@ -618,19 +682,129 @@ namespace Strategy
                         }
                         break;
                 }
-                row.tradeAction = action.ToString();
-                row.onDate = transDate;
-                row.price = stockPrice;
-                row.qty = qty;
-                row.amt = amt;
-                row.feeAmt = totalFeeAmt;
-                row.stockQty = stockQty;
-                row.stockAmt = stockAmt;
-                row.cashAmt = cashAmt;
-                row.totalAmt = row.cashAmt + row.stockAmt;
-                row.profit = row.totalAmt - initCapAmt;
-                toTbl.AddtradeEstimateRow(row);
+                myEstimationData.tradeAction = action.ToString();
+                myEstimationData.onDate = transDate;
+                myEstimationData.price = stockPrice;
+                myEstimationData.qty = qty;
+                myEstimationData.amt = amt;
+                myEstimationData.feeAmt = totalFeeAmt;
+                myEstimationData.ownedQty = stockQty;
+                myEstimationData.ownedAmt = stockAmt;
+                myEstimationData.cashAmt = cashAmt;
+                myEstimationData.profitAmt = cashAmt + stockAmt - initCapAmt;
+                if (afterEachEstimationFunc != null)
+                {
+                    afterEachEstimationFunc(myEstimationData, returnObj);
+                }
             }
+            if (afterEstimationFunc != null)
+            {
+                afterEstimationFunc(myEstimationData, returnObj);
+            }
+        }
+
+
+        /// <summary>
+        /// Get estimated profit from adviced trade point
+        /// </summary>
+        /// <param name="data"></param>
+        /// <param name="tradePoints"></param>
+        /// <param name="options"></param>
+        /// <returns></returns>
+        public static decimal EstimateTrading_Profit(application.Data data, wsData.TradePointInfo[] tradePoints, wsData.EstimateOptions options)
+        {
+            EstimateSum myEstimateSum = new EstimateSum();
+            EstimateTrading(data, tradePoints, options,myEstimateSum,null, AfterEstimation_GetProfit);
+            return myEstimateSum.total; 
+
+        }
+        private static void AfterEstimation_GetProfit(EstimationData data, object retObj)
+        {
+            (retObj as EstimateSum).total = data.profitAmt;
+        }
+        private class EstimateSum
+        {
+            public decimal total = 0;
+        }
+
+
+        /// <summary>
+        /// Get the estimation detail from adviced trade point
+        /// </summary>
+        /// <param name="data"></param>
+        /// <param name="tradePoints"></param>
+        /// <param name="options"></param>
+        /// <param name="toTbl"> Table of assumed transactions. Each row procides detail information of a transcation and it's profit</param>
+        public static void EstimateTrading_Details(application.Data data, wsData.TradePointInfo[] tradePoints, wsData.EstimateOptions options, 
+                                                   data.tmpDS.tradeEstimateDataTable toTbl)
+        {
+            toTbl.Clear();
+            EstimateTrading(data, tradePoints, options,toTbl, AfterEachEstimation_AddToTable,null);
+        }
+        private static void AfterEachEstimation_AddToTable(EstimationData data, object retObj)
+        {
+            data.tmpDS.tradeEstimateRow row;
+            row = (retObj as data.tmpDS.tradeEstimateDataTable).NewtradeEstimateRow();
+            row.ignored = data.ignored;
+            row.tradeAction = data.tradeAction;
+            row.onDate = data.onDate;
+            row.price = data.price;
+            row.qty = data.qty;
+            row.amt = data.amt;
+            row.feeAmt = data.feeAmt;
+            row.stockQty = data.ownedQty;
+            row.stockAmt = data.ownedAmt;
+            row.cashAmt = data.cashAmt;
+            row.totalAmt = row.cashAmt + row.stockAmt;
+            row.profit = data.profitAmt;
+            (retObj as data.tmpDS.tradeEstimateDataTable).AddtradeEstimateRow(row);
+        }
+
+        public static List<decimal[]> Estimate_Matrix_Profit(application.AppTypes.TimeRanges timeRange, application.AppTypes.TimeScale timeScale,
+                                                             StringCollection stockCodeList, StringCollection strategyList,wsData.EstimateOptions option)
+        {
+            List<decimal[]> retList = new List<decimal[]>(); 
+
+            for (int rowId = 0; rowId < stockCodeList.Count; rowId++)
+            {
+                Data.ClearCache();
+                application.Data analysisData = new application.Data(timeRange, timeScale, stockCodeList[rowId]);
+                decimal[] rowRetList = new decimal[strategyList.Count];
+                for (int colId = 0; colId < strategyList.Count; colId++)
+                {
+                    Data.TradePoints advices = Libs.Analysis(analysisData, strategyList[colId]);
+                    if (advices != null)
+                    {
+                        rowRetList[colId] = Libs.EstimateTrading_Profit(analysisData, Libs.ToTradePointInfo(advices), option);
+                    }
+                    else rowRetList[colId] = 0;
+                }
+                retList.Add(rowRetList);
+            }
+            return retList;
+        }
+
+        public static List<double[]> Estimate_Matrix_LastBizWeight(application.AppTypes.TimeRanges timeRange, application.AppTypes.TimeScale timeScale,
+                                                                   StringCollection stockCodeList, StringCollection strategyList)
+        {
+            List<double[]> retList = new List<double[]>();
+            for (int rowId = 0; rowId < stockCodeList.Count; rowId++)
+            {
+                Data.ClearCache();
+                application.Data analysisData = new application.Data(timeRange, timeScale, stockCodeList[rowId]);
+                double[] rowRetList = new double[strategyList.Count];
+                for (int colId = 0; colId < strategyList.Count; colId++)
+                {
+                    Data.TradePoints tradePoints = Libs.Analysis(analysisData, strategyList[colId]);
+                    if (tradePoints != null && tradePoints.Count>0)
+                    {
+                        rowRetList[colId] = (tradePoints[tradePoints.Count - 1] as wsData.TradePointInfo).BusinessInfo.Weight;
+                    }
+                    else rowRetList[colId] = double.NaN;
+                }
+                retList.Add(rowRetList);
+            }
+            return retList;
         }
 
         //??
@@ -797,7 +971,7 @@ namespace Strategy
         public static void ShowStrategyForm(Meta meta)
         {
             GetUserSettings(meta);
-            Strategy.forms.baseStrategyForm form = Strategy.Libs.GetStrategyForm(meta);
+            forms.baseStrategyForm form = Libs.GetStrategyForm(meta);
             form.ShowDialog();
         }
         //Read and save setting to users's XML file
@@ -833,6 +1007,26 @@ namespace Strategy
                 tbl.AddcodeListRow(row);
             }
         }
+
+        //Convert
+        public static Data.TradePoints ToTradePoints(wsData.TradePointInfo[] tradePointInfos)
+        {
+            Data.TradePoints tradePointList = new Data.TradePoints();
+            for (int idx = 0; idx < tradePointInfos.Length; idx++)
+            {
+                tradePointList.Add(tradePointInfos[idx]);
+            }
+            return tradePointList;
+        }
+        public static wsData.TradePointInfo[] ToTradePointInfo(Data.TradePoints tradePoints)
+        {
+            wsData.TradePointInfo[] tradePointInfos = new wsData.TradePointInfo[tradePoints.Count];
+            for (int idx = 0; idx < tradePoints.Count; idx++)
+            {
+                tradePointInfos[idx] = (wsData.TradePointInfo)tradePoints[idx];
+            }
+            return tradePointInfos;
+        }
     }
 
     public class Data
@@ -840,19 +1034,30 @@ namespace Strategy
         public const string constAssemplyNamePattern = "*strategy.dll";
         public const string constMetaFileName = "strategyInfo.xml";
 
+        //List of all possible trading points
+        public class TradePoints : ArrayList
+        {
+            public TradePoints() { }
+            public void Add(AppTypes.TradeActions action, int idx, wsData.BusinessInfo info)
+            {
+                this.Add(new wsData.TradePointInfo(action, idx, info));
+            }
+            public void Add(AppTypes.TradeActions action, int idx)
+            {
+                this.Add(new wsData.TradePointInfo(action, idx));
+            }
+            //public wsData.TradePointInfo GetItem(int idx)
+            //{
+            //    return (wsData.TradePointInfo)this[idx];
+            //}
+        }
+
         public static string sysMetaFullFileName
         {
             get
             {
-                string path = common.fileFuncs.ConcatFileName(sysFileDirectory, common.language.myCulture.Name);
+                string path = common.fileFuncs.ConcatFileName(Settings.sysDirectory, common.language.myCulture.Name);
                 return common.fileFuncs.ConcatFileName(path, constMetaFileName);
-            }
-        }
-        public static string sysFileDirectory
-        {
-            get
-            {
-                return Application.StartupPath;
             }
         }
 
@@ -892,7 +1097,7 @@ namespace Strategy
                 if (_metaList == null)
                 {
                     _metaList = new common.DictionaryList();
-                    Libs.GetMeta(sysFileDirectory, constAssemplyNamePattern, _metaList);
+                    Libs.GetMeta(Settings.sysDirectory, constAssemplyNamePattern, _metaList);
                 }
                 return _metaList;
             }

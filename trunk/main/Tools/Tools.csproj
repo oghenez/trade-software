@@ -20,7 +20,8 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>..\dlls\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DefineConstants>
+    </DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
@@ -49,9 +50,13 @@
     </Reference>
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.ServiceModel">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.XML" />
     <Reference Include="WeifenLuo.WinFormsUI.Docking, Version=2.5.0.18386, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="wsAccess, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="XPPanel, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="ZedGraph, Version=5.1.5.28844, Culture=neutral, PublicKeyToken=02a83cbd123fcd60, processorArchitecture=MSIL" />
   </ItemGroup>

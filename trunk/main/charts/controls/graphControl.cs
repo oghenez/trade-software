@@ -320,6 +320,8 @@ namespace Charts.Controls
                     this.myGraphPane.YAxis.Scale.Max = viewportY.Max;
                     this.myGraphPane.YAxis.Scale.Min = viewportY.Min;
 
+                    SetDateTimeFormat();
+
                     UpdateChart();
                     if (myOnViewportChanged != null)
                     {

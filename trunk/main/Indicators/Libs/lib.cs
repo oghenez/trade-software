@@ -31,7 +31,7 @@ namespace Indicators
         {
             get
             {
-                return Application.StartupPath;
+                return  common.system.GetExecutePath();
             }
         }
         public static void Clear()
@@ -50,7 +50,7 @@ namespace Indicators
                 if (_Metas == null)
                 {
                     _Metas = new common.DictionaryList();
-                    Libs.GetMeta(Application.StartupPath, "Indicators.dll", _Metas);
+                    Libs.GetMeta(common.system.GetExecutePath(), "Indicators.dll", _Metas);
                 }
                 return _Metas;
             }

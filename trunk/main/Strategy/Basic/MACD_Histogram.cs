@@ -41,6 +41,9 @@ namespace Strategy
 
         override public bool isValid_forBuy(int idx)
         {
+            //Fixed by Dung  19 Nov 2011
+            if (hist == null) return false;
+
             double delta = 0, lastDelta = 0;
             if (idx -2 < hist.FirstValidValue) return false;
             lastDelta = (hist[idx - 1] - hist[idx - 2]);
