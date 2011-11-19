@@ -11,15 +11,14 @@ namespace ConsoleApplication1
         private static string configFile = "import.xml";
         static bool Init()
         {
-            application.sysLibs.sysProductOwner = application.Consts.constProductOwner;
-            application.sysLibs.sysProductCode = application.Consts.constProductCode;
+            common.settings.sysProductOwner = application.Consts.constProductOwner;
+            common.settings.sysProductCode = application.Consts.constProductCode;
 
             common.Consts.constValidCallString = common.Consts.constValidCallMarker;
             common.settings.sysConfigFile = configFile;
             application.configuration.withEncryption = true;
 
             application.configuration.Load_User_Envir();
-            application.configuration.Load_Db_Config();
             //Check data connection after db-setting were loaded
             if (!data.system.CheckAllDbConnection())
             {
