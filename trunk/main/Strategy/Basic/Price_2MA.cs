@@ -12,7 +12,7 @@ namespace Strategy
         override protected void StrategyExecute()
         {
             PriceTwoSMARule smarule = new PriceTwoSMARule(data.Close, parameters[0], parameters[1]);
-            for (int idx = smarule.short_indicator.FirstValidValue; idx < smarule.short_indicator.Count; idx++)
+            for (int idx = smarule.long_indicator.FirstValidValue; idx < smarule.long_indicator.Count; idx++)
             {
                 if (smarule.isValid_forBuy(idx))
                     BuyAtClose(idx);
@@ -49,13 +49,15 @@ namespace Strategy
 
         public override bool UpTrend(int index)
         {
-            if ((price[index] > short_indicator[index]) && (short_indicator[index] > long_indicator[index]))
+            if (index < long_indicator.FirstValidValue) return false;
+            if ((price[index] >= short_indicator[index]) && (short_indicator[index] >= long_indicator[index]))
                 return true;
             return false;
         }
 
         public override bool DownTrend(int index)
         {
+            if (index < long_indicator.FirstValidValue) return false;
             if ((price[index] < short_indicator[index]) || (short_indicator[index] < long_indicator[index]))
                 return true;
             return base.DownTrend(index);
@@ -63,25 +65,15 @@ namespace Strategy
 
         public override bool isValid_forBuy(int idx)
         {
-            if (idx-1 < short_indicator.FirstValidValue) return false;
-
-            AppTypes.MarketTrend currentTrend = ((price[idx] > short_indicator[idx]) && (short_indicator[idx] > long_indicator[idx]) ? AppTypes.MarketTrend.Upward : AppTypes.MarketTrend.Downward);
-            AppTypes.MarketTrend lastTrend = ((price[idx-1] > short_indicator[idx-1]) && (short_indicator[idx-1] > long_indicator[idx-1]) ? AppTypes.MarketTrend.Upward : AppTypes.MarketTrend.Downward);
-            if (lastTrend == AppTypes.MarketTrend.Downward && currentTrend == AppTypes.MarketTrend.Upward)
+            if (UpTrend(idx) && DownTrend(idx - 1))
                 return true;
-
             return false;
         }
 
         public override bool isValid_forSell(int idx)
         {
-            if (idx - 1 < short_indicator.FirstValidValue) return false;
-
-            AppTypes.MarketTrend currentTrend = ((price[idx] > short_indicator[idx]) && (short_indicator[idx] > long_indicator[idx]) ? AppTypes.MarketTrend.Upward : AppTypes.MarketTrend.Downward);
-            AppTypes.MarketTrend lastTrend = ((price[idx - 1] > short_indicator[idx - 1]) && (short_indicator[idx - 1] > long_indicator[idx - 1]) ? AppTypes.MarketTrend.Upward : AppTypes.MarketTrend.Downward);
-            if (lastTrend == AppTypes.MarketTrend.Upward && currentTrend == AppTypes.MarketTrend.Downward)
+            if (UpTrend(idx-1) && DownTrend(idx))
                 return true;
-
             return false;
         }
     } 

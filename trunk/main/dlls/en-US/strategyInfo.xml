@@ -639,4 +639,40 @@
     <HybridEMAATR Authors="Quan Nguyen" />
     <HybridEMAATR Version="1.0" />
   </STRATEGY>
+
+  <STRATEGY>
+    <HybridSMAATR Code="STR038"/>
+    <HybridSMAATR Category="HYB" />
+    <HybridSMAATR Parameters="ATR Period=14,SMA Short Period=5,SMA Long Period=10,Cut Loss Level (%)=5,Trailing Stop (%)=15, Take Profit Level (%)=200" />
+    <HybridSMAATR ParameterDescriptions="Period is the period for the short term moving average line." />
+    <HybridSMAATR Name="Hybrid ATR-SMA" />
+    <HybridSMAATR Description="Hybrid ATR-SMA" />
+    <HybridSMAATR URL="http://www.hqtrader.com" />
+    <HybridSMAATR Authors="Quan Nguyen" />
+    <HybridSMAATR Version="1.0" />
+  </STRATEGY>
+
+  <STRATEGY>
+    <HybridMACDHistATR Code="STR039"/>
+    <HybridMACDHistATR Category="HYB" />
+    <HybridMACDHistATR Parameters="ATR Period=14,MACD Fast=12,MACD Slow=26,MACD Signal=9,Cut Loss Level (%)=5,Trailing Stop (%)=15, Take Profit Level (%)=200" />
+    <HybridMACDHistATR ParameterDescriptions="Period is the period for the short term moving average line." />
+    <HybridMACDHistATR Name="Hybrid ATR-MACD Histogram" />
+    <HybridMACDHistATR Description="Hybrid ATR-MACD Histogram" />
+    <HybridMACDHistATR URL="http://www.hqtrader.com" />
+    <HybridMACDHistATR Authors="Quan Nguyen" />
+    <HybridMACDHistATR Version="1.0" />
+  </STRATEGY>
+
+  <STRATEGY>
+    <HybridKeltner Code="STR040"/>
+    <HybridKeltner Category="HYB" />
+    <HybridKeltner Parameters="Bolliger Period=20,k Up = 2,k Down = 2,EMA Period=20,ATR Multiplier=2.0, ATR Period=10,EMA Short Period=5,EMA Long Period=10,Cut Loss Level (%)=5,Trailing Stop (%)=15, Take Profit Level (%)=200" />
+    <HybridKeltner ParameterDescriptions="Period is the period for the short term moving average line." />
+    <HybridKeltner Name="Keltner-Bollinger-EMA" />
+    <HybridKeltner Description="Keltner-Bollinger-EMA" />
+    <HybridKeltner URL="http://www.hqtrader.com" />
+    <HybridKeltner Authors="Quan Nguyen" />
+    <HybridKeltner Version="1.0" />
+  </STRATEGY>
 </Configuration>

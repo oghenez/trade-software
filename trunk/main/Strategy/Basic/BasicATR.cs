@@ -24,16 +24,9 @@ namespace Strategy
         }
     }
 
-    public class HybridEMAATR_Helper : baseHelper
-    {
-        public HybridEMAATR_Helper()
-            : base(typeof(HybridEMAATR))
-        {
-        }
-    }
     #   endregion
 
-    #region DMI Rule, Screening and Strategy
+    #region ATR Rule, Screening and Strategy
 
     /// <summary>
     /// Rule using DMI indicator
@@ -125,6 +118,9 @@ namespace Strategy
             }
         }
     }
+<<<<<<< .mine
+    
+=======
 
     public class HybridEMAATR : GenericStrategy
     {
@@ -169,5 +165,6 @@ namespace Strategy
             }
         }
     }  
+>>>>>>> .r292
     #   endregion
 }

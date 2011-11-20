@@ -63,6 +63,22 @@ namespace Strategy
                 return true;
             return false;
         }
+
+        public override bool DownTrend(int index)
+        {
+            if (index - 1 < hist.FirstValidValue) return false;
+            double delta = (hist[index] - hist[index - 1]);
+            if (delta <= 0) return true;
+            return false;
+        }
+
+        public override bool UpTrend(int index)
+        {
+            if (index - 1 < hist.FirstValidValue) return false;
+            double delta = (hist[index] - hist[index - 1]);
+            if (delta > 0) return true;
+            return false;
+        }
     }
 
     public class MACD_HistogramSCR : GenericStrategy
@@ -89,7 +105,7 @@ namespace Strategy
         {
             MACD_HistogramRule rule = new MACD_HistogramRule(data.Close, parameters[0],parameters[1],parameters[2]);
 
-            for (int idx = rule.macd.FirstValidValue; idx < data.Close.Count-1; idx++)
+            for (int idx = rule.macd.FirstValidValue; idx < data.Close.Count; idx++)
             {
                 if (rule.isValid_forBuy(idx))
                     BuyAtClose(idx);

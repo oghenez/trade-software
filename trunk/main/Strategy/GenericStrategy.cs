@@ -230,7 +230,13 @@ namespace Strategy
                     trailing_stop = -1;
                 }
         }
+<<<<<<< .mine
+
+        //virtual public TradePoints Execute(application.Data data, double[] paras)
+        virtual public wsData.TradePoints Execute(application.Data data, double[] paras)
+=======
         virtual public Data.TradePoints Execute(application.Data data, double[] paras)
+>>>>>>> .r292
         {
             this.data = data;
             parameters = new Parameters(paras);

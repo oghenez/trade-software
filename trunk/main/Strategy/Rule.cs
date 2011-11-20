@@ -44,7 +44,14 @@ namespace Strategy
         {
             return false;
         }
-    }    
+    }
 
-
+    public class CompositeRule : Rule
+    {
+        public Rule[] rules;
+        public CompositeRule()
+        {
+            rules = null;
+        }
+    }
 }
