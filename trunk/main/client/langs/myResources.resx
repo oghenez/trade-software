@@ -288,4 +288,7 @@
   <data name="toolAllOptions" xml:space="preserve">
     <value>Options</value>
   </data>
+  <data name="strategyEstimation" xml:space="preserve">
+    <value>Strategy Estimation</value>
+  </data>
 </root>

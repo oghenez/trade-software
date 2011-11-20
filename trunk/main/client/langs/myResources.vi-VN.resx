@@ -288,4 +288,7 @@
   <data name="toolAllOptions" xml:space="preserve">
     <value>Tùy biến</value>
   </data>
+  <data name="strategyEstimation" xml:space="preserve">
+    <value>Lượng giá chiến lược</value>
+  </data>
 </root>

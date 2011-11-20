@@ -81,6 +81,7 @@ namespace client
             this.tradeAlertMenuItem.Text = language.GetString("tradeAlert");
             this.transHistoryMenuItem.Text = language.GetString("transHistory");
             this.myPortfolioMenuItem.Text = language.GetString("myPortfolio");
+            this.strategyEstimationiMenuItem.Text = language.GetString("strategyEstimation");
 
             this.chartMenuStrip.Text = language.GetString("chart");
             this.indicatorMenuItem.Text = language.GetString("indicator");
@@ -189,7 +190,6 @@ namespace client
             common.language.SetLanguageForAllOpenForms(cultureInfo);
             SetLanguage();
         }
-
 
         private void Init()
         {
@@ -405,6 +405,12 @@ namespace client
         {
             get { return chartGridMenuItem.Checked; }
             set { chartGridMenuItem.Checked = value;}
+        }
+
+        private bool ChartHaveStrategyEstimation
+        {
+            get { return strategyEstimationiMenuItem.Checked; }
+            set { strategyEstimationiMenuItem.Checked = value;}
         }
 
         private void Export()
@@ -686,7 +692,7 @@ namespace client
                 baseClass.controls.ToolStripCbStrategy item = (baseClass.controls.ToolStripCbStrategy)sender;
                 Strategy.Meta meta = Strategy.Libs.FindMetaByCode(item.myValue);
                 if (meta == null) activeForm.ClearStrategyTradepoints();
-                else activeForm.PlotStrategyTradepoints(meta); 
+                else activeForm.PlotStrategyTradepoints(meta, this.ChartHaveStrategyEstimation); 
             }
             catch (Exception er)
             {

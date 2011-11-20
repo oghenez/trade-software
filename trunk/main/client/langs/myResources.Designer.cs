@@ -448,6 +448,15 @@ namespace client.langs {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Strategy Estimation.
+        /// </summary>
+        internal static string strategyEstimation {
+            get {
+                return ResourceManager.GetString("strategyEstimation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Strategy options.
         /// </summary>
         internal static string strategyOption {

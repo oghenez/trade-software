@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Strategy" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Strategy" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:8731/WcfServiceLibrary1/Service1/?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/System" />
+  <xs:import schemaLocation="http://localhost:8731/WcfServiceLibrary1/Service1/?xsd=xsd6" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="http://localhost:8731/WcfServiceLibrary1/Service1/?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/common" />
+  <xs:import schemaLocation="http://localhost:8731/WcfServiceLibrary1/Service1/?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/application" />
+  <xs:complexType name="Meta">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Authors" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Category" nillable="true" type="xs:string" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="ClassType" nillable="true" type="q1:Type" />
+      <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="FormType" nillable="true" type="q2:Type" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ParameterDescriptions" nillable="true" type="q3:ArrayOfstring" />
+      <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/common" minOccurs="0" name="ParameterList" nillable="true" type="q4:DictionaryList" />
+      <xs:element minOccurs="0" name="ParameterPrecision" type="xs:int" />
+      <xs:element xmlns:q5="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Parameters" nillable="true" type="q5:ArrayOfdouble" />
+      <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/application" minOccurs="0" name="Type" type="q6:AppTypes.StrategyTypes" />
+      <xs:element minOccurs="0" name="URL" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Version" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Meta" nillable="true" type="tns:Meta" />
+</xs:schema>

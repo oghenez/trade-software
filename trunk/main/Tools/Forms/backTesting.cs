@@ -109,9 +109,9 @@ namespace Tools.Forms
                 this.myFormMode = formMode.OptionWithData;
                 DateTime startTime = DateTime.Now;
 
-                if (application.Settings.sysUseWebservice) 
-                     DoBackTestUseWS();
+                if (application.Settings.sysUseWebservice)  DoBackTestUseWS();
                 else DoBackTestUseDB();
+                //DoBackTestUseDB();
                 FormResize();
 
                 DateTime endTime = DateTime.Now;

@@ -38,7 +38,7 @@ namespace wsAccess
             if (_myClient != null) _myClient.Abort();
             _myClient = new dataService.StockServiceClient();
             _myClient.Endpoint.Address = new System.ServiceModel.EndpointAddress(common.settings.myWsConInfos[0].URI);
-            //_myClient.Endpoint.Address = new System.ServiceModel.EndpointAddress("http://localhost/dataLibs.svc");
+            //_myClient.Endpoint.Address = new System.ServiceModel.EndpointAddress("http://localhost:8731/wsServices/DataLibs");
             _myClient.ClientCredentials.Windows.ClientCredential.UserName = common.settings.myWsConInfos[0].account;
             _myClient.ClientCredentials.Windows.ClientCredential.Password = common.settings.myWsConInfos[0].password;
             _myClient.Open();
