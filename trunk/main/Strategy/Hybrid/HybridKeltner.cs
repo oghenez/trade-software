@@ -9,18 +9,18 @@ namespace Strategy
     public class HybridKeltner_Helper : baseHelper
     {
         public HybridKeltner_Helper()
-            : base(typeof(HybridKeltner))
+            : base(typeof(HybridKeltnerEMA))
         {
         }
     }
 
-    public class BollingerKeltnerRule : Rule
+    public class BollingerKeltnerEMARule : Rule
     {
         Indicators.BBANDS bolliger;
         Indicators.KELTNER keltner;
         TwoEMARule emaRule; 
         
-        public BollingerKeltnerRule(DataBars db,double BolligerPeriod,double kUp,double kDn,double EmaPeriod,double AtrMult,double AtrPeriod,double emaShortPeriod,double emaLongPeriod)
+        public BollingerKeltnerEMARule(DataBars db,double BolligerPeriod,double kUp,double kDn,double EmaPeriod,double AtrMult,double AtrPeriod,double emaShortPeriod,double emaLongPeriod)
         {
             bolliger=Indicators.BBANDS.Series(db.Close,BolligerPeriod,kUp,kDn,"bolliger");
             keltner=Indicators.KELTNER.Series(db,EmaPeriod,AtrMult,AtrPeriod,"keltner");
@@ -71,11 +71,11 @@ namespace Strategy
         }
     }
 
-    public class HybridKeltner : GenericStrategy
+    public class HybridKeltnerEMA : GenericStrategy
     {
         override protected void StrategyExecute()
         {
-            BollingerKeltnerRule rule = new BollingerKeltnerRule(data.Bars, parameters[0], parameters[1], parameters[2], parameters[3],parameters[4],parameters[5],parameters[6],parameters[7]);
+            BollingerKeltnerEMARule rule = new BollingerKeltnerEMARule(data.Bars, parameters[0], parameters[1], parameters[2], parameters[3],parameters[4],parameters[5],parameters[6],parameters[7]);
             int cutlosslevel = (int)parameters[8];
             int trailingstoplevel = (int)parameters[9];
             int takeprofitlevel = (int)parameters[10];

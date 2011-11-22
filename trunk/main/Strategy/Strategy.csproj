@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.30729</ProductVersion>
+    <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{1463FC47-2B74-4E63-9710-2C3B8ED3DE8A}</ProjectGuid>
     <OutputType>Library</OutputType>
@@ -58,6 +58,7 @@
     <Compile Include="Basic\BasicRSI.cs" />
     <Compile Include="Basic\BasicSAR.cs" />
     <Compile Include="Basic\BasicTRIX.cs" />
+    <Compile Include="Basic\MarketTrend.cs" />
     <Compile Include="Basic\Price_3MA.cs" />
     <Compile Include="Basic\BasicDMI.cs" />
     <Compile Include="Basic\BasicMACD.cs" />
@@ -73,6 +74,7 @@
     <Compile Include="GenericStrategy.cs" />
     <Compile Include="Hybrid\HybridATR.cs" />
     <Compile Include="Hybrid\HybridKeltner.cs" />
+    <Compile Include="Hybrid\HybridSAR.cs" />
     <Compile Include="Hybrid\MACD_Hybrid.cs" />
     <Compile Include="Hybrid\MACD_Stochastic.cs" />
     <Compile Include="Hybrid\MACD_Stochastic_Bottom.cs" />

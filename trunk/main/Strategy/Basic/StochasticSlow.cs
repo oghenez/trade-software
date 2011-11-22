@@ -7,24 +7,63 @@ namespace Strategy
         public StochasticSlow_Helper() : base(typeof(StochasticSlow)) { }
     }
 
+    public class StochSlowRule : Rule
+    {
+        public Indicators.Stoch stoch;
+        DataSeries line1, line2;
+
+        public StochSlowRule(DataBars db, double fastK, double slowK, double slowD)
+        {
+            stoch = Indicators.Stoch.Series(db, fastK, slowK, slowD, "stoch");
+            line1 = stoch.SlowKSeries;
+            line2 = stoch.SlowDSeries;
+        }
+
+        public override bool UpTrend(int index)
+        {
+            if (index < line2.FirstValidValue)
+                return false;
+            if (line1[index] > line2[index])
+                return true;
+            return false;
+        }
+
+        public override bool DownTrend(int index)
+        {
+            if (index < line2.FirstValidValue)
+                return false;
+            if (line1[index] <= line2[index])
+                return true;
+            return false;
+        }
+
+        public override bool isValid_forBuy(int index)
+        {
+            if (DownTrend(index - 1) && UpTrend(index))
+                return true;
+            return false;
+        }
+
+        public override bool isValid_forSell(int index)
+        {
+            if (UpTrend(index - 1) && DownTrend(index))
+                return true;
+            return false;
+        }
+    }
+
     public class StochasticSlow : GenericStrategy
     {
         override protected void StrategyExecute()
         {
-            Indicators.Stoch stoch = Indicators.Stoch.Series(data.Bars, parameters[0], parameters[1],parameters[2], "");
-            DataSeries line1 = stoch.SlowKSeries;
-            DataSeries line2 = stoch.SlowDSeries;
-            AppTypes.MarketTrend lastTrend = AppTypes.MarketTrend.Unspecified;
-            AppTypes.MarketTrend currentTrend = AppTypes.MarketTrend.Unspecified;
+            StochSlowRule stochRule = new StochSlowRule(data.Bars, parameters[0], parameters[1], parameters[2]);
 
-            for (int idx = 0; idx < line1.Count; idx++)
+            for (int idx = 0; idx < data.Close.Count; idx++)
             {
-                currentTrend = ((line1[idx] > line2[idx]) ? AppTypes.MarketTrend.Upward : AppTypes.MarketTrend.Downward);
-                if (lastTrend == AppTypes.MarketTrend.Downward && currentTrend == AppTypes.MarketTrend.Upward)
+                if (stochRule.isValid_forBuy(idx))
                     BuyAtClose(idx);
-                if (lastTrend == AppTypes.MarketTrend.Upward && currentTrend == AppTypes.MarketTrend.Downward)
+                if (stochRule.isValid_forSell(idx))
                     SellAtClose(idx);
-                lastTrend = currentTrend;
             }
         }
     }
