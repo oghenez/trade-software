@@ -23,7 +23,7 @@ namespace Strategy
                 parameters[3], "");
 
             Indicators.Stoch stoch = Indicators.Stoch.Series(data.Bars, parameters[4], parameters[5],
-                parameters[6], "");
+                parameters[6],parameters[7], "stoch");
 
             DataSeries line1 = stoch.SlowKSeries;
             DataSeries line2 = stoch.SlowDSeries;
@@ -58,7 +58,7 @@ namespace Strategy
                 parameters[3]);
 
             StochSlowRule stochRule = new StochSlowRule(data.Bars, parameters[4], parameters[5],
-                parameters[6]);
+                parameters[6],parameters[7]);
 
             for (int idx = 1; idx < data.Close.Count; idx++)
             {

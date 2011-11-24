@@ -57,6 +57,7 @@
     <Compile Include="Basic\BasicATR.cs" />
     <Compile Include="Basic\BasicRSI.cs" />
     <Compile Include="Basic\BasicSAR.cs" />
+    <Compile Include="Basic\BasicStochRSI.cs" />
     <Compile Include="Basic\BasicTRIX.cs" />
     <Compile Include="Basic\MarketTrend.cs" />
     <Compile Include="Basic\Price_3MA.cs" />

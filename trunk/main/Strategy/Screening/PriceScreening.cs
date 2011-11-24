@@ -50,7 +50,7 @@ namespace Strategy
             int period = (int)parameters[0];//period la gia cua Bar phia truoc, default=30
             if (Bar-period < 0) return;
 
-            //Tim cac stocks co Price hom nay lon hon SMA
+            //Thong ke % cac Stock change trong vong period
             wsData.BusinessInfo info = new wsData.BusinessInfo();
             if (data.Close[Bar - period] != 0)
                 info.Weight = (data.Close[Bar] - data.Close[Bar - period]) / data.Close[Bar - period] * 100;

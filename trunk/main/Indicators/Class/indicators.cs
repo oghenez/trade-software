@@ -447,7 +447,7 @@ namespace Indicators
 
     public class Stoch : DataSeries
     {
-        public static Stoch Series(DataBars db, double fastK_Period, double slowK_Period, double slowD_Period, string name)
+        public static Stoch Series(DataBars db, double fastK_Period, double slowK_Period, double slowD_Period, double matype,string name)
         {
             //Build description
             string description = "(" + name + "," + fastK_Period.ToString() + "," + slowK_Period.ToString() + "," + slowD_Period.ToString() + ")";
@@ -455,19 +455,67 @@ namespace Indicators
             object obj = db.Cache.Find(description);
             if (obj != null) return (Stoch)obj;
 
-            Stoch stoch = new Stoch(db, fastK_Period, slowK_Period, slowD_Period, description);
+            Stoch stoch = new Stoch(db, fastK_Period, slowK_Period, slowD_Period, matype, description);
             db.Cache.Add(description,stoch);
             return stoch;
         }
-        public Stoch(DataBars db, double fastK_Period, double slowK_Period, double slowD_Period, string name) : base(db, name)
+        public Stoch(DataBars db, double fastK_Period, double slowK_Period, double slowD_Period,double matype, string name) : base(db, name)
         {
             this.Name = name;
             int begin = 0, length = 0;
+            Core.RetCode retCode = Core.RetCode.UnknownErr;
             double[] outSlowK = new double[db.Count];
             double[] outSlowD = new double[db.Count];
-            Core.RetCode retCode = Core.Stoch(0, db.Count - 1, db.High.Values, db.Low.Values, db.Close.Values,
+
+            switch ((int)matype)
+            {
+                case 0:
+                    retCode = Core.Stoch(0, db.Count - 1, db.High.Values, db.Low.Values, db.Close.Values,
+                                                (int)fastK_Period, (int)slowK_Period, Core.MAType.Dema, (int)slowD_Period, Core.MAType.Dema,
+                                                out begin, out length, outSlowK, outSlowD);
+                    break;
+                case 1:
+                    retCode = Core.Stoch(0, db.Count - 1, db.High.Values, db.Low.Values, db.Close.Values,
+                                                (int)fastK_Period, (int)slowK_Period, Core.MAType.Ema, (int)slowD_Period, Core.MAType.Ema,
+                                                out begin, out length, outSlowK, outSlowD);
+                    break;
+                case 2:
+                    retCode = Core.Stoch(0, db.Count - 1, db.High.Values, db.Low.Values, db.Close.Values,
+                                                (int)fastK_Period, (int)slowK_Period, Core.MAType.Kama, (int)slowD_Period, Core.MAType.Kama,
+                                                out begin, out length, outSlowK, outSlowD);
+                    break;
+                case 3:
+                    retCode = Core.Stoch(0, db.Count - 1, db.High.Values, db.Low.Values, db.Close.Values,
+                                                (int)fastK_Period, (int)slowK_Period, Core.MAType.Mama, (int)slowD_Period, Core.MAType.Mama,
+                                                out begin, out length, outSlowK, outSlowD);
+                    break;
+                case 4:
+                    retCode = Core.Stoch(0, db.Count - 1, db.High.Values, db.Low.Values, db.Close.Values,
                                                 (int)fastK_Period, (int)slowK_Period, Core.MAType.Sma, (int)slowD_Period, Core.MAType.Sma,
                                                 out begin, out length, outSlowK, outSlowD);
+                    break;
+                case 5:
+                    retCode = Core.Stoch(0, db.Count - 1, db.High.Values, db.Low.Values, db.Close.Values,
+                                                (int)fastK_Period, (int)slowK_Period, Core.MAType.T3, (int)slowD_Period, Core.MAType.T3,
+                                                out begin, out length, outSlowK, outSlowD);
+                    break;
+                case 6:
+                    retCode = Core.Stoch(0, db.Count - 1, db.High.Values, db.Low.Values, db.Close.Values,
+                                                (int)fastK_Period, (int)slowK_Period, Core.MAType.Tema, (int)slowD_Period, Core.MAType.Tema,
+                                                out begin, out length, outSlowK, outSlowD);
+                    break;
+                case 7:
+                    retCode = Core.Stoch(0, db.Count - 1, db.High.Values, db.Low.Values, db.Close.Values,
+                                                (int)fastK_Period, (int)slowK_Period, Core.MAType.Trima, (int)slowD_Period, Core.MAType.Trima,
+                                                out begin, out length, outSlowK, outSlowD);
+                    break;
+                case 8:
+                    retCode = Core.Stoch(0, db.Count - 1, db.High.Values, db.Low.Values, db.Close.Values,
+                                                (int)fastK_Period, (int)slowK_Period, Core.MAType.Wma, (int)slowD_Period, Core.MAType.Wma,
+                                                out begin, out length, outSlowK, outSlowD);
+                    break;
+            }
+            
 
             if (retCode != Core.RetCode.Success) return;
             if (length <= 0)

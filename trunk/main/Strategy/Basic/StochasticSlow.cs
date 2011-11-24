@@ -12,9 +12,9 @@ namespace Strategy
         public Indicators.Stoch stoch;
         DataSeries line1, line2;
 
-        public StochSlowRule(DataBars db, double fastK, double slowK, double slowD)
+        public StochSlowRule(DataBars db, double fastK, double slowK, double slowD,double maType)
         {
-            stoch = Indicators.Stoch.Series(db, fastK, slowK, slowD, "stoch");
+            stoch = Indicators.Stoch.Series(db, fastK, slowK, slowD,maType, "stoch");
             line1 = stoch.SlowKSeries;
             line2 = stoch.SlowDSeries;
         }
@@ -56,7 +56,7 @@ namespace Strategy
     {
         override protected void StrategyExecute()
         {
-            StochSlowRule stochRule = new StochSlowRule(data.Bars, parameters[0], parameters[1], parameters[2]);
+            StochSlowRule stochRule = new StochSlowRule(data.Bars, parameters[0], parameters[1], parameters[2],parameters[3]);
 
             for (int idx = 0; idx < data.Close.Count; idx++)
             {

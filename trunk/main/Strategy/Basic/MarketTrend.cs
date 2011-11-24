@@ -28,7 +28,12 @@ namespace Strategy
             return false;
         }
 
-
+        public override bool Trending(int index)
+        {
+            if (index < adx.FirstValidValue) return false;
+            if (adx[index] >= 25) return true;
+            return false;
+        }
     }
 
     public class BollingerKeltnerMarketTrend : MarketTrend
@@ -51,7 +56,16 @@ namespace Strategy
                && (bolliger.LowerSeries[index] > keltner.LowerSeries[index]))
                 return true;
             return false;
+        }
 
+        public override bool Trending(int index)
+        {
+            if (index < Math.Max(bolliger.UpperSeries.FirstValidValue, keltner.UpperSeries.FirstValidValue))
+                return false;
+            if ((bolliger.UpperSeries[index] >= keltner.UpperSeries[index])
+               || (bolliger.LowerSeries[index] < keltner.LowerSeries[index]))
+                return true;
+            return false;
         }
     }
 

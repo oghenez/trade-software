@@ -19,8 +19,9 @@ namespace Strategy
             if (Bar < data.Close.FirstValidValue) return;
 
             ////If Volume>2*Average Volume of 1 month
-            Indicators.SMA smaVolume=new Indicators.SMA(data.Close,parameters[0],"sma");
-            if (data.Volume[Bar]>1.5*smaVolume[Bar]){
+            Indicators.SMA smaVolume=new Indicators.SMA(data.Volume,parameters[0],"smaVolume");
+            double Multi = parameters[1];
+            if (data.Volume[Bar]>Multi*smaVolume[Bar]){
                 wsData.BusinessInfo info = new wsData.BusinessInfo();
                 info.Weight = data.Volume[Bar];
                 SelectStock(Bar, info);

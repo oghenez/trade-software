@@ -24,7 +24,7 @@ namespace Strategy
             DataSeries hist = macd.HistSeries;
 
             Indicators.Stoch stoch = Indicators.Stoch.Series(data.Bars, parameters[4], parameters[5],
-                parameters[6], "");
+                parameters[6],parameters[7], "");
 
             DataSeries line1 = stoch.SlowKSeries;
             DataSeries line2 = stoch.SlowDSeries;
@@ -68,7 +68,7 @@ namespace Strategy
             DataSeries hist = macd.HistSeries;
 
             Indicators.Stoch stoch = Indicators.Stoch.Series(data.Bars, parameters[4], parameters[5],
-                parameters[6], "");
+                parameters[6],parameters[7], "stoch");
 
             DataSeries line1 = stoch.SlowKSeries;
             DataSeries line2 = stoch.SlowDSeries;

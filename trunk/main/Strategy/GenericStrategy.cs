@@ -260,5 +260,78 @@ namespace Strategy
         {
             return null;
         }
-    }    
+    }
+
+    public class MoneyManagement
+    {
+        public double CutLossLevel;
+        public double TakeProfitLevel;
+        public double TrailingStopLevel;
+        public MoneyManagement(double cutloss, double trailingstop, double takeprofit)
+        {
+            CutLossLevel = cutloss;
+            TakeProfitLevel = takeprofit;
+            TrailingStopLevel = trailingstop;
+        }
+
+        public MoneyManagement()
+        {
+            CutLossLevel = double.NaN;
+            TakeProfitLevel = double.NaN;
+            TrailingStopLevel = double.NaN;
+        }
+
+        public bool CutLossCondition(double actual_price, double buy_price)
+        {
+            double distanceStopLoss = 0;
+
+            //Cut loss Condition
+            if (buy_price > 0)
+                distanceStopLoss = (actual_price - buy_price) / buy_price * 100;
+            else
+                distanceStopLoss = 0;
+            if (distanceStopLoss <= -CutLossLevel)
+                return true;
+            return false;
+        }
+
+        /// <summary>
+        /// Condition for Taking Profit
+        /// </summary>
+        /// <param name="actual_price"></param>
+        /// <param name="buy_price"></param>
+        /// <param name="take_profit_level"></param>
+        /// <returns></returns>
+        public bool TakeProfitCondition(double actual_price, double buy_price)
+        {
+            double distanceStopLoss = 0;
+
+            //Take Profit Condition
+            if (buy_price > 0)
+                distanceStopLoss = (actual_price - buy_price) / buy_price * 100;
+            else
+                distanceStopLoss = 0;
+            if (distanceStopLoss > TakeProfitLevel)
+                return true;
+            return false;
+        }
+
+        public void TrailingStopWithBuyBack(GenericStrategy strategy,Rule rule, double price, int idx)
+        {
+            //Trailing stop strategtest
+            double new_trailing_stop = price * (1 - TrailingStopLevel / 100);
+            if (new_trailing_stop > strategy.trailing_stop)
+            {
+                strategy.trailing_stop = new_trailing_stop;
+                //Buy back share if 
+                if ((!strategy.is_bought) && rule.UpTrend(idx)) strategy.BuyAtClose(idx);
+            }
+            else
+                if (price < strategy.trailing_stop)
+                {
+                    strategy.SellTakeProfit(idx);
+                    strategy.trailing_stop = -1;
+                }
+        }
+    }
 }

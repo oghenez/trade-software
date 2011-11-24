@@ -50,6 +50,8 @@ namespace Strategy
         
         static public bool isCummulativeUp(DataSeries closePrice, int idx, int days)
         {
+            if (idx - days < closePrice.FirstValidValue)
+                return false;
             for (int i = idx; i > idx - days; i--)
             {
                 if (closePrice[i] < closePrice[i - 1])
@@ -67,6 +69,8 @@ namespace Strategy
         /// <returns></returns>
         static public bool isCummulativeDown(DataSeries closePrice, int idx, int days)
         {
+            if (idx - days < closePrice.FirstValidValue)
+                return false;
             for (int i = idx; i > idx - days; i--)
             {
                 if (closePrice[i] > closePrice[i - 1])

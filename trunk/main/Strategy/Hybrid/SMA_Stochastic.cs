@@ -16,11 +16,12 @@ namespace Strategy
             int fastK = (int)parameters[2];
             int slowK = (int)parameters[3];
             int slowD = (int)parameters[4];
+            int maType = (int)parameters[5];
 
-            DataSeries short_sma = Indicators.SMA.Series(data.Close,sma_short_period,"");
-            DataSeries long_sma = Indicators.SMA.Series(data.Close, sma_long_period, "");
+            DataSeries short_sma = Indicators.SMA.Series(data.Close,sma_short_period,"sma");
+            DataSeries long_sma = Indicators.SMA.Series(data.Close, sma_long_period, "sma");
 
-            Indicators.Stoch stoch = Indicators.Stoch.Series(data.Bars, fastK, slowK, slowD, "");
+            Indicators.Stoch stoch = Indicators.Stoch.Series(data.Bars, fastK, slowK, slowD,maType, "stoch");
             DataSeries stoch1 = stoch.SlowKSeries;
             DataSeries stoch2 = stoch.SlowDSeries;
 
