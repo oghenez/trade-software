@@ -64,6 +64,7 @@
     <Compile Include="Basic\BasicDMI.cs" />
     <Compile Include="Basic\BasicMACD.cs" />
     <Compile Include="Basic\BuyAndHoldStrategy.cs" />
+    <Compile Include="Basic\SidewayStrategy.cs" />
     <Compile Include="class\language.cs" />
     <Compile Include="class\lib.cs" />
     <Compile Include="fomrs\baseStrategyForm.cs">
@@ -109,7 +110,7 @@
     <Compile Include="Basic\RandomStrategy.cs" />
     <Compile Include="Basic\StochasticFast.cs" />
     <Compile Include="Basic\StochasticSlow.cs" />
-    <Compile Include="Hybrid\SMA_Stochastic.cs" />
+    <Compile Include="Hybrid\Hybrid_MA.cs" />
     <Compile Include="Rule.cs" />
     <Compile Include="strategyLib.cs" />
     <Compile Include="Basic\TwoMA.cs" />
@@ -137,7 +138,6 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <None Include="ClassDiagram1.cd" />
     <None Include="Resources\save.png" />
     <Content Include="strategyInfo.xml" />
   </ItemGroup>

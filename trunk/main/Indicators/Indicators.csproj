@@ -77,6 +77,7 @@
     <Compile Include="class\MIN.cs" />
     <Compile Include="class\MINMAX.cs" />
     <Compile Include="class\MOM.cs" />
+    <Compile Include="class\RiskReward.cs" />
     <Compile Include="class\ROCP.cs" />
     <Compile Include="class\ROCR100.cs" />
     <Compile Include="class\SUM.cs" />
@@ -85,6 +86,7 @@
     <Compile Include="class\TSF.cs" />
     <Compile Include="class\WILLR.cs" />
     <Compile Include="class\CORREL.cs" />
+    <Compile Include="Fibonnanci.cs" />
     <Compile Include="forms\baseIndicatorForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -176,6 +178,7 @@
     <Compile Include="class\TRIX.cs" />
     <Compile Include="class\TYPPRICE.cs" />
     <Compile Include="class\VAR.cs" />
+    <Compile Include="class\SRChannel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\adddata.PNG" />

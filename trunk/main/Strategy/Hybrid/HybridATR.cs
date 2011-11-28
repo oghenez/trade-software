@@ -316,41 +316,6 @@ namespace Strategy
 
     public class HybridSARATR : GenericStrategy
     {
-        //public void RuleExecute(Rule rule, int cutlosslevel, int trailingstoplevel, int takeprofitlevel)
-        //{
-        //    Indicators.MIN min = Indicators.MIN.Series(data.Close, parameters[0], "min");
-        //    Indicators.MAX max = Indicators.MAX.Series(data.Close, parameters[0], "max");
-
-        //    for (int idx = 0; idx < data.Close.Count; idx++)
-        //    {
-        //        if (rule.isValid_forBuy(idx))
-        //        {
-        //            wsData.BusinessInfo info = new wsData.BusinessInfo();
-        //            info.SetTrend(AppTypes.MarketTrend.Upward, AppTypes.MarketTrend.Unspecified, AppTypes.MarketTrend.Unspecified);
-        //            info.Short_Target = max[idx];
-        //            info.Stop_Loss = min[idx];
-        //            BuyAtClose(idx, info);
-        //        }
-        //        else
-        //            if (rule.isValid_forSell(idx))
-        //            {
-        //                wsData.BusinessInfo info = new wsData.BusinessInfo();
-        //                info.SetTrend(AppTypes.MarketTrend.Downward, AppTypes.MarketTrend.Unspecified, AppTypes.MarketTrend.Unspecified);
-        //                info.Short_Target = min[idx];
-        //                info.Stop_Loss = max[idx];
-        //                SellAtClose(idx, info);
-        //            }
-        //        if (is_bought && CutLossCondition(data.Close[idx], buy_price, cutlosslevel))
-        //            SellCutLoss(idx);
-
-        //        if (is_bought && TakeProfitCondition(data.Close[idx], buy_price, takeprofitlevel))
-        //            SellTakeProfit(idx);
-
-        //        if (trailingstoplevel > 0)
-        //            TrailingStopWithBuyBack(rule, data.Close[idx], trailingstoplevel, idx);
-        //    }
-        //}
-
         override protected void StrategyExecute()
         {
             SARATRRules rule = new SARATRRules(data.Bars, parameters[0], parameters[1], parameters[2]);
@@ -381,7 +346,7 @@ namespace Strategy
                         info.Stop_Loss = max[idx];
                         SellAtClose(idx, info);
                     }
-                //if (is_bought && CutLossCondition(data.Close[idx], buy_price, riskManagement.CutLossLevel))
+
                 if (is_bought && riskManagement.CutLossCondition(data.Close[idx], buy_price))
                     SellCutLoss(idx);
 

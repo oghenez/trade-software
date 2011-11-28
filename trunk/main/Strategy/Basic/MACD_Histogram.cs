@@ -12,11 +12,6 @@ namespace Strategy
         public MACD_HistogramSCR_Helper() : base(typeof(MACD_HistogramSCR)) { }
     }
     
-    public class MACD_Histogram_RiskMng_Helper : baseHelper
-    {
-        public MACD_Histogram_RiskMng_Helper() : base(typeof(MACD_Histogram_RiskMng)) { }
-    }
-
     public class MACD_HistogramRule:Rule
     {
         public Indicators.MACD macd;
@@ -104,37 +99,46 @@ namespace Strategy
         override protected void StrategyExecute()
         {
             MACD_HistogramRule rule = new MACD_HistogramRule(data.Close, parameters[0],parameters[1],parameters[2]);
+            MoneyManagement riskManagement = new MoneyManagement(parameters[3], parameters[4], parameters[5]);
 
             for (int idx = rule.macd.FirstValidValue; idx < data.Close.Count; idx++)
             {
                 if (rule.isValid_forBuy(idx))
                     BuyAtClose(idx);
                 if (rule.isValid_forSell(idx))
-                    SellAtClose(idx);                
+                    SellAtClose(idx);
+                if (is_bought && riskManagement.CutLossCondition(data.Close[idx], buy_price))
+                    SellCutLoss(idx);
+
+                if (is_bought && riskManagement.TakeProfitCondition(data.Close[idx], buy_price))
+                    SellTakeProfit(idx);
+
+                if (riskManagement.TrailingStopLevel > 0)
+                    riskManagement.TrailingStopWithBuyBack(this, rule, data.Close[idx], idx);
             }
         }
     }
 
-    public class MACD_Histogram_RiskMng : GenericStrategy
-    {        
-        override protected void StrategyExecute()
-        {
-            MACD_HistogramRule rule = new MACD_HistogramRule(data.Close, parameters[0], parameters[1], parameters[2]);
-            double cutlosslevel = parameters[3];
-            double takeprofitlevel = parameters[4];
+    //public class MACD_Histogram_RiskMng : GenericStrategy
+    //{        
+    //    override protected void StrategyExecute()
+    //    {
+    //        MACD_HistogramRule rule = new MACD_HistogramRule(data.Close, parameters[0], parameters[1], parameters[2]);
+    //        double cutlosslevel = parameters[3];
+    //        double takeprofitlevel = parameters[4];
 
-            for (int idx = rule.macd.FirstValidValue; idx < data.Close.Count - 1; idx++)
-            {
-                if (rule.isValid_forBuy(idx))
-                    BuyAtClose(idx);
-                if (rule.isValid_forSell(idx))
-                    SellAtClose(idx);
-                if (is_bought && CutLossCondition(data.Close[idx], buy_price, cutlosslevel))
-                    SellCutLoss(idx);
+    //        for (int idx = rule.macd.FirstValidValue; idx < data.Close.Count - 1; idx++)
+    //        {
+    //            if (rule.isValid_forBuy(idx))
+    //                BuyAtClose(idx);
+    //            if (rule.isValid_forSell(idx))
+    //                SellAtClose(idx);
+    //            if (is_bought && CutLossCondition(data.Close[idx], buy_price, cutlosslevel))
+    //                SellCutLoss(idx);
 
-                if (is_bought && TakeProfitCondition(data.Close[idx], buy_price, takeprofitlevel))
-                    SellTakeProfit(idx);
-            }            
-        }
-    }
+    //            if (is_bought && TakeProfitCondition(data.Close[idx], buy_price, takeprofitlevel))
+    //                SellTakeProfit(idx);
+    //        }            
+    //    }
+    //}
 }

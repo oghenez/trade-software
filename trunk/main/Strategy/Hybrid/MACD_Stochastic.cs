@@ -52,22 +52,26 @@ namespace Strategy
     {
         protected override void StrategyExecute()
         {
-            //DataSeries sma20 = Indicators.SMA.Series(data.Close, parameters[0], "");
+            DataSeries sma20 = Indicators.SMA.Series(data.Close, parameters[0], "");
 
             MACD_HistogramRule macdRule = new MACD_HistogramRule(data.Close, parameters[1], parameters[2],
                 parameters[3]);
+
+            Indicators.RiskReward riskreward = Indicators.RiskReward.Series(data.Close, 30, "riskreward");
+            DataSeries macdRR = Indicators.MACD.Series(riskreward, 12, 26, 9, "macdRR");
 
             StochSlowRule stochRule = new StochSlowRule(data.Bars, parameters[4], parameters[5],
                 parameters[6],parameters[7]);
 
             for (int idx = 1; idx < data.Close.Count; idx++)
             {
-                if (macdRule.isValid_forBuy(idx)&&stochRule.UpTrend(idx))
+                if (macdRule.isValid_forBuy(idx)&&stochRule.UpTrend(idx)&&data.Close[idx]>sma20[idx])
                     BuyAtClose(idx);
 
-                if (macdRule.isValid_forSell(idx))
+                if (stochRule.isValid_forSell(idx)||macdRule.DownTrend(idx))
                     SellAtClose(idx);
             }
+            common.system.ShowMessage("MACD Finish");
         }
     }
 }

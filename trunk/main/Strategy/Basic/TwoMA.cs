@@ -20,6 +20,14 @@ namespace Strategy
         }
     }
 
+    public class TwoEMAVolume_Helper : baseHelper
+    {
+        public TwoEMAVolume_Helper()
+            : base(typeof(TwoEMAVolume))
+        {
+        }
+    }
+
     public class TwoWMA_Helper : baseHelper
     {
         public TwoWMA_Helper()
@@ -32,56 +40,8 @@ namespace Strategy
     {
         override protected void StrategyExecute()
         {
-            DataSeries line1 = Indicators.WMA.Series(data.Close, parameters[0], "wma");
-            DataSeries line2 = Indicators.WMA.Series(data.Close, parameters[1], "wma");
-
-            AppTypes.MarketTrend trend = AppTypes.MarketTrend.Unspecified;
-            AppTypes.MarketTrend lastTrend = AppTypes.MarketTrend.Unspecified;
-
-            for (int idx = 0; idx < line1.Count; idx++)
-            {
-                double d1 = line1[idx];
-                double d2 = line2[idx];
-                if (d1 == 0 || d2 == 0) continue;
-
-                trend = (d1 > d2 ? AppTypes.MarketTrend.Upward : AppTypes.MarketTrend.Downward);
-                if (lastTrend == AppTypes.MarketTrend.Downward && trend == AppTypes.MarketTrend.Upward)
-                    BuyAtClose(idx);
-                if (lastTrend == AppTypes.MarketTrend.Upward && trend == AppTypes.MarketTrend.Downward)
-                    SellAtClose(idx);
-                lastTrend = trend;
-            }
-        }
-    }
-    public class TwoEMA : GenericStrategy
-    {
-        protected override void StrategyExecute()
-        {
-            DataSeries line1 = Indicators.EMA.Series(data.Close, parameters[0], "ema");
-            DataSeries line2 = Indicators.EMA.Series(data.Close, parameters[1], "ema");
-
-            AppTypes.MarketTrend trend = AppTypes.MarketTrend.Unspecified;
-            AppTypes.MarketTrend lastTrend = AppTypes.MarketTrend.Unspecified;
-            for (int idx = 0; idx < line1.Count; idx++)
-            {
-                double d1 = line1[idx];
-                double d2 = line2[idx];
-                if (d1 == 0 || d2 == 0) continue;
-
-                trend = (d1 > d2 ? AppTypes.MarketTrend.Upward : AppTypes.MarketTrend.Downward);
-                if (lastTrend == AppTypes.MarketTrend.Downward && trend == AppTypes.MarketTrend.Upward)
-                    BuyAtClose(idx);
-                if (lastTrend == AppTypes.MarketTrend.Upward && trend == AppTypes.MarketTrend.Downward)
-                    SellAtClose(idx);
-                lastTrend = trend;
-            }
-        }
-    }
-    public class TwoSMA : GenericStrategy
-    {
-        override protected void StrategyExecute()
-        {
-            TwoSMARule rule = new TwoSMARule(data.Close, parameters[0], parameters[1]);
+            TwoWMARule rule = new TwoWMARule(data.Close, parameters[0], parameters[1]);
+            MoneyManagement riskManagement = new MoneyManagement(parameters[2], parameters[3], parameters[4]);
 
             for (int idx = 0; idx < data.Close.Count; idx++)
             {
@@ -90,6 +50,64 @@ namespace Strategy
                 else
                     if (rule.isValid_forSell(idx))
                         SellAtClose(idx);
+                if (is_bought && riskManagement.CutLossCondition(data.Close[idx], buy_price))
+                    SellCutLoss(idx);
+
+                if (is_bought && riskManagement.TakeProfitCondition(data.Close[idx], buy_price))
+                    SellTakeProfit(idx);
+
+                if (riskManagement.TrailingStopLevel > 0)
+                    riskManagement.TrailingStopWithBuyBack(this, rule, data.Close[idx], idx);
+            }
+        }
+    }
+    public class TwoEMA : GenericStrategy
+    {
+        protected override void StrategyExecute()
+        {
+            TwoEMARule rule = new TwoEMARule(data.Close, parameters[0], parameters[1]);
+            MoneyManagement riskManagement = new MoneyManagement(parameters[2], parameters[3], parameters[4]);
+
+            for (int idx = 0; idx < data.Close.Count; idx++)
+            {
+                if (rule.isValid_forBuy(idx))
+                    BuyAtClose(idx);
+                else
+                    if (rule.isValid_forSell(idx))
+                        SellAtClose(idx);
+                if (is_bought && riskManagement.CutLossCondition(data.Close[idx], buy_price))
+                    SellCutLoss(idx);
+
+                if (is_bought && riskManagement.TakeProfitCondition(data.Close[idx], buy_price))
+                    SellTakeProfit(idx);
+
+                if (riskManagement.TrailingStopLevel > 0)
+                    riskManagement.TrailingStopWithBuyBack(this, rule, data.Close[idx], idx);
+            }
+        }
+    }
+    public class TwoSMA : GenericStrategy
+    {
+        override protected void StrategyExecute()
+        {
+            TwoSMARule rule = new TwoSMARule(data.Close, parameters[0], parameters[1]);
+            MoneyManagement riskManagement = new MoneyManagement(parameters[2], parameters[3], parameters[4]);
+
+            for (int idx = 0; idx < data.Close.Count; idx++)
+            {
+                if (rule.isValid_forBuy(idx))
+                    BuyAtClose(idx);
+                else
+                    if (rule.isValid_forSell(idx))
+                        SellAtClose(idx);
+                if (is_bought && riskManagement.CutLossCondition(data.Close[idx], buy_price))
+                    SellCutLoss(idx);
+
+                if (is_bought && riskManagement.TakeProfitCondition(data.Close[idx], buy_price))
+                    SellTakeProfit(idx);
+
+                if (riskManagement.TrailingStopLevel > 0)
+                    riskManagement.TrailingStopWithBuyBack(this, rule, data.Close[idx], idx);
             }
         }
     }
@@ -288,6 +306,33 @@ namespace Strategy
                 wsData.BusinessInfo info = new wsData.BusinessInfo();
                 info.Weight = rule.short_indicator[Bar];
                 SelectStock(Bar, info);
+            }
+        }
+    }
+
+    public class TwoEMAVolume : GenericStrategy
+    {
+        protected override void StrategyExecute()
+        {
+            TwoEMARule rule = new TwoEMARule(data.Volume, parameters[0], parameters[1]);
+            MoneyManagement riskManagement = new MoneyManagement(parameters[2], parameters[3], parameters[4]);
+
+            for (int idx = 0; idx < data.Close.Count; idx++)
+            {
+                if (rule.isValid_forBuy(idx))
+                    BuyAtClose(idx);
+                else
+                    if (rule.isValid_forSell(idx))
+                        SellAtClose(idx);
+                if (is_bought && riskManagement.CutLossCondition(data.Close[idx], buy_price))
+                    SellCutLoss(idx);
+
+                if (is_bought && riskManagement.TakeProfitCondition(data.Close[idx], buy_price))
+                    SellTakeProfit(idx);
+
+                if (riskManagement.TrailingStopLevel > 0)
+                    riskManagement.TrailingStopWithBuyBack(this, rule, data.Close[idx], idx);
+
             }
         }
     }

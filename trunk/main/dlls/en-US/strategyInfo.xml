@@ -236,10 +236,10 @@
   <STRATEGY>
     <BasicDMI_CutLoss Code="STR002"/>
     <BasicDMI_CutLoss Category="HFT" />
-    <BasicDMI_CutLoss Parameters="Plus Period=14,Minus Period=14,Cut Loss Level (%)=5,Take Profit Level (%)=200" />
-    <BasicDMI_CutLoss ParameterDescriptions="Period defines the input data for the strategy. &#xD;&#xA;                      Cut loss Level defines the target in % of price for selling the stock. &#xD;&#xA;                      Take Profit Level defines the target in % of price for taking profit" />
+    <BasicDMI_CutLoss Parameters="Plus Period=14,Minus Period=14,Stop Loss Level (%)=5,Take Profit Level (%)=200" />
+    <BasicDMI_CutLoss ParameterDescriptions="Period defines the input data for the strategy. &#xD;&#xA;                      Stop Loss Level defines the target in % of price for selling the stock. &#xD;&#xA;                      Take Profit Level defines the target in % of price for taking profit" />
     <BasicDMI_CutLoss Name="Basic DMI with Risk Management" />
-    <BasicDMI_CutLoss Description="Buy when there is cut between DI+ and DI-. Sell when DI- crosses DI+. Cut loss when the strategy bypass the cut loss level" />
+    <BasicDMI_CutLoss Description="Buy when there is cut between DI+ and DI-. Sell when DI- crosses DI+. Cut loss when the strategy bypass the Stop Loss Level" />
     <BasicDMI_CutLoss URL="http://www.hqinvestor.vn" />
     <BasicDMI_CutLoss Authors="Quan Nguyen" />
     <BasicDMI_CutLoss Version="1.0" />
@@ -313,25 +313,15 @@
   <STRATEGY>
     <MACD_ADX Code="STR009"/>
     <MACD_ADX Category="HFT" />
-    <MACD_ADX Parameters="MACD Fast=12,MACD Slow=26,MACD Signal=9,ADX Period=14" />
+    <MACD_ADX Parameters="MACD Fast=12,MACD Slow=26,MACD Signal=9,ADX Period=14,Stop Loss Level (%)=5,Trailing Stop (%)=15,Take Profit Level (%)=100" />
     <MACD_ADX ParameterDescriptions="Period defines the input data for the strategy" />
-    <MACD_ADX Name="Hybrid strategy with MACD and ADX for determining the trend" />
+    <MACD_ADX Name="MACD and ADX" />
     <MACD_ADX Description="Buy when there is cut between signal and macd line" />
     <MACD_ADX URL="http://www.hqinvestor.vn" />
     <MACD_ADX Authors="Quan Nguyen" />
     <MACD_ADX Version="1.0" />
   </STRATEGY>
-  <STRATEGY>
-    <MACD_ADX_RiskMng Code="STR010"/>
-    <MACD_ADX_RiskMng Category="HFT" />
-    <MACD_ADX_RiskMng Parameters="MACD Fast=12,MACD Slow=26,MACD Signal=9,ADX Period=14,Cut Loss Level (%)=5,Take Profit Level (%)=200" />
-    <MACD_ADX_RiskMng ParameterDescriptions="Period defines the input data for the strategy" />
-    <MACD_ADX_RiskMng Name="Hybrid strategy with MACD and ADX with money management rule" />
-    <MACD_ADX_RiskMng Description="Buy when there is cut between signal and macd line. &#xD;&#xA;                      Sell with money management rule" />
-    <MACD_ADX_RiskMng URL="http://www.hqinvestor.vn" />
-    <MACD_ADX_RiskMng Authors="Quan Nguyen" />
-    <MACD_ADX_RiskMng Version="1.0" />
-  </STRATEGY>
+  
   <STRATEGY>
     <MACD_Stochastic Code="STR011"/>
     <MACD_Stochastic Category="HFT" />
@@ -368,7 +358,7 @@
   <STRATEGY>
     <RSI_MACD_Histogram Code="STR014"/>
     <RSI_MACD_Histogram Category="HFT" />
-    <RSI_MACD_Histogram Parameters="MACD Fast=12,MACD Slow=26,MACD Signal=9, RSI Period=14, RSI Over Sold=30, RSI Over Bought=70,Cut Loss Level (%)=5,Take Profit Level (%)=200" />
+    <RSI_MACD_Histogram Parameters="MACD Fast=12,MACD Slow=26,MACD Signal=9, RSI Period=14, RSI Over Sold=30, RSI Over Bought=70,Stop Loss Level (%)=5,Take Profit Level (%)=200" />
     <RSI_MACD_Histogram ParameterDescriptions="Period defines the input data for the strategy" />
     <RSI_MACD_Histogram Name="MACD and RSI strategy" />
     <RSI_MACD_Histogram Description="MACD and RSI strategy" />
@@ -379,7 +369,7 @@
   <STRATEGY>
     <TwoRSI_MACD_Histogram Code="STR015"/>
     <TwoRSI_MACD_Histogram Category="HFT" />
-    <TwoRSI_MACD_Histogram Parameters="MACD Fast=12,MACD Slow=26,MACD Signal=9, RSI Period=14, RSI Over Sold=30, RSI Over Bought=70,Cut Loss Level (%)=5,Take Profit Level (%)=200" />
+    <TwoRSI_MACD_Histogram Parameters="MACD Fast=12,MACD Slow=26,MACD Signal=9, RSI Period=14, RSI Over Sold=30, RSI Over Bought=70,Stop Loss Level (%)=5,Take Profit Level (%)=200" />
     <TwoRSI_MACD_Histogram ParameterDescriptions="Period defines the input data for the strategy" />
     <TwoRSI_MACD_Histogram Name="MACD and Two RSI line strategy" />
     <TwoRSI_MACD_Histogram Description="MACD and RSI strategy" />
@@ -390,7 +380,7 @@
   <STRATEGY>
     <MACD_Histogram Code="STR016"/>
     <MACD_Histogram Category="TRE" />
-    <MACD_Histogram Parameters="MACD Fast=12,MACD Slow=26,MACD Signal=9" />
+    <MACD_Histogram Parameters="MACD Fast=12,MACD Slow=26,MACD Signal=9,Stop Loss Level (%)=5,Trailing Stop (%)=10, Take Profit Level (%)=50" />
     <MACD_Histogram ParameterDescriptions="Period defines the input data for the strategy" />
     <MACD_Histogram Name="MACD Histogram" />
     <MACD_Histogram Description="MACD strategy using histogram changes" />
@@ -410,20 +400,20 @@
     <BasicMACD_LineCut Version="1.0" />
   </STRATEGY>
   <STRATEGY>
-    <MACD_Histogram_RiskMng Code="STR018"/>
-    <MACD_Histogram_RiskMng Category="TRE" />
-    <MACD_Histogram_RiskMng Parameters="MACD Fast=12,MACD Slow=26,MACD Signal=9,Cut Loss Level (%)=10,Take Profit Level (%)=200" />
-    <MACD_Histogram_RiskMng ParameterDescriptions="Period defines the input data for the strategy" />
-    <MACD_Histogram_RiskMng Name="MACD Histogram with risk management" />
-    <MACD_Histogram_RiskMng Description="MACD strategy using histogram changes  with cut loss" />
-    <MACD_Histogram_RiskMng URL="http://www.hqinvestor.vn" />
-    <MACD_Histogram_RiskMng Authors="Quan Nguyen" />
-    <MACD_Histogram_RiskMng Version="1.0" />
+    <TwoEMAVolume Code="STR018"/>
+    <TwoEMAVolume Category="TRE" />
+    <TwoEMAVolume Parameters="Short Period = 5,Long Period=10,Stop Loss Level (%)=5,Trailing Stop (%)=15, Take Profit Level (%)=50" />
+    <TwoEMAVolume ParameterDescriptions="Short Period is the period for the short term moving average line.&#xD;&#xA;                 Long Period is the period for the long term moving average line." />
+    <TwoEMAVolume Name="Two EMA Volume" />
+    <TwoEMAVolume Description="Two EMA Volume" />
+    <TwoEMAVolume URL="http://www.hqinvestor.vn" />
+    <TwoEMAVolume Authors="Quan Nguyen" />
+    <TwoEMAVolume Version="1.0" />
   </STRATEGY>
   <STRATEGY>
     <AverageStrategy Code="STR019"/>
     <AverageStrategy Category="MEA" />
-    <AverageStrategy Parameters="Period = 30, Buy Level from Average(%) = 20,Sell Level from Average(%) = 15,Cut Loss Level (%)=4,Take Profit Level (%)=200" />
+    <AverageStrategy Parameters="Period = 30, Buy Level from Average(%) = 20,Sell Level from Average(%) = 15,Stop Loss Level (%)=4,Take Profit Level (%)=200" />
     <AverageStrategy ParameterDescriptions="" />
     <AverageStrategy Name="Average Investing" />
     <AverageStrategy Description="Buy when price down to Buy Level, Sell when price up to Sell Level" />
@@ -467,7 +457,7 @@
   <STRATEGY>
     <TwoWMA Code="STR023"/>
     <TwoWMA Category="TRE" />
-    <TwoWMA Parameters="Short Period = 5,Long Period=10" />
+    <TwoWMA Parameters="Short Period = 5,Long Period=10,Stop Loss Level (%)=5,Trailing Stop (%)=15, Take Profit Level (%)=50" />
     <TwoWMA ParameterDescriptions="Short Period is the period for the short term moving average line.&#xD;&#xA;                 Long Period is the period for the long term moving average line." />
     <TwoWMA Name="Two Weighted Moving Average Waves" />
     <TwoWMA Description="Two Weighted Moving Average Waves" />
@@ -478,7 +468,7 @@
   <STRATEGY>
     <TwoEMA Code="STR024"/>
     <TwoEMA Category="TRE" />
-    <TwoEMA Parameters="Short Period = 5,Long Period=10" />
+    <TwoEMA Parameters="Short Period = 5,Long Period=10,Stop Loss Level (%)=5,Trailing Stop (%)=15, Take Profit Level (%)=50" />
     <TwoEMA ParameterDescriptions="Short Period is the period for the short term moving average line.&#xD;&#xA;                 Long Period is the period for the long term moving average line." />
     <TwoEMA Name="Two Exponential Moving Average Waves" />
     <TwoEMA Description="Two Exponential Moving Average Waves" />
@@ -489,7 +479,7 @@
   <STRATEGY>
     <TwoSMA Code="STR025"/>
     <TwoSMA Category="TRE" />
-    <TwoSMA Parameters="Short Period = 5,Long Period=10" />
+    <TwoSMA Parameters="Short Period = 5,Long Period=10,Stop Loss Level (%)=5,Trailing Stop (%)=15, Take Profit Level (%)=50" />
     <TwoSMA ParameterDescriptions="Short Period is the period for the short term moving average line.&#xD;&#xA;                 Long Period is the period for the long term moving average line." />
     <TwoSMA Name="Two Simple Moving Average Waves" />
     <TwoSMA Description="Two Simple Moving Average Waves" />
@@ -500,7 +490,7 @@
   <STRATEGY>
     <TwoSMA_VolumeFilter Code="STR026"/>
     <TwoSMA_VolumeFilter Category="TRE" />
-    <TwoSMA_VolumeFilter Parameters="Short Period=5,Long Period=10,Volume Filter=100000" />
+    <TwoSMA_VolumeFilter Parameters="Short Period=5,Long Period=10,Volume Filter=100000,Stop Loss Level (%)=5,Trailing Stop (%)=15, Take Profit Level (%)=50" />
     <TwoSMA_VolumeFilter ParameterDescriptions="Short Period is the period for the short term moving average line.&#xD;&#xA;                 Long Period is the period for the long term moving average line." />
     <TwoSMA_VolumeFilter Name="Two Simple Moving Average Waves with Volume Filter" />
     <TwoSMA_VolumeFilter Description="Two Simple Moving Average Waves  with Volume Filter" />
@@ -524,7 +514,7 @@
   <STRATEGY>
     <BasicSAR Code="STR028"/>
     <BasicSAR Category="TRE" />
-    <BasicSAR Parameters="AF=0.02,Step=0.2,Cut Loss Level (%)=5,Take Profit Level (%)=200" />
+    <BasicSAR Parameters="AF=0.02,Step=0.2,Stop Loss Level (%)=5,Take Profit Level (%)=200" />
     <BasicSAR ParameterPrecision="2"/>
     <BasicSAR ParameterDescriptions="" />
     <BasicSAR Name="Basic SAR" />
@@ -537,7 +527,7 @@
   <STRATEGY>
     <TwoSMA_SAR Code="STR029"/>
     <TwoSMA_SAR Category="HYB" />
-    <TwoSMA_SAR Parameters="AF=0.02,Step=0.2,Short Period=5,Long Period=10,Cut Loss Level (%)=5,Take Profit Level (%)=200" />
+    <TwoSMA_SAR Parameters="AF=0.02,Step=0.2,Short Period=5,Long Period=10,Stop Loss Level (%)=5,Take Profit Level (%)=200" />
     <TwoSMA_SAR ParameterPrecision="2"/>
     <TwoSMA_SAR ParameterDescriptions="" />
     <TwoSMA_SAR Name="Two SMA and SAR" />
@@ -550,7 +540,7 @@
   <STRATEGY>
     <BasicAroon Code="STR030"/>
     <BasicAroon Category="TRE" />
-    <BasicAroon Parameters="Period=25,Cut Loss Level (%)=5,Take Profit Level (%)=200" />
+    <BasicAroon Parameters="Period=25,Stop Loss Level (%)=5,Take Profit Level (%)=200" />
     <BasicAroon ParameterDescriptions="" />
     <BasicAroon Name="Basic Aroon" />
     <BasicAroon Description="Basic Aroon strategy" />
@@ -562,7 +552,7 @@
   <STRATEGY>
     <TSFLIN Code="STR031"/>
     <TSFLIN Category="HYB" />
-    <TSFLIN Parameters=">Time Series Period=25,Linear Regression Period=25,Cut Loss Level (%)=5,Take Profit Level (%)=200" />
+    <TSFLIN Parameters=">Time Series Period=25,Linear Regression Period=25,Stop Loss Level (%)=5,Take Profit Level (%)=200" />
     <TSFLIN ParameterDescriptions="" />
     <TSFLIN Name="Time Series and Linear Regression" />
     <TSFLIN Description="Time Series and Linear Regression" />
@@ -574,7 +564,7 @@
   <STRATEGY>
     <BasicTRIX Code="STR032"/>
     <BasicTRIX Category="TRE" />
-    <BasicTRIX Parameters="Period=25,Cut Loss Level (%)=5,Take Profit Level (%)=200" />
+    <BasicTRIX Parameters="Period=25,Stop Loss Level (%)=5,Take Profit Level (%)=200" />
     <BasicTRIX ParameterDescriptions="Period is the period for the short term moving average line." />
     <BasicTRIX Name="TRIX strategy" />
     <BasicTRIX Description="TRIX strategy" />
@@ -586,7 +576,7 @@
   <STRATEGY>
     <BasicTRIX_Trailing Code="STR033"/>
     <BasicTRIX_Trailing Category="TRE" />
-    <BasicTRIX_Trailing Parameters="Period=25,Cut Loss Level (%)=5,Trailing Stop (%)=15, Take Profit Level (%)=200" />
+    <BasicTRIX_Trailing Parameters="Period=25,Stop Loss Level (%)=5,Trailing Stop (%)=15, Take Profit Level (%)=200" />
     <BasicTRIX_Trailing ParameterDescriptions="Period is the period for the short term moving average line." />
     <BasicTRIX_Trailing Name="New TRIX strategy" />
     <BasicTRIX_Trailing Description="TRIX strategy" />
@@ -598,7 +588,7 @@
   <STRATEGY>
     <TwoLineTRIX Code="STR034"/>
     <TwoLineTRIX Category="TRE" />
-    <TwoLineTRIX Parameters="Short Period=10,Long Period=30,Cut Loss Level (%)=5, Take Profit Level (%)=200" />
+    <TwoLineTRIX Parameters="Short Period=10,Long Period=30,Stop Loss Level (%)=5, Take Profit Level (%)=200" />
     <TwoLineTRIX ParameterDescriptions="Period is the period for the short term moving average line." />
     <TwoLineTRIX Name="Two Line TRIX strategy" />
     <TwoLineTRIX Description="Two Line TRIX strategy" />
@@ -610,7 +600,7 @@
   <STRATEGY>
     <EMASAR Code="STR035"/>
     <EMASAR Category="HYB" />
-    <EMASAR Parameters="AF=0.02,Step=0.2,Short Period=5,Long Period=10,Cut Loss Level (%)=5,Take Profit Level (%)=200" />
+    <EMASAR Parameters="AF=0.02,Step=0.2,Short Period=5,Long Period=10,Stop Loss Level (%)=5,Take Profit Level (%)=200" />
     <TwoSMA_SAR ParameterPrecision="2"/>
     <EMASAR ParameterDescriptions="" />
     <EMASAR Name="Hybrid SAR-EMA" />
@@ -623,7 +613,7 @@
   <STRATEGY>
     <BasicATR Code="STR036"/>
     <BasicATR Category="TRE" />
-    <BasicATR Parameters="ATR Period=14,Cut Loss Level (%)=5, Take Profit Level (%)=200" />
+    <BasicATR Parameters="ATR Period=14,Stop Loss Level (%)=5, Take Profit Level (%)=200" />
     <BasicATR ParameterDescriptions="Period is the period for the short term moving average line." />
     <BasicATR Name="Basic ATR" />
     <BasicATR Description="Basic ATRs" />
@@ -635,7 +625,7 @@
   <STRATEGY>
     <HybridEMAATR Code="STR037"/>
     <HybridEMAATR Category="HYB" />
-    <HybridEMAATR Parameters="ATR Period=14,EMA Short Period=5,EMA Long Period=10,Cut Loss Level (%)=5,Trailing Stop (%)=15, Take Profit Level (%)=200" />
+    <HybridEMAATR Parameters="ATR Period=14,EMA Short Period=5,EMA Long Period=10,Stop Loss Level (%)=5,Trailing Stop (%)=15, Take Profit Level (%)=200" />
     <HybridEMAATR ParameterDescriptions="Period is the period for the short term moving average line." />
     <HybridEMAATR Name="Hybrid ATR-EMA" />
     <HybridEMAATR Description="Hybrid ATR-EMA" />
@@ -647,7 +637,7 @@
   <STRATEGY>
     <HybridSMAATR Code="STR038"/>
     <HybridSMAATR Category="HYB" />
-    <HybridSMAATR Parameters="ATR Period=14,SMA Short Period=5,SMA Long Period=10,Cut Loss Level (%)=5,Trailing Stop (%)=15, Take Profit Level (%)=200" />
+    <HybridSMAATR Parameters="ATR Period=14,SMA Short Period=5,SMA Long Period=10,Stop Loss Level (%)=5,Trailing Stop (%)=15, Take Profit Level (%)=200" />
     <HybridSMAATR ParameterDescriptions="Period is the period for the short term moving average line." />
     <HybridSMAATR Name="Hybrid ATR-SMA" />
     <HybridSMAATR Description="Hybrid ATR-SMA" />
@@ -659,7 +649,7 @@
   <STRATEGY>
     <HybridMACDHistATR Code="STR039"/>
     <HybridMACDHistATR Category="HYB" />
-    <HybridMACDHistATR Parameters="ATR Period=14,MACD Fast=12,MACD Slow=26,MACD Signal=9,ADX Period=14,Cut Loss Level (%)=5,Trailing Stop (%)=15, Take Profit Level (%)=200" />
+    <HybridMACDHistATR Parameters="ATR Period=14,MACD Fast=12,MACD Slow=26,MACD Signal=9,ADX Period=14,Stop Loss Level (%)=5,Trailing Stop (%)=15, Take Profit Level (%)=200" />
     <HybridMACDHistATR ParameterDescriptions="Period is the period for the short term moving average line." />
     <HybridMACDHistATR Name="Hybrid ATR-MACD Histogram" />
     <HybridMACDHistATR Description="Hybrid ATR-MACD Histogram" />
@@ -671,7 +661,7 @@
   <STRATEGY>
     <HybridKeltnerEMA Code="STR040"/>
     <HybridKeltnerEMA Category="HYB" />
-    <HybridKeltnerEMA Parameters="Bolliger Period=20,k Up = 2,k Down = 2,EMA Period=20,ATR Multiplier=2.0, ATR Period=10,EMA Short Period=5,EMA Long Period=10,Cut Loss Level (%)=5,Trailing Stop (%)=15, Take Profit Level (%)=200" />
+    <HybridKeltnerEMA Parameters="Bolliger Period=20,k Up = 2,k Down = 2,EMA Period=20,ATR Multiplier=2.0, ATR Period=10,EMA Short Period=5,EMA Long Period=10,Stop Loss Level (%)=5,Trailing Stop (%)=15, Take Profit Level (%)=200" />
     <HybridKeltnerEMA ParameterDescriptions="Period is the period for the short term moving average line." />
     <HybridKeltnerEMA Name="Keltner-Bollinger-EMA" />
     <HybridKeltnerEMA Description="Keltner-Bollinger-EMA" />
@@ -683,7 +673,7 @@
   <STRATEGY>
     <HybridSARATR Code="STR041"/>
     <HybridSARATR Category="HYB" />
-    <HybridSARATR Parameters="ATR Period=14,AF=0.02,Step=0.2,Cut Loss Level (%)=5,Trailing Stop (%)=15, Take Profit Level (%)=200" />
+    <HybridSARATR Parameters="ATR Period=14,AF=0.02,Step=0.2,Stop Loss Level (%)=5,Trailing Stop (%)=15, Take Profit Level (%)=200" />
     <HybridSARATR ParameterPrecision="2"/>
     <HybridSARATR ParameterDescriptions="Period is the period for the short term moving average line." />
     <HybridSARATR Name="ATR-Parabolic SAR" />
@@ -696,7 +686,7 @@
   <STRATEGY>
     <HybridSarAtrAdx Code="STR042"/>
     <HybridSarAtrAdx Category="HYB" />
-    <HybridSarAtrAdx Parameters="ATR Period=14,AF=0.02,Step=0.2,ADX Period=14,Cut Loss Level (%)=5,Trailing Stop (%)=15, Take Profit Level (%)=200" />
+    <HybridSarAtrAdx Parameters="ATR Period=14,AF=0.02,Step=0.2,ADX Period=14,Stop Loss Level (%)=5,Trailing Stop (%)=15, Take Profit Level (%)=200" />
     <HybridSarAtrAdx ParameterPrecision="2"/>
     <HybridSarAtrAdx ParameterDescriptions="Period is the period for the short term moving average line." />
     <HybridSarAtrAdx Name="ATR-Parabolic SAR-ADX" />
@@ -709,7 +699,7 @@
   <STRATEGY>
     <BasicStochRSI Code="STR043"/>
     <BasicStochRSI Category="TRE" />
-    <BasicStochRSI Parameters="RSI=14,Fast K=14,Fast D = 9,Cut Loss Level (%)=5,Trailing Stop (%)=15, Take Profit Level (%)=50" />
+    <BasicStochRSI Parameters="RSI=14,Fast K=14,Fast D = 9,Stop Loss Level (%)=5,Trailing Stop (%)=15, Take Profit Level (%)=50" />
     <BasicStochRSI ParameterDescriptions="Period defines the input data for the strategy" />
     <BasicStochRSI Name="Stochastic RSI" />
     <BasicStochRSI Description="Buy when cut between line K and D" />

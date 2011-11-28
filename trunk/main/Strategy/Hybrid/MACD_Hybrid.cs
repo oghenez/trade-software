@@ -10,70 +10,78 @@ namespace Strategy
 
     }
 
-    public class MACD_ADX_RiskMng_Helper : baseHelper
+    public class MACD_ADX_Rule : CompositeRule
     {
-        public MACD_ADX_RiskMng_Helper() : base(typeof(MACD_ADX_RiskMng)) { }
+        public MACD_ADX_Rule(DataBars db,double fast,double slow,double signal,double adxPeriod)
+        {
+            rules = new Rule[3];
+            rules[0] = new MACD_HistogramRule(db.Close, fast, slow, signal);
+            rules[1]=new ADXMarketTrend(db,adxPeriod);
+            rules[2] = new BollingerKeltnerMarketTrend(db, 20, 2, 2, 20, 2, 10);
+        }
+
+        public override bool isValid_forBuy(int index)
+        {
+            if (rules[1].Trending(index) && rules[2].Trending(index))
+            //if (rules[1].Trending(index))
+                return rules[0].isValid_forBuy(index);
+            return false;
+        }
+
+        public override bool isValid_forSell(int index)
+        {
+            return rules[0].isValid_forSell(index);
+        }
+
+        public override bool DownTrend(int index)
+        {
+            return rules[0].DownTrend(index);
+        }
+
+        public override bool UpTrend(int index)
+        {
+            return rules[0].UpTrend(index);
+        }
     }
 
     public class MACD_ADX : GenericStrategy
     {
         override protected void StrategyExecute()
         {            
-            MACD macd = Indicators.MACD.Series(data.Close,
-                parameters[0], parameters[1],
-                parameters[2],"");
+            MACD_ADX_Rule rule = new MACD_ADX_Rule(data.Bars, parameters[0], parameters[1],
+                parameters[2],parameters[3]);
+            MoneyManagement riskManagement = new MoneyManagement(parameters[4], parameters[5], parameters[6]);
 
-            ADX adx=new ADX(data.Bars,parameters[3],"");
-            double delta = 0, lastDelta = 0;
+            Indicators.MIN min = Indicators.MIN.Series(data.Close, parameters[3], "min");
+            Indicators.MAX max = Indicators.MAX.Series(data.Close, parameters[3], "max");
 
-            for (int idx = 1; idx < macd.Values.Length; idx++)
+            for (int idx = 0; idx < data.Close.Count; idx++)
             {
-                delta = (macd.HistSeries[idx] - macd.HistSeries[idx - 1]);
-                //If there is a trend
-                if (adx[idx] > 25)
+                if (rule.isValid_forBuy(idx))
                 {
-                    if (delta > 0 && lastDelta < 0)
-                        BuyAtClose(idx);
+                    wsData.BusinessInfo info = new wsData.BusinessInfo();
+                    info.SetTrend(AppTypes.MarketTrend.Upward, AppTypes.MarketTrend.Unspecified, AppTypes.MarketTrend.Unspecified);
+                    info.Short_Target = max[idx];
+                    info.Stop_Loss = min[idx];
+                    BuyAtClose(idx, info);
                 }
-                if (delta < 0 && lastDelta > 0)
-                    SellAtClose(idx);
-                lastDelta = delta;
-            }
-        }
-    }
-
-    public class MACD_ADX_RiskMng : GenericStrategy
-    {
-        override protected void StrategyExecute()
-        {            
-            MACD macd = Indicators.MACD.Series(data.Close,
-                parameters[0], parameters[1],
-                parameters[2],"");
-
-            ADX adx=new ADX(data.Bars,parameters[3],"");
-
-            int cutlosslevel = (int)parameters[4];
-            int takeprofitlevel = (int)parameters[5];
-            double delta = 0, lastDelta = 0;
-
-            for (int idx = 1; idx < macd.Values.Length; idx++)
-            {
-                delta = (macd.HistSeries[idx] - macd.HistSeries[idx - 1]);
-                //If there is a trend
-                if (adx[idx] > 25)
-                {
-                    if (delta > 0 && lastDelta < 0)
-                        BuyAtClose(idx);
-                }
-                if (delta < 0 && lastDelta > 0)
-                    SellAtClose(idx);
-
-                if (is_bought && CutLossCondition(data.Close[idx], buy_price, cutlosslevel))
+                else
+                    if (rule.isValid_forSell(idx))
+                    {
+                        wsData.BusinessInfo info = new wsData.BusinessInfo();
+                        info.SetTrend(AppTypes.MarketTrend.Downward, AppTypes.MarketTrend.Unspecified, AppTypes.MarketTrend.Unspecified);
+                        info.Short_Target = min[idx];
+                        info.Stop_Loss = max[idx];
+                        SellAtClose(idx, info);
+                    }
+                if (is_bought && riskManagement.CutLossCondition(data.Close[idx], buy_price))
                     SellCutLoss(idx);
 
-                if (is_bought && TakeProfitCondition(data.Close[idx], buy_price, takeprofitlevel))
+                if (is_bought && riskManagement.TakeProfitCondition(data.Close[idx], buy_price))
                     SellTakeProfit(idx);
-                lastDelta = delta;
+
+                if (riskManagement.TrailingStopLevel > 0)
+                    riskManagement.TrailingStopWithBuyBack(this, rule, data.Close[idx], idx);
             }
         }
     }
