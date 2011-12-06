@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="toolBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>437, 67</value>
+  </data>
+  <data name="exitBtn.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 8.25pt</value>
+  </data>
+  <data name="exitBtn.Location" type="System.Drawing.Point, System.Drawing">
+    <value>359, 12</value>
+  </data>
+  <data name="saveBtn.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 8.25pt</value>
+  </data>
+  <data name="deleteBtn.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 8.25pt</value>
+  </data>
+  <data name="editBtn.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 8.25pt</value>
+  </data>
+  <data name="addNewBtn.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 8.25pt</value>
+  </data>
+  <data name="toExcelBtn.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 8.25pt</value>
+  </data>
+  <data name="findBtn.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 8.25pt</value>
+  </data>
+  <data name="reloadBtn.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 8.25pt</value>
+  </data>
+  <data name="reloadBtn.Location" type="System.Drawing.Point, System.Drawing">
+    <value>291, 12</value>
+  </data>
+  <data name="TitleLbl.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 8.25pt</value>
+  </data>
+  <data name="categoryCb.Size" type="System.Drawing.Size, System.Drawing">
+    <value>611, 21</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="syscodeGrid.ColumnHeadersHeight" type="System.Int32, mscorlib">
+    <value>30</value>
+  </data>
+  <data name="inGroup.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="syscodeGrid.Location" type="System.Drawing.Point, System.Drawing">
+    <value>438, 88</value>
+  </data>
+  <data name="syscodeGrid.Size" type="System.Drawing.Size, System.Drawing">
+    <value>505, 415</value>
+  </data>
+  <data name="systemChk.Size" type="System.Drawing.Size, System.Drawing">
+    <value>70, 17</value>
+  </data>
+  <data name="typeLbl.Size" type="System.Drawing.Size, System.Drawing">
+    <value>27, 13</value>
+  </data>
+  <data name="isVisibleChk.Size" type="System.Drawing.Size, System.Drawing">
+    <value>68, 18</value>
+  </data>
+  <data name="notesEd.Size" type="System.Drawing.Size, System.Drawing">
+    <value>791, 20</value>
+  </data>
+  <data name="notesLbl.Size" type="System.Drawing.Size, System.Drawing">
+    <value>44, 13</value>
+  </data>
+  <data name="weightEd.Location" type="System.Drawing.Point, System.Drawing">
+    <value>23, 193</value>
+  </data>
+  <data name="weightLbl.Location" type="System.Drawing.Point, System.Drawing">
+    <value>23, 174</value>
+  </data>
+  <data name="editIsVisibleChk.Location" type="System.Drawing.Point, System.Drawing">
+    <value>122, 321</value>
+  </data>
+  <data name="editIsVisibleChk.Size" type="System.Drawing.Size, System.Drawing">
+    <value>62, 17</value>
+  </data>
+  <data name="editNoteEd.Location" type="System.Drawing.Point, System.Drawing">
+    <value>23, 247</value>
+  </data>
+  <data name="editNoteEd.Size" type="System.Drawing.Size, System.Drawing">
+    <value>386, 62</value>
+  </data>
+  <data name="label6.Location" type="System.Drawing.Point, System.Drawing">
+    <value>23, 228</value>
+  </data>
+  <data name="inGroupEd.Location" type="System.Drawing.Point, System.Drawing">
+    <value>156, 39</value>
+  </data>
+  <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>157, 21</value>
+  </data>
+  <data name="desc2Ed.Location" type="System.Drawing.Point, System.Drawing">
+    <value>22, 143</value>
+  </data>
+  <data name="desc2Ed.Size" type="System.Drawing.Size, System.Drawing">
+    <value>387, 23</value>
+  </data>
+  <data name="desc2Lbl.Location" type="System.Drawing.Point, System.Drawing">
+    <value>22, 124</value>
+  </data>
+  <data name="editIsSystemChk.Location" type="System.Drawing.Point, System.Drawing">
+    <value>26, 321</value>
+  </data>
+  <data name="editIsSystemChk.Size" type="System.Drawing.Size, System.Drawing">
+    <value>70, 17</value>
+  </data>
+  <data name="codeEd.Location" type="System.Drawing.Point, System.Drawing">
+    <value>23, 39</value>
+  </data>
+  <data name="Label1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>23, 18</value>
+  </data>
+  <data name="desc1Ed.Location" type="System.Drawing.Point, System.Drawing">
+    <value>22, 92</value>
+  </data>
+  <data name="desc1Ed.Size" type="System.Drawing.Size, System.Drawing">
+    <value>387, 23</value>
+  </data>
+  <data name="desc1Lbl.Location" type="System.Drawing.Point, System.Drawing">
+    <value>22, 73</value>
+  </data>
+  <data name="editPnl.Size" type="System.Drawing.Size, System.Drawing">
+    <value>433, 354</value>
+  </data>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 13</value>
+  </data>
+  <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 8.25pt</value>
+  </data>
+  <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAABAAEAICAAAAEAGACoDAAAFgAAACgAAAAgAAAAQAAAAAEAGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AADN//rN//rN//zN//3N//3N///E9ffJ+vzQ///T//+/7/XN/P/L/fnL/fnL/fnL/fnL/fnL/fnL/fnL
+        /fnL/fnL/fnL/fnL/fnO//7T///T///S///F9/W97+3N//3N//3N//rN//rN//zN//3N//3N///L/P7O
+        ///N/f/T///R///H9v7S///S///S///S///S///S///S///S///S///S///S///S//++8O7H+ffE9vTH
+        +ffP///M/vzN//3N//3N//3N//3N//3N///N///N/f/O/f/S///C8PvE8f7L+P/K9//K9//K9//K9//K
+        9//K9//K9//K9//K9//K9//K9//K9//K9//T///M/vzB8/HB8/HT///Q///N//3N//3N///N///N///N
+        /f/N/f/N/f/T//+y4OvT///C7v/J9f/E7//K8//K8//K8//K8//K8//K8//K8//K8//K8//K8//K8//K
+        8//M/vzT///O//7T///J+/nD9fPN//3N//3N///N///N///N/f/N/f/N/f9/rbgGND8AKzkAHi8BLT4A
+        JDcAKD8AKD8AKD8AKD8AKD8AKD8AKD8AKD8AKD8AKD8AKD8AKD8ALSsAMS8ALy3E9vTM/vzL/fvN//3N
+        //3U//7D9+3T///A7/fT//99qLs5X307YX8tUHIsTG8zU3Y3V3omUH8pU4IbTHgcUXYiV3wmVngyWHot
+        U3UsUnQlWHkfUnMUVHZKaJkYNmcDKETU///J9vrQ//zN//3N//3J/fPQ//rP//3K+f/N/P9TfpFSeJZb
+        gZ9ukbNykrVxkbRnh6plj75oksFcjbldkrdil7xmlrhli61pj7FqkLJfkrNlmLlVlbc/XY4ePG0PNFDT
+        ///J9vrO//rN//3N//3A9OrU//7H+vbT///B8Pg9ZnyIqsiDpcOEoMKEnb9/mLqDl7qfk8OglMSalsCa
+        mcCdnMOhmr+mmb+sn8WsocmTlb6focqDk70YNmcTMWIRNlLO+//K9/vR//3N//3N//3P//rJ/vTP///I
+        9v/M+v9XfZWJpsWEocCLnr+Snb2Ml7eJjq12mrJzl69wm7BunbJtnLFvmq9vla1kiqJqlbBmosBzr81Z
+        pMQAHk8kQnMrUGzP/P/M+f3M//jN//3N//3T//7A9evT///D8fzL+f9HbYWQrcyPrMuLnr+PmrqKlbV5
+        fp1ylq5skKhnkqdkk6hikaZlkKVxl69hh59plK9cmLZsqMZapcUAHE0oRncrUGzQ/f/N+v7L/vfN//3N
+        //3O//vF/fLJ/vvH9P/L+P8+Y32RqsqVrs6Snb2opsPAvtvKwdvovtXftczZs8nWtcrTssfYscrbsdDQ
+        psXPrtGWiLGsnsecossAGEkkQnMiR2PQ/f/O+//L/vfN//3N//3M//nP//y88e7N+v/P/P9Ga4WNpsaW
+        r8+Un7+vrcrQzuvZ0Or/1+73zeTvyd/ryt/ox9ztxt/xx+buxOPpyOuShK2xo8ykqtMJJ1gvTX4mS2fS
+        ///N+v7I+/TN//3N//3M//fP//rP///K+f/I9/9FaoafttafttaVnbvBu9Lr5fzu3u/q4u3r4+7n5O3j
+        4uzh4Orm3+zz6Pzo3fHQz+l2jqyRqcd9qcgBH1A1U4Q6X3vK9/vM+f3O//rN//3N//3N//jQ//vR///K
+        +P/I9v9DaYedttanwOCdpsHEvs/t5/jq2+PQws3Rw87Qxc/PxM7Ow83Vw9DmzeHr0ubd0OiBjamirsqV
+        t9QAHk9AXo9CZ4PM+f3N+v7N//nN//3N//3N//jQ//vR///K+P/I9v9DaYeas9OrxOShqsXFv9Dv6frr
+        3OTk1uHm2OPm2+Xk2ePk2ePr2ebr0uby2e3j1u6Fka2ptdGavNkAHk9KaJlJborN+v7P/P/M//jN//3N
+        //3P//jS//vR///I+P/G9v9AaYmTr9Gtyeuhr8bDwc3w7vru4+Xl2Obm2efo3Ojp2+fp2+f02+n01un7
+        3fDs2O+SmbK+xd6uzOUAHU5UcqNQdZHO+//Q/f/L/vfN//3N//3P//jS//vR///I+P/G9v9AaYmSrtCy
+        zvCjscjCwMzx7/vx5ujYy9nazdvbz9vbzdnbzdnlzNrz1ej73fDn0+qIj6i5wNmoxt8AHU5de6xXfJjP
+        /P/R/v/K/fbN//3N//3R//jU//vS///I+P/G9v8+aomRstO11vegssm9wMju8fnw6Ojc4fDe4/Le5PHg
+        4u3f4ezq4O3r2+z35/jj3/J8kaavxNmgzeIAHU5lg7Rdgp7Q/f/T///J/PXN//3N//3R//jU//vS///I
+        +P/G9v8+aomUtda62/yhs8q7vsbs7/fv5+fR1uXS1+bS2OXU1uHS1N/d0+Dy4vP/9f/38/+RprvK3/TD
+        8P8AHE1ohrdfhKDQ/f/T///I+/TN//3N//3T//nL9/HS+/3R+v/O9/84W2+hwNnc+/+nwNrJ2vTc7f/b
+        6//C1erI2/Df8f/h7//V4//P2voNFDUbIkMZHj0WGjciJkMdIT0gGT6JgqeEjajW9v/S8v3N//zG//jG
+        //jR//u+7ujV///C7fbV//9DaXtBYXhEZHtUbIQ7TGZNXnhPXXQ/WX1DXYFOZYtNY41JX4lOYY4qPGt3
+        ibhre6kSJE1VZ5BtgKaTkrTDwuSKlq7T9P3X+P/E+vXG//nG//nV///C8uzQ/v/C7fbW//+Hrb8fP1YA
+        GTAqQloNHjhHWHJFU2oYMlYVL1MIH0UJH0kXLVczRnNbbZzc7v/U5P8IGkOVp9Db7v/U0/Xi4f9+iqLV
+        9v/e///F+/bG//nG//nP///H/fjF+fnH9/3R//+/6/ipyt04WWx2jqRXaH3i8//Ay+GCgpCCgpB2doZ6
+        eY2Mi5+kpbpqa4DJyt/R1egXHCudorHq8PvS2PXo7v+Hm63Z/v/V+v/C+PPG//nG//nL//zN//7H+/vM
+        /P/F9fvN+f/H6Puev9IgOE5yg5jq+//Ez+WKipiLi5l9fY2Af5OQj6OjpLlTVGmZmq+2us00OUiboK/o
+        7vnW3PnZ3/yFmavT+P/Q9f3A9vHG//nG//nJ//+99vPN//+78PPN///J+P/R9//K8PyGo7JkdYjk9f/L
+        2eyDmseNpNGRqdeRqtySq92KpdcFJVYXN2gGKVUmTXQoT3YUO2EsP1Q6TWJ9mKbV///U/v/G+/jH//rH
+        //rH///H///H///H///H///L/v/T///N+v50l6FmgI7i/P/q/P/3+//s8PX3+v/p7vf3/P/p8vxFUFjb
+        5u6FlJfc7+zv///b8ezZ+f/Z+f/W+//O/v/O/v/J//3H//zH//zH///H///H///H///H///L/v/B7vLW
+        //9sj5lfeYfW8P7a7P36/v/x9fr6/f/t8vv4/f/x+v9JVFxibXV7io3m+fbd8O3t//7Z+f/Z+f/W+//O
+        /v/O/v/J//3H//zH//zL/v/L/v/J///J//3J//3J//3O///L/f2jztGKrraQtLyVssCOuNWHsc6Lt9aA
+        q8yLtteKt9gINlVJd5aKvNPG+v+06PnJ/f/S/P/S/P/O/v/L///L///J///J//3J//3L/v/L/v/J///J
+        //3J//3J//3T//+46uq/6u2bv8c+Ymo5VmQjTWoeSGUfS2oXQmMfSmsiT3A6aIey4P+97//C9v+/8/+2
+        6vrS/P/S/P/O/v/L///L///J///J//3J//3O/f/O/f/N///L//zL//zJ//rB+vLJ//rD9fPE8fXJ9vrF
+        7PXW/fvV/PrV/PrV+/vT+fnX+/vf///X/PjW+/HU++vd//Te//TL//3L//3J///J///J///H///J///J
+        ///S/P/S/P/Q/v/N//zN//zJ//nL//3D//XP///N/v/S///Q/v/D///C///D///J///C/P/C+P+37O/M
+        ///R///K//bN//nO//bH//zH//zH//3H///H///H///J///J///S/P/S/P/Q/v/N//zN//zJ//nG//i+
+        +vDK//246evQ///T///C///B/v/C/v/K///B+/++9PvO//+16u3Q///O//rK//bU//zH//zH//zH//3H
+        ///H///H///J///J//8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==
+</value>
+  </data>
+</root>

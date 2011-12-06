@@ -1,0 +1,21 @@
+<publishData>
+  <publishTarget publishUrl="http://localhost">
+    <file relUrl="bin\vi-VN/common.resources.dll" publishTime="11/06/2011 14:39:58" />
+    <file relUrl="bin/common.dll" publishTime="11/06/2011 14:39:58" />
+    <file relUrl="Web.config" publishTime="11/08/2011 18:36:52" />
+    <file relUrl="bin/wsStock.dll.config" publishTime="11/08/2011 18:36:52" />
+    <file relUrl="bin/wsStock.dll" publishTime="11/08/2011 18:35:33" />
+    <file relUrl="bin/application.pdb" publishTime="11/07/2011 21:29:13" />
+    <file relUrl="bin/LaMarvin.Windows.Forms.ColorPicker.dll" publishTime="02/27/2008 15:13:28" />
+    <file relUrl="bin/data.dll" publishTime="11/07/2011 19:28:06" />
+    <file relUrl="bin/Interop.WIALib.dll" publishTime="11/06/2011 09:01:43" />
+    <file relUrl="bin/WeifenLuo.WinFormsUI.Docking.dll" publishTime="09/22/2011 10:12:53" />
+    <file relUrl="bin\vi-VN/application.resources.dll" publishTime="11/07/2011 21:29:13" />
+    <file relUrl="bin/common.pdb" publishTime="11/06/2011 14:39:58" />
+    <file relUrl="bin/PdfSharp.dll" publishTime="11/26/2009 12:06:32" />
+    <file relUrl="bin/wsStock.pdb" publishTime="11/08/2011 18:35:33" />
+    <file relUrl="bin/application.dll" publishTime="11/07/2011 21:29:13" />
+    <file relUrl="bin/Interop.WIA.dll" publishTime="11/06/2011 09:01:43" />
+    <file relUrl="bin/data.pdb" publishTime="11/07/2011 19:28:06" />
+  </publishTarget>
+</publishData>

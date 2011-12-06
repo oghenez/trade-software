@@ -1,0 +1,44 @@
+<Configuration>
+  <DBCONNECTION>
+    <dbConInfo0 dbServerName="UFgJ30q7O3cPO2qdp6ZJBA==" />
+  </DBCONNECTION>
+  <DBCONNECTION>
+    <dbConInfo0 dbName="lHcrymcHrCjyJllbDTtavQ==" />
+  </DBCONNECTION>
+  <DBCONNECTION>
+    <dbConInfo0 dbAccount="0myaXxZ8eBQHt+bP4urQ5w==" />
+  </DBCONNECTION>
+  <DBCONNECTION>
+    <dbConInfo0 dbPassword="dwq5JN/iCOx5d+o5t7cObg==" />
+  </DBCONNECTION>
+  <DBCONNECTION>
+    <dbConInfo0 dbTimeout="RkLVbHhukqmG8DqFrUVKzw==" />
+  </DBCONNECTION>
+  <DBCONNECTION>
+    <dbConInfo0 dbUseTransaction="EpAxoobbG0tPxhyMIVa+4Q==" />
+  </DBCONNECTION>
+  <WSCONNECTION>
+    <Main wsURI="" />
+  </WSCONNECTION>
+  <WSCONNECTION>
+    <Main wsAccount="" />
+  </WSCONNECTION>
+  <WSCONNECTION>
+    <Main wsPassword="" />
+  </WSCONNECTION>
+  <WSCONNECTION>
+    <Main wsTimeout="X2lPedB12xwunb1F8akLuw==" />
+  </WSCONNECTION>
+  <WSCONNECTION>
+    <Main proxyAddress="" />
+  </WSCONNECTION>
+  <WSCONNECTION>
+    <Main proxyPort="" />
+  </WSCONNECTION>
+  <ENVIRONMENT>
+    <Login LoginName="HZHwhrhrGirxFhsjP+roTA==" />
+  </ENVIRONMENT>
+  <ENVIRONMENT>
+    <Login loginLocationId="Qivs4xlMKfhcld4XESkALCbo0gnVtn5ZYgw0F4WLwDs=" />
+  </ENVIRONMENT>
+</Configuration>

@@ -1,0 +1,176 @@
+<Configuration>
+  <Application>
+    <System stockTransFeePercent="q4zVCjFKHBW6TJEg12Vokw==" />
+  </Application>
+  <Application>
+    <System stockSell2BuyInterval="IDTmcmlItOV27Jnb7SSYdQ==" />
+  </Application>
+  <Application>
+    <System stockPriceWeight="Lv4qW+EGIsMjsA3+cb9WcQ==" />
+  </Application>
+  <Application>
+    <System stockVolumeWeight="1ZdDsffGgpwcQRl24mqEmg==" />
+  </Application>
+  <Application>
+    <System stockMaxBuyQtyPerc="1ZdDsffGgpwcQRl24mqEmg==" />
+  </Application>
+  <Application>
+    <System stockReduceQtyPerc="1ZdDsffGgpwcQRl24mqEmg==" />
+  </Application>
+  <Application>
+    <System stockAccumulateQtyPerc="1ZdDsffGgpwcQRl24mqEmg==" />
+  </Application>
+  <Application>
+    <System stockTotalCapAmt="/cIpze0k+qQxuCX59NLfsB10egCv436mTIdS9+05Aas=" />
+  </Application>
+  <Application>
+    <System stockMaxBuyAmtPerc="iIaZfR7b36KzGcLNBp7GZA==" />
+  </Application>
+  <Application>
+    <System sysChartBgColor="Y2XXl6n9bvNwXc6E+f3qug==" />
+  </Application>
+  <Application>
+    <System sysChartFgColor="G7yYPqa27x1a2rXkOUMRjw==" />
+  </Application>
+  <Application>
+    <System sysChartGridColor="G7yYPqa27x1a2rXkOUMRjw==" />
+  </Application>
+  <Application>
+    <System sysChartVolumesColor="6bjr4g2z0QlShJBUga4T3Q==" />
+  </Application>
+  <Application>
+    <System sysChartLineCandleColor="3Fk4Royn6wz7I9s/IgyPah10egCv436mTIdS9+05Aas=" />
+  </Application>
+  <Application>
+    <System sysChartBearCandleColor="GY5bKdm/T/bs2Q7TPVvnkA==" />
+  </Application>
+  <Application>
+    <System sysChartBullCandleColor="LUFD9TNBDm/lmSho2SN93g==" />
+  </Application>
+  <Application>
+    <System sysChartBarDnColor="+ttWo2440v2k+0oQD8n2Cw==" />
+  </Application>
+  <Application>
+    <System sysChartBarUpColor="MbLjoy7JZXRJ0TFKYKHDUw==" />
+  </Application>
+  <Application>
+    <System sysChartShowDescription="dFRU2qYgLJNOMu+nNjiNXg==" />
+  </Application>
+  <Application>
+    <System sysChartShowVolume="dFRU2qYgLJNOMu+nNjiNXg==" />
+  </Application>
+  <Application>
+    <System sysChartShowGrid="dFRU2qYgLJNOMu+nNjiNXg==" />
+  </Application>
+  <Application>
+    <System sysChartShowLegend="dFRU2qYgLJNOMu+nNjiNXg==" />
+  </Application>
+  <Application>
+    <System sysChartAutoScaleMetric="dFRU2qYgLJNOMu+nNjiNXg==" />
+  </Application>
+  <Application>
+    <System sysChartXScaleMetric="aRBwVSRTQ2FheztrOjXULQ==" />
+  </Application>
+  <Application>
+    <System sysChartYScaleMetric="aRBwVSRTQ2FheztrOjXULQ==" />
+  </Application>
+  <Application>
+    <System sysChartAutoPanMetric="dFRU2qYgLJNOMu+nNjiNXg==" />
+  </Application>
+  <Application>
+    <System sysChartXPanMetric="aRBwVSRTQ2FheztrOjXULQ==" />
+  </Application>
+  <Application>
+    <System sysChartYPanMetric="aRBwVSRTQ2FheztrOjXULQ==" />
+  </Application>
+  <Application>
+    <System companyName="" />
+  </Application>
+  <Application>
+    <System companyAddr1="" />
+  </Application>
+  <Application>
+    <System companyAddr2="" />
+  </Application>
+  <Application>
+    <System companyAddr3="" />
+  </Application>
+  <Application>
+    <System telephone="" />
+  </Application>
+  <Application>
+    <System fax="" />
+  </Application>
+  <Application>
+    <System email="" />
+  </Application>
+  <Application>
+    <System URL="" />
+  </Application>
+  <Application>
+    <System companyTaxcode="" />
+  </Application>
+  <Application>
+    <System bankName="" />
+  </Application>
+  <Application>
+    <System bankAccount="" />
+  </Application>
+  <Application>
+    <System bankCode="" />
+  </Application>
+  <Application>
+    <System director="" />
+  </Application>
+  <Application>
+    <System chiefAccountant="" />
+  </Application>
+  <Application>
+    <System headOfManagementBoard="" />
+  </Application>
+  <Application>
+    <System warehouseManager="" />
+  </Application>
+  <Application>
+    <System cashier="" />
+  </Application>
+  <Application>
+    <System imgFilePathIcon="" />
+  </Application>
+  <Application>
+    <System imgFilePathBackground="" />
+  </Application>
+  <Application>
+    <System imgFilePathComanyLogo1="" />
+  </Application>
+  <Application>
+    <System imgFilePathComanyLogo2="" />
+  </Application>
+  <WSCONNECTION>
+    <Main wsURI="Bd36fr7Ryzl+GeULcJ2EVV9/U1K4WSYaFL6i7TTa/AomISvEJh5/6O1K/pV3J6Gi" />
+  </WSCONNECTION>
+  <WSCONNECTION>
+    <Main wsAccount="" />
+  </WSCONNECTION>
+  <WSCONNECTION>
+    <Main wsPassword="" />
+  </WSCONNECTION>
+  <WSCONNECTION>
+    <Main wsWindowAuthentication="NXeG/oNqnt8FpxuRduDTPA==" />
+  </WSCONNECTION>
+  <WSCONNECTION>
+    <Main wsTimeout="iNGHh9Z1znvY1I3FBD4MtA==" />
+  </WSCONNECTION>
+  <WSCONNECTION>
+    <Main wsUseProxy="NXeG/oNqnt8FpxuRduDTPA==" />
+  </WSCONNECTION>
+  <WSCONNECTION>
+    <Main wsUseDefaultProxy="dFRU2qYgLJNOMu+nNjiNXg==" />
+  </WSCONNECTION>
+  <WSCONNECTION>
+    <Main wsProxyAddress="cjDi1/mzL+9Vpy43wroGnPzM/hKYiBoRnjMRrmO8YgBMh1L37TkBqw==" />
+  </WSCONNECTION>
+  <WSCONNECTION>
+    <Main wsProxyPort="OVQ4yvv4/t7HotIuVa38LQ==" />
+  </WSCONNECTION>
+</Configuration>
