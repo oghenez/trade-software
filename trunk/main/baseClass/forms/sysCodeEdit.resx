@@ -1,0 +1,1472 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <metadata name="myDataSet.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>241, 17</value>
+  </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="toolBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>-5, -12</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="toolBox.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 4, 5, 4</value>
+  </data>
+  <data name="toolBox.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 4, 5, 4</value>
+  </data>
+  <data name="toolBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>513, 57</value>
+  </data>
+  <data name="&gt;&gt;toolBox.Name" xml:space="preserve">
+    <value>toolBox</value>
+  </data>
+  <data name="&gt;&gt;toolBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolBox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;toolBox.ZOrder" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="exitBtn.Location" type="System.Drawing.Point, System.Drawing">
+    <value>413, 12</value>
+  </data>
+  <data name="exitBtn.Size" type="System.Drawing.Size, System.Drawing">
+    <value>68, 39</value>
+  </data>
+  <data name="exitBtn.Text" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="&gt;&gt;exitBtn.Name" xml:space="preserve">
+    <value>exitBtn</value>
+  </data>
+  <data name="&gt;&gt;exitBtn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;exitBtn.Parent" xml:space="preserve">
+    <value>toolBox</value>
+  </data>
+  <data name="&gt;&gt;exitBtn.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="saveBtn.Location" type="System.Drawing.Point, System.Drawing">
+    <value>73, 12</value>
+  </data>
+  <data name="saveBtn.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 4, 5, 4</value>
+  </data>
+  <data name="saveBtn.Size" type="System.Drawing.Size, System.Drawing">
+    <value>68, 39</value>
+  </data>
+  <data name="saveBtn.Text" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="&gt;&gt;saveBtn.Name" xml:space="preserve">
+    <value>saveBtn</value>
+  </data>
+  <data name="&gt;&gt;saveBtn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;saveBtn.Parent" xml:space="preserve">
+    <value>toolBox</value>
+  </data>
+  <data name="&gt;&gt;saveBtn.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="deleteBtn.Location" type="System.Drawing.Point, System.Drawing">
+    <value>141, 12</value>
+  </data>
+  <data name="deleteBtn.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 4, 5, 4</value>
+  </data>
+  <data name="deleteBtn.Size" type="System.Drawing.Size, System.Drawing">
+    <value>68, 39</value>
+  </data>
+  <data name="&gt;&gt;deleteBtn.Name" xml:space="preserve">
+    <value>deleteBtn</value>
+  </data>
+  <data name="&gt;&gt;deleteBtn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;deleteBtn.Parent" xml:space="preserve">
+    <value>toolBox</value>
+  </data>
+  <data name="&gt;&gt;deleteBtn.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="editBtn.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAYAAAAfSC3RAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAAlwSFlzAAALEwAA
+        CxMBAJqcGAAAAn9JREFUOE9lkF9IU1Ecx6/inNvQFVmCD/UQUVzpKXpKe1yaPmhlJK07rJnmegjJsUnZ
+        W/QHmqFgktMyU/yHf9Iprjk1k2n70/4IEZZkpA8lmtfNuevut3tuWYYHPpzvOd/v+f3OOTHUtqEpZiQX
+        8tUr/d2D8lV2VXSUSUoqJy8z1NHatMtc38xtz1Ozn+ZiyEa50bD4xGyGw+FCQ2MTGp81Y3ragzpzA8qN
+        xkWS2cr+LeD1zwhmJd8zMMQXFmq54eHX7OCQlb18Rcv1Waz8TcMt3usL4L+OZFGqu4G2TgsKLhVh2uko
+        2wq893lMBWot2rssIJkdBxmNBi86XiH/vGaHmXdWjZdd/WAY5p+3yP5Is9t7UZS7h2/p00OnOcI/ry/A
+        0zq1wEUQXcoc5lt69biam8zbR/uwwC4dpTzeN7TpTg6WHYcQ+paB8HwG1r4eR/DLMRGiw/PpCC2cxPLk
+        QZCs2ztOUy6/j66qzEF4XIqNuUREPySDmz2A8OdkEaKjH/eJXmQiAabb2XD5fDTl9U3RtYZscN1KrL3b
+        C96RAs6jhKksVYRo3pGKkDMFmz1K1BqzQc5Q7sAkXWM8jUi7BKERCbiRJESdMuhO/SbqlGNzVIJ1eywi
+        bQrUGISrBiZoaiowQz+qOAe2Mx7rNgoRaxwwFo+x+/tFiOZssUJRCkEhQ7JTgYDQ0W+jq42ZCLcmIGIR
+        OlgU2HhLgZ1UiBAdHVAKnlC4PRbVFSq4/cLnOD1Oukp/BsGuRITtUsAmA6xyATL/0Ta54MUh2CPDY30u
+        XB43Tc2v/KSrH95FSTqFayoFdKrdYLLioc2UijBZUlwX3lqikqH4hNDxwT3MLX1P+wXahq8F1VfeGQAA
+        AABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="editBtn.Location" type="System.Drawing.Point, System.Drawing">
+    <value>209, 12</value>
+  </data>
+  <data name="editBtn.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 4, 5, 4</value>
+  </data>
+  <data name="editBtn.Size" type="System.Drawing.Size, System.Drawing">
+    <value>68, 39</value>
+  </data>
+  <data name="editBtn.Text" xml:space="preserve">
+    <value>Lock</value>
+  </data>
+  <data name="&gt;&gt;editBtn.Name" xml:space="preserve">
+    <value>editBtn</value>
+  </data>
+  <data name="&gt;&gt;editBtn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;editBtn.Parent" xml:space="preserve">
+    <value>toolBox</value>
+  </data>
+  <data name="&gt;&gt;editBtn.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="addNewBtn.Location" type="System.Drawing.Point, System.Drawing">
+    <value>5, 12</value>
+  </data>
+  <data name="addNewBtn.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 4, 5, 4</value>
+  </data>
+  <data name="addNewBtn.Size" type="System.Drawing.Size, System.Drawing">
+    <value>68, 39</value>
+  </data>
+  <data name="&gt;&gt;addNewBtn.Name" xml:space="preserve">
+    <value>addNewBtn</value>
+  </data>
+  <data name="&gt;&gt;addNewBtn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;addNewBtn.Parent" xml:space="preserve">
+    <value>toolBox</value>
+  </data>
+  <data name="&gt;&gt;addNewBtn.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="toExcelBtn.Location" type="System.Drawing.Point, System.Drawing">
+    <value>751, 11</value>
+  </data>
+  <data name="toExcelBtn.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 4, 5, 4</value>
+  </data>
+  <data name="toExcelBtn.Size" type="System.Drawing.Size, System.Drawing">
+    <value>64, 39</value>
+  </data>
+  <data name="toExcelBtn.Text" xml:space="preserve">
+    <value>Export</value>
+  </data>
+  <data name="&gt;&gt;toExcelBtn.Name" xml:space="preserve">
+    <value>toExcelBtn</value>
+  </data>
+  <data name="&gt;&gt;toExcelBtn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toExcelBtn.Parent" xml:space="preserve">
+    <value>toolBox</value>
+  </data>
+  <data name="&gt;&gt;toExcelBtn.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="findBtn.Location" type="System.Drawing.Point, System.Drawing">
+    <value>681, 11</value>
+  </data>
+  <data name="findBtn.Size" type="System.Drawing.Size, System.Drawing">
+    <value>64, 39</value>
+  </data>
+  <data name="&gt;&gt;findBtn.Name" xml:space="preserve">
+    <value>findBtn</value>
+  </data>
+  <data name="&gt;&gt;findBtn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;findBtn.Parent" xml:space="preserve">
+    <value>toolBox</value>
+  </data>
+  <data name="&gt;&gt;findBtn.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="reloadBtn.Location" type="System.Drawing.Point, System.Drawing">
+    <value>277, 12</value>
+  </data>
+  <data name="reloadBtn.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 4, 5, 4</value>
+  </data>
+  <data name="reloadBtn.Size" type="System.Drawing.Size, System.Drawing">
+    <value>68, 39</value>
+  </data>
+  <data name="&gt;&gt;reloadBtn.Name" xml:space="preserve">
+    <value>reloadBtn</value>
+  </data>
+  <data name="&gt;&gt;reloadBtn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;reloadBtn.Parent" xml:space="preserve">
+    <value>toolBox</value>
+  </data>
+  <data name="&gt;&gt;reloadBtn.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="unLockBtn.Location" type="System.Drawing.Point, System.Drawing">
+    <value>706, 434</value>
+  </data>
+  <data name="unLockBtn.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 4, 5, 4</value>
+  </data>
+  <data name="unLockBtn.Size" type="System.Drawing.Size, System.Drawing">
+    <value>34, 26</value>
+  </data>
+  <data name="&gt;&gt;unLockBtn.Name" xml:space="preserve">
+    <value>unLockBtn</value>
+  </data>
+  <data name="&gt;&gt;unLockBtn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;unLockBtn.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;unLockBtn.ZOrder" xml:space="preserve">
+    <value>13</value>
+  </data>
+  <data name="lockBtn.Location" type="System.Drawing.Point, System.Drawing">
+    <value>706, 393</value>
+  </data>
+  <data name="lockBtn.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 4, 5, 4</value>
+  </data>
+  <data name="lockBtn.Size" type="System.Drawing.Size, System.Drawing">
+    <value>34, 26</value>
+  </data>
+  <data name="&gt;&gt;lockBtn.Name" xml:space="preserve">
+    <value>lockBtn</value>
+  </data>
+  <data name="&gt;&gt;lockBtn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lockBtn.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;lockBtn.ZOrder" xml:space="preserve">
+    <value>12</value>
+  </data>
+  <data name="printBtn.Location" type="System.Drawing.Point, System.Drawing">
+    <value>345, 12</value>
+  </data>
+  <data name="printBtn.Size" type="System.Drawing.Size, System.Drawing">
+    <value>68, 39</value>
+  </data>
+  <data name="printBtn.Text" xml:space="preserve">
+    <value>&amp;Print</value>
+  </data>
+  <data name="&gt;&gt;printBtn.Name" xml:space="preserve">
+    <value>printBtn</value>
+  </data>
+  <data name="&gt;&gt;printBtn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;printBtn.Parent" xml:space="preserve">
+    <value>toolBox</value>
+  </data>
+  <data name="&gt;&gt;printBtn.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;importBtn.Name" xml:space="preserve">
+    <value>importBtn</value>
+  </data>
+  <data name="&gt;&gt;importBtn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;importBtn.Parent" xml:space="preserve">
+    <value>toolBox</value>
+  </data>
+  <data name="&gt;&gt;importBtn.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="TitleLbl.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1149, 9</value>
+  </data>
+  <data name="TitleLbl.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>8, 0, 8, 0</value>
+  </data>
+  <data name="TitleLbl.Size" type="System.Drawing.Size, System.Drawing">
+    <value>447, 28</value>
+  </data>
+  <data name="TitleLbl.Text" xml:space="preserve">
+    <value>HỆ THỐNG PHÂN LOẠI</value>
+  </data>
+  <data name="&gt;&gt;TitleLbl.Name" xml:space="preserve">
+    <value>TitleLbl</value>
+  </data>
+  <data name="&gt;&gt;TitleLbl.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;TitleLbl.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;TitleLbl.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <metadata name="myToolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>138, 17</value>
+  </metadata>
+  <data name="categoryCb.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Tahoma, 11.25pt</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="categoryCb.IntegralHeight" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="categoryCb.Location" type="System.Drawing.Point, System.Drawing">
+    <value>23, 70</value>
+  </data>
+  <data name="categoryCb.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 4, 5, 4</value>
+  </data>
+  <data name="categoryCb.Size" type="System.Drawing.Size, System.Drawing">
+    <value>277, 26</value>
+  </data>
+  <data name="categoryCb.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;categoryCb.Name" xml:space="preserve">
+    <value>categoryCb</value>
+  </data>
+  <data name="&gt;&gt;categoryCb.Type" xml:space="preserve">
+    <value>baseClass.controls.cbSysCodeCat, baseClass, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;categoryCb.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;categoryCb.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="syscodeGrid.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
+  <data name="syscodeGrid.ColumnHeadersHeight" type="System.Int32, mscorlib">
+    <value>25</value>
+  </data>
+  <metadata name="codeColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="codeColumn.HeaderText" xml:space="preserve">
+    <value>Code</value>
+  </data>
+  <data name="description1Column.HeaderText" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="description1Column.Width" type="System.Int32, mscorlib">
+    <value>230</value>
+  </data>
+  <data name="description2Column.HeaderText" xml:space="preserve">
+    <value>Description 2</value>
+  </data>
+  <data name="description2Column.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="description2Column.Width" type="System.Int32, mscorlib">
+    <value>250</value>
+  </data>
+  <metadata name="inGroupColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="inGroupColumn.HeaderText" xml:space="preserve">
+    <value>Group</value>
+  </data>
+  <data name="inGroupColumn.Width" type="System.Int32, mscorlib">
+    <value>80</value>
+  </data>
+  <metadata name="weightColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="weightColumn.HeaderText" xml:space="preserve">
+    <value>Weight</value>
+  </data>
+  <data name="weightColumn.Width" type="System.Int32, mscorlib">
+    <value>65</value>
+  </data>
+  <metadata name="isSystemColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="isSystemColumn.HeaderText" xml:space="preserve">
+    <value>S</value>
+  </data>
+  <data name="isSystemColumn.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="isSystemColumn.Width" type="System.Int32, mscorlib">
+    <value>25</value>
+  </data>
+  <metadata name="isVisibleColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="isVisibleColumn.HeaderText" xml:space="preserve">
+    <value>V</value>
+  </data>
+  <data name="isVisibleColumn.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="isVisibleColumn.Width" type="System.Int32, mscorlib">
+    <value>25</value>
+  </data>
+  <metadata name="sysCodeSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>347, 17</value>
+  </metadata>
+  <data name="syscodeGrid.Location" type="System.Drawing.Point, System.Drawing">
+    <value>479, -1</value>
+  </data>
+  <data name="syscodeGrid.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 4, 5, 4</value>
+  </data>
+  <data name="syscodeGrid.ScrollBars" type="System.Windows.Forms.ScrollBars, System.Windows.Forms">
+    <value>Vertical</value>
+  </data>
+  <data name="syscodeGrid.Size" type="System.Drawing.Size, System.Drawing">
+    <value>535, 550</value>
+  </data>
+  <data name="syscodeGrid.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="&gt;&gt;syscodeGrid.Name" xml:space="preserve">
+    <value>syscodeGrid</value>
+  </data>
+  <data name="&gt;&gt;syscodeGrid.Type" xml:space="preserve">
+    <value>common.controls.baseDataGridView, common, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;syscodeGrid.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;syscodeGrid.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="systemChk.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="systemChk.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="systemChk.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Tahoma, 9.75pt, style=Bold</value>
+  </data>
+  <data name="systemChk.Location" type="System.Drawing.Point, System.Drawing">
+    <value>25, 149</value>
+  </data>
+  <data name="systemChk.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
+    <value>Yes</value>
+  </data>
+  <data name="systemChk.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 20</value>
+  </data>
+  <data name="systemChk.TabIndex" type="System.Int32, mscorlib">
+    <value>142</value>
+  </data>
+  <data name="systemChk.Text" xml:space="preserve">
+    <value>System</value>
+  </data>
+  <data name="&gt;&gt;systemChk.Name" xml:space="preserve">
+    <value>systemChk</value>
+  </data>
+  <data name="&gt;&gt;systemChk.Type" xml:space="preserve">
+    <value>baseClass.controls.baseCheckBox, baseClass, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;systemChk.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;systemChk.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="categoryLbl.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="categoryLbl.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Tahoma, 9.75pt, style=Bold</value>
+  </data>
+  <data name="categoryLbl.Location" type="System.Drawing.Point, System.Drawing">
+    <value>24, 49</value>
+  </data>
+  <data name="categoryLbl.Size" type="System.Drawing.Size, System.Drawing">
+    <value>68, 16</value>
+  </data>
+  <data name="categoryLbl.TabIndex" type="System.Int32, mscorlib">
+    <value>146</value>
+  </data>
+  <data name="categoryLbl.Text" xml:space="preserve">
+    <value>Categoty</value>
+  </data>
+  <data name="&gt;&gt;categoryLbl.Name" xml:space="preserve">
+    <value>categoryLbl</value>
+  </data>
+  <data name="&gt;&gt;categoryLbl.Type" xml:space="preserve">
+    <value>baseClass.controls.baseLabel, baseClass, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;categoryLbl.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;categoryLbl.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="visibleChk.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="visibleChk.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>System</value>
+  </data>
+  <data name="visibleChk.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Tahoma, 9.75pt, style=Bold</value>
+  </data>
+  <data name="visibleChk.Location" type="System.Drawing.Point, System.Drawing">
+    <value>132, 149</value>
+  </data>
+  <data name="visibleChk.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
+    <value>Yes</value>
+  </data>
+  <data name="visibleChk.Size" type="System.Drawing.Size, System.Drawing">
+    <value>87, 21</value>
+  </data>
+  <data name="visibleChk.TabIndex" type="System.Int32, mscorlib">
+    <value>147</value>
+  </data>
+  <data name="visibleChk.Text" xml:space="preserve">
+    <value>Display</value>
+  </data>
+  <data name="&gt;&gt;visibleChk.Name" xml:space="preserve">
+    <value>visibleChk</value>
+  </data>
+  <data name="&gt;&gt;visibleChk.Type" xml:space="preserve">
+    <value>baseClass.controls.baseCheckBox, baseClass, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;visibleChk.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;visibleChk.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="notesEd.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="notesEd.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Tahoma, 11.25pt</value>
+  </data>
+  <data name="notesEd.Location" type="System.Drawing.Point, System.Drawing">
+    <value>25, 121</value>
+  </data>
+  <data name="notesEd.Multiline" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="notesEd.Size" type="System.Drawing.Size, System.Drawing">
+    <value>425, 23</value>
+  </data>
+  <data name="notesEd.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;notesEd.Name" xml:space="preserve">
+    <value>notesEd</value>
+  </data>
+  <data name="&gt;&gt;notesEd.Type" xml:space="preserve">
+    <value>common.controls.baseTextBox, common, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;notesEd.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;notesEd.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="noteLbl.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="noteLbl.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Tahoma, 9.75pt, style=Bold</value>
+  </data>
+  <data name="noteLbl.Location" type="System.Drawing.Point, System.Drawing">
+    <value>24, 101</value>
+  </data>
+  <data name="noteLbl.Size" type="System.Drawing.Size, System.Drawing">
+    <value>45, 16</value>
+  </data>
+  <data name="noteLbl.TabIndex" type="System.Int32, mscorlib">
+    <value>149</value>
+  </data>
+  <data name="noteLbl.Text" xml:space="preserve">
+    <value>Notes</value>
+  </data>
+  <data name="&gt;&gt;noteLbl.Name" xml:space="preserve">
+    <value>noteLbl</value>
+  </data>
+  <data name="&gt;&gt;noteLbl.Type" xml:space="preserve">
+    <value>baseClass.controls.baseLabel, baseClass, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;noteLbl.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;noteLbl.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="tag2Ed.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Tahoma, 11.25pt</value>
+  </data>
+  <data name="tag2Ed.Location" type="System.Drawing.Point, System.Drawing">
+    <value>270, 187</value>
+  </data>
+  <data name="tag2Ed.Size" type="System.Drawing.Size, System.Drawing">
+    <value>179, 26</value>
+  </data>
+  <data name="tag2Ed.TabIndex" type="System.Int32, mscorlib">
+    <value>14</value>
+  </data>
+  <data name="&gt;&gt;tag2Ed.Name" xml:space="preserve">
+    <value>tag2Ed</value>
+  </data>
+  <data name="&gt;&gt;tag2Ed.Type" xml:space="preserve">
+    <value>common.controls.baseTextBox, common, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;tag2Ed.Parent" xml:space="preserve">
+    <value>editPnl</value>
+  </data>
+  <data name="&gt;&gt;tag2Ed.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="tag2Lbl.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="tag2Lbl.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Tahoma, 9.75pt, style=Bold</value>
+  </data>
+  <data name="tag2Lbl.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="tag2Lbl.Location" type="System.Drawing.Point, System.Drawing">
+    <value>272, 167</value>
+  </data>
+  <data name="tag2Lbl.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 0, 5, 0</value>
+  </data>
+  <data name="tag2Lbl.Size" type="System.Drawing.Size, System.Drawing">
+    <value>43, 16</value>
+  </data>
+  <data name="tag2Lbl.TabIndex" type="System.Int32, mscorlib">
+    <value>240</value>
+  </data>
+  <data name="tag2Lbl.Text" xml:space="preserve">
+    <value>Tag 2</value>
+  </data>
+  <data name="&gt;&gt;tag2Lbl.Name" xml:space="preserve">
+    <value>tag2Lbl</value>
+  </data>
+  <data name="&gt;&gt;tag2Lbl.Type" xml:space="preserve">
+    <value>baseClass.controls.baseLabel, baseClass, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;tag2Lbl.Parent" xml:space="preserve">
+    <value>editPnl</value>
+  </data>
+  <data name="&gt;&gt;tag2Lbl.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="tag1Ed.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Tahoma, 11.25pt</value>
+  </data>
+  <data name="tag1Ed.Location" type="System.Drawing.Point, System.Drawing">
+    <value>91, 187</value>
+  </data>
+  <data name="tag1Ed.Size" type="System.Drawing.Size, System.Drawing">
+    <value>179, 26</value>
+  </data>
+  <data name="tag1Ed.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
+  </data>
+  <data name="&gt;&gt;tag1Ed.Name" xml:space="preserve">
+    <value>tag1Ed</value>
+  </data>
+  <data name="&gt;&gt;tag1Ed.Type" xml:space="preserve">
+    <value>common.controls.baseTextBox, common, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;tag1Ed.Parent" xml:space="preserve">
+    <value>editPnl</value>
+  </data>
+  <data name="&gt;&gt;tag1Ed.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="tag1Lbl.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="tag1Lbl.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Tahoma, 9.75pt, style=Bold</value>
+  </data>
+  <data name="tag1Lbl.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="tag1Lbl.Location" type="System.Drawing.Point, System.Drawing">
+    <value>94, 167</value>
+  </data>
+  <data name="tag1Lbl.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 0, 5, 0</value>
+  </data>
+  <data name="tag1Lbl.Size" type="System.Drawing.Size, System.Drawing">
+    <value>43, 16</value>
+  </data>
+  <data name="tag1Lbl.TabIndex" type="System.Int32, mscorlib">
+    <value>238</value>
+  </data>
+  <data name="tag1Lbl.Text" xml:space="preserve">
+    <value>Tag 1</value>
+  </data>
+  <data name="&gt;&gt;tag1Lbl.Name" xml:space="preserve">
+    <value>tag1Lbl</value>
+  </data>
+  <data name="&gt;&gt;tag1Lbl.Type" xml:space="preserve">
+    <value>baseClass.controls.baseLabel, baseClass, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;tag1Lbl.Parent" xml:space="preserve">
+    <value>editPnl</value>
+  </data>
+  <data name="&gt;&gt;tag1Lbl.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="weightEd.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Tahoma, 11.25pt</value>
+  </data>
+  <data name="weightEd.Location" type="System.Drawing.Point, System.Drawing">
+    <value>22, 187</value>
+  </data>
+  <data name="weightEd.Size" type="System.Drawing.Size, System.Drawing">
+    <value>69, 26</value>
+  </data>
+  <data name="weightEd.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="&gt;&gt;weightEd.Name" xml:space="preserve">
+    <value>weightEd</value>
+  </data>
+  <data name="&gt;&gt;weightEd.Type" xml:space="preserve">
+    <value>common.controls.baseTextBox, common, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;weightEd.Parent" xml:space="preserve">
+    <value>editPnl</value>
+  </data>
+  <data name="&gt;&gt;weightEd.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="weightLbl.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="weightLbl.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Tahoma, 9.75pt, style=Bold</value>
+  </data>
+  <data name="weightLbl.Location" type="System.Drawing.Point, System.Drawing">
+    <value>22, 167</value>
+  </data>
+  <data name="weightLbl.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 0, 5, 0</value>
+  </data>
+  <data name="weightLbl.Size" type="System.Drawing.Size, System.Drawing">
+    <value>54, 16</value>
+  </data>
+  <data name="weightLbl.TabIndex" type="System.Int32, mscorlib">
+    <value>236</value>
+  </data>
+  <data name="weightLbl.Text" xml:space="preserve">
+    <value>Weight</value>
+  </data>
+  <data name="&gt;&gt;weightLbl.Name" xml:space="preserve">
+    <value>weightLbl</value>
+  </data>
+  <data name="&gt;&gt;weightLbl.Type" xml:space="preserve">
+    <value>baseClass.controls.baseLabel, baseClass, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;weightLbl.Parent" xml:space="preserve">
+    <value>editPnl</value>
+  </data>
+  <data name="&gt;&gt;weightLbl.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="editIsVisibleChk.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="editIsVisibleChk.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="editIsVisibleChk.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Tahoma, 9.75pt, style=Bold</value>
+  </data>
+  <data name="editIsVisibleChk.Location" type="System.Drawing.Point, System.Drawing">
+    <value>137, 344</value>
+  </data>
+  <data name="editIsVisibleChk.Size" type="System.Drawing.Size, System.Drawing">
+    <value>73, 20</value>
+  </data>
+  <data name="editIsVisibleChk.TabIndex" type="System.Int32, mscorlib">
+    <value>234</value>
+  </data>
+  <data name="editIsVisibleChk.Text" xml:space="preserve">
+    <value>Display</value>
+  </data>
+  <data name="&gt;&gt;editIsVisibleChk.Name" xml:space="preserve">
+    <value>editIsVisibleChk</value>
+  </data>
+  <data name="&gt;&gt;editIsVisibleChk.Type" xml:space="preserve">
+    <value>baseClass.controls.baseCheckBox, baseClass, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;editIsVisibleChk.Parent" xml:space="preserve">
+    <value>editPnl</value>
+  </data>
+  <data name="&gt;&gt;editIsVisibleChk.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="editNoteEd.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Tahoma, 11.25pt</value>
+  </data>
+  <data name="editNoteEd.Location" type="System.Drawing.Point, System.Drawing">
+    <value>22, 240</value>
+  </data>
+  <data name="editNoteEd.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 4, 5, 4</value>
+  </data>
+  <data name="editNoteEd.Multiline" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="editNoteEd.Size" type="System.Drawing.Size, System.Drawing">
+    <value>433, 97</value>
+  </data>
+  <data name="editNoteEd.TabIndex" type="System.Int32, mscorlib">
+    <value>20</value>
+  </data>
+  <data name="&gt;&gt;editNoteEd.Name" xml:space="preserve">
+    <value>editNoteEd</value>
+  </data>
+  <data name="&gt;&gt;editNoteEd.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;editNoteEd.Parent" xml:space="preserve">
+    <value>editPnl</value>
+  </data>
+  <data name="&gt;&gt;editNoteEd.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="editNoteLbl.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="editNoteLbl.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Tahoma, 9.75pt, style=Bold</value>
+  </data>
+  <data name="editNoteLbl.Location" type="System.Drawing.Point, System.Drawing">
+    <value>22, 221</value>
+  </data>
+  <data name="editNoteLbl.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 0, 5, 0</value>
+  </data>
+  <data name="editNoteLbl.Size" type="System.Drawing.Size, System.Drawing">
+    <value>45, 16</value>
+  </data>
+  <data name="editNoteLbl.TabIndex" type="System.Int32, mscorlib">
+    <value>233</value>
+  </data>
+  <data name="editNoteLbl.Text" xml:space="preserve">
+    <value>Notes</value>
+  </data>
+  <data name="&gt;&gt;editNoteLbl.Name" xml:space="preserve">
+    <value>editNoteLbl</value>
+  </data>
+  <data name="&gt;&gt;editNoteLbl.Type" xml:space="preserve">
+    <value>baseClass.controls.baseLabel, baseClass, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;editNoteLbl.Parent" xml:space="preserve">
+    <value>editPnl</value>
+  </data>
+  <data name="&gt;&gt;editNoteLbl.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="inGroupEd.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Tahoma, 11.25pt</value>
+  </data>
+  <data name="inGroupEd.Location" type="System.Drawing.Point, System.Drawing">
+    <value>237, 26</value>
+  </data>
+  <data name="inGroupEd.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 4, 5, 4</value>
+  </data>
+  <data name="inGroupEd.Size" type="System.Drawing.Size, System.Drawing">
+    <value>215, 26</value>
+  </data>
+  <data name="inGroupEd.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;inGroupEd.Name" xml:space="preserve">
+    <value>inGroupEd</value>
+  </data>
+  <data name="&gt;&gt;inGroupEd.Type" xml:space="preserve">
+    <value>common.controls.baseTextBox, common, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;inGroupEd.Parent" xml:space="preserve">
+    <value>editPnl</value>
+  </data>
+  <data name="&gt;&gt;inGroupEd.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="inGroupLbl.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="inGroupLbl.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Tahoma, 9.75pt, style=Bold</value>
+  </data>
+  <data name="inGroupLbl.Location" type="System.Drawing.Point, System.Drawing">
+    <value>240, 8</value>
+  </data>
+  <data name="inGroupLbl.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 0, 5, 0</value>
+  </data>
+  <data name="inGroupLbl.Size" type="System.Drawing.Size, System.Drawing">
+    <value>111, 16</value>
+  </data>
+  <data name="inGroupLbl.TabIndex" type="System.Int32, mscorlib">
+    <value>229</value>
+  </data>
+  <data name="inGroupLbl.Text" xml:space="preserve">
+    <value>Belong to group</value>
+  </data>
+  <data name="&gt;&gt;inGroupLbl.Name" xml:space="preserve">
+    <value>inGroupLbl</value>
+  </data>
+  <data name="&gt;&gt;inGroupLbl.Type" xml:space="preserve">
+    <value>baseClass.controls.baseLabel, baseClass, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;inGroupLbl.Parent" xml:space="preserve">
+    <value>editPnl</value>
+  </data>
+  <data name="&gt;&gt;inGroupLbl.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="desc2Ed.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Tahoma, 11.25pt</value>
+  </data>
+  <data name="desc2Ed.Location" type="System.Drawing.Point, System.Drawing">
+    <value>22, 133</value>
+  </data>
+  <data name="desc2Ed.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 4, 5, 4</value>
+  </data>
+  <data name="desc2Ed.Size" type="System.Drawing.Size, System.Drawing">
+    <value>433, 26</value>
+  </data>
+  <data name="desc2Ed.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="&gt;&gt;desc2Ed.Name" xml:space="preserve">
+    <value>desc2Ed</value>
+  </data>
+  <data name="&gt;&gt;desc2Ed.Type" xml:space="preserve">
+    <value>common.controls.baseTextBox, common, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;desc2Ed.Parent" xml:space="preserve">
+    <value>editPnl</value>
+  </data>
+  <data name="&gt;&gt;desc2Ed.ZOrder" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="desc2Lbl.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="desc2Lbl.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Tahoma, 9.75pt, style=Bold</value>
+  </data>
+  <data name="desc2Lbl.Location" type="System.Drawing.Point, System.Drawing">
+    <value>22, 114</value>
+  </data>
+  <data name="desc2Lbl.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 0, 5, 0</value>
+  </data>
+  <data name="desc2Lbl.Size" type="System.Drawing.Size, System.Drawing">
+    <value>93, 16</value>
+  </data>
+  <data name="desc2Lbl.TabIndex" type="System.Int32, mscorlib">
+    <value>227</value>
+  </data>
+  <data name="desc2Lbl.Text" xml:space="preserve">
+    <value>Description 2</value>
+  </data>
+  <data name="&gt;&gt;desc2Lbl.Name" xml:space="preserve">
+    <value>desc2Lbl</value>
+  </data>
+  <data name="&gt;&gt;desc2Lbl.Type" xml:space="preserve">
+    <value>baseClass.controls.baseLabel, baseClass, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;desc2Lbl.Parent" xml:space="preserve">
+    <value>editPnl</value>
+  </data>
+  <data name="&gt;&gt;desc2Lbl.ZOrder" xml:space="preserve">
+    <value>12</value>
+  </data>
+  <data name="editIsSystemChk.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="editIsSystemChk.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="editIsSystemChk.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Tahoma, 9.75pt, style=Bold</value>
+  </data>
+  <data name="editIsSystemChk.Location" type="System.Drawing.Point, System.Drawing">
+    <value>23, 344</value>
+  </data>
+  <data name="editIsSystemChk.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 20</value>
+  </data>
+  <data name="editIsSystemChk.TabIndex" type="System.Int32, mscorlib">
+    <value>225</value>
+  </data>
+  <data name="editIsSystemChk.Text" xml:space="preserve">
+    <value>System</value>
+  </data>
+  <data name="&gt;&gt;editIsSystemChk.Name" xml:space="preserve">
+    <value>editIsSystemChk</value>
+  </data>
+  <data name="&gt;&gt;editIsSystemChk.Type" xml:space="preserve">
+    <value>baseClass.controls.baseCheckBox, baseClass, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;editIsSystemChk.Parent" xml:space="preserve">
+    <value>editPnl</value>
+  </data>
+  <data name="&gt;&gt;editIsSystemChk.ZOrder" xml:space="preserve">
+    <value>13</value>
+  </data>
+  <data name="codeEd.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Tahoma, 11.25pt</value>
+  </data>
+  <data name="codeEd.Location" type="System.Drawing.Point, System.Drawing">
+    <value>22, 26</value>
+  </data>
+  <data name="codeEd.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 4, 5, 4</value>
+  </data>
+  <data name="codeEd.Size" type="System.Drawing.Size, System.Drawing">
+    <value>215, 26</value>
+  </data>
+  <data name="codeEd.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;codeEd.Name" xml:space="preserve">
+    <value>codeEd</value>
+  </data>
+  <data name="&gt;&gt;codeEd.Type" xml:space="preserve">
+    <value>common.controls.baseTextBox, common, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;codeEd.Parent" xml:space="preserve">
+    <value>editPnl</value>
+  </data>
+  <data name="&gt;&gt;codeEd.ZOrder" xml:space="preserve">
+    <value>14</value>
+  </data>
+  <data name="codeLbl.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="codeLbl.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Tahoma, 9.75pt, style=Bold</value>
+  </data>
+  <data name="codeLbl.Location" type="System.Drawing.Point, System.Drawing">
+    <value>22, 5</value>
+  </data>
+  <data name="codeLbl.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 0, 5, 0</value>
+  </data>
+  <data name="codeLbl.Size" type="System.Drawing.Size, System.Drawing">
+    <value>52, 16</value>
+  </data>
+  <data name="codeLbl.TabIndex" type="System.Int32, mscorlib">
+    <value>223</value>
+  </data>
+  <data name="codeLbl.Text" xml:space="preserve">
+    <value>Code *</value>
+  </data>
+  <data name="&gt;&gt;codeLbl.Name" xml:space="preserve">
+    <value>codeLbl</value>
+  </data>
+  <data name="&gt;&gt;codeLbl.Type" xml:space="preserve">
+    <value>baseClass.controls.baseLabel, baseClass, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;codeLbl.Parent" xml:space="preserve">
+    <value>editPnl</value>
+  </data>
+  <data name="&gt;&gt;codeLbl.ZOrder" xml:space="preserve">
+    <value>15</value>
+  </data>
+  <data name="desc1Ed.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Tahoma, 11.25pt</value>
+  </data>
+  <data name="desc1Ed.Location" type="System.Drawing.Point, System.Drawing">
+    <value>22, 79</value>
+  </data>
+  <data name="desc1Ed.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 4, 5, 4</value>
+  </data>
+  <data name="desc1Ed.Size" type="System.Drawing.Size, System.Drawing">
+    <value>433, 26</value>
+  </data>
+  <data name="desc1Ed.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="&gt;&gt;desc1Ed.Name" xml:space="preserve">
+    <value>desc1Ed</value>
+  </data>
+  <data name="&gt;&gt;desc1Ed.Type" xml:space="preserve">
+    <value>common.controls.baseTextBox, common, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;desc1Ed.Parent" xml:space="preserve">
+    <value>editPnl</value>
+  </data>
+  <data name="&gt;&gt;desc1Ed.ZOrder" xml:space="preserve">
+    <value>16</value>
+  </data>
+  <data name="desc1Lbl.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="desc1Lbl.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Tahoma, 9.75pt, style=Bold</value>
+  </data>
+  <data name="desc1Lbl.Location" type="System.Drawing.Point, System.Drawing">
+    <value>22, 60</value>
+  </data>
+  <data name="desc1Lbl.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 0, 5, 0</value>
+  </data>
+  <data name="desc1Lbl.Size" type="System.Drawing.Size, System.Drawing">
+    <value>105, 16</value>
+  </data>
+  <data name="desc1Lbl.TabIndex" type="System.Int32, mscorlib">
+    <value>224</value>
+  </data>
+  <data name="desc1Lbl.Text" xml:space="preserve">
+    <value>Description 1 *</value>
+  </data>
+  <data name="&gt;&gt;desc1Lbl.Name" xml:space="preserve">
+    <value>desc1Lbl</value>
+  </data>
+  <data name="&gt;&gt;desc1Lbl.Type" xml:space="preserve">
+    <value>baseClass.controls.baseLabel, baseClass, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;desc1Lbl.Parent" xml:space="preserve">
+    <value>editPnl</value>
+  </data>
+  <data name="&gt;&gt;desc1Lbl.ZOrder" xml:space="preserve">
+    <value>17</value>
+  </data>
+  <data name="editPnl.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 173</value>
+  </data>
+  <data name="editPnl.Size" type="System.Drawing.Size, System.Drawing">
+    <value>477, 373</value>
+  </data>
+  <data name="editPnl.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;editPnl.Name" xml:space="preserve">
+    <value>editPnl</value>
+  </data>
+  <data name="&gt;&gt;editPnl.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;editPnl.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;editPnl.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="maxLenEd.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="maxLenEd.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Tahoma, 11.25pt</value>
+  </data>
+  <data name="maxLenEd.Location" type="System.Drawing.Point, System.Drawing">
+    <value>420, 70</value>
+  </data>
+  <data name="maxLenEd.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 4, 5, 4</value>
+  </data>
+  <data name="maxLenEd.Size" type="System.Drawing.Size, System.Drawing">
+    <value>33, 26</value>
+  </data>
+  <data name="maxLenEd.TabIndex" type="System.Int32, mscorlib">
+    <value>237</value>
+  </data>
+  <data name="maxLenEd.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
+    <value>Center</value>
+  </data>
+  <data name="&gt;&gt;maxLenEd.Name" xml:space="preserve">
+    <value>maxLenEd</value>
+  </data>
+  <data name="&gt;&gt;maxLenEd.Type" xml:space="preserve">
+    <value>common.controls.numberTextBox, common, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;maxLenEd.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;maxLenEd.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="categoryEd.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="categoryEd.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Tahoma, 11.25pt</value>
+  </data>
+  <data name="categoryEd.Location" type="System.Drawing.Point, System.Drawing">
+    <value>298, 70</value>
+  </data>
+  <data name="categoryEd.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 4, 5, 4</value>
+  </data>
+  <data name="categoryEd.Size" type="System.Drawing.Size, System.Drawing">
+    <value>122, 26</value>
+  </data>
+  <data name="categoryEd.TabIndex" type="System.Int32, mscorlib">
+    <value>238</value>
+  </data>
+  <data name="categoryEd.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
+    <value>Center</value>
+  </data>
+  <data name="&gt;&gt;categoryEd.Name" xml:space="preserve">
+    <value>categoryEd</value>
+  </data>
+  <data name="&gt;&gt;categoryEd.Type" xml:space="preserve">
+    <value>common.controls.baseTextBox, common, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;categoryEd.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;categoryEd.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>39</value>
+  </metadata>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>1014, 575</value>
+  </data>
+  <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAABAAEAEBAAAAEAIABIBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAlHCUbAAAAAAAAAAAiIiIWUFVaM3pzeIVMS0//IDg6/wodG/8lS0j/iLa1/3ebm1wAAAAAAAAAAAAA
+        AAAAAAAAHx8fEAAAAAAAAAAAlbS0UjdERv9MWVv/o7u9/4a6uP9InJX/TKeh/x5rZ/8VSEj/U4KCUgAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAGaOjMw/YWD/aIuK/63d2/9wvbb/b9vQ/0O4rf9Hr6b/Hmtm/yE6
+        OcwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABggn/MQJOK/3fX0P+8+Pb/zODo/3Oprv9Axb3/G6uf/xeA
+        e/8AAQrMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWoN+zBmAdf80qJ7/meXn/4idqP+d0dn/Kbuz/xjQ
+        wv8OiIP/AAgRzAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAE6Ef8wZjYL/TNXK/5f29P+v2eL/arG4/yvK
+        wv8EvK3/A354/wAFDcwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABOiYTMEId9/yi2rP+E8O7/fLa+/3vQ
+        1P8YurH/Ccm7/waKh/8ABxHMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAATYCAzB6Lhf9W3dX/jvj4/6/u
+        8P9OpKn/Ms/I/w2wpf8LfHv/AAINzAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGGDiMwogH7/NKmm/43v
+        8P9inqj/j93f/yq3tP8vy8X/Hnx+/wACEMwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABhf4TMN4KC/2DI
+        x/+a9fb/m9nh/1imrf9EycX/Ia+p/zGBhP8AAAvMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAX4KFzDR7
+        fP9Lsa//huXk/2evs/+E29z/PcG8/1Lc1v89jI3/CxEbzAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEhz
+        dMxOlpb/hOjl/4zx8P+d6uv/mfr4/3Hz7/90+vT/munn/wMGDcwAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AABOenqjqubl/5/08f+l/Pz/nu/t/6L9+/98+vH/ePrv/4nX0v8hLS/MAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAKDAw/+i2tn/mtzb/6fi4v+Z393/g+Pg/3DXzv9/t7L/p62vegAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAC9yc+FnbCz/4OipP+Sra//f6am/2Sqo/9ttqz/j7u4hQAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAzMzMCqCqrzN9kZEzkaClM32bmzNai4M+apyUPpnMzAoAAAAAAAAAAAAA
+        AAAAAAAA//////////////////////////////////////////8=
+</value>
+  </data>
+  <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 4, 5, 4</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>He thong phan loai</value>
+  </data>
+  <data name="&gt;&gt;myDataSet.Name" xml:space="preserve">
+    <value>myDataSet</value>
+  </data>
+  <data name="&gt;&gt;myDataSet.Type" xml:space="preserve">
+    <value>data.baseDS, data, Version=2.1.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;myToolTip.Name" xml:space="preserve">
+    <value>myToolTip</value>
+  </data>
+  <data name="&gt;&gt;myToolTip.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolTip, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;codeColumn.Name" xml:space="preserve">
+    <value>codeColumn</value>
+  </data>
+  <data name="&gt;&gt;codeColumn.Type" xml:space="preserve">
+    <value>common.controls.DataGridViewTextBoxColumnExt, common, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;description1Column.Name" xml:space="preserve">
+    <value>description1Column</value>
+  </data>
+  <data name="&gt;&gt;description1Column.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;description2Column.Name" xml:space="preserve">
+    <value>description2Column</value>
+  </data>
+  <data name="&gt;&gt;description2Column.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;inGroupColumn.Name" xml:space="preserve">
+    <value>inGroupColumn</value>
+  </data>
+  <data name="&gt;&gt;inGroupColumn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;weightColumn.Name" xml:space="preserve">
+    <value>weightColumn</value>
+  </data>
+  <data name="&gt;&gt;weightColumn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;isSystemColumn.Name" xml:space="preserve">
+    <value>isSystemColumn</value>
+  </data>
+  <data name="&gt;&gt;isSystemColumn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewCheckBoxColumn, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;isVisibleColumn.Name" xml:space="preserve">
+    <value>isVisibleColumn</value>
+  </data>
+  <data name="&gt;&gt;isVisibleColumn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewCheckBoxColumn, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;sysCodeSource.Name" xml:space="preserve">
+    <value>sysCodeSource</value>
+  </data>
+  <data name="&gt;&gt;sysCodeSource.Type" xml:space="preserve">
+    <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>sysCodeEdit</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>baseClass.forms.baseMasterEdit, baseClass, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+</root>
