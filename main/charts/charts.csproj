@@ -54,6 +54,7 @@
       <DependentUpon>graphPanel.cs</DependentUpon>
     </Compile>
     <Compile Include="controls\graphControl.cs">
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="controls\graphControl.Designer.cs">
       <DependentUpon>graphControl.cs</DependentUpon>
