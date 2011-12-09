@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/application" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/application" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:simpleType name="AppTypes.TimeRanges">
+    <xs:annotation>
+      <xs:appinfo>
+        <ActualType Name="unsignedByte" Namespace="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="None" />
+      <xs:enumeration value="W1" />
+      <xs:enumeration value="W2" />
+      <xs:enumeration value="W3" />
+      <xs:enumeration value="M1" />
+      <xs:enumeration value="M2" />
+      <xs:enumeration value="M3" />
+      <xs:enumeration value="M4" />
+      <xs:enumeration value="M5" />
+      <xs:enumeration value="M6" />
+      <xs:enumeration value="YTD" />
+      <xs:enumeration value="Y1" />
+      <xs:enumeration value="Y2" />
+      <xs:enumeration value="Y3" />
+      <xs:enumeration value="Y4" />
+      <xs:enumeration value="Y5" />
+      <xs:enumeration value="All" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="AppTypes.TimeRanges" nillable="true" type="tns:AppTypes.TimeRanges" />
+  <xs:complexType name="wsData.EstimateOptions">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Buy2SellInterval" type="xs:short" />
+      <xs:element minOccurs="0" name="MaxBuyAmtPerc" type="xs:decimal" />
+      <xs:element minOccurs="0" name="MaxBuyQtyPerc" type="xs:decimal" />
+      <xs:element minOccurs="0" name="PriceWeight" type="xs:decimal" />
+      <xs:element minOccurs="0" name="QtyAccumulatePerc" type="xs:decimal" />
+      <xs:element minOccurs="0" name="QtyReducePerc" type="xs:decimal" />
+      <xs:element minOccurs="0" name="TotalCapAmt" type="xs:decimal" />
+      <xs:element minOccurs="0" name="TransFeecPerc" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="wsData.EstimateOptions" nillable="true" type="tns:wsData.EstimateOptions" />
+  <xs:complexType name="ArrayOfwsData.TradePointInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="wsData.TradePointInfo" nillable="true" type="tns:wsData.TradePointInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfwsData.TradePointInfo" nillable="true" type="tns:ArrayOfwsData.TradePointInfo" />
+  <xs:complexType name="wsData.TradePointInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BusinessInfo" nillable="true" type="tns:wsData.BusinessInfo" />
+      <xs:element minOccurs="0" name="DataIdx" type="xs:int" />
+      <xs:element minOccurs="0" name="TradeAction" type="tns:AppTypes.TradeActions" />
+      <xs:element minOccurs="0" name="isValid" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="wsData.TradePointInfo" nillable="true" type="tns:wsData.TradePointInfo" />
+  <xs:complexType name="wsData.BusinessInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="LongTermTrend" type="tns:AppTypes.MarketTrend" />
+      <xs:element minOccurs="0" name="MediumTermTrend" type="tns:AppTypes.MarketTrend" />
+      <xs:element minOccurs="0" name="ShortTermTrend" type="tns:AppTypes.MarketTrend" />
+      <xs:element minOccurs="0" name="Short_Resistance" type="xs:double" />
+      <xs:element minOccurs="0" name="Short_Support" type="xs:double" />
+      <xs:element minOccurs="0" name="Short_Target" type="xs:double" />
+      <xs:element minOccurs="0" name="Stop_Loss" type="xs:double" />
+      <xs:element minOccurs="0" name="Weight" type="xs:double" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="wsData.BusinessInfo" nillable="true" type="tns:wsData.BusinessInfo" />
+  <xs:simpleType name="AppTypes.MarketTrend">
+    <xs:annotation>
+      <xs:appinfo>
+        <ActualType Name="unsignedByte" Namespace="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Unspecified" />
+      <xs:enumeration value="Sidebar" />
+      <xs:enumeration value="Upward" />
+      <xs:enumeration value="Downward" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="AppTypes.MarketTrend" nillable="true" type="tns:AppTypes.MarketTrend" />
+  <xs:simpleType name="AppTypes.TradeActions">
+    <xs:annotation>
+      <xs:appinfo>
+        <ActualType Name="unsignedByte" Namespace="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="None" />
+      <xs:enumeration value="Buy" />
+      <xs:enumeration value="Sell" />
+      <xs:enumeration value="Accumulate" />
+      <xs:enumeration value="ClearAll" />
+      <xs:enumeration value="Select" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="AppTypes.TradeActions" nillable="true" type="tns:AppTypes.TradeActions" />
+</xs:schema>

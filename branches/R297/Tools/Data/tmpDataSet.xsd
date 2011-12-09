@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="tmpDataSet" targetNamespace="http://tempuri.org/tmpDataSet.xsd" xmlns:mstns="http://tempuri.org/tmpDataSet.xsd" xmlns="http://tempuri.org/tmpDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="tmpDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="tmpDataSet" msprop:Generator_DataSetName="tmpDataSet" msprop:EnableTableAdapterManager="true">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="screeningCriteria" msprop:Generator_UserTableName="screeningCriteria" msprop:Generator_RowDeletedName="screeningCriteriaRowDeleted" msprop:Generator_RowChangedName="screeningCriteriaRowChanged" msprop:Generator_RowClassName="screeningCriteriaRow" msprop:Generator_RowChangingName="screeningCriteriaRowChanging" msprop:Generator_RowEvArgName="screeningCriteriaRowChangeEvent" msprop:Generator_RowEvHandlerName="screeningCriteriaRowChangeEventHandler" msprop:Generator_TableClassName="screeningCriteriaDataTable" msprop:Generator_TableVarName="tablescreeningCriteria" msprop:Generator_RowDeletingName="screeningCriteriaRowDeleting" msprop:Generator_TablePropName="screeningCriteria">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="code" msprop:Generator_UserColumnName="code" msprop:Generator_ColumnVarNameInTable="columncode" msprop:Generator_ColumnPropNameInRow="code" msprop:Generator_ColumnPropNameInTable="codeColumn" type="xs:string" />
+              <xs:element name="min" msprop:Generator_UserColumnName="min" msprop:Generator_ColumnVarNameInTable="columnmin" msprop:Generator_ColumnPropNameInRow="min" msprop:Generator_ColumnPropNameInTable="minColumn" type="xs:decimal" />
+              <xs:element name="max" msprop:Generator_UserColumnName="max" msprop:Generator_ColumnVarNameInTable="columnmax" msprop:Generator_ColumnPropNameInRow="max" msprop:Generator_ColumnPropNameInTable="maxColumn" type="xs:decimal" />
+              <xs:element name="selected" msprop:Generator_UserColumnName="selected" msprop:Generator_ColumnVarNameInTable="columnselected" msprop:Generator_ColumnPropNameInRow="selected" msprop:Generator_ColumnPropNameInTable="selectedColumn" type="xs:boolean" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="screeningCode" msprop:Generator_UserTableName="screeningCode" msprop:Generator_RowDeletedName="screeningCodeRowDeleted" msprop:Generator_RowChangedName="screeningCodeRowChanged" msprop:Generator_RowClassName="screeningCodeRow" msprop:Generator_RowChangingName="screeningCodeRowChanging" msprop:Generator_RowEvArgName="screeningCodeRowChangeEvent" msprop:Generator_RowEvHandlerName="screeningCodeRowChangeEventHandler" msprop:Generator_TableClassName="screeningCodeDataTable" msprop:Generator_TableVarName="tablescreeningCode" msprop:Generator_RowDeletingName="screeningCodeRowDeleting" msprop:Generator_TablePropName="screeningCode">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="code" msprop:Generator_UserColumnName="code" msprop:Generator_ColumnPropNameInRow="code" msprop:Generator_ColumnVarNameInTable="columncode" msprop:Generator_ColumnPropNameInTable="codeColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="description" msprop:Generator_UserColumnName="description" msprop:Generator_ColumnPropNameInRow="description" msprop:Generator_ColumnVarNameInTable="columndescription" msprop:Generator_ColumnPropNameInTable="descriptionColumn" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
