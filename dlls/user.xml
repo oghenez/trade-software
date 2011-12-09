@@ -1,0 +1,23 @@
+<Configuration>
+  <A00000004>
+    <Indicators.MACD params="12 26 9" />
+  </A00000004>
+  <A00000004>
+    <Indicators.MACD output="Blue:1,Red:1,DarkSalmon:1" />
+  </A00000004>
+  <A00000004>
+    <Indicators.MACD drawInNewWindow="True" />
+  </A00000004>
+  <A00000004>
+    <Strategy.Price_3SMA params="5 10 20" />
+  </A00000004>
+  <A00000004>
+    <Indicators.SAR params="0.02 0.2" />
+  </A00000004>
+  <A00000004>
+    <Indicators.SAR output="DarkGray:1" />
+  </A00000004>
+  <A00000004>
+    <Indicators.SAR drawInNewWindow="False" />
+  </A00000004>
+</Configuration>
