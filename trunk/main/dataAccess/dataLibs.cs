@@ -11,9 +11,16 @@ using commonClass;
 
 namespace DataAccess
 {
+    public class PleaseWait : common.PleaseWait
+    {
+        protected override common.forms.baseSlashForm DefaultSplashForm()
+        {
+            return new forms.splashForm();
+        }
+    }
+    
     public static class Libs
     {
-        
         #region system
         private static ServiceReference1.StockServiceClient _myClient = null;
         private static ServiceReference1.StockServiceClient myClient
@@ -144,6 +151,24 @@ namespace DataAccess
         #endregion
 
         #region System variables
+        public static void LoadSystemVars()
+        {
+            object dummyObj;
+            dummyObj = myStockCodeTbl;
+            dummyObj = myStockExchangeTbl;
+            dummyObj = mySysCodeCatTbl;
+            dummyObj = myCountryTbl;
+            dummyObj = myInvestorCatTbl;
+            dummyObj = myEmployeeRangeTbl;
+            dummyObj = myBizSectorTbl;
+            dummyObj = myBizSubSectorTbl;
+            dummyObj = myBizSuperSectorTbl;
+            dummyObj = myBizSectorTbl;
+            dummyObj = myBizIndustryTbl;
+            GetStockFull(true);
+            GetSystemWatchList();
+        }
+
         public static data.tmpDS.stockCodeDataTable myStockCodeTbl
         {
             get
@@ -229,7 +254,6 @@ namespace DataAccess
                 return tbl;
             }
         }
-        
         public static data.baseDS.bizSectorDataTable myBizSectorTbl
         {
             get
@@ -645,6 +669,7 @@ namespace DataAccess
             return "AnalysisData" + "-" + dataObj.DataStockCode + "-" + dataObj.DataTimeRange.ToString() + "-" +
                     dataObj.DataTimeScale.Code;
         }
+
         public static bool LoadAnalysisData(commonClass.BaseAnalysisData dataObj)
         {
             string cacheKey = MakeAnalysisDataCacheKey(dataObj);
@@ -656,13 +681,16 @@ namespace DataAccess
                 dataObj.priceDataTbl = (data.baseDS.priceDataDataTable)data.dataTbl.Copy();
                 return true;
             }
-            data = new AnalysisDataCache();
-            int firstData = 0;
-            data.dataTbl = myClient.GetAnalysis_Data(out firstData, dataObj.DataTimeRange, dataObj.DataTimeScale.Code, dataObj.DataStockCode);
-            data.firstData = firstData;
-            AddCache(cacheKey, data);
-            dataObj.priceDataTbl = (data.baseDS.priceDataDataTable)data.dataTbl.Copy();
-            dataObj.FirstDataStartAt = firstData;
+            using (new PleaseWait())
+            {
+                data = new AnalysisDataCache();
+                int firstData = 0;
+                data.dataTbl = myClient.GetAnalysis_Data(out firstData, dataObj.DataTimeRange, dataObj.DataTimeScale.Code, dataObj.DataStockCode);
+                data.firstData = firstData;
+                AddCache(cacheKey, data);
+                dataObj.priceDataTbl = (data.baseDS.priceDataDataTable)data.dataTbl.Copy();
+                dataObj.FirstDataStartAt = firstData;
+            }
             return true;
         }
 

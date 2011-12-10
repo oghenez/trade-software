@@ -954,4 +954,7 @@
   <data name="systemError" xml:space="preserve">
     <value>Hệ thống gặp lỗi !</value>
   </data>
+  <data name="waitDataLoading" xml:space="preserve">
+    <value>Xin vui lòng chờ đợi  !</value>
+  </data>
 </root>

@@ -1,6 +1,9 @@
 ﻿using System.Collections.Generic;
 using System;
 using System.Text;
+using System.Drawing;
+using System.Threading;
+using System.Windows.Forms;
 
 namespace test
 {
@@ -51,4 +54,48 @@ namespace test
             //imports.libs.AggregatePriceData(priceDataTbl, "vi-VN", false, null);
         }
     }
+    
+    public class PleaseWait : IDisposable
+    {
+        private Form mSplash;
+        private Point mLocation;
+
+        public PleaseWait(Point location) 
+        {
+            Init(location, null);
+        }
+        public PleaseWait(Point location, common.forms.baseSlashForm form)
+        {
+            Init(location, form);
+        }
+        public void Init(Point location, common.forms.baseSlashForm form)
+        {
+            mLocation = location;
+            mSplash = (form == null ? new common.forms.baseSlashForm() : form);
+            Thread t = new Thread(new ThreadStart(workerThread));
+            t.IsBackground = true;
+            t.SetApartmentState(ApartmentState.STA);
+            t.Start();
+        }
+
+
+        public void Dispose()
+        {
+            mSplash.Invoke(new MethodInvoker(stopThread));
+        }
+        private void stopThread()
+        {
+            mSplash.Close();
+        }
+        private void workerThread()
+        {
+            //mSplash = (mFormType == null ? new common.forms.baseSlashForm() : (Form)Activator.CreateInstance(mFormType));
+            //mSplash = new common.forms.baseSlashForm();
+            mSplash.StartPosition = FormStartPosition.CenterScreen;
+            mSplash.Location = mLocation;
+            mSplash.TopMost = true;
+            Application.Run(mSplash);
+        }
+    }
+
 }

@@ -235,6 +235,20 @@ namespace client.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap trading2 {
+            get {
+                object obj = ResourceManager.GetObject("trading2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap waiting_bar {
+            get {
+                object obj = ResourceManager.GetObject("waiting-bar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap zoomIn {
             get {
                 object obj = ResourceManager.GetObject("zoomIn", resourceCulture);
