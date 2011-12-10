@@ -948,4 +948,7 @@
   <data name="systemError" xml:space="preserve">
     <value>System error !</value>
   </data>
+  <data name="waitDataLoading" xml:space="preserve">
+    <value>Please wait for loading !</value>
+  </data>
 </root>

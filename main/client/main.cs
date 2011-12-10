@@ -30,15 +30,19 @@ namespace client
         {
             try
             {
-                commonClass.SysLibs.myAccessMode = DataAccessMode.WebService;
-                InitializeComponent();
-                if (Settings.sysTimerIntervalInSecs > 0)
+                using (new common.PleaseWait(new Point(),new forms.startSplash() ))
                 {
-                    sysTimer.Interval = Settings.sysTimerIntervalInSecs * 1000; //Convert to mili-seconds 
-                    sysTimer.Enabled = true;
+                    commonClass.SysLibs.myAccessMode = DataAccessMode.WebService;
+                    InitializeComponent();
+                    DataAccess.Libs.LoadSystemVars();
+                    if (Settings.sysTimerIntervalInSecs > 0)
+                    {
+                        sysTimer.Interval = Settings.sysTimerIntervalInSecs * 1000; //Convert to mili-seconds 
+                        sysTimer.Enabled = true;
+                    }
+                    //test.LoadTestConfig();
+                    Init();
                 }
-                //test.LoadTestConfig();
-                Init();
             }
             catch (Exception er)
             {
@@ -473,10 +477,13 @@ namespace client
             if (myForm == null || myForm.IsDisposed)
             {
                 if (!createIfNotFound) return null;
-                myForm = new Trade.Forms.marketWatch();
-                myForm.Name = formName;
-                myForm.myOnShowChart += new baseClass.Events.onShowChart(ShowStockChart);
-                cachedForms.Add(formName, myForm);
+                using (new DataAccess.PleaseWait())
+                {
+                    myForm = new Trade.Forms.marketWatch();
+                    myForm.Name = formName;
+                    myForm.myOnShowChart += new baseClass.Events.onShowChart(ShowStockChart);
+                    cachedForms.Add(formName, myForm);
+                }
             }
             return myForm;
         }

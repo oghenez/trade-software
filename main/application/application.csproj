@@ -134,6 +134,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="forms\" />
     <Folder Include="Properties\DataSources\" />
     <Folder Include="Resources\" />
   </ItemGroup>

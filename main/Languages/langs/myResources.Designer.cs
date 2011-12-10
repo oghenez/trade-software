@@ -2401,6 +2401,15 @@ namespace Languages.langs {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Please wait for loading !.
+        /// </summary>
+        internal static string waitDataLoading {
+            get {
+                return ResourceManager.GetString("waitDataLoading", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Watch List.
         /// </summary>
         internal static string watchList {
