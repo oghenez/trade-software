@@ -1,6 +1,6 @@
 ﻿namespace test
 {
-    partial class mainTest
+    partial class chartTest
     {
         /// <summary>
         /// Required designer variable.
@@ -46,8 +46,9 @@
             this.moveToEndBtn = new System.Windows.Forms.Button();
             this.cbTimeRange = new baseClass.controls.cbTimeRange();
             this.cbTimeScale = new baseClass.controls.cbTimeScale();
-            this.graphPane1 = new Charts.Controls.baseGraphPanel();
+            this.pricePane = new Charts.Controls.baseGraphPanel();
             this.tmpDataSet1 = new Tools.Data.tmpDataSet();
+            this.volumePanel = new Charts.Controls.baseGraphPanel();
             this.basePanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tmpDataSet1)).BeginInit();
             this.SuspendLayout();
@@ -72,7 +73,7 @@
             // resetBtn
             // 
             this.resetBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.resetBtn.Location = new System.Drawing.Point(930, 4);
+            this.resetBtn.Location = new System.Drawing.Point(866, 4);
             this.resetBtn.Name = "resetBtn";
             this.resetBtn.Size = new System.Drawing.Size(64, 26);
             this.resetBtn.TabIndex = 249;
@@ -101,7 +102,7 @@
             // zoomInBtn
             // 
             this.zoomInBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.zoomInBtn.Location = new System.Drawing.Point(752, 4);
+            this.zoomInBtn.Location = new System.Drawing.Point(688, 4);
             this.zoomInBtn.Name = "zoomInBtn";
             this.zoomInBtn.Size = new System.Drawing.Size(89, 26);
             this.zoomInBtn.TabIndex = 251;
@@ -112,7 +113,7 @@
             // zoomOutBtn
             // 
             this.zoomOutBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.zoomOutBtn.Location = new System.Drawing.Point(841, 4);
+            this.zoomOutBtn.Location = new System.Drawing.Point(777, 4);
             this.zoomOutBtn.Name = "zoomOutBtn";
             this.zoomOutBtn.Size = new System.Drawing.Size(89, 26);
             this.zoomOutBtn.TabIndex = 252;
@@ -123,7 +124,7 @@
             // fowardBtn
             // 
             this.fowardBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.fowardBtn.Location = new System.Drawing.Point(1058, 4);
+            this.fowardBtn.Location = new System.Drawing.Point(994, 4);
             this.fowardBtn.Name = "fowardBtn";
             this.fowardBtn.Size = new System.Drawing.Size(64, 26);
             this.fowardBtn.TabIndex = 254;
@@ -134,7 +135,7 @@
             // backBtn
             // 
             this.backBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.backBtn.Location = new System.Drawing.Point(994, 4);
+            this.backBtn.Location = new System.Drawing.Point(930, 4);
             this.backBtn.Name = "backBtn";
             this.backBtn.Size = new System.Drawing.Size(64, 26);
             this.backBtn.TabIndex = 253;
@@ -199,7 +200,7 @@
             this.codeEd.Name = "codeEd";
             this.codeEd.Size = new System.Drawing.Size(59, 20);
             this.codeEd.TabIndex = 2;
-            this.codeEd.Text = "SSI";
+            this.codeEd.Text = "ACB";
             // 
             // basePanel1
             // 
@@ -232,7 +233,7 @@
             // moveToEndBtn
             // 
             this.moveToEndBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.moveToEndBtn.Location = new System.Drawing.Point(1128, 3);
+            this.moveToEndBtn.Location = new System.Drawing.Point(1058, 4);
             this.moveToEndBtn.Name = "moveToEndBtn";
             this.moveToEndBtn.Size = new System.Drawing.Size(64, 26);
             this.moveToEndBtn.TabIndex = 261;
@@ -260,35 +261,55 @@
             this.cbTimeScale.Size = new System.Drawing.Size(67, 21);
             this.cbTimeScale.TabIndex = 3;
             // 
-            // graphPane1
+            // pricePane
             // 
-            this.graphPane1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.graphPane1.haveCloseButton = true;
-            this.graphPane1.isExpanded = true;
-            this.graphPane1.Location = new System.Drawing.Point(0, 42);
-            this.graphPane1.myIconLocations = common.controls.basePanel.IconLocations.None;
-            this.graphPane1.mySizingOptions = common.controls.basePanel.SizingOptions.None;
-            this.graphPane1.myWeight = 0;
-            this.graphPane1.Name = "graphPane1";
-            this.graphPane1.Size = new System.Drawing.Size(1034, 625);
-            this.graphPane1.TabIndex = 261;
+            this.pricePane.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.pricePane.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pricePane.haveCloseButton = true;
+            this.pricePane.isExpanded = true;
+            this.pricePane.Location = new System.Drawing.Point(0, 42);
+            this.pricePane.myIconLocations = common.controls.basePanel.IconLocations.None;
+            this.pricePane.mySizingOptions = common.controls.basePanel.SizingOptions.None;
+            this.pricePane.myWeight = 0;
+            this.pricePane.Name = "pricePane";
+            this.pricePane.Size = new System.Drawing.Size(1111, 458);
+            this.pricePane.TabIndex = 261;
             // 
             // tmpDataSet1
             // 
             this.tmpDataSet1.DataSetName = "tmpDataSet";
             this.tmpDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // mainTest
+            // volumePanel
+            // 
+            this.volumePanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.volumePanel.haveCloseButton = true;
+            this.volumePanel.isExpanded = true;
+            this.volumePanel.Location = new System.Drawing.Point(0, 506);
+            this.volumePanel.myIconLocations = common.controls.basePanel.IconLocations.None;
+            this.volumePanel.mySizingOptions = common.controls.basePanel.SizingOptions.None;
+            this.volumePanel.myWeight = 0;
+            this.volumePanel.Name = "volumePanel";
+            this.volumePanel.Size = new System.Drawing.Size(1111, 205);
+            this.volumePanel.TabIndex = 262;
+            // 
+            // chartTest
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(1217, 756);
-            this.Controls.Add(this.graphPane1);
+            this.ClientSize = new System.Drawing.Size(1111, 741);
+            this.Controls.Add(this.pricePane);
+            this.Controls.Add(this.volumePanel);
             this.Controls.Add(this.basePanel1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Name = "mainTest";
+            this.Name = "chartTest";
+            this.Resize += new System.EventHandler(this.mainTest_Resize);
             this.Controls.SetChildIndex(this.TitleLbl, 0);
             this.Controls.SetChildIndex(this.basePanel1, 0);
-            this.Controls.SetChildIndex(this.graphPane1, 0);
+            this.Controls.SetChildIndex(this.volumePanel, 0);
+            this.Controls.SetChildIndex(this.pricePane, 0);
             this.basePanel1.ResumeLayout(false);
             this.basePanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tmpDataSet1)).EndInit();
@@ -316,7 +337,8 @@
         private baseClass.controls.cbTimeScale cbTimeScale;
         private baseClass.controls.cbTimeRange cbTimeRange;
         private System.Windows.Forms.Button moveToEndBtn;
-        private Charts.Controls.baseGraphPanel graphPane1;
+        private Charts.Controls.baseGraphPanel pricePane;
         private Tools.Data.tmpDataSet tmpDataSet1;
+        private Charts.Controls.baseGraphPanel volumePanel;
     }
 }

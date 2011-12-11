@@ -64,7 +64,7 @@ namespace Charts
             Zooming = 1,
             Panning = 2
         }
-        public bool isStickOutLEFT = false, isStickOutRIGHT = false;
+        //public bool isStickOutLEFT = false, isStickOutRIGHT = false;
         public AxisType myAxisType = AxisType.Linear;
         public AxisUnit myAxisUnit = AxisUnit.Day;
 
@@ -72,8 +72,8 @@ namespace Charts
         {
             xRange.Reset();
             yRange.Reset();
-            isStickOutLEFT = false;
-            isStickOutRIGHT = false;
+            //isStickOutLEFT = false;
+            //isStickOutRIGHT = false;
             state = StateType.None;
         }
     }
