@@ -7,15 +7,16 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using ZedGraph;
+using commonClass;
 using application;
 
 namespace test
 {
-    public partial class mainTest : baseClass.forms.baseForm
+    public partial class chartTest : baseClass.forms.baseForm
     {
         bool fGenData = false;
         application.AnalysisData myData = new application.AnalysisData();
-        public mainTest()
+        public chartTest()
         {
             try
             {
@@ -23,11 +24,10 @@ namespace test
                 cbTimeScale.LoadData();
                 cbTimeRange.LoadData();
                 timer1.Interval = 5000;
-                //data.system.dbConnectionString = "Data Source=(local);Initial Catalog=stock;Integrated Security=True";
-                myData.DataStockCode = "SSI";
+                data.SysLibs.dbConnectionString = "Data Source=(local);Initial Catalog=stock;Integrated Security=True";
+                myData.DataStockCode = "";
                 myData.DataTimeScale = commonClass.AppTypes.MainDataTimeScale;
                 myData.DataTimeRange = commonClass.AppTypes.TimeRanges.Y5;
-
                 LoadData();
             }
             catch (Exception er)
@@ -39,21 +39,38 @@ namespace test
         JapaneseCandleStickItem candleCurve = null;
         LineItem lineCurve = null;
         BarItem barCurve = null;
+        private void Chart_OnViewportChanged(object sender, Charts.ViewportState state)
+        {
+            if (pricePane.Visible) pricePane.myGraphObj.myViewportX = state.xRange;
+            if (volumePanel.Visible) volumePanel.myGraphObj.myViewportX = state.xRange;
+        }
         private void LoadData()
         {
-            //myData.Reload();
-            graphPane1.myGraphObj.myGraphPane.CurveList.Clear();
-            graphPane1.myGraphObj.SetSeriesX(myData.DateTime.Values, Charts.AxisType.DateAsOrdinal);
+            myData.LoadData();
 
-            //candleCurve = graphPane1.myGraphObj.AddCandleStick(myData.DataStockCode, myData.High.Values, myData.Low.Values, myData.Open.Values, myData.Close.Values, myData.Volume.Values,
-            //                                             Settings.sysChartBarUpColor, Settings.sysChartBarDnColor,
-            //                                             Settings.sysChartBullCandleColor, Settings.sysChartBearCandleColor);
+            pricePane.myGraphObj.myOnViewportChanged += new Charts.Controls.myGraphControl.OnViewportChanged(this.Chart_OnViewportChanged);
+            volumePanel.myGraphObj.myOnViewportChanged += new Charts.Controls.myGraphControl.OnViewportChanged(this.Chart_OnViewportChanged);
 
-            lineCurve = graphPane1.myGraphObj.AddCurveLine(myData.DataStockCode, myData.Close.Values, SymbolType.Circle, Color.Red, 1);
-            barCurve = graphPane1.myGraphObj.AddCurveBar(myData.DataStockCode, myData.Close.Values,Color.Navy,Color.Green, 1);
-            graphPane1.myGraphObj.SetFont(14);
-            graphPane1.myGraphObj.DefaultViewport();
-            graphPane1.myGraphObj.UpdateChart();
+            pricePane.myGraphObj.myOnPointValue += new Charts.Controls.myGraphControl.OnPointValue(PointValueEventPrice);
+            volumePanel.myGraphObj.myOnPointValue += new Charts.Controls.myGraphControl.OnPointValue(PointValueEventPrice);
+
+            pricePane.myGraphObj.myGraphPane.CurveList.Clear();
+            pricePane.myGraphObj.SetSeriesX(myData.DateTime.Values, Charts.AxisType.DateAsOrdinal);
+            candleCurve = pricePane.myGraphObj.AddCandleStick(myData.DataStockCode, myData.High.Values, myData.Low.Values, myData.Open.Values, myData.Close.Values, myData.Volume.Values,
+                                                         commonClass.Settings.sysChartBarUpColor, commonClass.Settings.sysChartBarDnColor,
+                                                         commonClass.Settings.sysChartBullCandleColor, commonClass.Settings.sysChartBearCandleColor);
+
+            //lineCurve = graphPane1.myGraphObj.AddCurveLine(myData.DataStockCode, myData.Close.Values, SymbolType.Circle, Color.Red, 1);
+            pricePane.myGraphObj.SetFont(14);
+            pricePane.myGraphObj.DefaultViewport();
+            pricePane.myGraphObj.UpdateChart();
+
+            volumePanel.myGraphObj.myGraphPane.CurveList.Clear();
+            volumePanel.myGraphObj.SetSeriesX(myData.DateTime.Values, Charts.AxisType.DateAsOrdinal);
+            barCurve = volumePanel.myGraphObj.AddCurveBar(myData.DataStockCode, myData.Volume.Values, Color.Navy, Color.Green, 1);
+            volumePanel.myGraphObj.SetFont(14);
+            volumePanel.myGraphObj.DefaultViewport();
+            volumePanel.myGraphObj.UpdateChart();
         }
 
         private void UpdatePriceRandom()
@@ -84,10 +101,10 @@ namespace test
             (list as StockPointList).Add(item);
 
 
-            graphPane1.myGraphObj.DefaultViewport();
+            pricePane.myGraphObj.DefaultViewport();
             
 
-            graphPane1.myGraphObj.UpdateChart();
+            pricePane.myGraphObj.UpdateChart();
             this.Text = list.Count.ToString();
             Application.DoEvents();
         }
@@ -97,14 +114,14 @@ namespace test
             int noOfUpdate = myData.UpdateDataFromLastTime();
             if (noOfUpdate < 0) return;
 
-            //UpdatePrice(noOfUpdate, candleCurve);
-            UpdatePrice(noOfUpdate, lineCurve);
-            UpdatePrice(noOfUpdate, barCurve);
+            if (candleCurve != null) UpdatePrice(noOfUpdate, candleCurve);
+            if (lineCurve!=null) UpdatePrice(noOfUpdate, lineCurve);
+            if (barCurve != null) UpdatePrice(noOfUpdate, barCurve);
         
             //graphPane1.myGraphObj.SetSeriesX(myData.DateTime.Values, Charts.AxisType.DateAsOrdinal);
-            graphPane1.myGraphObj.UpdateSeries();
-            graphPane1.myGraphObj.MoveToEnd();
-            graphPane1.myGraphObj.UpdateChart();
+            pricePane.myGraphObj.UpdateSeries();
+            pricePane.myGraphObj.MoveToEnd();
+            pricePane.myGraphObj.UpdateChart();
 
 
             this.Text = myData.DateTime.Count.ToString();
@@ -112,10 +129,11 @@ namespace test
 
         private void UpdatePrice(int noOfUpdate, CurveItem curve)
         {
+            this.ShowMessage("Update " + noOfUpdate.ToString());
             IPointListEdit list = curve.Points as IPointListEdit;
             int lastPos = list.Count - 1;
 
-            if (curve.GetType() == typeof(JapaneseCandleStick))
+            if (curve.GetType() == typeof(JapaneseCandleStickItem))
             {
                 if (lastPos >= 0)(list as StockPointList).RemoveAt(lastPos);
                 for (int idx = Math.Max(0, lastPos); idx < myData.DateTime.Count; idx++)
@@ -139,11 +157,11 @@ namespace test
 
         private void DrawCurveIndicator(Indicators.Meta meta)
         {
-            graphPane1.myGraphObj.myGraphPane.CurveList.Clear();
+            pricePane.myGraphObj.myGraphPane.CurveList.Clear();
 
             //Indicators.Meta meta = Indicators.Libs.FindMetaByName(indicatorName);
             string curveName = meta.ClassType.Name + "-" + meta.ParameterString;
-            Charts.Controls.baseGraphPanel myGraphPanel = graphPane1;
+            Charts.Controls.baseGraphPanel myGraphPanel = pricePane;
 
             commonClass.DataSeries indicatorSeries = Indicators.Libs.GetIndicatorData(this.myData, meta);
             this.myData.DateTime.FirstValidValue = indicatorSeries.FirstValidValue;
@@ -182,37 +200,52 @@ namespace test
                     }
                 }
             }
-            graphPane1.myGraphObj.DefaultViewport();
-            graphPane1.myGraphObj.UpdateChart(); 
+            pricePane.myGraphObj.DefaultViewport();
+            pricePane.myGraphObj.UpdateChart(); 
         }
         private CurveItem PlotCurveBar(string curveName, Charts.Controls.baseGraphPanel graphPane, commonClass.DataSeries xSeries, commonClass.DataSeries ySeries,
                                                Color color, Color bdColor, int weight)
         {
-            graphPane1.myGraphObj.SetSeriesX(xSeries.Values, Charts.AxisType.DateAsOrdinal);
+            pricePane.myGraphObj.SetSeriesX(xSeries.Values, Charts.AxisType.DateAsOrdinal);
             CurveItem curveItem = graphPane.myGraphObj.AddCurveBar(curveName, ySeries.Values, color, bdColor, weight);
             return curveItem;
         }
         private CurveItem PlotCurveLine(string curveName, Charts.Controls.baseGraphPanel graphPane, commonClass.DataSeries xSeries, commonClass.DataSeries ySeries,
                                        Color color, int weight)
         {
-            graphPane1.myGraphObj.SetSeriesX(xSeries.Values, Charts.AxisType.DateAsOrdinal);
+            pricePane.myGraphObj.SetSeriesX(xSeries.Values, Charts.AxisType.DateAsOrdinal);
             CurveItem curveItem = graphPane.myGraphObj.AddCurveLine(curveName, ySeries.Values, SymbolType.None, color, weight);
             return curveItem;
         }
         private CurveItem PlotCandleStick(string curveName, Charts.Controls.baseGraphPanel graphPane, application.AnalysisData data,
                                           Color barUpColor, Color barDnColor, Color bullCandleColor, Color bearCandleColor)
         {
-            graphPane1.myGraphObj.SetSeriesX(data.DateTime.Values, Charts.AxisType.DateAsOrdinal);
+            pricePane.myGraphObj.SetSeriesX(data.DateTime.Values, Charts.AxisType.DateAsOrdinal);
             CurveItem curveItem = graphPane.myGraphObj.AddCandleStick(curveName, data.High.Values, data.Low.Values, data.Open.Values, data.Close.Values, data.Volume.Values,
                                                                       barUpColor, barDnColor, bullCandleColor, bearCandleColor);
             return curveItem;
         }
 
 
+        private string PointValueEventPrice(CurveItem curve, int pointIdx)
+        {
+            DateTime dt = DateTime.FromOADate(curve[pointIdx].X);
+            string retVal = "";
+            retVal =  pointIdx.ToString() + common.Consts.constCRLF +
+                      Languages.Libs.GetString("date") + " : " + dt.ToShortDateString(); 
+            retVal += common.Consts.constCRLF + Languages.Libs.GetString("openPrice") + " : " + myData.Open.Values[pointIdx].ToString(Settings.sysMaskPrice) +
+                      common.Consts.constCRLF + Languages.Libs.GetString("highPrice") + " : " + myData.High.Values[pointIdx].ToString(Settings.sysMaskPrice) +
+                      common.Consts.constCRLF + Languages.Libs.GetString("lowPrice") + " : " + myData.Low.Values[pointIdx].ToString(Settings.sysMaskPrice) +
+                      common.Consts.constCRLF + Languages.Libs.GetString("closePrice") + " : " + myData.Close.Values[pointIdx].ToString(Settings.sysMaskPrice) +
+                      common.Consts.constCRLF + Languages.Libs.GetString("volume") + " : " + myData.Volume.Values[pointIdx].ToString(Settings.sysMaskQty);
+            this.Text = pointIdx.ToString() + "/" + (myData.DateTime.Count-1).ToString();
+            return retVal;
+        }
+
 
         private void resetBtn_Click(object sender, EventArgs e)
         {
-            graphPane1.myGraphObj.DefaultViewport();
+            pricePane.myGraphObj.DefaultViewport();
 
             Indicators.Meta meta = Indicators.Libs.FindMetaByName("SMA");
             DrawCurveIndicator(meta);
@@ -236,7 +269,6 @@ namespace test
                 this.ShowError(er);
             }
         }
-
         private void timerBtn_Click(object sender, EventArgs e)
         {
             timer1.Interval = (int)intervalEd.Value*1000;
@@ -246,27 +278,27 @@ namespace test
 
         private void zoomInBtn_Click(object sender, EventArgs e)
         {
-            graphPane1.myGraphObj.ZoomIn();
+            pricePane.myGraphObj.ZoomIn();
         }
 
         private void zoomOutBtn_Click(object sender, EventArgs e)
         {
-            graphPane1.myGraphObj.ZoomOut();
+            pricePane.myGraphObj.ZoomOut();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            graphPane1.myGraphObj.ZoomOut();
+            pricePane.myGraphObj.ZoomOut();
         }
 
         private void backBtn_Click(object sender, EventArgs e)
         {
-            graphPane1.myGraphObj.MoveBackward();
+            pricePane.myGraphObj.MoveBackward();
         }
 
         private void fowardBtn_Click(object sender, EventArgs e)
         {
-            graphPane1.myGraphObj.MoveForward();
+            pricePane.myGraphObj.MoveForward();
         }
 
         private void reloadBtn_Click(object sender, EventArgs e)
@@ -293,7 +325,19 @@ namespace test
 
         private void moveToEndBtn_Click(object sender, EventArgs e)
         {
-            graphPane1.myGraphObj.MoveToEnd();
+            pricePane.myGraphObj.MoveToEnd();
+        }
+
+        private string zedGraphControl1_PointValueEvent(ZedGraphControl sender, GraphPane pane, CurveItem curve, int iPt)
+        {
+            PointValueEventPrice(curve, iPt);
+            return default(string);
+        }
+
+        private void mainTest_Resize(object sender, EventArgs e)
+        {
+            volumePanel.Width = this.Width;
+            pricePane.Size = new Size(this.Width, this.Height - pricePane.Location.Y - volumePanel.Height - 2 * SystemInformation.CaptionHeight-15);
         }
     }
 }

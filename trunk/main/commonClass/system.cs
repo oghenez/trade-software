@@ -336,7 +336,6 @@ namespace commonClass
         }
 
         #endregion
-
         /// <summary>
         /// Copy data from one portfolioDetail data table to another
         /// </summary>

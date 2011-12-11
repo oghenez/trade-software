@@ -34,9 +34,10 @@
             // 
             // waitingPB
             // 
+            this.waitingPB.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.waitingPB.Image = global::client.Properties.Resources.waiting_bar;
-            this.waitingPB.Location = new System.Drawing.Point(1, 317);
-            this.waitingPB.Size = new System.Drawing.Size(400, 19);
+            this.waitingPB.Location = new System.Drawing.Point(0, 347);
+            this.waitingPB.Size = new System.Drawing.Size(402, 19);
             // 
             // waitingLbl
             // 
@@ -51,10 +52,9 @@
             // label1
             // 
             this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.label1.Location = new System.Drawing.Point(0, 337);
+            this.label1.Location = new System.Drawing.Point(0, 319);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(402, 29);
             this.label1.TabIndex = 5;
@@ -70,8 +70,8 @@
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "startSplash";
-            this.Controls.SetChildIndex(this.waitingPB, 0);
             this.Controls.SetChildIndex(this.label1, 0);
+            this.Controls.SetChildIndex(this.waitingPB, 0);
             this.Controls.SetChildIndex(this.waitingLbl, 0);
             ((System.ComponentModel.ISupportInitialize)(this.waitingPB)).EndInit();
             this.ResumeLayout(false);

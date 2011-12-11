@@ -115,8 +115,8 @@ namespace Charts.Controls
             {
                 Libs.GetRangeY(this.myGraphPane.CurveList[idx], this.myViewportX.Min, this.myViewportX.Max, ref range);
             }
-            range.Max += Settings.sysViewportMarginTOP;
-            range.Min -= Settings.sysViewportMarginBOT;
+            range.Max += Settings.sysViewSpaceAtTOP;
+            range.Min -= Settings.sysViewSpaceAtBOT;
             return range;
         }
 
@@ -180,165 +180,84 @@ namespace Charts.Controls
 
         // The varriable definded the viewport of the chart. View port is the portion of the chart that is shown to users.
         // In the control, viewport is defined as a range [min,max] in X-Axis
-        public IntRange _save_myViewportX
+        public IntRange myViewportX 
         {
             get { return myViewportState.xRange; }
             set
             {
-                if (fProcessing) return;
-                if (this.mySeriesX == null) return;
-
-                //Add some space at LEFT and RIGHT
-                int addToLeft = 0, addToRight = 0;
-                bool fStickOutRIGHT = this.myViewportState.isStickOutRIGHT;
-                bool fStickOutLEFT = this.myViewportState.isStickOutLEFT;
-
-                if (value.Min > value.Max) return;
-                if (value.Max < 0 || value.Max >= this.mySeriesX.Length - 1)
-                {
-                    if (myViewportX.Max >= this.mySeriesX.Length - 1 && this.myViewportState.isStickOutRIGHT &&
-                        this.myViewportState.state == ViewportState.StateType.Panning) return;
-                    value.Max = this.mySeriesX.Length - 1;
-                    addToRight = (int)((myViewportX.Max - myViewportX.Min) * Settings.sysViewportMarginRIGHT) + 1;
-                    fStickOutRIGHT = (myViewportX.Max > myViewportX.Min);
-                }
-                else
-                {
-                    fStickOutRIGHT = false;
-                }
-                if (value.Min > value.Max) value.Min = value.Max;
-
-                if (value.Min <= 0)
-                {
-                    if (myViewportX.Min <= 0 && this.myViewportState.isStickOutLEFT) return;
-                    value.Min = 0;
-                    addToLeft = (int)((myViewportX.Max - myViewportX.Min) * Settings.sysViewportMarginLEFT) + 1;
-                    fStickOutLEFT = (myViewportX.Max > myViewportX.Min);
-                }
-                else
-                {
-                    fStickOutLEFT = false;
-                }
-                
+                if (fProcessing || this.mySeriesX == null) return;
+                if (value.Max - value.Min < Settings.sysNumberOfPoint_MIN) return;
+                if ((value.Min >= value.Max) || (value.Min < 0) || (value.Max >= this.mySeriesX.Length)) return;
                 try
                 {
-                    //Turn on to detect loop
+                    //Turn on to prevent loop
                     fProcessing = true;
-
-                    myViewportState.xRange.Set(value.Min, value.Max);
-                    //Depend on [myAxisType], [Min,Max] should be assigned different values.
-                    switch (this.myViewportState.myAxisType)
-                    {
-                        case AxisType.Date:
-                            this.myGraphPane.XAxis.Scale.Max = this.mySeriesX[this.myViewportX.Max];
-                            this.myGraphPane.XAxis.Scale.Min = this.mySeriesX[this.myViewportX.Min];
-
-                            if (addToRight > 0 && this.myViewportX.Max > addToRight)
-                            {
-                                DateTime prevDate = DateTime.FromOADate(this.mySeriesX[this.myViewportX.Max - addToRight]);
-                                DateTime curDate = DateTime.FromOADate(this.mySeriesX[this.myViewportX.Max]);
-                                int seconds = common.dateTimeLibs.DateDiffInSecs(prevDate, curDate);
-                                this.myGraphPane.XAxis.Scale.Max = DateTime.FromOADate(this.mySeriesX[this.myViewportX.Max]).AddSeconds(seconds).ToOADate();
-                            }
-
-                            if (addToLeft > 0 && addToLeft < this.mySeriesX.Length)
-                            {
-                                DateTime nextDate = DateTime.FromOADate(this.mySeriesX[addToLeft]);
-                                DateTime curDate = DateTime.FromOADate(this.mySeriesX[0]);
-                                int seconds = common.dateTimeLibs.DateDiffInSecs(curDate, nextDate);
-                                this.myGraphPane.XAxis.Scale.Min = curDate.AddSeconds(-seconds).ToOADate();
-                            }
-                            break;
-                        case AxisType.DateAsOrdinal:
-                        default:
-                            this.myGraphPane.XAxis.Scale.Max = this.myViewportX.Max + addToRight;
-                            this.myGraphPane.XAxis.Scale.Min = this.myViewportX.Min - addToLeft;
-                            break;
-                    }
-                    this.myViewportState.yRange = GetViewportY();
-
-                    this.myGraphPane.YAxis.Scale.Max = this.myViewportState.yRange.Max;
-                    this.myGraphPane.YAxis.Scale.Min = this.myViewportState.yRange.Min;
-
-                    SetDateTimeFormat(); // Different DateTime format for different X-Scale
-
-                    this.myViewportState.isStickOutRIGHT = fStickOutRIGHT;
-                    this.myViewportState.isStickOutLEFT = fStickOutLEFT;
-                    //Update change to chart
-                    UpdateChart();
-
-                    //Create changed event
+                    SetViewportX(value);
                     if (myOnViewportChanged != null)
                     {
                         ViewportState state = new ViewportState();
                         state.xRange = value;
                         myOnViewportChanged(this, state);
                     }
+                    fProcessing = false;
                 }
                 catch (Exception er)
                 {
-                    common.system.ThrowException(er);
-                }
-                finally
-                {
                     fProcessing = false;
+                    common.system.ThrowException(er);
                 }
             }
         }
 
-        public IntRange myViewportX
+        private void SetViewportX(IntRange range)
         {
-            get { return myViewportState.xRange; }
-            set
+            int NoExtraBarAtRight = (int)((range.Max - range.Min) * Settings.sysViewSpaceAtRIGHT);
+            if (NoExtraBarAtRight < Settings.sysViewMinBarAtRIGHT)  NoExtraBarAtRight = Settings.sysViewMinBarAtRIGHT;
+
+            int NoExtraBarAtLeft = (int)((range.Max - range.Min) * Settings.sysViewSpaceAtLEFT);
+            if (NoExtraBarAtRight < Settings.sysViewMinBarAtLEFT) NoExtraBarAtRight = Settings.sysViewMinBarAtLEFT;
+            
+            myViewportState.xRange.Set(range.Min, range.Max);
+            //Depend on [myAxisType], [Min,Max] should be assigned different values.
+            switch (this.myViewportState.myAxisType)
             {
-                if (fProcessing) return;
-                if (this.mySeriesX == null) return;
-                if ((value.Min >= value.Max) || (value.Min < 0) || (value.Max >= this.mySeriesX.Length)) return;
-
-                try
-                {
-                    //Turn on to detect loop
-                    fProcessing = true;
-
-                    myViewportState.xRange.Set(value.Min, value.Max);
-
-                    //Depend on [myAxisType], [Min,Max] should be assigned different values.
-                    switch (this.myViewportState.myAxisType)
+                case AxisType.Date:
+                    if (NoExtraBarAtRight > 0 && this.myViewportX.Max > NoExtraBarAtRight)
                     {
-                        case AxisType.Date:
-                            this.myGraphPane.XAxis.Scale.Max = this.mySeriesX[this.myViewportX.Max];
-                            this.myGraphPane.XAxis.Scale.Min = this.mySeriesX[this.myViewportX.Min];
-                            break;
-                        case AxisType.DateAsOrdinal:
-                        default:
-                            this.myGraphPane.XAxis.Scale.Max = this.myViewportX.Max;
-                            this.myGraphPane.XAxis.Scale.Min = this.myViewportX.Min;
-                            break;
+                        DateTime prevDate = DateTime.FromOADate(this.mySeriesX[this.myViewportX.Max - NoExtraBarAtRight]);
+                        DateTime curDate = DateTime.FromOADate(this.mySeriesX[this.myViewportX.Max]);
+                        int seconds = common.dateTimeLibs.DateDiffInSecs(prevDate, curDate);
+                        this.myGraphPane.XAxis.Scale.Max = DateTime.FromOADate(this.mySeriesX[this.myViewportX.Max]).AddSeconds(seconds).ToOADate();
+                    }
+                    else
+                    {
+                        this.myGraphPane.XAxis.Scale.Max = this.mySeriesX[this.myViewportX.Max];
                     }
 
-                    ValueRange viewportY = GetViewportY();
-                    this.myGraphPane.YAxis.Scale.Max = viewportY.Max;
-                    this.myGraphPane.YAxis.Scale.Min = viewportY.Min;
-
-                    SetDateTimeFormat();
-
-                    UpdateChart();
-                    if (myOnViewportChanged != null)
+                    if (NoExtraBarAtLeft > 0 && NoExtraBarAtLeft < this.mySeriesX.Length)
                     {
-                        ViewportState state = new ViewportState();
-                        state.xRange = value;
-                        myOnViewportChanged(this, state);
+                        DateTime nextDate = DateTime.FromOADate(this.mySeriesX[NoExtraBarAtLeft]);
+                        DateTime curDate = DateTime.FromOADate(this.mySeriesX[0]);
+                        int seconds = common.dateTimeLibs.DateDiffInSecs(curDate, nextDate);
+                        this.myGraphPane.XAxis.Scale.Min = curDate.AddSeconds(-seconds).ToOADate();
                     }
-                }
-                catch (Exception er)
-                {
-                    common.system.ThrowException(er);
-                }
-                finally
-                {
-                    fProcessing = false;
-                }
+                    else
+                    {
+                        this.myGraphPane.XAxis.Scale.Min = this.mySeriesX[this.myViewportX.Min];
+                    }
+                    break;
+                case AxisType.DateAsOrdinal:
+                default:
+                    this.myGraphPane.XAxis.Scale.Max = this.myViewportX.Max + NoExtraBarAtRight;
+                    this.myGraphPane.XAxis.Scale.Min = this.myViewportX.Min - NoExtraBarAtLeft;
+                    break;
             }
+            ValueRange viewportY = GetViewportY();
+            this.myGraphPane.YAxis.Scale.Max = viewportY.Max;
+            this.myGraphPane.YAxis.Scale.Min = viewportY.Min;
+
+            SetDateTimeFormat();
+            UpdateChart();
         }
 
 
@@ -443,8 +362,8 @@ namespace Charts.Controls
             if (this.mySeriesX == null) return;
 
             int min = 0;
-            if (this.mySeriesX.Length > Settings.sysNumberOfPoints)
-                min = this.mySeriesX.Length - Settings.sysNumberOfPoints;
+            if (this.mySeriesX.Length > Settings.sysNumberOfPoint_DEFA)
+                min = this.mySeriesX.Length - Settings.sysNumberOfPoint_DEFA;
 
             this.myViewportState.Reset();
             this.myViewportX = new IntRange(min, this.mySeriesX.Length-1);
@@ -454,10 +373,10 @@ namespace Charts.Controls
         {
             if (this.mySeriesX == null) return;
             IntRange xRange =  new IntRange(0, this.mySeriesX.Length-1);
-            if (this.mySeriesX.Length >= Charts.Settings.sysNumberOfPoints)
+            if (this.mySeriesX.Length >= Charts.Settings.sysNumberOfPoint_DEFA)
             {
                 int size = this.myViewportX.Max - this.myViewportX.Min + 1;
-                if (size <=0) size = Charts.Settings.sysNumberOfPoints;
+                if (size <= 0) size = Charts.Settings.sysNumberOfPoint_DEFA;
                 xRange.Min = xRange.Max - size+1;
             }
             this.myViewportState.Reset();
@@ -589,406 +508,6 @@ namespace Charts.Controls
 
             myCurve.Stick.FallingColor = fallingColor;
             myCurve.Stick.RisingFill.Color = risingColor;
-            return myCurve;
-        }
-        #endregion Chart
-
-    }
-  
-    public partial class _myGraphControl_save : ZedGraph.ZedGraphControl
-    {
-        public _myGraphControl_save()
-        {
-            this.IsShowPointValues = true;
-            this.IsEnableHZoom = false;
-            this.IsEnableVZoom = false;
-            this.IsEnableHPan = false;
-            this.IsEnableVPan = false;
-            this.IsShowContextMenu = false;
-            this.myGraphPane.IsFontsScaled = false;
-
-            this.PanButtons = MouseButtons.None;
-            this.PanButtons2 = MouseButtons.None;
-
-            this.ZoomButtons = MouseButtons.None;
-            this.ZoomButtons2 = MouseButtons.None;
-            this.ZoomStepFraction = 0;
-
-            this.myGraphPane.Legend.IsVisible = false;
-            this.myGraphPane.Title.IsVisible = false;
-            this.myGraphPane.YAxis.MajorGrid.IsVisible = true;
-            this.myGraphPane.YAxis.Title.IsVisible = false;
-            this.myGraphPane.XAxis.Title.IsVisible = false;
-            this.myGraphPane.Border.IsVisible = false;
-
-            this.MouseWheel += new System.Windows.Forms.MouseEventHandler(MouseWheelHandler);
-            this.MouseDownEvent += new ZedGraph.ZedGraphControl.ZedMouseEventHandler(MouseDownHandler);
-            this.MouseUpEvent += new ZedGraph.ZedGraphControl.ZedMouseEventHandler(MouseUpHandler);
-            this.MouseMoveEvent += new ZedGraph.ZedGraphControl.ZedMouseEventHandler(MouseMoveHandler);
-
-            this.PointValueEvent += new ZedGraphControl.PointValueHandler(GraphPointValueHandler);
-            
-        }
-        public void SetFont(Font font)
-        {
-            this.Font = font;
-
-            this.myGraphPane.XAxis.Scale.FontSpec.Family = font.FontFamily.Name;
-            this.myGraphPane.XAxis.Scale.FontSpec.Size = font.Size;
-            this.myGraphPane.XAxis.Scale.FontSpec.IsBold = font.Bold;
-            this.myGraphPane.XAxis.Scale.FontSpec.IsItalic = font.Italic;
-            this.myGraphPane.XAxis.Scale.FontSpec.IsUnderline = font.Underline;
-
-            this.myGraphPane.YAxis.Scale.FontSpec.Family = font.FontFamily.Name;
-            this.myGraphPane.YAxis.Scale.FontSpec.Size = font.Size;
-            this.myGraphPane.YAxis.Scale.FontSpec.IsBold = font.Bold;
-            this.myGraphPane.YAxis.Scale.FontSpec.IsItalic = font.Italic;
-            this.myGraphPane.YAxis.Scale.FontSpec.IsUnderline = font.Underline;
-
-            this.myGraphPane.X2Axis.Scale.FontSpec.Family = font.FontFamily.Name;
-            this.myGraphPane.X2Axis.Scale.FontSpec.Size = font.Size;
-            this.myGraphPane.X2Axis.Scale.FontSpec.IsBold = font.Bold;
-            this.myGraphPane.X2Axis.Scale.FontSpec.IsItalic = font.Italic;
-            this.myGraphPane.X2Axis.Scale.FontSpec.IsUnderline = font.Underline;
-
-            this.myGraphPane.Y2Axis.Scale.FontSpec.Family = font.FontFamily.Name;
-            this.myGraphPane.Y2Axis.Scale.FontSpec.Size = font.Size;
-            this.myGraphPane.Y2Axis.Scale.FontSpec.IsBold = font.Bold;
-            this.myGraphPane.Y2Axis.Scale.FontSpec.IsItalic = font.Italic;
-            this.myGraphPane.Y2Axis.Scale.FontSpec.IsUnderline = font.Underline;
-        }
-        public void SetFont(int fontSize)
-        {
-            this.Font = new Font(this.Font.FontFamily.Name, fontSize);
-
-            this.myGraphPane.XAxis.Scale.FontSpec.Size = fontSize;
-            this.myGraphPane.X2Axis.Scale.FontSpec.Size = fontSize;
-
-            this.myGraphPane.YAxis.Scale.FontSpec.Size = fontSize;
-            this.myGraphPane.Y2Axis.Scale.FontSpec.Size = fontSize;
-        }
-
-        public int ChartMarginLEFT = Settings.sysChartMarginLEFT;
-        public int ChartMarginRIGHT = Settings.sysChartMarginRIGHT;
-        public int ChartMarginTOP = Settings.sysChartMarginTOP;
-        public int ChartMarginBOTTOM = Settings.sysChartMarginBOTTOM;
-
-        public class ViewportState
-        {
-            public IntRange xRange = new IntRange();
-            public StateType state = StateType.None; 
-            public enum StateType:byte    //Resevered 
-            {
-                None = 0,
-                Zoom = 1,
-                Pan = 2
-            }
-        }
-
-        public delegate void OnViewportChanged(object sender, ViewportState state);
-        public event OnViewportChanged myOnViewportChanged = null;
-
-        public delegate string OnPointValue(CurveItem curve, int iPt);
-        public event OnPointValue myOnPointValue = null;
-
-
-        //Chart may have several curves with the same X-Axis data. 
-        // - [mySeriesX] is used to keep the common X-Axis data
-        // - [myAxisType] is used to keep the common X-Axis type
-        private double[] mySeriesX = null;
-        private AxisType myAxisType = AxisType.Linear;
-
-        // To make the chart verically fit in the defined viewport, we must calculate [min,max] in Y-Axis for all curves.
-        // So we need to keep the Y-Axis data in [mySeriesY] for the calculation, see GetViewportY().
-        private common.DictionaryList mySeriesY = new common.DictionaryList();
-
-        //To decide the direction (backward/forward) of chart-moving
-        private Point lastMouseLocation = new Point();
-        private int mouseMoveCount = 0; //See sysSensibilityPAN
-
-        /// <summary>
-        /// Get Y-Viewport(min,max) of all curves in the current X-Vieport defined by [myViewportX].  
-        /// The function used Y-Axis data stored in [mySeriesY] 
-        /// </summary>
-        /// <returns></returns>
-        private ValueRange GetViewportY()
-        {
-            ValueRange range = new ValueRange();
-            for (int count = 0; count < this.mySeriesY.Keys.Length; count++)
-            {
-                double[] values = (double[])this.mySeriesY.Values[count];
-                for (int idx = this.myViewportX.Min; idx < this.myViewportX.Max; idx++)
-                {
-                    if (range.Min > values[idx])
-                    {
-                        range.Min = values[idx];
-                    }
-                    if (range.Max < values[idx])
-                    {
-                        range.Max = values[idx];
-                    }
-                }
-            }
-            range.Max += Settings.sysChartMarginTOP;
-            range.Min -= Settings.sysChartMarginBOTTOM; 
-            return range;
-        }
-
-        #region event handler
-        private void MouseWheelHandler(object sender, System.Windows.Forms.MouseEventArgs e)
-        {
-            if (e.Delta > 0) ZoomOut();
-            else ZoomIn();
-        }
-        private bool MouseMoveHandler(ZedGraph.ZedGraphControl sender, MouseEventArgs e)
-        {
-            if (!isPanning)
-            {
-                return default(bool);
-            }
-            if (e.Button == this.myPanButton)
-            {
-                if (lastMouseLocation.X != e.Location.X) mouseMoveCount++;
-                if (mouseMoveCount == Settings.sysSensibilityPAN)
-                {
-                    this.mouseMoveCount = 0;
-                    if (lastMouseLocation.X > e.Location.X)
-                    {
-                        this.MoveBackward();
-                    }
-                    if (lastMouseLocation.X < e.Location.X)
-                    {
-                        this.MoveForward();
-                    }
-                    this.lastMouseLocation = e.Location;
-                }
-            }
-            return default(bool);
-        }
-        private bool MouseUpHandler(ZedGraph.ZedGraphControl sender, MouseEventArgs e)
-        {
-            if (e.Button == this.myPanButton) this.isPanning = false;
-            return default(bool);
-        }
-        private bool MouseDownHandler(ZedGraph.ZedGraphControl sender, MouseEventArgs e)
-        {
-            if (e.Button == this.myPanButton)
-            {
-                this.isPanning = true;
-                this.lastMouseLocation = e.Location;
-                this.mouseMoveCount = 0;
-            }
-            return default(bool);
-        }
-
-        private string GraphPointValueHandler(ZedGraphControl sender, GraphPane pane, CurveItem curve, int iPt)
-        {
-            if (myOnPointValue != null) return myOnPointValue(curve, iPt);
-            return "";
-        }
-        #endregion
-
-        #region public functions
-        private bool fProcessing = false;
-
-        // The varriable definded the viewport of the chart. View port is the portion of the chart that is shown to users.
-        // In the control, viewport is defined as a range [min,max] in X-Axis
-        private IntRange _myViewportX = new IntRange();
-        public IntRange myViewportX
-        {
-            get { return _myViewportX; }
-            set
-            {
-                if (fProcessing) return;
-                if (this.mySeriesX == null) return;
-                if ((value.Min >= value.Max) || (value.Min < 0) || (value.Max >= this.mySeriesX.Length)) return;
-
-                try
-                {
-                    //Turn on to detect loop
-                    fProcessing = true;
-
-                    _myViewportX.Set(value.Min, value.Max);
-                    
-                    //Depend on [myAxisType], [Min,Max] should be assigned different values.
-                    switch (this.myAxisType)
-                    { 
-                        case AxisType.Date:
-                             this.myGraphPane.XAxis.Scale.Max = this.mySeriesX[this.myViewportX.Max];
-                             this.myGraphPane.XAxis.Scale.Min = this.mySeriesX[this.myViewportX.Min];
-                             break;
-                        case AxisType.DateAsOrdinal:
-                        default:
-                             this.myGraphPane.XAxis.Scale.Max = this.myViewportX.Max;
-                             this.myGraphPane.XAxis.Scale.Min = this.myViewportX.Min;
-                             break;
-                    }
-
-                    ValueRange viewportY = GetViewportY();
-                    this.myGraphPane.YAxis.Scale.Max = viewportY.Max;
-                    this.myGraphPane.YAxis.Scale.Min = viewportY.Min;
-
-                    UpdateChart();
-                    if (myOnViewportChanged != null)
-                    {
-                        ViewportState state = new ViewportState();
-                        state.xRange = value;
-                        myOnViewportChanged(this, state);
-                    }
-                }
-                catch (Exception er) 
-                { 
-                    common.system.ThrowException(er); 
-                }
-                finally
-                {
-                    fProcessing = false;
-                }
-            }
-        }
-
-        private bool _isPanning = false;  //Not in pan mode as the start
-        public bool isPanning
-        {
-            get { return _isPanning;}
-            set
-            {
-                _isPanning = value;
-                Cursor.Current = (value ? Cursors.Hand : Cursors.Default);
-            }
-        }
-
-        public void SetSeriesX(double[] xSeries, AxisType axisType)
-        {
-            this.myAxisType = axisType;
-            this.mySeriesX = xSeries;
-            switch (axisType)
-            { 
-                case AxisType.DateAsOrdinal :
-                     this.myGraphPane.XAxis.Type = ZedGraph.AxisType.DateAsOrdinal;
-                     break;
-                case AxisType.Date:
-                     this.myGraphPane.XAxis.Type = ZedGraph.AxisType.Date;
-                     break;
-                default:
-                     this.myGraphPane.XAxis.Type = ZedGraph.AxisType.Linear;
-                     break;
-            }
-        }
-        public void DefaultViewport()
-        {
-            if (this.mySeriesX == null) return;
-
-            int min = 0;
-            if (this.mySeriesX.Length  > Settings.sysNumberOfPoints)
-                min = this.mySeriesX.Length - Settings.sysNumberOfPoints;
-
-            this.myViewportX = new IntRange(min, this.mySeriesX.Length - 1);
-        }
-        public void MoveBackward()
-        {
-            int max = this.myViewportX.Max - Settings.sysMoveStep;
-            int min = this.myViewportX.Min - Settings.sysMoveStep;
-            this.myViewportX = new IntRange(min, max);
-        }
-        public void MoveForward()
-        {
-            int max = this.myViewportX.Max + Settings.sysMoveStep;
-            int min = this.myViewportX.Min + Settings.sysMoveStep;
-            this.myViewportX = new IntRange(min, max);
-        }
-        public void ZoomOut()
-        {
-            int max = this.myViewportX.Max;
-            int min = this.myViewportX.Min + Settings.sysZoomScale;
-            this.myViewportX = new IntRange(min, max);
-        }
-        public void ZoomIn()
-        {
-            int max = this.myViewportX.Max;
-            int min = this.myViewportX.Min - Settings.sysZoomScale;
-            this.myViewportX = new IntRange(min, max);
-        }
-        public void UpdateChart()
-        {
-            this.AxisChange();
-            this.Invalidate();
-        }
-
-        public virtual void CalcGraphSize()
-        {
-            this.myGraphPane.Chart.Rect = new RectangleF(this.ChartMarginLEFT, this.ChartMarginTOP,
-                                                         this.Width - this.ChartMarginRIGHT,
-                                                         this.Height - this.ChartMarginBOTTOM);
-
-            this.myGraphPane.Margin.Left = this.ChartMarginLEFT;
-            this.myGraphPane.Margin.Top = this.ChartMarginTOP;
-            this.myGraphPane.Margin.Right = this.ChartMarginRIGHT;
-            this.myGraphPane.Margin.Bottom = this.ChartMarginBOTTOM;
-        }
-
-        public MouseButtons myPanButton = MouseButtons.Left;
-        public ZedGraph.GraphPane myGraphPane
-        {
-            get
-            {
-                return this.MasterPane[0];
-            }
-        }
-        #endregion
-
-        #region Chart
-        public LineItem AddCurveLine(string name, double[] seriesY, SymbolType symbol, Color color, int width)
-        {
-            LineItem myCurve = myGraphPane.AddCurve(name, this.mySeriesX, seriesY, color, symbol);
-            myCurve.Line.Width = width;
-            myCurve.Symbol.Size = width + 1;
-            this.mySeriesY.Add(name, seriesY);
-            return myCurve;
-        }
-        public BarItem AddCurveBar(string name, double[] seriesY,Color color, Color borderColor, int width)
-        {
-            BarItem myCurve = myGraphPane.AddBar(name, this.mySeriesX, seriesY, color);
-            myCurve.Bar.Border.Color = borderColor;
-            myCurve.Bar.Fill.Color = color;
-            myCurve.Bar.Border.Width = width;
-            this.mySeriesY.Add(name, seriesY);
-            return myCurve;
-        }
-        public StickItem AddCurveStick(string name, double[] seriesY, Color color)
-        {
-            StickItem myCurve = myGraphPane.AddStick(name, this.mySeriesX, seriesY, color);
-            this.mySeriesY.Add(name, seriesY);
-            return myCurve;
-        }
-        public JapaneseCandleStickItem AddCandleStick(string name, double[] seriesHigh, double[] seriesLow, double[] seriesOpen, double[] seriesClose, double[] seriesVolume,
-                                                      Color color, Color stickColor, Color risingColor, Color fallingColor)
-        {
-            StockPointList spl = new StockPointList();
-            for (int idx = 0; idx < this.mySeriesX.Length; idx++)
-            {
-                StockPt pt = new StockPt(this.mySeriesX[idx], 
-                                         seriesHigh[idx], seriesLow[idx], seriesOpen[idx],seriesClose[idx], seriesVolume[idx]);
-                spl.Add(pt);
-            }
-
-            JapaneseCandleStickItem myCurve = myGraphPane.AddJapaneseCandleStick(name, spl);
-            myCurve.Stick.IsAutoSize = true;
-            myCurve.Stick.Color = stickColor;
-
-            myCurve.Color = color;
-
-            myCurve.Stick.FallingColor = fallingColor;
-            //myCurve.Stick.FallingFill.Color = fallingColor;
-            //myCurve.Stick.FallingBorder.Color = fallingColor;
-
-            //myCurve.Stick.RisingBorder.Color = fallingColor;
-            myCurve.Stick.RisingFill.Color = risingColor;
-
-            //Add 2 series to ensure that the viewport max/min points are in th viewport.
-            this.mySeriesY.Add(name, seriesHigh);
-            this.mySeriesY.Add(name+"1", seriesLow);
-
             return myCurve;
         }
         #endregion Chart

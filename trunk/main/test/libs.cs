@@ -17,7 +17,7 @@ namespace test
             priceDataTbl.Clear();
             importPriceTbl.Clear();
             data.importDS.importPriceRow importRow = importPriceTbl.NewimportPriceRow();
-            //application.AnalysisDataLibs.InitData(importRow);
+            application.DbAccess.InitData(importRow);
 
             //open += common.system.Random(0, 10) / 10;
             high += (decimal)common.system.Random(50, 300) / 100;
@@ -47,11 +47,11 @@ namespace test
 
             importPriceTbl.AddimportPriceRow(importRow);
 
-            //imports.libs.AddImportPrice(importPriceTbl, priceDataTbl);
+            imports.libs.AddImportPrice(importPriceTbl, priceDataTbl);
             application.DbAccess.UpdateData(priceDataTbl);
 
             // In VN culture : start of week is Monday (not Sunday) 
-            //imports.libs.AggregatePriceData(priceDataTbl, "vi-VN", false, null);
+            imports.libs.AggregatePriceData(priceDataTbl, "vi-VN", false, null);
         }
     }
     
