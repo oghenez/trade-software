@@ -317,5 +317,36 @@ namespace baseClass.forms
             return true; 
         }
         #endregion event handler
+
+        bool fSizing = false;
+        private void xpPanel_SizeChanged(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void xpPanelGroup_Info_Layout(object sender, LayoutEventArgs e)
+        {
+            
+        }
+
+        private void xpPane_CollapseExpand(object sender, EventArgs e)
+        {
+            try
+            {
+                if (fSizing) return;
+                fSizing = true;
+                xpPanel_options.Height = xpPanelGroup_Info.Height - xpPanel_options.Location.Y;
+                xpPanel_options.Width = xpPanelGroup_Info.Width;
+
+                interestedStrategy.Height = xpPanel_options.Height - interestedStrategy.Location.Y;
+                interestedStrategy.Width = xpPanel_options.Width;
+                fSizing = false;
+            }
+            catch (Exception er)
+            {
+                fSizing = false;
+                this.ShowError(er);
+            }
+        }
     }
 }

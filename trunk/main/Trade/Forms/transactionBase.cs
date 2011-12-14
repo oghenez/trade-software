@@ -47,7 +47,7 @@ namespace Trade.Forms
         public void Init()
         {
             transTypeCb.LoadData();
-            portfolioCb.LoadData(commonClass.SysLibs.sysLoginCode,false);
+            portfolioCb.LoadData(commonClass.SysLibs.sysLoginCode, AppTypes.PortfolioTypes.Portfolio);
             statusCb.LoadData();
 
             //Color

@@ -148,6 +148,7 @@
             this.xpPanelGroup_Info.PanelSpacing = 0;
             this.xpPanelGroup_Info.Size = new System.Drawing.Size(550, 627);
             this.xpPanelGroup_Info.TabIndex = 360;
+            this.xpPanelGroup_Info.Layout += new System.Windows.Forms.LayoutEventHandler(this.xpPanelGroup_Info_Layout);
             // 
             // xpPanel_options
             // 
@@ -180,6 +181,8 @@
             this.xpPanel_options.TextHighlightColors.Foreground = System.Drawing.SystemColors.ActiveCaptionText;
             this.xpPanel_options.VertAlignment = System.Drawing.StringAlignment.Center;
             this.xpPanel_options.XPPanelStyle = UIComponents.XPPanelStyle.WindowsXP;
+            this.xpPanel_options.Expanded += new System.EventHandler(this.xpPane_CollapseExpand);
+            this.xpPanel_options.Collapsed += new System.EventHandler(this.xpPane_CollapseExpand);
             // 
             // interestedStockClb
             // 
@@ -199,9 +202,6 @@
             // 
             // interestedStrategy
             // 
-            this.interestedStrategy.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
             this.interestedStrategy.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.interestedStrategy.Location = new System.Drawing.Point(24, 245);
             this.interestedStrategy.Margin = new System.Windows.Forms.Padding(4);
@@ -254,6 +254,8 @@
             this.xpPane_generalInfo.TextHighlightColors.Foreground = System.Drawing.SystemColors.ActiveCaptionText;
             this.xpPane_generalInfo.VertAlignment = System.Drawing.StringAlignment.Center;
             this.xpPane_generalInfo.XPPanelStyle = UIComponents.XPPanelStyle.WindowsXP;
+            this.xpPane_generalInfo.Expanded += new System.EventHandler(this.xpPane_CollapseExpand);
+            this.xpPane_generalInfo.Collapsed += new System.EventHandler(this.xpPane_CollapseExpand);
             // 
             // descriptionEd
             // 
@@ -342,7 +344,7 @@
             this.portfolioGrid.Name = "portfolioGrid";
             this.portfolioGrid.ReadOnly = true;
             this.portfolioGrid.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.portfolioGrid.Size = new System.Drawing.Size(481, 675);
+            this.portfolioGrid.Size = new System.Drawing.Size(481, 677);
             this.portfolioGrid.TabIndex = 362;
             this.portfolioGrid.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.grid_DataError);
             // 

@@ -754,6 +754,15 @@ namespace Languages.langs {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Disable.
+        /// </summary>
+        internal static string disableAlert {
+            get {
+                return ResourceManager.GetString("disableAlert", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Disabled.
         /// </summary>
         internal static string disableStat {
@@ -786,6 +795,15 @@ namespace Languages.langs {
         internal static string edit {
             get {
                 return ResourceManager.GetString("edit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enable.
+        /// </summary>
+        internal static string enableAlert {
+            get {
+                return ResourceManager.GetString("enableAlert", resourceCulture);
             }
         }
         
@@ -1285,6 +1303,15 @@ namespace Languages.langs {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Market info.
+        /// </summary>
+        internal static string marketInfo {
+            get {
+                return ResourceManager.GetString("marketInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Market watch.
         /// </summary>
         internal static string marketWatch {
@@ -1614,6 +1641,15 @@ namespace Languages.langs {
         internal static string ownedList {
             get {
                 return ResourceManager.GetString("ownedList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Owned Qty.
+        /// </summary>
+        internal static string ownedQty {
+            get {
+                return ResourceManager.GetString("ownedQty", resourceCulture);
             }
         }
         
@@ -2298,6 +2334,15 @@ namespace Languages.langs {
         internal static string transactionType {
             get {
                 return ResourceManager.GetString("transactionType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Transaction Fee.
+        /// </summary>
+        internal static string transFeePerc {
+            get {
+                return ResourceManager.GetString("transFeePerc", resourceCulture);
             }
         }
         

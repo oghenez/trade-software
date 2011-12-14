@@ -83,7 +83,7 @@ namespace imports.forms
                         libs.ImportPricedata_CSV(dataFileNameEd.Text.Trim(),cbDateTimeFormat.myValue, stockExchangeCb.myValue,
                                                                    "en-US", myDataSet.priceData, onGotData, null, null);
                         application.DbAccess.UpdateData(myDataSet.priceData);
-                        libs.AggregatePriceData(myDataSet.priceData, "vi-VN", true, onAggregateData);
+                        libs.AggregatePriceData(myDataSet.priceData, "vi-VN",onAggregateData);
                         break;
                     case 1:
                         // Number is in US format
@@ -104,7 +104,7 @@ namespace imports.forms
                             this.ShowMessage("Arregate stock : " + myDataSet.stockCode[idx].code);
                             myDataSet.priceData.Clear();
                             application.DbAccess.LoadData(myDataSet.priceData, myDataSet.stockCode[idx].code);
-                            libs.AggregatePriceData(myDataSet.priceData, "vi-VN", true, null);
+                            libs.AggregatePriceData(myDataSet.priceData, "vi-VN", null);
                             this.ShowMessage("");
                         }
                         break;

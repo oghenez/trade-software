@@ -23,6 +23,12 @@ namespace Trade.Forms
                 this.ShowError(er);
             }
         }
+
+        public ContextMenuStrip myContextMenuStrip
+        {
+            get { return stockCodeList.myContextMenuStrip; }
+            set { this.stockCodeList.myContextMenuStrip = value; }
+        }
         public override void SetLanguage()
         {
             base.SetLanguage();

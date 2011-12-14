@@ -143,6 +143,12 @@ namespace baseClass.controls
             }
         }
 
+        public ContextMenuStrip myContextMenuStrip
+        {
+            get { return stockGV.ContextMenuStrip; }
+            set { stockGV.ContextMenuStrip  = value; }
+        }
+
         public enum gridColumnName
         {
             StockCode, StockExCode, StockName, Price, PriceVariant
@@ -246,7 +252,7 @@ namespace baseClass.controls
 
         private static void RefreshPriceData(data.tmpDS.stockCodeDataTable dataTbl)
         {
-            data.baseDS.priceDataDataTable priceTbl = DataAccess.Libs.GetLastPrice(AppTypes.MainDataTimeScale.Code);
+            data.baseDS.priceDataDataTable priceTbl = DataAccess.Libs.GetLastPrice();
             data.tmpDS.stockCodeRow stockCodeRow;
             dataTbl.priceColumn.ReadOnly = false;
             dataTbl.priceVariantColumn.ReadOnly = false;

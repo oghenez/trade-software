@@ -37,7 +37,7 @@
             this.waitingPB.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.waitingPB.Image = global::client.Properties.Resources.waiting_bar;
             this.waitingPB.Location = new System.Drawing.Point(0, 347);
-            this.waitingPB.Size = new System.Drawing.Size(402, 19);
+            this.waitingPB.Size = new System.Drawing.Size(398, 19);
             // 
             // waitingLbl
             // 
@@ -66,7 +66,7 @@
             this.BackColor = System.Drawing.SystemColors.Window;
             this.BackgroundImage = global::client.Properties.Resources.trading2;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(402, 366);
+            this.ClientSize = new System.Drawing.Size(398, 366);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "startSplash";

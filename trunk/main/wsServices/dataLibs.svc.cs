@@ -99,6 +99,8 @@ namespace wsServices
             }
             return cacheName;
         }
+
+        
         public data.baseDS.priceDataDataTable GetAnalysis_Data_ByKey(string dataKey,out int firstData)
         {
             firstData = 0;
@@ -109,7 +111,7 @@ namespace wsServices
         }
         public data.baseDS.priceDataDataTable GetAnalysis_Data(AppTypes.TimeRanges timeRange,string timeScaleCode, string stockCode, out int firstData)
         {
-            string dataKey = LoadAnalysisData(timeRange, timeScaleCode, stockCode, false);
+            string dataKey = LoadAnalysisData(timeRange, timeScaleCode, stockCode, true);
             return GetAnalysis_Data_ByKey(dataKey, out firstData); 
         }
 
@@ -368,10 +370,9 @@ namespace wsServices
             return tbl;
         }
 
-        public data.baseDS.priceDataDataTable GetLastPrice(string timeScaleCode )
+        public data.baseDS.priceDataDataTable GetLastPrice( )
         {
-            DateTime onTime = DbAccess.GetLastPriceDate(timeScaleCode);
-            return DbAccess.GetPrice(onTime, timeScaleCode);
+            return DbAccess.GetLastPrice();
         }
 
         public data.baseDS.priceDataDataTable GetData_ByTimeScale_Code_FrDate(string timeScaleCode,string stockCode,DateTime fromDate)

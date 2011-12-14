@@ -90,6 +90,7 @@
             this.NewChartMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.closeChartMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
+            this.configMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.printSetupMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.printPreViewMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.printMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -177,7 +178,6 @@
             this.strategyStrip = new System.Windows.Forms.ToolStrip();
             this.strategyCbStrip = new baseClass.controls.ToolStripCbStrategy();
             this.sysTimer = new System.Windows.Forms.Timer(this.components);
-            this.configMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.chartStrip.SuspendLayout();
             this.standartStrip.SuspendLayout();
             this.toolsStrip.SuspendLayout();
@@ -674,6 +674,14 @@
             // 
             this.toolStripSeparator7.Name = "toolStripSeparator7";
             this.toolStripSeparator7.Size = new System.Drawing.Size(166, 6);
+            // 
+            // configMenuItem
+            // 
+            this.configMenuItem.Name = "configMenuItem";
+            this.configMenuItem.Size = new System.Drawing.Size(169, 22);
+            this.configMenuItem.Tag = " ";
+            this.configMenuItem.Text = "Configure";
+            this.configMenuItem.Click += new System.EventHandler(this.configMenuItem_Click);
             // 
             // printSetupMenuItem
             // 
@@ -1331,27 +1339,21 @@
             this.strategyCbStrip});
             this.strategyStrip.Location = new System.Drawing.Point(727, 24);
             this.strategyStrip.Name = "strategyStrip";
-            this.strategyStrip.Size = new System.Drawing.Size(312, 25);
+            this.strategyStrip.Size = new System.Drawing.Size(345, 25);
             this.strategyStrip.TabIndex = 149;
             // 
             // strategyCbStrip
             // 
             this.strategyCbStrip.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.strategyCbStrip.myValue = "";
             this.strategyCbStrip.Name = "strategyCbStrip";
+            this.strategyCbStrip.SelectedValue = "";
             this.strategyCbStrip.Size = new System.Drawing.Size(300, 25);
             // 
             // sysTimer
             // 
             this.sysTimer.Interval = 2000;
             this.sysTimer.Tick += new System.EventHandler(this.sysTimer_Tick);
-            // 
-            // configMenuItem
-            // 
-            this.configMenuItem.Name = "configMenuItem";
-            this.configMenuItem.Size = new System.Drawing.Size(169, 22);
-            this.configMenuItem.Tag = " ";
-            this.configMenuItem.Text = "Configure";
-            this.configMenuItem.Click += new System.EventHandler(this.configMenuItem_Click);
             // 
             // main
             // 

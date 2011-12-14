@@ -62,8 +62,8 @@
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.exportMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mainContainer = new common.controls.baseContainer();
-            this.chartPnl = new Charts.Controls.baseGraphPanel();
             this.dataPnl = new common.controls.basePanel();
+            this.chartPnl = new Charts.Controls.baseGraphPanel();
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tradeEstimateSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.myTmpDS)).BeginInit();
@@ -319,28 +319,14 @@
             // mainContainer
             // 
             this.mainContainer.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.mainContainer.Controls.Add(this.dataPnl);
             this.mainContainer.Controls.Add(this.chartPnl);
+            this.mainContainer.Controls.Add(this.dataPnl);
             this.mainContainer.Location = new System.Drawing.Point(2, 52);
             this.mainContainer.myArrangeOptions = common.controls.childArrangeOptions.Casscade;
             this.mainContainer.myPaneDimensionSpecs = null;
             this.mainContainer.Name = "mainContainer";
             this.mainContainer.Size = new System.Drawing.Size(1025, 448);
             this.mainContainer.TabIndex = 300;
-            // 
-            // chartPnl
-            // 
-            this.chartPnl.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.chartPnl.haveCloseButton = true;
-            this.chartPnl.isExpanded = true;
-            this.chartPnl.Location = new System.Drawing.Point(640, 0);
-            this.chartPnl.myIconLocations = common.controls.basePanel.IconLocations.None;
-            this.chartPnl.mySizingOptions = common.controls.basePanel.SizingOptions.Left;
-            this.chartPnl.myWeight = 70;
-            this.chartPnl.Name = "chartPnl";
-            this.chartPnl.Size = new System.Drawing.Size(366, 446);
-            this.chartPnl.TabIndex = 298;
-            this.chartPnl.myOnClosing += new common.controls.basePanel.OnClosing(this.chartPnl_myOnClosing);
             // 
             // dataPnl
             // 
@@ -355,6 +341,20 @@
             this.dataPnl.Name = "dataPnl";
             this.dataPnl.Size = new System.Drawing.Size(611, 300);
             this.dataPnl.TabIndex = 0;
+            // 
+            // chartPnl
+            // 
+            this.chartPnl.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.chartPnl.haveCloseButton = true;
+            this.chartPnl.isExpanded = true;
+            this.chartPnl.Location = new System.Drawing.Point(640, 0);
+            this.chartPnl.myIconLocations = common.controls.basePanel.IconLocations.None;
+            this.chartPnl.mySizingOptions = common.controls.basePanel.SizingOptions.Left;
+            this.chartPnl.myWeight = 70;
+            this.chartPnl.Name = "chartPnl";
+            this.chartPnl.Size = new System.Drawing.Size(366, 446);
+            this.chartPnl.TabIndex = 298;
+            this.chartPnl.myOnClosing += new common.controls.basePanel.OnClosing(this.chartPnl_myOnClosing);
             // 
             // profitEstimate
             // 

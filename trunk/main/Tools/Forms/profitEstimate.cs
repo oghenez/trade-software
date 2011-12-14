@@ -86,6 +86,7 @@ namespace Tools.Forms
         public EstimateOptions myOptions = new EstimateOptions();
         public void SetData(data.tmpDS.tradeEstimateDataTable dataTbl)
         {
+            tradeEstimateSource.Sort = dataTbl.onDateColumn.ColumnName + " DESC"; 
             tradeEstimateSource.DataSource = dataTbl;
             DoFilter();
         }
@@ -123,6 +124,8 @@ namespace Tools.Forms
 
         public void PlotProfitChart()
         {
+            string saveSort = tradeEstimateSource.Sort;
+            tradeEstimateSource.Sort = "";
             data.tmpDS.tradeEstimateDataTable tbl = tradeEstimateSource.DataSource as data.tmpDS.tradeEstimateDataTable;
             chartPnl.ResetGraph();
             chartPnl.RemoveAllCurves();
@@ -147,7 +150,7 @@ namespace Tools.Forms
                 chartPnl.myGraphObj.DefaultViewport();
                 chartPnl.PlotGraph();
             }
-
+            tradeEstimateSource.Sort = saveSort;
         }
         private void DoFilter()
         {

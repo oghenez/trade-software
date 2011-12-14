@@ -118,6 +118,7 @@
     <Compile Include="Forms\tradeAlertList.designer.cs">
       <DependentUpon>tradeAlertList.cs</DependentUpon>
     </Compile>
+    <Compile Include="libs\tradeAlertLibs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Forms\alertFilter.resx">
       <DependentUpon>alertFilter.cs</DependentUpon>
@@ -250,9 +251,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\addNew.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="libs\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

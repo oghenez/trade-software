@@ -15,8 +15,10 @@ namespace admin
         {
             try
             {
+                common.language.myCulture = new System.Globalization.CultureInfo("vi-VN");
                 commonClass.SysLibs.myAccessMode = commonClass.DataAccessMode.WebService;
                 InitializeComponent();
+                //object obj = Strategy.Data.sysXmlDocument;
                 //test.LoadTestConfig();
             }
             catch (Exception er)
@@ -187,33 +189,6 @@ namespace admin
             }
         }
 
-        private void myMainTimer_Tick(object sender, EventArgs e)
-        {
-            try
-            {
-                //Show Trade alerts ??
-                //if (this.tradeAlertStripItem.isTurnOn)
-                //{
-                //    this.tradeAlertElapseInSecs += this.timerIntervalInSecs;
-                //    if (this.tradeAlertElapseInSecs >= this.tradeAlertIntervalInSecs)
-                //    {
-                //        myTradeAlertForm.LoadData();
-                //        if (myTradeAlertForm.myReccount > 0)
-                //        {
-                //            ShowTradeAlertBaloon("Trade alert", "New trade alerts available." + common.Consts.constCRLF + "Please click on the message icon to open.");
-                //            this.myStatusImageVisibled = true;
-                //        }
-                //        else this.myStatusImageVisibled = false;
-                //        this.tradeAlertElapseInSecs = 0;
-                //    }
-                //}
-            }
-            catch (Exception er)
-            {
-                this.ShowError(er);
-            }
-        }
-
         private void sysWatchListMenuItem_Click(object sender, EventArgs e)
         {
             try
@@ -245,6 +220,19 @@ namespace admin
             try
             {
                 baseClass.forms.configure form = new baseClass.forms.configure();
+                form.ShowDialog();
+            }
+            catch (Exception er)
+            {
+                this.ShowError(er);
+            }
+        }
+
+        private void reUpdatePriceMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                imports.forms.reUpdatePrice form = new imports.forms.reUpdatePrice();
                 form.ShowDialog();
             }
             catch (Exception er)

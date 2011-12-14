@@ -12,6 +12,7 @@ namespace test
         static decimal open = 17, low = 16, high = 18, close = 17, volume = 1000;
         static data.baseDS.priceDataDataTable priceDataTbl = new data.baseDS.priceDataDataTable();
         static data.importDS.importPriceDataTable importPriceTbl = new data.importDS.importPriceDataTable();
+        static data.importDS.importPriceDataTable lastImportPriceTbl = new data.importDS.importPriceDataTable();
         public static void GenPriceData(string stockCode)
         {
             priceDataTbl.Clear();
@@ -47,11 +48,11 @@ namespace test
 
             importPriceTbl.AddimportPriceRow(importRow);
 
-            imports.libs.AddImportPrice(importPriceTbl, priceDataTbl);
+            imports.libs.AddImportPrice(importPriceTbl,lastImportPriceTbl, priceDataTbl);
             application.DbAccess.UpdateData(priceDataTbl);
 
             // In VN culture : start of week is Monday (not Sunday) 
-            imports.libs.AggregatePriceData(priceDataTbl, "vi-VN", false, null);
+            imports.libs.AggregatePriceData(priceDataTbl, "vi-VN", null);
         }
     }
     
