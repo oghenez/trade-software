@@ -10,26 +10,23 @@ namespace test
 {
     public partial class Form2 : Form
     {
-        application.AnalysisData myData = new application.AnalysisData();
         public Form2()
         {
             InitializeComponent();
-            data.SysLibs.dbConnectionString = "Data Source=(local);Initial Catalog=stock;Integrated Security=True";
-            myData.DataStockCode = "SSI";
-            myData.DataTimeRange = commonClass.AppTypes.TimeRanges.All;
-        }
-
-        private void Reload()
-        {
         }
 
         private void reload_Click(object sender, EventArgs e)
         {
-            //using (new PleaseWait(this.Location, new common.forms.baseSlashForm()))
-            using (new common.PleaseWait(this.Location))
-            {
-                System.Threading.Thread.Sleep(500);
-            }
+            string tmp = "0.02",tmp1;
+            decimal d = 0;
+
+            common.language.myCulture = new System.Globalization.CultureInfo("vi-VN");
+            decimal.TryParse(tmp, out d); 
+            tmp1 = d.ToString();
+
+            common.language.myCulture = new System.Globalization.CultureInfo("en-US");
+            decimal.TryParse(tmp, out d);
+            tmp1 = d.ToString();
         }
     }
 }

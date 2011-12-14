@@ -60,7 +60,6 @@
             this.Controls.SetChildIndex(this.stockCodeList, 0);
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
 
         #endregion

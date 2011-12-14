@@ -35,7 +35,7 @@ namespace server
             try
             {
                 InitializeComponent();
-                if (!Init()) commonClass.system.ExitApplication();
+                if (!Init()) commonClass.SysLibs.ExitApplication();
                 LoadConfig();
                 myTimer.Interval = timerIntervalInSecs * 1000;
             }
@@ -57,15 +57,15 @@ namespace server
             //common.settings.sysConfigFile = configFile;
             common.configuration.withEncryption = true;
 
-            data.configuration.Load_User_Envir();
+            application.Configuration.Load_User_Envir();
             //Check data connection after db-setting were loaded
-            if (!data.system.CheckAllDbConnection())
+            if (!data.SysLibs.CheckAllDbConnection())
             {
                 common.system.ShowMessage("Không thể kết nối đến nguồn dữ liệu.Xin vui lòng chạy lại chương trình [Setup].");
                 return false;
             }
-            data.configuration.Load_Global_Settings();
-            data.configuration.Load_Local_Settings();
+            DataAccess.Libs.Load_Global_Settings();
+            application.Configuration.Load_Local_Settings();
             return true;
         }
         protected override bool LoadAppConfig()
@@ -82,7 +82,7 @@ namespace server
             StringCollection aFields = new StringCollection();
             aFields.Add(this.Name + ".fetchStockInterval");
             aFields.Add(this.Name + ".tradeAlertInterval");
-            data.configuration.GetConfig(ref aFields);
+            application.Configuration.GetConfig(ref aFields);
             int val = 0;
             int.TryParse(aFields[0], out val);
             if (val != int.MaxValue)
@@ -113,7 +113,7 @@ namespace server
             val = (int)(tradeAlertChk.Checked ? tradeAlertEd.Value : int.MaxValue);
             aValues.Add(val.ToString());
 
-            data.configuration.SaveConfig(aFields, aValues);
+            application.Configuration.SaveConfig(aFields, aValues);
         }
 
         private void onTradeAlertProcessStart(int count)
@@ -215,7 +215,7 @@ namespace server
                         else
                         {
                             common.fileFuncs.WriteLog(DateTime.Now.ToString() + " : Trade alert start");
-                            TradeAlertLibs.CreateTradeAlert(onTradeAlertProcessStart, onTradeAlertProcessItem, onTradeAlertProcessEnd);
+                            Trade.AlertLibs.CreateTradeAlert(onTradeAlertProcessStart, onTradeAlertProcessItem, onTradeAlertProcessEnd);
                         }
                         alertElapseInSeconds = 0;
                         fProcessingTraderAlert = false;

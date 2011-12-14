@@ -966,6 +966,33 @@ namespace Strategy
     public class Data
     {
         public const string constAssemplyNamePattern = "*strategy.dll";
+
+        //Cache to boost performance
+        private static common.DictionaryList dataCache = new common.DictionaryList();
+        public static object FindInCache(string key)
+        {
+            return dataCache.Find(key);
+        }
+        public static void AddToCache(string key, object obj)
+        {
+            dataCache.Add(key, obj);
+        }
+
+        public static void Clear()
+        {
+            ClearCache();
+            _sysXmlDocument = null;
+            _metaList = null;
+            _myStrategyCatList = null;
+        }
+
+        /// <summary>
+        /// Clear cache that keep caculated data to speed up performance.
+        /// </summary>
+        public static void ClearCache()
+        {
+            dataCache.Clear();
+        }
         private static XmlDocument _sysXmlDocument = null;
         public static XmlDocument sysXmlDocument
         {
@@ -1047,42 +1074,6 @@ namespace Strategy
             {
                 this.Add(new TradePointInfo(action, idx));
             }
-        }
-
-        //public static string sysMetaFullFileName
-        //{
-        //    get
-        //    {
-        //        string path = common.fileFuncs.ConcatFileName(Data.sysDirectory, common.language.myCulture.Name);
-        //        return common.fileFuncs.ConcatFileName(path, constMetaFileName);
-        //    }
-        //}
-
-        //Cache to boost performance
-        private static common.DictionaryList dataCache = new common.DictionaryList();
-        public static object FindInCache(string key)
-        {
-            return dataCache.Find(key);
-        }
-        public static void AddToCache(string key, object obj)
-        {
-            dataCache.Add(key,obj);
-        }
-
-        /// <summary>
-        /// Clear cache that keep caculated data to speed up performance.
-        /// </summary>
-        public static void ClearCache()
-        {
-            dataCache.Clear();
-        }
-
-        public static void Clear()
-        {
-            ClearCache();
-            _sysXmlDocument = null;
-            _metaList = null;
-            _myStrategyCatList = null;
         }
     }
 

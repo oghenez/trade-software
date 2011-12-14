@@ -13,6 +13,7 @@ namespace client.forms
         public startSplash()
         {
             InitializeComponent();
+            //this.Size = new Size(0, 0);
         }
     }
 }

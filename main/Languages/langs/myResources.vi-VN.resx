@@ -957,4 +957,19 @@
   <data name="waitDataLoading" xml:space="preserve">
     <value>Xin vui lòng chờ đợi  !</value>
   </data>
+  <data name="disableAlert" xml:space="preserve">
+    <value>Bỏ qua</value>
+  </data>
+  <data name="enableAlert" xml:space="preserve">
+    <value>Giữ lại</value>
+  </data>
+  <data name="marketInfo" xml:space="preserve">
+    <value>Thông tin</value>
+  </data>
+  <data name="ownedQty" xml:space="preserve">
+    <value>K/L Sở hữu</value>
+  </data>
+  <data name="transFeePerc" xml:space="preserve">
+    <value>Phí giao dịch</value>
+  </data>
 </root>

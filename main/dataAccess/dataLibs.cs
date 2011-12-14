@@ -80,6 +80,7 @@ namespace DataAccess
             //For testing
             //_myClient.Endpoint.Address = new System.ServiceModel.EndpointAddress("http://localhost:8731/wsServices/DataLibs/?wsdl");
             //_myClient.Endpoint.Address = new System.ServiceModel.EndpointAddress("http://localhost/DataLibs.svc");
+            //_myClient.Endpoint.Address = new System.ServiceModel.EndpointAddress("http://localhost:8731/wsServices/DataLibs"); 
             //_myClient.ClientCredentials.Windows.ClientCredential.UserName = "";
             //_myClient.ClientCredentials.Windows.ClientCredential.Password = "";
             _myClient.Open();
@@ -129,6 +130,11 @@ namespace DataAccess
         public static object GetCache(string cacheKey)
         {
             return cacheData.Find(cacheKey);
+        }
+        public static void ClearCache(string cacheKey)
+        {
+            cacheData.Remove(cacheKey);
+
         }
         public static void ClearCache()
         {
@@ -490,9 +496,9 @@ namespace DataAccess
         public static void GetConfig(ref StringCollection aFields){}
         public static void SaveConfig(StringCollection aFields, StringCollection aValues){}
 
-        public static data.baseDS.priceDataDataTable GetLastPrice(string timeScaleCode)
+        public static data.baseDS.priceDataDataTable GetLastPrice()
         {
-            return myClient.GetLastPrice(timeScaleCode);
+            return myClient.GetLastPrice();
         }
         public static DateTime GetLastAlertTime(string investorCode)
         {
@@ -670,11 +676,15 @@ namespace DataAccess
                     dataObj.DataTimeScale.Code;
         }
 
+        public static void ClearAnalysisDataCache(commonClass.BaseAnalysisData dataObj)
+        {
+            cacheData.Remove(MakeAnalysisDataCacheKey(dataObj));
+        }
         public static bool LoadAnalysisData(commonClass.BaseAnalysisData dataObj)
         {
+            AnalysisDataCache data;
             string cacheKey = MakeAnalysisDataCacheKey(dataObj);
             object obj = GetCache(cacheKey);
-            AnalysisDataCache data;
             if (obj != null)
             {
                 data = (AnalysisDataCache)obj;

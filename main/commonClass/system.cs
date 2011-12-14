@@ -302,12 +302,6 @@ namespace commonClass
             row.closeTimeOffset = short.MinValue;
             row.isUpdate = false;
         }
-        public static void InitData(data.baseDS.updateVolumeRow row)
-        {
-            row.stockCode = "";
-            row.onDate = DateTime.Today;
-            row.volume = 0;
-        }
 
         public static void InitData(data.baseDS.tradeAlertRow row)
         {

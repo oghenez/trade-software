@@ -46,6 +46,7 @@ namespace test
         }
         private void LoadData()
         {
+            DataAccess.Libs.ClearAnalysisDataCache(myData);
             myData.LoadData();
 
             pricePane.myGraphObj.myOnViewportChanged += new Charts.Controls.myGraphControl.OnViewportChanged(this.Chart_OnViewportChanged);
@@ -243,6 +244,23 @@ namespace test
         }
 
 
+        protected void PlotTradepoints()
+        {
+            pricePane.myGraphObj.myGraphPane.GraphObjList.Clear();
+            CurveItem curveItem = candleCurve;
+            TextObj obj = new TextObj();
+            obj.FontSpec.Size = 14;
+            obj.FontSpec.Border.IsVisible = true;
+            obj.FontSpec.Fill.IsVisible = true;
+            obj.Location.X = curveItem.Points.Count;
+            obj.Location.Y = curveItem.Points[curveItem.Points.Count - 1].Y;
+            obj.Location.CoordinateFrame = CoordType.AxisXYScale;
+            obj.Text = "O";
+            pricePane.myGraphObj.myGraphPane.GraphObjList.Add(obj);
+            pricePane.myGraphObj.UpdateChart();
+        }
+
+
         private void resetBtn_Click(object sender, EventArgs e)
         {
             pricePane.myGraphObj.DefaultViewport();
@@ -313,6 +331,8 @@ namespace test
             myData.DataTimeScale = cbTimeScale.myValue; 
             myData.DataStockCode = codeEd.Text.Trim();
             LoadData();
+            PlotTradepoints();
+
             this.Text = "";
             this.ShowMessage("");
         }

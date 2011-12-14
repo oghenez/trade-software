@@ -90,18 +90,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConfigurationStrings.cs" />
-    <Compile Include="CustomTextMessageEncoder.cs" />
-    <Compile Include="CustomTextMessageEncoderFactory.cs" />
-    <Compile Include="CustomTextMessageEncodingBindingElement.cs" />
-    <Compile Include="CustomTextMessageEncodingBindingSection.cs" />
     <Compile Include="IDataLibs.svc.cs" />
-    <Compile Include="MessageVersionConverter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DataLibs.svc.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="Copy %282%29 of App.config" />
     <None Include="Copy of App.config" />
   </ItemGroup>
   <ItemGroup>

@@ -148,6 +148,21 @@ namespace client
             strategyCbStrip.Items.Clear();
             strategyCbStrip.LoadData();
         }
+        protected override bool ShowLogin()
+        {
+            if (!base.ShowLogin()) return false;
+            CloseAllChildrenForms();
+            for(int idx=0;idx<cachedForms.Values.Length;idx++)  
+            {
+                Form form = (cachedForms.Values[idx] as Form);
+                if (form == null || form.IsDisposed) continue;
+                form.Close();
+            }
+            cachedForms.Clear();
+            common.Data.Clear();
+            StartupForms();
+            return true;
+        }
 
         private common.DictionaryList cachedForms = new common.DictionaryList();  // To cache used forms 
 
@@ -226,7 +241,7 @@ namespace client
             strategyCbStrip.SelectedIndexChanged += new EventHandler(PlotTradepointHandler);
 
             this.ChartType = AppTypes.ChartTypes.CandleStick;
-            this.ChartTimeScale = AppTypes.MainDataTimeScale;
+            this.ChartTimeScale = AppTypes.TimeScaleFromCode(commonClass.Settings.sysDefaultTimeScaleCode);
 
             //dockPanel
             dockPanel.Parent = this;     
@@ -236,6 +251,18 @@ namespace client
             
             //Language default
             SetCulture();
+        }
+
+        private void StartupForms()
+        {
+            ShowMarketWatchForm();
+        }
+        private void CloseAllChildrenForms()
+        {
+            foreach (Form childForm in this.MdiChildren)
+            {
+                childForm.Close();
+            }
         }
 
         private void CreatePeriodicityStrip(ToolStrip toStrip,ToolStripMenuItem toMenu)
@@ -288,13 +315,13 @@ namespace client
                 {
                     if (periodicityStrip.Items[idx].GetType() != typeof(ToolStripButton)) continue;
                     ToolStripButton btn = (ToolStripButton)periodicityStrip.Items[idx];
-                    btn.Checked = ((AppTypes.TimeScale)btn.Tag == value);
+                    btn.Checked = ((AppTypes.TimeScale)btn.Tag).Code == value.Code;
                 }
                 for (int idx = 0; idx < periodicityMenuItem.DropDownItems.Count; idx++)
                 {
                     if (periodicityMenuItem.DropDownItems[idx].GetType() != typeof(ToolStripMenuItem)) continue;
                     ToolStripMenuItem item = (ToolStripMenuItem)periodicityMenuItem.DropDownItems[idx];
-                    item.Checked =  ((AppTypes.TimeScale)item.Tag == value);
+                    item.Checked =  ((AppTypes.TimeScale)item.Tag).Code == value.Code;
                 }
             }
         }
@@ -489,7 +516,17 @@ namespace client
         }
         private void ShowMarketWatchForm()
         {
-            GetMarketWatchForm(true).Show(dockPanel, DockState.DockLeft);
+            Trade.Forms.marketWatch form = GetMarketWatchForm(true);
+            ContextMenuStrip contextMenuStrip = new ContextMenuStrip();
+            ToolStripItem menuItem;
+            menuItem = contextMenuStrip.Items.Add(NewChartMenuItem.Text);
+            menuItem.Click += new System.EventHandler(NewChartMenuItem_Click);
+
+            //menuItem = contextMenuStrip.Items.Add(addToWatchListMenuItem.Text);
+            //menuItem.Click += new System.EventHandler(addToWatchListMenuItem_Click);
+
+            form.myContextMenuStrip = contextMenuStrip;
+            form.Show(dockPanel, DockState.DockLeft);
         }
         private void ShowPortfolioWatchtForm()
         {
@@ -821,9 +858,13 @@ namespace client
 
         private void closeAllMenuItem_Click(object sender, EventArgs e)
         {
-            foreach (Form childForm in this.MdiChildren)
+            try
             {
-                childForm.Close();
+                CloseAllChildrenForms();
+            }
+            catch (Exception er)
+            {
+                this.ShowError(er);
             }
         }
 
@@ -888,13 +929,12 @@ namespace client
                 this.ShowError(er);
             }
         }
-
-
+       
         private void loginMenuItem_Click(object sender, EventArgs e)
         {
             try
             {
-                this.ShowLogin(); 
+                this.ShowLogin();
             }
             catch (Exception er)
             {
@@ -1046,8 +1086,7 @@ namespace client
         {
             try
             {
-                //Start forms
-                marketWatchBtn_Click(this, null);
+                StartupForms();
             }
             catch (Exception er)
             {

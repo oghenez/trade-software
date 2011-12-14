@@ -153,7 +153,7 @@ namespace wsServices
         data.baseDS.investorStockDataTable GetOwnedStock(string portfolioCode);
 
         [OperationContract]
-        data.baseDS.priceDataDataTable GetLastPrice(string timeScaleCode);
+        data.baseDS.priceDataDataTable GetLastPrice();
         [OperationContract]
         DateTime GetLastAlertTime(string investorCode);
 

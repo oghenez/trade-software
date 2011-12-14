@@ -43,7 +43,9 @@
     </Reference>
     <Reference Include="commonClass, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="data, Version=2.1.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="DataAccess, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="imports, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="Languages, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="strategy, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core">
@@ -60,7 +62,7 @@
     <Reference Include="WeifenLuo.WinFormsUI.Docking, Version=2.5.0.18386, Culture=neutral, processorArchitecture=MSIL" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="libs.cs">
+    <Compile Include="libs\libs.cs">
     </Compile>
     <Compile Include="schedule.cs">
       <SubType>Form</SubType>
@@ -93,7 +95,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="tradeAlertLibs.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\run.png" />

@@ -37,6 +37,23 @@
               resource lookups using this strongly typed resource class.
             </summary>
         </member>
+        <member name="F:imports.forms.reUpdatePrice.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:imports.forms.reUpdatePrice.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:imports.forms.reUpdatePrice.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
         <member name="M:imports.libs.ImportPricedata_URL(System.DateTime,System.String,imports.libs.importPriceMeta,System.String,data.importDS.importPriceDataTable)">
             <summary>
             Import data from URL to tables : importPrice 
@@ -57,7 +74,7 @@
             <returns></returns>
         </member>
         <!-- Badly formed XML comment ignored for member "M:imports.libs.AggregatePriceData(data.baseDS.priceDataRow,System.Decimal,commonClass.AppTypes.TimeScale,System.Globalization.CultureInfo,data.baseDS.priceDataSumDataTable)" -->
-        <member name="M:imports.libs.AggregatePriceData(data.baseDS.priceDataDataTable,System.String,System.Boolean,imports.libs.onAggregateData)">
+        <member name="M:imports.libs.AggregatePriceData(data.baseDS.priceDataDataTable,System.String,imports.libs.onAggregateData)">
             <summary>
             Agrregate a data table to hourly,daily data...
             </summary>
