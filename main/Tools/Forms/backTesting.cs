@@ -450,7 +450,7 @@ namespace Tools.Forms
 
         private void AddStockToWatchList(StringCollection stockCodes)
         {
-            addToWatchList_StockOnly myForm = addToWatchList_StockOnly.GetForm("");
+            baseClass.Forms.addToWatchList_StockOnly myForm = baseClass.Forms.addToWatchList_StockOnly.GetForm("");
             myForm.ShowForm(stockCodes);
         }
 

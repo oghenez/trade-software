@@ -88,7 +88,7 @@
             this.displayNameColumn,
             this.addressColumn});
             this.dataGrid.DataSource = this.investorSource;
-            this.dataGrid.DisableReadOnlyColumn = true;
+            this.dataGrid.DisableReadOnlyColumn = false;
             this.dataGrid.Location = new System.Drawing.Point(0, 154);
             this.dataGrid.Name = "dataGrid";
             this.dataGrid.ReadOnly = true;

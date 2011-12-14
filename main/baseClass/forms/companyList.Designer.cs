@@ -55,6 +55,10 @@
             this.xpPanel_OtherInfo.ImageItems.ImageSet = null;
             this.xpPanel_OtherInfo.Size = new System.Drawing.Size(483, 174);
             // 
+            // companyOtherInfo
+            // 
+            this.companyOtherInfo.Size = new System.Drawing.Size(437, 155);
+            // 
             // xpPanel_StockInfo
             // 
             this.xpPanel_StockInfo.ImageItems.ImageSet = null;
@@ -195,7 +199,7 @@
             this.dataGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGrid.DisableReadOnlyColumn = true;
+            this.dataGrid.DisableReadOnlyColumn = false;
             this.dataGrid.Location = new System.Drawing.Point(502, -1);
             this.dataGrid.Name = "dataGrid";
             this.dataGrid.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -213,10 +217,10 @@
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "companyList";
             this.Resize += new System.EventHandler(this.companyList_Resize);
-            this.Controls.SetChildIndex(this.dataGrid, 0);
-            this.Controls.SetChildIndex(this.findPnl, 0);
             this.Controls.SetChildIndex(this.unLockBtn, 0);
             this.Controls.SetChildIndex(this.lockBtn, 0);
+            this.Controls.SetChildIndex(this.dataGrid, 0);
+            this.Controls.SetChildIndex(this.findPnl, 0);
             this.Controls.SetChildIndex(this.xpPanelGroup_Info, 0);
             this.Controls.SetChildIndex(this.TitleLbl, 0);
             this.Controls.SetChildIndex(this.toolBox, 0);

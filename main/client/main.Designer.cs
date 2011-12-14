@@ -344,7 +344,7 @@
             this.dataTimeRangeCb});
             this.chartStrip.Location = new System.Drawing.Point(162, 24);
             this.chartStrip.Name = "chartStrip";
-            this.chartStrip.Size = new System.Drawing.Size(300, 25);
+            this.chartStrip.Size = new System.Drawing.Size(333, 25);
             this.chartStrip.TabIndex = 11;
             // 
             // chartPropertiesBtn
@@ -553,7 +553,7 @@
             this.toolRunBtn,
             this.toolFullViewBtn,
             this.exportBtn});
-            this.toolsStrip.Location = new System.Drawing.Point(500, 24);
+            this.toolsStrip.Location = new System.Drawing.Point(533, 24);
             this.toolsStrip.Name = "toolsStrip";
             this.toolsStrip.Size = new System.Drawing.Size(79, 25);
             this.toolsStrip.TabIndex = 2;
@@ -1289,7 +1289,7 @@
             this.formatStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.amountBtn,
             this.percentBtn});
-            this.formatStrip.Location = new System.Drawing.Point(583, 24);
+            this.formatStrip.Location = new System.Drawing.Point(616, 24);
             this.formatStrip.Name = "formatStrip";
             this.formatStrip.Size = new System.Drawing.Size(56, 25);
             this.formatStrip.TabIndex = 148;
@@ -1318,7 +1318,7 @@
             this.periodicityStrip.Dock = System.Windows.Forms.DockStyle.None;
             this.periodicityStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.dummyStripBtn});
-            this.periodicityStrip.Location = new System.Drawing.Point(642, 24);
+            this.periodicityStrip.Location = new System.Drawing.Point(675, 24);
             this.periodicityStrip.Name = "periodicityStrip";
             this.periodicityStrip.Size = new System.Drawing.Size(84, 25);
             this.periodicityStrip.TabIndex = 147;
@@ -1337,9 +1337,9 @@
             this.strategyStrip.Dock = System.Windows.Forms.DockStyle.None;
             this.strategyStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.strategyCbStrip});
-            this.strategyStrip.Location = new System.Drawing.Point(727, 24);
+            this.strategyStrip.Location = new System.Drawing.Point(760, 24);
             this.strategyStrip.Name = "strategyStrip";
-            this.strategyStrip.Size = new System.Drawing.Size(345, 25);
+            this.strategyStrip.Size = new System.Drawing.Size(312, 25);
             this.strategyStrip.TabIndex = 149;
             // 
             // strategyCbStrip

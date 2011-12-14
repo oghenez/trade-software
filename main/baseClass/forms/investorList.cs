@@ -74,7 +74,7 @@ namespace baseClass.forms
             this.dataGrid.DataSource = this.myMasterSource;
             this.dataGrid.Columns.Clear();
             this.dataGrid.Columns.AddRange(new DataGridViewColumn[] { this.codeColumn, this.displayNameColumn });
-            this.dataGrid.DisableReadOnlyColumn = true;
+            this.dataGrid.DisableReadOnlyColumn = false;
             this.dataGrid.ReadOnly = true;
             common.system.AutoFitGridColumn(dataGrid, this.displayNameColumn.Name);
         }

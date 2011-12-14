@@ -68,12 +68,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>tmpDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Forms\addToWatchList_StockOnly.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\addToWatchList_StockOnly.Designer.cs">
-      <DependentUpon>addToWatchList_StockOnly.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\backTesting.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -85,18 +79,6 @@
     </Compile>
     <Compile Include="Forms\baseTesting.Designer.cs">
       <DependentUpon>baseTesting.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\baseAddToWatchList.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\baseAddToWatchList.Designer.cs">
-      <DependentUpon>baseAddToWatchList.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\addToWatchList_StockAndStrategy.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\addToWatchList_StockAndStrategy.Designer.cs">
-      <DependentUpon>addToWatchList_StockAndStrategy.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\strategyRanking.cs">
       <SubType>Form</SubType>
@@ -130,24 +112,12 @@
     </Compile>
     <Compile Include="Libs\lib.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Forms\addToWatchList_StockOnly.resx">
-      <DependentUpon>addToWatchList_StockOnly.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\backTesting.resx">
       <DependentUpon>backTesting.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\baseTesting.resx">
       <DependentUpon>baseTesting.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\baseAddToWatchList.resx">
-      <DependentUpon>baseAddToWatchList.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\addToWatchList_StockAndStrategy.resx">
-      <DependentUpon>addToWatchList_StockAndStrategy.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\strategyRanking.resx">
