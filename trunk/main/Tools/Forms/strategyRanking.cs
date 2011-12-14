@@ -426,7 +426,7 @@ namespace Tools.Forms
         }
         private void AddStockToWatchList(string stockCode,StringCollection strategyCodes,AppTypes.TimeScale timeScale)
         {
-            addToWatchList_StockAndStrategy myForm = addToWatchList_StockAndStrategy.GetForm("");
+            baseClass.Forms.addToWatchList_StockAndStrategy myForm = baseClass.Forms.addToWatchList_StockAndStrategy.GetForm("");
             myForm.ShowForm(stockCode,strategyCodes,timeScale);
         }
 
@@ -455,11 +455,6 @@ namespace Tools.Forms
                     dataTbl.Rows[rowId][colId] = (val * this.Amount2PercentDenominator) / 100;
                 }
             }
-        }
-        private void AddStockToWatchList(StringCollection stockCodes)
-        {
-            addToWatchList_StockOnly myForm = addToWatchList_StockOnly.GetForm("");
-            myForm.ShowForm(stockCodes);
         }
 
         protected override void Amount2Percent()

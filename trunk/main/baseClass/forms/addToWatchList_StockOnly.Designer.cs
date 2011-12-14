@@ -1,4 +1,4 @@
-﻿namespace Tools.Forms
+﻿namespace baseClass.Forms
 {
     partial class addToWatchList_StockOnly
     {

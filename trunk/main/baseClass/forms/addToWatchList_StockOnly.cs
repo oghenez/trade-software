@@ -9,7 +9,7 @@ using System.Windows.Forms;
 using application;
 using commonClass;
 
-namespace Tools.Forms
+namespace baseClass.Forms
 {
     public partial class addToWatchList_StockOnly : baseAddToWatchList
     {

@@ -20,6 +20,7 @@ namespace baseClass.forms
                 dataGrid.DisableReadOnlyColumn = false;
                 this.CloseOnSave = false;
                 ShowFindPanel(false);
+
             }
             catch (Exception er)
             {
@@ -30,6 +31,7 @@ namespace baseClass.forms
         {
             base.LoadData();
             SetDetailGrid();
+            SetLanguage();
         }
         public override void SetLanguage()
         {
@@ -40,6 +42,10 @@ namespace baseClass.forms
 
             codeColumn.HeaderText = Languages.Libs.GetString("code");
             nameColumn.HeaderText = Languages.Libs.GetString("name");
+
+            if (common.language.myCulture.Name == "vi-VN")
+                 this.nameColumn.DataPropertyName = myDataSet.stockCode.nameColumn.ColumnName;
+            else this.nameColumn.DataPropertyName = myDataSet.stockCode.nameEnColumn.ColumnName;
         }
         protected override bool FindData()
         {
@@ -69,7 +75,6 @@ namespace baseClass.forms
             this.dataGrid.DataSource = this.myMasterSource;
             this.dataGrid.Columns.Clear();
             this.dataGrid.Columns.AddRange(new DataGridViewColumn[] { this.codeColumn, this.nameColumn });
-            this.dataGrid.DisableReadOnlyColumn = true;
             this.dataGrid.ReadOnly = true;
             this.dataGrid.ReOrderColumn(new string[] { "codeColumn", "nameColumn" });
             common.system.AutoFitGridColumn(dataGrid, this.nameColumn.Name);

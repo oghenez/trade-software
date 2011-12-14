@@ -183,6 +183,24 @@
     <Compile Include="controls\companyStockInfo.designer.cs">
       <DependentUpon>companyStockInfo.cs</DependentUpon>
     </Compile>
+    <Compile Include="forms\addToWatchList_StockAndStrategy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\addToWatchList_StockAndStrategy.Designer.cs">
+      <DependentUpon>addToWatchList_StockAndStrategy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\addToWatchList_StockOnly.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\addToWatchList_StockOnly.Designer.cs">
+      <DependentUpon>addToWatchList_StockOnly.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\baseAddToWatchList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\baseAddToWatchList.Designer.cs">
+      <DependentUpon>baseAddToWatchList.cs</DependentUpon>
+    </Compile>
     <Compile Include="forms\baseGraphForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -424,6 +442,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="forms\AboutBox.resx">
       <DependentUpon>AboutBox.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\addToWatchList_StockAndStrategy.resx">
+      <DependentUpon>addToWatchList_StockAndStrategy.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\addToWatchList_StockOnly.resx">
+      <DependentUpon>addToWatchList_StockOnly.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\baseAddToWatchList.resx">
+      <DependentUpon>baseAddToWatchList.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\baseApplication.resx">

@@ -458,12 +458,6 @@ namespace Tools.Forms
             if (meta == null) return;
             Strategy.Libs.ShowStrategyForm(meta);
         }
-        private void AddStockToWatchList(StringCollection stockCodes)
-        {
-            addToWatchList_StockOnly myForm = addToWatchList_StockOnly.GetForm("");
-            myForm.ShowForm(stockCodes);
-        }
-
         #region event handler
 
         private void grid_DataError(object sender, DataGridViewDataErrorEventArgs e)
@@ -585,7 +579,7 @@ namespace Tools.Forms
                     if (resultDataGrid.CurrentRow!=null)
                         stockCodes.Add(resultDataGrid.CurrentRow.Cells[0].Value.ToString());
                 }
-                if(stockCodes.Count>0) this.AddStockToWatchList(stockCodes);
+                if(stockCodes.Count>0) baseClass.AppLibs.AddStockToWatchList(stockCodes);
             }
             catch (Exception er)
             {

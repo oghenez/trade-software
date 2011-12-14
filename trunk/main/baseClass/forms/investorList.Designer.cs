@@ -213,7 +213,7 @@
             this.codeColumn,
             this.displayNameColumn});
             this.dataGrid.DataSource = this.investorSource;
-            this.dataGrid.DisableReadOnlyColumn = true;
+            this.dataGrid.DisableReadOnlyColumn = false;
             this.dataGrid.Location = new System.Drawing.Point(531, -1);
             this.dataGrid.Margin = new System.Windows.Forms.Padding(2);
             this.dataGrid.Name = "dataGrid";

@@ -49,6 +49,48 @@ namespace client
                 this.ShowError(er);
             }
         }
+
+        #region CreateContextMenu
+        private ContextMenuStrip CreateContextMenu_MarketWatch()
+        {
+            ContextMenuStrip contextMenuStrip = new ContextMenuStrip();
+            ToolStripItem menuItem;
+            menuItem = contextMenuStrip.Items.Add(NewChartMenuItem.Text);
+            menuItem.Click += new System.EventHandler(NewChartMenuItem_Click);
+
+            contextMenuStrip.Items.Add(new ToolStripSeparator());
+            menuItem = contextMenuStrip.Items.Add(Languages.Libs.GetString("addToWatchList"));
+            menuItem.Click += new System.EventHandler(addToWatchListMenuItem_Click);
+
+            contextMenuStrip.Items.Add(new ToolStripSeparator());
+            menuItem = contextMenuStrip.Items.Add(backTestingMenuItem.Text);
+            menuItem.Click += new System.EventHandler(backTestingMenuItem_Click);
+            menuItem = contextMenuStrip.Items.Add(strategyRankingMenuItem.Text);
+            menuItem.Click += new System.EventHandler(strategyRankingMenuItem_Click);
+            menuItem = contextMenuStrip.Items.Add(screeningMenuItem.Text);
+            menuItem.Click += new System.EventHandler(screeningMenuItem_Click);
+            return contextMenuStrip;
+        }
+        private ContextMenuStrip CreateContextMenu_TradeAnalysis()
+        {
+            ContextMenuStrip contextMenuStrip = new ContextMenuStrip();
+            ToolStripItem menuItem;
+            menuItem = contextMenuStrip.Items.Add(zoomInMenuItem.Text);
+            menuItem.Click += new System.EventHandler(zoomInMenuItem_Click);
+
+            menuItem = contextMenuStrip.Items.Add(zoomOutMenuItem.Text);
+            menuItem.Click += new System.EventHandler(zoomOutMenuItem_Click);
+
+            contextMenuStrip.Items.Add(new ToolStripSeparator());
+            System.Windows.Forms.ToolStripMenuItem indicatorMenuItem = new ToolStripMenuItem();
+            indicatorMenuItem.Text  = Languages.Libs.GetString("indicator");
+            Indicators.Libs.CreateIndicatorMenu(indicatorMenuItem, showIndicatorHandler);
+            contextMenuStrip.Items.Add(indicatorMenuItem);
+
+            return contextMenuStrip;
+        } 
+        #endregion
+
         public override void SetLanguage()
         {
             base.SetLanguage();
@@ -517,17 +559,28 @@ namespace client
         private void ShowMarketWatchForm()
         {
             Trade.Forms.marketWatch form = GetMarketWatchForm(true);
-            ContextMenuStrip contextMenuStrip = new ContextMenuStrip();
-            ToolStripItem menuItem;
-            menuItem = contextMenuStrip.Items.Add(NewChartMenuItem.Text);
-            menuItem.Click += new System.EventHandler(NewChartMenuItem_Click);
-
-            //menuItem = contextMenuStrip.Items.Add(addToWatchListMenuItem.Text);
-            //menuItem.Click += new System.EventHandler(addToWatchListMenuItem_Click);
-
-            form.myContextMenuStrip = contextMenuStrip;
+            form.myContextMenuStrip = CreateContextMenu_MarketWatch();
             form.Show(dockPanel, DockState.DockLeft);
         }
+       
+
+        private void addToWatchListMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Trade.Forms.marketWatch form = GetMarketWatchForm(false);
+                if (form == null) return;
+                if (form.CurrentRow == null) return;
+                StringCollection codes = new StringCollection();
+                codes.Add(form.CurrentRow.code);
+                baseClass.AppLibs.AddStockToWatchList(codes);
+            }
+            catch (Exception er)
+            {
+                this.ShowError(er);
+            }
+        }
+
         private void ShowPortfolioWatchtForm()
         {
             string formName = constFormNameWatchList + "Portfolio";
@@ -566,10 +619,11 @@ namespace client
                 myForm = new Tools.Forms.tradeAnalysis();
                 myForm.Name = formName;
 
+                myForm.myContextMenuStrip = CreateContextMenu_TradeAnalysis();
+
                 myForm.ChartTimeRange = dataTimeRangeCb.myValue;
                 myForm.UseStock(DataAccess.Libs.myStockCodeTbl.FindBycode(stockCode) );  //Get data first
 
-                
                 myForm.ChartPriceType = this.ChartType;
                 myForm.Activated += new System.EventHandler(this.tradeAnalysisActivatedHandler);
                 myForm.myEstimateTradePoints += new Tools.Forms.tradeAnalysis.EstimateTradePointFunc(EstimateTradePointHandler);
