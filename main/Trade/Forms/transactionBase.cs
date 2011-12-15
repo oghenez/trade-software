@@ -44,38 +44,61 @@ namespace Trade.Forms
             statusCb.SetLanguage();
         }
 
-        public void Init()
+        public virtual void Init()
         {
-            transTypeCb.LoadData();
+            transTypeCb.LoadList(new AppTypes.TradeActions[] { AppTypes.TradeActions.Sell, AppTypes.TradeActions.Buy});
             portfolioCb.LoadData(commonClass.SysLibs.sysLoginCode, AppTypes.PortfolioTypes.Portfolio);
             statusCb.LoadData();
 
             //Color
             transCodeEd.BackColor = common.settings.sysColorHiLightBG1; transCodeEd.ForeColor = common.settings.sysColorHiLightBG1;
 
-            codeEd.BackColor = common.settings.sysColorNormalBG; codeEd.ForeColor = common.settings.sysColorNormalFG;
-            transTypeCb.BackColor = common.settings.sysColorNormalBG; transTypeCb.ForeColor = common.settings.sysColorNormalFG;
-            portfolioCb.BackColor = common.settings.sysColorNormalBG; portfolioCb.ForeColor = common.settings.sysColorNormalFG;
-            onTimeEd.BackColor = common.settings.sysColorHiLightBG1; onTimeEd.ForeColor = common.settings.sysColorHiLightFG1;
+            codeEd.BackColor = common.settings.sysColorNormalBG; 
+            codeEd.ForeColor = common.settings.sysColorNormalFG;
 
-            qtyEd.BackColor = common.settings.sysColorNormalBG; qtyEd.ForeColor = common.settings.sysColorNormalFG;
-            priceEd.BackColor = common.settings.sysColorNormalBG; priceEd.ForeColor = common.settings.sysColorNormalFG;
-            subTotalEd.BackColor = common.settings.sysColorHiLightBG2; subTotalEd.ForeColor = common.settings.sysColorHiLightFG2;
-            feePercEd.BackColor = common.settings.sysColorNormalBG; feePercEd.ForeColor = common.settings.sysColorNormalFG;
-            feeAmtEd.BackColor = common.settings.sysColorNormalBG; feeAmtEd.ForeColor = common.settings.sysColorNormalFG;
-            totalAmtEd.BackColor = common.settings.sysColorHiLightBG3; totalAmtEd.ForeColor = common.settings.sysColorHiLightFG3;
+            transTypeCb.BackColor = common.settings.sysColorNormalBG; 
+            transTypeCb.ForeColor = common.settings.sysColorNormalFG;
+
+            portfolioCb.BackColor = common.settings.sysColorNormalBG; 
+            portfolioCb.ForeColor = common.settings.sysColorNormalFG;
+
+            qtyEd.BackColor = common.settings.sysColorNormalBG;
+            qtyEd.ForeColor = common.settings.sysColorNormalFG;
+
+            onTimeEd.BackColor = common.settings.sysColorNormalBG;
+            onTimeEd.ForeColor = common.settings.sysColorNormalFG;
+
+            priceEd.BackColor = common.settings.sysColorNormalBG;
+            priceEd.ForeColor = common.settings.sysColorNormalFG;
+
+            subTotalEd.BackColor = common.settings.sysColorHiLightBG1; 
+            subTotalEd.ForeColor = common.settings.sysColorHiLightFG1;
+
+            feePercEd.BackColor = common.settings.sysColorHiLightBG1;
+            feePercEd.ForeColor = common.settings.sysColorHiLightFG1;
+
+            feeAmtEd.BackColor = common.settings.sysColorHiLightBG1;
+            feeAmtEd.ForeColor = common.settings.sysColorHiLightFG1;
+
+            totalAmtEd.BackColor = common.settings.sysColorHiLightBG2; 
+            totalAmtEd.ForeColor = common.settings.sysColorHiLightFG2;
+        }
+
+        public string myCode
+        {
+            set { codeEd.Text = value; }
         }
 
         /// <summary>
         /// Calculate total,subtotal,fee when qty was changed
         /// </summary>
-        private void CalculatePriceAndFeePercentage()
+        protected void CalculatePriceAndFeePercentage()
         {
             priceEd.Value = (int)((qtyEd.Value == 0 ? 0 : subTotalEd.Value / qtyEd.Value));
             feePercEd.Value = (subTotalEd.Value == 0 ? 0 : (feeAmtEd.Value / subTotalEd.Value) * 100);
             totalAmtEd.Value = subTotalEd.Value + feeAmtEd.Value;
         }
-        public void ClearEditData()
+        public virtual void ClearEditData()
         {
             transCodeEd.Text = "";
             codeEd.Text = "";
@@ -88,7 +111,7 @@ namespace Trade.Forms
 
             codeEd.Focus();
         }
-        public void SetEditData(data.baseDS.transactionsRow row)
+        public virtual void SetEditData(data.baseDS.transactionsRow row)
         {
             transCodeEd.Text = row.id.ToString();
             codeEd.Text = row.stockCode;
@@ -104,7 +127,7 @@ namespace Trade.Forms
 
             codeEd.Focus();
         }
-        public void SetEditData(data.baseDS.tradeAlertRow row)
+        public virtual void SetEditData(data.baseDS.tradeAlertRow row)
         {
             transCodeEd.Text = "";
             feePercEd.Value = Settings.sysStockTransFeePercent;

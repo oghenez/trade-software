@@ -898,7 +898,7 @@
     <value>Tổng vốn</value>
   </data>
   <data name="volumeWeight" xml:space="preserve">
-    <value>Hệ số khối lượng</value>
+    <value>H.S khối lượng</value>
   </data>
   <data name="accept" xml:space="preserve">
     <value>Đồng ý</value>
@@ -970,6 +970,27 @@
     <value>K/L Sở hữu</value>
   </data>
   <data name="transFeePerc" xml:space="preserve">
-    <value>Phí giao dịch</value>
+    <value>Phí giao dịch(%)</value>
+  </data>
+  <data name="currentCash" xml:space="preserve">
+    <value>Tiền mặt</value>
+  </data>
+  <data name="cancel" xml:space="preserve">
+    <value>Hủy</value>
+  </data>
+  <data name="postTransCash" xml:space="preserve">
+    <value>Tồn quỹ</value>
+  </data>
+  <data name="dataSource" xml:space="preserve">
+    <value>Nguồn dữ liệu</value>
+  </data>
+  <data name="hodidays" xml:space="preserve">
+    <value>Ngày nghỉ</value>
+  </data>
+  <data name="workTime" xml:space="preserve">
+    <value>Thời gian làm việc</value>
+  </data>
+  <data name="market" xml:space="preserve">
+    <value>Thị trường</value>
   </data>
 </root>

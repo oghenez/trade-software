@@ -119,6 +119,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\DataSources\commonClass.TradePointInfo.datasource" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\DataSources\commonClass.TransactionInfo.datasource" />
     <None Include="serviceReferences\ServiceReference1\baseDS.xsd">
       <SubType>Designer</SubType>
     </None>

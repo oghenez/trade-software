@@ -385,6 +385,15 @@ namespace Languages.langs {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Cancel.
+        /// </summary>
+        internal static string cancel {
+            get {
+                return ResourceManager.GetString("cancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to CandleStick.
         /// </summary>
         internal static string candleStick {
@@ -655,6 +664,15 @@ namespace Languages.langs {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Current Cash.
+        /// </summary>
+        internal static string currentCash {
+            get {
+                return ResourceManager.GetString("currentCash", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Cut.
         /// </summary>
         internal static string cut {
@@ -678,6 +696,15 @@ namespace Languages.langs {
         internal static string dataSaved {
             get {
                 return ResourceManager.GetString("dataSaved", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Data Source.
+        /// </summary>
+        internal static string dataSource {
+            get {
+                return ResourceManager.GetString("dataSource", resourceCulture);
             }
         }
         
@@ -1033,6 +1060,15 @@ namespace Languages.langs {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Hodidays.
+        /// </summary>
+        internal static string hodidays {
+            get {
+                return ResourceManager.GetString("hodidays", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Hour.
         /// </summary>
         internal static string hour {
@@ -1299,6 +1335,15 @@ namespace Languages.langs {
         internal static string male {
             get {
                 return ResourceManager.GetString("male", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Market.
+        /// </summary>
+        internal static string market {
+            get {
+                return ResourceManager.GetString("market", resourceCulture);
             }
         }
         
@@ -1740,6 +1785,15 @@ namespace Languages.langs {
         internal static string portfolio {
             get {
                 return ResourceManager.GetString("portfolio", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cash.
+        /// </summary>
+        internal static string postTransCash {
+            get {
+                return ResourceManager.GetString("postTransCash", resourceCulture);
             }
         }
         
@@ -2338,7 +2392,7 @@ namespace Languages.langs {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Transaction Fee.
+        ///   Looks up a localized string similar to Transaction Fee(%).
         /// </summary>
         internal static string transFeePerc {
             get {
@@ -2523,6 +2577,15 @@ namespace Languages.langs {
         internal static string winStockPerc {
             get {
                 return ResourceManager.GetString("winStockPerc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Work Time.
+        /// </summary>
+        internal static string workTime {
+            get {
+                return ResourceManager.GetString("workTime", resourceCulture);
             }
         }
         

@@ -964,6 +964,27 @@
     <value>Owned Qty</value>
   </data>
   <data name="transFeePerc" xml:space="preserve">
-    <value>Transaction Fee</value>
+    <value>Transaction Fee(%)</value>
+  </data>
+  <data name="currentCash" xml:space="preserve">
+    <value>Current Cash</value>
+  </data>
+  <data name="cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="postTransCash" xml:space="preserve">
+    <value>Cash</value>
+  </data>
+  <data name="dataSource" xml:space="preserve">
+    <value>Data Source</value>
+  </data>
+  <data name="hodidays" xml:space="preserve">
+    <value>Hodidays</value>
+  </data>
+  <data name="workTime" xml:space="preserve">
+    <value>Work Time</value>
+  </data>
+  <data name="market" xml:space="preserve">
+    <value>Market</value>
   </data>
 </root>

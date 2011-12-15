@@ -112,6 +112,7 @@ namespace baseClass.controls
         }
         public virtual void LockEdit(bool state)
         {
+            if (myDataSource == null) return;
             if (myDataSource.Current == null) state = true;
             this.stockMarketCb.Enabled = !state;
 

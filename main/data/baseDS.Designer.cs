@@ -3947,6 +3947,20 @@ namespace data {
             
             private global::System.Data.DataColumn columncountry;
             
+            private global::System.Data.DataColumn columnworkTime;
+            
+            private global::System.Data.DataColumn columnholidays;
+            
+            private global::System.Data.DataColumn columnminBuySellDay;
+            
+            private global::System.Data.DataColumn columntranFeePerc;
+            
+            private global::System.Data.DataColumn columnpriceRatio;
+            
+            private global::System.Data.DataColumn columnvolumeRatio;
+            
+            private global::System.Data.DataColumn columndataSource;
+            
             private global::System.Data.DataColumn columnweight;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4001,6 +4015,55 @@ namespace data {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn workTimeColumn {
+                get {
+                    return this.columnworkTime;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn holidaysColumn {
+                get {
+                    return this.columnholidays;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn minBuySellDayColumn {
+                get {
+                    return this.columnminBuySellDay;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn tranFeePercColumn {
+                get {
+                    return this.columntranFeePerc;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn priceRatioColumn {
+                get {
+                    return this.columnpriceRatio;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn volumeRatioColumn {
+                get {
+                    return this.columnvolumeRatio;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn dataSourceColumn {
+                get {
+                    return this.columndataSource;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public global::System.Data.DataColumn weightColumn {
                 get {
                     return this.columnweight;
@@ -4036,12 +4099,19 @@ namespace data {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public stockExchangeRow AddstockExchangeRow(string code, string description, string country, byte weight) {
+            public stockExchangeRow AddstockExchangeRow(string code, string description, string country, string workTime, string holidays, byte minBuySellDay, decimal tranFeePerc, decimal priceRatio, decimal volumeRatio, string dataSource, byte weight) {
                 stockExchangeRow rowstockExchangeRow = ((stockExchangeRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         code,
                         description,
                         country,
+                        workTime,
+                        holidays,
+                        minBuySellDay,
+                        tranFeePerc,
+                        priceRatio,
+                        volumeRatio,
+                        dataSource,
                         weight};
                 rowstockExchangeRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowstockExchangeRow);
@@ -4071,6 +4141,13 @@ namespace data {
                 this.columncode = base.Columns["code"];
                 this.columndescription = base.Columns["description"];
                 this.columncountry = base.Columns["country"];
+                this.columnworkTime = base.Columns["workTime"];
+                this.columnholidays = base.Columns["holidays"];
+                this.columnminBuySellDay = base.Columns["minBuySellDay"];
+                this.columntranFeePerc = base.Columns["tranFeePerc"];
+                this.columnpriceRatio = base.Columns["priceRatio"];
+                this.columnvolumeRatio = base.Columns["volumeRatio"];
+                this.columndataSource = base.Columns["dataSource"];
                 this.columnweight = base.Columns["weight"];
             }
             
@@ -4082,6 +4159,20 @@ namespace data {
                 base.Columns.Add(this.columndescription);
                 this.columncountry = new global::System.Data.DataColumn("country", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncountry);
+                this.columnworkTime = new global::System.Data.DataColumn("workTime", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnworkTime);
+                this.columnholidays = new global::System.Data.DataColumn("holidays", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnholidays);
+                this.columnminBuySellDay = new global::System.Data.DataColumn("minBuySellDay", typeof(byte), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnminBuySellDay);
+                this.columntranFeePerc = new global::System.Data.DataColumn("tranFeePerc", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columntranFeePerc);
+                this.columnpriceRatio = new global::System.Data.DataColumn("priceRatio", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnpriceRatio);
+                this.columnvolumeRatio = new global::System.Data.DataColumn("volumeRatio", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnvolumeRatio);
+                this.columndataSource = new global::System.Data.DataColumn("dataSource", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columndataSource);
                 this.columnweight = new global::System.Data.DataColumn("weight", typeof(byte), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnweight);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
@@ -4093,6 +4184,15 @@ namespace data {
                 this.columndescription.MaxLength = 255;
                 this.columncountry.AllowDBNull = false;
                 this.columncountry.MaxLength = 3;
+                this.columnworkTime.AllowDBNull = false;
+                this.columnworkTime.MaxLength = 255;
+                this.columnholidays.AllowDBNull = false;
+                this.columnholidays.MaxLength = 255;
+                this.columnminBuySellDay.AllowDBNull = false;
+                this.columntranFeePerc.AllowDBNull = false;
+                this.columnpriceRatio.AllowDBNull = false;
+                this.columnvolumeRatio.AllowDBNull = false;
+                this.columndataSource.MaxLength = 255;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -10568,6 +10668,81 @@ namespace data {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string workTime {
+                get {
+                    return ((string)(this[this.tablestockExchange.workTimeColumn]));
+                }
+                set {
+                    this[this.tablestockExchange.workTimeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string holidays {
+                get {
+                    return ((string)(this[this.tablestockExchange.holidaysColumn]));
+                }
+                set {
+                    this[this.tablestockExchange.holidaysColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public byte minBuySellDay {
+                get {
+                    return ((byte)(this[this.tablestockExchange.minBuySellDayColumn]));
+                }
+                set {
+                    this[this.tablestockExchange.minBuySellDayColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public decimal tranFeePerc {
+                get {
+                    return ((decimal)(this[this.tablestockExchange.tranFeePercColumn]));
+                }
+                set {
+                    this[this.tablestockExchange.tranFeePercColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public decimal priceRatio {
+                get {
+                    return ((decimal)(this[this.tablestockExchange.priceRatioColumn]));
+                }
+                set {
+                    this[this.tablestockExchange.priceRatioColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public decimal volumeRatio {
+                get {
+                    return ((decimal)(this[this.tablestockExchange.volumeRatioColumn]));
+                }
+                set {
+                    this[this.tablestockExchange.volumeRatioColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string dataSource {
+                get {
+                    try {
+                        return ((string)(this[this.tablestockExchange.dataSourceColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'dataSource\' in table \'stockExchange\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablestockExchange.dataSourceColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public byte weight {
                 get {
                     try {
@@ -10580,6 +10755,16 @@ namespace data {
                 set {
                     this[this.tablestockExchange.weightColumn] = value;
                 }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsdataSourceNull() {
+                return this.IsNull(this.tablestockExchange.dataSourceColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetdataSourceNull() {
+                this[this.tablestockExchange.dataSourceColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -16956,41 +17141,75 @@ SELECT code, stockExchange, tickerCode, name, nameEn, address1, address2, phone,
             tableMapping.ColumnMappings.Add("code", "code");
             tableMapping.ColumnMappings.Add("description", "description");
             tableMapping.ColumnMappings.Add("country", "country");
+            tableMapping.ColumnMappings.Add("workTime", "workTime");
+            tableMapping.ColumnMappings.Add("holidays", "holidays");
+            tableMapping.ColumnMappings.Add("minBuySellDay", "minBuySellDay");
+            tableMapping.ColumnMappings.Add("tranFeePerc", "tranFeePerc");
+            tableMapping.ColumnMappings.Add("priceRatio", "priceRatio");
+            tableMapping.ColumnMappings.Add("volumeRatio", "volumeRatio");
+            tableMapping.ColumnMappings.Add("dataSource", "dataSource");
             tableMapping.ColumnMappings.Add("weight", "weight");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[stockExchange] WHERE (([code] = @Original_code) AND ([descript" +
-                "ion] = @Original_description) AND ([country] = @Original_country) AND ((@IsNull_" +
-                "weight = 1 AND [weight] IS NULL) OR ([weight] = @Original_weight)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [stockExchange] WHERE (([code] = @Original_code) AND ([description] = @Original_description) AND ([country] = @Original_country) AND ([workTime] = @Original_workTime) AND ([holidays] = @Original_holidays) AND ([minBuySellDay] = @Original_minBuySellDay) AND ([tranFeePerc] = @Original_tranFeePerc) AND ([priceRatio] = @Original_priceRatio) AND ([volumeRatio] = @Original_volumeRatio) AND ((@IsNull_dataSource = 1 AND [dataSource] IS NULL) OR ([dataSource] = @Original_dataSource)) AND ((@IsNull_weight = 1 AND [weight] IS NULL) OR ([weight] = @Original_weight)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_code", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "code", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_description", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "description", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_country", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "country", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_workTime", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "workTime", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_holidays", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "holidays", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_minBuySellDay", global::System.Data.SqlDbType.TinyInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "minBuySellDay", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_tranFeePerc", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 4, 2, "tranFeePerc", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_priceRatio", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "priceRatio", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_volumeRatio", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "volumeRatio", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_dataSource", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dataSource", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_dataSource", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dataSource", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_weight", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "weight", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_weight", global::System.Data.SqlDbType.TinyInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "weight", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[stockExchange] ([code], [description], [country], [weight]) VA" +
-                "LUES (@code, @description, @country, @weight);\r\nSELECT code, description, countr" +
-                "y, weight FROM stockExchange WHERE (code = @code) ORDER BY weight";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [stockExchange] ([code], [description], [country], [workTime], [holidays], [minBuySellDay], [tranFeePerc], [priceRatio], [volumeRatio], [dataSource], [weight]) VALUES (@code, @description, @country, @workTime, @holidays, @minBuySellDay, @tranFeePerc, @priceRatio, @volumeRatio, @dataSource, @weight);
+SELECT code, description, country, workTime, holidays, minBuySellDay, tranFeePerc, priceRatio, volumeRatio, dataSource, weight FROM stockExchange WHERE (code = @code) ORDER BY weight";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@code", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "code", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@description", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "description", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@country", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "country", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@workTime", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "workTime", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@holidays", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "holidays", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@minBuySellDay", global::System.Data.SqlDbType.TinyInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "minBuySellDay", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@tranFeePerc", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 4, 2, "tranFeePerc", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@priceRatio", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "priceRatio", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@volumeRatio", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "volumeRatio", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dataSource", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dataSource", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@weight", global::System.Data.SqlDbType.TinyInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "weight", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[stockExchange] SET [code] = @code, [description] = @description, [country] = @country, [weight] = @weight WHERE (([code] = @Original_code) AND ([description] = @Original_description) AND ([country] = @Original_country) AND ((@IsNull_weight = 1 AND [weight] IS NULL) OR ([weight] = @Original_weight)));
-SELECT code, description, country, weight FROM stockExchange WHERE (code = @code) ORDER BY weight";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [stockExchange] SET [code] = @code, [description] = @description, [country] = @country, [workTime] = @workTime, [holidays] = @holidays, [minBuySellDay] = @minBuySellDay, [tranFeePerc] = @tranFeePerc, [priceRatio] = @priceRatio, [volumeRatio] = @volumeRatio, [dataSource] = @dataSource, [weight] = @weight WHERE (([code] = @Original_code) AND ([description] = @Original_description) AND ([country] = @Original_country) AND ([workTime] = @Original_workTime) AND ([holidays] = @Original_holidays) AND ([minBuySellDay] = @Original_minBuySellDay) AND ([tranFeePerc] = @Original_tranFeePerc) AND ([priceRatio] = @Original_priceRatio) AND ([volumeRatio] = @Original_volumeRatio) AND ((@IsNull_dataSource = 1 AND [dataSource] IS NULL) OR ([dataSource] = @Original_dataSource)) AND ((@IsNull_weight = 1 AND [weight] IS NULL) OR ([weight] = @Original_weight)));
+SELECT code, description, country, workTime, holidays, minBuySellDay, tranFeePerc, priceRatio, volumeRatio, dataSource, weight FROM stockExchange WHERE (code = @code) ORDER BY weight";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@code", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "code", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@description", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "description", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@country", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "country", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@workTime", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "workTime", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@holidays", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "holidays", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@minBuySellDay", global::System.Data.SqlDbType.TinyInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "minBuySellDay", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@tranFeePerc", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 4, 2, "tranFeePerc", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@priceRatio", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "priceRatio", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@volumeRatio", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "volumeRatio", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dataSource", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dataSource", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@weight", global::System.Data.SqlDbType.TinyInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "weight", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_code", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "code", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_description", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "description", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_country", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "country", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_workTime", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "workTime", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_holidays", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "holidays", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_minBuySellDay", global::System.Data.SqlDbType.TinyInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "minBuySellDay", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_tranFeePerc", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 4, 2, "tranFeePerc", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_priceRatio", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "priceRatio", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_volumeRatio", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "volumeRatio", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_dataSource", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dataSource", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_dataSource", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dataSource", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_weight", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "weight", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_weight", global::System.Data.SqlDbType.TinyInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "weight", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
@@ -17006,7 +17225,7 @@ SELECT code, description, country, weight FROM stockExchange WHERE (code = @code
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT *  FROM dbo.stockExchange ORDER BY weight ";
+            this._commandCollection[0].CommandText = "SELECT * FROM stockExchange ORDER BY weight";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -17060,7 +17279,7 @@ SELECT code, description, country, weight FROM stockExchange WHERE (code = @code
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(string Original_code, string Original_description, string Original_country, global::System.Nullable<byte> Original_weight) {
+        public virtual int Delete(string Original_code, string Original_description, string Original_country, string Original_workTime, string Original_holidays, byte Original_minBuySellDay, decimal Original_tranFeePerc, decimal Original_priceRatio, decimal Original_volumeRatio, string Original_dataSource, global::System.Nullable<byte> Original_weight) {
             if ((Original_code == null)) {
                 throw new global::System.ArgumentNullException("Original_code");
             }
@@ -17079,13 +17298,37 @@ SELECT code, description, country, weight FROM stockExchange WHERE (code = @code
             else {
                 this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_country));
             }
-            if ((Original_weight.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((byte)(Original_weight.Value));
+            if ((Original_workTime == null)) {
+                throw new global::System.ArgumentNullException("Original_workTime");
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[4].Value = global::System.DBNull.Value;
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((string)(Original_workTime));
+            }
+            if ((Original_holidays == null)) {
+                throw new global::System.ArgumentNullException("Original_holidays");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(Original_holidays));
+            }
+            this.Adapter.DeleteCommand.Parameters[5].Value = ((byte)(Original_minBuySellDay));
+            this.Adapter.DeleteCommand.Parameters[6].Value = ((decimal)(Original_tranFeePerc));
+            this.Adapter.DeleteCommand.Parameters[7].Value = ((decimal)(Original_priceRatio));
+            this.Adapter.DeleteCommand.Parameters[8].Value = ((decimal)(Original_volumeRatio));
+            if ((Original_dataSource == null)) {
+                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[10].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[10].Value = ((string)(Original_dataSource));
+            }
+            if ((Original_weight.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[12].Value = ((byte)(Original_weight.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[12].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -17106,7 +17349,7 @@ SELECT code, description, country, weight FROM stockExchange WHERE (code = @code
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string code, string description, string country, global::System.Nullable<byte> weight) {
+        public virtual int Insert(string code, string description, string country, string workTime, string holidays, byte minBuySellDay, decimal tranFeePerc, decimal priceRatio, decimal volumeRatio, string dataSource, global::System.Nullable<byte> weight) {
             if ((code == null)) {
                 throw new global::System.ArgumentNullException("code");
             }
@@ -17125,11 +17368,33 @@ SELECT code, description, country, weight FROM stockExchange WHERE (code = @code
             else {
                 this.Adapter.InsertCommand.Parameters[2].Value = ((string)(country));
             }
-            if ((weight.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((byte)(weight.Value));
+            if ((workTime == null)) {
+                throw new global::System.ArgumentNullException("workTime");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
+                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(workTime));
+            }
+            if ((holidays == null)) {
+                throw new global::System.ArgumentNullException("holidays");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(holidays));
+            }
+            this.Adapter.InsertCommand.Parameters[5].Value = ((byte)(minBuySellDay));
+            this.Adapter.InsertCommand.Parameters[6].Value = ((decimal)(tranFeePerc));
+            this.Adapter.InsertCommand.Parameters[7].Value = ((decimal)(priceRatio));
+            this.Adapter.InsertCommand.Parameters[8].Value = ((decimal)(volumeRatio));
+            if ((dataSource == null)) {
+                this.Adapter.InsertCommand.Parameters[9].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[9].Value = ((string)(dataSource));
+            }
+            if ((weight.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[10].Value = ((byte)(weight.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[10].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -17150,7 +17415,29 @@ SELECT code, description, country, weight FROM stockExchange WHERE (code = @code
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string code, string description, string country, global::System.Nullable<byte> weight, string Original_code, string Original_description, string Original_country, global::System.Nullable<byte> Original_weight) {
+        public virtual int Update(
+                    string code, 
+                    string description, 
+                    string country, 
+                    string workTime, 
+                    string holidays, 
+                    byte minBuySellDay, 
+                    decimal tranFeePerc, 
+                    decimal priceRatio, 
+                    decimal volumeRatio, 
+                    string dataSource, 
+                    global::System.Nullable<byte> weight, 
+                    string Original_code, 
+                    string Original_description, 
+                    string Original_country, 
+                    string Original_workTime, 
+                    string Original_holidays, 
+                    byte Original_minBuySellDay, 
+                    decimal Original_tranFeePerc, 
+                    decimal Original_priceRatio, 
+                    decimal Original_volumeRatio, 
+                    string Original_dataSource, 
+                    global::System.Nullable<byte> Original_weight) {
             if ((code == null)) {
                 throw new global::System.ArgumentNullException("code");
             }
@@ -17169,37 +17456,83 @@ SELECT code, description, country, weight FROM stockExchange WHERE (code = @code
             else {
                 this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(country));
             }
-            if ((weight.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((byte)(weight.Value));
+            if ((workTime == null)) {
+                throw new global::System.ArgumentNullException("workTime");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(workTime));
+            }
+            if ((holidays == null)) {
+                throw new global::System.ArgumentNullException("holidays");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(holidays));
+            }
+            this.Adapter.UpdateCommand.Parameters[5].Value = ((byte)(minBuySellDay));
+            this.Adapter.UpdateCommand.Parameters[6].Value = ((decimal)(tranFeePerc));
+            this.Adapter.UpdateCommand.Parameters[7].Value = ((decimal)(priceRatio));
+            this.Adapter.UpdateCommand.Parameters[8].Value = ((decimal)(volumeRatio));
+            if ((dataSource == null)) {
+                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(dataSource));
+            }
+            if ((weight.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((byte)(weight.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
             }
             if ((Original_code == null)) {
                 throw new global::System.ArgumentNullException("Original_code");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(Original_code));
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(Original_code));
             }
             if ((Original_description == null)) {
                 throw new global::System.ArgumentNullException("Original_description");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(Original_description));
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(Original_description));
             }
             if ((Original_country == null)) {
                 throw new global::System.ArgumentNullException("Original_country");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(Original_country));
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(Original_country));
             }
-            if ((Original_weight.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((byte)(Original_weight.Value));
+            if ((Original_workTime == null)) {
+                throw new global::System.ArgumentNullException("Original_workTime");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((string)(Original_workTime));
+            }
+            if ((Original_holidays == null)) {
+                throw new global::System.ArgumentNullException("Original_holidays");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(Original_holidays));
+            }
+            this.Adapter.UpdateCommand.Parameters[16].Value = ((byte)(Original_minBuySellDay));
+            this.Adapter.UpdateCommand.Parameters[17].Value = ((decimal)(Original_tranFeePerc));
+            this.Adapter.UpdateCommand.Parameters[18].Value = ((decimal)(Original_priceRatio));
+            this.Adapter.UpdateCommand.Parameters[19].Value = ((decimal)(Original_volumeRatio));
+            if ((Original_dataSource == null)) {
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[21].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[21].Value = ((string)(Original_dataSource));
+            }
+            if ((Original_weight.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[22].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[23].Value = ((byte)(Original_weight.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[22].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[23].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -17220,8 +17553,29 @@ SELECT code, description, country, weight FROM stockExchange WHERE (code = @code
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string description, string country, global::System.Nullable<byte> weight, string Original_code, string Original_description, string Original_country, global::System.Nullable<byte> Original_weight) {
-            return this.Update(Original_code, description, country, weight, Original_code, Original_description, Original_country, Original_weight);
+        public virtual int Update(
+                    string description, 
+                    string country, 
+                    string workTime, 
+                    string holidays, 
+                    byte minBuySellDay, 
+                    decimal tranFeePerc, 
+                    decimal priceRatio, 
+                    decimal volumeRatio, 
+                    string dataSource, 
+                    global::System.Nullable<byte> weight, 
+                    string Original_code, 
+                    string Original_description, 
+                    string Original_country, 
+                    string Original_workTime, 
+                    string Original_holidays, 
+                    byte Original_minBuySellDay, 
+                    decimal Original_tranFeePerc, 
+                    decimal Original_priceRatio, 
+                    decimal Original_volumeRatio, 
+                    string Original_dataSource, 
+                    global::System.Nullable<byte> Original_weight) {
+            return this.Update(Original_code, description, country, workTime, holidays, minBuySellDay, tranFeePerc, priceRatio, volumeRatio, dataSource, weight, Original_code, Original_description, Original_country, Original_workTime, Original_holidays, Original_minBuySellDay, Original_tranFeePerc, Original_priceRatio, Original_volumeRatio, Original_dataSource, Original_weight);
         }
     }
     

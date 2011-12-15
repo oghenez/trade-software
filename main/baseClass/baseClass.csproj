@@ -111,6 +111,12 @@
     <Compile Include="controls\bizSectorTypeSelection.designer.cs">
       <DependentUpon>bizSectorTypeSelection.cs</DependentUpon>
     </Compile>
+    <Compile Include="controls\dayOfWeek.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="controls\dayOfWeek.designer.cs">
+      <DependentUpon>dayOfWeek.cs</DependentUpon>
+    </Compile>
     <Compile Include="controls\_companyStockInfo.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -390,6 +396,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="controls\bizSectorTypeSelection.resx">
       <DependentUpon>bizSectorTypeSelection.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="controls\dayOfWeek.resx">
+      <DependentUpon>dayOfWeek.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="controls\_companyStockInfo.resx">

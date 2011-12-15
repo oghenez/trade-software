@@ -35,6 +35,7 @@ namespace baseClass.forms
         }
         public override void SetLanguage()
         {
+            if (!isLoaded) return;
             base.SetLanguage();
             this.Text = Languages.Libs.GetString("companyList");
             filterBtn.Text = Languages.Libs.GetString("find");
@@ -43,7 +44,7 @@ namespace baseClass.forms
             codeColumn.HeaderText = Languages.Libs.GetString("code");
             nameColumn.HeaderText = Languages.Libs.GetString("name");
 
-            if (common.language.myCulture.Name == "vi-VN")
+            if (commonClass.AppLibs.IsUseVietnamese())
                  this.nameColumn.DataPropertyName = myDataSet.stockCode.nameColumn.ColumnName;
             else this.nameColumn.DataPropertyName = myDataSet.stockCode.nameEnColumn.ColumnName;
         }

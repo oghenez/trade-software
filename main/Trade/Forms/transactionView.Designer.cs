@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.editGB1.SuspendLayout();
-            this.editGB2.SuspendLayout();
+            this.editGB1.SuspendLayout();
             this.SuspendLayout();
             // 
             // transactionView
@@ -39,8 +39,8 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.editGB1.ResumeLayout(false);
             this.editGB1.PerformLayout();
-            this.editGB2.ResumeLayout(false);
-            this.editGB2.PerformLayout();
+            this.editGB1.ResumeLayout(false);
+            this.editGB1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
