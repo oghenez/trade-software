@@ -154,6 +154,7 @@ namespace wsServices
 
         [OperationContract]
         data.baseDS.priceDataDataTable GetLastPrice();
+        
         [OperationContract]
         DateTime GetLastAlertTime(string investorCode);
 
@@ -165,6 +166,11 @@ namespace wsServices
         data.tmpDS.marketDataDataTable GetMarketData_BySQL(string sqlCmd);
         [OperationContract]
         int GetData_TotalRow(string timeScaleCode, string stockCode, DateTime frDate, DateTime toDate);
+        [OperationContract]
+        bool GetTransactionInfo(ref TransactionInfo transInfo);
+
+        [OperationContract]
+        object[] GetPriceByCode(string stockCode);
 
         #endregion
 

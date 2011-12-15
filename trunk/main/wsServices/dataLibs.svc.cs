@@ -375,6 +375,17 @@ namespace wsServices
             return DbAccess.GetLastPrice();
         }
 
+        public bool GetTransactionInfo(ref TransactionInfo transInfo)
+        {
+            data.baseDS.priceDataRow priceRow = DbAccess.GetLastPrice(transInfo.stockCode);
+            data.baseDS.portfolioRow portfolioRow = DbAccess.GetPortfolio(transInfo.portfolio);
+            if (priceRow == null || portfolioRow==null) return false;
+            transInfo.price = priceRow.closePrice;
+            transInfo.priceDate = priceRow.onDate;
+            transInfo.availableCash = portfolioRow.startCapAmt - portfolioRow.usedCapAmt;
+            return true;
+        }
+
         public data.baseDS.priceDataDataTable GetData_ByTimeScale_Code_FrDate(string timeScaleCode,string stockCode,DateTime fromDate)
         {
             data.baseDS.priceDataDataTable tbl = new data.baseDS.priceDataDataTable();
@@ -553,6 +564,13 @@ namespace wsServices
         #endregion
 
         #region test
+
+        public object[] GetPriceByCode(string stockCode)
+        {
+            data.baseDS.priceDataRow priceRow = DbAccess.GetLastPrice(stockCode);
+            if (priceRow == null) return null;
+            return priceRow.ItemArray;
+        }
 
         public decimal EstimateProfitTEST(AppTypes.TimeRanges timeRange, string timeScaleCode,
                                       string estimateOptionKey, string dataCode, string strategyCode)

@@ -60,13 +60,9 @@ namespace commonClass
             return Math.Round(amount / fAmount, Settings.sysPrecisionLocal);
         }
 
-        public static CultureInfo myCultureInfo = new CultureInfo(Settings.sysCultureCode);
-
         public static void SetAppEnvironment()
         {
-            System.Threading.Thread.CurrentThread.CurrentCulture = myCultureInfo;
-            System.Threading.Thread.CurrentThread.CurrentUICulture = myCultureInfo;
-            System.Windows.Forms.Application.CurrentCulture = myCultureInfo;
+            common.language.myCulture = new CultureInfo(Settings.sysCultureCode);
         }
 
         public static bool isSupperAdminLogin(string loginName)
@@ -91,16 +87,6 @@ namespace commonClass
             sysLoginAccount = "";
             sysLoginType = "";
             sysLoginLocationName = "";
-        }
-
-        public static string DateTimeToString(DateTime dt)
-        {
-            return dt.ToShortDateString();
-        }
-        public static bool StringToDateTime(string dateTimeTxt, out DateTime dt)
-        {
-            CultureInfo MyCultureInfo = new CultureInfo(Settings.sysCultureCode);
-            return DateTime.TryParse(dateTimeTxt, MyCultureInfo, DateTimeStyles.NoCurrentDateDefault, out dt);
         }
 
         public static void WriteSystemLog(string text)
@@ -275,6 +261,12 @@ namespace commonClass
             row.code = "";
             row.description = "";
             row.country = "";
+            row.workTime = "";
+            row.holidays = "";
+            row.minBuySellDay = 0;
+            row.tranFeePerc = 0;
+            row.priceRatio = 1;
+            row.volumeRatio = 1;
             row.weight = 0;
         }
         public static void InitData(data.baseDS.priceDataRow row)
@@ -409,6 +401,10 @@ namespace commonClass
             }
         }
 
+        public static bool IsUseVietnamese()
+        {
+            return (common.language.myCulture.Name == "vi-VN");
+        }
     }
     public static class Configuration
     {

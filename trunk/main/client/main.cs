@@ -61,6 +61,8 @@ namespace client
             contextMenuStrip.Items.Add(new ToolStripSeparator());
             menuItem = contextMenuStrip.Items.Add(Languages.Libs.GetString("addToWatchList"));
             menuItem.Click += new System.EventHandler(addToWatchListMenuItem_Click);
+            menuItem = contextMenuStrip.Items.Add(orderMenuItem.Text);
+            menuItem.Click += new System.EventHandler(orderMenuItem_Click);
 
             contextMenuStrip.Items.Add(new ToolStripSeparator());
             menuItem = contextMenuStrip.Items.Add(backTestingMenuItem.Text);
@@ -69,6 +71,7 @@ namespace client
             menuItem.Click += new System.EventHandler(strategyRankingMenuItem_Click);
             menuItem = contextMenuStrip.Items.Add(screeningMenuItem.Text);
             menuItem.Click += new System.EventHandler(screeningMenuItem_Click);
+            
             return contextMenuStrip;
         }
         private ContextMenuStrip CreateContextMenu_TradeAnalysis()
@@ -1227,10 +1230,14 @@ namespace client
         {
             try
             {
+                Trade.Forms.marketWatch marketWatchForm = GetMarketWatchForm(false);
+                if (marketWatchForm == null) return;
+                
                 Trade.Forms.transactionNew form = Trade.Forms.transactionNew.GetForm("");
                 form.ClearEditData();
                 form.LockEdit(false);
-                form.ShowDialog();                
+                if (marketWatchForm.CurrentRow != null)  form.myCode = marketWatchForm.CurrentRow.code;
+                form.ShowDialog();
             }
             catch (Exception er)
             {

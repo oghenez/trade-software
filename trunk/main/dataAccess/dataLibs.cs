@@ -199,6 +199,10 @@ namespace DataAccess
                 AddCache(cacheKey, tbl);
                 return tbl;
             }
+            //set
+            //{
+            //    ClearCache(MakeCacheKey("stockExchange", "All"));
+            //}
         }
         public static data.baseDS.sysCodeCatDataTable mySysCodeCatTbl
         {
@@ -500,6 +504,19 @@ namespace DataAccess
         {
             return myClient.GetLastPrice();
         }
+        //public static void GetLastPrice(data.baseDS.priceDataDataTable tbl, string stockCode)
+        //{
+        //    object[] data = myClient.GetLastPriceByCode(stockCode);
+        //    if (data == null) return;
+        //    object aa = data[0];
+        //    //return (data.baseDS.priceDataRow)data;
+        //}
+
+        public static bool GetTransactionInfo(ref TransactionInfo transInfo)
+        {
+            return myClient.GetTransactionInfo(ref transInfo);
+        }
+
         public static DateTime GetLastAlertTime(string investorCode)
         {
             return  myClient.GetLastAlertTime(investorCode);
