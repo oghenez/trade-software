@@ -987,4 +987,7 @@
   <data name="market" xml:space="preserve">
     <value>Market</value>
   </data>
+  <data name="askToRestartService" xml:space="preserve">
+    <value>Restart service ?</value>
+  </data>
 </root>

@@ -993,4 +993,7 @@
   <data name="market" xml:space="preserve">
     <value>Thị trường</value>
   </data>
+  <data name="askToRestartService" xml:space="preserve">
+    <value>Khởi động lại  dịch vụ ?</value>
+  </data>
 </root>

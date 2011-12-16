@@ -446,7 +446,6 @@ namespace commonClass
             imgFilePathBackground, imgFilePathIcon,
             imgFilePathComanyLogo1, imgFilePathComanyLogo2,
             //Stock
-            stockTransFeePercent, stockSell2BuyInterval, stockPriceWeight, stockVolumeWeight,
             stockMaxBuyQtyPerc, stockReduceQtyPerc, stockAccumulateQtyPerc,
             stockMaxBuyAmtPerc, stockTotalCapAmt
         }

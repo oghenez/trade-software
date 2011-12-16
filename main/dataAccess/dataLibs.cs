@@ -93,10 +93,15 @@ namespace DataAccess
             }
             _myClient = null;
         }
-        public static void Reset()
+        public static void ResetService()
         {
-            CloseConnection();
-            myClient.ClearCache();
+            using (new PleaseWait())
+            {
+                CloseConnection();
+                myClient.ClearCache();
+                myClient.Reset();
+                myClient.Load_Global_Settings();
+            }
         }
         public static bool TestConnection(common.configuration.wsConnectionInfo wsInfo, out string msg)
         {
@@ -140,7 +145,7 @@ namespace DataAccess
         {
             cacheData.Clear();
         }
-
+        
         //public static string GetAutoDataKey(string tblName)
         //{
         //    return application.SysLibs.GetAutoDataKey(tblName);
@@ -186,6 +191,10 @@ namespace DataAccess
                 AddCache(cacheKey, tbl);
                 return tbl;
             }
+            set
+            {
+                ClearCache(MakeCacheKey("StockList", "Enable"));
+            }
         }
 
         public static data.baseDS.stockExchangeDataTable myStockExchangeTbl
@@ -199,10 +208,10 @@ namespace DataAccess
                 AddCache(cacheKey, tbl);
                 return tbl;
             }
-            //set
-            //{
-            //    ClearCache(MakeCacheKey("stockExchange", "All"));
-            //}
+            set
+            {
+                ClearCache(MakeCacheKey("stockExchange", "All"));
+            }
         }
         public static data.baseDS.sysCodeCatDataTable mySysCodeCatTbl
         {
@@ -541,6 +550,10 @@ namespace DataAccess
         #endregion 
 
         #region Delete
+        public static void DeleteData(data.baseDS.stockExchangeRow row)
+        {
+            myClient.DeleteStockExchange(row.code);
+        }
         public static void DeleteData(data.baseDS.stockCodeRow row)
         {
             myClient.DeleteStock(row.code);

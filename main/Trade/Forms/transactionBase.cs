@@ -107,7 +107,7 @@ namespace Trade.Forms
             transTypeCb.myValue = AppTypes.TradeActions.None;
             statusCb.myValue = AppTypes.CommonStatus.New;
             CalculatePriceAndFeePercentage();
-            feePercEd.Value = Settings.sysStockTransFeePercent;
+            feePercEd.Value = 0;
 
             codeEd.Focus();
         }
@@ -130,7 +130,8 @@ namespace Trade.Forms
         public virtual void SetEditData(data.baseDS.tradeAlertRow row)
         {
             transCodeEd.Text = "";
-            feePercEd.Value = Settings.sysStockTransFeePercent;
+            data.baseDS.stockExchangeRow stockExchangeRow = application.AppLibs.GetStockExchange(row.stockCode);
+            if (stockExchangeRow != null) feePercEd.Value = stockExchangeRow.tranFeePerc;
             codeEd.Text = row.stockCode;
             onTimeEd.myDateTime = row.onTime;
             portfolioCb.myValue = row.portfolio;
