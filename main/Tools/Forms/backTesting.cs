@@ -361,7 +361,7 @@ namespace Tools.Forms
             StringCollection strategyList = strategyClb.myCheckedValues;
             StringCollection stockCodeList = codeSelectLb.myValues;
             //Analysis cached data so we MUST reset to clear cache to ensure the system run correctly
-            DataAccess.Libs.Reset();
+            DataAccess.Libs.ClearCache();
             EstimateOptions estimateOption = new EstimateOptions();
 
             DataTable retsultTbl = CreateEstimateTbl(strategyList);
