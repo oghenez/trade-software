@@ -112,7 +112,6 @@ namespace Tools.Forms
 
                 if (Settings.sysUseWebservice)  DoBackTestUseWS();
                 else DoBackTestUseDB();
-                //DoBackTestUseDB();
                 FormResize();
 
                 DateTime endTime = DateTime.Now;
@@ -322,6 +321,8 @@ namespace Tools.Forms
             SetDataGrid(resultDataGrid, testRetsultTbl);
 
             progressBar.Value = 0; progressBar.Minimum = 0; progressBar.Maximum = stockCodeList.Count;
+
+            EstimateOptions estOptions = new EstimateOptions();
             for (int rowId = 0; rowId < stockCodeList.Count; rowId++)
             {
                 application.AnalysisData analysisData = new application.AnalysisData(periodicityEd.myTimeRange, periodicityEd.myTimeScale,
@@ -336,7 +337,7 @@ namespace Tools.Forms
                         Strategy.Data.TradePoints advices = Strategy.Libs.Analysis(analysisData, strategyList[colId]);
                         if (advices != null)
                         {
-                            row[colId + 1] = Strategy.Libs.EstimateTrading_Profit(analysisData, Strategy.Libs.ToTradePointInfo(advices), new EstimateOptions());
+                            row[colId + 1] = Strategy.Libs.EstimateTrading_Profit(analysisData, Strategy.Libs.ToTradePointInfo(advices), estOptions);
                         }
                         else row[colId + 1] = 0;
                     }

@@ -33,10 +33,7 @@
             this.myMainMenu = new System.Windows.Forms.MenuStrip();
             this.systemMenuStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator9 = new System.Windows.Forms.ToolStripSeparator();
-            this.configureMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.listMenuStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator11 = new System.Windows.Forms.ToolStripSeparator();
@@ -48,22 +45,27 @@
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.myMainTimer = new System.Windows.Forms.Timer(this.components);
+            this.toolMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
             this.loginMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.configureMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.configMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.resetServiceMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sysCodeCatMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.sysCodeEditMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.exitMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.investorMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.companyMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.stockExchangeMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.sysWatchListMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sysInterestedStrategyMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.importPriceDataMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.importIcbMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.importCompanyMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.importComSectorMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.updatePriceMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reUpdatePriceMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.exitMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.companyMenu = new System.Windows.Forms.ToolStripMenuItem();
-            this.investorMenu = new System.Windows.Forms.ToolStripMenuItem();
-            this.stockExchangeMenu = new System.Windows.Forms.ToolStripMenuItem();
-            this.sysWatchListMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sysInterestedStrategyMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.licenseMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.dataProcessMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -81,6 +83,7 @@
             this.myMainMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.systemMenuStrip,
             this.listMenuStrip,
+            this.toolMenuItem,
             this.infoMenuStrip,
             this.exitMenuStrip,
             this.testToolStripMenuItem});
@@ -98,16 +101,10 @@
             this.configureMenuItem,
             this.configMenuItem,
             this.toolStripSeparator4,
+            this.resetServiceMenuItem,
+            this.toolStripSeparator7,
             this.sysCodeCatMenu,
             this.sysCodeEditMenu,
-            this.toolStripSeparator5,
-            this.importPriceDataMenu,
-            this.importIcbMenu,
-            this.importCompanyMenu,
-            this.importComSectorMenu,
-            this.toolStripSeparator8,
-            this.updatePriceMenuItem,
-            this.reUpdatePriceMenuItem,
             this.toolStripSeparator3,
             this.exitMenuItem});
             this.systemMenuStrip.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -118,41 +115,24 @@
             // toolStripSeparator9
             // 
             this.toolStripSeparator9.Name = "toolStripSeparator9";
-            this.toolStripSeparator9.Size = new System.Drawing.Size(259, 6);
-            // 
-            // configureMenuItem
-            // 
-            this.configureMenuItem.Name = "configureMenuItem";
-            this.configureMenuItem.Size = new System.Drawing.Size(262, 22);
-            this.configureMenuItem.Text = "Cấu hình";
-            this.configureMenuItem.Click += new System.EventHandler(this.configureMenuItem_Click);
+            this.toolStripSeparator9.Size = new System.Drawing.Size(203, 6);
             // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(259, 6);
-            // 
-            // toolStripSeparator5
-            // 
-            this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(259, 6);
-            // 
-            // toolStripSeparator8
-            // 
-            this.toolStripSeparator8.Name = "toolStripSeparator8";
-            this.toolStripSeparator8.Size = new System.Drawing.Size(259, 6);
+            this.toolStripSeparator4.Size = new System.Drawing.Size(203, 6);
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(259, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(203, 6);
             // 
             // listMenuStrip
             // 
             this.listMenuStrip.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.companyMenu,
-            this.toolStripSeparator11,
             this.investorMenu,
+            this.toolStripSeparator11,
+            this.companyMenu,
             this.toolStripSeparator6,
             this.stockExchangeMenu,
             this.toolStripSeparator12,
@@ -210,29 +190,69 @@
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(188, 6);
             // 
+            // toolMenuItem
+            // 
+            this.toolMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.importPriceDataMenu,
+            this.importIcbMenu,
+            this.importCompanyMenu,
+            this.importComSectorMenu,
+            this.toolStripSeparator5,
+            this.updatePriceMenuItem,
+            this.reUpdatePriceMenuItem});
+            this.toolMenuItem.Name = "toolMenuItem";
+            this.toolMenuItem.Size = new System.Drawing.Size(71, 22);
+            this.toolMenuItem.Text = "Công cụ";
+            // 
+            // toolStripSeparator5
+            // 
+            this.toolStripSeparator5.Name = "toolStripSeparator5";
+            this.toolStripSeparator5.Size = new System.Drawing.Size(259, 6);
+            // 
+            // toolStripSeparator7
+            // 
+            this.toolStripSeparator7.Name = "toolStripSeparator7";
+            this.toolStripSeparator7.Size = new System.Drawing.Size(203, 6);
+            // 
             // loginMenu
             // 
             this.loginMenu.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.loginMenu.Image = ((System.Drawing.Image)(resources.GetObject("loginMenu.Image")));
             this.loginMenu.Name = "loginMenu";
-            this.loginMenu.Size = new System.Drawing.Size(262, 22);
+            this.loginMenu.Size = new System.Drawing.Size(206, 22);
             this.loginMenu.Text = "Đăng nhập";
             this.loginMenu.Click += new System.EventHandler(this.loginMenu_Click);
             // 
+            // configureMenuItem
+            // 
+            this.configureMenuItem.Image = global::admin.Properties.Resources.configure;
+            this.configureMenuItem.Name = "configureMenuItem";
+            this.configureMenuItem.Size = new System.Drawing.Size(206, 22);
+            this.configureMenuItem.Text = "Cấu hình";
+            this.configureMenuItem.Click += new System.EventHandler(this.configureMenuItem_Click);
+            // 
             // configMenuItem
             // 
-            this.configMenuItem.Image = global::admin.Properties.Resources.configure;
+            this.configMenuItem.Image = global::admin.Properties.Resources.properties;
             this.configMenuItem.Name = "configMenuItem";
-            this.configMenuItem.Size = new System.Drawing.Size(262, 22);
+            this.configMenuItem.Size = new System.Drawing.Size(206, 22);
             this.configMenuItem.Text = "Thiết lập hệ thống";
             this.configMenuItem.Click += new System.EventHandler(this.configMenuItem_Click);
+            // 
+            // resetServiceMenuItem
+            // 
+            this.resetServiceMenuItem.Image = global::admin.Properties.Resources.services;
+            this.resetServiceMenuItem.Name = "resetServiceMenuItem";
+            this.resetServiceMenuItem.Size = new System.Drawing.Size(206, 22);
+            this.resetServiceMenuItem.Text = "Khời động lại";
+            this.resetServiceMenuItem.Click += new System.EventHandler(this.resetServiceMenuItem_Click);
             // 
             // sysCodeCatMenu
             // 
             this.sysCodeCatMenu.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.sysCodeCatMenu.Image = global::admin.Properties.Resources.category;
             this.sysCodeCatMenu.Name = "sysCodeCatMenu";
-            this.sysCodeCatMenu.Size = new System.Drawing.Size(262, 22);
+            this.sysCodeCatMenu.Size = new System.Drawing.Size(206, 22);
             this.sysCodeCatMenu.Text = "Phân loại";
             this.sysCodeCatMenu.Click += new System.EventHandler(this.sysCodeCatMenu_Click);
             // 
@@ -241,9 +261,59 @@
             this.sysCodeEditMenu.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.sysCodeEditMenu.Image = global::admin.Properties.Resources.category2;
             this.sysCodeEditMenu.Name = "sysCodeEditMenu";
-            this.sysCodeEditMenu.Size = new System.Drawing.Size(262, 22);
+            this.sysCodeEditMenu.Size = new System.Drawing.Size(206, 22);
             this.sysCodeEditMenu.Text = "Dữ liệu phân loại";
             this.sysCodeEditMenu.Click += new System.EventHandler(this.sysCodeEditMenu_Click);
+            // 
+            // exitMenuItem
+            // 
+            this.exitMenuItem.Image = global::admin.Properties.Resources.close;
+            this.exitMenuItem.Name = "exitMenuItem";
+            this.exitMenuItem.Size = new System.Drawing.Size(206, 22);
+            this.exitMenuItem.Text = "Kết thúc";
+            this.exitMenuItem.Click += new System.EventHandler(this.exitMenuItem_Click);
+            // 
+            // investorMenu
+            // 
+            this.investorMenu.Image = global::admin.Properties.Resources.employee;
+            this.investorMenu.Name = "investorMenu";
+            this.investorMenu.Size = new System.Drawing.Size(221, 22);
+            this.investorMenu.Text = "Nhà đầu tư";
+            this.investorMenu.Click += new System.EventHandler(this.investorMenu_Click);
+            // 
+            // companyMenu
+            // 
+            this.companyMenu.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.companyMenu.Image = global::admin.Properties.Resources.home1;
+            this.companyMenu.Name = "companyMenu";
+            this.companyMenu.Size = new System.Drawing.Size(221, 22);
+            this.companyMenu.Text = "Công ty";
+            this.companyMenu.Click += new System.EventHandler(this.companyMenu_Click);
+            // 
+            // stockExchangeMenu
+            // 
+            this.stockExchangeMenu.Image = global::admin.Properties.Resources.exrate;
+            this.stockExchangeMenu.Name = "stockExchangeMenu";
+            this.stockExchangeMenu.Size = new System.Drawing.Size(221, 22);
+            this.stockExchangeMenu.Tag = "??";
+            this.stockExchangeMenu.Text = "Sàn giao dịch";
+            this.stockExchangeMenu.Click += new System.EventHandler(this.stockExchangeMenu_Click);
+            // 
+            // sysWatchListMenuItem
+            // 
+            this.sysWatchListMenuItem.Image = global::admin.Properties.Resources.glasses;
+            this.sysWatchListMenuItem.Name = "sysWatchListMenuItem";
+            this.sysWatchListMenuItem.Size = new System.Drawing.Size(221, 22);
+            this.sysWatchListMenuItem.Text = "System Watch List";
+            this.sysWatchListMenuItem.Click += new System.EventHandler(this.sysWatchListMenuItem_Click);
+            // 
+            // sysInterestedStrategyMenuItem
+            // 
+            this.sysInterestedStrategyMenuItem.Image = global::admin.Properties.Resources.category21;
+            this.sysInterestedStrategyMenuItem.Name = "sysInterestedStrategyMenuItem";
+            this.sysInterestedStrategyMenuItem.Size = new System.Drawing.Size(221, 22);
+            this.sysInterestedStrategyMenuItem.Text = "Interested Strategy";
+            this.sysInterestedStrategyMenuItem.Click += new System.EventHandler(this.sysInterestedStrategyMenuItem_Click);
             // 
             // importPriceDataMenu
             // 
@@ -292,56 +362,6 @@
             this.reUpdatePriceMenuItem.Size = new System.Drawing.Size(262, 22);
             this.reUpdatePriceMenuItem.Text = "Cập nhật lại giá trực tuyến";
             this.reUpdatePriceMenuItem.Click += new System.EventHandler(this.reUpdatePriceMenuItem_Click);
-            // 
-            // exitMenuItem
-            // 
-            this.exitMenuItem.Image = global::admin.Properties.Resources.close;
-            this.exitMenuItem.Name = "exitMenuItem";
-            this.exitMenuItem.Size = new System.Drawing.Size(262, 22);
-            this.exitMenuItem.Text = "Kết thúc";
-            this.exitMenuItem.Click += new System.EventHandler(this.exitMenuItem_Click);
-            // 
-            // companyMenu
-            // 
-            this.companyMenu.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.companyMenu.Image = global::admin.Properties.Resources.home1;
-            this.companyMenu.Name = "companyMenu";
-            this.companyMenu.Size = new System.Drawing.Size(221, 22);
-            this.companyMenu.Text = "Công ty";
-            this.companyMenu.Click += new System.EventHandler(this.companyMenu_Click);
-            // 
-            // investorMenu
-            // 
-            this.investorMenu.Image = global::admin.Properties.Resources.employee;
-            this.investorMenu.Name = "investorMenu";
-            this.investorMenu.Size = new System.Drawing.Size(221, 22);
-            this.investorMenu.Text = "Nhà đầu tư";
-            this.investorMenu.Click += new System.EventHandler(this.investorMenu_Click);
-            // 
-            // stockExchangeMenu
-            // 
-            this.stockExchangeMenu.Image = global::admin.Properties.Resources.exrate;
-            this.stockExchangeMenu.Name = "stockExchangeMenu";
-            this.stockExchangeMenu.Size = new System.Drawing.Size(221, 22);
-            this.stockExchangeMenu.Tag = "??";
-            this.stockExchangeMenu.Text = "Sàn giao dịch";
-            this.stockExchangeMenu.Click += new System.EventHandler(this.stockExchangeMenu_Click);
-            // 
-            // sysWatchListMenuItem
-            // 
-            this.sysWatchListMenuItem.Image = global::admin.Properties.Resources.glasses;
-            this.sysWatchListMenuItem.Name = "sysWatchListMenuItem";
-            this.sysWatchListMenuItem.Size = new System.Drawing.Size(221, 22);
-            this.sysWatchListMenuItem.Text = "System Watch List";
-            this.sysWatchListMenuItem.Click += new System.EventHandler(this.sysWatchListMenuItem_Click);
-            // 
-            // sysInterestedStrategyMenuItem
-            // 
-            this.sysInterestedStrategyMenuItem.Image = global::admin.Properties.Resources.category21;
-            this.sysInterestedStrategyMenuItem.Name = "sysInterestedStrategyMenuItem";
-            this.sysInterestedStrategyMenuItem.Size = new System.Drawing.Size(221, 22);
-            this.sysInterestedStrategyMenuItem.Text = "Interested Strategy";
-            this.sysInterestedStrategyMenuItem.Click += new System.EventHandler(this.sysInterestedStrategyMenuItem_Click);
             // 
             // licenseMenu
             // 
@@ -403,28 +423,30 @@
         private System.Windows.Forms.ToolStripMenuItem stockExchangeMenu;
         private System.Windows.Forms.ToolStripMenuItem investorMenu;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
-        private System.Windows.Forms.ToolStripMenuItem importPriceDataMenu;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem dataProcessMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator8;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator9;
         private System.Windows.Forms.ToolStripMenuItem configMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator11;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator12;
-        private System.Windows.Forms.ToolStripMenuItem importIcbMenu;
-        private System.Windows.Forms.ToolStripMenuItem importCompanyMenu;
-        private System.Windows.Forms.ToolStripMenuItem importComSectorMenu;
-        private System.Windows.Forms.ToolStripMenuItem updatePriceMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripMenuItem testToolStripMenuItem;
         protected System.Windows.Forms.Timer myMainTimer;
         private System.Windows.Forms.ToolStripMenuItem sysWatchListMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sysInterestedStrategyMenuItem;
         private System.Windows.Forms.ToolStripMenuItem configureMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toolMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem importPriceDataMenu;
+        private System.Windows.Forms.ToolStripMenuItem importIcbMenu;
+        private System.Windows.Forms.ToolStripMenuItem importCompanyMenu;
+        private System.Windows.Forms.ToolStripMenuItem importComSectorMenu;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
+        private System.Windows.Forms.ToolStripMenuItem updatePriceMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reUpdatePriceMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem resetServiceMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
     }
 }

@@ -128,5 +128,18 @@ namespace admin.forms
                 this.ShowError(er);
             }
         }
+
+        private void resetBtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.ShowMessage("");
+                DataAccess.Libs.ResetService();
+            }
+            catch (Exception er)
+            {
+                this.ShowError(er);
+            }
+        }
     }
 }

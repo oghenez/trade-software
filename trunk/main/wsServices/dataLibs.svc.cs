@@ -46,6 +46,14 @@ namespace wsServices
             sysDataCache.Clear();
             Strategy.Data.ClearCache();
         }
+
+        //Clear all caches to bring the system into initial state
+        public void Reset()
+        {
+            ClearCache();
+            application.SysLibs.ClearCache();
+        }
+
         public void DeleteCache(string cacheName)
         {
             sysDataCache.Remove(cacheName);
@@ -56,12 +64,6 @@ namespace wsServices
             object obj = sysDataCache.Find(cacheName);
             if (obj == null) return null;
             return (AnalysisData)obj;
-        }
-        private EstimateOptions GetCache_EstimateOptions(string cacheName)
-        {
-            object obj = sysDataCache.Find(cacheName);
-            if (obj == null) return null;
-            return (EstimateOptions)obj;
         }
 
         private static string MakeCacheKey(AppTypes.TimeRanges timeRange, string timeScaleCode, string code)
@@ -379,10 +381,13 @@ namespace wsServices
         {
             data.baseDS.priceDataRow priceRow = DbAccess.GetLastPrice(transInfo.stockCode);
             data.baseDS.portfolioRow portfolioRow = DbAccess.GetPortfolio(transInfo.portfolio);
-            if (priceRow == null || portfolioRow==null) return false;
+            data.baseDS.stockExchangeRow marketRow = application.AppLibs.GetStockExchange(transInfo.stockCode);
+            if (priceRow == null || portfolioRow == null || marketRow==null) return false;
             transInfo.price = priceRow.closePrice;
             transInfo.priceDate = priceRow.onDate;
             transInfo.availableCash = portfolioRow.startCapAmt - portfolioRow.usedCapAmt;
+            transInfo.transFeePerc = marketRow.tranFeePerc;
+            transInfo.priceRatio = marketRow.priceRatio;
             return true;
         }
 
@@ -482,6 +487,10 @@ namespace wsServices
         #endregion
 
         #region Delete
+        public void DeleteStockExchange(string code)
+        {
+            DbAccess.DeleteStockExchange(code);
+        }
         public void DeleteStock(string code)
         {
             DbAccess.DeleteStock(code);
@@ -571,24 +580,6 @@ namespace wsServices
             if (priceRow == null) return null;
             return priceRow.ItemArray;
         }
-
-        public decimal EstimateProfitTEST(AppTypes.TimeRanges timeRange, string timeScaleCode,
-                                      string estimateOptionKey, string dataCode, string strategyCode)
-        {
-            EstimateOptions option = GetCache_EstimateOptions(estimateOptionKey);
-            if (option == null) return 0;
-            return EstimateProfit(timeRange, timeScaleCode, option, dataCode, strategyCode);
-        }
-
-        public decimal EstimateProfit(AppTypes.TimeRanges timeRange, string timeScaleCode,
-                                      EstimateOptions option, string dataCode, string strategyCode)
-        {
-            AnalysisData data = GetCache_Data(LoadAnalysisData(timeRange, timeScaleCode, dataCode, false));
-            if (data == null) return 0;
-            Strategy.Data.TradePoints tradePoints = Strategy.Libs.Analysis(data, strategyCode);
-            return Strategy.Libs.EstimateTrading_Profit(data, Strategy.Libs.ToTradePointInfo(tradePoints), option);
-        }
-
 
         [OperationBehavior]
         public DataTable GetTbl()

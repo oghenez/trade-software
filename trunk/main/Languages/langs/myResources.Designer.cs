@@ -223,6 +223,15 @@ namespace Languages.langs {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Restart service ?.
+        /// </summary>
+        internal static string askToRestartService {
+            get {
+                return ResourceManager.GetString("askToRestartService", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Average loss amount.
         /// </summary>
         internal static string averageLossAmt {

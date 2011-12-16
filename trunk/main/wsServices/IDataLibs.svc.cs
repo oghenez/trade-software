@@ -20,6 +20,8 @@ namespace wsServices
     {
         #region system
         [OperationContract]
+        void Reset();
+        [OperationContract]
         void ClearCache();
         [OperationContract]
         void DeleteCache(string cacheName);
@@ -58,6 +60,8 @@ namespace wsServices
         #region Delete
         [OperationContract]
         void DeleteStock(string stockCode);
+        [OperationContract]
+        void DeleteStockExchange(string code);
         [OperationContract]
         void DeleteInvestor(string investorCode);
         [OperationContract]

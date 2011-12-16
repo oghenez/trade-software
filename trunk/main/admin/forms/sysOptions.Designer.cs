@@ -81,6 +81,7 @@
             this.dateLbl = new common.controls.baseLabel();
             this.closeBtn = new System.Windows.Forms.Button();
             this.saveBtn = new System.Windows.Forms.Button();
+            this.resetBtn = new System.Windows.Forms.Button();
             this.mainTab.SuspendLayout();
             this.setupPg.SuspendLayout();
             this.systemTab.SuspendLayout();
@@ -118,6 +119,7 @@
             // 
             // setupPg
             // 
+            this.setupPg.Controls.Add(this.resetBtn);
             this.setupPg.Controls.Add(this.systemTab);
             this.setupPg.Location = new System.Drawing.Point(4, 25);
             this.setupPg.Name = "setupPg";
@@ -211,6 +213,11 @@
             0,
             0,
             0});
+            this.passwordMinLenEd.myValue = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
             this.passwordMinLenEd.Name = "passwordMinLenEd";
             this.passwordMinLenEd.Size = new System.Drawing.Size(45, 23);
             this.passwordMinLenEd.TabIndex = 2;
@@ -257,10 +264,10 @@
             this.autoKeyPg.Controls.Add(this.sysAutoDataKeySizeEd);
             this.autoKeyPg.Controls.Add(this.dataKeyPrefixLbl);
             this.autoKeyPg.Controls.Add(this.sysDataKeyPrefixEd);
-            this.autoKeyPg.Location = new System.Drawing.Point(4, 25);
+            this.autoKeyPg.Location = new System.Drawing.Point(4, 22);
             this.autoKeyPg.Name = "autoKeyPg";
             this.autoKeyPg.Padding = new System.Windows.Forms.Padding(3);
-            this.autoKeyPg.Size = new System.Drawing.Size(411, 259);
+            this.autoKeyPg.Size = new System.Drawing.Size(411, 262);
             this.autoKeyPg.TabIndex = 0;
             this.autoKeyPg.Text = "Số tự động";
             this.autoKeyPg.UseVisualStyleBackColor = true;
@@ -323,6 +330,11 @@
             0,
             0,
             0});
+            this.sysAutoEditKeySizeEd.myValue = new decimal(new int[] {
+            9,
+            0,
+            0,
+            0});
             this.sysAutoEditKeySizeEd.Name = "sysAutoEditKeySizeEd";
             this.sysAutoEditKeySizeEd.Size = new System.Drawing.Size(53, 24);
             this.sysAutoEditKeySizeEd.TabIndex = 3;
@@ -375,6 +387,11 @@
             0,
             0,
             0});
+            this.timeOutAutoKeyEd.myValue = new decimal(new int[] {
+            120,
+            0,
+            0,
+            0});
             this.timeOutAutoKeyEd.Name = "timeOutAutoKeyEd";
             this.timeOutAutoKeyEd.Size = new System.Drawing.Size(53, 24);
             this.timeOutAutoKeyEd.TabIndex = 4;
@@ -395,6 +412,11 @@
             0});
             this.sysAutoDataKeySizeEd.Minimum = new decimal(new int[] {
             5,
+            0,
+            0,
+            0});
+            this.sysAutoDataKeySizeEd.myValue = new decimal(new int[] {
+            9,
             0,
             0,
             0});
@@ -444,10 +466,10 @@
             this.formatPg.Controls.Add(this.qtyMaskEd);
             this.formatPg.Controls.Add(this.foreignAmtMaskEd);
             this.formatPg.Controls.Add(this.localAmtMaskEd);
-            this.formatPg.Location = new System.Drawing.Point(4, 25);
+            this.formatPg.Location = new System.Drawing.Point(4, 22);
             this.formatPg.Name = "formatPg";
             this.formatPg.Padding = new System.Windows.Forms.Padding(3);
-            this.formatPg.Size = new System.Drawing.Size(411, 259);
+            this.formatPg.Size = new System.Drawing.Size(411, 262);
             this.formatPg.TabIndex = 4;
             this.formatPg.Text = "Định dạng";
             this.formatPg.UseVisualStyleBackColor = true;
@@ -461,6 +483,11 @@
             0,
             0,
             0});
+            this.percentPrecisionEd.myValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
             this.percentPrecisionEd.Name = "percentPrecisionEd";
             this.percentPrecisionEd.Size = new System.Drawing.Size(46, 24);
             this.percentPrecisionEd.TabIndex = 31;
@@ -471,6 +498,11 @@
             this.qtyPrecisionEd.Location = new System.Drawing.Point(308, 93);
             this.qtyPrecisionEd.Maximum = new decimal(new int[] {
             4,
+            0,
+            0,
+            0});
+            this.qtyPrecisionEd.myValue = new decimal(new int[] {
+            2,
             0,
             0,
             0});
@@ -492,6 +524,11 @@
             0,
             0,
             0});
+            this.foreignAmtPrecisionEd.myValue = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
             this.foreignAmtPrecisionEd.Name = "foreignAmtPrecisionEd";
             this.foreignAmtPrecisionEd.Size = new System.Drawing.Size(46, 24);
             this.foreignAmtPrecisionEd.TabIndex = 11;
@@ -507,6 +544,11 @@
             this.localAmtPrecisionEd.Location = new System.Drawing.Point(308, 43);
             this.localAmtPrecisionEd.Maximum = new decimal(new int[] {
             4,
+            0,
+            0,
+            0});
+            this.localAmtPrecisionEd.myValue = new decimal(new int[] {
+            0,
             0,
             0,
             0});
@@ -613,10 +655,10 @@
             this.emailPg.Controls.Add(this.smtpPortEd);
             this.emailPg.Controls.Add(this.smtpServerLbl);
             this.emailPg.Controls.Add(this.smtpServerEd);
-            this.emailPg.Location = new System.Drawing.Point(4, 25);
+            this.emailPg.Location = new System.Drawing.Point(4, 22);
             this.emailPg.Name = "emailPg";
             this.emailPg.Padding = new System.Windows.Forms.Padding(3);
-            this.emailPg.Size = new System.Drawing.Size(411, 259);
+            this.emailPg.Size = new System.Drawing.Size(411, 262);
             this.emailPg.TabIndex = 5;
             this.emailPg.Text = "E-mail";
             this.emailPg.UseVisualStyleBackColor = true;
@@ -723,10 +765,10 @@
             // 
             this.otherPg.Controls.Add(this.dataStartDateEd);
             this.otherPg.Controls.Add(this.dateLbl);
-            this.otherPg.Location = new System.Drawing.Point(4, 25);
+            this.otherPg.Location = new System.Drawing.Point(4, 22);
             this.otherPg.Name = "otherPg";
             this.otherPg.Padding = new System.Windows.Forms.Padding(3);
-            this.otherPg.Size = new System.Drawing.Size(411, 259);
+            this.otherPg.Size = new System.Drawing.Size(411, 262);
             this.otherPg.TabIndex = 2;
             this.otherPg.Text = "Khác";
             this.otherPg.UseVisualStyleBackColor = true;
@@ -786,6 +828,20 @@
             this.saveBtn.Text = "&Lưu";
             this.saveBtn.UseVisualStyleBackColor = true;
             this.saveBtn.Click += new System.EventHandler(this.saveBtn_Click);
+            // 
+            // resetBtn
+            // 
+            this.resetBtn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.resetBtn.Image = global::admin.Properties.Resources.refresh;
+            this.resetBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.resetBtn.Location = new System.Drawing.Point(25, 294);
+            this.resetBtn.Margin = new System.Windows.Forms.Padding(4);
+            this.resetBtn.Name = "resetBtn";
+            this.resetBtn.Size = new System.Drawing.Size(102, 29);
+            this.resetBtn.TabIndex = 147;
+            this.resetBtn.Text = "&Khởi động";
+            this.resetBtn.UseVisualStyleBackColor = true;
+            this.resetBtn.Click += new System.EventHandler(this.resetBtn_Click);
             // 
             // sysOptions
             // 
@@ -883,5 +939,6 @@
         protected common.controls.baseLabel label9;
         protected common.controls.baseMaskedTextBox smtpPortEd;
         protected common.controls.baseLabel smtpPortLbl;
+        protected System.Windows.Forms.Button resetBtn;
     }
 }

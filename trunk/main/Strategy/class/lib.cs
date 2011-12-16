@@ -511,11 +511,12 @@ namespace Strategy
                            object returnObj, AfterEachEstimationFunc afterEachEstimationFunc, AfterEstimationFunc afterEstimationFunc)
         {
             EstimationData myEstimationData = new EstimationData();
-            
+
+            global::data.baseDS.stockExchangeRow marketRow = application.AppLibs.GetStockExchange(data.DataStockCode); 
             decimal initCapAmt = options.TotalCapAmt * options.MaxBuyAmtPerc / 100;
-            decimal priceWeight = options.PriceWeight;
-            decimal feePerc = options.TransFeecPerc / 100;
-            short buy2SellInterval = options.Buy2SellInterval;
+            decimal priceWeight = marketRow.priceRatio;
+            decimal feePerc = marketRow.tranFeePerc / 100;
+            short buy2SellInterval = marketRow.minBuySellDay;
 
             data.baseDS.stockCodeRow stockCodeRow = application.SysLibs.FindAndCache_StockCode(data.DataStockCode);
             if (stockCodeRow == null) return;
@@ -527,7 +528,7 @@ namespace Strategy
             decimal cashAmt = initCapAmt;
             
             DateTime transDate = common.Consts.constNullDate; ;
-            bool keepInApplicableSell = true;
+            
             for (int idx = 0; idx < tradePoints.Length; idx++)
             {
                 adviceDataIdx = tradePoints[idx].DataIdx;
@@ -574,7 +575,7 @@ namespace Strategy
                                                                DateTime.FromOADate(data.DateTime[adviceDataIdx]).Date) < buy2SellInterval)
                         {
                             // Keep inapplicable Sells ??
-                            if (keepInApplicableSell)
+                            if (commonClass.Settings.sysKeepInApplicableSell)
                             {
                                 int trandDataIdx = -1;
                                 DateTime minAllowSellDate = DateTime.FromOADate(data.DateTime[lastBuyId]).Date.AddDays(buy2SellInterval);

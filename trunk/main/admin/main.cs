@@ -240,5 +240,20 @@ namespace admin
                 this.ShowError(er);
             }
         }
+
+        private void resetServiceMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DialogResult dialogResult = MessageBox.Show(Languages.Libs.GetString("askToRestartService"), common.settings.sysApplicationName,
+                                               MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (dialogResult == DialogResult.Yes) 
+                    DataAccess.Libs.ResetService(); 
+            }
+            catch (Exception er)
+            {
+                this.ShowError(er);
+            }
+        }
     }
 }
