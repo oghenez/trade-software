@@ -369,7 +369,7 @@ namespace Tools.Forms
             string timeScaleCode = timeScaleCb.myValue.Code;
             EstimateOptions estimateOption = new EstimateOptions();
 
-            DataAccess.Libs.Reset();
+            DataAccess.Libs.ClearCache();
 
             ArrayList resulTblList = new ArrayList();
             this.ShowReccount(progressBar.Value.ToString() + "/" + progressBar.Maximum.ToString());
