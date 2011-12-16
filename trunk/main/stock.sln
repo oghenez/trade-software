@@ -43,7 +43,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "commonClass", "commonClass\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Languages", "Languages\Languages.csproj", "{0C77EE2C-AD41-4BB5-8E58-2CB334D75878}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "imports", "imports\imports.csproj", "{350FB15F-1944-47A5-9B00-4E5F05438050}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "imports", "import\imports.csproj", "{350FB15F-1944-47A5-9B00-4E5F05438050}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
