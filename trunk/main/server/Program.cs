@@ -15,7 +15,7 @@ namespace server
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new scheduleForm());
+            Application.Run(new main());
         }
     }
 }

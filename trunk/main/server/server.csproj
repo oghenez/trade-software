@@ -64,6 +64,12 @@
   <ItemGroup>
     <Compile Include="libs\libs.cs">
     </Compile>
+    <Compile Include="main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="main.Designer.cs">
+      <DependentUpon>main.cs</DependentUpon>
+    </Compile>
     <Compile Include="schedule.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -72,6 +78,10 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="main.resx">
+      <DependentUpon>main.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="schedule.resx">
       <DependentUpon>schedule.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -110,6 +120,27 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\configure.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\properties.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\import.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\data.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\product1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exrate.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\home1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

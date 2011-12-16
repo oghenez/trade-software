@@ -190,11 +190,7 @@ namespace server
                     if (!fProcessingFetchData && (fetchDataElapseInSeconds >= fetchStockEd.Value))
                     {
                         fProcessingFetchData = true;
-                        if (!libs.AllowToUpdate(DateTime.Now))
-                        {
-                            common.fileFuncs.WriteLog(DateTime.Now.ToString() + " : ignored FetchRealTimeData().");
-                        }
-                        else
+                        if (libs.AllowToUpdate(DateTime.Now))
                         {
                             libs.FetchRealTimeData(DateTime.Now);
                         }
@@ -208,11 +204,7 @@ namespace server
                     if (!fProcessingTraderAlert && (alertElapseInSeconds >= tradeAlertEd.Value))
                     {
                         fProcessingTraderAlert = true;
-                        if (!libs.AllowToUpdate(DateTime.Now))
-                        {
-                            common.fileFuncs.WriteLog(DateTime.Now.ToString() + " : ignored CreateTradeAlert().");
-                        }
-                        else
+                        if (libs.AllowToUpdate(DateTime.Now))
                         {
                             common.fileFuncs.WriteLog(DateTime.Now.ToString() + " : Trade alert start");
                             Trade.AlertLibs.CreateTradeAlert(onTradeAlertProcessStart, onTradeAlertProcessItem, onTradeAlertProcessEnd);
