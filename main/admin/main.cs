@@ -18,7 +18,6 @@ namespace admin
                 common.language.myCulture = new System.Globalization.CultureInfo("vi-VN");
                 commonClass.SysLibs.myAccessMode = commonClass.DataAccessMode.WebService;
                 InitializeComponent();
-                //object obj = Strategy.Data.sysXmlDocument;
                 //test.LoadTestConfig();
             }
             catch (Exception er)
@@ -37,7 +36,6 @@ namespace admin
             return true;
         }
      
-
         private void exitMenu_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -101,18 +99,6 @@ namespace admin
           
         }
 
-        private void importPriceDataMenu_Click(object sender, EventArgs e)
-        {
-            Form myForm = this.FindForm("importPriceData");
-            if (myForm == null || myForm.IsDisposed)
-            {
-                myForm = new imports.forms.importPriceData();
-                myForm.Name = "importPriceData";
-            }
-            this.ShowForm(myForm, false);
-        }
-
-       
         private void loginMenu_Click(object sender, EventArgs e)
         {
             this.ShowLogin();
@@ -132,61 +118,6 @@ namespace admin
         private void exitMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void importIcbMenu_Click(object sender, EventArgs e)
-        {
-            Form myForm = this.FindForm("importIcbCode");
-            if (myForm == null || myForm.IsDisposed)
-            {
-                myForm = new imports.forms.importIcbCode();
-                myForm.Name = "importIcbCode";
-            }
-            this.ShowForm(myForm, false);
-        }
-
-        private void importCompanyMenu_Click(object sender, EventArgs e)
-        {
-            Form myForm = this.FindForm("importCompany");
-            if (myForm == null || myForm.IsDisposed)
-            {
-                myForm = new imports.forms.importCompany();
-                myForm.Name = "importCompany";
-            }
-            this.ShowForm(myForm, false);
-        }
-
-        private void importComSectorMenu_Click(object sender, EventArgs e)
-        {
-            Form myForm = this.FindForm("importComSector");
-            if (myForm == null || myForm.IsDisposed)
-            {
-                myForm = new imports.forms.importComSector();
-                myForm.Name = "importComSector";
-            }
-            this.ShowForm(myForm, false);
-        }
-
-        private void updatePriceMenuItem_Click(object sender, EventArgs e)
-        {
-            Form myForm = this.FindForm("updatePrice");
-            if (myForm == null || myForm.IsDisposed)
-            {
-                myForm = new imports.forms.updatePrice();
-                myForm.Name = "updatePrice";
-            }
-            this.ShowForm(myForm, false);
-        }
-        private void testToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                //stockTrade.libs.CreateTradeAlert(null, null, null);
-            }
-            catch (Exception er)
-            {
-                this.ShowError(er);
-            }
         }
 
         private void sysWatchListMenuItem_Click(object sender, EventArgs e)
@@ -220,19 +151,6 @@ namespace admin
             try
             {
                 baseClass.forms.configure form = new baseClass.forms.configure();
-                form.ShowDialog();
-            }
-            catch (Exception er)
-            {
-                this.ShowError(er);
-            }
-        }
-
-        private void reUpdatePriceMenuItem_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                imports.forms.reUpdatePrice form = new imports.forms.reUpdatePrice();
                 form.ShowDialog();
             }
             catch (Exception er)

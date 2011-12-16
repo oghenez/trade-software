@@ -119,7 +119,7 @@ namespace server
                 aFields.Add("url" + idx.ToString()); aFields.Add("stockExchange" + idx.ToString());
                 if (!GetConfig("UPDATEDATA","updateSource", aFields)) break;
                 common.fileFuncs.WriteLog(updateTime.ToString() + " : update data from " + aFields[0] + " " + aFields[1]);
-                imports.libs.ImportPricedata_URL(updateTime, aFields[0], aFields[1]);
+                imports.libs.ImportPrice_URL(updateTime, aFields[0], aFields[1]);
                 idx++;
             }
             return;

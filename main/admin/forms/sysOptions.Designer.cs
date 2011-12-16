@@ -81,7 +81,6 @@
             this.dateLbl = new common.controls.baseLabel();
             this.closeBtn = new System.Windows.Forms.Button();
             this.saveBtn = new System.Windows.Forms.Button();
-            this.resetBtn = new System.Windows.Forms.Button();
             this.mainTab.SuspendLayout();
             this.setupPg.SuspendLayout();
             this.systemTab.SuspendLayout();
@@ -119,7 +118,6 @@
             // 
             // setupPg
             // 
-            this.setupPg.Controls.Add(this.resetBtn);
             this.setupPg.Controls.Add(this.systemTab);
             this.setupPg.Location = new System.Drawing.Point(4, 25);
             this.setupPg.Name = "setupPg";
@@ -806,10 +804,10 @@
             this.closeBtn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.closeBtn.Image = ((System.Drawing.Image)(resources.GetObject("closeBtn.Image")));
             this.closeBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.closeBtn.Location = new System.Drawing.Point(312, 320);
+            this.closeBtn.Location = new System.Drawing.Point(318, 320);
             this.closeBtn.Margin = new System.Windows.Forms.Padding(0, 4, 0, 4);
             this.closeBtn.Name = "closeBtn";
-            this.closeBtn.Size = new System.Drawing.Size(77, 29);
+            this.closeBtn.Size = new System.Drawing.Size(73, 29);
             this.closeBtn.TabIndex = 11;
             this.closeBtn.Text = "Đóng";
             this.closeBtn.UseVisualStyleBackColor = true;
@@ -820,28 +818,14 @@
             this.saveBtn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.saveBtn.Image = global::admin.Properties.Resources.save;
             this.saveBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.saveBtn.Location = new System.Drawing.Point(248, 320);
+            this.saveBtn.Location = new System.Drawing.Point(245, 320);
             this.saveBtn.Margin = new System.Windows.Forms.Padding(4);
             this.saveBtn.Name = "saveBtn";
-            this.saveBtn.Size = new System.Drawing.Size(64, 29);
+            this.saveBtn.Size = new System.Drawing.Size(73, 29);
             this.saveBtn.TabIndex = 10;
             this.saveBtn.Text = "&Lưu";
             this.saveBtn.UseVisualStyleBackColor = true;
             this.saveBtn.Click += new System.EventHandler(this.saveBtn_Click);
-            // 
-            // resetBtn
-            // 
-            this.resetBtn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.resetBtn.Image = global::admin.Properties.Resources.refresh;
-            this.resetBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.resetBtn.Location = new System.Drawing.Point(25, 294);
-            this.resetBtn.Margin = new System.Windows.Forms.Padding(4);
-            this.resetBtn.Name = "resetBtn";
-            this.resetBtn.Size = new System.Drawing.Size(102, 29);
-            this.resetBtn.TabIndex = 147;
-            this.resetBtn.Text = "&Khởi động";
-            this.resetBtn.UseVisualStyleBackColor = true;
-            this.resetBtn.Click += new System.EventHandler(this.resetBtn_Click);
             // 
             // sysOptions
             // 
@@ -849,7 +833,6 @@
             this.Controls.Add(this.closeBtn);
             this.Controls.Add(this.saveBtn);
             this.Controls.Add(this.mainTab);
-            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimizeBox = false;
             this.Name = "sysOptions";
@@ -939,6 +922,5 @@
         protected common.controls.baseLabel label9;
         protected common.controls.baseMaskedTextBox smtpPortEd;
         protected common.controls.baseLabel smtpPortLbl;
-        protected System.Windows.Forms.Button resetBtn;
     }
 }
