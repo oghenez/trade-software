@@ -35,7 +35,7 @@
             this.companyOtherInfo = new baseClass.controls.companyOtherInfo();
             this.xpPanel_StockInfo = new UIComponents.XPPanel(181);
             this.companyStock = new baseClass.controls.companyStockInfo();
-            this.xpPanel_GeneralInfo = new UIComponents.XPPanel(314);
+            this.xpPanel_GeneralInfo = new UIComponents.XPPanel(358);
             this.companyGeneral = new baseClass.controls.companyGeneralInfo();
             this.stockCodeSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.myDataSet)).BeginInit();
@@ -134,7 +134,7 @@
             this.xpPanel_OtherInfo.ForeColor = System.Drawing.SystemColors.WindowText;
             this.xpPanel_OtherInfo.HorzAlignment = System.Drawing.StringAlignment.Near;
             this.xpPanel_OtherInfo.ImageItems.ImageSet = null;
-            this.xpPanel_OtherInfo.Location = new System.Drawing.Point(0, 495);
+            this.xpPanel_OtherInfo.Location = new System.Drawing.Point(0, 539);
             this.xpPanel_OtherInfo.Name = "xpPanel_OtherInfo";
             this.xpPanel_OtherInfo.PanelGradient.End = System.Drawing.SystemColors.Control;
             this.xpPanel_OtherInfo.PanelGradient.Start = System.Drawing.SystemColors.Control;
@@ -172,7 +172,7 @@
             this.xpPanel_StockInfo.ForeColor = System.Drawing.SystemColors.WindowText;
             this.xpPanel_StockInfo.HorzAlignment = System.Drawing.StringAlignment.Near;
             this.xpPanel_StockInfo.ImageItems.ImageSet = null;
-            this.xpPanel_StockInfo.Location = new System.Drawing.Point(0, 314);
+            this.xpPanel_StockInfo.Location = new System.Drawing.Point(0, 358);
             this.xpPanel_StockInfo.Name = "xpPanel_StockInfo";
             this.xpPanel_StockInfo.PanelGradient.End = System.Drawing.SystemColors.Control;
             this.xpPanel_StockInfo.PanelGradient.Start = System.Drawing.SystemColors.Control;
@@ -214,7 +214,7 @@
             this.xpPanel_GeneralInfo.PanelGradient.End = System.Drawing.SystemColors.Control;
             this.xpPanel_GeneralInfo.PanelGradient.Start = System.Drawing.SystemColors.Control;
             this.xpPanel_GeneralInfo.PanelGradientMode = System.Drawing.Drawing2D.LinearGradientMode.Horizontal;
-            this.xpPanel_GeneralInfo.Size = new System.Drawing.Size(483, 314);
+            this.xpPanel_GeneralInfo.Size = new System.Drawing.Size(483, 358);
             this.xpPanel_GeneralInfo.Spacing = new System.Drawing.Point(0, 0);
             this.xpPanel_GeneralInfo.TabIndex = 0;
             this.xpPanel_GeneralInfo.TextColors.Foreground = System.Drawing.SystemColors.Control;
@@ -226,7 +226,7 @@
             // 
             this.companyGeneral.Location = new System.Drawing.Point(30, 29);
             this.companyGeneral.Name = "companyGeneral";
-            this.companyGeneral.Size = new System.Drawing.Size(440, 277);
+            this.companyGeneral.Size = new System.Drawing.Size(440, 317);
             this.companyGeneral.TabIndex = 0;
             // 
             // stockCodeSource

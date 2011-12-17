@@ -54,6 +54,7 @@
             // 
             this.codeEd.BackColor = System.Drawing.SystemColors.Window;
             this.codeEd.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.codeEd.isToUpperCase = false;
             this.codeEd.Location = new System.Drawing.Point(0, 21);
             this.codeEd.Name = "codeEd";
             this.codeEd.Size = new System.Drawing.Size(107, 24);
@@ -73,6 +74,7 @@
             // 
             this.enNameEd.BackColor = System.Drawing.SystemColors.Window;
             this.enNameEd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.enNameEd.isToUpperCase = false;
             this.enNameEd.Location = new System.Drawing.Point(0, 69);
             this.enNameEd.Name = "enNameEd";
             this.enNameEd.Size = new System.Drawing.Size(440, 22);
@@ -102,16 +104,18 @@
             // 
             this.addressEd1.BackColor = System.Drawing.SystemColors.Window;
             this.addressEd1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addressEd1.isToUpperCase = false;
             this.addressEd1.Location = new System.Drawing.Point(0, 113);
+            this.addressEd1.Multiline = true;
             this.addressEd1.Name = "addressEd1";
-            this.addressEd1.Size = new System.Drawing.Size(440, 22);
+            this.addressEd1.Size = new System.Drawing.Size(440, 41);
             this.addressEd1.TabIndex = 4;
             // 
             // addressLbl2
             // 
             this.addressLbl2.AutoSize = true;
             this.addressLbl2.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addressLbl2.Location = new System.Drawing.Point(0, 140);
+            this.addressLbl2.Location = new System.Drawing.Point(0, 160);
             this.addressLbl2.Name = "addressLbl2";
             this.addressLbl2.Size = new System.Drawing.Size(74, 16);
             this.addressLbl2.TabIndex = 290;
@@ -121,7 +125,8 @@
             // 
             this.websiteEd.BackColor = System.Drawing.SystemColors.Window;
             this.websiteEd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.websiteEd.Location = new System.Drawing.Point(220, 255);
+            this.websiteEd.isToUpperCase = false;
+            this.websiteEd.Location = new System.Drawing.Point(220, 293);
             this.websiteEd.Name = "websiteEd";
             this.websiteEd.Size = new System.Drawing.Size(220, 22);
             this.websiteEd.TabIndex = 10;
@@ -130,16 +135,18 @@
             // 
             this.addressEd2.BackColor = System.Drawing.SystemColors.Window;
             this.addressEd2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addressEd2.Location = new System.Drawing.Point(0, 160);
+            this.addressEd2.isToUpperCase = false;
+            this.addressEd2.Location = new System.Drawing.Point(0, 180);
+            this.addressEd2.Multiline = true;
             this.addressEd2.Name = "addressEd2";
-            this.addressEd2.Size = new System.Drawing.Size(440, 22);
+            this.addressEd2.Size = new System.Drawing.Size(440, 42);
             this.addressEd2.TabIndex = 5;
             // 
             // websiteLbl
             // 
             this.websiteLbl.AutoSize = true;
             this.websiteLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.websiteLbl.Location = new System.Drawing.Point(217, 238);
+            this.websiteLbl.Location = new System.Drawing.Point(217, 276);
             this.websiteLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.websiteLbl.Name = "websiteLbl";
             this.websiteLbl.Size = new System.Drawing.Size(61, 16);
@@ -150,7 +157,7 @@
             // 
             this.countryCb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.countryCb.FormattingEnabled = true;
-            this.countryCb.Location = new System.Drawing.Point(0, 209);
+            this.countryCb.Location = new System.Drawing.Point(0, 247);
             this.countryCb.myValue = "";
             this.countryCb.Name = "countryCb";
             this.countryCb.Size = new System.Drawing.Size(223, 21);
@@ -160,7 +167,7 @@
             // 
             this.nationLbl.AutoSize = true;
             this.nationLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nationLbl.Location = new System.Drawing.Point(-2, 190);
+            this.nationLbl.Location = new System.Drawing.Point(-2, 228);
             this.nationLbl.Name = "nationLbl";
             this.nationLbl.Size = new System.Drawing.Size(49, 16);
             this.nationLbl.TabIndex = 292;
@@ -170,7 +177,8 @@
             // 
             this.emailEd.BackColor = System.Drawing.SystemColors.Window;
             this.emailEd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.emailEd.Location = new System.Drawing.Point(0, 255);
+            this.emailEd.isToUpperCase = false;
+            this.emailEd.Location = new System.Drawing.Point(0, 293);
             this.emailEd.Name = "emailEd";
             this.emailEd.Size = new System.Drawing.Size(220, 22);
             this.emailEd.TabIndex = 9;
@@ -179,7 +187,8 @@
             // 
             this.faxEd.BackColor = System.Drawing.SystemColors.Window;
             this.faxEd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.faxEd.Location = new System.Drawing.Point(329, 209);
+            this.faxEd.isToUpperCase = false;
+            this.faxEd.Location = new System.Drawing.Point(329, 247);
             this.faxEd.Margin = new System.Windows.Forms.Padding(4);
             this.faxEd.Name = "faxEd";
             this.faxEd.Size = new System.Drawing.Size(108, 22);
@@ -189,7 +198,7 @@
             // 
             this.emailLbl.AutoSize = true;
             this.emailLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.emailLbl.Location = new System.Drawing.Point(-2, 235);
+            this.emailLbl.Location = new System.Drawing.Point(-2, 273);
             this.emailLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.emailLbl.Name = "emailLbl";
             this.emailLbl.Size = new System.Drawing.Size(40, 16);
@@ -200,7 +209,7 @@
             // 
             this.phoneLbl.AutoSize = true;
             this.phoneLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.phoneLbl.Location = new System.Drawing.Point(219, 190);
+            this.phoneLbl.Location = new System.Drawing.Point(219, 228);
             this.phoneLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.phoneLbl.Name = "phoneLbl";
             this.phoneLbl.Size = new System.Drawing.Size(48, 16);
@@ -211,7 +220,7 @@
             // 
             this.faxLbl.AutoSize = true;
             this.faxLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.faxLbl.Location = new System.Drawing.Point(332, 190);
+            this.faxLbl.Location = new System.Drawing.Point(332, 228);
             this.faxLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.faxLbl.Name = "faxLbl";
             this.faxLbl.Size = new System.Drawing.Size(29, 16);
@@ -222,7 +231,8 @@
             // 
             this.phoneEd.BackColor = System.Drawing.SystemColors.Window;
             this.phoneEd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.phoneEd.Location = new System.Drawing.Point(221, 209);
+            this.phoneEd.isToUpperCase = false;
+            this.phoneEd.Location = new System.Drawing.Point(221, 247);
             this.phoneEd.Margin = new System.Windows.Forms.Padding(4);
             this.phoneEd.Name = "phoneEd";
             this.phoneEd.Size = new System.Drawing.Size(108, 22);
@@ -242,6 +252,7 @@
             // 
             this.nameEd.BackColor = System.Drawing.SystemColors.Window;
             this.nameEd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nameEd.isToUpperCase = false;
             this.nameEd.Location = new System.Drawing.Point(107, 21);
             this.nameEd.Name = "nameEd";
             this.nameEd.Size = new System.Drawing.Size(333, 22);
@@ -271,7 +282,7 @@
             this.Controls.Add(this.faxLbl);
             this.Controls.Add(this.phoneEd);
             this.Name = "companyGeneralInfo";
-            this.Size = new System.Drawing.Size(440, 282);
+            this.Size = new System.Drawing.Size(440, 316);
             this.ResumeLayout(false);
             this.PerformLayout();
 

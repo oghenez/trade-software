@@ -23,6 +23,7 @@ namespace test
                 InitializeComponent();
                 cbTimeScale.LoadData();
                 cbTimeRange.LoadData();
+                cbChartType.LoadData();
                 timer1.Interval = 5000;
                 data.SysLibs.dbConnectionString = "Data Source=(local);Initial Catalog=stock;Integrated Security=True";
                 myData.DataStockCode = "";
@@ -57,11 +58,21 @@ namespace test
 
             pricePane.myGraphObj.myGraphPane.CurveList.Clear();
             pricePane.myGraphObj.SetSeriesX(myData.DateTime.Values, Charts.AxisType.DateAsOrdinal);
-            candleCurve = pricePane.myGraphObj.AddCandleStick(myData.DataStockCode, myData.High.Values, myData.Low.Values, myData.Open.Values, myData.Close.Values, myData.Volume.Values,
-                                                         commonClass.Settings.sysChartBarUpColor, commonClass.Settings.sysChartBarDnColor,
-                                                         commonClass.Settings.sysChartBullCandleColor, commonClass.Settings.sysChartBearCandleColor);
 
-            //lineCurve = graphPane1.myGraphObj.AddCurveLine(myData.DataStockCode, myData.Close.Values, SymbolType.Circle, Color.Red, 1);
+            switch (cbChartType.myValue)
+            {
+                case AppTypes.ChartTypes.CandleStick:
+                    candleCurve = pricePane.myGraphObj.AddCandleStick(myData.DataStockCode, myData.High.Values, myData.Low.Values, myData.Open.Values, myData.Close.Values, myData.Volume.Values,
+                                                                      commonClass.Settings.sysChartBarUpColor, commonClass.Settings.sysChartBarDnColor,
+                                                                      commonClass.Settings.sysChartBullCandleColor, commonClass.Settings.sysChartBearCandleColor);
+                    break;
+                case AppTypes.ChartTypes.Line:
+                    lineCurve = pricePane.myGraphObj.AddCurveLine(myData.DataStockCode, myData.Close.Values, SymbolType.Circle, Color.Blue, 1);
+                    break;
+                case AppTypes.ChartTypes.Bar:
+                    barCurve = pricePane.myGraphObj.AddCurveBar(myData.DataStockCode, myData.Close.Values, Color.Blue, Color.Blue, 1);
+                    break;
+            }
             pricePane.myGraphObj.SetFont(14);
             pricePane.myGraphObj.DefaultViewport();
             pricePane.myGraphObj.UpdateChart();
@@ -74,58 +85,34 @@ namespace test
             volumePanel.myGraphObj.UpdateChart();
         }
 
-        private void UpdatePriceRandom()
-        {
-            if (candleCurve == null) return;
-            // Get the PointPairList
-            IPointListEdit list = candleCurve.Points as IPointListEdit;
-            int lastPos = list.Count - 1;
-            if (lastPos < 0) return;
-            StockPt item = (StockPt)candleCurve.Points[lastPos];
-
-            item = new StockPt();
-            //(list as StockPointList).RemoveAt(lastPos);
-            item.Open += (double)common.system.Random(0, 10) / 10;
-            item.High += (double)common.system.Random(1, 100) / 100;
-            if (common.system.Random(0, 10) % 2 == 0)
-            {
-                item.Close += (double)common.system.Random(0, 70) / 100;
-            }
-            else
-            {
-                item.Close -= (double)common.system.Random(0, 70) / 100;
-                item.Low -= (double)common.system.Random(0, 50) / 100;
-            }
-            item.Vol += common.system.Random(100, 1000);
-            item = new StockPt(DateTime.FromOADate(item.Date).AddSeconds(10).ToOADate(),item.High,item.Low,item.Open,item.Close,item.Vol);
-
-            (list as StockPointList).Add(item);
-
-
-            pricePane.myGraphObj.DefaultViewport();
-            
-
-            pricePane.myGraphObj.UpdateChart();
-            this.Text = list.Count.ToString();
-            Application.DoEvents();
-        }
-       
         private void UpdatePrice()
         {
             int noOfUpdate = myData.UpdateDataFromLastTime();
+            if (myData.Close.Count > 0)
+            {
+                this.Text = DateTime.FromOADate(myData.DateTime[myData.DateTime.Count - 1]).ToString() + " - " +
+                            myData.Close[myData.Close.Count - 1].ToString() + " - " +
+                            myData.Volume[myData.Volume.Count - 1].ToString();
+            }
             if (noOfUpdate < 0) return;
-
-            if (candleCurve != null) UpdatePrice(noOfUpdate, candleCurve);
-            if (lineCurve!=null) UpdatePrice(noOfUpdate, lineCurve);
-            if (barCurve != null) UpdatePrice(noOfUpdate, barCurve);
-        
+            switch (cbChartType.myValue)
+            {
+                case AppTypes.ChartTypes.CandleStick:
+                    UpdatePrice(noOfUpdate, candleCurve);
+                    break;
+                case AppTypes.ChartTypes.Line:
+                    UpdatePrice(noOfUpdate, lineCurve);
+                    break;
+                case AppTypes.ChartTypes.Bar:
+                    UpdatePrice(noOfUpdate, barCurve);
+                    break;
+            }
             //graphPane1.myGraphObj.SetSeriesX(myData.DateTime.Values, Charts.AxisType.DateAsOrdinal);
             pricePane.myGraphObj.UpdateSeries();
             pricePane.myGraphObj.MoveToEnd();
             pricePane.myGraphObj.UpdateChart();
 
-
-            this.Text = myData.DateTime.Count.ToString();
+            //this.Text = myData.DateTime.Count.ToString();
         }
 
         private void UpdatePrice(int noOfUpdate, CurveItem curve)
@@ -227,7 +214,6 @@ namespace test
             return curveItem;
         }
 
-
         private string PointValueEventPrice(CurveItem curve, int pointIdx)
         {
             DateTime dt = DateTime.FromOADate(curve[pointIdx].X);
@@ -239,7 +225,7 @@ namespace test
                       common.Consts.constCRLF + Languages.Libs.GetString("lowPrice") + " : " + myData.Low.Values[pointIdx].ToString(Settings.sysMaskPrice) +
                       common.Consts.constCRLF + Languages.Libs.GetString("closePrice") + " : " + myData.Close.Values[pointIdx].ToString(Settings.sysMaskPrice) +
                       common.Consts.constCRLF + Languages.Libs.GetString("volume") + " : " + myData.Volume.Values[pointIdx].ToString(Settings.sysMaskQty);
-            this.Text = pointIdx.ToString() + "/" + (myData.DateTime.Count-1).ToString();
+            //this.Text = pointIdx.ToString() + "/" + (myData.DateTime.Count-1).ToString();
             return retVal;
         }
 
@@ -265,8 +251,8 @@ namespace test
         {
             pricePane.myGraphObj.DefaultViewport();
 
-            Indicators.Meta meta = Indicators.Libs.FindMetaByName("SMA");
-            DrawCurveIndicator(meta);
+            //Indicators.Meta meta = Indicators.Libs.FindMetaByName("SMA");
+            //DrawCurveIndicator(meta);
         }
 
         bool fProcessing = false;
@@ -277,8 +263,10 @@ namespace test
                 if (fProcessing) return;
                 fProcessing = true;
                 if (fGenData)
+                {
                     genData.GenPriceData(myData.DataStockCode);
-                UpdatePrice();
+                    if (updateChartChk.Checked) UpdatePrice();
+                }
                 fProcessing = false;
             }
             catch (Exception er)
@@ -286,12 +274,6 @@ namespace test
                 fProcessing = false;
                 this.ShowError(er);
             }
-        }
-        private void timerBtn_Click(object sender, EventArgs e)
-        {
-            timer1.Interval = (int)intervalEd.Value*1000;
-            timer1.Enabled = !timer1.Enabled;
-            timerBtn.Text = (timer1.Enabled ? "Running" : "Stop");
         }
 
         private void zoomInBtn_Click(object sender, EventArgs e)
@@ -321,6 +303,7 @@ namespace test
 
         private void reloadBtn_Click(object sender, EventArgs e)
         {
+            genData.Reset();
             ClearNotifyError();
             if (codeEd.Text.Trim() == "")
             {
@@ -331,7 +314,7 @@ namespace test
             myData.DataTimeScale = cbTimeScale.myValue; 
             myData.DataStockCode = codeEd.Text.Trim();
             LoadData();
-            PlotTradepoints();
+            //PlotTradepoints();
 
             this.Text = "";
             this.ShowMessage("");
@@ -340,7 +323,10 @@ namespace test
         private void genDataBtn_Click(object sender, EventArgs e)
         {
             fGenData = !fGenData;
+            timer1.Enabled = fGenData;
+            timer1.Interval = (int)intervalEd.Value * 1000;
             genDataBtn.Text = (fGenData? "Running" : "Stop");
+            if (fGenData) genData.Reset();
         }
 
         private void moveToEndBtn_Click(object sender, EventArgs e)

@@ -48,26 +48,36 @@
             // 
             // xpPanelGroup_Info
             // 
-            this.xpPanelGroup_Info.Size = new System.Drawing.Size(500, 667);
+            this.xpPanelGroup_Info.Size = new System.Drawing.Size(500, 688);
             // 
             // xpPanel_OtherInfo
             // 
             this.xpPanel_OtherInfo.ImageItems.ImageSet = null;
-            this.xpPanel_OtherInfo.Size = new System.Drawing.Size(483, 174);
+            this.xpPanel_OtherInfo.Location = new System.Drawing.Point(0, 536);
+            this.xpPanel_OtherInfo.Size = new System.Drawing.Size(483, 262);
             // 
             // companyOtherInfo
             // 
-            this.companyOtherInfo.Size = new System.Drawing.Size(437, 155);
+            this.companyOtherInfo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.companyOtherInfo.Location = new System.Drawing.Point(29, 28);
+            this.companyOtherInfo.Size = new System.Drawing.Size(451, 224);
             // 
             // xpPanel_StockInfo
             // 
             this.xpPanel_StockInfo.ImageItems.ImageSet = null;
+            this.xpPanel_StockInfo.Location = new System.Drawing.Point(0, 355);
             this.xpPanel_StockInfo.Size = new System.Drawing.Size(483, 181);
             // 
             // xpPanel_GeneralInfo
             // 
             this.xpPanel_GeneralInfo.ImageItems.ImageSet = null;
-            this.xpPanel_GeneralInfo.Size = new System.Drawing.Size(483, 314);
+            this.xpPanel_GeneralInfo.Size = new System.Drawing.Size(483, 355);
+            // 
+            // companyGeneral
+            // 
+            this.companyGeneral.Size = new System.Drawing.Size(440, 323);
             // 
             // exitBtn
             // 
@@ -139,7 +149,7 @@
             // 
             // TitleLbl
             // 
-            this.TitleLbl.Location = new System.Drawing.Point(1003, 120);
+            this.TitleLbl.Location = new System.Drawing.Point(1100, 117);
             this.TitleLbl.Size = new System.Drawing.Size(65, 16);
             // 
             // findPnl
@@ -150,10 +160,10 @@
             this.findPnl.Controls.Add(this.filterBtn);
             this.findPnl.Controls.Add(this.closeFindBtn);
             this.findPnl.Controls.Add(this.findCriteria);
-            this.findPnl.Location = new System.Drawing.Point(500, 560);
+            this.findPnl.Location = new System.Drawing.Point(500, 589);
             this.findPnl.Margin = new System.Windows.Forms.Padding(2);
             this.findPnl.Name = "findPnl";
-            this.findPnl.Size = new System.Drawing.Size(463, 147);
+            this.findPnl.Size = new System.Drawing.Size(573, 122);
             this.findPnl.TabIndex = 239;
             this.findPnl.Visible = false;
             // 
@@ -162,7 +172,7 @@
             this.filterBtn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.filterBtn.Image = global::baseClass.Properties.Resources.filter;
             this.filterBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.filterBtn.Location = new System.Drawing.Point(253, 109);
+            this.filterBtn.Location = new System.Drawing.Point(445, 28);
             this.filterBtn.Name = "filterBtn";
             this.filterBtn.Size = new System.Drawing.Size(86, 29);
             this.filterBtn.TabIndex = 10;
@@ -175,7 +185,7 @@
             this.closeFindBtn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.closeFindBtn.Image = global::baseClass.Properties.Resources.close;
             this.closeFindBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.closeFindBtn.Location = new System.Drawing.Point(339, 109);
+            this.closeFindBtn.Location = new System.Drawing.Point(445, 57);
             this.closeFindBtn.Name = "closeFindBtn";
             this.closeFindBtn.Size = new System.Drawing.Size(86, 29);
             this.closeFindBtn.TabIndex = 11;
@@ -204,13 +214,13 @@
             this.dataGrid.Name = "dataGrid";
             this.dataGrid.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGrid.Size = new System.Drawing.Size(463, 708);
+            this.dataGrid.Size = new System.Drawing.Size(571, 713);
             this.dataGrid.TabIndex = 30;
             // 
             // companyList
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(964, 734);
+            this.ClientSize = new System.Drawing.Size(1073, 734);
             this.Controls.Add(this.findPnl);
             this.Controls.Add(this.dataGrid);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -219,10 +229,10 @@
             this.Resize += new System.EventHandler(this.companyList_Resize);
             this.Controls.SetChildIndex(this.unLockBtn, 0);
             this.Controls.SetChildIndex(this.lockBtn, 0);
+            this.Controls.SetChildIndex(this.TitleLbl, 0);
             this.Controls.SetChildIndex(this.dataGrid, 0);
             this.Controls.SetChildIndex(this.findPnl, 0);
             this.Controls.SetChildIndex(this.xpPanelGroup_Info, 0);
-            this.Controls.SetChildIndex(this.TitleLbl, 0);
             this.Controls.SetChildIndex(this.toolBox, 0);
             ((System.ComponentModel.ISupportInitialize)(this.xpPanelGroup_Info)).EndInit();
             this.xpPanelGroup_Info.ResumeLayout(false);

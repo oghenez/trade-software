@@ -78,7 +78,7 @@ namespace baseClass.forms
             this.dataGrid.Columns.AddRange(new DataGridViewColumn[] { this.codeColumn, this.nameColumn });
             this.dataGrid.ReadOnly = true;
             this.dataGrid.ReOrderColumn(new string[] { "codeColumn", "nameColumn" });
-            common.system.AutoFitGridColumn(dataGrid, this.nameColumn.Name);
+            dataGrid.AutoFitGridColumn(this.nameColumn.Name);
         }
         
         private void ShowFindPanel(bool state)
@@ -107,8 +107,8 @@ namespace baseClass.forms
         {
             try
             {
-                common.system.AutoFitGridColumn(dataGrid, nameColumn.Name);
-                findCriteria.Location = new Point((findPnl.Width - findCriteria.Width) / 2,findCriteria.Location.Y);
+                dataGrid.AutoFitGridColumn(nameColumn.Name);
+                //findCriteria.Location = new Point((findPnl.Width - findCriteria.Width) / 2,findCriteria.Location.Y);
                 xpPanelGroup_Info.Height = this.ClientSize.Height - xpPanelGroup_Info.Location.Y - SystemInformation.CaptionHeight; 
             }
             catch (Exception er)

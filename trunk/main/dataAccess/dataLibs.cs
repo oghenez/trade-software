@@ -744,23 +744,29 @@ namespace DataAccess
         //Updated data from the last read/update point
         public static int UpdateAnalysisData(commonClass.BaseAnalysisData dataObj)
         {
-            int lastDataIdx = dataObj.DateTime.Count - 1;
+            int lastDataIdx = dataObj.priceDataTbl.Count - 1;
             DateTime lastDateTime;
             if (lastDataIdx < 0) lastDateTime = commonClass.Settings.sysStartDataDate;
-            else lastDateTime = System.DateTime.FromOADate(dataObj.DateTime[lastDataIdx]);
+            else lastDateTime = dataObj.priceDataTbl[lastDataIdx].onDate;
 
             data.baseDS.priceDataDataTable tbl = GetData_ByTimeScale_Code_FrDate(dataObj.DataTimeScale.Code, dataObj.DataStockCode,lastDateTime);
-            //Delete the last data because the updated data will include this one.
-            commonClass.AppLibs.DataConcat(tbl,(lastDataIdx>=0?1:0),dataObj.priceDataTbl);
-
+            if (tbl.Count > 0)
+            {
+                //Delete the last data because the updated data will include this one.
+                if (lastDataIdx >= 0)
+                {
+                    dataObj.priceDataTbl[lastDataIdx].ItemArray = tbl[0].ItemArray;
+                    commonClass.AppLibs.DataConcat(tbl, 1, dataObj.priceDataTbl);
+                }
+                else commonClass.AppLibs.DataConcat(tbl, 0, dataObj.priceDataTbl);
+            }
             //Update cache
             AnalysisDataCache data = new AnalysisDataCache();
             data.dataTbl = (data.baseDS.priceDataDataTable)dataObj.priceDataTbl.Copy();
             data.firstData = dataObj.FirstDataStartAt;
             AddCache(MakeAnalysisDataCacheKey(dataObj), data);
-            return dataObj.DateTime.Count - 1 - lastDataIdx;
+            return dataObj.priceDataTbl.Count - 1 - lastDataIdx;
         }
-
 
         public static string GetXml(string fileName)
         {

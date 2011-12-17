@@ -42,17 +42,22 @@
             // 
             // closeFindBtn
             // 
-            this.closeFindBtn.Location = new System.Drawing.Point(330, 109);
+            this.closeFindBtn.Location = new System.Drawing.Point(436, 59);
             this.closeFindBtn.Text = "Close";
             // 
             // filterBtn
             // 
-            this.filterBtn.Location = new System.Drawing.Point(244, 109);
+            this.filterBtn.Location = new System.Drawing.Point(436, 24);
             this.filterBtn.Text = "Find";
             // 
             // findCriteria
             // 
-            this.findCriteria.Location = new System.Drawing.Point(41, 4);
+            this.findCriteria.Location = new System.Drawing.Point(28, 3);
+            // 
+            // findPnl
+            // 
+            this.findPnl.Location = new System.Drawing.Point(499, 591);
+            this.findPnl.Size = new System.Drawing.Size(586, 116);
             // 
             // xpPanelGroup_Info
             // 
@@ -61,14 +66,22 @@
             // xpPanel_OtherInfo
             // 
             this.xpPanel_OtherInfo.ImageItems.ImageSet = null;
+            this.xpPanel_OtherInfo.Size = new System.Drawing.Size(483, 207);
+            // 
+            // companyOtherInfo
+            // 
+            this.companyOtherInfo.Location = new System.Drawing.Point(29, 27);
+            this.companyOtherInfo.Size = new System.Drawing.Size(434, 171);
             // 
             // xpPanel_StockInfo
             // 
             this.xpPanel_StockInfo.ImageItems.ImageSet = null;
+            this.xpPanel_StockInfo.Size = new System.Drawing.Size(483, 181);
             // 
             // xpPanel_GeneralInfo
             // 
             this.xpPanel_GeneralInfo.ImageItems.ImageSet = null;
+            this.xpPanel_GeneralInfo.Size = new System.Drawing.Size(483, 355);
             // 
             // editBtn
             // 
@@ -95,7 +108,7 @@
             // companyList
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(962, 740);
+            this.ClientSize = new System.Drawing.Size(1074, 740);
             this.Name = "companyList";
             this.Text = "Company list";
             this.findPnl.ResumeLayout(false);
