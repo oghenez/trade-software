@@ -50,4 +50,139 @@
   <ENVIRONMENT>
     <Login loginLocationId="Qivs4xlMKfhcld4XESkALCbo0gnVtn5ZYgw0F4WLwDs=" />
   </ENVIRONMENT>
+  <Application>
+    <System stockMaxBuyQtyPerc="yuFaA0nsER+VOcngcLLToA==" />
+  </Application>
+  <Application>
+    <System stockReduceQtyPerc="yuFaA0nsER+VOcngcLLToA==" />
+  </Application>
+  <Application>
+    <System stockAccumulateQtyPerc="yuFaA0nsER+VOcngcLLToA==" />
+  </Application>
+  <Application>
+    <System stockTotalCapAmt="iRlKJICbVJGsItSeWEEft7gel7mtBty9Ygw0F4WLwDs=" />
+  </Application>
+  <Application>
+    <System stockMaxBuyAmtPerc="lNJY16iycunRoLtxamnAUA==" />
+  </Application>
+  <Application>
+    <System sysChartBgColor="tXoT1/ZVAq8OxuzzOC6XUA==" />
+  </Application>
+  <Application>
+    <System sysChartFgColor="Xa1ls7U9pJ8dE3s2gVlbTg==" />
+  </Application>
+  <Application>
+    <System sysChartGridColor="Xa1ls7U9pJ8dE3s2gVlbTg==" />
+  </Application>
+  <Application>
+    <System sysChartVolumesColor="kJPTDz8n4rGlROZeNl8M4A==" />
+  </Application>
+  <Application>
+    <System sysChartLineCandleColor="ZpfDNVOc7dlas++aPEM4gLgel7mtBty9Ygw0F4WLwDs=" />
+  </Application>
+  <Application>
+    <System sysChartBearCandleColor="4CNsBjXlxgOofhRM01cMBw==" />
+  </Application>
+  <Application>
+    <System sysChartBullCandleColor="lD2o9C4T/3JxjXLEHTs1bg==" />
+  </Application>
+  <Application>
+    <System sysChartBarDnColor="CHJl0NRo3wNuJXL2YgSPtA==" />
+  </Application>
+  <Application>
+    <System sysChartBarUpColor="RFyN6Y2ACuqPh93EZoKLEA==" />
+  </Application>
+  <Application>
+    <System sysChartShowDescription="EpAxoobbG0tPxhyMIVa+4Q==" />
+  </Application>
+  <Application>
+    <System sysChartShowVolume="EpAxoobbG0tPxhyMIVa+4Q==" />
+  </Application>
+  <Application>
+    <System sysChartShowGrid="EpAxoobbG0tPxhyMIVa+4Q==" />
+  </Application>
+  <Application>
+    <System sysChartShowLegend="EpAxoobbG0tPxhyMIVa+4Q==" />
+  </Application>
+  <Application>
+    <System sysChartAutoScaleMetric="EpAxoobbG0tPxhyMIVa+4Q==" />
+  </Application>
+  <Application>
+    <System sysChartXScaleMetric="GkYaPyNiHfKcEV9H9aSbZQ==" />
+  </Application>
+  <Application>
+    <System sysChartYScaleMetric="GkYaPyNiHfKcEV9H9aSbZQ==" />
+  </Application>
+  <Application>
+    <System sysChartAutoPanMetric="EpAxoobbG0tPxhyMIVa+4Q==" />
+  </Application>
+  <Application>
+    <System sysChartXPanMetric="GkYaPyNiHfKcEV9H9aSbZQ==" />
+  </Application>
+  <Application>
+    <System sysChartYPanMetric="GkYaPyNiHfKcEV9H9aSbZQ==" />
+  </Application>
+  <Application>
+    <System companyName="" />
+  </Application>
+  <Application>
+    <System companyAddr1="" />
+  </Application>
+  <Application>
+    <System companyAddr2="" />
+  </Application>
+  <Application>
+    <System companyAddr3="" />
+  </Application>
+  <Application>
+    <System telephone="" />
+  </Application>
+  <Application>
+    <System fax="" />
+  </Application>
+  <Application>
+    <System email="" />
+  </Application>
+  <Application>
+    <System URL="" />
+  </Application>
+  <Application>
+    <System companyTaxcode="" />
+  </Application>
+  <Application>
+    <System bankName="" />
+  </Application>
+  <Application>
+    <System bankAccount="" />
+  </Application>
+  <Application>
+    <System bankCode="" />
+  </Application>
+  <Application>
+    <System director="" />
+  </Application>
+  <Application>
+    <System chiefAccountant="" />
+  </Application>
+  <Application>
+    <System headOfManagementBoard="" />
+  </Application>
+  <Application>
+    <System warehouseManager="" />
+  </Application>
+  <Application>
+    <System cashier="" />
+  </Application>
+  <Application>
+    <System imgFilePathIcon="" />
+  </Application>
+  <Application>
+    <System imgFilePathBackground="" />
+  </Application>
+  <Application>
+    <System imgFilePathComanyLogo1="" />
+  </Application>
+  <Application>
+    <System imgFilePathComanyLogo2="" />
+  </Application>
 </Configuration>

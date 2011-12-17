@@ -26,8 +26,6 @@ namespace Tools.Forms
                 periodicityEd.LoadData();
                 resultDataGrid.DisableReadOnlyColumn = false;
                 strategyEstimationGrid.DisableReadOnlyColumn = false;
-
-                CreateContextMenu();
             }
             catch (Exception er)
             {
@@ -49,7 +47,7 @@ namespace Tools.Forms
             runMenuItem.Text = Languages.Libs.GetString("run");
             fullViewMenuItem.Text = Languages.Libs.GetString("fullView");
             estimationMenuItem.Text = Languages.Libs.GetString("estimation");
-            openMenuItem.Text = Languages.Libs.GetString("open");
+            openMenuItem.Text = Languages.Libs.GetString("openChart");
             addToWatchListMenuItem.Text = Languages.Libs.GetString("addToWatchList");
             allProfitDetailMenu.Text = Languages.Libs.GetString("allProfitDetail");
             profitDetailMenu.Text = Languages.Libs.GetString("profitDetail");
@@ -60,6 +58,8 @@ namespace Tools.Forms
             periodicityEd.SetLanguage();
             strategyClb.SetLanguage();
             codeSelectLb.SetLanguage();
+
+            CreateContextMenu();
         }
         public bool IsFullScreen
         {
@@ -408,12 +408,14 @@ namespace Tools.Forms
             menuItem = contextMenuStrip.Items.Add(addToWatchListMenuItem.Text);
             menuItem.Click += new System.EventHandler(addToWatchListMenuItem_Click);
 
+            contextMenuStrip.Items.Add(new ToolStripSeparator());
             menuItem = contextMenuStrip.Items.Add(profitDetailMenu.Text);
             menuItem.Click += new System.EventHandler(profitDetailMenu_Click);
 
             menuItem = contextMenuStrip.Items.Add(allProfitDetailMenu.Text);
             menuItem.Click += new System.EventHandler(allProfitDetailMenu_Click);
 
+            contextMenuStrip.Items.Add(new ToolStripSeparator());
             menuItem = contextMenuStrip.Items.Add(estimationMenuItem.Text);
             menuItem.Click += new System.EventHandler(estimationMenuItem_Click);
 
@@ -632,33 +634,36 @@ namespace Tools.Forms
         {
             try
             {
-                string stockCode;
-                data.tmpDS.stockCodeRow stockCodeRow;
-                if (resultDataGrid.SelectedRows.Count > 0)
+                using (new DataAccess.PleaseWait())
                 {
-                    for (int idx1 = 0; idx1 < resultDataGrid.SelectedRows.Count; idx1++)
+                    string stockCode;
+                    data.tmpDS.stockCodeRow stockCodeRow;
+                    if (resultDataGrid.SelectedRows.Count > 0)
                     {
-                        stockCode = resultDataGrid.SelectedRows[idx1].Cells[0].Value.ToString();
-                        stockCodeRow = DataAccess.Libs.myStockCodeTbl.FindBycode(stockCode);
-                        if (stockCodeRow == null) continue;
-                        for (int idx2 = 0; idx2 < strategyClb.myCheckedValues.Count; idx2++)
+                        for (int idx1 = 0; idx1 < resultDataGrid.SelectedRows.Count; idx1++)
                         {
-                            ShowTradeTransactions(stockCodeRow, strategyClb.myCheckedValues[idx2],
-                                                  periodicityEd.myTimeRange,periodicityEd.myTimeScale);
+                            stockCode = resultDataGrid.SelectedRows[idx1].Cells[0].Value.ToString();
+                            stockCodeRow = DataAccess.Libs.myStockCodeTbl.FindBycode(stockCode);
+                            if (stockCodeRow == null) continue;
+                            for (int idx2 = 0; idx2 < strategyClb.myCheckedValues.Count; idx2++)
+                            {
+                                ShowTradeTransactions(stockCodeRow, strategyClb.myCheckedValues[idx2],
+                                                      periodicityEd.myTimeRange, periodicityEd.myTimeScale);
+                            }
                         }
                     }
-                }
-                else
-                {
-                    if (resultDataGrid.CurrentRow != null)
+                    else
                     {
-                        stockCode = resultDataGrid.CurrentRow.Cells[0].Value.ToString();
-                        stockCodeRow = DataAccess.Libs.myStockCodeTbl.FindBycode(stockCode);
-                        if (stockCodeRow == null) return;
-                        for (int idx2 = 0; idx2 < strategyClb.myCheckedValues.Count; idx2++)
+                        if (resultDataGrid.CurrentRow != null)
                         {
-                            ShowTradeTransactions(stockCodeRow, strategyClb.myCheckedValues[idx2],
-                                                  periodicityEd.myTimeRange, periodicityEd.myTimeScale);
+                            stockCode = resultDataGrid.CurrentRow.Cells[0].Value.ToString();
+                            stockCodeRow = DataAccess.Libs.myStockCodeTbl.FindBycode(stockCode);
+                            if (stockCodeRow == null) return;
+                            for (int idx2 = 0; idx2 < strategyClb.myCheckedValues.Count; idx2++)
+                            {
+                                ShowTradeTransactions(stockCodeRow, strategyClb.myCheckedValues[idx2],
+                                                      periodicityEd.myTimeRange, periodicityEd.myTimeScale);
+                            }
                         }
                     }
                 }

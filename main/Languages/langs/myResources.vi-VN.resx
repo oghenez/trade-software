@@ -333,9 +333,6 @@
   <data name="myProfile" xml:space="preserve">
     <value>Lý lịch của tôi</value>
   </data>
-  <data name="newChart" xml:space="preserve">
-    <value>Biểu đồ mới</value>
-  </data>
   <data name="order" xml:space="preserve">
     <value>Giao dịch</value>
   </data>
@@ -995,5 +992,8 @@
   </data>
   <data name="askToRestartService" xml:space="preserve">
     <value>Khởi động lại  dịch vụ ?</value>
+  </data>
+  <data name="openChart" xml:space="preserve">
+    <value>Xem biểu đồ</value>
   </data>
 </root>

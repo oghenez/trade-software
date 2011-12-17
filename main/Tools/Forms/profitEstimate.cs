@@ -39,8 +39,6 @@ namespace Tools.Forms
                 mainContainer.AddChild(chartPnl, "chart");
                 mainContainer.myPaneDimensionSpecs = new[,] { { 1, 10, 10 }}; // Display scale (data:chart) = 10:10
                 mainContainer.ArrangeChildren();
-
-                CreateContextMenu();
             }
             catch (Exception er)
             {
@@ -50,7 +48,6 @@ namespace Tools.Forms
         public override void SetLanguage()
         {
             base.SetLanguage();
-            this.Text = Languages.Libs.GetString("estimation");
             //Menu
             MainMenuStrip.Text = Languages.Libs.GetString("estimation");
             allTransactionMenuItem.Text = Languages.Libs.GetString("allTransaction");
@@ -67,6 +64,8 @@ namespace Tools.Forms
             totalAmtColumn.HeaderText = Languages.Libs.GetString("totalAmt");
             feeAmtColumn.HeaderText = Languages.Libs.GetString("feeAmt");
             profitColumn.HeaderText = Languages.Libs.GetString("profit");
+
+            CreateContextMenu();
         }
 
         public static profitEstimate GetForm(string formName)

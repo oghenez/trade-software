@@ -54,7 +54,7 @@ namespace Tools.Forms
             exportResultMenuItem.Text = Languages.Libs.GetString("export");
             runMenuItem.Text = Languages.Libs.GetString("run");
             fullViewMenuItem.Text = Languages.Libs.GetString("fullView");
-            openMenuItem.Text = Languages.Libs.GetString("open");
+            openMenuItem.Text = Languages.Libs.GetString("openChart");
             addToWatchListMenuItem.Text = Languages.Libs.GetString("addToWatchList");
             profitDetailMenu.Text = Languages.Libs.GetString("profitDetail");
             allProfitDetailMenu.Text = Languages.Libs.GetString("allProfitDetail");
@@ -203,14 +203,15 @@ namespace Tools.Forms
             menuItem = contextMenuStrip.Items.Add(openMenuItem.Text);
             menuItem.Click += new System.EventHandler(openMenuItem_Click);
 
+            menuItem = contextMenuStrip.Items.Add(addToWatchListMenuItem.Text);
+            menuItem.Click += new System.EventHandler(addToWatchListMenuItem_Click);
+
+            contextMenuStrip.Items.Add(new ToolStripSeparator());
             menuItem = contextMenuStrip.Items.Add(profitDetailMenu.Text);
             menuItem.Click += new System.EventHandler(profitDetailMenu_Click );
 
             menuItem = contextMenuStrip.Items.Add(allProfitDetailMenu.Text);
             menuItem.Click += new System.EventHandler(allProfitDetailMenu_Click);
-
-            menuItem = contextMenuStrip.Items.Add(addToWatchListMenuItem.Text);
-            menuItem.Click += new System.EventHandler(addToWatchListMenuItem_Click);
 
             gridView.ContextMenuStrip = contextMenuStrip;
         }
@@ -572,14 +573,16 @@ namespace Tools.Forms
         {
             try
             {
-                if (this.CurrentDataGridView == null) return;
-                common.controls.baseDataGridView resultDataGrid = this.CurrentDataGridView;
-                if (resultDataGrid.CurrentCell==null) return;
-                if(resultDataGrid.CurrentCell.ColumnIndex<=0) return;
-
                 string stockCode = resultTab.SelectedTab.Name;  
-                int colId = resultDataGrid.CurrentCell.ColumnIndex;
-                AppTypes.TimeRanges timeRange = AppTypes.TimeRangeFromCode(resultDataGrid.Columns[colId].DataPropertyName);
+
+                if (this.CurrentDataGridView == null) return;
+                AppTypes.TimeRanges timeRange = AppTypes.TimeRanges.All;
+                common.controls.baseDataGridView resultDataGrid = this.CurrentDataGridView;
+                if (resultDataGrid.CurrentCell != null && resultDataGrid.CurrentCell.ColumnIndex > 0)
+                {
+                    int colId = resultDataGrid.CurrentCell.ColumnIndex;
+                    timeRange = AppTypes.TimeRangeFromCode(resultDataGrid.Columns[colId].DataPropertyName);
+                }
                 ShowStock(stockCode, timeRange, timeScaleCb.myValue);
             }
             catch (Exception er)
@@ -615,34 +618,37 @@ namespace Tools.Forms
         {
             try
             {
-                common.controls.baseDataGridView resultDataGrid = this.CurrentDataGridView;
-                if (resultDataGrid == null) return;
-
-                string stockCode = resultTab.SelectedTab.Name;
-                data.tmpDS.stockCodeRow stockCodeRow = DataAccess.Libs.myStockCodeTbl.FindBycode(stockCode);
-                if (stockCodeRow == null) return;
-
-                if (resultDataGrid.SelectedRows.Count > 0)
+                using (new DataAccess.PleaseWait())
                 {
-                    for (int rowId = 0; rowId < resultDataGrid.SelectedRows.Count; rowId++)
+                    common.controls.baseDataGridView resultDataGrid = this.CurrentDataGridView;
+                    if (resultDataGrid == null) return;
+
+                    string stockCode = resultTab.SelectedTab.Name;
+                    data.tmpDS.stockCodeRow stockCodeRow = DataAccess.Libs.myStockCodeTbl.FindBycode(stockCode);
+                    if (stockCodeRow == null) return;
+
+                    if (resultDataGrid.SelectedRows.Count > 0)
                     {
-                        Strategy.Meta meta = Strategy.Libs.FindMetaByName(resultDataGrid.SelectedRows[rowId].Cells[0].Value.ToString());
-                        for (int idx = 1; idx < resultDataGrid.ColumnCount; idx++)
+                        for (int rowId = 0; rowId < resultDataGrid.SelectedRows.Count; rowId++)
                         {
-                            AppTypes.TimeRanges timeRange = AppTypes.TimeRangeFromCode(resultDataGrid.Columns[idx].DataPropertyName);
-                            ShowTradeTransactions(stockCodeRow, meta.Code, timeRange, timeScaleCb.myValue);
+                            Strategy.Meta meta = Strategy.Libs.FindMetaByName(resultDataGrid.SelectedRows[rowId].Cells[0].Value.ToString());
+                            for (int idx = 1; idx < resultDataGrid.ColumnCount; idx++)
+                            {
+                                AppTypes.TimeRanges timeRange = AppTypes.TimeRangeFromCode(resultDataGrid.Columns[idx].DataPropertyName);
+                                ShowTradeTransactions(stockCodeRow, meta.Code, timeRange, timeScaleCb.myValue);
+                            }
                         }
                     }
-                }
-                else
-                {
-                    if (resultDataGrid.CurrentRow != null)
+                    else
                     {
-                        Strategy.Meta meta = Strategy.Libs.FindMetaByName(resultDataGrid.CurrentRow.Cells[0].Value.ToString());
-                        for (int idx = 1; idx < resultDataGrid.ColumnCount; idx++)
+                        if (resultDataGrid.CurrentRow != null)
                         {
-                            AppTypes.TimeRanges timeRange = AppTypes.TimeRangeFromCode(resultDataGrid.Columns[idx].DataPropertyName);
-                            ShowTradeTransactions(stockCodeRow, meta.Code, timeRange, timeScaleCb.myValue);
+                            Strategy.Meta meta = Strategy.Libs.FindMetaByName(resultDataGrid.CurrentRow.Cells[0].Value.ToString());
+                            for (int idx = 1; idx < resultDataGrid.ColumnCount; idx++)
+                            {
+                                AppTypes.TimeRanges timeRange = AppTypes.TimeRangeFromCode(resultDataGrid.Columns[idx].DataPropertyName);
+                                ShowTradeTransactions(stockCodeRow, meta.Code, timeRange, timeScaleCb.myValue);
+                            }
                         }
                     }
                 }

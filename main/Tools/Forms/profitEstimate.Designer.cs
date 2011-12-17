@@ -62,8 +62,8 @@
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.exportMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mainContainer = new common.controls.baseContainer();
-            this.dataPnl = new common.controls.basePanel();
             this.chartPnl = new Charts.Controls.baseGraphPanel();
+            this.dataPnl = new common.controls.basePanel();
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tradeEstimateSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.myTmpDS)).BeginInit();
@@ -91,7 +91,6 @@
             // 
             this.TitleLbl.Location = new System.Drawing.Point(1210, 202);
             this.TitleLbl.Size = new System.Drawing.Size(87, 20);
-            this.TitleLbl.Text = "TÌM KIẾM";
             // 
             // dataGrid
             // 
@@ -319,28 +318,14 @@
             // mainContainer
             // 
             this.mainContainer.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.mainContainer.Controls.Add(this.chartPnl);
             this.mainContainer.Controls.Add(this.dataPnl);
+            this.mainContainer.Controls.Add(this.chartPnl);
             this.mainContainer.Location = new System.Drawing.Point(2, 52);
             this.mainContainer.myArrangeOptions = common.controls.childArrangeOptions.Casscade;
             this.mainContainer.myPaneDimensionSpecs = null;
             this.mainContainer.Name = "mainContainer";
             this.mainContainer.Size = new System.Drawing.Size(1025, 448);
             this.mainContainer.TabIndex = 300;
-            // 
-            // dataPnl
-            // 
-            this.dataPnl.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.dataPnl.Controls.Add(this.dataGrid);
-            this.dataPnl.haveCloseButton = false;
-            this.dataPnl.isExpanded = true;
-            this.dataPnl.Location = new System.Drawing.Point(0, 0);
-            this.dataPnl.myIconLocations = common.controls.basePanel.IconLocations.None;
-            this.dataPnl.mySizingOptions = common.controls.basePanel.SizingOptions.Right;
-            this.dataPnl.myWeight = 100;
-            this.dataPnl.Name = "dataPnl";
-            this.dataPnl.Size = new System.Drawing.Size(611, 300);
-            this.dataPnl.TabIndex = 0;
             // 
             // chartPnl
             // 
@@ -356,6 +341,20 @@
             this.chartPnl.TabIndex = 298;
             this.chartPnl.myOnClosing += new common.controls.basePanel.OnClosing(this.chartPnl_myOnClosing);
             // 
+            // dataPnl
+            // 
+            this.dataPnl.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dataPnl.Controls.Add(this.dataGrid);
+            this.dataPnl.haveCloseButton = false;
+            this.dataPnl.isExpanded = true;
+            this.dataPnl.Location = new System.Drawing.Point(0, 0);
+            this.dataPnl.myIconLocations = common.controls.basePanel.IconLocations.None;
+            this.dataPnl.mySizingOptions = common.controls.basePanel.SizingOptions.Right;
+            this.dataPnl.myWeight = 100;
+            this.dataPnl.Name = "dataPnl";
+            this.dataPnl.Size = new System.Drawing.Size(611, 300);
+            this.dataPnl.TabIndex = 0;
+            // 
             // profitEstimate
             // 
             this.ClientSize = new System.Drawing.Size(1031, 525);
@@ -364,7 +363,6 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip;
             this.Name = "profitEstimate";
-            this.Text = " Estimation";
             this.myOnProcess += new common.forms.baseDialogForm.onProcess(this.baseAdviceEstimate_myOnAccept);
             this.Load += new System.EventHandler(this.baseAdviceEstimate_Load);
             this.Resize += new System.EventHandler(this.baseAdviceEstimate_Resize);
