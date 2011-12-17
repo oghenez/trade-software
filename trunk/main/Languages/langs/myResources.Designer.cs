@@ -1564,15 +1564,6 @@ namespace Languages.langs {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to New chart.
-        /// </summary>
-        internal static string newChart {
-            get {
-                return ResourceManager.GetString("newChart", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to New.
         /// </summary>
         internal static string newStat {
@@ -1623,6 +1614,15 @@ namespace Languages.langs {
         internal static string open {
             get {
                 return ResourceManager.GetString("open", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Open chart.
+        /// </summary>
+        internal static string openChart {
+            get {
+                return ResourceManager.GetString("openChart", resourceCulture);
             }
         }
         

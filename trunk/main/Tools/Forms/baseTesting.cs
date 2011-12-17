@@ -67,7 +67,7 @@ namespace Tools.Forms
             myForm.myOptions = new EstimateOptions();
             myForm.myStrategyCode = strategyCode;
             myForm.ReLoad();
-            myForm.Text = "$(" + formName + ")";
+            myForm.Text = "(" + formName + ")";
             if (this.myDockedPane != null) myForm.Show(this.myDockedPane);
             else myForm.ShowDialog();
         }

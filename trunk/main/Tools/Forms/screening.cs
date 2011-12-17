@@ -25,7 +25,6 @@ namespace Tools.Forms
                 stockCodeLb.LoadData();
                 resultDataGrid.DisableReadOnlyColumn = false;
                 LockOptions(true);
-                CreateContextMenu();
                 minScrollBar.Maximum = Int32.MaxValue - 1;
                 maxScrollBar.Maximum = Int32.MaxValue - 1;
                 editColumn.myImageType = common.controls.imageType.Edit;
@@ -49,6 +48,14 @@ namespace Tools.Forms
         public override void SetLanguage()
         {
             base.SetLanguage();
+            menuStrip.Text = Languages.Libs.GetString("screening");
+            mainMenuItem.Text = Languages.Libs.GetString("screening");
+            runMenuItem.Text = Languages.Libs.GetString("run");
+            fullViewMenuItem.Text = Languages.Libs.GetString("fullView");
+            exportResultMenuItem.Text = Languages.Libs.GetString("exportResult");
+            openMenuItem.Text = Languages.Libs.GetString("openChart");
+            addToWatchListMenuItem.Text = Languages.Libs.GetString("addToWatchList");
+
             this.Text = Languages.Libs.GetString("screening");
             timeRangeLbl.Text = Languages.Libs.GetString("timeRange");
             timeScaleLbl.Text = Languages.Libs.GetString("timeScale");
@@ -75,6 +82,7 @@ namespace Tools.Forms
             strategyCb.SetLanguage();
 
             LoadScreeningCodes();
+            CreateContextMenu();
         }
         public static screening GetForm()
         {
@@ -448,6 +456,10 @@ namespace Tools.Forms
 
             menuItem = contextMenuStrip.Items.Add(addToWatchListMenuItem.Text);
             menuItem.Click += new System.EventHandler(addToWatchListMenuItem_Click);
+
+            contextMenuStrip.Items.Add(new ToolStripSeparator());
+            menuItem = contextMenuStrip.Items.Add(exportResultMenuItem.Text);
+            menuItem.Click += new System.EventHandler(exportResultMenuItem_Click);
 
             resultDataGrid.ContextMenuStrip = contextMenuStrip;
         }

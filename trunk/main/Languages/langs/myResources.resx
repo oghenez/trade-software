@@ -333,9 +333,6 @@
   <data name="myProfile" xml:space="preserve">
     <value>My profile</value>
   </data>
-  <data name="newChart" xml:space="preserve">
-    <value>New chart</value>
-  </data>
   <data name="order" xml:space="preserve">
     <value>Order</value>
   </data>
@@ -989,5 +986,8 @@
   </data>
   <data name="askToRestartService" xml:space="preserve">
     <value>Restart service ?</value>
+  </data>
+  <data name="openChart" xml:space="preserve">
+    <value>Open chart</value>
   </data>
 </root>

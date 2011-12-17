@@ -91,7 +91,13 @@ namespace client
             contextMenuStrip.Items.Add(indicatorMenuItem);
 
             return contextMenuStrip;
-        } 
+        }
+
+        private void SetContextMenu_MarketWatch()
+        {
+            Trade.Forms.marketWatch form = GetMarketWatchForm(true);
+            form.myContextMenuStrip = CreateContextMenu_MarketWatch();
+        }
         #endregion
 
         public override void SetLanguage()
@@ -101,7 +107,7 @@ namespace client
             this.loginMenuItem.Text = Languages.Libs.GetString("login");
             this.logOutMenuItem.Text = Languages.Libs.GetString("logout");
             this.MyProfileMenuItem.Text = Languages.Libs.GetString("myProfile"); ;
-            this.NewChartMenuItem.Text = Languages.Libs.GetString("newChart");
+            this.NewChartMenuItem.Text = Languages.Libs.GetString("openChart");
             this.closeChartMenuItem.Text = Languages.Libs.GetString("closeChart");
 
             this.configMenuItem.Text = Languages.Libs.GetString("configure");
@@ -192,11 +198,13 @@ namespace client
 
             strategyCbStrip.Items.Clear();
             strategyCbStrip.LoadData();
+
+            SetContextMenu_MarketWatch();
         }
         protected override bool ShowLogin()
         {
             if (!base.ShowLogin()) return false;
-            CloseAllChildrenForms();
+            CloseAllForms(false);
             for(int idx=0;idx<cachedForms.Values.Length;idx++)  
             {
                 Form form = (cachedForms.Values[idx] as Form);
@@ -255,8 +263,21 @@ namespace client
             commonClass.SysLibs.SetLanguage();
             Strategy.Data.Clear();
             Indicators.Data.Clear();
-            common.language.SetLanguageForAllOpenForms(cultureInfo);
             SetLanguage();
+            SetLanguageAllOpenForms();
+        }
+        private void SetLanguageAllOpenForms()
+        {
+            ContextMenuStrip tradeAnalysisContextMenu = CreateContextMenu_TradeAnalysis();
+            foreach (Form form in Application.OpenForms)
+            {
+                System.Reflection.MethodInfo method = form.GetType().GetMethod("SetLanguage");
+                if (method != null) method.Invoke(form, null);
+                if (form.GetType() == typeof(Tools.Forms.tradeAnalysis))
+                {
+                    (form as Tools.Forms.tradeAnalysis).myContextMenuStrip = tradeAnalysisContextMenu;
+                }
+            }
         }
 
         private void Init()
@@ -302,11 +323,22 @@ namespace client
         {
             ShowMarketWatchForm();
         }
-        private void CloseAllChildrenForms()
+        private void CloseAllForms(bool excludeSysForm)
         {
-            foreach (Form childForm in this.MdiChildren)
+            FormCollection formList = Application.OpenForms;
+            for(int idx=0;idx<formList.Count;idx++) 
             {
-                childForm.Close();
+                Type formType = formList[idx].GetType();
+                //Do not close main form
+                if (formType == this.GetType())  continue;
+                if ( (excludeSysForm) &&
+                     (formType == typeof(Trade.Forms.marketWatch) || formType == typeof(Trade.Forms.tradeAlertList)))
+                      continue;
+                if (!formList[idx].IsDisposed)
+                {
+                    formList[idx].Close();
+                    idx--;
+                }
             }
         }
 
@@ -562,10 +594,9 @@ namespace client
         private void ShowMarketWatchForm()
         {
             Trade.Forms.marketWatch form = GetMarketWatchForm(true);
-            form.myContextMenuStrip = CreateContextMenu_MarketWatch();
+            SetContextMenu_MarketWatch();
             form.Show(dockPanel, DockState.DockLeft);
         }
-       
 
         private void addToWatchListMenuItem_Click(object sender, EventArgs e)
         {
@@ -622,8 +653,6 @@ namespace client
                 myForm = new Tools.Forms.tradeAnalysis();
                 myForm.Name = formName;
 
-                myForm.myContextMenuStrip = CreateContextMenu_TradeAnalysis();
-
                 myForm.ChartTimeRange = dataTimeRangeCb.myValue;
                 myForm.UseStock(DataAccess.Libs.myStockCodeTbl.FindBycode(stockCode) );  //Get data first
 
@@ -633,6 +662,7 @@ namespace client
                 //Cache it if no error occured
                 cachedForms.Add(formName, myForm);
             }
+            myForm.myContextMenuStrip = CreateContextMenu_TradeAnalysis();
             myForm.Show(dockPanel);
             UpdateActiveForm(FormOptions.ChartType); 
         }
@@ -718,7 +748,6 @@ namespace client
             }
             return fomrs;
         }
-
 
         #region event handler
 
@@ -917,7 +946,7 @@ namespace client
         {
             try
             {
-                CloseAllChildrenForms();
+                CloseAllForms(true);
             }
             catch (Exception er)
             {
@@ -991,6 +1020,7 @@ namespace client
         {
             try
             {
+                this.ShowMessage("");
                 this.ShowLogin();
             }
             catch (Exception er)
