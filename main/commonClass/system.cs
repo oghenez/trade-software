@@ -278,7 +278,6 @@ namespace commonClass
             row.lowPrice = 0;
             row.closePrice = 0;
             row.volume = 0;
-            row.isUpdate = false;
         }
         public static void InitData(data.baseDS.priceDataSumRow row)
         {
@@ -290,9 +289,8 @@ namespace commonClass
             row.volume = 0;
             row.highPrice = decimal.MinValue;
             row.lowPrice = decimal.MaxValue;
-            row.openTimeOffset = short.MaxValue;
-            row.closeTimeOffset = short.MinValue;
-            row.isUpdate = false;
+            row.openTimeOffset = int.MaxValue;
+            row.closeTimeOffset = int.MinValue;
         }
 
         public static void InitData(data.baseDS.tradeAlertRow row)

@@ -996,4 +996,7 @@
   <data name="openChart" xml:space="preserve">
     <value>Xem biểu đồ</value>
   </data>
+  <data name="sysOptions" xml:space="preserve">
+    <value>Tham số hệ thống</value>
+  </data>
 </root>

@@ -155,11 +155,12 @@
             this.strategyListMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.toolOptionMenu = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolOptionsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator22 = new System.Windows.Forms.ToolStripSeparator();
+            this.screeningOptionsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.strategyOptionsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.markovToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.screeningOptionsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator27 = new System.Windows.Forms.ToolStripSeparator();
+            this.sysOptionMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.windowsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.closeAllMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
@@ -344,7 +345,7 @@
             this.dataTimeRangeCb});
             this.chartStrip.Location = new System.Drawing.Point(162, 24);
             this.chartStrip.Name = "chartStrip";
-            this.chartStrip.Size = new System.Drawing.Size(333, 25);
+            this.chartStrip.Size = new System.Drawing.Size(300, 25);
             this.chartStrip.TabIndex = 11;
             // 
             // chartPropertiesBtn
@@ -1095,7 +1096,9 @@
             this.toolStripSeparator25,
             this.strategyListMenuItem,
             this.toolStripSeparator3,
-            this.toolOptionMenu});
+            this.toolOptionMenu,
+            this.toolStripSeparator27,
+            this.sysOptionMenuItem});
             this.toolsMenuItem.Name = "toolsMenuItem";
             this.toolsMenuItem.Size = new System.Drawing.Size(51, 20);
             this.toolsMenuItem.Text = "&Tools";
@@ -1164,25 +1167,23 @@
             // toolOptionMenu
             // 
             this.toolOptionMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolOptionsMenuItem,
             this.toolStripSeparator22,
-            this.strategyOptionsMenuItem,
-            this.screeningOptionsMenuItem});
+            this.screeningOptionsMenuItem,
+            this.strategyOptionsMenuItem});
             this.toolOptionMenu.Name = "toolOptionMenu";
             this.toolOptionMenu.Size = new System.Drawing.Size(194, 22);
             this.toolOptionMenu.Text = "Options";
-            // 
-            // toolOptionsMenuItem
-            // 
-            this.toolOptionsMenuItem.Name = "toolOptionsMenuItem";
-            this.toolOptionsMenuItem.Size = new System.Drawing.Size(198, 22);
-            this.toolOptionsMenuItem.Text = "Tool Options";
-            this.toolOptionsMenuItem.Click += new System.EventHandler(this.toolOptionMenuItem_Click);
             // 
             // toolStripSeparator22
             // 
             this.toolStripSeparator22.Name = "toolStripSeparator22";
             this.toolStripSeparator22.Size = new System.Drawing.Size(195, 6);
+            // 
+            // screeningOptionsMenuItem
+            // 
+            this.screeningOptionsMenuItem.Name = "screeningOptionsMenuItem";
+            this.screeningOptionsMenuItem.Size = new System.Drawing.Size(198, 22);
+            this.screeningOptionsMenuItem.Text = "Screening Options";
             // 
             // strategyOptionsMenuItem
             // 
@@ -1198,11 +1199,17 @@
             this.markovToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
             this.markovToolStripMenuItem.Text = "Markov";
             // 
-            // screeningOptionsMenuItem
+            // toolStripSeparator27
             // 
-            this.screeningOptionsMenuItem.Name = "screeningOptionsMenuItem";
-            this.screeningOptionsMenuItem.Size = new System.Drawing.Size(198, 22);
-            this.screeningOptionsMenuItem.Text = "Screening Options";
+            this.toolStripSeparator27.Name = "toolStripSeparator27";
+            this.toolStripSeparator27.Size = new System.Drawing.Size(191, 6);
+            // 
+            // sysOptionMenuItem
+            // 
+            this.sysOptionMenuItem.Name = "sysOptionMenuItem";
+            this.sysOptionMenuItem.Size = new System.Drawing.Size(194, 22);
+            this.sysOptionMenuItem.Text = "Preferences";
+            this.sysOptionMenuItem.Click += new System.EventHandler(this.sysOptionMenuItem_Click);
             // 
             // windowsMenuItem
             // 
@@ -1519,7 +1526,6 @@
         private System.Windows.Forms.ToolStripMenuItem strategyListMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator21;
-        private System.Windows.Forms.ToolStripMenuItem toolOptionsMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator22;
         private System.Windows.Forms.ToolStripMenuItem strategyOptionsMenuItem;
         private System.Windows.Forms.ToolStripMenuItem markovToolStripMenuItem;
@@ -1530,6 +1536,8 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator26;
         private System.Windows.Forms.ToolStripMenuItem strategyEstimationiMenuItem;
         private System.Windows.Forms.ToolStripMenuItem configMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem sysOptionMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator27;
     }
 }
 

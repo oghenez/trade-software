@@ -227,7 +227,7 @@ namespace Charts
         }
         public static void GetRangeY(JapaneseCandleStickItem curve, int fromId, int toId, ref ValueRange yRange)
         {
-            for (int idx = fromId; idx < toId; idx++)
+            for (int idx = fromId; idx <= toId; idx++)
             {
                 StockPt item = (StockPt)curve.Points[idx];
                 if (item.Low < yRange.Min) yRange.Min = item.Low;
@@ -236,7 +236,7 @@ namespace Charts
         }
         public static void GetRangeY(LineItem curve, int fromId, int toId, ref ValueRange yRange)
         {
-            for (int idx = fromId; idx < toId; idx++)
+            for (int idx = fromId; idx <= toId; idx++)
             {
                 PointPair item = (PointPair)curve.Points[idx];
                 if (item.Y < yRange.Min) yRange.Min = item.Y;
@@ -245,7 +245,7 @@ namespace Charts
         }
         public static void GetRangeY(BarItem curve, int fromId, int toId, ref ValueRange yRange)
         {
-            for (int idx = fromId; idx < toId; idx++)
+            for (int idx = fromId; idx <= toId; idx++)
             {
                 PointPair item = (PointPair)curve.Points[idx];
                 if (item.Y < yRange.Min) yRange.Min = item.Y;
@@ -254,7 +254,7 @@ namespace Charts
         }
         public static void GetRangeY(StickItem curve, int fromId, int toId, ref ValueRange yRange)
         {
-            for (int idx = fromId; idx < toId; idx++)
+            for (int idx = fromId; idx <= toId; idx++)
             {
                 PointPair item = (PointPair)curve.Points[idx];
                 if (item.Y < yRange.Min) yRange.Min = item.Y;

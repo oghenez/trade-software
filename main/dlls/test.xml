@@ -1,87 +1,126 @@
 <Configuration>
+  <DBCONNECTION>
+    <dbConInfo0 dbServerName="treiaY4S2N4lX65Yx+r4Ir/bPWKBxi+xYgw0F4WLwDs=" />
+  </DBCONNECTION>
+  <DBCONNECTION>
+    <dbConInfo0 dbName="lHcrymcHrCjyJllbDTtavQ==" />
+  </DBCONNECTION>
+  <DBCONNECTION>
+    <dbConInfo0 dbAccount="0myaXxZ8eBQHt+bP4urQ5w==" />
+  </DBCONNECTION>
+  <DBCONNECTION>
+    <dbConInfo0 dbPassword="dwq5JN/iCOx5d+o5t7cObg==" />
+  </DBCONNECTION>
+  <DBCONNECTION>
+    <dbConInfo0 dbTimeout="RkLVbHhukqmG8DqFrUVKzw==" />
+  </DBCONNECTION>
+  <DBCONNECTION>
+    <dbConInfo0 dbUseTransaction="EpAxoobbG0tPxhyMIVa+4Q==" />
+  </DBCONNECTION>
+  <WSCONNECTION>
+    <Main wsURI="cr+BsZtc1VaYm7T/XSx9KvPjFq5IavLMA20X3v5ueYNdD2pctDCOqfABbH/XEv2j" />
+  </WSCONNECTION>
+  <WSCONNECTION>
+    <Main wsAccount="" />
+  </WSCONNECTION>
+  <WSCONNECTION>
+    <Main wsPassword="" />
+  </WSCONNECTION>
+  <WSCONNECTION>
+    <Main wsWindowAuthentication="MVsoctThcobSC9M10quTJg==" />
+  </WSCONNECTION>
+  <WSCONNECTION>
+    <Main wsTimeout="RkLVbHhukqmG8DqFrUVKzw==" />
+  </WSCONNECTION>
+  <WSCONNECTION>
+    <Main wsUseProxy="EpAxoobbG0tPxhyMIVa+4Q==" />
+  </WSCONNECTION>
+  <WSCONNECTION>
+    <Main wsUseDefaultProxy="EpAxoobbG0tPxhyMIVa+4Q==" />
+  </WSCONNECTION>
+  <WSCONNECTION>
+    <Main wsProxyAddress="cr+BsZtc1VaYm7T/XSx9KuU1LFbPCww7vXtOWJKiSvFiDDQXhYvAOw==" />
+  </WSCONNECTION>
+  <WSCONNECTION>
+    <Main wsProxyPort="1T98DCtC2u43v+nG6Qt9ng==" />
+  </WSCONNECTION>
+  <ENVIRONMENT>
+    <Login LoginName="gFQL6vn2bOh5AMHs6+NWdA==" />
+  </ENVIRONMENT>
+  <ENVIRONMENT>
+    <Login loginLocationId="Qivs4xlMKfhcld4XESkALCbo0gnVtn5ZYgw0F4WLwDs=" />
+  </ENVIRONMENT>
   <Application>
-    <System stockTransFeePercent="q4zVCjFKHBW6TJEg12Vokw==" />
+    <System stockMaxBuyQtyPerc="yuFaA0nsER+VOcngcLLToA==" />
   </Application>
   <Application>
-    <System stockSell2BuyInterval="IDTmcmlItOV27Jnb7SSYdQ==" />
+    <System stockReduceQtyPerc="yuFaA0nsER+VOcngcLLToA==" />
   </Application>
   <Application>
-    <System stockPriceWeight="Lv4qW+EGIsMjsA3+cb9WcQ==" />
+    <System stockAccumulateQtyPerc="yuFaA0nsER+VOcngcLLToA==" />
   </Application>
   <Application>
-    <System stockVolumeWeight="1ZdDsffGgpwcQRl24mqEmg==" />
+    <System stockTotalCapAmt="iRlKJICbVJGsItSeWEEft7gel7mtBty9Ygw0F4WLwDs=" />
   </Application>
   <Application>
-    <System stockMaxBuyQtyPerc="1ZdDsffGgpwcQRl24mqEmg==" />
+    <System stockMaxBuyAmtPerc="lNJY16iycunRoLtxamnAUA==" />
   </Application>
   <Application>
-    <System stockReduceQtyPerc="1ZdDsffGgpwcQRl24mqEmg==" />
+    <System sysChartBgColor="tXoT1/ZVAq8OxuzzOC6XUA==" />
   </Application>
   <Application>
-    <System stockAccumulateQtyPerc="1ZdDsffGgpwcQRl24mqEmg==" />
+    <System sysChartFgColor="Xa1ls7U9pJ8dE3s2gVlbTg==" />
   </Application>
   <Application>
-    <System stockTotalCapAmt="/cIpze0k+qQxuCX59NLfsB10egCv436mTIdS9+05Aas=" />
+    <System sysChartGridColor="Xa1ls7U9pJ8dE3s2gVlbTg==" />
   </Application>
   <Application>
-    <System stockMaxBuyAmtPerc="iIaZfR7b36KzGcLNBp7GZA==" />
+    <System sysChartVolumesColor="kJPTDz8n4rGlROZeNl8M4A==" />
   </Application>
   <Application>
-    <System sysChartBgColor="Y2XXl6n9bvNwXc6E+f3qug==" />
+    <System sysChartLineCandleColor="ZpfDNVOc7dlas++aPEM4gLgel7mtBty9Ygw0F4WLwDs=" />
   </Application>
   <Application>
-    <System sysChartFgColor="G7yYPqa27x1a2rXkOUMRjw==" />
+    <System sysChartBearCandleColor="4CNsBjXlxgOofhRM01cMBw==" />
   </Application>
   <Application>
-    <System sysChartGridColor="G7yYPqa27x1a2rXkOUMRjw==" />
+    <System sysChartBullCandleColor="lD2o9C4T/3JxjXLEHTs1bg==" />
   </Application>
   <Application>
-    <System sysChartVolumesColor="6bjr4g2z0QlShJBUga4T3Q==" />
+    <System sysChartBarDnColor="CHJl0NRo3wNuJXL2YgSPtA==" />
   </Application>
   <Application>
-    <System sysChartLineCandleColor="3Fk4Royn6wz7I9s/IgyPah10egCv436mTIdS9+05Aas=" />
+    <System sysChartBarUpColor="RFyN6Y2ACuqPh93EZoKLEA==" />
   </Application>
   <Application>
-    <System sysChartBearCandleColor="GY5bKdm/T/bs2Q7TPVvnkA==" />
+    <System sysChartShowDescription="EpAxoobbG0tPxhyMIVa+4Q==" />
   </Application>
   <Application>
-    <System sysChartBullCandleColor="LUFD9TNBDm/lmSho2SN93g==" />
+    <System sysChartShowVolume="EpAxoobbG0tPxhyMIVa+4Q==" />
   </Application>
   <Application>
-    <System sysChartBarDnColor="+ttWo2440v2k+0oQD8n2Cw==" />
+    <System sysChartShowGrid="EpAxoobbG0tPxhyMIVa+4Q==" />
   </Application>
   <Application>
-    <System sysChartBarUpColor="MbLjoy7JZXRJ0TFKYKHDUw==" />
+    <System sysChartShowLegend="EpAxoobbG0tPxhyMIVa+4Q==" />
   </Application>
   <Application>
-    <System sysChartShowDescription="dFRU2qYgLJNOMu+nNjiNXg==" />
+    <System sysChartAutoScaleMetric="EpAxoobbG0tPxhyMIVa+4Q==" />
   </Application>
   <Application>
-    <System sysChartShowVolume="dFRU2qYgLJNOMu+nNjiNXg==" />
+    <System sysChartXScaleMetric="GkYaPyNiHfKcEV9H9aSbZQ==" />
   </Application>
   <Application>
-    <System sysChartShowGrid="dFRU2qYgLJNOMu+nNjiNXg==" />
+    <System sysChartYScaleMetric="GkYaPyNiHfKcEV9H9aSbZQ==" />
   </Application>
   <Application>
-    <System sysChartShowLegend="dFRU2qYgLJNOMu+nNjiNXg==" />
+    <System sysChartAutoPanMetric="EpAxoobbG0tPxhyMIVa+4Q==" />
   </Application>
   <Application>
-    <System sysChartAutoScaleMetric="dFRU2qYgLJNOMu+nNjiNXg==" />
+    <System sysChartXPanMetric="GkYaPyNiHfKcEV9H9aSbZQ==" />
   </Application>
   <Application>
-    <System sysChartXScaleMetric="aRBwVSRTQ2FheztrOjXULQ==" />
-  </Application>
-  <Application>
-    <System sysChartYScaleMetric="aRBwVSRTQ2FheztrOjXULQ==" />
-  </Application>
-  <Application>
-    <System sysChartAutoPanMetric="dFRU2qYgLJNOMu+nNjiNXg==" />
-  </Application>
-  <Application>
-    <System sysChartXPanMetric="aRBwVSRTQ2FheztrOjXULQ==" />
-  </Application>
-  <Application>
-    <System sysChartYPanMetric="aRBwVSRTQ2FheztrOjXULQ==" />
+    <System sysChartYPanMetric="GkYaPyNiHfKcEV9H9aSbZQ==" />
   </Application>
   <Application>
     <System companyName="" />
@@ -146,31 +185,4 @@
   <Application>
     <System imgFilePathComanyLogo2="" />
   </Application>
-  <WSCONNECTION>
-    <Main wsURI="Bd36fr7Ryzl+GeULcJ2EVV9/U1K4WSYaFL6i7TTa/AomISvEJh5/6O1K/pV3J6Gi" />
-  </WSCONNECTION>
-  <WSCONNECTION>
-    <Main wsAccount="" />
-  </WSCONNECTION>
-  <WSCONNECTION>
-    <Main wsPassword="" />
-  </WSCONNECTION>
-  <WSCONNECTION>
-    <Main wsWindowAuthentication="NXeG/oNqnt8FpxuRduDTPA==" />
-  </WSCONNECTION>
-  <WSCONNECTION>
-    <Main wsTimeout="iNGHh9Z1znvY1I3FBD4MtA==" />
-  </WSCONNECTION>
-  <WSCONNECTION>
-    <Main wsUseProxy="NXeG/oNqnt8FpxuRduDTPA==" />
-  </WSCONNECTION>
-  <WSCONNECTION>
-    <Main wsUseDefaultProxy="dFRU2qYgLJNOMu+nNjiNXg==" />
-  </WSCONNECTION>
-  <WSCONNECTION>
-    <Main wsProxyAddress="cjDi1/mzL+9Vpy43wroGnPzM/hKYiBoRnjMRrmO8YgBMh1L37TkBqw==" />
-  </WSCONNECTION>
-  <WSCONNECTION>
-    <Main wsProxyPort="OVQ4yvv4/t7HotIuVa38LQ==" />
-  </WSCONNECTION>
 </Configuration>

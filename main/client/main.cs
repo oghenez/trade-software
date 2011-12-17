@@ -14,8 +14,8 @@ using commonClass;
 
 namespace client
 {
-    //public partial class main : common.forms.baseApplication
-    public partial class main : baseClass.forms.baseApplication
+    public partial class main : common.forms.baseApplication
+    //public partial class main : baseClass.forms.baseApplication
     {
         const int constPaneLeftWidth = 13; //In percentage
         const string constFormNameIndicator = "indicator-";
@@ -160,9 +160,10 @@ namespace client
             this.companyListMenuItem.Text = Languages.Libs.GetString("companyList");
             
             this.toolOptionMenu.Text = Languages.Libs.GetString("toolAllOptions");
-            this.toolOptionsMenuItem.Text = Languages.Libs.GetString("toolOption");
             this.strategyOptionsMenuItem.Text = Languages.Libs.GetString("strategyOption");
             this.screeningOptionsMenuItem.Text = Languages.Libs.GetString("screeningOption");
+
+            this.sysOptionMenuItem.Text = Languages.Libs.GetString("sysOptions");
 
 
             this.windowsMenuItem.Text = Languages.Libs.GetString("windows");
@@ -1349,18 +1350,6 @@ namespace client
             }
         }
         
-        private void toolOptionMenuItem_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                Tools.Forms.options.GetForm("").ShowDialog();
-            }
-            catch (Exception er)
-            {
-                this.ShowError(er);
-            }
-        }
-
         private void vietnameseMenuItem_Click(object sender, EventArgs e)
         {
             try
@@ -1437,6 +1426,18 @@ namespace client
             {
                 baseClass.forms.configure form = new baseClass.forms.configure();
                 form.ShowDialog();
+            }
+            catch (Exception er)
+            {
+                this.ShowError(er);
+            }
+        }
+
+        private void sysOptionMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Tools.Forms.options.GetForm("").ShowDialog();
             }
             catch (Exception er)
             {

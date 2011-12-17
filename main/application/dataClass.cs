@@ -52,7 +52,7 @@ namespace application
             switch (this.AccessMode)
             {
                 case DataAccessMode.Local:
-                    numberOfUpdate = AppLibs.UpdateBaseAnalysisData(this);
+                    numberOfUpdate = AppLibs.UpdateAnalysisData(this);
                     break;
                 case DataAccessMode.WebService:
                     numberOfUpdate = DataAccess.Libs.UpdateAnalysisData(this); 

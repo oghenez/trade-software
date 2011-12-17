@@ -9,50 +9,69 @@ namespace test
 {
     static class genData
     {
-        static decimal open = 17, low = 16, high = 18, close = 17, volume = 1000;
         static data.baseDS.priceDataDataTable priceDataTbl = new data.baseDS.priceDataDataTable();
         static data.importDS.importPriceDataTable importPriceTbl = new data.importDS.importPriceDataTable();
-        static data.importDS.importPriceDataTable lastImportPriceTbl = new data.importDS.importPriceDataTable();
+        static imports.libs.DailyPrice myDailyPrice = new imports.libs.DailyPrice();
+
+        public static void Reset()
+        {
+            myDailyPrice.Reset();
+            imports.libs.Reset();
+        }
         public static void GenPriceData(string stockCode)
         {
-            priceDataTbl.Clear();
-            importPriceTbl.Clear();
-            data.importDS.importPriceRow importRow = importPriceTbl.NewimportPriceRow();
-            application.DbAccess.InitData(importRow);
-
-            //open += common.system.Random(0, 10) / 10;
-            high += (decimal)common.system.Random(50, 300) / 100;
-            decimal rand = common.system.Random(0, 10);
-            if (rand <8)
+            DateTime dt = DateTime.Now;
+            decimal lastHighPrice = 0, lastLowPrice = 0, lastClosePrice = 0, lastOpenPrice = 0, lastVolume=0;
+            data.baseDS.priceDataSumRow dayPriceRow = myDailyPrice.GetData(stockCode,dt);
+            if (dayPriceRow == null)
             {
-                close += (decimal)common.system.Random(20, 200) / 100;
+                data.baseDS.priceDataRow priceRow = application.DbAccess.GetLastPrice(stockCode);
+                lastHighPrice = priceRow.highPrice;
+                lastLowPrice = priceRow.lowPrice;
+                lastClosePrice = priceRow.closePrice;
+                lastOpenPrice = priceRow.openPrice;
+                lastVolume = 0;
             }
             else
             {
-                decimal var = (decimal)common.system.Random(50, 200) / 100;
-                if (low > var && close > var)
-                {
-                    close -= var;
-                    low -= var;
-                }
+                lastHighPrice = dayPriceRow.highPrice;
+                lastLowPrice = dayPriceRow.lowPrice;
+                lastClosePrice = dayPriceRow.closePrice;
+                lastOpenPrice = dayPriceRow.openPrice;
+                lastVolume = dayPriceRow.volume;
             }
-            volume += common.system.Random(10000, 10000);
+            priceDataTbl.Clear();
+            importPriceTbl.Clear();
 
-            importRow.onDate = DateTime.Now;
+            data.importDS.importPriceRow importRow = importPriceTbl.NewimportPriceRow();
+            application.DbAccess.InitData(importRow);
+
+            decimal highPrice = lastHighPrice + lastHighPrice * (decimal)common.system.Random(-4, 5) / 100;
+            decimal lowPrice = lastLowPrice + lastLowPrice * (decimal)common.system.Random(-4, 5) / 100;
+            decimal closePrice = lastClosePrice + lastClosePrice * (decimal)common.system.Random(-5, 5) / 100;
+
+            importRow.openPrice = lastOpenPrice;
+            importRow.highPrice = Math.Max(lastHighPrice, highPrice);
+            if (lowPrice < importRow.highPrice) importRow.lowPrice = lowPrice;
+            else importRow.lowPrice = importRow.highPrice;
+
+            if (closePrice>=importRow.lowPrice && closePrice<=importRow.highPrice)
+                importRow.closePrice = closePrice;
+            else 
+            {
+                importRow.closePrice = (importRow.lowPrice+importRow.highPrice)/2;
+            }
+            importRow.volume = lastVolume + common.system.Random(0, 1000);
+            importRow.onDate = dt;
             importRow.stockCode = stockCode;
-            importRow.openPrice = open;
-            importRow.lowPrice = low;
-            importRow.highPrice = high;
-            importRow.closePrice = close;
-            importRow.volume = volume;
-
             importPriceTbl.AddimportPriceRow(importRow);
 
-            imports.libs.AddImportPrice(importPriceTbl,lastImportPriceTbl, priceDataTbl);
+            imports.libs.AddImportPrice(importPriceTbl,priceDataTbl);
             application.DbAccess.UpdateData(priceDataTbl);
-
             // In VN culture : start of week is Monday (not Sunday) 
             imports.libs.AggregatePriceData(priceDataTbl, "vi-VN", null);
+
+            myDailyPrice.UpdateData(importRow);
         }
     }
     
