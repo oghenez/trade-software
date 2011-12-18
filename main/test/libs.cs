@@ -61,7 +61,7 @@ namespace test
             {
                 importRow.closePrice = (importRow.lowPrice+importRow.highPrice)/2;
             }
-            importRow.volume = lastVolume + common.system.Random(0, 1000);
+            importRow.volume = lastVolume + common.system.Random(0, 100);
             importRow.onDate = dt;
             importRow.stockCode = stockCode;
             importPriceTbl.AddimportPriceRow(importRow);

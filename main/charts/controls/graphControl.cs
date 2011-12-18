@@ -211,10 +211,10 @@ namespace Charts.Controls
 
         private void SetViewportX(IntRange range)
         {
-            int NoExtraBarAtRight = (int)((range.Max - range.Min) * Settings.sysViewSpaceAtRIGHT);
+            int NoExtraBarAtRight = (int)((range.Max - range.Min) * Settings.sysViewSpaceAtRIGHT/100);
             if (NoExtraBarAtRight < Settings.sysViewMinBarAtRIGHT)  NoExtraBarAtRight = Settings.sysViewMinBarAtRIGHT;
 
-            int NoExtraBarAtLeft = (int)((range.Max - range.Min) * Settings.sysViewSpaceAtLEFT);
+            int NoExtraBarAtLeft = (int)((range.Max - range.Min) * Settings.sysViewSpaceAtLEFT/100);
             if (NoExtraBarAtRight < Settings.sysViewMinBarAtLEFT) NoExtraBarAtRight = Settings.sysViewMinBarAtLEFT;
             
             myViewportState.xRange.Set(range.Min, range.Max);

@@ -18,7 +18,7 @@
     <dbConInfo0 dbUseTransaction="EpAxoobbG0tPxhyMIVa+4Q==" />
   </DBCONNECTION>
   <WSCONNECTION>
-    <Main wsURI="" />
+    <Main wsURI="cr+BsZtc1VaYm7T/XSx9KvPjFq5IavLMA20X3v5ueYNdD2pctDCOqfABbH/XEv2j" />
   </WSCONNECTION>
   <WSCONNECTION>
     <Main wsAccount="" />
@@ -27,7 +27,7 @@
     <Main wsPassword="" />
   </WSCONNECTION>
   <WSCONNECTION>
-    <Main wsWindowAuthentication="EpAxoobbG0tPxhyMIVa+4Q==" />
+    <Main wsWindowAuthentication="MVsoctThcobSC9M10quTJg==" />
   </WSCONNECTION>
   <WSCONNECTION>
     <Main wsTimeout="RkLVbHhukqmG8DqFrUVKzw==" />
@@ -36,18 +36,18 @@
     <Main wsUseProxy="EpAxoobbG0tPxhyMIVa+4Q==" />
   </WSCONNECTION>
   <WSCONNECTION>
-    <Main wsUseDefaultProxy="MVsoctThcobSC9M10quTJg==" />
+    <Main wsUseDefaultProxy="EpAxoobbG0tPxhyMIVa+4Q==" />
   </WSCONNECTION>
   <WSCONNECTION>
-    <Main wsProxyAddress="" />
+    <Main wsProxyAddress="cr+BsZtc1VaYm7T/XSx9KuU1LFbPCww7vXtOWJKiSvFiDDQXhYvAOw==" />
   </WSCONNECTION>
   <WSCONNECTION>
-    <Main wsProxyPort="" />
+    <Main wsProxyPort="1T98DCtC2u43v+nG6Qt9ng==" />
   </WSCONNECTION>
   <ENVIRONMENT>
-    <Login LoginName="" />
+    <Login LoginName="gFQL6vn2bOh5AMHs6+NWdA==" />
   </ENVIRONMENT>
   <ENVIRONMENT>
-    <Login loginLocationId="Qivs4xlMKfhcld4XESkALCbo0gnVtn5ZYgw0F4WLwDs=" />
+    <Login loginLocationId="jbIksur+Co8418sxRi6a4A==" />
   </ENVIRONMENT>
 </Configuration>

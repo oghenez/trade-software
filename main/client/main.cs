@@ -14,8 +14,8 @@ using commonClass;
 
 namespace client
 {
-    //public partial class main : common.forms.baseApplication
-    public partial class main : baseClass.forms.baseApplication
+    public partial class main : common.forms.baseApplication
+    //public partial class main : baseClass.forms.baseApplication
     {
         const int constPaneLeftWidth = 13; //In percentage
         const string constFormNameIndicator = "indicator-";
@@ -178,7 +178,7 @@ namespace client
 
             this.screeningMenuItem.Text = Languages.Libs.GetString("screening");
             this.orderMenuItem.Text = Languages.Libs.GetString("order");
-            this.strategyListMenuItem.Text = Languages.Libs.GetString("strategy");
+            this.strategyEstimationMenuItem.Text = Languages.Libs.GetString("strategyEstimation");
             this.screeningMenuItem.Text = Languages.Libs.GetString("screening");
 
             dataTimeRangeCb.SetLanguage();
@@ -188,8 +188,8 @@ namespace client
             Indicators.Libs.CreateIndicatorMenu(indicatorMenuItem, showIndicatorHandler);
 
             //Strategy menu
-            strategyListMenuItem.DropDownItems.Clear();
-            Strategy.Libs.CreateMenu(AppTypes.StrategyTypes.Strategy, strategyListMenuItem, PlotTradepointHandler);
+            strategyEstimationMenuItem.DropDownItems.Clear();
+            Strategy.Libs.CreateMenu(AppTypes.StrategyTypes.Strategy, strategyEstimationMenuItem, PlotTradepointHandler);
 
             strategyOptionsMenuItem.DropDownItems.Clear();
             Strategy.Libs.CreateMenu(AppTypes.StrategyTypes.Strategy, strategyOptionsMenuItem,StrategyParaEditHandler);
@@ -818,7 +818,7 @@ namespace client
         {
             try
             {
-                Strategy.Meta meta = Strategy.Libs.FindMetaByName(((ToolStripMenuItem)sender).Tag.ToString());
+                Strategy.Meta meta = (Strategy.Meta)(sender as ToolStripMenuItem).Tag;
                 Strategy.Libs.ShowStrategyForm(meta);
             }
             catch (Exception er)
@@ -833,9 +833,16 @@ namespace client
             {
                 Tools.Forms.tradeAnalysis activeForm = GetActiveStockForm();
                 if (activeForm == null) return;
-
-                baseClass.controls.ToolStripCbStrategy item = (baseClass.controls.ToolStripCbStrategy)sender;
-                Strategy.Meta meta = Strategy.Libs.FindMetaByCode(item.myValue);
+                Strategy.Meta meta;
+                if (sender.GetType() == typeof(ToolStripMenuItem))
+                {
+                    meta = (Strategy.Meta)(sender as ToolStripMenuItem).Tag;
+                }
+                else
+                {
+                    baseClass.controls.ToolStripCbStrategy item = (baseClass.controls.ToolStripCbStrategy)sender;
+                    meta = Strategy.Libs.FindMetaByCode(item.myValue);
+                }
                 if (meta == null) activeForm.ClearStrategyTradepoints();
                 else activeForm.PlotStrategyTradepoints(meta, this.ChartHaveStrategyEstimation); 
             }
@@ -1437,7 +1444,7 @@ namespace client
         {
             try
             {
-                baseClass.forms.sysOptions.GetForm("").ShowDialog();
+                client.forms.sysOptions.GetForm("").ShowDialog();
             }
             catch (Exception er)
             {
