@@ -382,7 +382,7 @@ namespace Strategy
                 {
                     ToolStripMenuItem menuItem = new ToolStripMenuItem();
                     menuItem.Name = toMenu.Name + "-" + tmpMetas[idx2].ClassType.Name;
-                    menuItem.Tag = tmpMetas[idx2].ClassType.Name;
+                    menuItem.Tag = tmpMetas[idx2];
                     menuItem.Text = tmpMetas[idx2].Name;
                     if (handler != null) menuItem.Click += new System.EventHandler(handler);
                     catMenuItem.DropDownItems.Add(menuItem);
@@ -396,7 +396,7 @@ namespace Strategy
                 if (Data.myStrategyCatList.Find(meta.Category.Trim()) != null) continue;
                 ToolStripMenuItem menuItem = new ToolStripMenuItem();
                 menuItem.Name = toMenu.Name + "-group-" + meta.ClassType.Name;
-                menuItem.Tag = meta.ClassType.Name;
+                menuItem.Tag = meta;
                 menuItem.Text = meta.Name;
                 toMenu.DropDownItems.Add(menuItem);
                 if (handler!=null) menuItem.Click += new System.EventHandler(handler);

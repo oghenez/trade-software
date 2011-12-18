@@ -1,1 +1,74 @@
-﻿<Configuration />
+<Configuration>
+  <A00000004>
+    <ChartSettings sysChartShowDescription="True" />
+  </A00000004>
+  <A00000004>
+    <ChartSettings sysChartShowVolume="False" />
+  </A00000004>
+  <A00000004>
+    <ChartSettings sysChartShowGrid="False" />
+  </A00000004>
+  <A00000004>
+    <ChartSettings sysChartShowLegend="False" />
+  </A00000004>
+  <A00000004>
+    <ChartSettings sysZoomRate="2" />
+  </A00000004>
+  <A00000004>
+    <ChartSettings sysPAN_MouseRate="3" />
+  </A00000004>
+  <A00000004>
+    <ChartSettings sysPAN_MoveCount="10" />
+  </A00000004>
+  <A00000004>
+    <ChartSettings sysViewSpaceAtLEFT="0" />
+  </A00000004>
+  <A00000004>
+    <ChartSettings sysViewSpaceAtRIGHT="12" />
+  </A00000004>
+  <A00000004>
+    <System sysTimerIntervalInSecs="10" />
+  </A00000004>
+  <A00000004>
+    <System sysDefaultTimeRange="Y5" />
+  </A00000004>
+  <A00000004>
+    <System sysDefaultTimeScale="D1" />
+  </A00000004>
+  <A00000004>
+    <System sysScreeningTimeRange="M2" />
+  </A00000004>
+  <A00000004>
+    <System sysScreeningTimeScale="D1" />
+  </A00000004>
+  <A00000004>
+    <System sysPriceColor_Increase_BG="Blue" />
+  </A00000004>
+  <A00000004>
+    <System sysPriceColor_Increase_FG="White" />
+  </A00000004>
+  <A00000004>
+    <System sysPriceColor_Decrease_BG="Red" />
+  </A00000004>
+  <A00000004>
+    <System sysPriceColor_Decrease_FG="Black" />
+  </A00000004>
+  <A00000004>
+    <System sysPriceColor_NotChange_BG="Yellow" />
+  </A00000004>
+  <A00000004>
+    <System sysPriceColor_NotChange_FG="Black" />
+  </A00000004>
+  <A00000004>
+    <Others imgFilePathIcon="" />
+  </A00000004>
+  <A00000004>
+    <Others imgFilePathBackground="" />
+  </A00000004>
+  <A00000004>
+    <Others imgFilePathComanyLogo1="" />
+  </A00000004>
+  <A00000004>
+    <Others imgFilePathComanyLogo2="" />
+  </A00000004>
+</Configuration>

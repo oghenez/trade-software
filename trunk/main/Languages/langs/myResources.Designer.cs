@@ -250,6 +250,15 @@ namespace Languages.langs {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Backcolor.
+        /// </summary>
+        internal static string backColor {
+            get {
+                return ResourceManager.GetString("backColor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Background.
         /// </summary>
         internal static string background {
@@ -583,7 +592,7 @@ namespace Languages.langs {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Color.
+        ///   Looks up a localized string similar to Colors.
         /// </summary>
         internal static string color {
             get {

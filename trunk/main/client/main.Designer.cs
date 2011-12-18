@@ -152,7 +152,7 @@
             this.toolStripSeparator13 = new System.Windows.Forms.ToolStripSeparator();
             this.companyListMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator25 = new System.Windows.Forms.ToolStripSeparator();
-            this.strategyListMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.strategyEstimationMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.toolOptionMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator22 = new System.Windows.Forms.ToolStripSeparator();
@@ -1094,7 +1094,7 @@
             this.toolStripSeparator13,
             this.companyListMenuItem,
             this.toolStripSeparator25,
-            this.strategyListMenuItem,
+            this.strategyEstimationMenuItem,
             this.toolStripSeparator3,
             this.toolOptionMenu,
             this.toolStripSeparator27,
@@ -1153,11 +1153,11 @@
             this.toolStripSeparator25.Name = "toolStripSeparator25";
             this.toolStripSeparator25.Size = new System.Drawing.Size(191, 6);
             // 
-            // strategyListMenuItem
+            // strategyEstimationMenuItem
             // 
-            this.strategyListMenuItem.Name = "strategyListMenuItem";
-            this.strategyListMenuItem.Size = new System.Drawing.Size(194, 22);
-            this.strategyListMenuItem.Text = "Strategy List";
+            this.strategyEstimationMenuItem.Name = "strategyEstimationMenuItem";
+            this.strategyEstimationMenuItem.Size = new System.Drawing.Size(194, 22);
+            this.strategyEstimationMenuItem.Text = "Strategy List";
             // 
             // toolStripSeparator3
             // 
@@ -1523,7 +1523,7 @@
         private System.Windows.Forms.ToolStrip formatStrip;
         private System.Windows.Forms.ToolStripButton amountBtn;
         private System.Windows.Forms.ToolStripButton percentBtn;
-        private System.Windows.Forms.ToolStripMenuItem strategyListMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem strategyEstimationMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator21;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator22;
