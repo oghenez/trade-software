@@ -914,7 +914,7 @@ namespace Strategy
         {
             StringCollection aFields = new StringCollection();
             aFields.Add("params");
-            if (commonClass.Configuration.ReadUserSettings(commonClass.SysLibs.sysLoginCode, meta.ClassType.FullName, aFields))
+            if (commonClass.Configuration.GetUserSettings(meta.ClassType.FullName, aFields))
                 meta.Parameters = common.system.String2DoubleList(aFields[0]);
         }
         public static void SaveUserSettings(Meta meta)
@@ -924,7 +924,7 @@ namespace Strategy
             aFields.Add("params");
             StringCollection aValues = new StringCollection();
             aValues.Add(common.system.ToString(meta.Parameters));
-            commonClass.Configuration.SetUserSettings(commonClass.SysLibs.sysLoginCode, meta.ClassType.FullName, aFields, aValues);
+            commonClass.Configuration.SaveUserSettings(meta.ClassType.FullName, aFields, aValues);
         }
 
         //Load strategy to table

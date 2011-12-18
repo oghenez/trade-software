@@ -131,15 +131,18 @@ namespace baseClass.controls
                 variant = (decimal)stockGV.Rows[idx].Cells[priceVariantColumn.Name].Value;
                 if (variant < 0)
                 {
-                    stockGV.Rows[idx].Cells[priceVariantColumn.Name].Style.BackColor = Color.Red;
+                    stockGV.Rows[idx].Cells[priceVariantColumn.Name].Style.BackColor = commonClass.Settings.sysPriceColor_Decrease_BG;
+                    stockGV.Rows[idx].Cells[priceVariantColumn.Name].Style.ForeColor = commonClass.Settings.sysPriceColor_Decrease_FG;
                     continue;
                 }
                 if (variant > 0)
                 {
-                    stockGV.Rows[idx].Cells[priceVariantColumn.Name].Style.BackColor = Color.SkyBlue;
+                    stockGV.Rows[idx].Cells[priceVariantColumn.Name].Style.BackColor = commonClass.Settings.sysPriceColor_Increase_BG;
+                    stockGV.Rows[idx].Cells[priceVariantColumn.Name].Style.ForeColor = commonClass.Settings.sysPriceColor_Increase_FG;
                     continue;
                 }
-                stockGV.Rows[idx].Cells[priceVariantColumn.Name].Style.BackColor = Color.Yellow;
+                stockGV.Rows[idx].Cells[priceVariantColumn.Name].Style.BackColor = commonClass.Settings.sysPriceColor_NotChange_BG;
+                stockGV.Rows[idx].Cells[priceVariantColumn.Name].Style.ForeColor = commonClass.Settings.sysPriceColor_NotChange_FG;
             }
         }
 

@@ -45,21 +45,6 @@ namespace commonClass
             common.system.ExitApplication();
         }
 
-        public static decimal GetAmountFromExRate(decimal fAmount, decimal exRate)
-        {
-            return Math.Round(exRate * fAmount, Settings.sysPrecisionLocal);
-        }
-        public static decimal GetFAmountFromExRate(decimal amount, decimal exRate)
-        {
-            if (exRate == 0) return 0;
-            return Math.Round(amount / exRate, Settings.sysPrecisionForeign);
-        }
-        public static decimal GetExrateFromAmt(decimal amount, decimal fAmount)
-        {
-            if (fAmount == 0) return 0;
-            return Math.Round(amount / fAmount, Settings.sysPrecisionLocal);
-        }
-
         public static void SetAppEnvironment()
         {
             common.language.myCulture = new CultureInfo(Settings.sysCultureCode);
@@ -406,13 +391,13 @@ namespace commonClass
     }
     public static class Configuration
     {
-        public static bool ReadUserSettings(string subNode, string childNode, StringCollection aFields)
+        public static bool GetUserSettings(string type, StringCollection aFields)
         {
-            return common.configuration.GetConfiguration(Settings.sysUserConfigFile, subNode, childNode, aFields, false);
+            return common.configuration.GetConfiguration(Settings.sysUserConfigFile, commonClass.SysLibs.sysLoginCode,type, aFields, false);
         }
-        public static bool SetUserSettings(string subNode, string childNode, StringCollection aFields, StringCollection aValues)
+        public static bool SaveUserSettings(string type, StringCollection aFields, StringCollection aValues)
         {
-            return common.configuration.SaveConfiguration(Settings.sysUserConfigFile, subNode, childNode, aFields, aValues, false);
+            return common.configuration.SaveConfiguration(Settings.sysUserConfigFile, commonClass.SysLibs.sysLoginCode, type, aFields, aValues, false);
         }
 
         public enum configKeys
