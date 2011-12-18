@@ -615,8 +615,8 @@
   <data name="ownedList" xml:space="preserve">
     <value>Danh sách sở hữu</value>
   </data>
-  <data name="panMetric" xml:space="preserve">
-    <value>Tỉ lệ kéo(pan)</value>
+  <data name="panRate" xml:space="preserve">
+    <value>Di chuyển</value>
   </data>
   <data name="password" xml:space="preserve">
     <value>Mật khẩu</value>
@@ -660,8 +660,8 @@
   <data name="saveDataBeforeClose" xml:space="preserve">
     <value>Xin vui lòng lưu dữ liệu trước khi đóng !</value>
   </data>
-  <data name="scaleMetric" xml:space="preserve">
-    <value>Tỉ lệ phóng đại</value>
+  <data name="zoomRate" xml:space="preserve">
+    <value>Phóng đại</value>
   </data>
   <data name="sex" xml:space="preserve">
     <value>Giới tính</value>
@@ -725,18 +725,6 @@
   </data>
   <data name="weight" xml:space="preserve">
     <value>Trọng số</value>
-  </data>
-  <data name="xPan" xml:space="preserve">
-    <value>Trục X</value>
-  </data>
-  <data name="xScale" xml:space="preserve">
-    <value>Trục X</value>
-  </data>
-  <data name="yPan" xml:space="preserve">
-    <value>Trục Y</value>
-  </data>
-  <data name="yScale" xml:space="preserve">
-    <value>Trục Y</value>
   </data>
   <data name="draw" xml:space="preserve">
     <value>Vẽ</value>
@@ -998,5 +986,38 @@
   </data>
   <data name="sysOptions" xml:space="preserve">
     <value>Tham số hệ thống</value>
+  </data>
+  <data name="decrease" xml:space="preserve">
+    <value>Giảm</value>
+  </data>
+  <data name="increase" xml:space="preserve">
+    <value>Tăng</value>
+  </data>
+  <data name="notChange" xml:space="preserve">
+    <value>Không đổi</value>
+  </data>
+  <data name="percent" xml:space="preserve">
+    <value>Tỉ lệ</value>
+  </data>
+  <data name="pwdMinLen" xml:space="preserve">
+    <value>Độ dài mật khẩu</value>
+  </data>
+  <data name="refreshRate" xml:space="preserve">
+    <value>Cập nhật mỗi</value>
+  </data>
+  <data name="seconds" xml:space="preserve">
+    <value>giây</value>
+  </data>
+  <data name="useStrongPwd" xml:space="preserve">
+    <value>Dùng mật khẩu mạnh</value>
+  </data>
+  <data name="format" xml:space="preserve">
+    <value>Định dạng</value>
+  </data>
+  <data name="number" xml:space="preserve">
+    <value>Chữ số</value>
+  </data>
+  <data name="defaultStr" xml:space="preserve">
+    <value>Mặc định</value>
   </data>
 </root>

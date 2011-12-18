@@ -98,12 +98,6 @@
     <Compile Include="Forms\screening.Designer.cs">
       <DependentUpon>screening.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\options.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\options.designer.cs">
-      <DependentUpon>options.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\tradeAnalysis.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -130,10 +124,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\screening.resx">
       <DependentUpon>screening.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\options.resx">
-      <DependentUpon>options.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\tradeAnalysis.resx">

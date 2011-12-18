@@ -772,6 +772,24 @@ namespace Languages.langs {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Decrease.
+        /// </summary>
+        internal static string decrease {
+            get {
+                return ResourceManager.GetString("decrease", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Default.
+        /// </summary>
+        internal static string defaultStr {
+            get {
+                return ResourceManager.GetString("defaultStr", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Delete.
         /// </summary>
         internal static string delete {
@@ -1015,6 +1033,15 @@ namespace Languages.langs {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Format.
+        /// </summary>
+        internal static string format {
+            get {
+                return ResourceManager.GetString("format", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Full View.
         /// </summary>
         internal static string fullView {
@@ -1128,6 +1155,15 @@ namespace Languages.langs {
         internal static string imageFile {
             get {
                 return ResourceManager.GetString("imageFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Increase.
+        /// </summary>
+        internal static string increase {
+            get {
+                return ResourceManager.GetString("increase", resourceCulture);
             }
         }
         
@@ -1582,11 +1618,29 @@ namespace Languages.langs {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Not change.
+        /// </summary>
+        internal static string notChange {
+            get {
+                return ResourceManager.GetString("notChange", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Notes.
         /// </summary>
         internal static string note {
             get {
                 return ResourceManager.GetString("note", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Number.
+        /// </summary>
+        internal static string number {
+            get {
+                return ResourceManager.GetString("number", resourceCulture);
             }
         }
         
@@ -1708,11 +1762,11 @@ namespace Languages.langs {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Pan metric.
+        ///   Looks up a localized string similar to Pan rate.
         /// </summary>
-        internal static string panMetric {
+        internal static string panRate {
             get {
-                return ResourceManager.GetString("panMetric", resourceCulture);
+                return ResourceManager.GetString("panRate", resourceCulture);
             }
         }
         
@@ -1740,6 +1794,15 @@ namespace Languages.langs {
         internal static string paste {
             get {
                 return ResourceManager.GetString("paste", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Percent.
+        /// </summary>
+        internal static string percent {
+            get {
+                return ResourceManager.GetString("percent", resourceCulture);
             }
         }
         
@@ -1879,6 +1942,15 @@ namespace Languages.langs {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Min password lenght.
+        /// </summary>
+        internal static string pwdMinLen {
+            get {
+                return ResourceManager.GetString("pwdMinLen", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Qty.
         /// </summary>
         internal static string qty {
@@ -1902,6 +1974,15 @@ namespace Languages.langs {
         internal static string redo {
             get {
                 return ResourceManager.GetString("redo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Refresh rate.
+        /// </summary>
+        internal static string refreshRate {
+            get {
+                return ResourceManager.GetString("refreshRate", resourceCulture);
             }
         }
         
@@ -1969,15 +2050,6 @@ namespace Languages.langs {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Scale metric.
-        /// </summary>
-        internal static string scaleMetric {
-            get {
-                return ResourceManager.GetString("scaleMetric", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Screening.
         /// </summary>
         internal static string screening {
@@ -2001,6 +2073,15 @@ namespace Languages.langs {
         internal static string search {
             get {
                 return ResourceManager.GetString("search", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Seconds.
+        /// </summary>
+        internal static string seconds {
+            get {
+                return ResourceManager.GetString("seconds", resourceCulture);
             }
         }
         
@@ -2464,6 +2545,15 @@ namespace Languages.langs {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Use strong password.
+        /// </summary>
+        internal static string useStrongPwd {
+            get {
+                return ResourceManager.GetString("useStrongPwd", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Value.
         /// </summary>
         internal static string value {
@@ -2608,24 +2698,6 @@ namespace Languages.langs {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to X-Axis.
-        /// </summary>
-        internal static string xPan {
-            get {
-                return ResourceManager.GetString("xPan", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to X-Axis.
-        /// </summary>
-        internal static string xScale {
-            get {
-                return ResourceManager.GetString("xScale", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Year.
         /// </summary>
         internal static string year {
@@ -2640,24 +2712,6 @@ namespace Languages.langs {
         internal static string years {
             get {
                 return ResourceManager.GetString("years", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Y-Axis.
-        /// </summary>
-        internal static string yPan {
-            get {
-                return ResourceManager.GetString("yPan", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Y-Axis.
-        /// </summary>
-        internal static string yScale {
-            get {
-                return ResourceManager.GetString("yScale", resourceCulture);
             }
         }
         
@@ -2685,6 +2739,15 @@ namespace Languages.langs {
         internal static string zoomOut {
             get {
                 return ResourceManager.GetString("zoomOut", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Zoom rate.
+        /// </summary>
+        internal static string zoomRate {
+            get {
+                return ResourceManager.GetString("zoomRate", resourceCulture);
             }
         }
     }

@@ -14,8 +14,8 @@ using commonClass;
 
 namespace client
 {
-    public partial class main : common.forms.baseApplication
-    //public partial class main : baseClass.forms.baseApplication
+    //public partial class main : common.forms.baseApplication
+    public partial class main : baseClass.forms.baseApplication
     {
         const int constPaneLeftWidth = 13; //In percentage
         const string constFormNameIndicator = "indicator-";
@@ -308,7 +308,7 @@ namespace client
             strategyCbStrip.SelectedIndexChanged += new EventHandler(PlotTradepointHandler);
 
             this.ChartType = AppTypes.ChartTypes.CandleStick;
-            this.ChartTimeScale = AppTypes.TimeScaleFromCode(commonClass.Settings.sysDefaultTimeScaleCode);
+            this.ChartTimeScale = commonClass.Settings.sysDefaultTimeScale;
 
             //dockPanel
             dockPanel.Parent = this;     
@@ -1437,7 +1437,7 @@ namespace client
         {
             try
             {
-                Tools.Forms.options.GetForm("").ShowDialog();
+                baseClass.forms.sysOptions.GetForm("").ShowDialog();
             }
             catch (Exception er)
             {

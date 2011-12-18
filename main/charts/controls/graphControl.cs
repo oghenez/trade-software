@@ -135,7 +135,7 @@ namespace Charts.Controls
             if (e.Button == this.myPanButton)
             {
                 if (lastMouseLocation.X != e.Location.X) mouseMoveCount++;
-                if (mouseMoveCount == Settings.sysSensibilityPAN)
+                if (mouseMoveCount == Settings.sysPAN_MouseRate)
                 {
                     this.mouseMoveCount = 0;
                     if (lastMouseLocation.X > e.Location.X)
@@ -388,8 +388,8 @@ namespace Charts.Controls
             try
             {
                 this.myViewportState.state = ViewportState.StateType.Panning;
-                int max = this.myViewportX.Max - Settings.sysMoveStep;
-                int min = this.myViewportX.Min - Settings.sysMoveStep;
+                int max = this.myViewportX.Max - Settings.sysPAN_MoveCount;
+                int min = this.myViewportX.Min - Settings.sysPAN_MoveCount;
                 this.myViewportX = new IntRange(min, max);
             }
             finally
@@ -402,8 +402,8 @@ namespace Charts.Controls
             try
             {
                 this.myViewportState.state = ViewportState.StateType.Panning;
-                int max = this.myViewportX.Max + Settings.sysMoveStep;
-                int min = this.myViewportX.Min + Settings.sysMoveStep;
+                int max = this.myViewportX.Max + Settings.sysPAN_MoveCount;
+                int min = this.myViewportX.Min + Settings.sysPAN_MoveCount;
                 this.myViewportX = new IntRange(min, max);
             }
             finally
@@ -417,7 +417,7 @@ namespace Charts.Controls
             {
                 this.myViewportState.state = ViewportState.StateType.Zooming;
                 int max = this.myViewportX.Max;
-                int min = this.myViewportX.Min + Settings.sysZoomScale;
+                int min = this.myViewportX.Min + Settings.sysZoomRate;
                 this.myViewportX = new IntRange(min, max);
             }
             finally
@@ -431,7 +431,7 @@ namespace Charts.Controls
             {
                 this.myViewportState.state = ViewportState.StateType.Zooming;
                 int max = this.myViewportX.Max;
-                int min = this.myViewportX.Min - Settings.sysZoomScale;
+                int min = this.myViewportX.Min - Settings.sysZoomRate;
                 this.myViewportX = new IntRange(min, max);
             }
             finally
