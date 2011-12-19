@@ -21,10 +21,8 @@ namespace imports.forms
             {
                 InitializeComponent();
                 stockExchangeCb.LoadData();
-                cbDateTimeFormat.LoadData();
-
                 actionCb.SelectedIndex = 0;
-                cbDateTimeFormat.myValue = common.dateTimeLibs.DateTimeFormats.YYMMDD;  
+                importTypeCb.SelectedIndex = 0;
             }
             catch (Exception er)
             {
@@ -36,7 +34,7 @@ namespace imports.forms
         {
             common.fileFuncs.WriteLog(" - Add company : " + code);
         }
-        private void onGotData(libs.importStat stat)
+        private void OnUpdateData(data.baseDS.priceDataRow row, libs.importStat stat)
         {
             if (fCanceled) stat.cancel =true;
             this.ShowMessage(stat.updateCount.ToString("###,###,##0") + "/" + 
@@ -47,6 +45,32 @@ namespace imports.forms
         {
             if (fCanceled) stat.cancel = true;
             this.ShowMessage(stat.count.ToString("###,###,##0") + "/" + stat.maxCount.ToString("###,###,##0"), "Aggregate " + stat.phase.ToString());
+        }
+
+        private void ImportPrice()
+        {
+            DateTime startTime = DateTime.Now;
+            myDataSet.priceData.Clear();
+            switch (importTypeCb.SelectedIndex)
+            {
+                case 0: //Data from copheu 68
+                    myDataSet.priceData.Clear();
+                    stock.ImportOHLCV_CSV(dataFileNameEd.Text,stockExchangeCb.myValue,
+                                          myDataSet.priceData, OnUpdateData);
+                    application.DbAccess.UpdateData(myDataSet.priceData);
+                    libs.AggregatePriceData(myDataSet.priceData, "vi-VN", onAggregateData);
+                    break;
+                case 1:
+                    myDataSet.priceData.Clear();
+                    gold.ImportOHLCV_CSV(dataFileNameEd.Text,stockExchangeCb.myValue,
+                                         myDataSet.priceData, OnUpdateData);
+                    application.DbAccess.UpdateData(myDataSet.priceData);
+                    libs.AggregatePriceData(myDataSet.priceData, "vi-VN", onAggregateData);
+                    break;
+            }
+            ShowCurrorDefault();
+            DateTime endTime = DateTime.Now;
+            this.ShowMessage(common.dateTimeLibs.TimeSpan2String(endTime.Subtract(startTime)));
         }
 
         private void importBtn_Click(object sender, System.EventArgs e)
@@ -78,19 +102,7 @@ namespace imports.forms
                 switch(actionCb.SelectedIndex)
                 {
                     case 0:
-                        // Number is in US format
-                        myDataSet.priceData.Clear();
-                        libs.ImportPrice_CSV(dataFileNameEd.Text.Trim(), cbDateTimeFormat.myValue, stockExchangeCb.myValue,
-                                                                   "en-US", myDataSet.priceData, onGotData, null, null);
-                        application.DbAccess.UpdateData(myDataSet.priceData);
-                        libs.AggregatePriceData(myDataSet.priceData, "vi-VN",onAggregateData);
-                        break;
-                    case 1:
-                        // Number is in US format
-                        myDataSet.priceData.Clear();
-                        libs.ImportPrice_CSV(dataFileNameEd.Text.Trim(), cbDateTimeFormat.myValue, stockExchangeCb.myValue,
-                                           "en-US", myDataSet.priceData, onGotData, null, null);
-                        application.DbAccess.UpdateData(myDataSet.priceData);
+                        ImportPrice(); 
                         break;
                     case 2:
                         myDataSet.stockCode.Clear();
@@ -125,6 +137,8 @@ namespace imports.forms
                 progressBar.Visible = false;
             }
         }
+
+
         private void selectFileBtn_Click(object sender, System.EventArgs e)
         {
             try
@@ -166,7 +180,6 @@ namespace imports.forms
             dataFileNameEd.Enabled = actionCb.SelectedIndex != 2;
             selectFileBtn.Enabled = dataFileNameEd.Enabled;
             stockExchangeCb.Enabled = dataFileNameEd.Enabled;
-            cbDateTimeFormat.Enabled = dataFileNameEd.Enabled;
         }
     }
 }
