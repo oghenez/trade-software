@@ -18,13 +18,13 @@
     <dbConInfo0 dbUseTransaction="EpAxoobbG0tPxhyMIVa+4Q==" />
   </DBCONNECTION>
   <WSCONNECTION>
-    <Main wsURI="cr+BsZtc1VaYm7T/XSx9KvPjFq5IavLMA20X3v5ueYNdD2pctDCOqfABbH/XEv2j" />
+    <Main wsURI="afwOHXxDvq0w5lO8f7L0TH86OpaHT5DC1xQ5YkhobeZ1LjphbYT7ZXykCgrkqAHXZgcMLSlpEItiDDQXhYvAOw==" />
   </WSCONNECTION>
   <WSCONNECTION>
-    <Main wsAccount="" />
+    <Main wsAccount="KyfIBVMmkxxwVTSmToEeiw==" />
   </WSCONNECTION>
   <WSCONNECTION>
-    <Main wsPassword="" />
+    <Main wsPassword="AsULALTQODioRsx1v+oBlQ==" />
   </WSCONNECTION>
   <WSCONNECTION>
     <Main wsWindowAuthentication="EpAxoobbG0tPxhyMIVa+4Q==" />
@@ -51,6 +51,21 @@
     <Login loginLocationId="jbIksur+Co8418sxRi6a4A==" />
   </ENVIRONMENT>
   <Application>
+<<<<<<< .mine
+    <System stockTransFeePercent="CjynZkwqXQNN6s8mi9M0OA==" />
+  </Application>
+  <Application>
+    <System stockSell2BuyInterval="RgNRThembLuBSCuRjT808Q==" />
+  </Application>
+  <Application>
+    <System stockPriceWeight="P5tB71k5YtDukAiIZJz+tg==" />
+  </Application>
+  <Application>
+    <System stockVolumeWeight="yuFaA0nsER+VOcngcLLToA==" />
+  </Application>
+  <Application>
+=======
+>>>>>>> .r351
     <System stockMaxBuyQtyPerc="yuFaA0nsER+VOcngcLLToA==" />
   </Application>
   <Application>
