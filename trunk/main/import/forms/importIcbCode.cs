@@ -77,7 +77,7 @@ namespace imports.forms
             for (int idx = 0; idx < tbl.Count; idx++)
             {
                 if (tbl[idx].RowState == DataRowState.Deleted) continue;
-                item = libs.GetKeyValue(tbl[idx][fldName].ToString());
+                item = libs.SplitKeyValue(tbl[idx][fldName].ToString()," ");
                 if (item == null)
                 {
                     common.fileFuncs.WriteLog(tbl[idx][fldName].ToString() + " not found.");
