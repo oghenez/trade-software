@@ -1,22 +1,4 @@
 <Configuration>
-  <DBCONNECTION>
-    <dbConInfo0 dbServerName="treiaY4S2N4lX65Yx+r4Ir/bPWKBxi+xYgw0F4WLwDs=" />
-  </DBCONNECTION>
-  <DBCONNECTION>
-    <dbConInfo0 dbName="lHcrymcHrCjyJllbDTtavQ==" />
-  </DBCONNECTION>
-  <DBCONNECTION>
-    <dbConInfo0 dbAccount="0myaXxZ8eBQHt+bP4urQ5w==" />
-  </DBCONNECTION>
-  <DBCONNECTION>
-    <dbConInfo0 dbPassword="dwq5JN/iCOx5d+o5t7cObg==" />
-  </DBCONNECTION>
-  <DBCONNECTION>
-    <dbConInfo0 dbTimeout="RkLVbHhukqmG8DqFrUVKzw==" />
-  </DBCONNECTION>
-  <DBCONNECTION>
-    <dbConInfo0 dbUseTransaction="EpAxoobbG0tPxhyMIVa+4Q==" />
-  </DBCONNECTION>
   <WSCONNECTION>
     <Main wsURI="afwOHXxDvq0w5lO8f7L0TH86OpaHT5DC1xQ5YkhobeZ1LjphbYT7ZXykCgrkqAHXZgcMLSlpEItiDDQXhYvAOw==" />
   </WSCONNECTION>
@@ -27,7 +9,7 @@
     <Main wsPassword="AsULALTQODioRsx1v+oBlQ==" />
   </WSCONNECTION>
   <WSCONNECTION>
-    <Main wsWindowAuthentication="EpAxoobbG0tPxhyMIVa+4Q==" />
+    <Main wsWindowAuthentication="MVsoctThcobSC9M10quTJg==" />
   </WSCONNECTION>
   <WSCONNECTION>
     <Main wsTimeout="RkLVbHhukqmG8DqFrUVKzw==" />
@@ -36,13 +18,13 @@
     <Main wsUseProxy="EpAxoobbG0tPxhyMIVa+4Q==" />
   </WSCONNECTION>
   <WSCONNECTION>
-    <Main wsUseDefaultProxy="EpAxoobbG0tPxhyMIVa+4Q==" />
+    <Main wsUseDefaultProxy="MVsoctThcobSC9M10quTJg==" />
   </WSCONNECTION>
   <WSCONNECTION>
-    <Main wsProxyAddress="cr+BsZtc1VaYm7T/XSx9KuU1LFbPCww7vXtOWJKiSvFiDDQXhYvAOw==" />
+    <Main wsProxyAddress="" />
   </WSCONNECTION>
   <WSCONNECTION>
-    <Main wsProxyPort="1T98DCtC2u43v+nG6Qt9ng==" />
+    <Main wsProxyPort="" />
   </WSCONNECTION>
   <ENVIRONMENT>
     <Login LoginName="gFQL6vn2bOh5AMHs6+NWdA==" />
@@ -50,85 +32,4 @@
   <ENVIRONMENT>
     <Login loginLocationId="jbIksur+Co8418sxRi6a4A==" />
   </ENVIRONMENT>
-  <Application>
-<<<<<<< .mine
-    <System stockTransFeePercent="CjynZkwqXQNN6s8mi9M0OA==" />
-  </Application>
-  <Application>
-    <System stockSell2BuyInterval="RgNRThembLuBSCuRjT808Q==" />
-  </Application>
-  <Application>
-    <System stockPriceWeight="P5tB71k5YtDukAiIZJz+tg==" />
-  </Application>
-  <Application>
-    <System stockVolumeWeight="yuFaA0nsER+VOcngcLLToA==" />
-  </Application>
-  <Application>
-=======
->>>>>>> .r351
-    <System stockMaxBuyQtyPerc="yuFaA0nsER+VOcngcLLToA==" />
-  </Application>
-  <Application>
-    <System stockReduceQtyPerc="yuFaA0nsER+VOcngcLLToA==" />
-  </Application>
-  <Application>
-    <System stockAccumulateQtyPerc="yuFaA0nsER+VOcngcLLToA==" />
-  </Application>
-  <Application>
-    <System stockTotalCapAmt="iRlKJICbVJGsItSeWEEft7gel7mtBty9Ygw0F4WLwDs=" />
-  </Application>
-  <Application>
-    <System stockMaxBuyAmtPerc="lNJY16iycunRoLtxamnAUA==" />
-  </Application>
-  <Application>
-    <System companyName="" />
-  </Application>
-  <Application>
-    <System companyAddr1="" />
-  </Application>
-  <Application>
-    <System companyAddr2="" />
-  </Application>
-  <Application>
-    <System companyAddr3="" />
-  </Application>
-  <Application>
-    <System telephone="" />
-  </Application>
-  <Application>
-    <System fax="" />
-  </Application>
-  <Application>
-    <System email="" />
-  </Application>
-  <Application>
-    <System URL="" />
-  </Application>
-  <Application>
-    <System companyTaxcode="" />
-  </Application>
-  <Application>
-    <System bankName="" />
-  </Application>
-  <Application>
-    <System bankAccount="" />
-  </Application>
-  <Application>
-    <System bankCode="" />
-  </Application>
-  <Application>
-    <System director="" />
-  </Application>
-  <Application>
-    <System chiefAccountant="" />
-  </Application>
-  <Application>
-    <System headOfManagementBoard="" />
-  </Application>
-  <Application>
-    <System warehouseManager="" />
-  </Application>
-  <Application>
-    <System cashier="" />
-  </Application>
 </Configuration>

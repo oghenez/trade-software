@@ -15,7 +15,7 @@
     <ChartSettings sysZoomRate="2" />
   </A00000004>
   <A00000004>
-    <ChartSettings sysPAN_MouseRate="3" />
+    <ChartSettings sysPAN_MouseRate="1" />
   </A00000004>
   <A00000004>
     <ChartSettings sysPAN_MoveCount="10" />
@@ -27,10 +27,10 @@
     <ChartSettings sysViewSpaceAtRIGHT="12" />
   </A00000004>
   <A00000004>
-    <System sysTimerIntervalInSecs="10" />
+    <System sysTimerIntervalInSecs="300" />
   </A00000004>
   <A00000004>
-    <System sysDefaultTimeRange="Y5" />
+    <System sysDefaultTimeRange="Y3" />
   </A00000004>
   <A00000004>
     <System sysDefaultTimeScale="D1" />
@@ -42,7 +42,7 @@
     <System sysScreeningTimeScale="D1" />
   </A00000004>
   <A00000004>
-    <System sysPriceColor_Increase_BG="Blue" />
+    <System sysPriceColor_Increase_BG="Chartreuse" />
   </A00000004>
   <A00000004>
     <System sysPriceColor_Increase_FG="White" />
@@ -70,5 +70,14 @@
   </A00000004>
   <A00000004>
     <Others imgFilePathComanyLogo2="" />
+  </A00000004>
+  <A00000004>
+    <Indicators.TRIMA params="25" />
+  </A00000004>
+  <A00000004>
+    <Indicators.TRIMA output="Blue:1" />
+  </A00000004>
+  <A00000004>
+    <Indicators.TRIMA drawInNewWindow="False" />
   </A00000004>
 </Configuration>
