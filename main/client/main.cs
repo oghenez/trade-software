@@ -78,17 +78,35 @@ namespace client
         {
             ContextMenuStrip contextMenuStrip = new ContextMenuStrip();
             ToolStripItem menuItem;
+
+            //menu for Strategy
+            contextMenuStrip.Items.Add(new ToolStripSeparator());
+            System.Windows.Forms.ToolStripMenuItem strategyMenuItem = new ToolStripMenuItem();
+            strategyMenuItem.Text = Languages.Libs.GetString("strategy");
+            Strategy.Libs.CreateMenu(AppTypes.StrategyTypes.Strategy, strategyMenuItem, tradeAnalysisActivatedHandler);
+            contextMenuStrip.Items.Add(strategyMenuItem);
+
+            contextMenuStrip.Items.Add(new ToolStripSeparator());
+            menuItem = contextMenuStrip.Items.Add(backTestingMenuItem.Text);
+            menuItem.Click += new System.EventHandler(backTestingMenuItem_Click);
+            menuItem = contextMenuStrip.Items.Add(strategyRankingMenuItem.Text);
+            menuItem.Click += new System.EventHandler(strategyRankingMenuItem_Click);
+            menuItem = contextMenuStrip.Items.Add(screeningMenuItem.Text);
+            menuItem.Click += new System.EventHandler(screeningMenuItem_Click);
+
+            //menu for indicator
+            contextMenuStrip.Items.Add(new ToolStripSeparator());
+            System.Windows.Forms.ToolStripMenuItem indicatorMenuItem = new ToolStripMenuItem();
+            indicatorMenuItem.Text = Languages.Libs.GetString("indicator");
+            Indicators.Libs.CreateIndicatorMenu(indicatorMenuItem, showIndicatorHandler);
+            contextMenuStrip.Items.Add(indicatorMenuItem);
+
+            
             menuItem = contextMenuStrip.Items.Add(zoomInMenuItem.Text);
             menuItem.Click += new System.EventHandler(zoomInMenuItem_Click);
 
             menuItem = contextMenuStrip.Items.Add(zoomOutMenuItem.Text);
             menuItem.Click += new System.EventHandler(zoomOutMenuItem_Click);
-
-            contextMenuStrip.Items.Add(new ToolStripSeparator());
-            System.Windows.Forms.ToolStripMenuItem indicatorMenuItem = new ToolStripMenuItem();
-            indicatorMenuItem.Text  = Languages.Libs.GetString("indicator");
-            Indicators.Libs.CreateIndicatorMenu(indicatorMenuItem, showIndicatorHandler);
-            contextMenuStrip.Items.Add(indicatorMenuItem);
 
             return contextMenuStrip;
         }

@@ -58,7 +58,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(402, 29);
             this.label1.TabIndex = 5;
-            this.label1.Text = "AUTOMATE TRADING SYSTEM";
+            this.label1.Text = "ALGORITHM TRADING SYSTEM";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // startSplash
