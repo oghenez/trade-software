@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.21022</ProductVersion>
+    <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{54D43B08-45E4-4BE4-92C0-A080C7DD16BE}</ProjectGuid>
     <OutputType>WinExe</OutputType>
@@ -60,9 +60,7 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\dlls\imports.dll</HintPath>
     </Reference>
-    <Reference Include="Indicators, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="Languages, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
-    <Reference Include="strategy, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
@@ -74,7 +72,10 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.XML" />
-    <Reference Include="tools, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="Tools, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\dlls\Tools.dll</HintPath>
+    </Reference>
     <Reference Include="Trade, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="WeifenLuo.WinFormsUI.Docking, Version=2.5.0.18386, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="XPPanel, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
@@ -123,7 +124,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="forms\startSplash.resx">
       <DependentUpon>startSplash.cs</DependentUpon>
-      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\sysOptions.resx">
       <DependentUpon>sysOptions.cs</DependentUpon>

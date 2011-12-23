@@ -1,6 +1,6 @@
 ﻿using TicTacTec.TA.Library;
 using commonClass;
-
+using application.Indicators;
 namespace Indicators
 {
     /// <summary>
@@ -12,7 +12,7 @@ namespace Indicators
     {
         public NATRHelper()
         {
-            Init(typeof(NATR), typeof(forms.commonForm), typeof(DataBars));
+            Init(typeof(NATR), typeof(application.forms.commonIndicatorForm), typeof(DataBars));
         }
     }
 

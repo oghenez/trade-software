@@ -7,6 +7,7 @@ using System.Data;
 using System.Drawing;
 using System.Globalization;
 using System.Text;
+using System.Threading;
 using System.Windows.Forms;
 using WeifenLuo.WinFormsUI.Docking;
 using application;
@@ -24,8 +25,6 @@ namespace client
         const string constFormNameTradeAlert = "TradeAlert";
         const string constFormNameEstimateTrade = "EstimateTrade-";
 
-        private bool fProcessing = false;
-
         public main()
         {
             try
@@ -34,19 +33,16 @@ namespace client
                 {
                     commonClass.SysLibs.myAccessMode = DataAccessMode.WebService;
                     InitializeComponent();
-                    DataAccess.Libs.LoadSystemVars();
-                    if (Settings.sysTimerIntervalInSecs > 0)
-                    {
-                        sysTimer.Interval = Settings.sysTimerIntervalInSecs * 1000; //Convert to mili-seconds 
-                        sysTimer.Enabled = true;
-                    }
+
                     //test.LoadTestConfig();
+                    DataAccess.Libs.LoadSystemVars();
                     Init();
+                    SetTimer();
                 }
             }
             catch (Exception er)
             {
-                this.ShowError(er);
+                common.system.ShowError(Languages.Libs.GetString("loadDataError"),er.Message);
             }
         }
 
@@ -79,12 +75,48 @@ namespace client
             ContextMenuStrip contextMenuStrip = new ContextMenuStrip();
             ToolStripItem menuItem;
 
+            contextMenuStrip.Items.Add(new ToolStripSeparator());
+            menuItem = contextMenuStrip.Items.Add(zoomInMenuItem.Text);
+            menuItem.Click += new System.EventHandler(zoomInMenuItem_Click);
+
+            menuItem = contextMenuStrip.Items.Add(zoomOutMenuItem.Text);
+            menuItem.Click += new System.EventHandler(zoomOutMenuItem_Click);
+
             //menu for Strategy
             contextMenuStrip.Items.Add(new ToolStripSeparator());
             System.Windows.Forms.ToolStripMenuItem strategyMenuItem = new ToolStripMenuItem();
             strategyMenuItem.Text = Languages.Libs.GetString("strategy");
-            Strategy.Libs.CreateMenu(AppTypes.StrategyTypes.Strategy, strategyMenuItem, tradeAnalysisActivatedHandler);
+            application.Strategy.Libs.CreateMenu(AppTypes.StrategyTypes.Strategy, strategyMenuItem, PlotTradepointHandler);
             contextMenuStrip.Items.Add(strategyMenuItem);
+
+            //menu for indicator
+            System.Windows.Forms.ToolStripMenuItem indicatorMenuItem = new ToolStripMenuItem();
+            indicatorMenuItem.Text = Languages.Libs.GetString("indicator");
+            
+            application.Indicators.Libs.CreateIndicatorMenu(indicatorMenuItem, showIndicatorHandler);
+            contextMenuStrip.Items.Add(indicatorMenuItem);
+
+            //Tools
+            contextMenuStrip.Items.Add(new ToolStripSeparator());
+            menuItem = contextMenuStrip.Items.Add(backTestingMenuItem.Text);
+            menuItem.Click += new System.EventHandler(backTestingMenuItem_Click);
+            menuItem = contextMenuStrip.Items.Add(strategyRankingMenuItem.Text);
+            menuItem.Click += new System.EventHandler(strategyRankingMenuItem_Click);
+            menuItem = contextMenuStrip.Items.Add(screeningMenuItem.Text);
+            menuItem.Click += new System.EventHandler(screeningMenuItem_Click);
+
+
+            return contextMenuStrip;
+        }
+        private ContextMenuStrip CreateContextMenu_TradeAlert()
+        {
+            ContextMenuStrip contextMenuStrip = new ContextMenuStrip();
+            ToolStripItem menuItem;
+            menuItem = contextMenuStrip.Items.Add(NewChartMenuItem.Text);
+            menuItem.Click += new System.EventHandler(Alert_OpenChartMenuItem_Click);
+
+            menuItem = contextMenuStrip.Items.Add(orderMenuItem.Text);
+            menuItem.Click += new System.EventHandler(Alert_MakeOrderMenuItem_Click);
 
             contextMenuStrip.Items.Add(new ToolStripSeparator());
             menuItem = contextMenuStrip.Items.Add(backTestingMenuItem.Text);
@@ -94,27 +126,7 @@ namespace client
             menuItem = contextMenuStrip.Items.Add(screeningMenuItem.Text);
             menuItem.Click += new System.EventHandler(screeningMenuItem_Click);
 
-            //menu for indicator
-            contextMenuStrip.Items.Add(new ToolStripSeparator());
-            System.Windows.Forms.ToolStripMenuItem indicatorMenuItem = new ToolStripMenuItem();
-            indicatorMenuItem.Text = Languages.Libs.GetString("indicator");
-            Indicators.Libs.CreateIndicatorMenu(indicatorMenuItem, showIndicatorHandler);
-            contextMenuStrip.Items.Add(indicatorMenuItem);
-
-            
-            menuItem = contextMenuStrip.Items.Add(zoomInMenuItem.Text);
-            menuItem.Click += new System.EventHandler(zoomInMenuItem_Click);
-
-            menuItem = contextMenuStrip.Items.Add(zoomOutMenuItem.Text);
-            menuItem.Click += new System.EventHandler(zoomOutMenuItem_Click);
-
             return contextMenuStrip;
-        }
-
-        private void SetContextMenu_MarketWatch()
-        {
-            Trade.Forms.marketWatch form = GetMarketWatchForm(true);
-            form.myContextMenuStrip = CreateContextMenu_MarketWatch();
         }
         #endregion
 
@@ -193,7 +205,6 @@ namespace client
             this.searchMenuItem.Text = Languages.Libs.GetString("search");
             this.aboutMenuItem.Text = Languages.Libs.GetString("about");
 
-
             this.screeningMenuItem.Text = Languages.Libs.GetString("screening");
             this.orderMenuItem.Text = Languages.Libs.GetString("order");
             this.strategyEstimationMenuItem.Text = Languages.Libs.GetString("strategyEstimation");
@@ -203,22 +214,20 @@ namespace client
 
             //Create indicator menu
             indicatorMenuItem.DropDownItems.Clear();
-            Indicators.Libs.CreateIndicatorMenu(indicatorMenuItem, showIndicatorHandler);
+            application.Indicators.Libs.CreateIndicatorMenu(indicatorMenuItem, showIndicatorHandler);
 
             //Strategy menu
             strategyEstimationMenuItem.DropDownItems.Clear();
-            Strategy.Libs.CreateMenu(AppTypes.StrategyTypes.Strategy, strategyEstimationMenuItem, PlotTradepointHandler);
+            application.Strategy.Libs.CreateMenu(AppTypes.StrategyTypes.Strategy, strategyEstimationMenuItem, PlotTradepointHandler);
 
             strategyOptionsMenuItem.DropDownItems.Clear();
-            Strategy.Libs.CreateMenu(AppTypes.StrategyTypes.Strategy, strategyOptionsMenuItem,StrategyParaEditHandler);
+            application.Strategy.Libs.CreateMenu(AppTypes.StrategyTypes.Strategy, strategyOptionsMenuItem, StrategyParaEditHandler);
 
             screeningOptionsMenuItem.DropDownItems.Clear();
-            Strategy.Libs.CreateMenu(AppTypes.StrategyTypes.Screening, screeningOptionsMenuItem,StrategyParaEditHandler);
+            application.Strategy.Libs.CreateMenu(AppTypes.StrategyTypes.Screening, screeningOptionsMenuItem, StrategyParaEditHandler);
 
             strategyCbStrip.Items.Clear();
             strategyCbStrip.LoadData();
-
-            SetContextMenu_MarketWatch();
         }
         protected override bool ShowLogin()
         {
@@ -280,8 +289,8 @@ namespace client
             common.language.myCulture = cultureInfo;
             common.language.SetLanguage();
             commonClass.SysLibs.SetLanguage();
-            Strategy.Data.Clear();
-            Indicators.Data.Clear();
+            application.Strategy.Data.Clear();
+            application.Indicators.Data.Clear();
             SetLanguage();
             SetLanguageAllOpenForms();
         }
@@ -295,6 +304,14 @@ namespace client
                 if (form.GetType() == typeof(Tools.Forms.tradeAnalysis))
                 {
                     (form as Tools.Forms.tradeAnalysis).myContextMenuStrip = tradeAnalysisContextMenu;
+                }
+                if (form.GetType() == typeof(Trade.Forms.tradeAlertList))
+                {
+                    (form as Trade.Forms.tradeAlertList).myContextMenuStrip = CreateContextMenu_TradeAlert();
+                }
+                if (form.GetType() == typeof(Trade.Forms.marketWatch))
+                {
+                    (form as Trade.Forms.marketWatch).myContextMenuStrip = CreateContextMenu_MarketWatch();
                 }
             }
         }
@@ -337,10 +354,27 @@ namespace client
             //Language default
             SetCulture();
         }
+        private void Reset()
+        {
+            DataAccess.Libs.Reset();
+            SetTimer();
+        }
+        private void SetTimer()
+        {
+            if (Settings.sysTimerIntervalInSecs > 0)
+            {
+                sysTimer.Interval = Settings.sysTimerIntervalInSecs * 1000; //Convert to mili-seconds 
+                sysTimer.Enabled = true;
+            }
+            else sysTimer.Enabled = true;
+        }
 
         private void StartupForms()
         {
-            ShowMarketWatchForm();
+            using (new DataAccess.PleaseWait())
+            {
+                ShowMarketWatchForm();
+            }
         }
         private void CloseAllForms(bool excludeSysForm)
         {
@@ -471,21 +505,21 @@ namespace client
                 //Market watch
                 if (dockPanel.Contents[idx].GetType() == typeof(Trade.Forms.marketWatch))
                 {
-                    (dockPanel.Contents[idx] as Trade.Forms.marketWatch).RefreshPrice();
+                    (dockPanel.Contents[idx] as Trade.Forms.marketWatch).RefreshData();
                     continue;
                 }
                 //Portfolio watch
-                if (dockPanel.Contents[idx].GetType() == typeof(Trade.Forms.portfolioWatch))
-                {
-                    (dockPanel.Contents[idx] as Trade.Forms.portfolioWatch).Refresh();
-                    continue;
-                }
+                //if (dockPanel.Contents[idx].GetType() == typeof(Trade.Forms.portfolioWatch))
+                //{
+                //    (dockPanel.Contents[idx] as Trade.Forms.portfolioWatch).RefreshData();
+                //    continue;
+                //}
                 //Trade Alert
-                if (dockPanel.Contents[idx].GetType() == typeof(Trade.Forms.tradeAlertList))
-                {
-                    (dockPanel.Contents[idx] as Trade.Forms.tradeAlertList).Refresh();
-                    continue;
-                }
+                //if (dockPanel.Contents[idx].GetType() == typeof(Trade.Forms.tradeAlertList))
+                //{
+                //    (dockPanel.Contents[idx] as Trade.Forms.tradeAlertList).Refresh();
+                //    continue;
+                //}
             }
         }
 
@@ -600,20 +634,16 @@ namespace client
             if (myForm == null || myForm.IsDisposed)
             {
                 if (!createIfNotFound) return null;
-                using (new DataAccess.PleaseWait())
-                {
-                    myForm = new Trade.Forms.marketWatch();
-                    myForm.Name = formName;
-                    myForm.myOnShowChart += new baseClass.Events.onShowChart(ShowStockChart);
-                    cachedForms.Add(formName, myForm);
-                }
+                myForm = new Trade.Forms.marketWatch();
+                myForm.Name = formName;
+                cachedForms.Add(formName, myForm);
             }
             return myForm;
         }
         private void ShowMarketWatchForm()
         {
             Trade.Forms.marketWatch form = GetMarketWatchForm(true);
-            SetContextMenu_MarketWatch();
+            form.myContextMenuStrip = CreateContextMenu_MarketWatch();
             form.Show(dockPanel, DockState.DockLeft);
         }
 
@@ -647,19 +677,26 @@ namespace client
             }
             myForm.Show(dockPanel, DockState.DockBottom);
         }
-        private void ShowTradeAlertForm()
+
+        private Trade.Forms.tradeAlertList GetTradeAlertForm(bool createIfNotExisted)
         {
             string formName = constFormNameTradeAlert;
             Trade.Forms.tradeAlertList myForm = (Trade.Forms.tradeAlertList)cachedForms.Find(formName);
             if (myForm == null || myForm.IsDisposed)
             {
+                if (!createIfNotExisted) return null;
                 myForm = new Trade.Forms.tradeAlertList();
                 myForm.Name = formName;
                 myForm.Init();
                 myForm.LoadData();
-                //myForm.myOnShowChart += new baseClass.forms.basePortfolioView.onShowChart(ShowStockChart);
                 cachedForms.Add(formName, myForm);
             }
+            return myForm;
+        }
+        private void ShowTradeAlertForm()
+        {
+            Trade.Forms.tradeAlertList myForm = GetTradeAlertForm(true);
+            myForm.myContextMenuStrip = CreateContextMenu_TradeAlert();
             myForm.Show(dockPanel, DockState.DockBottom);
         }
 
@@ -836,8 +873,8 @@ namespace client
         {
             try
             {
-                Strategy.Meta meta = (Strategy.Meta)(sender as ToolStripMenuItem).Tag;
-                Strategy.Libs.ShowStrategyForm(meta);
+                application.Strategy.Meta meta = (application.Strategy.Meta)(sender as ToolStripMenuItem).Tag;
+                application.Strategy.Libs.ShowStrategyForm(meta);
             }
             catch (Exception er)
             {
@@ -851,15 +888,15 @@ namespace client
             {
                 Tools.Forms.tradeAnalysis activeForm = GetActiveStockForm();
                 if (activeForm == null) return;
-                Strategy.Meta meta;
+                application.Strategy.Meta meta;
                 if (sender.GetType() == typeof(ToolStripMenuItem))
                 {
-                    meta = (Strategy.Meta)(sender as ToolStripMenuItem).Tag;
+                    meta = (application.Strategy.Meta)(sender as ToolStripMenuItem).Tag;
                 }
                 else
                 {
                     baseClass.controls.ToolStripCbStrategy item = (baseClass.controls.ToolStripCbStrategy)sender;
-                    meta = Strategy.Libs.FindMetaByCode(item.myValue);
+                    meta = application.Strategy.Libs.FindMetaByCode(item.myValue);
                 }
                 if (meta == null) activeForm.ClearStrategyTradepoints();
                 else activeForm.PlotStrategyTradepoints(meta, this.ChartHaveStrategyEstimation); 
@@ -1288,12 +1325,7 @@ namespace client
             {
                 Trade.Forms.marketWatch marketWatchForm = GetMarketWatchForm(false);
                 if (marketWatchForm == null) return;
-                
-                Trade.Forms.transactionNew form = Trade.Forms.transactionNew.GetForm("");
-                form.ClearEditData();
-                form.LockEdit(false);
-                if (marketWatchForm.CurrentRow != null)  form.myCode = marketWatchForm.CurrentRow.code;
-                form.ShowDialog();
+                Trade.AppLibs.OrderForm(marketWatchForm.CurrentRow.code);
             }
             catch (Exception er)
             {
@@ -1313,10 +1345,6 @@ namespace client
             }
         }
 
-        private void rankingBtn_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void strategyRankingMenuItem_Click(object sender, EventArgs e)
         {
@@ -1427,20 +1455,18 @@ namespace client
             }
         }
 
-        
+
+        static Thread myRefreshThread = null;
         private void sysTimer_Tick(object sender, EventArgs e)
         {
             try
             {
-                if (fProcessing) return;
-                fProcessing = true;
-
-                RefreshData();
-                fProcessing = false;
+                myRefreshThread = new Thread(new ThreadStart(RefreshData));
+                myRefreshThread.Start();
+                myRefreshThread = null;
             }
             catch (Exception er)
             {
-                fProcessing = false;
                 this.ShowError(er);
             }
         }
@@ -1451,6 +1477,7 @@ namespace client
             {
                 baseClass.forms.configure form = new baseClass.forms.configure();
                 form.ShowDialog();
+                Reset();
             }
             catch (Exception er)
             {
@@ -1463,12 +1490,41 @@ namespace client
             try
             {
                 client.forms.sysOptions.GetForm("").ShowDialog();
+                Reset();
             }
             catch (Exception er)
             {
                 this.ShowError(er);
             }
         }
+        private void Alert_OpenChartMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Trade.Forms.tradeAlertList myForm = GetTradeAlertForm(false);
+                if (myForm == null) return;
+                if (myForm.CurrentRow == null) return;
+                ShowStockChart(myForm.CurrentRow.stockCode);
+            }
+            catch (Exception er)
+            {
+                this.ShowError(er);
+            }
+        }
+        private void Alert_MakeOrderMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Trade.Forms.tradeAlertList myForm = GetTradeAlertForm(false);
+                if (myForm == null) return;
+                myForm.PlaceOrder();
+            }
+            catch (Exception er)
+            {
+                this.ShowError(er);
+            }
+        }
+
         #endregion event handler
     }
 }

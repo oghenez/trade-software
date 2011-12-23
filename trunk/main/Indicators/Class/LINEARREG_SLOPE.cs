@@ -4,7 +4,7 @@ using System.Collections.Specialized;
 using System.Drawing;
 using System.Text;
 using TicTacTec.TA.Library;
-
+using application.Indicators;
 using commonClass;
 
 namespace Indicators
@@ -16,7 +16,7 @@ namespace Indicators
     {
         public LINEARREG_SLOPEHelper()
         {
-            Init(typeof(LINEARREG_SLOPE), typeof(forms.commonForm));
+            Init(typeof(LINEARREG_SLOPE), typeof(application.forms.commonIndicatorForm));
         }
     }
 

@@ -15,7 +15,7 @@ namespace test
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new chartTest());
+            Application.Run(new testWCF());
             //Application.Run(new testPanel());
             //Application.Run(new Form2());
             //Application.Run(new baseClass.forms.configure());

@@ -4,7 +4,7 @@ using System.Collections.Specialized;
 using System.Drawing;
 using System.Text;
 using TicTacTec.TA.Library;
-
+using application.Indicators;
 using commonClass;
 
 namespace Indicators
@@ -16,7 +16,7 @@ namespace Indicators
     {
         public HT_TRENDLINEHelper()
         {
-            Init(typeof(HT_TRENDLINE), typeof(forms.commonForm));
+            Init(typeof(HT_TRENDLINE), typeof(application.forms.commonIndicatorForm));
         }
     }
 

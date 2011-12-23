@@ -4,6 +4,7 @@ using System.Text;
 using System.Drawing;
 using System.Threading;
 using System.Windows.Forms;
+using System.Globalization;
 
 namespace test
 {
@@ -18,6 +19,7 @@ namespace test
             myDailyPrice.Reset();
             imports.libs.Reset();
         }
+        static CultureInfo vnCulture = new CultureInfo("vi-VN");
         public static void GenPriceData(string stockCode)
         {
             DateTime dt = DateTime.Now;
@@ -25,7 +27,7 @@ namespace test
             data.baseDS.priceDataSumRow dayPriceRow = myDailyPrice.GetData(stockCode,dt);
             if (dayPriceRow == null)
             {
-                data.baseDS.priceDataRow priceRow = application.DbAccess.GetLastPrice(stockCode);
+                data.baseDS.priceDataRow priceRow = application.DbAccess.GetLastPriceData(stockCode);
                 lastHighPrice = priceRow.highPrice;
                 lastLowPrice = priceRow.lowPrice;
                 lastClosePrice = priceRow.closePrice;
@@ -69,7 +71,7 @@ namespace test
             imports.libs.AddImportPrice(importPriceTbl,priceDataTbl);
             application.DbAccess.UpdateData(priceDataTbl);
             // In VN culture : start of week is Monday (not Sunday) 
-            imports.libs.AggregatePriceData(priceDataTbl, "vi-VN", null);
+            imports.libs.AggregatePriceData(priceDataTbl, vnCulture, null);
 
             myDailyPrice.UpdateData(importRow);
         }

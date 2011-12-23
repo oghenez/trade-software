@@ -59,7 +59,7 @@ namespace Tools.Forms
         protected void ShowTradeTransactions(data.tmpDS.stockCodeRow stockCodeRow, string strategyCode,
                                              AppTypes.TimeRanges timeRange,AppTypes.TimeScale timeScale)
         {
-            string formName = stockCodeRow.code.Trim() + "," + timeRange.ToString() + "," + Strategy.Libs.GetMetaName(strategyCode) + "," + timeScale.Code;
+            string formName = stockCodeRow.code.Trim() + "," + timeRange.ToString() + "," + application.Strategy.Libs.GetMetaName(strategyCode) + "," + timeScale.Code;
             profitEstimate myForm = profitEstimate.GetForm(formName);
             myForm.myTimeRange = timeRange;
             myForm.myTimeScale = timeScale;

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using application;
+using application.Strategy;
 using commonClass;
 
 namespace Strategy

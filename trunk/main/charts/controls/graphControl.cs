@@ -128,10 +128,6 @@ namespace Charts.Controls
         }
         private bool MouseMoveHandler(ZedGraph.ZedGraphControl sender, MouseEventArgs e)
         {
-            if (myViewportState.state == ViewportState.StateType.None)
-            {
-                return default(bool);
-            }
             if (e.Button == this.myPanButton)
             {
                 if (lastMouseLocation.X != e.Location.X) mouseMoveCount++;
@@ -265,6 +261,9 @@ namespace Charts.Controls
         private void SetDateTimeFormat()
         {
             if (this.mySeriesX == null) return;
+            if (this.myViewportX.Min < 0 || this.myViewportX.Min>=this.mySeriesX.Length) return;
+            if (this.myViewportX.Max < 0 || this.myViewportX.Max >= this.mySeriesX.Length) return;
+
             DateTime startDate = DateTime.FromOADate(this.mySeriesX[this.myViewportX.Min]);
             DateTime endDate = DateTime.FromOADate(this.mySeriesX[this.myViewportX.Max]);
             if (startDate.Year != endDate.Year)
@@ -366,7 +365,20 @@ namespace Charts.Controls
                 min = this.mySeriesX.Length - Settings.sysNumberOfPoint_DEFA;
 
             this.myViewportState.Reset();
-            this.myViewportX = new IntRange(min, this.mySeriesX.Length-1);
+            this.SetViewportX(new IntRange(min, this.mySeriesX.Length - 1));
+        }
+
+        public bool IsLastView()
+        {
+            if (this.mySeriesX == null) return false;
+            switch (this.myViewportState.myAxisType)
+            {
+                case AxisType.Date:
+                    if (mySeriesX.Length <=0) return true;
+                    return (mySeriesX[mySeriesX.Length - 1] >= this.myViewportX.Min && mySeriesX[mySeriesX.Length - 1] <= this.myViewportX.Max);
+                default:
+                    return (mySeriesX.Length - 1 >= this.myViewportX.Min && mySeriesX.Length - 1 <= this.myViewportX.Max);
+            }
         }
 
         public void MoveToEnd()

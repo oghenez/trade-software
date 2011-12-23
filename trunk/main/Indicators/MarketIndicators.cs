@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using TicTacTec.TA.Library;
-
+using application.Indicators;
 using commonClass;
 
 
@@ -13,7 +13,7 @@ namespace Indicators
     {
         public Market_TRINHelper()
         {
-            Init(typeof(Market_TRIN), typeof(forms.commonForm));
+            Init(typeof(Market_TRIN), typeof(application.forms.commonIndicatorForm));
         }
     }
 
@@ -21,7 +21,7 @@ namespace Indicators
     {
         public Market_ThrustHelper()
         {
-            Init(typeof(Market_Thrust), typeof(forms.commonForm));
+            Init(typeof(Market_Thrust), typeof(application.forms.commonIndicatorForm));
         }
     }
 
@@ -29,7 +29,7 @@ namespace Indicators
     {
         public Market_BreadthTrustHelper()
         {
-            Init(typeof(Market_BreadthTrust), typeof(forms.commonForm));
+            Init(typeof(Market_BreadthTrust), typeof(application.forms.commonIndicatorForm));
         }
     }
 

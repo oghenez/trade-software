@@ -75,6 +75,8 @@ namespace data {
         
         private portfolioDetailDataTable tableportfolioDetail;
         
+        private lastPriceDataDataTable tablelastPriceData;
+        
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -175,6 +177,9 @@ namespace data {
                 }
                 if ((ds.Tables["portfolioDetail"] != null)) {
                     base.Tables.Add(new portfolioDetailDataTable(ds.Tables["portfolioDetail"]));
+                }
+                if ((ds.Tables["lastPriceData"] != null)) {
+                    base.Tables.Add(new lastPriceDataDataTable(ds.Tables["lastPriceData"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -420,6 +425,15 @@ namespace data {
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public lastPriceDataDataTable lastPriceData {
+            get {
+                return this.tablelastPriceData;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.BrowsableAttribute(true)]
         [global::System.ComponentModel.DesignerSerializationVisibilityAttribute(global::System.ComponentModel.DesignerSerializationVisibility.Visible)]
         public override global::System.Data.SchemaSerializationMode SchemaSerializationMode {
@@ -552,6 +566,9 @@ namespace data {
                 }
                 if ((ds.Tables["portfolioDetail"] != null)) {
                     base.Tables.Add(new portfolioDetailDataTable(ds.Tables["portfolioDetail"]));
+                }
+                if ((ds.Tables["lastPriceData"] != null)) {
+                    base.Tables.Add(new lastPriceDataDataTable(ds.Tables["lastPriceData"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -733,6 +750,12 @@ namespace data {
                     this.tableportfolioDetail.InitVars();
                 }
             }
+            this.tablelastPriceData = ((lastPriceDataDataTable)(base.Tables["lastPriceData"]));
+            if ((initTable == true)) {
+                if ((this.tablelastPriceData != null)) {
+                    this.tablelastPriceData.InitVars();
+                }
+            }
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -792,6 +815,8 @@ namespace data {
             base.Tables.Add(this.tablepriceDataSum);
             this.tableportfolioDetail = new portfolioDetailDataTable();
             base.Tables.Add(this.tableportfolioDetail);
+            this.tablelastPriceData = new lastPriceDataDataTable();
+            base.Tables.Add(this.tablelastPriceData);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -920,6 +945,11 @@ namespace data {
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        private bool ShouldSerializelastPriceData() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         private void SchemaChanged(object sender, global::System.ComponentModel.CollectionChangeEventArgs e) {
             if ((e.Action == global::System.ComponentModel.CollectionChangeAction.Remove)) {
                 this.InitVars();
@@ -1021,6 +1051,8 @@ namespace data {
         public delegate void priceDataSumRowChangeEventHandler(object sender, priceDataSumRowChangeEvent e);
         
         public delegate void portfolioDetailRowChangeEventHandler(object sender, portfolioDetailRowChangeEvent e);
+        
+        public delegate void lastPriceDataRowChangeEventHandler(object sender, lastPriceDataRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -9416,6 +9448,254 @@ namespace data {
         }
         
         /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class lastPriceDataDataTable : global::System.Data.TypedTableBase<lastPriceDataRow> {
+            
+            private global::System.Data.DataColumn columnstockCode;
+            
+            private global::System.Data.DataColumn columnvalue;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public lastPriceDataDataTable() {
+                this.TableName = "lastPriceData";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            internal lastPriceDataDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected lastPriceDataDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn stockCodeColumn {
+                get {
+                    return this.columnstockCode;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn valueColumn {
+                get {
+                    return this.columnvalue;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public lastPriceDataRow this[int index] {
+                get {
+                    return ((lastPriceDataRow)(this.Rows[index]));
+                }
+            }
+            
+            public event lastPriceDataRowChangeEventHandler lastPriceDataRowChanging;
+            
+            public event lastPriceDataRowChangeEventHandler lastPriceDataRowChanged;
+            
+            public event lastPriceDataRowChangeEventHandler lastPriceDataRowDeleting;
+            
+            public event lastPriceDataRowChangeEventHandler lastPriceDataRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void AddlastPriceDataRow(lastPriceDataRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public lastPriceDataRow AddlastPriceDataRow(string stockCode, decimal value) {
+                lastPriceDataRow rowlastPriceDataRow = ((lastPriceDataRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        stockCode,
+                        value};
+                rowlastPriceDataRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowlastPriceDataRow);
+                return rowlastPriceDataRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public lastPriceDataRow FindBystockCode(string stockCode) {
+                return ((lastPriceDataRow)(this.Rows.Find(new object[] {
+                            stockCode})));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public override global::System.Data.DataTable Clone() {
+                lastPriceDataDataTable cln = ((lastPriceDataDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new lastPriceDataDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            internal void InitVars() {
+                this.columnstockCode = base.Columns["stockCode"];
+                this.columnvalue = base.Columns["value"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            private void InitClass() {
+                this.columnstockCode = new global::System.Data.DataColumn("stockCode", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnstockCode);
+                this.columnvalue = new global::System.Data.DataColumn("value", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnvalue);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnstockCode}, true));
+                this.columnstockCode.AllowDBNull = false;
+                this.columnstockCode.Unique = true;
+                this.columnstockCode.MaxLength = 20;
+                this.columnvalue.AllowDBNull = false;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public lastPriceDataRow NewlastPriceDataRow() {
+                return ((lastPriceDataRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new lastPriceDataRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override global::System.Type GetRowType() {
+                return typeof(lastPriceDataRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.lastPriceDataRowChanged != null)) {
+                    this.lastPriceDataRowChanged(this, new lastPriceDataRowChangeEvent(((lastPriceDataRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.lastPriceDataRowChanging != null)) {
+                    this.lastPriceDataRowChanging(this, new lastPriceDataRowChangeEvent(((lastPriceDataRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.lastPriceDataRowDeleted != null)) {
+                    this.lastPriceDataRowDeleted(this, new lastPriceDataRowChangeEvent(((lastPriceDataRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.lastPriceDataRowDeleting != null)) {
+                    this.lastPriceDataRowDeleting(this, new lastPriceDataRowChangeEvent(((lastPriceDataRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void RemovelastPriceDataRow(lastPriceDataRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                baseDS ds = new baseDS();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "lastPriceDataDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
@@ -12376,6 +12656,41 @@ namespace data {
         }
         
         /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
+        public partial class lastPriceDataRow : global::System.Data.DataRow {
+            
+            private lastPriceDataDataTable tablelastPriceData;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            internal lastPriceDataRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tablelastPriceData = ((lastPriceDataDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string stockCode {
+                get {
+                    return ((string)(this[this.tablelastPriceData.stockCodeColumn]));
+                }
+                set {
+                    this[this.tablelastPriceData.stockCodeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public decimal value {
+                get {
+                    return ((decimal)(this[this.tablelastPriceData.valueColumn]));
+                }
+                set {
+                    this[this.tablelastPriceData.valueColumn] = value;
+                }
+            }
+        }
+        
+        /// <summary>
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
@@ -13137,6 +13452,37 @@ namespace data {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public portfolioDetailRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
+        public class lastPriceDataRowChangeEvent : global::System.EventArgs {
+            
+            private lastPriceDataRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public lastPriceDataRowChangeEvent(lastPriceDataRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public lastPriceDataRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -15315,15 +15661,11 @@ SELECT id, onTime, tranType, portfolio, stockCode, qty, amt, feeAmt, status FROM
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [priceData] WHERE (([stockCode] = @Original_stockCode) AND ([onDate] = @Original_onDate) AND ([openPrice] = @Original_openPrice) AND ([closePrice] = @Original_closePrice) AND ([lowPrice] = @Original_lowPrice) AND ([highPrice] = @Original_highPrice) AND ([volume] = @Original_volume))";
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM priceData\r\nWHERE     (stockCode = @Original_stockCode) AND (onDate = " +
+                "@Original_onDate)";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_stockCode", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "stockCode", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_onDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "onDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_openPrice", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 8, 1, "openPrice", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_closePrice", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 8, 1, "closePrice", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_lowPrice", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 8, 1, "lowPrice", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_highPrice", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 8, 1, "highPrice", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_volume", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 16, 0, "volume", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_stockCode", global::System.Data.SqlDbType.NVarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "stockCode", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_onDate", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "onDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = @"INSERT INTO [priceData] ([stockCode], [onDate], [openPrice], [closePrice], [lowPrice], [highPrice], [volume]) VALUES (@stockCode, @onDate, @openPrice, @closePrice, @lowPrice, @highPrice, @volume);
@@ -15338,23 +15680,21 @@ SELECT stockCode, onDate, openPrice, closePrice, lowPrice, highPrice, volume FRO
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@volume", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 16, 0, "volume", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [priceData] SET [stockCode] = @stockCode, [onDate] = @onDate, [openPrice] = @openPrice, [closePrice] = @closePrice, [lowPrice] = @lowPrice, [highPrice] = @highPrice, [volume] = @volume WHERE (([stockCode] = @Original_stockCode) AND ([onDate] = @Original_onDate) AND ([openPrice] = @Original_openPrice) AND ([closePrice] = @Original_closePrice) AND ([lowPrice] = @Original_lowPrice) AND ([highPrice] = @Original_highPrice) AND ([volume] = @Original_volume));
+            this._adapter.UpdateCommand.CommandText = @"UPDATE    priceData
+SET              stockCode = @stockCode, onDate = @onDate, openPrice = @openPrice, closePrice = @closePrice, lowPrice = @lowPrice, highPrice = @highPrice, 
+                      volume = @volume
+WHERE     (stockCode = @Original_stockCode) AND (onDate = @Original_onDate); 
 SELECT stockCode, onDate, openPrice, closePrice, lowPrice, highPrice, volume FROM priceData WHERE (onDate = @onDate) AND (stockCode = @stockCode) ORDER BY onDate";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@stockCode", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "stockCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@onDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "onDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@openPrice", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 8, 1, "openPrice", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@closePrice", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 8, 1, "closePrice", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@lowPrice", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 8, 1, "lowPrice", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@highPrice", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 8, 1, "highPrice", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@volume", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 16, 0, "volume", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_stockCode", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "stockCode", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_onDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "onDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_openPrice", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 8, 1, "openPrice", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_closePrice", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 8, 1, "closePrice", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_lowPrice", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 8, 1, "lowPrice", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_highPrice", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 8, 1, "highPrice", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_volume", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 16, 0, "volume", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@stockCode", global::System.Data.SqlDbType.NVarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "stockCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@onDate", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "onDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@openPrice", global::System.Data.SqlDbType.Decimal, 5, global::System.Data.ParameterDirection.Input, 8, 1, "openPrice", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@closePrice", global::System.Data.SqlDbType.Decimal, 5, global::System.Data.ParameterDirection.Input, 8, 1, "closePrice", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@lowPrice", global::System.Data.SqlDbType.Decimal, 5, global::System.Data.ParameterDirection.Input, 8, 1, "lowPrice", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@highPrice", global::System.Data.SqlDbType.Decimal, 5, global::System.Data.ParameterDirection.Input, 8, 1, "highPrice", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@volume", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 16, 0, "volume", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_stockCode", global::System.Data.SqlDbType.NVarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "stockCode", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_onDate", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "onDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -15365,7 +15705,7 @@ SELECT stockCode, onDate, openPrice, closePrice, lowPrice, highPrice, volume FRO
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[14];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[10];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT *  FROM priceData WHERE (onDate BETWEEN @frDate AND @toDate) AND (stockCod" +
@@ -15376,94 +15716,76 @@ SELECT stockCode, onDate, openPrice, closePrice, lowPrice, highPrice, volume FRO
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@stockCode", global::System.Data.SqlDbType.NVarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "stockCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT *  FROM priceData WHERE (stockCode = @stockCode) ORDER BY onDate";
+            this._commandCollection[1].CommandText = "SELECT closePrice, highPrice, lowPrice, onDate, openPrice, stockCode, volume FROM" +
+                " priceData WHERE (stockCode = @stockCode) ORDER BY onDate";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@stockCode", global::System.Data.SqlDbType.NVarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "stockCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = "SELECT *  FROM priceData WHERE (stockCode = @stockCode) AND (onDate >= @onDate) O" +
-                "RDER BY onDate";
+            this._commandCollection[2].CommandText = "SELECT closePrice, highPrice, lowPrice, onDate, openPrice, stockCode, volume FROM" +
+                " priceData WHERE (stockCode = @stockCode) AND (onDate >= @onDate) ORDER BY onDat" +
+                "e";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@stockCode", global::System.Data.SqlDbType.NVarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "stockCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@onDate", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "onDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[3].Connection = this.Connection;
-            this._commandCollection[3].CommandText = "SELECT *  FROM priceData WHERE (onDate = @onDate) ORDER BY stockCode";
-            this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@onDate", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "onDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[4] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[4].Connection = this.Connection;
-            this._commandCollection[4].CommandText = "SELECT     stockCode, onDate, volume, highPrice, lowPrice, closePrice, openPrice\r" +
+            this._commandCollection[3].CommandText = "SELECT     stockCode, onDate, volume, highPrice, lowPrice, closePrice, openPrice\r" +
                 "\nFROM         priceDataSum\r\nWHERE     (type = @Type) AND (stockCode = @stockCode" +
                 ")\r\nORDER BY onDate";
-            this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Type", global::System.Data.SqlDbType.Char, 2, global::System.Data.ParameterDirection.Input, 0, 0, "type", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@stockCode", global::System.Data.SqlDbType.NVarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "stockCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[5] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[5].Connection = this.Connection;
-            this._commandCollection[5].CommandText = "SELECT  stockCode, onDate, openPrice, closePrice, lowPrice, highPrice, volume\r\nFR" +
+            this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Type", global::System.Data.SqlDbType.Char, 2, global::System.Data.ParameterDirection.Input, 0, 0, "type", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@stockCode", global::System.Data.SqlDbType.NVarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "stockCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[4].Connection = this.Connection;
+            this._commandCollection[4].CommandText = "SELECT  stockCode, onDate, openPrice, closePrice, lowPrice, highPrice, volume\r\nFR" +
                 "OM         priceDataSum\r\nWHERE     (type = @type) AND (stockCode = @stockCode) A" +
                 "ND (onDate >= @onDate)\r\nORDER BY onDate";
-            this._commandCollection[5].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@type", global::System.Data.SqlDbType.Char, 2, global::System.Data.ParameterDirection.Input, 0, 0, "type", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@stockCode", global::System.Data.SqlDbType.NVarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "stockCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@onDate", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "onDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[6] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[6].Connection = this.Connection;
-            this._commandCollection[6].CommandText = "SELECT stockCode, onDate, openPrice, closePrice, lowPrice, highPrice, volume\r\nFRO" +
-                "M priceDataSum WHERE (type = @Type) AND (onDate = @onDate) ORDER BY stockCode";
-            this._commandCollection[6].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Type", global::System.Data.SqlDbType.Char, 2, global::System.Data.ParameterDirection.Input, 0, 0, "type", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@onDate", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "onDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[7] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[7].Connection = this.Connection;
-            this._commandCollection[7].CommandText = "SELECT stockCode, onDate, openPrice, closePrice, lowPrice, highPrice, volume\r\nFRO" +
+            this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@type", global::System.Data.SqlDbType.Char, 2, global::System.Data.ParameterDirection.Input, 0, 0, "type", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@stockCode", global::System.Data.SqlDbType.NVarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "stockCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@onDate", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "onDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[5] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[5].Connection = this.Connection;
+            this._commandCollection[5].CommandText = "SELECT stockCode, onDate, openPrice, closePrice, lowPrice, highPrice, volume\r\nFRO" +
                 "M priceDataSum WHERE (type = @Type) AND (onDate BETWEEN @frDate AND @toDate) AND" +
                 " (stockCode = @stockCode) ORDER BY onDate";
+            this._commandCollection[5].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Type", global::System.Data.SqlDbType.Char, 2, global::System.Data.ParameterDirection.Input, 0, 0, "type", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@frDate", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "onDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@toDate", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "onDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@stockCode", global::System.Data.SqlDbType.NVarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "stockCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[6] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[6].Connection = this.Connection;
+            this._commandCollection[6].CommandText = @"SELECT a.closePrice, a.highPrice, a.lowPrice, a.onDate, a.openPrice, a.stockCode, a.volume FROM priceData AS a INNER JOIN (SELECT MAX(onDate) AS onDate, stockCode FROM priceData GROUP BY stockCode) AS b ON a.onDate = b.onDate AND a.stockCode = b.stockCode WHERE (a.stockCode = @stockCode)";
+            this._commandCollection[6].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@stockCode", global::System.Data.SqlDbType.NVarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "stockCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[7] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[7].Connection = this.Connection;
+            this._commandCollection[7].CommandText = "SELECT TOP 1 closePrice, highPrice, lowPrice, onDate, openPrice, stockCode, volum" +
+                "e FROM priceData WHERE (onDate BETWEEN @frDate AND @toDate) AND (stockCode = @st" +
+                "ockCode)";
             this._commandCollection[7].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Type", global::System.Data.SqlDbType.Char, 2, global::System.Data.ParameterDirection.Input, 0, 0, "type", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@frDate", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "onDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@toDate", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "onDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@stockCode", global::System.Data.SqlDbType.NVarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "stockCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[8] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[8].Connection = this.Connection;
-            this._commandCollection[8].CommandText = @"SELECT a.closePrice, a.highPrice, a.lowPrice, a.onDate, a.openPrice, a.stockCode, a.volume FROM priceData AS a INNER JOIN (SELECT MAX(onDate) AS onDate, stockCode FROM priceData GROUP BY stockCode) AS b ON a.onDate = b.onDate AND a.stockCode = b.stockCode ORDER BY a.stockCode";
+            this._commandCollection[8].CommandText = "SELECT COUNT(1) FROM priceData\r\nWHERE (onDate BETWEEN @frDate AND @toDate) AND (s" +
+                "tockCode = @stockCode) \r\n";
             this._commandCollection[8].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[8].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@frDate", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "onDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[8].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@toDate", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "onDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[8].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@stockCode", global::System.Data.SqlDbType.NVarChar, 10, global::System.Data.ParameterDirection.Input, 0, 0, "stockCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[9] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[9].Connection = this.Connection;
-            this._commandCollection[9].CommandText = @"SELECT a.closePrice, a.highPrice, a.lowPrice, a.onDate, a.openPrice, a.stockCode, a.volume FROM priceData AS a INNER JOIN (SELECT MAX(onDate) AS onDate, stockCode FROM priceData GROUP BY stockCode) AS b ON a.onDate = b.onDate AND a.stockCode = b.stockCode WHERE (a.stockCode = @stockCode)";
-            this._commandCollection[9].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[9].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@stockCode", global::System.Data.SqlDbType.NVarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "stockCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[10] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[10].Connection = this.Connection;
-            this._commandCollection[10].CommandText = "SELECT TOP 1 closePrice, highPrice, lowPrice, onDate, openPrice, stockCode, volum" +
-                "e FROM priceData WHERE (onDate BETWEEN @frDate AND @toDate) AND (stockCode = @st" +
-                "ockCode)";
-            this._commandCollection[10].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[10].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@frDate", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "onDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[10].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@toDate", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "onDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[10].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@stockCode", global::System.Data.SqlDbType.NVarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "stockCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[11] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[11].Connection = this.Connection;
-            this._commandCollection[11].CommandText = "SELECT MAX(onDate)   FROM priceData ";
-            this._commandCollection[11].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[12] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[12].Connection = this.Connection;
-            this._commandCollection[12].CommandText = "SELECT COUNT(1) FROM priceData\r\nWHERE (onDate BETWEEN @frDate AND @toDate) AND (s" +
-                "tockCode = @stockCode) \r\n";
-            this._commandCollection[12].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[12].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@frDate", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "onDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[12].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@toDate", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "onDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[12].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@stockCode", global::System.Data.SqlDbType.NVarChar, 10, global::System.Data.ParameterDirection.Input, 0, 0, "stockCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[13] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[13].Connection = this.Connection;
-            this._commandCollection[13].CommandText = "SELECT COUNT(1) FROM priceDataSum\r\nWHERE  type=@type AND  (onDate BETWEEN @frDate" +
+            this._commandCollection[9].CommandText = "SELECT COUNT(1) FROM priceDataSum\r\nWHERE  type=@type AND  (onDate BETWEEN @frDate" +
                 " AND @toDate) AND (stockCode = @stockCode) \r\n";
-            this._commandCollection[13].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[13].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@type", global::System.Data.SqlDbType.Char, 2, global::System.Data.ParameterDirection.Input, 0, 0, "type", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[13].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@frDate", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "onDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[13].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@toDate", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "onDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[13].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@stockCode", global::System.Data.SqlDbType.NVarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "stockCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[9].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[9].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@type", global::System.Data.SqlDbType.Char, 2, global::System.Data.ParameterDirection.Input, 0, 0, "type", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[9].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@frDate", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "onDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[9].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@toDate", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "onDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[9].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@stockCode", global::System.Data.SqlDbType.NVarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "stockCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -15577,32 +15899,8 @@ SELECT stockCode, onDate, openPrice, closePrice, lowPrice, highPrice, volume FRO
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillByDate(baseDS.priceDataDataTable dataTable, System.DateTime onDate) {
-            this.Adapter.SelectCommand = this.CommandCollection[3];
-            this.Adapter.SelectCommand.Parameters[0].Value = ((System.DateTime)(onDate));
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual baseDS.priceDataDataTable GetByDate(System.DateTime onDate) {
-            this.Adapter.SelectCommand = this.CommandCollection[3];
-            this.Adapter.SelectCommand.Parameters[0].Value = ((System.DateTime)(onDate));
-            baseDS.priceDataDataTable dataTable = new baseDS.priceDataDataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
         public virtual int FillByTypeCode(baseDS.priceDataDataTable dataTable, string Type, string stockCode) {
-            this.Adapter.SelectCommand = this.CommandCollection[4];
+            this.Adapter.SelectCommand = this.CommandCollection[3];
             if ((Type == null)) {
                 throw new global::System.ArgumentNullException("Type");
             }
@@ -15626,7 +15924,7 @@ SELECT stockCode, onDate, openPrice, closePrice, lowPrice, highPrice, volume FRO
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual baseDS.priceDataDataTable GetByTypeCode(string Type, string stockCode) {
-            this.Adapter.SelectCommand = this.CommandCollection[4];
+            this.Adapter.SelectCommand = this.CommandCollection[3];
             if ((Type == null)) {
                 throw new global::System.ArgumentNullException("Type");
             }
@@ -15648,7 +15946,7 @@ SELECT stockCode, onDate, openPrice, closePrice, lowPrice, highPrice, volume FRO
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
         public virtual int FillByTypeCodeFromDate(baseDS.priceDataDataTable dataTable, string type, string stockCode, System.DateTime onDate) {
-            this.Adapter.SelectCommand = this.CommandCollection[5];
+            this.Adapter.SelectCommand = this.CommandCollection[4];
             if ((type == null)) {
                 throw new global::System.ArgumentNullException("type");
             }
@@ -15673,7 +15971,7 @@ SELECT stockCode, onDate, openPrice, closePrice, lowPrice, highPrice, volume FRO
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual baseDS.priceDataDataTable GetByTypeCodeFromDate(string type, string stockCode, System.DateTime onDate) {
-            this.Adapter.SelectCommand = this.CommandCollection[5];
+            this.Adapter.SelectCommand = this.CommandCollection[4];
             if ((type == null)) {
                 throw new global::System.ArgumentNullException("type");
             }
@@ -15695,44 +15993,8 @@ SELECT stockCode, onDate, openPrice, closePrice, lowPrice, highPrice, volume FRO
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillByTypeDate(baseDS.priceDataDataTable dataTable, string Type, System.DateTime onDate) {
-            this.Adapter.SelectCommand = this.CommandCollection[6];
-            if ((Type == null)) {
-                throw new global::System.ArgumentNullException("Type");
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(Type));
-            }
-            this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(onDate));
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual baseDS.priceDataDataTable GetByTypeDate(string Type, System.DateTime onDate) {
-            this.Adapter.SelectCommand = this.CommandCollection[6];
-            if ((Type == null)) {
-                throw new global::System.ArgumentNullException("Type");
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(Type));
-            }
-            this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(onDate));
-            baseDS.priceDataDataTable dataTable = new baseDS.priceDataDataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
         public virtual int FillByTypeDateCode(baseDS.priceDataDataTable dataTable, string Type, System.DateTime frDate, System.DateTime toDate, string stockCode) {
-            this.Adapter.SelectCommand = this.CommandCollection[7];
+            this.Adapter.SelectCommand = this.CommandCollection[5];
             if ((Type == null)) {
                 throw new global::System.ArgumentNullException("Type");
             }
@@ -15758,7 +16020,7 @@ SELECT stockCode, onDate, openPrice, closePrice, lowPrice, highPrice, volume FRO
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual baseDS.priceDataDataTable GetByTypeDateCode(string Type, System.DateTime frDate, System.DateTime toDate, string stockCode) {
-            this.Adapter.SelectCommand = this.CommandCollection[7];
+            this.Adapter.SelectCommand = this.CommandCollection[5];
             if ((Type == null)) {
                 throw new global::System.ArgumentNullException("Type");
             }
@@ -15781,30 +16043,8 @@ SELECT stockCode, onDate, openPrice, closePrice, lowPrice, highPrice, volume FRO
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillLastDate(baseDS.priceDataDataTable dataTable) {
-            this.Adapter.SelectCommand = this.CommandCollection[8];
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual baseDS.priceDataDataTable GetLastDate() {
-            this.Adapter.SelectCommand = this.CommandCollection[8];
-            baseDS.priceDataDataTable dataTable = new baseDS.priceDataDataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillLastDateByCode(baseDS.priceDataDataTable dataTable, string stockCode) {
-            this.Adapter.SelectCommand = this.CommandCollection[9];
+        public virtual int FillLastPrice(baseDS.priceDataDataTable dataTable, string stockCode) {
+            this.Adapter.SelectCommand = this.CommandCollection[6];
             if ((stockCode == null)) {
                 throw new global::System.ArgumentNullException("stockCode");
             }
@@ -15821,8 +16061,8 @@ SELECT stockCode, onDate, openPrice, closePrice, lowPrice, highPrice, volume FRO
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual baseDS.priceDataDataTable GetLastDateByCode(string stockCode) {
-            this.Adapter.SelectCommand = this.CommandCollection[9];
+        public virtual baseDS.priceDataDataTable GetLastPrice(string stockCode) {
+            this.Adapter.SelectCommand = this.CommandCollection[6];
             if ((stockCode == null)) {
                 throw new global::System.ArgumentNullException("stockCode");
             }
@@ -15838,7 +16078,7 @@ SELECT stockCode, onDate, openPrice, closePrice, lowPrice, highPrice, volume FRO
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
         public virtual int FillOneByDateStockCode(baseDS.priceDataDataTable dataTable, System.DateTime frDate, System.DateTime toDate, string stockCode) {
-            this.Adapter.SelectCommand = this.CommandCollection[10];
+            this.Adapter.SelectCommand = this.CommandCollection[7];
             this.Adapter.SelectCommand.Parameters[0].Value = ((System.DateTime)(frDate));
             this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(toDate));
             if ((stockCode == null)) {
@@ -15858,7 +16098,7 @@ SELECT stockCode, onDate, openPrice, closePrice, lowPrice, highPrice, volume FRO
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual baseDS.priceDataDataTable GetOneByDateStockCode(System.DateTime frDate, System.DateTime toDate, string stockCode) {
-            this.Adapter.SelectCommand = this.CommandCollection[10];
+            this.Adapter.SelectCommand = this.CommandCollection[7];
             this.Adapter.SelectCommand.Parameters[0].Value = ((System.DateTime)(frDate));
             this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(toDate));
             if ((stockCode == null)) {
@@ -15900,7 +16140,7 @@ SELECT stockCode, onDate, openPrice, closePrice, lowPrice, highPrice, volume FRO
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(string Original_stockCode, System.DateTime Original_onDate, decimal Original_openPrice, decimal Original_closePrice, decimal Original_lowPrice, decimal Original_highPrice, decimal Original_volume) {
+        public virtual int Delete(string Original_stockCode, System.DateTime Original_onDate) {
             if ((Original_stockCode == null)) {
                 throw new global::System.ArgumentNullException("Original_stockCode");
             }
@@ -15908,11 +16148,6 @@ SELECT stockCode, onDate, openPrice, closePrice, lowPrice, highPrice, volume FRO
                 this.Adapter.DeleteCommand.Parameters[0].Value = ((string)(Original_stockCode));
             }
             this.Adapter.DeleteCommand.Parameters[1].Value = ((System.DateTime)(Original_onDate));
-            this.Adapter.DeleteCommand.Parameters[2].Value = ((decimal)(Original_openPrice));
-            this.Adapter.DeleteCommand.Parameters[3].Value = ((decimal)(Original_closePrice));
-            this.Adapter.DeleteCommand.Parameters[4].Value = ((decimal)(Original_lowPrice));
-            this.Adapter.DeleteCommand.Parameters[5].Value = ((decimal)(Original_highPrice));
-            this.Adapter.DeleteCommand.Parameters[6].Value = ((decimal)(Original_volume));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -15964,7 +16199,7 @@ SELECT stockCode, onDate, openPrice, closePrice, lowPrice, highPrice, volume FRO
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string stockCode, System.DateTime onDate, decimal openPrice, decimal closePrice, decimal lowPrice, decimal highPrice, decimal volume, string Original_stockCode, System.DateTime Original_onDate, decimal Original_openPrice, decimal Original_closePrice, decimal Original_lowPrice, decimal Original_highPrice, decimal Original_volume) {
+        public virtual int Update(string stockCode, System.DateTime onDate, decimal openPrice, decimal closePrice, decimal lowPrice, decimal highPrice, decimal volume, string Original_stockCode, System.DateTime Original_onDate) {
             if ((stockCode == null)) {
                 throw new global::System.ArgumentNullException("stockCode");
             }
@@ -15984,11 +16219,6 @@ SELECT stockCode, onDate, openPrice, closePrice, lowPrice, highPrice, volume FRO
                 this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Original_stockCode));
             }
             this.Adapter.UpdateCommand.Parameters[8].Value = ((System.DateTime)(Original_onDate));
-            this.Adapter.UpdateCommand.Parameters[9].Value = ((decimal)(Original_openPrice));
-            this.Adapter.UpdateCommand.Parameters[10].Value = ((decimal)(Original_closePrice));
-            this.Adapter.UpdateCommand.Parameters[11].Value = ((decimal)(Original_lowPrice));
-            this.Adapter.UpdateCommand.Parameters[12].Value = ((decimal)(Original_highPrice));
-            this.Adapter.UpdateCommand.Parameters[13].Value = ((decimal)(Original_volume));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -16008,41 +16238,14 @@ SELECT stockCode, onDate, openPrice, closePrice, lowPrice, highPrice, volume FRO
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(decimal openPrice, decimal closePrice, decimal lowPrice, decimal highPrice, decimal volume, string Original_stockCode, System.DateTime Original_onDate, decimal Original_openPrice, decimal Original_closePrice, decimal Original_lowPrice, decimal Original_highPrice, decimal Original_volume) {
-            return this.Update(Original_stockCode, Original_onDate, openPrice, closePrice, lowPrice, highPrice, volume, Original_stockCode, Original_onDate, Original_openPrice, Original_closePrice, Original_lowPrice, Original_highPrice, Original_volume);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual global::System.Nullable<global::System.DateTime> GetMaxDate() {
-            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[11];
-            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
-            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                command.Connection.Open();
-            }
-            object returnValue;
-            try {
-                returnValue = command.ExecuteScalar();
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    command.Connection.Close();
-                }
-            }
-            if (((returnValue == null) 
-                        || (returnValue.GetType() == typeof(global::System.DBNull)))) {
-                return new global::System.Nullable<global::System.DateTime>();
-            }
-            else {
-                return new global::System.Nullable<global::System.DateTime>(((global::System.DateTime)(returnValue)));
-            }
+        public virtual int Update(decimal openPrice, decimal closePrice, decimal lowPrice, decimal highPrice, decimal volume, string Original_stockCode, System.DateTime Original_onDate) {
+            return this.Update(Original_stockCode, Original_onDate, openPrice, closePrice, lowPrice, highPrice, volume, Original_stockCode, Original_onDate);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         public virtual object GetTotalRow(System.DateTime frDate, System.DateTime toDate, string stockCode) {
-            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[12];
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[8];
             command.Parameters[0].Value = ((System.DateTime)(frDate));
             command.Parameters[1].Value = ((System.DateTime)(toDate));
             if ((stockCode == null)) {
@@ -16077,7 +16280,7 @@ SELECT stockCode, onDate, openPrice, closePrice, lowPrice, highPrice, volume FRO
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         public virtual object GetTotalSumRow(string type, System.DateTime frDate, System.DateTime toDate, string stockCode) {
-            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[13];
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[9];
             if ((type == null)) {
                 throw new global::System.ArgumentNullException("type");
             }
@@ -21899,7 +22102,7 @@ SELECT type, stockCode, onDate, openPrice, closePrice, lowPrice, highPrice, volu
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[6];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[5];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT * FROM priceDataSum WHERE (stockCode = @stockCode) AND (type = @type) AND " +
@@ -21931,11 +22134,6 @@ SELECT type, stockCode, onDate, openPrice, closePrice, lowPrice, highPrice, volu
             this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@type", global::System.Data.SqlDbType.Char, 2, global::System.Data.ParameterDirection.Input, 0, 0, "type", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@frDate", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "onDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@toDate", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "onDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[5] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[5].Connection = this.Connection;
-            this._commandCollection[5].CommandText = "SELECT MAX(onDate)   FROM priceDataSum WHERE type=@type";
-            this._commandCollection[5].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@type", global::System.Data.SqlDbType.Char, 2, global::System.Data.ParameterDirection.Input, 0, 0, "type", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -22266,39 +22464,6 @@ SELECT type, stockCode, onDate, openPrice, closePrice, lowPrice, highPrice, volu
                 }
             }
             return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual global::System.Nullable<global::System.DateTime> GetMaxDate(string type) {
-            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[5];
-            if ((type == null)) {
-                throw new global::System.ArgumentNullException("type");
-            }
-            else {
-                command.Parameters[0].Value = ((string)(type));
-            }
-            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
-            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                command.Connection.Open();
-            }
-            object returnValue;
-            try {
-                returnValue = command.ExecuteScalar();
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    command.Connection.Close();
-                }
-            }
-            if (((returnValue == null) 
-                        || (returnValue.GetType() == typeof(global::System.DBNull)))) {
-                return new global::System.Nullable<global::System.DateTime>();
-            }
-            else {
-                return new global::System.Nullable<global::System.DateTime>(((global::System.DateTime)(returnValue)));
-            }
         }
     }
     
@@ -22752,6 +22917,149 @@ SELECT portfolio, code, subCode, data FROM portfolioDetail WHERE (code = @code) 
                 }
             }
             return returnValue;
+        }
+    }
+    
+    /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class lastPriceDataTA : global::System.ComponentModel.Component {
+        
+        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
+        
+        private global::System.Data.SqlClient.SqlConnection _connection;
+        
+        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public lastPriceDataTA() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        private global::System.Data.SqlClient.SqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        internal global::System.Data.SqlClient.SqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "lastPriceData";
+            tableMapping.ColumnMappings.Add("stockCode", "stockCode");
+            tableMapping.ColumnMappings.Add("value", "value");
+            this._adapter.TableMappings.Add(tableMapping);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        private void InitConnection() {
+            this._connection = new global::System.Data.SqlClient.SqlConnection();
+            this._connection.ConnectionString = global::data.Properties.Settings.Default.dbConnectionString;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = @"SELECT     a.stockCode, a.closePrice AS value
+FROM         priceData AS a INNER JOIN
+                          (SELECT     MAX(onDate) AS onDate, stockCode
+                            FROM          priceData
+                            GROUP BY stockCode) AS b ON a.onDate = b.onDate AND a.stockCode = b.stockCode
+ORDER BY a.stockCode";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = @"SELECT     a.stockCode, a.openPrice AS value
+FROM         priceData AS a INNER JOIN
+                          (SELECT     MAX(onDate) AS onDate, stockCode
+                            FROM          priceData
+                            GROUP BY stockCode) AS b ON a.onDate = b.onDate AND a.stockCode = b.stockCode
+ORDER BY a.stockCode";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual baseDS.lastPriceDataDataTable GetClosePrice() {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            baseDS.lastPriceDataDataTable dataTable = new baseDS.lastPriceDataDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual baseDS.lastPriceDataDataTable GetOpenPrice() {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            baseDS.lastPriceDataDataTable dataTable = new baseDS.lastPriceDataDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
         }
     }
 }

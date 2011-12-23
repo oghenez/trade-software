@@ -4,7 +4,7 @@ using System.Collections.Specialized;
 using System.Drawing;
 using System.Text;
 using TicTacTec.TA.Library;
-
+using application.Indicators;
 using commonClass;
 
 
@@ -17,7 +17,7 @@ namespace Indicators
     {
         public AroonHelper()
         {
-            Init(typeof(Aroon), typeof(forms.commonForm), typeof(DataBars));
+            Init(typeof(Aroon), typeof(application.forms.commonIndicatorForm), typeof(DataBars));
         }
     }
 
@@ -28,7 +28,7 @@ namespace Indicators
     {
         public AroonOSCHelper()
         {
-            Init(typeof(AroonOsc), typeof(forms.commonForm), typeof(DataBars));
+            Init(typeof(AroonOsc), typeof(application.forms.commonIndicatorForm), typeof(DataBars));
         }
     }
 

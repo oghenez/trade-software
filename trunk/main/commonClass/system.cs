@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Threading;
 using System.Text;
+using System.Xml;
+using System.Windows.Forms; 
 
 namespace commonClass
 {
@@ -15,7 +17,7 @@ namespace commonClass
         {
             get
             {
-                //return "D:\\work\\stockProject\\code\\dlls"; //For testing 
+                //return "D:\\work\\stockProject\\code\\wsServices\\obj\\Debug"; //For testing 
                 if (_executeDirectory == null)
                 {
                     string tmp = common.system.GetWebRootPath();

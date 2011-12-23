@@ -4,7 +4,7 @@ using System.Collections.Specialized;
 using System.Drawing;
 using System.Text;
 using TicTacTec.TA.Library;
-
+using application.Indicators;
 using commonClass;
 
 
@@ -17,7 +17,7 @@ namespace Indicators
     {
         public ADHelper()
         {
-            Init(typeof(AD), typeof(forms.commonForm),typeof(DataBars));
+            Init(typeof(AD), typeof(application.forms.commonIndicatorForm),typeof(DataBars));
         }
     }
 
@@ -28,7 +28,7 @@ namespace Indicators
     {
         public ADOSCHelper()
         {
-            Init(typeof(ADOSC), typeof(forms.commonForm), typeof(DataBars));
+            Init(typeof(ADOSC), typeof(application.forms.commonIndicatorForm), typeof(DataBars));
         }
     }
 

@@ -3,7 +3,7 @@
 //Buy when there is cut between DI+ and DI-
 //The cut loss function work with some cut loss level
 
-using application;
+using application.Strategy;
 using commonClass;
 
 namespace Strategy

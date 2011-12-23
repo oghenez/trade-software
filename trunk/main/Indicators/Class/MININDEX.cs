@@ -1,5 +1,5 @@
 ﻿using TicTacTec.TA.Library;
-
+using application.Indicators;
 using commonClass;
 
 namespace Indicators
@@ -11,7 +11,7 @@ namespace Indicators
     {
         public MININDEXHelper()
         {
-            Init(typeof(MININDEX), typeof(forms.commonForm));
+            Init(typeof(MININDEX), typeof(application.forms.commonIndicatorForm));
         }
     }
 

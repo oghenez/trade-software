@@ -6,7 +6,7 @@ using System.Text;
 using TicTacTec.TA.Library;
 
 using commonClass;
-
+using application.Indicators;
 namespace Indicators
 {
     /// <summary>
@@ -16,7 +16,7 @@ namespace Indicators
     {
         public TRIXHelper()
         {
-            Init(typeof(TRIX), typeof(forms.commonForm));
+            Init(typeof(TRIX), typeof(application.forms.commonIndicatorForm));
         }
     }
 

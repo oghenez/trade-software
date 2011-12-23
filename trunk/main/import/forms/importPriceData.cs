@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.IO;
+using System.Globalization;
 using LumenWorks.Framework.IO.Csv;
 using commonClass;
 
@@ -14,6 +15,7 @@ namespace imports.forms
 {
     public partial class importPriceData : common.forms.baseForm
     {
+        const int constNumberOfImportInBatch = 10000;
         private bool fCanceled = false;
         public importPriceData()
         {
@@ -40,6 +42,14 @@ namespace imports.forms
             this.ShowMessage(stat.updateCount.ToString("###,###,##0") + "/" + 
                              stat.errorCount.ToString("###,###,##0") + "/"  + 
                              stat.dataCount.ToString("###,###,##0"), "Import");
+
+            //Do Aggregate and reset import to clear system resource
+            if (myDataSet.priceData.Count > constNumberOfImportInBatch)
+            {
+                application.DbAccess.UpdateData(myDataSet.priceData);
+                DoAggregate(myDataSet.priceData);
+                myDataSet.priceData.Clear();
+            }
         }
         private void onAggregateData(libs.agrregateStat stat)
         {
@@ -47,30 +57,28 @@ namespace imports.forms
             this.ShowMessage(stat.count.ToString("###,###,##0") + "/" + stat.maxCount.ToString("###,###,##0"), "Aggregate " + stat.phase.ToString());
         }
 
-        private void ImportPrice()
+        private void DoImport()
         {
-            DateTime startTime = DateTime.Now;
             myDataSet.priceData.Clear();
             switch (importTypeCb.SelectedIndex)
             {
                 case 0: //Data from copheu 68
-                    myDataSet.priceData.Clear();
                     stock.ImportOHLCV_CSV(dataFileNameEd.Text,stockExchangeCb.myValue,
                                           myDataSet.priceData, OnUpdateData);
                     application.DbAccess.UpdateData(myDataSet.priceData);
-                    libs.AggregatePriceData(myDataSet.priceData, "vi-VN", onAggregateData);
+                    DoAggregate(myDataSet.priceData);
                     break;
                 case 1:
-                    myDataSet.priceData.Clear();
                     gold.ImportOHLCV_CSV(dataFileNameEd.Text,stockExchangeCb.myValue,
                                          myDataSet.priceData, OnUpdateData);
                     application.DbAccess.UpdateData(myDataSet.priceData);
-                    libs.AggregatePriceData(myDataSet.priceData, "vi-VN", onAggregateData);
+                    DoAggregate(myDataSet.priceData);
                     break;
             }
-            ShowCurrorDefault();
-            DateTime endTime = DateTime.Now;
-            this.ShowMessage(common.dateTimeLibs.TimeSpan2String(endTime.Subtract(startTime)));
+        }
+        private void DoAggregate(data.baseDS.priceDataDataTable tbl )
+        {
+            libs.AggregatePriceData(tbl, new CultureInfo("vi-VN"), onAggregateData);
         }
 
         private void importBtn_Click(object sender, System.EventArgs e)
@@ -102,9 +110,10 @@ namespace imports.forms
                 switch(actionCb.SelectedIndex)
                 {
                     case 0:
-                        ImportPrice(); 
+                        DoImport(); 
                         break;
                     case 2:
+                        CultureInfo cultureInfo = new CultureInfo("vi-VN");
                         myDataSet.stockCode.Clear();
                         this.ShowMessage("Delete aggregation data...");
                         application.DbAccess.DeletePriceSumData();
@@ -116,7 +125,7 @@ namespace imports.forms
                             this.ShowMessage("Arregate stock : " + myDataSet.stockCode[idx].code);
                             myDataSet.priceData.Clear();
                             application.DbAccess.LoadData(myDataSet.priceData, myDataSet.stockCode[idx].code);
-                            libs.AggregatePriceData(myDataSet.priceData, "vi-VN", null);
+                            libs.AggregatePriceData(myDataSet.priceData, cultureInfo, null);
                             this.ShowMessage("");
                         }
                         break;
@@ -137,7 +146,6 @@ namespace imports.forms
                 progressBar.Visible = false;
             }
         }
-
 
         private void selectFileBtn_Click(object sender, System.EventArgs e)
         {

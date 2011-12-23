@@ -4,7 +4,7 @@ using System.Collections.Specialized;
 using System.Drawing;
 using System.Text;
 using TicTacTec.TA.Library;
-
+using application.Indicators;
 using commonClass;
 
 namespace Indicators
@@ -16,7 +16,7 @@ namespace Indicators
     {
         public MFIHelper()
         {
-            Init(typeof(MFI), typeof(forms.commonForm), typeof(DataBars));
+            Init(typeof(MFI), typeof(application.forms.commonIndicatorForm), typeof(DataBars));
         }
     }
 

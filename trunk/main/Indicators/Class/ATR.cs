@@ -4,7 +4,7 @@ using System.Collections.Specialized;
 using System.Drawing;
 using System.Text;
 using TicTacTec.TA.Library;
-
+using application.Indicators;
 using commonClass;
 
 namespace Indicators
@@ -18,7 +18,7 @@ namespace Indicators
     {
         public ATRHelper()
         {
-            Init(typeof(ATR), typeof(forms.commonForm), typeof(DataBars));
+            Init(typeof(ATR), typeof(application.forms.commonIndicatorForm), typeof(DataBars));
         }
     }
 

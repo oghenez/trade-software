@@ -1,5 +1,5 @@
 ﻿using TicTacTec.TA.Library;
-
+using application.Indicators;
 using commonClass;
 
 namespace Indicators
@@ -11,7 +11,7 @@ namespace Indicators
     {
         public STDDEVHelper()
         {
-            Init(typeof(STDDEV), typeof(forms.commonForm));
+            Init(typeof(STDDEV), typeof(application.forms.commonIndicatorForm));
         }
     }
 

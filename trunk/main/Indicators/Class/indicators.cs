@@ -1,8 +1,7 @@
 ﻿using System;
 using TicTacTec.TA.Library;
-
 using commonClass;
-
+using application.Indicators;
 namespace Indicators
 {
     #region Indicator
@@ -520,28 +519,28 @@ namespace Indicators
     {
         public SMAHelper()
         {
-            Init(typeof(SMA), typeof(forms.commonForm));
+            Init(typeof(SMA), typeof(application.forms.commonIndicatorForm));
         }
     }
     public class EMAHelper : Helpers
     {
         public EMAHelper()
         {
-            Init(typeof(EMA), typeof(forms.commonForm));
+            Init(typeof(EMA), typeof(application.forms.commonIndicatorForm));
         }
     }
     public class WMAHelper : Helpers
     {
         public WMAHelper()
         {
-            Init(typeof(WMA), typeof(forms.commonForm));
+            Init(typeof(WMA), typeof(application.forms.commonIndicatorForm));
         }
     }
     public class RSIHelper : Helpers
     {
         public RSIHelper()
         {
-            Init(typeof(RSI), typeof(forms.commonForm));
+            Init(typeof(RSI), typeof(application.forms.commonIndicatorForm));
         }
     }
     public class MACDHelper : Helpers
@@ -549,7 +548,7 @@ namespace Indicators
         public MACDHelper()
         {
             //Init(typeof(MACD), typeof(forms.MACD));
-            Init(typeof(MACD), typeof(forms.commonForm));
+            Init(typeof(MACD), typeof(application.forms.commonIndicatorForm));
         }
     }
 
@@ -557,35 +556,35 @@ namespace Indicators
     {
         public ADXHelper()
         {
-            Init(typeof(ADX), typeof(forms.commonForm), typeof(DataBars));
+            Init(typeof(ADX), typeof(application.forms.commonIndicatorForm), typeof(DataBars));
         }
     }
     public class PlusDIHelper : Helpers
     {
         public PlusDIHelper()
         {
-            Init(typeof(PlusDI), typeof(forms.commonForm), typeof(DataBars));
+            Init(typeof(PlusDI), typeof(application.forms.commonIndicatorForm), typeof(DataBars));
         }
     }
     public class MinusDIHelper : Helpers
     {
         public MinusDIHelper()
         {
-            Init(typeof(MinusDI), typeof(forms.commonForm), typeof(DataBars));
+            Init(typeof(MinusDI), typeof(application.forms.commonIndicatorForm), typeof(DataBars));
         }
     }
     public class PlusDMHelper : Helpers
     {
         public PlusDMHelper()
         {
-            Init(typeof(PlusDM), typeof(forms.commonForm), typeof(DataBars));
+            Init(typeof(PlusDM), typeof(application.forms.commonIndicatorForm), typeof(DataBars));
         }
     }
     public class MinusDMHelper : Helpers
     {
         public MinusDMHelper()
         {
-            Init(typeof(MinusDM), typeof(forms.commonForm), typeof(DataBars));
+            Init(typeof(MinusDM), typeof(application.forms.commonIndicatorForm), typeof(DataBars));
         }
     }
 
@@ -593,7 +592,7 @@ namespace Indicators
     {
         public BBANDSIHelper()
         {
-            Init(typeof(BBANDS), typeof(forms.commonForm));
+            Init(typeof(BBANDS), typeof(application.forms.commonIndicatorForm));
         }
     }
 
@@ -601,7 +600,7 @@ namespace Indicators
     {
         public StochHelper()
         {
-            Init(typeof(Stoch), typeof(forms.commonForm), typeof(DataBars));
+            Init(typeof(Stoch), typeof(application.forms.commonIndicatorForm), typeof(DataBars));
         }
     }
     
@@ -609,7 +608,7 @@ namespace Indicators
     {
         public StochFHelper()
         {
-            Init(typeof(StochF), typeof(forms.commonForm), typeof(DataBars));
+            Init(typeof(StochF), typeof(application.forms.commonIndicatorForm), typeof(DataBars));
         }
     }
 
@@ -617,7 +616,7 @@ namespace Indicators
     {
         public StochRSIHelper()
         {
-            Init(typeof(StochRSI), typeof(forms.commonForm));
+            Init(typeof(StochRSI), typeof(application.forms.commonIndicatorForm));
         }
     }
 

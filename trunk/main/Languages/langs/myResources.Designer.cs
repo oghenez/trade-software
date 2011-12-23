@@ -250,15 +250,6 @@ namespace Languages.langs {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Backcolor.
-        /// </summary>
-        internal static string backColor {
-            get {
-                return ResourceManager.GetString("backColor", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Background.
         /// </summary>
         internal static string background {
@@ -1335,6 +1326,15 @@ namespace Languages.langs {
         internal static string listedQty {
             get {
                 return ResourceManager.GetString("listedQty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Failed to load data !.
+        /// </summary>
+        internal static string loadDataError {
+            get {
+                return ResourceManager.GetString("loadDataError", resourceCulture);
             }
         }
         

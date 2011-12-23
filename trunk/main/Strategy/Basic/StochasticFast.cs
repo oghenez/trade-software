@@ -1,4 +1,4 @@
-﻿using application;
+﻿using application.Strategy;
 using commonClass;
 
 namespace Strategy

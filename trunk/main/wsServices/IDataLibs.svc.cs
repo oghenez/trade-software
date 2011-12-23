@@ -157,7 +157,7 @@ namespace wsServices
         data.baseDS.investorStockDataTable GetOwnedStock(string portfolioCode);
 
         [OperationContract]
-        data.baseDS.priceDataDataTable GetLastPrice();
+        data.baseDS.lastPriceDataDataTable GetLastPrice(commonClass.PriceDataType type);
         
         [OperationContract]
         DateTime GetLastAlertTime(string investorCode);
@@ -218,5 +218,8 @@ namespace wsServices
         void Save_Global_Settings();
 
         #endregion
+
+        [OperationContract]
+        DataTable Test(string sql);
     }
 }

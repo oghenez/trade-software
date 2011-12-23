@@ -190,7 +190,7 @@ namespace Tools.Forms
                 }
                 else
                 {
-                    column.HeaderText = Strategy.Libs.GetMetaName(tbl.Columns[idx].ColumnName);
+                    column.HeaderText = application.Strategy.Libs.GetMetaName(tbl.Columns[idx].ColumnName);
                     column.Width = 90;
                     column.DefaultCellStyle = amountCellStyle;
                 }
@@ -209,7 +209,7 @@ namespace Tools.Forms
         private void SetEstimateStrategyGridText()
         {
             DataTable tbl = (DataTable)strategyEstimationGrid.DataSource;
-            StringCollection text = Strategy.Libs.GetStrategyStatsText();
+            StringCollection text = application.Strategy.Libs.GetStrategyStatsText();
             if (tbl == null || text.Count != strategyEstimationGrid.Rows.Count) return;
             for (int idx = 0; idx < text.Count; idx++)
             {
@@ -230,7 +230,7 @@ namespace Tools.Forms
                 }
                 else
                 {
-                    resultDataGrid.Columns[idx].HeaderText = Strategy.Libs.GetMetaName(tbl.Columns[idx].ColumnName);
+                    resultDataGrid.Columns[idx].HeaderText = application.Strategy.Libs.GetMetaName(tbl.Columns[idx].ColumnName);
                 }
             }
             resultDataGrid.Refresh();
@@ -333,11 +333,11 @@ namespace Tools.Forms
                     try
                     {
                         //Analysis cached data so we MUST clear cache to ensure the system run correctly
-                        Strategy.Data.ClearCache();
-                        Strategy.Data.TradePoints advices = Strategy.Libs.Analysis(analysisData, strategyList[colId]);
+                        application.Strategy.Data.ClearCache();
+                        application.Strategy.Data.TradePoints advices = application.Strategy.Libs.Analysis(analysisData, strategyList[colId]);
                         if (advices != null)
                         {
-                            row[colId + 1] = Strategy.Libs.EstimateTrading_Profit(analysisData, Strategy.Libs.ToTradePointInfo(advices), estOptions);
+                            row[colId + 1] = application.Strategy.Libs.EstimateTrading_Profit(analysisData, application.Strategy.Libs.ToTradePointInfo(advices), estOptions);
                         }
                         else row[colId + 1] = 0;
                     }
@@ -351,7 +351,7 @@ namespace Tools.Forms
                 this.ShowReccount(progressBar.Value.ToString() + "/" + progressBar.Maximum.ToString());
                 Application.DoEvents();
             }
-            SetEstimateDataGrid(Strategy.Libs.GetStrategyStats(testRetsultTbl));
+            SetEstimateDataGrid(application.Strategy.Libs.GetStrategyStats(testRetsultTbl));
         }
         private void DoBackTestUseWS()
         {
@@ -395,7 +395,7 @@ namespace Tools.Forms
                 progressBar.Value = codeEndIdx+1;
                 this.ShowReccount(progressBar.Value.ToString() + "/" + progressBar.Maximum.ToString());
             }
-            SetEstimateDataGrid(Strategy.Libs.GetStrategyStats(retsultTbl));
+            SetEstimateDataGrid(application.Strategy.Libs.GetStrategyStats(retsultTbl));
         }
 
         private void CreateContextMenu()

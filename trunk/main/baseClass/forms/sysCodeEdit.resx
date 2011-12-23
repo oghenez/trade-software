@@ -159,7 +159,7 @@
     <value>exitBtn</value>
   </data>
   <data name="&gt;&gt;exitBtn.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>common.controls.baseButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;exitBtn.Parent" xml:space="preserve">
     <value>toolBox</value>
@@ -183,7 +183,7 @@
     <value>saveBtn</value>
   </data>
   <data name="&gt;&gt;saveBtn.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>common.controls.baseButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;saveBtn.Parent" xml:space="preserve">
     <value>toolBox</value>
@@ -204,7 +204,7 @@
     <value>deleteBtn</value>
   </data>
   <data name="&gt;&gt;deleteBtn.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>common.controls.baseButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;deleteBtn.Parent" xml:space="preserve">
     <value>toolBox</value>
@@ -246,7 +246,7 @@
     <value>editBtn</value>
   </data>
   <data name="&gt;&gt;editBtn.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>common.controls.baseButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;editBtn.Parent" xml:space="preserve">
     <value>toolBox</value>
@@ -267,7 +267,7 @@
     <value>addNewBtn</value>
   </data>
   <data name="&gt;&gt;addNewBtn.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>common.controls.baseButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;addNewBtn.Parent" xml:space="preserve">
     <value>toolBox</value>
@@ -291,7 +291,7 @@
     <value>toExcelBtn</value>
   </data>
   <data name="&gt;&gt;toExcelBtn.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>common.controls.baseButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;toExcelBtn.Parent" xml:space="preserve">
     <value>toolBox</value>
@@ -309,7 +309,7 @@
     <value>findBtn</value>
   </data>
   <data name="&gt;&gt;findBtn.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>common.controls.baseButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;findBtn.Parent" xml:space="preserve">
     <value>toolBox</value>
@@ -330,7 +330,7 @@
     <value>reloadBtn</value>
   </data>
   <data name="&gt;&gt;reloadBtn.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>common.controls.baseButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;reloadBtn.Parent" xml:space="preserve">
     <value>toolBox</value>
@@ -351,7 +351,7 @@
     <value>unLockBtn</value>
   </data>
   <data name="&gt;&gt;unLockBtn.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>common.controls.baseButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;unLockBtn.Parent" xml:space="preserve">
     <value>$this</value>
@@ -372,7 +372,7 @@
     <value>lockBtn</value>
   </data>
   <data name="&gt;&gt;lockBtn.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>common.controls.baseButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lockBtn.Parent" xml:space="preserve">
     <value>$this</value>
@@ -393,7 +393,7 @@
     <value>printBtn</value>
   </data>
   <data name="&gt;&gt;printBtn.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>common.controls.baseButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;printBtn.Parent" xml:space="preserve">
     <value>toolBox</value>
@@ -405,7 +405,7 @@
     <value>importBtn</value>
   </data>
   <data name="&gt;&gt;importBtn.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>common.controls.baseButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;importBtn.Parent" xml:space="preserve">
     <value>toolBox</value>

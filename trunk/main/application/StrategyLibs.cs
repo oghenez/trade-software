@@ -11,9 +11,9 @@ using System.Reflection;
 using application;
 using commonClass;
 
-namespace Strategy
+namespace application.Strategy
 {
-    public class StrategyCatList : List<commonClass.DataCategory>
+    public class CatList : List<commonClass.DataCategory>
     {
         public commonClass.DataCategory Find(string code)
         {
@@ -155,7 +155,7 @@ namespace Strategy
     {
         public static string GetMetaName(string code)
         {
-            Meta meta = Libs.FindMetaByCode(code);
+            Meta meta = FindMetaByCode(code);
             return meta.ClassType.Name;
         }
 
@@ -264,7 +264,7 @@ namespace Strategy
         /// <returns>Null if not found</returns>
         public static Meta FindMetaByName(string name)
         {
-            return Libs.FindMetaByName(Data.MetaList, name);
+            return FindMetaByName(Data.MetaList, name);
         }
 
         /// <summary>
@@ -274,7 +274,7 @@ namespace Strategy
         /// <returns>Null if not found</returns>
         public static Meta FindMetaByCode(string code)
         {
-            return Libs.FindMetaByCode(Data.MetaList, code);
+            return FindMetaByCode(Data.MetaList, code);
         }
 
         /// <summary>
@@ -304,7 +304,7 @@ namespace Strategy
         /// <returns></returns>
         public static Meta[] FindMetaByCat(string name, AppTypes.StrategyTypes strategyType)
         {
-            return Libs.FindMetaByCat(Data.MetaList,strategyType, name);
+            return FindMetaByCat(Data.MetaList,strategyType, name);
         }
 
         /// <summary>
@@ -369,14 +369,14 @@ namespace Strategy
                                        ToolStripMenuItem toMenu,System.EventHandler handler)
             
         {
-            for (int idx1 = 0; idx1 < Data.myStrategyCatList.Count; idx1++)
+            for (int idx1 = 0; idx1 < Data.myCatList.Count; idx1++)
             {
-                Meta[] tmpMetas = Libs.FindMetaByCat(Metas, strategyType, Data.myStrategyCatList[idx1].Code);
+                Meta[] tmpMetas = FindMetaByCat(Metas, strategyType, Data.myCatList[idx1].Code);
                 if (tmpMetas == null || tmpMetas.Length == 0) continue;
 
                 ToolStripMenuItem catMenuItem = new ToolStripMenuItem();
-                catMenuItem.Name = toMenu.Name + "-group-" + Data.myStrategyCatList[idx1].Code;
-                catMenuItem.Text = Data.myStrategyCatList[idx1].Description;
+                catMenuItem.Name = toMenu.Name + "-group-" + Data.myCatList[idx1].Code;
+                catMenuItem.Text = Data.myCatList[idx1].Description;
                 toMenu.DropDownItems.Add(catMenuItem);
                 for (int idx2 = 0; idx2 < tmpMetas.Length; idx2++)
                 {
@@ -393,7 +393,7 @@ namespace Strategy
             {
                 meta = (Meta)Metas.Values[idx2];
                 if (meta.Type != strategyType) continue;
-                if (Data.myStrategyCatList.Find(meta.Category.Trim()) != null) continue;
+                if (Data.myCatList.Find(meta.Category.Trim()) != null) continue;
                 ToolStripMenuItem menuItem = new ToolStripMenuItem();
                 menuItem.Name = toMenu.Name + "-group-" + meta.ClassType.Name;
                 menuItem.Tag = meta;
@@ -431,12 +431,12 @@ namespace Strategy
             common.DictionaryList Metas = Data.MetaList;
 
             toObj.Items.Clear();
-            for (int idx1 = 0; idx1 < Data.myStrategyCatList.Count; idx1++)
+            for (int idx1 = 0; idx1 < Data.myCatList.Count; idx1++)
             {
-                Meta[] tmpMetas = Libs.FindMetaByCat(Metas, strategyType, Data.myStrategyCatList[idx1].Code);
+                Meta[] tmpMetas = FindMetaByCat(Metas, strategyType, Data.myCatList[idx1].Code);
                 if (tmpMetas == null || tmpMetas.Length == 0) continue;
 
-                toObj.Items.Add(new common.myComboBoxItem("--" + Data.myStrategyCatList[idx1].Description.Trim() + "--", ""));
+                toObj.Items.Add(new common.myComboBoxItem("--" + Data.myCatList[idx1].Description.Trim() + "--", ""));
                 for (int idx2 = 0; idx2 < tmpMetas.Length; idx2++)
                 {
                     toObj.Items.Add(new common.myComboBoxItem(tmpMetas[idx2].Name, tmpMetas[idx2].Code));
@@ -454,7 +454,7 @@ namespace Strategy
                 }
                 meta = (Meta)Metas.Values[idx2];
                 if (meta.Type != strategyType) continue;
-                if (Data.myStrategyCatList.Find(meta.Category.Trim()) != null) continue;
+                if (Data.myCatList.Find(meta.Category.Trim()) != null) continue;
                 toObj.Items.Add(new common.myComboBoxItem(meta.Name, meta.Code));
             }
         }
@@ -577,12 +577,12 @@ namespace Strategy
                             // Keep inapplicable Sells ??
                             if (commonClass.Settings.sysKeepInApplicableSell)
                             {
-                                int trandDataIdx = -1;
+                                int transDataIdx = -1;
                                 DateTime minAllowSellDate = DateTime.FromOADate(data.DateTime[lastBuyId]).Date.AddDays(buy2SellInterval);
                                 //If it is the last trade point, find the next applicable date 
                                 if (idx >= tradePoints.Length-1)
                                 {
-                                    trandDataIdx = FindDateIdx(data, tradePoints[idx].DataIdx+1, data.DateTime.Count-1, minAllowSellDate);
+                                    transDataIdx = FindDateIdx(data, tradePoints[idx].DataIdx + 1, data.DateTime.Count - 1, minAllowSellDate);
                                 }
                                 else 
                                 {
@@ -594,14 +594,14 @@ namespace Strategy
                                     else
                                     {
                                         //Find the next applicable date after this point and before next point
-                                        trandDataIdx = FindDateIdx(data, tradePoints[idx].DataIdx+1, tradePoints[idx + 1].DataIdx-1, minAllowSellDate);
+                                        transDataIdx = FindDateIdx(data, tradePoints[idx].DataIdx + 1, tradePoints[idx + 1].DataIdx - 1, minAllowSellDate);
                                     }
-                                    if (trandDataIdx < 0) myEstimationData.ignored = true;
-                                    else
-                                    {
-                                        stockPrice = (decimal)data.Close[trandDataIdx];
-                                        transDate = DateTime.FromOADate(data.DateTime[trandDataIdx]).Date;
-                                    }
+                                }
+                                if (transDataIdx < 0) myEstimationData.ignored = true;
+                                else
+                                {
+                                    stockPrice = (decimal)data.Close[transDataIdx];
+                                    transDate = DateTime.FromOADate(data.DateTime[transDataIdx]).Date;
                                 }
                             }
                             else myEstimationData.ignored = true;
@@ -707,10 +707,10 @@ namespace Strategy
                 decimal[] rowRetList = new decimal[strategyList.Count];
                 for (int colId = 0; colId < strategyList.Count; colId++)
                 {
-                    Data.TradePoints advices = Libs.Analysis(analysisData, strategyList[colId]);
+                    Data.TradePoints advices = Analysis(analysisData, strategyList[colId]);
                     if (advices != null)
                     {
-                        rowRetList[colId] = Libs.EstimateTrading_Profit(analysisData, Libs.ToTradePointInfo(advices), option);
+                        rowRetList[colId] = EstimateTrading_Profit(analysisData, ToTradePointInfo(advices), option);
                     }
                     else rowRetList[colId] = 0;
                 }
@@ -730,7 +730,7 @@ namespace Strategy
                 double[] rowRetList = new double[strategyList.Count];
                 for (int colId = 0; colId < strategyList.Count; colId++)
                 {
-                    Data.TradePoints tradePoints = Libs.Analysis(analysisData, strategyList[colId]);
+                    Data.TradePoints tradePoints = Analysis(analysisData, strategyList[colId]);
                     if (tradePoints != null && tradePoints.Count>0)
                     {
                         rowRetList[colId] = (tradePoints[tradePoints.Count - 1] as TradePointInfo).BusinessInfo.Weight;
@@ -906,7 +906,7 @@ namespace Strategy
         public static void ShowStrategyForm(Meta meta)
         {
             GetUserSettings(meta);
-            forms.baseStrategyForm form = Libs.GetStrategyForm(meta);
+            forms.baseStrategyForm form = GetStrategyForm(meta);
             form.ShowDialog();
         }
         //Read and save setting to users's XML file
@@ -964,7 +964,7 @@ namespace Strategy
         }
     }
 
-    public class Data
+    public static class Data
     {
         public const string constAssemplyNamePattern = "*strategy.dll";
 
@@ -984,7 +984,7 @@ namespace Strategy
             ClearCache();
             _sysXmlDocument = null;
             _metaList = null;
-            _myStrategyCatList = null;
+            _myCatList = null;
         }
 
         /// <summary>
@@ -1022,14 +1022,14 @@ namespace Strategy
             }
         }
 
-        private static StrategyCatList _myStrategyCatList = null;
-        public static StrategyCatList myStrategyCatList
+        private static CatList _myCatList = null;
+        public static CatList myCatList
         {
             get
             {
-                if (_myStrategyCatList == null)
+                if (_myCatList == null)
                 {
-                    _myStrategyCatList = new StrategyCatList();
+                    _myCatList = new CatList();
                     StringCollection aFields = new StringCollection();
                     int count = 0;
                     while (true)
@@ -1038,11 +1038,11 @@ namespace Strategy
                         aFields.Add("Code");
                         aFields.Add("Description");
                         if (!common.configuration.GetConfiguration(Data.sysXmlDocument, "CATEGORY", "CAT" + count.ToString(), aFields, false)) break;
-                        _myStrategyCatList.Add(new commonClass.DataCategory(aFields[0], aFields[1]));
+                        _myCatList.Add(new commonClass.DataCategory(aFields[0], aFields[1]));
                         count++;
                     }
                 }
-                return _myStrategyCatList;
+                return _myCatList;
             }
         }
 

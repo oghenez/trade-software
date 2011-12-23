@@ -47,7 +47,7 @@
     </Reference>
     <Reference Include="data, Version=2.1.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\work\stockProject\code\dlls\data.dll</HintPath>
+      <HintPath>..\dlls\data.dll</HintPath>
     </Reference>
     <Reference Include="Indicators, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -89,7 +89,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ConfigurationStrings.cs" />
     <Compile Include="IDataLibs.svc.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DataLibs.svc.cs" />

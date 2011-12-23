@@ -41,7 +41,6 @@
     <Reference Include="dataAccess, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="ExpandableGridView, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="Languages, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
-    <Reference Include="strategy, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core">
@@ -118,6 +117,7 @@
     <Compile Include="Forms\tradeAlertList.designer.cs">
       <DependentUpon>tradeAlertList.cs</DependentUpon>
     </Compile>
+    <Compile Include="libs\libs.cs" />
     <Compile Include="libs\tradeAlertLibs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Forms\alertFilter.resx">

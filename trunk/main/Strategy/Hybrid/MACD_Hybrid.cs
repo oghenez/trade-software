@@ -1,6 +1,6 @@
 ﻿//Copyright by NHQ, HCM city, 2011 
 using Indicators;
-using application;
+using application.Strategy;
 using commonClass;
 
 namespace Strategy
