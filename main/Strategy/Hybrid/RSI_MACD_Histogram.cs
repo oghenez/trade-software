@@ -1,6 +1,5 @@
 ﻿//Copyright by NHQ, HCM city, 2011 
-using application;
-
+using application.Strategy;
 namespace Strategy
 {
     public class RSI_MACD_Histogram_Helper : baseHelper

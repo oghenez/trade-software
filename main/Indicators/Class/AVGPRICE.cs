@@ -4,7 +4,7 @@ using System.Collections.Specialized;
 using System.Drawing;
 using System.Text;
 using TicTacTec.TA.Library;
-
+using application.Indicators;
 using commonClass;
 
 namespace Indicators
@@ -18,7 +18,7 @@ namespace Indicators
     {
         public AVGPRICEHelper()
         {
-            Init(typeof(AVGPRICE), typeof(forms.commonForm), typeof(DataBars));
+            Init(typeof(AVGPRICE), typeof(application.forms.commonIndicatorForm), typeof(DataBars));
         }
     }
 

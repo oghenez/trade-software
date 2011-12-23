@@ -4,7 +4,7 @@ using System.Collections.Specialized;
 using System.Drawing;
 using System.Text;
 using TicTacTec.TA.Library;
-
+using application.Indicators;
 using commonClass;
 
 
@@ -19,7 +19,7 @@ namespace Indicators
     {
         public TYPPRICEHelper()
         {
-            Init(typeof(TYPPRICE), typeof(forms.commonForm), typeof(DataBars));
+            Init(typeof(TYPPRICE), typeof(application.forms.commonIndicatorForm), typeof(DataBars));
         }
     }
 

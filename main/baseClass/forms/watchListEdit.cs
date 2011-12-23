@@ -336,10 +336,10 @@ namespace baseClass.forms
                 if (fSizing) return;
                 fSizing = true;
                 xpPanel_options.Height = xpPanelGroup_Info.Height - xpPanel_options.Location.Y;
-                xpPanel_options.Width = xpPanelGroup_Info.Width;
+                xpPanel_options.Width = xpPanelGroup_Info.Width - xpPanel_options.Location.X;
 
                 interestedStrategy.Height = xpPanel_options.Height - interestedStrategy.Location.Y;
-                interestedStrategy.Width = xpPanel_options.Width;
+                interestedStrategy.Width = xpPanel_options.Width - interestedStrategy.Location.X;
                 fSizing = false;
             }
             catch (Exception er)

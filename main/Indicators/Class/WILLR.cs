@@ -4,7 +4,7 @@ using System.Collections.Specialized;
 using System.Drawing;
 using System.Text;
 using TicTacTec.TA.Library;
-
+using application.Indicators;
 using commonClass;
 
 namespace Indicators
@@ -16,7 +16,7 @@ namespace Indicators
     {
         public WILLRHelper()
         {
-            Init(typeof(WILLR), typeof(forms.commonForm), typeof(DataBars));
+            Init(typeof(WILLR), typeof(application.forms.commonIndicatorForm), typeof(DataBars));
         }
     }
 

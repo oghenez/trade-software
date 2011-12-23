@@ -143,7 +143,7 @@ namespace test
             }
         }
 
-        private void DrawCurveIndicator(Indicators.Meta meta)
+        private void DrawCurveIndicator(application.Indicators.Meta meta)
         {
             pricePane.myGraphObj.myGraphPane.CurveList.Clear();
 
@@ -151,7 +151,7 @@ namespace test
             string curveName = meta.ClassType.Name + "-" + meta.ParameterString;
             Charts.Controls.baseGraphPanel myGraphPanel = pricePane;
 
-            commonClass.DataSeries indicatorSeries = Indicators.Libs.GetIndicatorData(this.myData, meta);
+            commonClass.DataSeries indicatorSeries = application.Indicators.Libs.GetIndicatorData(this.myData, meta);
             this.myData.DateTime.FirstValidValue = indicatorSeries.FirstValidValue;
             switch (meta.Output[0].ChartType)
             {
@@ -167,7 +167,7 @@ namespace test
             // Some indicator such as MACD having more than one output series.
             // In such case, indicator form MUST have [form.ExtraInfo] propery to provide information for the output series. 
             commonClass.DataSeries[] extraSeries = null;
-            if (meta.Output.Length > 1) extraSeries = Indicators.Libs.GetIndicatorData(indicatorSeries, meta);
+            if (meta.Output.Length > 1) extraSeries = application.Indicators.Libs.GetIndicatorData(indicatorSeries, meta);
             if (extraSeries != null)
             {
                 for (int idx = 0, metaIdx = 1; idx < extraSeries.Length && metaIdx < meta.Output.Length; idx++, metaIdx++)

@@ -18,6 +18,17 @@ namespace wsServices
 {
     public class DataLibs : IStockService
     {
+        private class DataCacheItem
+        {
+            public DataCacheItem(object obj)
+            {
+                data = obj;
+                timeStamp = DateTime.Now.Ticks; 
+            }
+            public object data = null;
+            public long timeStamp = 0; 
+        }
+
         #region system
         //Start-up function. See http://stackoverflow.com/questions/739268/wcf-application-start-event
         public DataLibs()
@@ -25,7 +36,6 @@ namespace wsServices
             SetConfig();
         }
 
-        //private static string myExecutePath = "";
         /// <summary>
         /// Customed config for web services
         /// </summary>
@@ -44,7 +54,7 @@ namespace wsServices
         public void ClearCache()
         {
             sysDataCache.Clear();
-            Strategy.Data.ClearCache();
+            application.Strategy.Data.ClearCache();
         }
 
         //Clear all caches to bring the system into initial state
@@ -59,7 +69,7 @@ namespace wsServices
             sysDataCache.Remove(cacheName);
         }
 
-        private AnalysisData GetCache_Data(string cacheName)
+        private AnalysisData GetAnalysisData(string cacheName)
         {
             object obj = sysDataCache.Find(cacheName);
             if (obj == null) return null;
@@ -121,25 +131,25 @@ namespace wsServices
         public TradePointInfo[] Analysis(string dataKey, string strategyCode)
         {
             TradePointInfo[] tradePointList = new TradePointInfo[0];
-            AnalysisData data = GetCache_Data(dataKey);
+            AnalysisData data = GetAnalysisData(dataKey);
             if (data == null) return tradePointList;
-            Strategy.Meta meta = Strategy.Libs.FindMetaByCode(strategyCode);
+            application.Strategy.Meta meta = application.Strategy.Libs.FindMetaByCode(strategyCode);
             if (meta == null) return tradePointList;
-            return Strategy.Libs.ToTradePointInfo(Strategy.Libs.Analysis(data, meta));
+            return application.Strategy.Libs.ToTradePointInfo(application.Strategy.Libs.Analysis(data, meta));
         }
 
         public List<decimal[]> Estimate_Matrix_Profit(AppTypes.TimeRanges timeRange, string timeScaleCode,
                                                       string[] stockCodeList, string[] strategyList,
                                                       EstimateOptions option)
         {
-            return Strategy.Libs.Estimate_Matrix_Profit(timeRange, AppTypes.TimeScaleFromCode(timeScaleCode), 
+            return application.Strategy.Libs.Estimate_Matrix_Profit(timeRange, AppTypes.TimeScaleFromCode(timeScaleCode), 
                                                         common.system.List2Collection(stockCodeList),
                                                         common.system.List2Collection(strategyList), option);
         }
         public List<double[]> Estimate_Matrix_LastBizWeight(AppTypes.TimeRanges timeRange, string timeScaleCode,
                                                             string[] stockCodeList, string[] strategyList)
         {
-            return Strategy.Libs.Estimate_Matrix_LastBizWeight(timeRange, AppTypes.TimeScaleFromCode(timeScaleCode),
+            return application.Strategy.Libs.Estimate_Matrix_LastBizWeight(timeRange, AppTypes.TimeScaleFromCode(timeScaleCode),
                                                         common.system.List2Collection(stockCodeList),
                                                         common.system.List2Collection(strategyList));
         }
@@ -372,14 +382,29 @@ namespace wsServices
             return tbl;
         }
 
-        public data.baseDS.priceDataDataTable GetLastPrice( )
+        public data.baseDS.lastPriceDataDataTable GetLastPrice(commonClass.PriceDataType type)
         {
-            return DbAccess.GetLastPrice();
+            string cacheName = "lastPrice-" + type.ToString();
+            data.baseDS.lastPriceDataDataTable dataTbl = null;
+            object obj = sysDataCache.Find(cacheName);
+            if (obj == null)
+            {
+                dataTbl = DbAccess.GetLastPrice(type);
+                sysDataCache.Add(cacheName, new DataCacheItem(dataTbl));
+                return dataTbl;
+            }
+            if ((obj as DataCacheItem).timeStamp + TimeSpan.FromSeconds(commonClass.Settings.sysDataDelayTimeInSecs).Ticks > DateTime.Now.Ticks)
+            {
+                return (data.baseDS.lastPriceDataDataTable)(obj as DataCacheItem).data;
+            }
+            dataTbl = DbAccess.GetLastPrice(type);
+            sysDataCache.Add(cacheName, new DataCacheItem(dataTbl));
+            return dataTbl;
         }
 
         public bool GetTransactionInfo(ref TransactionInfo transInfo)
         {
-            data.baseDS.priceDataRow priceRow = DbAccess.GetLastPrice(transInfo.stockCode);
+            data.baseDS.priceDataRow priceRow = DbAccess.GetLastPriceData(transInfo.stockCode);
             data.baseDS.portfolioRow portfolioRow = DbAccess.GetPortfolio(transInfo.portfolio);
             data.baseDS.stockExchangeRow marketRow = application.AppLibs.GetStockExchange(transInfo.stockCode);
             if (priceRow == null || portfolioRow == null || marketRow==null) return false;
@@ -541,7 +566,7 @@ namespace wsServices
         {
             string dataKey = LoadAnalysisData(timeRange, timeScaleCode, stockCode, false);
             TradePointInfo[] tradePoints = Analysis(dataKey, strategyCode);
-            toTbl = Strategy.Libs.EstimateTrading_Details(sysDataCache.Find(dataKey) as AnalysisData, tradePoints, options);
+            toTbl = application.Strategy.Libs.EstimateTrading_Details(sysDataCache.Find(dataKey) as AnalysisData, tradePoints, options);
             return tradePoints;
         }
 
@@ -576,16 +601,19 @@ namespace wsServices
 
         public object[] GetPriceByCode(string stockCode)
         {
-            data.baseDS.priceDataRow priceRow = DbAccess.GetLastPrice(stockCode);
+            data.baseDS.priceDataRow priceRow = DbAccess.GetLastPriceData(stockCode);
             if (priceRow == null) return null;
             return priceRow.ItemArray;
         }
 
-        [OperationBehavior]
-        public DataTable GetTbl()
+        //[OperationBehavior]
+        public DataTable Test(string sql)
         {
             DataTable tbl = new DataTable("testTbl");
             //populate table with sql query    
+            //DbAccess.LoadFromSQL(tbl, "SELECT *  FROM priceData where onDate<'2006/01/01'");
+            //DbAccess.LoadFromSQL(tbl, "SELECT TOP 100000 *  FROM priceData"); 
+            DbAccess.LoadFromSQL(tbl, sql); 
             return tbl;
         }
 

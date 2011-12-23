@@ -204,10 +204,9 @@
             // 
             this.interestedStrategy.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.interestedStrategy.Location = new System.Drawing.Point(24, 245);
-            this.interestedStrategy.Margin = new System.Windows.Forms.Padding(4);
             this.interestedStrategy.myDataTbl = null;
             this.interestedStrategy.Name = "interestedStrategy";
-            this.interestedStrategy.Size = new System.Drawing.Size(525, 221);
+            this.interestedStrategy.Size = new System.Drawing.Size(524, 221);
             this.interestedStrategy.TabIndex = 21;
             // 
             // interestedStockLbl

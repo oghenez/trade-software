@@ -1,5 +1,5 @@
 ﻿using TicTacTec.TA.Library;
-
+using application.Indicators;
 using commonClass;
 
 namespace Indicators
@@ -13,7 +13,7 @@ namespace Indicators
     {
         public SARHelper()
         {
-            Init(typeof(SAR), typeof(forms.commonForm), typeof(DataBars));
+            Init(typeof(SAR), typeof(application.forms.commonIndicatorForm), typeof(DataBars));
         }
     }
 

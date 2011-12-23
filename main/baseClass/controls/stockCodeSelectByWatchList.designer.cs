@@ -100,6 +100,7 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "stockCodeSelectByWatchList";
             this.Size = new System.Drawing.Size(280, 375);
+            this.Load += new System.EventHandler(this.stockCodeSelectByWatchList_Load);
             this.Resize += new System.EventHandler(this.form_Resize);
             ((System.ComponentModel.ISupportInitialize)(this.stockGV)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.stockSource)).EndInit();

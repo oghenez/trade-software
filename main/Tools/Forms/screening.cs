@@ -157,12 +157,12 @@ namespace Tools.Forms
         {
             tmpDS.screeningCode.Clear();
             tmpDS.screeningCriteria.Clear();
-            string[] screeningKeys = Strategy.Data.MetaList.Keys;
-            object[] screeningValues = Strategy.Data.MetaList.Values;
+            string[] screeningKeys = application.Strategy.Data.MetaList.Keys;
+            object[] screeningValues = application.Strategy.Data.MetaList.Values;
             Data.tmpDataSet.screeningCodeRow row;
             for (int idx = 0; idx < screeningKeys.Length; idx++)
             {
-                Strategy.Meta meta = (Strategy.Meta)screeningValues[idx];
+                application.Strategy.Meta meta = (application.Strategy.Meta)screeningValues[idx];
                 if (meta.Type != AppTypes.StrategyTypes.Screening) continue;
                 row = tmpDS.screeningCode.NewscreeningCodeRow();
                 row.code = meta.Code;
@@ -225,7 +225,7 @@ namespace Tools.Forms
                 }
                 else
                 {
-                    column.HeaderText = Strategy.Libs.GetMetaName(tbl.Columns[idx].ColumnName);
+                    column.HeaderText = application.Strategy.Libs.GetMetaName(tbl.Columns[idx].ColumnName);
                     column.Width = 90;
                     column.DefaultCellStyle = amountCellStyle;
                 }
@@ -342,8 +342,8 @@ namespace Tools.Forms
                     try
                     {
                         //Analysis cached data so we MUST clear cache to ensure the system run correctly
-                        Strategy.Data.ClearCache();
-                        Strategy.Data.TradePoints tradePoints = Strategy.Libs.Analysis(analysisData, strategyList[colId]);
+                        application.Strategy.Data.ClearCache();
+                        application.Strategy.Data.TradePoints tradePoints = application.Strategy.Libs.Analysis(analysisData, strategyList[colId]);
                         // BusinessInfo.Weight value is used as estimation value. The higher value, the better chance to match user need.
                         if (tradePoints != null && tradePoints.Count > 0)
                         {
@@ -466,9 +466,9 @@ namespace Tools.Forms
 
         private void EditScreeningOption(string code)
         {
-            Strategy.Meta meta = Strategy.Libs.FindMetaByCode(code);
+            application.Strategy.Meta meta = application.Strategy.Libs.FindMetaByCode(code);
             if (meta == null) return;
-            Strategy.Libs.ShowStrategyForm(meta);
+            application.Strategy.Libs.ShowStrategyForm(meta);
         }
         #region event handler
 

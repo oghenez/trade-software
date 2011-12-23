@@ -4,7 +4,7 @@ using System.Collections.Specialized;
 using System.Drawing;
 using System.Text;
 using TicTacTec.TA.Library;
-
+using application.Indicators;
 using commonClass;
 
 namespace Indicators
@@ -16,7 +16,7 @@ namespace Indicators
     {
         public MINMAXHelper()
         {
-            Init(typeof(MINMAX), typeof(forms.commonForm));
+            Init(typeof(MINMAX), typeof(application.forms.commonIndicatorForm));
         }
     }
 

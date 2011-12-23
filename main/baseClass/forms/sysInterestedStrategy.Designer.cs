@@ -30,9 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(sysInterestedStrategy));
             this.interestedStrategy = new baseClass.controls.watchListStrategy();
-            this.exitBtn = new System.Windows.Forms.Button();
-            this.saveBtn = new System.Windows.Forms.Button();
-            this.refreshBtn = new System.Windows.Forms.Button();
+            this.exitBtn = new common.controls.baseButton();
+            this.saveBtn = new common.controls.baseButton();
+            this.refreshBtn = new common.controls.baseButton();
             this.SuspendLayout();
             // 
             // TitleLbl
@@ -126,9 +126,9 @@
         #endregion
 
         protected baseClass.controls.watchListStrategy interestedStrategy;
-        protected System.Windows.Forms.Button exitBtn;
-        protected System.Windows.Forms.Button saveBtn;
-        protected System.Windows.Forms.Button refreshBtn;
+        protected common.controls.baseButton exitBtn;
+        protected common.controls.baseButton saveBtn;
+        protected common.controls.baseButton refreshBtn;
 
 
     }

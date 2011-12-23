@@ -6,3 +6,11 @@
         }
     }
 }
+
+namespace data.baseDSTableAdapters
+{
+    
+    
+    public partial class priceData1TableAdapter {
+    }
+}

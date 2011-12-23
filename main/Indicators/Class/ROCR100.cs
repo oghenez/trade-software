@@ -4,7 +4,7 @@ using System.Collections.Specialized;
 using System.Drawing;
 using System.Text;
 using TicTacTec.TA.Library;
-
+using application.Indicators;
 using commonClass;
 
 namespace Indicators
@@ -16,7 +16,7 @@ namespace Indicators
     {
         public ROCR100Helper()
         {
-            Init(typeof(ROCR100), typeof(forms.commonForm));
+            Init(typeof(ROCR100), typeof(application.forms.commonIndicatorForm));
         }
     }
 

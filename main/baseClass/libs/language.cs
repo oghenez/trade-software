@@ -23,6 +23,7 @@ namespace baseClass
             SetLanguage(list.Items, type);
         }
 
+        //Swicth language. Note that the order of items must be preserved
         public static void SetLanguage(ComboBox.ObjectCollection items, Type type)
         {
             StringCollection saveKeys = new StringCollection();
@@ -34,9 +35,11 @@ namespace baseClass
             if (type == typeof(AppTypes.TimeScale))
             {
                 items.Clear();
-                foreach (AppTypes.TimeScale item in AppTypes.myTimeScales)
+                for (int idx = 0; idx < saveKeys.Count; idx++)
                 {
-                    if (!saveKeys.Contains(item.Code)) continue;
+                    object obj = FindTimeScaleByCode(saveKeys[idx]);
+                    if (obj == null) continue;
+                    AppTypes.TimeScale item = (AppTypes.TimeScale)obj;
                     items.Add(new common.myComboBoxItem(item.Description, item.Code));
                 }
                 return;
@@ -45,20 +48,25 @@ namespace baseClass
             if (type == typeof(AppTypes.TradeActions))
             {
                 items.Clear();
-                foreach (AppTypes.TradeActions item in Enum.GetValues(typeof(AppTypes.TradeActions)))
+                for (int idx = 0; idx < saveKeys.Count;idx++)
                 {
-                    if (!saveKeys.Contains(item.ToString())) continue;
+                    object obj = FindCodeInEnum(saveKeys[idx], typeof(AppTypes.TradeActions));
+                    if (obj==null) continue;
+                    AppTypes.TradeActions item = (AppTypes.TradeActions)obj;
                     items.Add(new common.myComboBoxItem(AppTypes.Type2Text(item), item.ToString()));
                 }
                 return;
             }
 
+
             if (type == typeof(AppTypes.TimeRanges))
             {
                 items.Clear();
-                foreach (AppTypes.TimeRanges item in Enum.GetValues(typeof(AppTypes.TimeRanges)))
+                for (int idx = 0; idx < saveKeys.Count; idx++)
                 {
-                    if (!saveKeys.Contains(item.ToString())) continue;
+                    object obj = FindCodeInEnum(saveKeys[idx], typeof(AppTypes.TimeRanges));
+                    if (obj == null) continue;
+                    AppTypes.TimeRanges item = (AppTypes.TimeRanges)obj;
                     items.Add(new common.myComboBoxItem(AppTypes.Type2Text(item), item.ToString()));
                 }
                 return;
@@ -66,9 +74,11 @@ namespace baseClass
             if (type == typeof(AppTypes.StrategyTypes))
             {
                 items.Clear();
-                foreach (AppTypes.StrategyTypes item in Enum.GetValues(typeof(AppTypes.StrategyTypes)))
+                for (int idx = 0; idx < saveKeys.Count; idx++)
                 {
-                    if (!saveKeys.Contains(item.ToString())) continue;
+                    object obj = FindCodeInEnum(saveKeys[idx], typeof(AppTypes.StrategyTypes));
+                    if (obj == null) continue;
+                    AppTypes.StrategyTypes item = (AppTypes.StrategyTypes)obj;
                     items.Add(new common.myComboBoxItem(AppTypes.Type2Text(item), item.ToString()));
                 }
                 return;
@@ -76,9 +86,11 @@ namespace baseClass
             if (type == typeof(AppTypes.Sex))
             {
                 items.Clear();
-                foreach (AppTypes.Sex item in Enum.GetValues(typeof(AppTypes.Sex)))
+                for (int idx = 0; idx < saveKeys.Count; idx++)
                 {
-                    if (!saveKeys.Contains(item.ToString())) continue;
+                    object obj = FindCodeInEnum(saveKeys[idx], typeof(AppTypes.Sex));
+                    if (obj == null) continue;
+                    AppTypes.Sex item = (AppTypes.Sex)obj;
                     items.Add(new common.myComboBoxItem(AppTypes.Type2Text(item), item.ToString()));
                 }
                 return;
@@ -86,9 +98,11 @@ namespace baseClass
             if (type == typeof(AppTypes.CommonStatus))
             {
                 items.Clear();
-                foreach (AppTypes.CommonStatus item in Enum.GetValues(typeof(AppTypes.CommonStatus)))
+                for (int idx = 0; idx < saveKeys.Count; idx++)
                 {
-                    if (!saveKeys.Contains(item.ToString())) continue;
+                    object obj = FindCodeInEnum(saveKeys[idx], typeof(AppTypes.CommonStatus));
+                    if (obj == null) continue;
+                    AppTypes.CommonStatus item = (AppTypes.CommonStatus)obj;
                     items.Add(new common.myComboBoxItem(AppTypes.Type2Text(item), item.ToString()));
                 }
                 return;
@@ -96,9 +110,11 @@ namespace baseClass
             if (type == typeof(AppTypes.ChartTypes))
             {
                 items.Clear();
-                foreach (AppTypes.ChartTypes item in Enum.GetValues(typeof(AppTypes.ChartTypes)))
+                for (int idx = 0; idx < saveKeys.Count; idx++)
                 {
-                    if (!saveKeys.Contains(item.ToString())) continue;
+                    object obj = FindCodeInEnum(saveKeys[idx], typeof(AppTypes.ChartTypes));
+                    if (obj == null) continue;
+                    AppTypes.ChartTypes item = (AppTypes.ChartTypes)obj;
                     items.Add(new common.myComboBoxItem(AppTypes.Type2Text(item), item.ToString()));
                 }
                 return;
@@ -106,9 +122,11 @@ namespace baseClass
             if (type == typeof(AppTypes.BizSectorTypes))
             {
                 items.Clear();
-                foreach (AppTypes.BizSectorTypes item in Enum.GetValues(typeof(AppTypes.BizSectorTypes)))
+                for (int idx = 0; idx < saveKeys.Count; idx++)
                 {
-                    if (!saveKeys.Contains(item.ToString())) continue;
+                    object obj = FindCodeInEnum(saveKeys[idx], typeof(AppTypes.BizSectorTypes));
+                    if (obj == null) continue;
+                    AppTypes.BizSectorTypes item = (AppTypes.BizSectorTypes)obj;
                     items.Add(new common.myComboBoxItem(AppTypes.Type2Text(item), item.ToString()));
                 }
                 return;
@@ -126,9 +144,11 @@ namespace baseClass
             if (type == typeof(AppTypes.TimeScale))
             {
                 items.Clear();
-                foreach (AppTypes.TimeScale item in AppTypes.myTimeScales)
+                for (int idx = 0; idx < saveKeys.Count; idx++)
                 {
-                    if (!saveKeys.Contains(item.Code)) continue;
+                    object obj = FindTimeScaleByCode(saveKeys[idx]);
+                    if (obj == null) continue;
+                    AppTypes.TimeScale item = (AppTypes.TimeScale)obj;
                     items.Add(new common.myComboBoxItem(item.Description, item.Code));
                 }
                 return;
@@ -137,9 +157,11 @@ namespace baseClass
             if (type == typeof(AppTypes.TradeActions))
             {
                 items.Clear();
-                foreach (AppTypes.TradeActions item in Enum.GetValues(typeof(AppTypes.TradeActions)))
+                for (int idx = 0; idx < saveKeys.Count; idx++)
                 {
-                    if (!saveKeys.Contains(item.ToString())) continue;
+                    object obj = FindCodeInEnum(saveKeys[idx], typeof(AppTypes.TradeActions));
+                    if (obj == null) continue;
+                    AppTypes.TradeActions item = (AppTypes.TradeActions)obj;
                     items.Add(new common.myComboBoxItem(AppTypes.Type2Text(item), item.ToString()));
                 }
                 return;
@@ -148,9 +170,11 @@ namespace baseClass
             if (type == typeof(AppTypes.TimeRanges))
             {
                 items.Clear();
-                foreach (AppTypes.TimeRanges item in Enum.GetValues(typeof(AppTypes.TimeRanges)))
+                for (int idx = 0; idx < saveKeys.Count; idx++)
                 {
-                    if (!saveKeys.Contains(item.ToString())) continue;
+                    object obj = FindCodeInEnum(saveKeys[idx], typeof(AppTypes.TimeRanges));
+                    if (obj == null) continue;
+                    AppTypes.TimeRanges item = (AppTypes.TimeRanges)obj;
                     items.Add(new common.myComboBoxItem(AppTypes.Type2Text(item), item.ToString()));
                 }
                 return;
@@ -158,9 +182,11 @@ namespace baseClass
             if (type == typeof(AppTypes.StrategyTypes))
             {
                 items.Clear();
-                foreach (AppTypes.StrategyTypes item in Enum.GetValues(typeof(AppTypes.StrategyTypes)))
+                for (int idx = 0; idx < saveKeys.Count; idx++)
                 {
-                    if (!saveKeys.Contains(item.ToString())) continue;
+                    object obj = FindCodeInEnum(saveKeys[idx], typeof(AppTypes.StrategyTypes));
+                    if (obj == null) continue;
+                    AppTypes.StrategyTypes item = (AppTypes.StrategyTypes)obj;
                     items.Add(new common.myComboBoxItem(AppTypes.Type2Text(item), item.ToString()));
                 }
                 return;
@@ -168,9 +194,11 @@ namespace baseClass
             if (type == typeof(AppTypes.Sex))
             {
                 items.Clear();
-                foreach (AppTypes.Sex item in Enum.GetValues(typeof(AppTypes.Sex)))
+                for (int idx = 0; idx < saveKeys.Count; idx++)
                 {
-                    if (!saveKeys.Contains(item.ToString())) continue;
+                    object obj = FindCodeInEnum(saveKeys[idx], typeof(AppTypes.Sex));
+                    if (obj == null) continue;
+                    AppTypes.Sex item = (AppTypes.Sex)obj;
                     items.Add(new common.myComboBoxItem(AppTypes.Type2Text(item), item.ToString()));
                 }
                 return;
@@ -178,9 +206,11 @@ namespace baseClass
             if (type == typeof(AppTypes.CommonStatus))
             {
                 items.Clear();
-                foreach (AppTypes.CommonStatus item in Enum.GetValues(typeof(AppTypes.CommonStatus)))
+                for (int idx = 0; idx < saveKeys.Count; idx++)
                 {
-                    if (!saveKeys.Contains(item.ToString())) continue;
+                    object obj = FindCodeInEnum(saveKeys[idx], typeof(AppTypes.CommonStatus));
+                    if (obj == null) continue;
+                    AppTypes.CommonStatus item = (AppTypes.CommonStatus)obj;
                     items.Add(new common.myComboBoxItem(AppTypes.Type2Text(item), item.ToString()));
                 }
                 return;
@@ -188,9 +218,11 @@ namespace baseClass
             if (type == typeof(AppTypes.ChartTypes))
             {
                 items.Clear();
-                foreach (AppTypes.ChartTypes item in Enum.GetValues(typeof(AppTypes.ChartTypes)))
+                for (int idx = 0; idx < saveKeys.Count; idx++)
                 {
-                    if (!saveKeys.Contains(item.ToString())) continue;
+                    object obj = FindCodeInEnum(saveKeys[idx], typeof(AppTypes.ChartTypes));
+                    if (obj == null) continue;
+                    AppTypes.ChartTypes item = (AppTypes.ChartTypes)obj;
                     items.Add(new common.myComboBoxItem(AppTypes.Type2Text(item), item.ToString()));
                 }
                 return;
@@ -198,13 +230,41 @@ namespace baseClass
             if (type == typeof(AppTypes.BizSectorTypes))
             {
                 items.Clear();
-                foreach (AppTypes.BizSectorTypes item in Enum.GetValues(typeof(AppTypes.BizSectorTypes)))
+                for (int idx = 0; idx < saveKeys.Count; idx++)
                 {
-                    if (!saveKeys.Contains(item.ToString())) continue;
+                    object obj = FindCodeInEnum(saveKeys[idx], typeof(AppTypes.BizSectorTypes));
+                    if (obj == null) continue;
+                    AppTypes.BizSectorTypes item = (AppTypes.BizSectorTypes)obj;
                     items.Add(new common.myComboBoxItem(AppTypes.Type2Text(item), item.ToString()));
                 }
                 return;
             }
+        }
+
+        private static AppTypes.TradeActions FindTradeAction(string code)
+        {
+            foreach (AppTypes.TradeActions item in Enum.GetValues(typeof(AppTypes.TradeActions)))
+            {
+                if (item.ToString() == code) return item;
+            }
+            return AppTypes.TradeActions.None;
+        }
+        private static object FindCodeInEnum(string code,Type enumType)
+        {
+            foreach (object item in Enum.GetValues(enumType))
+            {
+                if (item.ToString() == code) return item;
+            }
+            return null;
+        }
+
+        private static object FindTimeScaleByCode(string code)
+        {
+            foreach (AppTypes.TimeScale item in AppTypes.myTimeScales)
+            {
+                if (item.Code == code) return item;
+            }
+            return null;
         }
     }
 }

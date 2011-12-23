@@ -1,5 +1,5 @@
-﻿using application;
-using Indicators;
+﻿using application.Indicators;
+using application.Strategy;
 using commonClass;
 
 namespace Strategy

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using application.Indicators;
 using commonClass;
 
 namespace Indicators
@@ -11,7 +11,7 @@ namespace Indicators
     {
         public KELTNERHelper()
         {
-            Init(typeof(KELTNER), typeof(forms.commonForm),typeof(DataBars));
+            Init(typeof(KELTNER), typeof(application.forms.commonIndicatorForm),typeof(DataBars));
         }
     }
 	public class KELTNER : DataSeries

@@ -246,6 +246,7 @@ namespace Tools.Forms
             try
             {
                 IsShowChart = true;
+                if (IsShowChart) PlotProfitChart();
             }
             catch (Exception er)
             {

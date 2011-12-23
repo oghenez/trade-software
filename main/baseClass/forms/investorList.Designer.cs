@@ -111,10 +111,6 @@
             this.investorCatLbl.Size = new System.Drawing.Size(68, 16);
             this.investorCatLbl.Text = "Category";
             // 
-            // expireDateEd
-            // 
-            this.expireDateEd.Size = new System.Drawing.Size(99, 20);
-            // 
             // expireDateLbl
             // 
             this.expireDateLbl.Size = new System.Drawing.Size(90, 16);
@@ -127,12 +123,23 @@
             // countryCb
             // 
             this.countryCb.Margin = new System.Windows.Forms.Padding(2);
-            this.countryCb.Size = new System.Drawing.Size(239, 21);
+            this.countryCb.Size = new System.Drawing.Size(239, 24);
+            // 
+            // investorCatCb
+            // 
+            this.investorCatCb.Size = new System.Drawing.Size(285, 24);
+            // 
+            // statusCb
+            // 
+            this.statusCb.Size = new System.Drawing.Size(103, 24);
+            // 
+            // sexCb
+            // 
+            this.sexCb.Size = new System.Drawing.Size(118, 24);
             // 
             // displayNameEd
             // 
             this.displayNameEd.ReadOnly = true;
-            this.displayNameEd.Size = new System.Drawing.Size(251, 20);
             // 
             // passwordEd2
             // 
@@ -258,6 +265,7 @@
             this.filterBtn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.filterBtn.Image = global::baseClass.Properties.Resources.filter;
             this.filterBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.filterBtn.isDownState = false;
             this.filterBtn.Location = new System.Drawing.Point(253, 156);
             this.filterBtn.Name = "filterBtn";
             this.filterBtn.Size = new System.Drawing.Size(79, 31);
@@ -271,6 +279,7 @@
             this.closeFindBtn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.closeFindBtn.Image = global::baseClass.Properties.Resources.close;
             this.closeFindBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.closeFindBtn.isDownState = false;
             this.closeFindBtn.Location = new System.Drawing.Point(332, 156);
             this.closeFindBtn.Name = "closeFindBtn";
             this.closeFindBtn.Size = new System.Drawing.Size(79, 31);
@@ -293,7 +302,6 @@
             this.ClientSize = new System.Drawing.Size(962, 677);
             this.Controls.Add(this.findPnl);
             this.Controls.Add(this.dataGrid);
-            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "investorList";
             this.Controls.SetChildIndex(this.infoPnl, 0);

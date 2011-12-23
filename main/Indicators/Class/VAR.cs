@@ -1,5 +1,5 @@
 ﻿using TicTacTec.TA.Library;
-
+using application.Indicators;
 using commonClass;
 
 namespace Indicators
@@ -11,7 +11,7 @@ namespace Indicators
     {
         public VARHelper()
         {
-            Init(typeof(VAR), typeof(forms.commonForm));
+            Init(typeof(VAR), typeof(application.forms.commonIndicatorForm));
         }
     }
 

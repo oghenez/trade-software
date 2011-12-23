@@ -243,7 +243,7 @@ namespace Tools.Forms
             }
             for (int rowId = 0; rowId < strategyList.Length; rowId++)
             {
-                tbl.Rows.Add(Strategy.Libs.GetMetaName(strategyList[rowId]));
+                tbl.Rows.Add(application.Strategy.Libs.GetMetaName(strategyList[rowId]));
             }
             return tbl;
         }
@@ -337,12 +337,12 @@ namespace Tools.Forms
                         {
                             testRetsultTbl.Rows[rowId][colId + 1] = 0;
                             //Analysis cached data so we MUST clear cache to ensure the system run correctly
-                            Strategy.Data.ClearCache();
-                            Strategy.Data.TradePoints advices = Strategy.Libs.Analysis(analysisData, strategyList[rowId]);
+                            application.Strategy.Data.ClearCache();
+                            application.Strategy.Data.TradePoints advices = application.Strategy.Libs.Analysis(analysisData, strategyList[rowId]);
                             if (advices != null)
                             {
                                 testRetsultTbl.Rows[rowId][colId + 1] = 
-                                    Strategy.Libs.EstimateTrading_Profit(analysisData,Strategy.Libs.ToTradePointInfo(advices),estimateOption);
+                                    application.Strategy.Libs.EstimateTrading_Profit(analysisData,application.Strategy.Libs.ToTradePointInfo(advices),estimateOption);
                             }
                         }
                     }
@@ -603,7 +603,7 @@ namespace Tools.Forms
                 for (int idx = 0; idx < resultDataGrid.SelectedRows.Count; idx++)
                 {
                     if (resultDataGrid.SelectedRows[idx] == null) continue;
-                    Strategy.Meta meta = Strategy.Libs.FindMetaByName(resultDataGrid.SelectedRows[idx].Cells[0].Value.ToString());
+                    application.Strategy.Meta meta = application.Strategy.Libs.FindMetaByName(resultDataGrid.SelectedRows[idx].Cells[0].Value.ToString());
                     strategyCodes.Add(meta.Code);
                 }
                 if (strategyCodes.Count > 0) this.AddStockToWatchList(stockCode, strategyCodes,timeScaleCb.myValue);
@@ -631,7 +631,7 @@ namespace Tools.Forms
                     {
                         for (int rowId = 0; rowId < resultDataGrid.SelectedRows.Count; rowId++)
                         {
-                            Strategy.Meta meta = Strategy.Libs.FindMetaByName(resultDataGrid.SelectedRows[rowId].Cells[0].Value.ToString());
+                            application.Strategy.Meta meta = application.Strategy.Libs.FindMetaByName(resultDataGrid.SelectedRows[rowId].Cells[0].Value.ToString());
                             for (int idx = 1; idx < resultDataGrid.ColumnCount; idx++)
                             {
                                 AppTypes.TimeRanges timeRange = AppTypes.TimeRangeFromCode(resultDataGrid.Columns[idx].DataPropertyName);
@@ -643,7 +643,7 @@ namespace Tools.Forms
                     {
                         if (resultDataGrid.CurrentRow != null)
                         {
-                            Strategy.Meta meta = Strategy.Libs.FindMetaByName(resultDataGrid.CurrentRow.Cells[0].Value.ToString());
+                            application.Strategy.Meta meta = application.Strategy.Libs.FindMetaByName(resultDataGrid.CurrentRow.Cells[0].Value.ToString());
                             for (int idx = 1; idx < resultDataGrid.ColumnCount; idx++)
                             {
                                 AppTypes.TimeRanges timeRange = AppTypes.TimeRangeFromCode(resultDataGrid.Columns[idx].DataPropertyName);
@@ -669,7 +669,7 @@ namespace Tools.Forms
                 string stockCode = resultTab.SelectedTab.Name;
                 data.tmpDS.stockCodeRow stockCodeRow = DataAccess.Libs.myStockCodeTbl.FindBycode(stockCode);
                 if (stockCodeRow == null) return;
-                Strategy.Meta meta = Strategy.Libs.FindMetaByName(resultDataGrid.CurrentRow.Cells[0].Value.ToString());
+                application.Strategy.Meta meta = application.Strategy.Libs.FindMetaByName(resultDataGrid.CurrentRow.Cells[0].Value.ToString());
 
                 int colId = resultDataGrid.CurrentCell.ColumnIndex;
                 AppTypes.TimeRanges timeRange = AppTypes.TimeRangeFromCode(resultDataGrid.Columns[colId].DataPropertyName);

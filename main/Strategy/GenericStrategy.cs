@@ -1,4 +1,5 @@
 ﻿using application;
+using application.Strategy;
 using commonClass;
 
 namespace Strategy
@@ -8,7 +9,7 @@ namespace Strategy
         /// <summary>
         /// data
         /// </summary>
-        public application.AnalysisData data;
+        public AnalysisData data;
         //Parameters for strategy
         public Parameters parameters;
 
@@ -34,7 +35,7 @@ namespace Strategy
         /// Constructor
         /// </summary>
         /// <param name="d"></param>
-        public GenericStrategy(application.AnalysisData d)
+        public GenericStrategy(AnalysisData d)
         {
             this.data = d;
             this.adviceInfo = new Data.TradePoints();
@@ -42,7 +43,7 @@ namespace Strategy
             this.trailing_stop = -1;
         }
 
-        public GenericStrategy(application.AnalysisData d, Parameters p)
+        public GenericStrategy(AnalysisData d, Parameters p)
         {
             this.data = d;
             this.parameters = p;
@@ -231,14 +232,14 @@ namespace Strategy
                     trailing_stop = -1;
                 }
         }
-        //virtual public TradePoints Execute(application.AnalysisData data, double[] paras)
-        virtual public Data.TradePoints Execute(application.AnalysisData data, double[] paras)
+        //virtual public TradePoints Execute(AnalysisData data, double[] paras)
+        virtual public Data.TradePoints Execute(AnalysisData data, double[] paras)
         {
             this.data = data;
             parameters = new Parameters(paras);
             //??Bug fixed by Dung 11 Nov 2011
             //if (adviceInfo == null)
-            //    this.adviceInfo = new Data.TradePoints();
+            //    this.adviceInfo = new StrategyData.TradePoints();
             adviceInfo = new Data.TradePoints();
             StrategyExecute();
             return adviceInfo;

@@ -4,7 +4,7 @@ using System.Collections.Specialized;
 using System.Drawing;
 using System.Text;
 using TicTacTec.TA.Library;
-
+using application.Indicators;
 using commonClass;
 
 
@@ -19,7 +19,7 @@ namespace Indicators
     {
         public HT_DCPERIODHelper()
         {
-            Init(typeof(HT_DCPERIOD), typeof(forms.commonForm));
+            Init(typeof(HT_DCPERIOD), typeof(application.forms.commonIndicatorForm));
         }
     }
 

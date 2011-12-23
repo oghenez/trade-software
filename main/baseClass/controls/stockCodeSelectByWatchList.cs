@@ -32,8 +32,6 @@ namespace baseClass.controls
                 InitGrid();
                 codeGroupCb.LoadData();
                 codeGroupCb.SelectedItem = cbStockSelection.Options.All;
-                RefreshAll();
-
                 common.dialogs.SetFileDialogEXCEL(saveFileDialog);
             }
             catch (Exception er)
@@ -42,6 +40,7 @@ namespace baseClass.controls
             }
         }
 
+        private bool fProcessing = false;
         private DataGridViewTextBoxColumn stockExchangeColumn = new DataGridViewTextBoxColumn();
         private DataGridViewTextBoxColumn codeColumn = new DataGridViewTextBoxColumn();
         private DataGridViewTextBoxColumn priceColumn = new DataGridViewTextBoxColumn();
@@ -123,29 +122,6 @@ namespace baseClass.controls
             priceColumn.HeaderText = Languages.Libs.GetString("price");
         }
 
-        protected virtual void SetListColor()
-        {
-            decimal variant = 0;
-            for (int idx = 0; idx < stockGV.RowCount; idx++)
-            {
-                variant = (decimal)stockGV.Rows[idx].Cells[priceVariantColumn.Name].Value;
-                if (variant < 0)
-                {
-                    stockGV.Rows[idx].Cells[priceVariantColumn.Name].Style.BackColor = commonClass.Settings.sysPriceColor_Decrease_BG;
-                    stockGV.Rows[idx].Cells[priceVariantColumn.Name].Style.ForeColor = commonClass.Settings.sysPriceColor_Decrease_FG;
-                    continue;
-                }
-                if (variant > 0)
-                {
-                    stockGV.Rows[idx].Cells[priceVariantColumn.Name].Style.BackColor = commonClass.Settings.sysPriceColor_Increase_BG;
-                    stockGV.Rows[idx].Cells[priceVariantColumn.Name].Style.ForeColor = commonClass.Settings.sysPriceColor_Increase_FG;
-                    continue;
-                }
-                stockGV.Rows[idx].Cells[priceVariantColumn.Name].Style.BackColor = commonClass.Settings.sysPriceColor_NotChange_BG;
-                stockGV.Rows[idx].Cells[priceVariantColumn.Name].Style.ForeColor = commonClass.Settings.sysPriceColor_NotChange_FG;
-            }
-        }
-
         public ContextMenuStrip myContextMenuStrip
         {
             get { return stockGV.ContextMenuStrip; }
@@ -177,7 +153,18 @@ namespace baseClass.controls
         }
         public void RefreshPrice()
         {
-            RefreshPriceData(this.myStockTbl);
+            try
+            {
+                if (fProcessing)  return;
+                fProcessing = true;
+                DoRefreshPrice(this.myStockTbl);
+                fProcessing = false;
+            }
+            catch (Exception er)
+            {
+                fProcessing = false;
+                ErrorHandler(this, er);
+            }
         }
 
         public void Export()
@@ -199,7 +186,6 @@ namespace baseClass.controls
             stockSource.DataSource = this.myStockTbl;
             RefreshPrice();
         }
-
         
         private void DoFilter()
         {
@@ -253,18 +239,60 @@ namespace baseClass.controls
             }
         }
 
-        private static void RefreshPriceData(data.tmpDS.stockCodeDataTable dataTbl)
+        static data.baseDS.lastPriceDataDataTable openPriceTbl = null;
+        static DateTime openPriceDate = DateTime.Now.Date;
+        private void DoRefreshPrice(data.tmpDS.stockCodeDataTable dataTbl)
         {
-            data.baseDS.priceDataDataTable priceTbl = DataAccess.Libs.GetLastPrice();
+            //Open price is the same all day.
+            if (openPriceTbl == null || openPriceDate != DateTime.Today)
+            {
+                openPriceTbl = DataAccess.Libs.GetLastPrice(commonClass.PriceDataType.Open);
+                openPriceDate = DateTime.Today;
+            }
+
+            data.baseDS.lastPriceDataDataTable priceTbl = DataAccess.Libs.GetLastPrice(commonClass.PriceDataType.Close);
+            if (priceTbl == null) return;
+
             data.tmpDS.stockCodeRow stockCodeRow;
+            data.baseDS.lastPriceDataRow openPriceRow, closePriceRow;
             dataTbl.priceColumn.ReadOnly = false;
             dataTbl.priceVariantColumn.ReadOnly = false;
-            for (int idx = 0; idx < priceTbl.Count; idx++)
+            for (int idx = 0; idx < stockGV.RowCount; idx++)
             {
-                stockCodeRow = dataTbl.FindBycode(priceTbl[idx].stockCode);
+                stockCodeRow = dataTbl.FindBycode(stockGV.Rows[idx].Cells[codeColumn.Name].Value.ToString() );
                 if (stockCodeRow == null) continue;
-                stockCodeRow.price = priceTbl[idx].closePrice;
-                stockCodeRow.priceVariant = priceTbl[idx].closePrice - priceTbl[idx].openPrice;
+                closePriceRow = priceTbl.FindBystockCode(stockGV.Rows[idx].Cells[codeColumn.Name].Value.ToString());
+                if (stockCodeRow.price != closePriceRow.value)
+                {
+                    stockCodeRow.price = closePriceRow.value;
+                    openPriceRow = openPriceTbl.FindBystockCode(stockGV.Rows[idx].Cells[codeColumn.Name].Value.ToString());
+                    if (openPriceRow!=null)
+                        stockCodeRow.priceVariant = closePriceRow.value - openPriceRow.value;
+                    else stockCodeRow.priceVariant = 0;
+                }
+            }
+        }
+        private void SetColor()
+        {
+            decimal variant = 0;
+            for (int idx = 0; idx < stockGV.RowCount; idx++)
+            {
+                //Set color
+                variant = (decimal)stockGV.Rows[idx].Cells[priceVariantColumn.Name].Value;
+                if (variant < 0)
+                {
+                    stockGV.Rows[idx].Cells[priceVariantColumn.Name].Style.BackColor = commonClass.Settings.sysPriceColor_Decrease_BG;
+                    stockGV.Rows[idx].Cells[priceVariantColumn.Name].Style.ForeColor = commonClass.Settings.sysPriceColor_Decrease_FG;
+                    continue;
+                }
+                if (variant > 0)
+                {
+                    stockGV.Rows[idx].Cells[priceVariantColumn.Name].Style.BackColor = commonClass.Settings.sysPriceColor_Increase_BG;
+                    stockGV.Rows[idx].Cells[priceVariantColumn.Name].Style.ForeColor = commonClass.Settings.sysPriceColor_Increase_FG;
+                    continue;
+                }
+                stockGV.Rows[idx].Cells[priceVariantColumn.Name].Style.BackColor = commonClass.Settings.sysPriceColor_NotChange_BG;
+                stockGV.Rows[idx].Cells[priceVariantColumn.Name].Style.ForeColor = commonClass.Settings.sysPriceColor_NotChange_FG;
             }
         }
 
@@ -315,11 +343,24 @@ namespace baseClass.controls
                 ErrorHandler(this, er);
             }
         }
+
+        private void stockCodeSelectByWatchList_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                RefreshAll();
+            }
+            catch (Exception er)
+            {
+                ErrorHandler(this, er);
+            }
+        }
+
         private void stockGV_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
             try
             {
-                if(priceVariantColumn.Visible) SetListColor();
+                SetColor();
             }
             catch (Exception er)
             {

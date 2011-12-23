@@ -235,16 +235,16 @@
     <value>Tích lũy</value>
   </data>
   <data name="buyAction" xml:space="preserve">
-    <value>Bán</value>
+    <value>Mua</value>
   </data>
   <data name="clearAllAction" xml:space="preserve">
-    <value>Bán tất cả</value>
+    <value>Bán tất</value>
   </data>
   <data name="selectAction" xml:space="preserve">
     <value>Chọn</value>
   </data>
   <data name="sellAction" xml:space="preserve">
-    <value>Mua</value>
+    <value>Bán</value>
   </data>
   <data name="about" xml:space="preserve">
     <value>Nói về</value>
@@ -697,10 +697,10 @@
     <value>Mã hiệu</value>
   </data>
   <data name="timeRange" xml:space="preserve">
-    <value>Chu kỳ</value>
+    <value>Thời gian</value>
   </data>
   <data name="timeScale" xml:space="preserve">
-    <value>Khung thời gian</value>
+    <value>Chu kỳ</value>
   </data>
   <data name="treasuryQty" xml:space="preserve">
     <value>CP Quỹ</value>
@@ -1019,5 +1019,8 @@
   </data>
   <data name="defaultStr" xml:space="preserve">
     <value>Mặc định</value>
+  </data>
+  <data name="loadDataError" xml:space="preserve">
+    <value>Có lỗi khi tải dữ liệu ! </value>
   </data>
 </root>

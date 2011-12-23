@@ -34,8 +34,8 @@
             this.codeEd = new common.controls.baseTextBox();
             this.nameEd = new common.controls.baseTextBox();
             this.descriptionLbl = new baseClass.controls.baseLabel();
-            this.saveBtn = new System.Windows.Forms.Button();
-            this.exitBtn = new System.Windows.Forms.Button();
+            this.saveBtn = new common.controls.baseButton();
+            this.exitBtn = new common.controls.baseButton();
             this.codeLbl = new baseClass.controls.baseLabel();
             this.SuspendLayout();
             // 
@@ -174,8 +174,8 @@
         protected common.controls.baseTextBox codeEd;
         protected common.controls.baseTextBox nameEd;
         protected baseClass.controls.baseLabel descriptionLbl;
-        protected System.Windows.Forms.Button saveBtn;
-        protected System.Windows.Forms.Button exitBtn;
+        protected common.controls.baseButton saveBtn;
+        protected common.controls.baseButton exitBtn;
         protected baseClass.controls.baseLabel codeLbl;
     }
 }

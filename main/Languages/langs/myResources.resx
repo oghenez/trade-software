@@ -1014,4 +1014,7 @@
   <data name="defaultStr" xml:space="preserve">
     <value>Default</value>
   </data>
+  <data name="loadDataError" xml:space="preserve">
+    <value>Failed to load data !</value>
+  </data>
 </root>

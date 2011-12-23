@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Specialized;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Windows.Forms; 
 using System.Data;
 using System.Text;
 using System.Drawing;
@@ -21,6 +22,9 @@ namespace DataAccess
     
     public static class Libs
     {
+        const int constMaxReceivedMessageSize = 655360000;
+        const int constMaxStringContentLength = 655360000;
+        const int constMaxBytesPerRead = 65536000;
         #region system
         private static ServiceReference1.StockServiceClient _myClient = null;
         private static ServiceReference1.StockServiceClient myClient
@@ -51,6 +55,15 @@ namespace DataAccess
             _myClient = new ServiceReference1.StockServiceClient();
 
             System.ServiceModel.WSHttpBinding binding = (_myClient.Endpoint.Binding as System.ServiceModel.WSHttpBinding);
+
+            binding.OpenTimeout = TimeSpan.FromSeconds(wsInfo.timeoutInSecs);
+            binding.CloseTimeout = TimeSpan.FromSeconds(wsInfo.timeoutInSecs);
+            binding.SendTimeout = TimeSpan.FromSeconds(wsInfo.timeoutInSecs);
+
+            binding.MaxReceivedMessageSize = constMaxReceivedMessageSize;
+            binding.ReaderQuotas.MaxStringContentLength = constMaxStringContentLength;
+            binding.ReaderQuotas.MaxBytesPerRead = constMaxBytesPerRead;
+
             //Proxy  must befor setting Endpoint ?
             if (wsInfo.useProxy)
             {
@@ -103,6 +116,10 @@ namespace DataAccess
                 myClient.Load_Global_Settings();
             }
         }
+        public static void Reset()
+        {
+            CloseConnection();
+        }
         public static bool TestConnection(common.configuration.wsConnectionInfo wsInfo, out string msg)
         {
             msg = "";
@@ -145,15 +162,7 @@ namespace DataAccess
         {
             cacheData.Clear();
         }
-        
-        //public static string GetAutoDataKey(string tblName)
-        //{
-        //    return application.SysLibs.GetAutoDataKey(tblName);
-        //}
-        ////public static string GetAutoDataKey(string tblName, string prefix, int maxLen, bool usePending)
-        //{
-        //    return application.SysLibs.GetAutoDataKey(tblName, prefix, maxLen, usePending);
-        //}
+       
         public static DateTime GetServerDateTime()
         {
             return myClient.GetServerDateTime();
@@ -164,6 +173,8 @@ namespace DataAccess
         #region System variables
         public static void LoadSystemVars()
         {
+            //myClient.Test("select * from priceData");
+
             object dummyObj;
             dummyObj = myStockCodeTbl;
             dummyObj = myStockExchangeTbl;
@@ -176,7 +187,7 @@ namespace DataAccess
             dummyObj = myBizSuperSectorTbl;
             dummyObj = myBizSectorTbl;
             dummyObj = myBizIndustryTbl;
-            GetStockFull(true);
+            //GetStockFull(true);
             GetSystemWatchList();
         }
 
@@ -509,9 +520,9 @@ namespace DataAccess
         public static void GetConfig(ref StringCollection aFields){}
         public static void SaveConfig(StringCollection aFields, StringCollection aValues){}
 
-        public static data.baseDS.priceDataDataTable GetLastPrice()
+        public static data.baseDS.lastPriceDataDataTable GetLastPrice(commonClass.PriceDataType type)
         {
-            return myClient.GetLastPrice();
+            return myClient.GetLastPrice(type);
         }
         //public static void GetLastPrice(data.baseDS.priceDataDataTable tbl, string stockCode)
         //{

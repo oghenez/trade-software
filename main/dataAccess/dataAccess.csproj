@@ -123,6 +123,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\DataSources\commonClass.TransactionInfo.datasource" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\DataSources\System.Data.DataTable1.datasource" />
     <None Include="serviceReferences\ServiceReference1\baseDS.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -132,6 +135,7 @@
     <None Include="serviceReferences\ServiceReference1\item2.xsd" />
     <None Include="serviceReferences\ServiceReference1\item3.xsd" />
     <None Include="serviceReferences\ServiceReference1\item4.xsd" />
+    <None Include="serviceReferences\ServiceReference1\item5.xsd" />
     <None Include="serviceReferences\ServiceReference1\tmpDS.xsd">
       <SubType>Designer</SubType>
     </None>
