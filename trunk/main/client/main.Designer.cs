@@ -202,6 +202,7 @@
             // fullScreenBtn
             // 
             this.fullScreenBtn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fullScreenBtn.isDownState = false;
             this.fullScreenBtn.Location = new System.Drawing.Point(35, 3);
             this.fullScreenBtn.Name = "fullScreenBtn";
             this.fullScreenBtn.Size = new System.Drawing.Size(28, 24);
@@ -214,6 +215,7 @@
             this.okBtn.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
             this.okBtn.FlatAppearance.BorderSize = 0;
             this.okBtn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.okBtn.isDownState = false;
             this.okBtn.Location = new System.Drawing.Point(7, 3);
             this.okBtn.Name = "okBtn";
             this.okBtn.Size = new System.Drawing.Size(28, 24);
@@ -224,6 +226,7 @@
             // strategyEstimateBtn
             // 
             this.strategyEstimateBtn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.strategyEstimateBtn.isDownState = false;
             this.strategyEstimateBtn.Location = new System.Drawing.Point(67, 3);
             this.strategyEstimateBtn.Name = "strategyEstimateBtn";
             this.strategyEstimateBtn.Size = new System.Drawing.Size(81, 24);
@@ -337,8 +340,8 @@
             this.candleSticksBtn,
             this.chartVolumeBtn,
             this.toolStripSeparator23,
-            this.zoomInBtn,
             this.zoomOutBtn,
+            this.zoomInBtn,
             this.toolStripSeparator19,
             this.chartRefreshBtn,
             this.toolStripSeparator29,
@@ -416,7 +419,7 @@
             // zoomInBtn
             // 
             this.zoomInBtn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.zoomInBtn.Image = global::client.Properties.Resources.zoomIn;
+            this.zoomInBtn.Image = global::client.Properties.Resources.zoomOut;
             this.zoomInBtn.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.zoomInBtn.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.zoomInBtn.Name = "zoomInBtn";
@@ -427,7 +430,7 @@
             // zoomOutBtn
             // 
             this.zoomOutBtn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.zoomOutBtn.Image = global::client.Properties.Resources.zoomOut;
+            this.zoomOutBtn.Image = global::client.Properties.Resources.zoomIn;
             this.zoomOutBtn.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.zoomOutBtn.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.zoomOutBtn.Name = "zoomOutBtn";
