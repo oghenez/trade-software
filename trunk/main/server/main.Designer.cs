@@ -160,7 +160,7 @@
             this.updateDataMenuItem.Image = global::server.Properties.Resources.schedule;
             this.updateDataMenuItem.Name = "updateDataMenuItem";
             this.updateDataMenuItem.Size = new System.Drawing.Size(262, 22);
-            this.updateDataMenuItem.Text = "Cập nhật giá";
+            this.updateDataMenuItem.Text = "Lấy giá trực tuyến";
             this.updateDataMenuItem.Click += new System.EventHandler(this.updateDataMenuItem_Click);
             // 
             // toolStripSeparator4

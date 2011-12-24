@@ -78,7 +78,7 @@ namespace imports.forms
         }
         private void DoAggregate(data.baseDS.priceDataDataTable tbl )
         {
-            libs.AggregatePriceData(tbl, new CultureInfo("vi-VN"), onAggregateData);
+            libs.AggregatePriceData(tbl,libs.CultureInfoVN, onAggregateData);
         }
 
         private void importBtn_Click(object sender, System.EventArgs e)
@@ -113,7 +113,6 @@ namespace imports.forms
                         DoImport(); 
                         break;
                     case 2:
-                        CultureInfo cultureInfo = new CultureInfo("vi-VN");
                         myDataSet.stockCode.Clear();
                         this.ShowMessage("Delete aggregation data...");
                         application.DbAccess.DeletePriceSumData();
@@ -125,7 +124,7 @@ namespace imports.forms
                             this.ShowMessage("Arregate stock : " + myDataSet.stockCode[idx].code);
                             myDataSet.priceData.Clear();
                             application.DbAccess.LoadData(myDataSet.priceData, myDataSet.stockCode[idx].code);
-                            libs.AggregatePriceData(myDataSet.priceData, cultureInfo, null);
+                            libs.AggregatePriceData(myDataSet.priceData,libs.CultureInfoVN, null);
                             this.ShowMessage("");
                         }
                         break;

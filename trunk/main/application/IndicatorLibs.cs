@@ -143,7 +143,7 @@ namespace application.Indicators
         }
 
         public string Category = "";
-        public Type FormType = typeof(application.forms.baseIndicatorForm);
+        public Type FormType = typeof(forms.baseIndicatorForm);
         public Type ClassType = null;
         public Type InputDataType = typeof(DataSeries);
         public bool DrawInNewWindow = false;
@@ -408,9 +408,9 @@ namespace application.Indicators
         /// </summary>
         /// <param name="meta"></param>
         /// <returns></returns>
-        public static application.forms.baseIndicatorForm GetIndicatorForm(Meta meta)
+        public static forms.baseIndicatorForm GetIndicatorForm(Meta meta)
         {
-            return (application.forms.baseIndicatorForm)Activator.CreateInstance(meta.FormType, meta);
+            return (forms.baseIndicatorForm)Activator.CreateInstance(meta.FormType, meta);
         }
         /// <summary>
         /// Find/Get indicator by name. Return null if not found
