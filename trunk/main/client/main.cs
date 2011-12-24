@@ -31,7 +31,8 @@ namespace client
             {
                 using (new common.PleaseWait(new Point(),new forms.startSplash() ))
                 {
-                    commonClass.SysLibs.myAccessMode = DataAccessMode.WebService;
+                    //commonClass.SysLibs.myAccessMode = DataAccessMode.WebService;
+                    commonClass.SysLibs.myAccessMode = DataAccessMode.Local;
                     InitializeComponent();
 
                     //test.LoadTestConfig();
@@ -83,10 +84,13 @@ namespace client
             menuItem.Click += new System.EventHandler(zoomOutMenuItem_Click);
 
             //menu for Strategy
-            contextMenuStrip.Items.Add(new ToolStripSeparator());
             System.Windows.Forms.ToolStripMenuItem strategyMenuItem = new ToolStripMenuItem();
             strategyMenuItem.Text = Languages.Libs.GetString("strategy");
+<<<<<<< .mine
+            Strategy.Libs.CreateMenu(AppTypes.StrategyTypes.Strategy, strategyMenuItem, PlotTradepointHandler);
+=======
             application.Strategy.Libs.CreateMenu(AppTypes.StrategyTypes.Strategy, strategyMenuItem, PlotTradepointHandler);
+>>>>>>> .r360
             contextMenuStrip.Items.Add(strategyMenuItem);
 
             //menu for indicator
