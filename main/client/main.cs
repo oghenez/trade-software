@@ -86,11 +86,7 @@ namespace client
             //menu for Strategy
             System.Windows.Forms.ToolStripMenuItem strategyMenuItem = new ToolStripMenuItem();
             strategyMenuItem.Text = Languages.Libs.GetString("strategy");
-<<<<<<< .mine
-            Strategy.Libs.CreateMenu(AppTypes.StrategyTypes.Strategy, strategyMenuItem, PlotTradepointHandler);
-=======
             application.Strategy.Libs.CreateMenu(AppTypes.StrategyTypes.Strategy, strategyMenuItem, PlotTradepointHandler);
->>>>>>> .r360
             contextMenuStrip.Items.Add(strategyMenuItem);
 
             //menu for indicator
