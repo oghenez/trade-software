@@ -2031,7 +2031,7 @@ SELECT onDate, stockExchange, stockCode, openPrice, lowPrice, highPrice, closePr
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::data.Properties.Settings.Default.dbConnectionString;
+            this._connection.ConnectionString = global::data.Properties.Settings.Default.importConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

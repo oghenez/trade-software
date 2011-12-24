@@ -8,7 +8,6 @@ using System.Text;
 using System.Windows.Forms;
 using ZedGraph;
 
-
 namespace application.forms
 {
     public partial class baseIndicatorForm : common.forms.baseDialogForm

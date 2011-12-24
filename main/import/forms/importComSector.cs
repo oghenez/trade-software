@@ -58,7 +58,7 @@ namespace imports.forms
                 Import_UpdateSectors(tbl);
                 Application.DoEvents();
             }
-            common.fileFuncs.WriteLog(common.Consts.constCRLF + "Companies do not have sectors");
+            common.fileFuncs.WriteLog("Companies do not have sectors");
             for (int idx = 0; idx < myDataSet.stockCode.Count; idx++)
             {
                 if (myDataSet.stockCode[idx].bizSectors.Trim() != "") continue;

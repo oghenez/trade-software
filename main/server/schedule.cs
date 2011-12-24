@@ -27,7 +27,7 @@ namespace server
         private bool fRunning = false;
         private bool fProcessingTraderAlert = false, fProcessingFetchData = false;
 
-        private int timerIntervalInSecs = 10;       //Tick event occurs each 10 second
+        private int timerIntervalInSecs = 5;        //Tick event occurs each 5 second
         private int fetchDataElapseInSeconds = 0;   //Time elapsed since the last fetch data event
         private int alertElapseInSeconds = 0;       //Time elapsed since the last trade alert event
         public scheduleForm()
@@ -64,7 +64,7 @@ namespace server
                 common.system.ShowMessage("Không thể kết nối đến nguồn dữ liệu.Xin vui lòng chạy lại chương trình [Setup].");
                 return false;
             }
-            DataAccess.Libs.Load_Global_Settings();
+            application.Configuration.Load_Global_Settings();
             application.Configuration.Load_Local_Settings();
             return true;
         }
@@ -87,10 +87,10 @@ namespace server
             int.TryParse(aFields[0], out val);
             if (val != int.MaxValue)
             {
-                fetchStockEd.Value = val;
-                fetchStockChk.Checked = true;
+                fetchInSecsEd.Value = val;
+                fetchDataChk.Checked = true;
             }
-            else fetchStockChk.Checked = false;
+            else fetchDataChk.Checked = false;
 
             int.TryParse(aFields[1], out val);
             if (val != int.MaxValue)
@@ -108,7 +108,7 @@ namespace server
             aFields.Add(this.Name + ".tradeAlertInterval");
 
             int val = 0;
-            val = (int)(fetchStockChk.Checked ? fetchStockEd.Value : int.MaxValue);
+            val = (int)(fetchDataChk.Checked ? fetchInSecsEd.Value : int.MaxValue);
             aValues.Add(val.ToString());
             val = (int)(tradeAlertChk.Checked ? tradeAlertEd.Value : int.MaxValue);
             aValues.Add(val.ToString());
@@ -148,6 +148,8 @@ namespace server
                 scheduleGb.Enabled = !fRunning;
                 fProcessingFetchData = false;
                 fProcessingTraderAlert = false;
+
+                imports.gold.ResetGetPrice();
             }
             catch (Exception er)
             {
@@ -184,16 +186,14 @@ namespace server
             if (!fRunning) return;
             try
             {
-                if (fetchStockChk.Checked)
+                if (fetchDataChk.Checked)
                 {
                     fetchDataElapseInSeconds += timerIntervalInSecs;
-                    if (!fProcessingFetchData && (fetchDataElapseInSeconds >= fetchStockEd.Value))
+                    if (!fProcessingFetchData && (fetchDataElapseInSeconds >= fetchInSecsEd.Value))
                     {
                         fProcessingFetchData = true;
-                        if (libs.AllowToUpdate(DateTime.Now))
-                        {
-                            libs.FetchRealTimeData(DateTime.Now);
-                        }
+                        this.Text = DateTime.Now.ToString();
+                        libs.FetchRealTimeData(DateTime.Now);
                         fetchDataElapseInSeconds = 0;
                         fProcessingFetchData = false;
                     }
@@ -204,11 +204,8 @@ namespace server
                     if (!fProcessingTraderAlert && (alertElapseInSeconds >= tradeAlertEd.Value))
                     {
                         fProcessingTraderAlert = true;
-                        if (libs.AllowToUpdate(DateTime.Now))
-                        {
-                            common.fileFuncs.WriteLog(DateTime.Now.ToString() + " : Trade alert start");
-                            Trade.AlertLibs.CreateTradeAlert(onTradeAlertProcessStart, onTradeAlertProcessItem, onTradeAlertProcessEnd);
-                        }
+                        common.fileFuncs.WriteLog("Trade alert start");
+                        Trade.AlertLibs.CreateTradeAlert(onTradeAlertProcessStart, onTradeAlertProcessItem, onTradeAlertProcessEnd);
                         alertElapseInSeconds = 0;
                         fProcessingTraderAlert = false;
                     }
@@ -234,7 +231,7 @@ namespace server
         {
             try
             {
-                fetchStockEd.Enabled = fetchStockChk.Checked;
+                fetchInSecsEd.Enabled = fetchDataChk.Checked;
             }
             catch (Exception er)
             {

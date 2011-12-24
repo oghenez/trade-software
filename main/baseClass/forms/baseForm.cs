@@ -22,7 +22,7 @@ namespace baseClass.forms
         public void WriteError(string code,string msg)
         {
             if (!commonClass.Settings.sysLogError) return;
-            common.fileFuncs.WriteLog(DateTime.Now.ToString() + " : " + this.Name + " : " + code + " : " + msg);
+            common.fileFuncs.WriteLog(this.Name + common.Consts.constTab + code + common.Consts.constTab + msg);
         }
     }
 }

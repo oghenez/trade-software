@@ -166,7 +166,7 @@ namespace application.Strategy
         /// <param name="myData"> Data used to calculate strategy data.</param>
         /// <param name="meta">strategy meta data</param>
         /// <returns>Null if error</returns>
-        public static Data.TradePoints Analysis(application.AnalysisData myData, Meta meta)
+        public static Data.TradePoints Analysis(AnalysisData myData, Meta meta)
         {
             string cacheName = "data-" + myData.DataStockCode + "-" + 
                                          myData.DataTimeRange.ToString() + "-" +
@@ -189,7 +189,7 @@ namespace application.Strategy
             Data.AddToCache(cacheName, tradePoints);
             return tradePoints;
         }
-        public static Data.TradePoints Analysis(application.AnalysisData myData, string strategyCode)
+        public static Data.TradePoints Analysis(AnalysisData myData, string strategyCode)
         { 
             Meta meta = FindMetaByCode(strategyCode);
             if (meta == null) return null;
@@ -486,7 +486,7 @@ namespace application.Strategy
         /// <param name="endIdx">Index where end the find</param>
         /// <param name="minDate"></param>
         /// <returns>Index of date in [data] or -1 if not found</returns>
-        private static int FindDateIdx(application.AnalysisData data, int startIdx, int endIdx, DateTime minDate)
+        private static int FindDateIdx(AnalysisData data, int startIdx, int endIdx, DateTime minDate)
         {
             for (int idx = startIdx; idx <= endIdx; idx++)
             {
@@ -507,7 +507,7 @@ namespace application.Strategy
         /// <param name="afterEachEstimationFunc">Call-back function at the end of each tradepoind estimation</param>
         /// <param name="afterEstimationFunc">Call-back function at the end of estimation process</param>
         /// 
-        public static void EstimateTrading(application.AnalysisData data, TradePointInfo[] tradePoints, EstimateOptions options,
+        public static void EstimateTrading(AnalysisData data, TradePointInfo[] tradePoints, EstimateOptions options,
                            object returnObj, AfterEachEstimationFunc afterEachEstimationFunc, AfterEstimationFunc afterEstimationFunc)
         {
             EstimationData myEstimationData = new EstimationData();
@@ -647,7 +647,7 @@ namespace application.Strategy
         /// <param name="tradePoints"></param>
         /// <param name="options"></param>
         /// <returns></returns>
-        public static decimal EstimateTrading_Profit(application.AnalysisData data, TradePointInfo[] tradePoints, EstimateOptions options)
+        public static decimal EstimateTrading_Profit(AnalysisData data, TradePointInfo[] tradePoints, EstimateOptions options)
         {
             EstimateSum myEstimateSum = new EstimateSum();
             EstimateTrading(data, tradePoints, options,myEstimateSum,null, AfterEstimation_GetProfit);
@@ -670,7 +670,7 @@ namespace application.Strategy
         /// <param name="tradePoints"></param>
         /// <param name="options"></param>
         /// <param name="toTbl"> Table of assumed transactions. Each row procides detail information of a transcation and it's profit</param>
-        public static data.tmpDS.tradeEstimateDataTable EstimateTrading_Details(application.AnalysisData data, TradePointInfo[] tradePoints, EstimateOptions options)
+        public static data.tmpDS.tradeEstimateDataTable EstimateTrading_Details(AnalysisData data, TradePointInfo[] tradePoints, EstimateOptions options)
         {
             data.tmpDS.tradeEstimateDataTable toTbl = new data.tmpDS.tradeEstimateDataTable();
             EstimateTrading(data, tradePoints, options,toTbl, AfterEachEstimation_AddToTable,null);
@@ -703,7 +703,7 @@ namespace application.Strategy
             for (int rowId = 0; rowId < stockCodeList.Count; rowId++)
             {
                 Data.ClearCache();
-                application.AnalysisData analysisData = new application.AnalysisData(timeRange, timeScale, stockCodeList[rowId], DataAccessMode.Local);
+                AnalysisData analysisData = new AnalysisData(timeRange, timeScale, stockCodeList[rowId], DataAccessMode.Local);
                 decimal[] rowRetList = new decimal[strategyList.Count];
                 for (int colId = 0; colId < strategyList.Count; colId++)
                 {
@@ -726,7 +726,7 @@ namespace application.Strategy
             for (int rowId = 0; rowId < stockCodeList.Count; rowId++)
             {
                 Data.ClearCache();
-                application.AnalysisData analysisData = new application.AnalysisData(timeRange, timeScale, stockCodeList[rowId], DataAccessMode.Local);
+                AnalysisData analysisData = new AnalysisData(timeRange, timeScale, stockCodeList[rowId], DataAccessMode.Local);
                 double[] rowRetList = new double[strategyList.Count];
                 for (int colId = 0; colId < strategyList.Count; colId++)
                 {
@@ -743,7 +743,7 @@ namespace application.Strategy
         }
 
         //??
-        public static void ExportData(string toFileName, application.AnalysisData data, params object[] paras)
+        public static void ExportData(string toFileName, AnalysisData data, params object[] paras)
         {
             if (paras.Length == 0) return;
             // Define the new datatable

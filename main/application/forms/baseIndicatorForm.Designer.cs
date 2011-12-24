@@ -61,7 +61,7 @@
             // 
             this.saveBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.saveBtn.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.saveBtn.Image = Properties.Resources.save;
+            this.saveBtn.Image = global::application.Properties.Resources.save;
             this.saveBtn.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.saveBtn.isDownState = false;
             this.saveBtn.Location = new System.Drawing.Point(218, 131);
@@ -77,7 +77,6 @@
             // 
             this.ClientSize = new System.Drawing.Size(424, 210);
             this.Controls.Add(this.saveBtn);
-            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "baseIndicatorForm";
             this.myOnProcess += new common.forms.baseDialogForm.onProcess(this.baseIndicator_myOnProcess);
             this.Controls.SetChildIndex(this.okBtn, 0);

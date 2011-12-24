@@ -78,7 +78,7 @@ namespace commonClass
 
         public static void WriteSystemLog(string text)
         {
-            common.fileFuncs.WriteLog(DateTime.Now.ToString() + common.Consts.constTab + text, common.fileFuncs.ConcatFileName(myExecuteDirectory, Consts.constFile_SysLog));
+            common.fileFuncs.WriteLog(common.Consts.constTab + text, common.fileFuncs.ConcatFileName(myExecuteDirectory, Consts.constFile_SysLog));
         }
 
         #region system environment

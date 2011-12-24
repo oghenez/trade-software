@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.paramGrid = new common.controls.baseDataGridView();
             this.nameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.valueColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -50,7 +50,7 @@
             this.closeBtn.Location = new System.Drawing.Point(469, 229);
             this.closeBtn.Size = new System.Drawing.Size(104, 26);
             this.closeBtn.TabIndex = 102;
-            this.closeBtn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.closeBtn.Text = "Close";
             this.closeBtn.Visible = false;
             // 
             // okBtn
@@ -95,10 +95,10 @@
             // 
             // valueColumn
             // 
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.Format = "N0";
-            dataGridViewCellStyle4.NullValue = null;
-            this.valueColumn.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.Format = "N0";
+            dataGridViewCellStyle1.NullValue = null;
+            this.valueColumn.DefaultCellStyle = dataGridViewCellStyle1;
             this.valueColumn.HeaderText = "Values";
             this.valueColumn.Name = "valueColumn";
             this.valueColumn.Width = 160;
@@ -136,6 +136,7 @@
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.paraDescEd.BackColor = System.Drawing.SystemColors.Control;
             this.paraDescEd.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.paraDescEd.isToUpperCase = false;
             this.paraDescEd.Location = new System.Drawing.Point(-1, 156);
             this.paraDescEd.Multiline = true;
             this.paraDescEd.Name = "paraDescEd";
@@ -150,7 +151,7 @@
             this.hintPg.Location = new System.Drawing.Point(4, 25);
             this.hintPg.Name = "hintPg";
             this.hintPg.Padding = new System.Windows.Forms.Padding(3);
-            this.hintPg.Size = new System.Drawing.Size(400, 280);
+            this.hintPg.Size = new System.Drawing.Size(400, 261);
             this.hintPg.TabIndex = 1;
             this.hintPg.Text = "Description";
             this.hintPg.UseVisualStyleBackColor = true;
@@ -161,18 +162,19 @@
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.hintTextEd.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.hintTextEd.isToUpperCase = false;
             this.hintTextEd.Location = new System.Drawing.Point(-1, 2);
             this.hintTextEd.Multiline = true;
             this.hintTextEd.Name = "hintTextEd";
             this.hintTextEd.ReadOnly = true;
-            this.hintTextEd.Size = new System.Drawing.Size(402, 207);
+            this.hintTextEd.Size = new System.Drawing.Size(402, 188);
             this.hintTextEd.TabIndex = 1;
             // 
             // saveBtn
             // 
             this.saveBtn.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.saveBtn.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.saveBtn.Image = Properties.Resources.save;
+            this.saveBtn.Image = global::application.Properties.Resources.save;
             this.saveBtn.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.saveBtn.isDownState = false;
             this.saveBtn.Location = new System.Drawing.Point(280, 223);
@@ -189,7 +191,6 @@
             this.ClientSize = new System.Drawing.Size(404, 290);
             this.Controls.Add(this.saveBtn);
             this.Controls.Add(this.tabControl);
-            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "baseStrategyForm";
             this.Text = "Strategy parameters";

@@ -13,22 +13,6 @@ namespace server
 {
     public partial class libs
     {
-        private static string _configFile = null;
-        private static string myConfigFile
-        {
-            get
-            {
-                if (_configFile == null)
-                    _configFile = common.fileFuncs.MakeFileNameFromExecutablePath(".conf");
-                return _configFile;
-            }
-        }
-
-        private static bool GetConfig(string type,string subType,StringCollection aFields)
-        {
-            return common.configuration.GetConfiguration(myConfigFile, type, subType, aFields,false);
-        }
-
         // Convert incompleted date string to date
         private static DateTime String2Date(string dateStr,DateTime curDate)
         {
@@ -43,9 +27,16 @@ namespace server
             return common.Consts.constNullDate; 
         }
 
-        // holidayRules : for example "30/04:01/05 ; 02/09"  
-        // Date in the format d/M/yyyy with/without  [M] and [yyyy] parts
-        private static bool IsHolidays(DateTime cuDateTime, string holidayRules)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="cuDateTime"></param>
+        /// <param name="holidayRules">
+        /// For example : 30/04:01/05; 02/09;7/1:7/30 
+        /// Date in the format d/M/yyyy with/without [M] and [yyyy] parts
+        /// </param>
+        /// <returns></returns>
+        public static bool IsHolidays(DateTime cuDateTime, string holidayRules)
         {
             DateTime frDate = common.Consts.constNullDate, toDate=common.Consts.constNullDate;
             string[] items = common.system.String2List(holidayRules, ";");
@@ -66,30 +57,29 @@ namespace server
             return false;
         }
 
-        //Read the config file and decide whether a task can be started or not
-        public static bool AllowToUpdate(DateTime curDateTime)
+        /// <summary>
+        /// Parse the configuratione and decide whether to update
+        /// </summary>
+        /// <param name="curDateTime"></param>
+        /// <param name="workTimes"> there may be one ore more lines as in the following
+        /// - Line 0 : 8:00;23:59;Mon,Tue,Wed,Thu,Fri
+        /// - Line 1 : 8:00;12:00;Sat
+        /// </param>
+        /// <returns></returns>
+        public static bool IsWorktime(DateTime curDateTime,StringCollection workTimeRules)
         {
             string[] list;
             DateTime dt = common.Consts.constNullDate;
-            StringCollection aFields = new StringCollection();
-            bool saveEncryption = common.configuration.withEncryption;
-            common.configuration.withEncryption = false;
-            aFields.Clear();
-            aFields.Add("Holidays");
-            if (GetConfig("UPDATEDATA", "updateTime", aFields) && IsHolidays(curDateTime, aFields[0])) return false;
-
-            int idx = -1;
-            while (true)
+            for (int idx = 0; idx < workTimeRules.Count; idx++)
             {
-                idx++;
-                aFields.Clear();
-                aFields.Add("range" + idx.ToString());
-                if (!GetConfig("UPDATEDATA", "updateTime", aFields)) break;
+                //Empty line means all time
+                if (workTimeRules[idx].Trim() == "") return true;
+
                 //"Start time"  "End Time"  "Dow,,Dow"
-                list = common.system.String2List(aFields[0], ";");
+                list = common.system.String2List(workTimeRules[idx], ";");
                 if (list.Length != 3)
                 {
-                    common.fileFuncs.WriteLog("Invalid config : " + aFields[0]);
+                    common.fileFuncs.WriteLog("Invalid config : " + workTimeRules[idx]);
                     return false;
                 }
                 //Start date
@@ -109,18 +99,34 @@ namespace server
             }
             return false;
         }
+
         public static void FetchRealTimeData(DateTime updateTime)
         {
-            StringCollection aFields = new StringCollection();
-            int idx = 0;
-            while (true)
+            data.baseDS.stockExchangeRow marketRow;
+            for (int idx = 0; idx < application.SysLibs.myStockExchangeTbl.Rows.Count; idx++)
             {
-                aFields.Clear();
-                aFields.Add("url" + idx.ToString()); aFields.Add("stockExchange" + idx.ToString());
-                if (!GetConfig("UPDATEDATA","updateSource", aFields)) break;
-                common.fileFuncs.WriteLog(updateTime.ToString() + " : update data from " + aFields[0] + " " + aFields[1]);
-                imports.stock.ImportPrice_URL(updateTime, aFields[0], aFields[1]);
-                idx++;
+                marketRow = application.SysLibs.myStockExchangeTbl[idx];
+                if (marketRow.IsdataSourceNull()) continue;
+                if (IsHolidays(updateTime, marketRow.holidays)) continue;
+                StringCollection confWorkTimes = new StringCollection { marketRow.workTime };
+                if (!IsWorktime(updateTime, confWorkTimes)) return;
+
+                string[] parts = marketRow.dataSource.Trim().Split(new char[] { '|' }, StringSplitOptions.RemoveEmptyEntries);
+                if (parts.Length < 1) continue;
+                parts[0] = parts[0].Trim().ToUpper();
+                switch (parts[0])
+                {
+                    case "VNSTOCK":
+                        imports.stock.ImportPrice_URL(updateTime, parts[1], marketRow.code);
+                        break;
+                    case "GOLD":
+                        imports.gold.ImportPrice_URL(updateTime, parts[1], marketRow.code);
+                        break;
+                    default:
+                        common.fileFuncs.WriteLog("Invalid " + marketRow.dataSource.Trim());
+                        continue;
+                }
+                common.fileFuncs.WriteLog("Updated from " + parts[1]);
             }
             return;
         }
