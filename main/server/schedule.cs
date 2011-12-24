@@ -13,17 +13,6 @@ namespace server
     //public partial class scheduleForm : common.forms.baseApplication  
     public partial class scheduleForm : baseClass.forms.baseApplication  
     {
-        private static string _configFile = null;
-        private static string myConfigFile
-        {
-            get
-            {
-                if (_configFile == null)
-                    _configFile = common.fileFuncs.MakeFileNameFromExecutablePath(".conf");
-                return _configFile;
-            }
-        }
-
         private bool fRunning = false;
         private bool fProcessingTraderAlert = false, fProcessingFetchData = false;
 
@@ -244,17 +233,6 @@ namespace server
             try
             {
                 tradeAlertEd.Enabled = tradeAlertChk.Checked;
-            }
-            catch (Exception er)
-            {
-                ShowError(er);
-            }
-        }
-        private void viewConfigBtn_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                common.fileFuncs.DisplayFile(myConfigFile);
             }
             catch (Exception er)
             {
