@@ -37,7 +37,12 @@ namespace Trade.Forms
         public ContextMenuStrip myContextMenuStrip
         {
             get { return stockCodeList.myContextMenuStrip; }
-            set { this.stockCodeList.myContextMenuStrip = value; }
+            set { this.stockCodeList.myContextMenuStrip = value;}
+        }
+
+        //bo xung de lam viec tren grid
+        public common.controls.baseDataGridView myGrid{
+            get { return stockCodeList.myGridView; }
         }
         public override void SetLanguage()
         {

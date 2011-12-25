@@ -501,7 +501,8 @@ namespace Tools.Forms
                 string stockCode = resultDataGrid.CurrentRow.Cells[0].Value.ToString();
                 if (e.ColumnIndex == 0)
                 {
-                    ShowStock(stockCode, Settings.sysScreeningTimeRange, Settings.sysScreeningTimeScale);
+                    //ShowStock(stockCode, Settings.sysScreeningTimeRange, Settings.sysScreeningTimeScale);
+                    ShowStock(stockCode, Settings.sysDefaultTimeRange, Settings.sysScreeningTimeScale);
                     return;
                 }
             }
@@ -559,7 +560,8 @@ namespace Tools.Forms
                     for (int idx = 0; idx < resultDataGrid.SelectedRows.Count; idx++)
                     {
                         stockCode = resultDataGrid.SelectedRows[idx].Cells[0].Value.ToString();
-                        ShowStock(stockCode, Settings.sysScreeningTimeRange, Settings.sysScreeningTimeScale);
+                        //ShowStock(stockCode, Settings.sysScreeningTimeRange, Settings.sysScreeningTimeScale);
+                        ShowStock(stockCode, Settings.sysDefaultTimeRange, Settings.sysScreeningTimeScale);
                     }
                 }
                 else
@@ -567,7 +569,8 @@ namespace Tools.Forms
                     if (resultDataGrid.CurrentRow != null)
                     {
                         stockCode = resultDataGrid.CurrentRow.Cells[0].Value.ToString();
-                        ShowStock(stockCode, Settings.sysScreeningTimeRange, Settings.sysScreeningTimeScale);
+                        //ShowStock(stockCode, Settings.sysScreeningTimeRange, Settings.sysScreeningTimeScale);
+                        ShowStock(stockCode, Settings.sysDefaultTimeRange, Settings.sysScreeningTimeScale);
                     }
                 }
             }
