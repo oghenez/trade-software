@@ -166,7 +166,7 @@
     <value>New</value>
   </data>
   <data name="screening" xml:space="preserve">
-    <value>Screening</value>
+    <value>Stock Ranking</value>
   </data>
   <data name="sector" xml:space="preserve">
     <value>Sector</value>
@@ -355,7 +355,7 @@
     <value>Redo</value>
   </data>
   <data name="screeningOption" xml:space="preserve">
-    <value>Screening options</value>
+    <value>Stock Ranking options</value>
   </data>
   <data name="search" xml:space="preserve">
     <value>Search</value>
