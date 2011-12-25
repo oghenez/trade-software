@@ -70,11 +70,12 @@ namespace server
         {
             string[] list;
             DateTime dt = common.Consts.constNullDate;
+            
+            //Empty  means ALL
+            if (workTimeRules.Count == 0) return true;
+
             for (int idx = 0; idx < workTimeRules.Count; idx++)
             {
-                //Empty line means all time
-                if (workTimeRules[idx].Trim() == "") return true;
-
                 //"Start time"  "End Time"  "Dow,,Dow"
                 list = common.system.String2List(workTimeRules[idx], ";");
                 if (list.Length != 3)
@@ -102,16 +103,21 @@ namespace server
 
         public static void FetchRealTimeData(DateTime updateTime)
         {
+            string[] parts;
             data.baseDS.stockExchangeRow marketRow;
-            for (int idx = 0; idx < application.SysLibs.myStockExchangeTbl.Rows.Count; idx++)
+            for (int idx1 = 0; idx1 < application.SysLibs.myStockExchangeTbl.Rows.Count; idx1++)
             {
-                marketRow = application.SysLibs.myStockExchangeTbl[idx];
+                marketRow = application.SysLibs.myStockExchangeTbl[idx1];
                 if (marketRow.IsdataSourceNull()) continue;
                 if (IsHolidays(updateTime, marketRow.holidays)) continue;
-                StringCollection confWorkTimes = new StringCollection { marketRow.workTime };
-                if (!IsWorktime(updateTime, confWorkTimes)) return;
 
-                string[] parts = marketRow.dataSource.Trim().Split(new char[] { '|' }, StringSplitOptions.RemoveEmptyEntries);
+                // WorkTimes can have multipe parts separated by charater |
+                parts = marketRow.workTime.Trim().Split(new char[] { '|' }, StringSplitOptions.RemoveEmptyEntries);
+                StringCollection confWorkTimes = new StringCollection();
+                for(int idx2=0;idx2<parts.Length;idx2++) confWorkTimes.Add(parts[idx2]);
+                if (!IsWorktime(updateTime, confWorkTimes)) continue;
+
+                parts = marketRow.dataSource.Trim().Split(new char[] { '|' }, StringSplitOptions.RemoveEmptyEntries);
                 if (parts.Length < 1) continue;
                 parts[0] = parts[0].Trim().ToUpper();
                 switch (parts[0])
