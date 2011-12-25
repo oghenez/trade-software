@@ -86,6 +86,10 @@ namespace client
             //menu for Strategy
             System.Windows.Forms.ToolStripMenuItem strategyMenuItem = new ToolStripMenuItem();
             strategyMenuItem.Text = Languages.Libs.GetString("strategy");
+<<<<<<< .mine
+            //Strategy.Libs.CreateMenu(AppTypes.StrategyTypes.Strategy, strategyMenuItem, PlotTradepointHandler);
+=======
+>>>>>>> .r365
             application.Strategy.Libs.CreateMenu(AppTypes.StrategyTypes.Strategy, strategyMenuItem, PlotTradepointHandler);
             contextMenuStrip.Items.Add(strategyMenuItem);
 
@@ -644,7 +648,14 @@ namespace client
         {
             Trade.Forms.marketWatch form = GetMarketWatchForm(true);
             form.myContextMenuStrip = CreateContextMenu_MarketWatch();
+            form.myGrid.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(NewChartMenuItem_Click);
             form.Show(dockPanel, DockState.DockLeft);
+        }
+
+        private void HideMarketWatchForm()
+        {
+            Trade.Forms.marketWatch form = GetMarketWatchForm(true);
+            form.Hide();
         }
 
         private void addToWatchListMenuItem_Click(object sender, EventArgs e)
@@ -1111,7 +1122,7 @@ namespace client
         {
             try
             {
-                commonClass.SysLibs.ExitApplication();
+                //commonClass.SysLibs.ExitApplication();
                 this.Close();
             }
             catch (Exception er)
@@ -1124,7 +1135,18 @@ namespace client
         {
             try
             {
-                ShowMarketWatchForm();
+                if (sender.GetType() != typeof(ToolStripMenuItem)) return;
+                ToolStripMenuItem menu = (ToolStripMenuItem)sender;
+                if (marketWatchMenuItem.Checked == false)
+                {
+                    marketWatchMenuItem.Checked = true;
+                    ShowMarketWatchForm();
+                }
+                else
+                {
+                    marketWatchMenuItem.Checked = false;
+                    HideMarketWatchForm();
+                }
             }
             catch (Exception er)
             {
