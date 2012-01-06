@@ -9,6 +9,7 @@ using System.Text;
 using System.Drawing;
 using System.Xml;
 using commonClass;
+using System.Net;
 
 namespace DataAccess
 {
@@ -67,6 +68,10 @@ namespace DataAccess
             //Proxy  must befor setting Endpoint ?
             if (wsInfo.useProxy)
             {
+                //Chua loi proxy http://chrishaas.wordpress.com/2009/11/02/fixing-the-remote-server-returned-an-error-417-expectation-failed/
+
+                ServicePointManager.Expect100Continue = false;
+
                 if (wsInfo.useDefaultProxy) binding.UseDefaultWebProxy = true;
                 else
                 {
@@ -96,6 +101,10 @@ namespace DataAccess
             //_myClient.Endpoint.Address = new System.ServiceModel.EndpointAddress("http://localhost:8731/wsServices/DataLibs"); 
             //_myClient.ClientCredentials.Windows.ClientCredential.UserName = "";
             //_myClient.ClientCredentials.Windows.ClientCredential.Password = "";
+            //ServicePointManager.UseNagleAlgorithm = true;            
+            //ServicePointManager.CheckCertificateRevocationList = true;
+            //ServicePointManager.DefaultConnectionLimit = ServicePointManager.DefaultPersistentConnectionLimit;
+
             _myClient.Open();
         }
         private static void CloseConnection()

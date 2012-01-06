@@ -17,5 +17,11 @@ namespace Tools.Forms
             data.baseDS.investorDataTable investor=DataAccess.Libs.GetInvestor_ByCode(commonClass.SysLibs.sysLoginCode);
             TitleLbl.Text = "Hi " + investor[0].firstName + investor[0].lastName + ",\r\n" + TitleLbl.Text;
         }
+
+        private void MarketSummary_Load(object sender, EventArgs e)
+        {
+            //Define trends of a Stock (SSI)
+            
+        }
     }
 }
