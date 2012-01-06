@@ -86,10 +86,7 @@ namespace client
             //menu for Strategy
             System.Windows.Forms.ToolStripMenuItem strategyMenuItem = new ToolStripMenuItem();
             strategyMenuItem.Text = Languages.Libs.GetString("strategy");
-<<<<<<< .mine
             //Strategy.Libs.CreateMenu(AppTypes.StrategyTypes.Strategy, strategyMenuItem, PlotTradepointHandler);
-=======
->>>>>>> .r365
             application.Strategy.Libs.CreateMenu(AppTypes.StrategyTypes.Strategy, strategyMenuItem, PlotTradepointHandler);
             contextMenuStrip.Items.Add(strategyMenuItem);
 
@@ -378,6 +375,7 @@ namespace client
             using (new DataAccess.PleaseWait())
             {
                 ShowMarketWatchForm();
+                
             }
         }
         private void CloseAllForms(bool excludeSysForm)

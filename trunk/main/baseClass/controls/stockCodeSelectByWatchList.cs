@@ -74,6 +74,7 @@ namespace baseClass.controls
             this.codeColumn.DataPropertyName = this.myStockTbl.codeColumn.ColumnName;
             this.codeColumn.HeaderText = "Code";
             this.codeColumn.Name = gridColumnName.StockCode.ToString();
+            //this.codeColumn.ToolTipText = gridColumnName.StockName.ToString();
             this.codeColumn.Width = 55;
             // 
             // priceColumn
@@ -295,6 +296,16 @@ namespace baseClass.controls
                 stockGV.Rows[idx].Cells[priceVariantColumn.Name].Style.ForeColor = commonClass.Settings.sysPriceColor_NotChange_FG;
             }
         }
+
+        //private void SetToolTips()
+        //{
+        //    decimal variant = 0;
+        //    DataAccess.Libs.myStockCodeTbl.gets
+        //    for (int idx = 0; idx < stockGV.RowCount; idx++)
+        //    {
+        //        stockGV.Rows[idx].Cells[codeColumn.Name].ToolTipText = application.;
+        //    }
+        //}
 
         private void form_Resize(object sender, EventArgs e)
         {
