@@ -41,13 +41,17 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.baseLabel9 = new baseClass.controls.baseLabel();
+            this.baseLabel10 = new baseClass.controls.baseLabel();
+            this.baseLabel11 = new baseClass.controls.baseLabel();
+            this.baseLabel12 = new baseClass.controls.baseLabel();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -75,7 +79,7 @@
             // 
             this.baseLabel3.AutoSize = true;
             this.baseLabel3.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.baseLabel3.Location = new System.Drawing.Point(11, 48);
+            this.baseLabel3.Location = new System.Drawing.Point(18, 130);
             this.baseLabel3.Name = "baseLabel3";
             this.baseLabel3.Size = new System.Drawing.Size(85, 16);
             this.baseLabel3.TabIndex = 1;
@@ -85,7 +89,7 @@
             // 
             this.baseLabel4.AutoSize = true;
             this.baseLabel4.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.baseLabel4.Location = new System.Drawing.Point(11, 88);
+            this.baseLabel4.Location = new System.Drawing.Point(18, 170);
             this.baseLabel4.Name = "baseLabel4";
             this.baseLabel4.Size = new System.Drawing.Size(89, 16);
             this.baseLabel4.TabIndex = 1;
@@ -134,7 +138,7 @@
             // 
             this.baseLabel7.AutoSize = true;
             this.baseLabel7.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.baseLabel7.Location = new System.Drawing.Point(187, 13);
+            this.baseLabel7.Location = new System.Drawing.Point(512, 241);
             this.baseLabel7.Name = "baseLabel7";
             this.baseLabel7.Size = new System.Drawing.Size(143, 16);
             this.baseLabel7.TabIndex = 1;
@@ -163,20 +167,23 @@
             // panel2
             // 
             this.panel2.Controls.Add(this.baseLabel4);
-            this.panel2.Controls.Add(this.baseLabel7);
             this.panel2.Controls.Add(this.baseLabel1);
+            this.panel2.Controls.Add(this.baseLabel10);
+            this.panel2.Controls.Add(this.baseLabel12);
+            this.panel2.Controls.Add(this.baseLabel11);
+            this.panel2.Controls.Add(this.baseLabel9);
             this.panel2.Controls.Add(this.baseLabel3);
             this.panel2.Location = new System.Drawing.Point(15, 228);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(449, 130);
+            this.panel2.Size = new System.Drawing.Size(449, 189);
             this.panel2.TabIndex = 147;
             // 
             // panel3
             // 
             this.panel3.Controls.Add(this.lblDisclaimer);
-            this.panel3.Location = new System.Drawing.Point(15, 366);
+            this.panel3.Location = new System.Drawing.Point(12, 423);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(453, 73);
+            this.panel3.Size = new System.Drawing.Size(453, 34);
             this.panel3.TabIndex = 148;
             // 
             // panel4
@@ -189,14 +196,14 @@
             this.panel4.Size = new System.Drawing.Size(254, 90);
             this.panel4.TabIndex = 149;
             // 
-            // label1
+            // label3
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(11, 4);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(105, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Investors Sentiments";
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(14, 50);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(169, 13);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "50% Investors like Finance Stocks";
             // 
             // label2
             // 
@@ -207,14 +214,14 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "20% Investors like Mining Stocks";
             // 
-            // label3
+            // label1
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(14, 50);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(169, 13);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "50% Investors like Finance Stocks";
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(11, 4);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(105, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Investors Sentiments";
             // 
             // panel5
             // 
@@ -253,13 +260,54 @@
             this.label6.TabIndex = 0;
             this.label6.Text = "Investors Best Strategies";
             // 
+            // baseLabel9
+            // 
+            this.baseLabel9.AutoSize = true;
+            this.baseLabel9.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.baseLabel9.Location = new System.Drawing.Point(121, 130);
+            this.baseLabel9.Name = "baseLabel9";
+            this.baseLabel9.Size = new System.Drawing.Size(98, 16);
+            this.baseLabel9.TabIndex = 1;
+            this.baseLabel9.Text = "SSI, CTG, AAA";
+            // 
+            // baseLabel10
+            // 
+            this.baseLabel10.AutoSize = true;
+            this.baseLabel10.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.baseLabel10.Location = new System.Drawing.Point(121, 170);
+            this.baseLabel10.Name = "baseLabel10";
+            this.baseLabel10.Size = new System.Drawing.Size(98, 16);
+            this.baseLabel10.TabIndex = 1;
+            this.baseLabel10.Text = "SSI, CTG, AAA";
+            // 
+            // baseLabel11
+            // 
+            this.baseLabel11.AutoSize = true;
+            this.baseLabel11.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.baseLabel11.Location = new System.Drawing.Point(20, 42);
+            this.baseLabel11.Name = "baseLabel11";
+            this.baseLabel11.Size = new System.Drawing.Size(102, 16);
+            this.baseLabel11.TabIndex = 1;
+            this.baseLabel11.Text = "SSI Trends: UP";
+            // 
+            // baseLabel12
+            // 
+            this.baseLabel12.AutoSize = true;
+            this.baseLabel12.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.baseLabel12.Location = new System.Drawing.Point(20, 67);
+            this.baseLabel12.Name = "baseLabel12";
+            this.baseLabel12.Size = new System.Drawing.Size(123, 16);
+            this.baseLabel12.TabIndex = 1;
+            this.baseLabel12.Text = "ACB Trend: DOWN";
+            // 
             // MarketSummary
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(811, 464);
+            this.ClientSize = new System.Drawing.Size(811, 469);
             this.Controls.Add(this.panel5);
+            this.Controls.Add(this.baseLabel7);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
@@ -268,12 +316,14 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "MarketSummary";
             this.Text = "Market Overview";
+            this.Load += new System.EventHandler(this.MarketSummary_Load);
             this.Controls.SetChildIndex(this.TitleLbl, 0);
             this.Controls.SetChildIndex(this.baseLabel6, 0);
             this.Controls.SetChildIndex(this.panel1, 0);
             this.Controls.SetChildIndex(this.panel2, 0);
             this.Controls.SetChildIndex(this.panel3, 0);
             this.Controls.SetChildIndex(this.panel4, 0);
+            this.Controls.SetChildIndex(this.baseLabel7, 0);
             this.Controls.SetChildIndex(this.panel5, 0);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -312,5 +362,9 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
+        private baseClass.controls.baseLabel baseLabel10;
+        private baseClass.controls.baseLabel baseLabel9;
+        private baseClass.controls.baseLabel baseLabel12;
+        private baseClass.controls.baseLabel baseLabel11;
     }
 }
