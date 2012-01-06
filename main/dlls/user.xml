@@ -71,4 +71,31 @@
   <A00000004>
     <Others imgFilePathComanyLogo2="" />
   </A00000004>
+  <A00000005>
+    <ChartSettings sysChartShowDescription="True" />
+  </A00000005>
+  <A00000005>
+    <ChartSettings sysChartShowVolume="False" />
+  </A00000005>
+  <A00000005>
+    <ChartSettings sysChartShowGrid="False" />
+  </A00000005>
+  <A00000005>
+    <ChartSettings sysChartShowLegend="False" />
+  </A00000005>
+  <A00000005>
+    <ChartSettings sysZoomRate="2" />
+  </A00000005>
+  <A00000005>
+    <ChartSettings sysPAN_MouseRate="2" />
+  </A00000005>
+  <A00000005>
+    <ChartSettings sysPAN_MoveCount="6" />
+  </A00000005>
+  <A00000005>
+    <ChartSettings sysViewSpaceAtLEFT="0" />
+  </A00000005>
+  <A00000005>
+    <ChartSettings sysViewSpaceAtRIGHT="12" />
+  </A00000005>
 </Configuration>

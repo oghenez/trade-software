@@ -174,10 +174,10 @@
             this.formatStrip = new System.Windows.Forms.ToolStrip();
             this.amountBtn = new System.Windows.Forms.ToolStripButton();
             this.percentBtn = new System.Windows.Forms.ToolStripButton();
-            this.periodicityStrip = new System.Windows.Forms.ToolStrip();
-            this.dummyStripBtn = new System.Windows.Forms.ToolStripButton();
             this.strategyStrip = new System.Windows.Forms.ToolStrip();
             this.strategyCbStrip = new baseClass.controls.ToolStripCbStrategy();
+            this.periodicityStrip = new System.Windows.Forms.ToolStrip();
+            this.dummyStripBtn = new System.Windows.Forms.ToolStripButton();
             this.sysTimer = new System.Windows.Forms.Timer(this.components);
             this.chartStrip.SuspendLayout();
             this.standartStrip.SuspendLayout();
@@ -185,8 +185,8 @@
             this.mainMenu.SuspendLayout();
             this.toolStripPanel.SuspendLayout();
             this.formatStrip.SuspendLayout();
-            this.periodicityStrip.SuspendLayout();
             this.strategyStrip.SuspendLayout();
+            this.periodicityStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // TitleLbl
@@ -1325,6 +1325,24 @@
             this.percentBtn.Size = new System.Drawing.Size(23, 22);
             this.percentBtn.Click += new System.EventHandler(this.percentBtn_Click);
             // 
+            // strategyStrip
+            // 
+            this.strategyStrip.Dock = System.Windows.Forms.DockStyle.None;
+            this.strategyStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.strategyCbStrip});
+            this.strategyStrip.Location = new System.Drawing.Point(674, 24);
+            this.strategyStrip.Name = "strategyStrip";
+            this.strategyStrip.Size = new System.Drawing.Size(314, 25);
+            this.strategyStrip.TabIndex = 149;
+            // 
+            // strategyCbStrip
+            // 
+            this.strategyCbStrip.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.strategyCbStrip.myValue = "";
+            this.strategyCbStrip.Name = "strategyCbStrip";
+            this.strategyCbStrip.SelectedValue = "";
+            this.strategyCbStrip.Size = new System.Drawing.Size(300, 25);
+            // 
             // periodicityStrip
             // 
             this.periodicityStrip.Dock = System.Windows.Forms.DockStyle.None;
@@ -1344,24 +1362,6 @@
             this.dummyStripBtn.Size = new System.Drawing.Size(79, 22);
             this.dummyStripBtn.Text = "Auto created";
             // 
-            // strategyStrip
-            // 
-            this.strategyStrip.Dock = System.Windows.Forms.DockStyle.None;
-            this.strategyStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.strategyCbStrip});
-            this.strategyStrip.Location = new System.Drawing.Point(674, 24);
-            this.strategyStrip.Name = "strategyStrip";
-            this.strategyStrip.Size = new System.Drawing.Size(314, 25);
-            this.strategyStrip.TabIndex = 149;
-            // 
-            // strategyCbStrip
-            // 
-            this.strategyCbStrip.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.strategyCbStrip.myValue = "";
-            this.strategyCbStrip.Name = "strategyCbStrip";
-            this.strategyCbStrip.SelectedValue = "";
-            this.strategyCbStrip.Size = new System.Drawing.Size(300, 25);
-            // 
             // sysTimer
             // 
             this.sysTimer.Interval = 2000;
@@ -1380,7 +1380,7 @@
             this.Margin = new System.Windows.Forms.Padding(3);
             this.MaximizeBox = true;
             this.Name = "main";
-            this.Text = "Trading ";
+            this.Text = "Quantum Automatic Trading System";
             this.Load += new System.EventHandler(this.main_Load);
             this.Controls.SetChildIndex(this.toolStripPanel, 0);
             this.Controls.SetChildIndex(this.dockPanel, 0);
@@ -1397,10 +1397,10 @@
             this.toolStripPanel.PerformLayout();
             this.formatStrip.ResumeLayout(false);
             this.formatStrip.PerformLayout();
-            this.periodicityStrip.ResumeLayout(false);
-            this.periodicityStrip.PerformLayout();
             this.strategyStrip.ResumeLayout(false);
             this.strategyStrip.PerformLayout();
+            this.periodicityStrip.ResumeLayout(false);
+            this.periodicityStrip.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 

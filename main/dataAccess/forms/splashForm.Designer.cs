@@ -43,7 +43,7 @@
             // 
             // splashForm
             // 
-            this.BackColor = System.Drawing.Color.Bisque;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.ClientSize = new System.Drawing.Size(265, 240);
             this.Name = "splashForm";
             ((System.ComponentModel.ISupportInitialize)(this.waitingPB)).EndInit();
