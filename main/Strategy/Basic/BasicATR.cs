@@ -97,7 +97,7 @@ namespace Strategy
             Indicators.MIN min = Indicators.MIN.Series(data.Close, parameters[0], "min");
             Indicators.MAX max = Indicators.MAX.Series(data.Close, parameters[0], "max");
 
-            for (int idx = 0; idx < data.Close.Count - 1; idx++)
+            for (int idx = 0; idx < data.Close.Count ; idx++)
             {
                 if (rule.isValid_forBuy(idx))
                 {

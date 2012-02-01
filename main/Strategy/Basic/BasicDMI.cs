@@ -133,7 +133,7 @@ namespace Strategy
             Indicators.MIN min = Indicators.MIN.Series(data.Close, parameters[0], "min");
             Indicators.MAX max = Indicators.MAX.Series(data.Close, parameters[1], "max");
 
-            for (int idx = 0; idx < data.Close.Count-1; idx++)
+            for (int idx = 0; idx < data.Close.Count; idx++)
             {
                 if (rule.isValid_forBuy(idx))
                 {
@@ -181,33 +181,6 @@ namespace Strategy
                 if (is_bought && TakeProfitCondition(data.Close[idx], buy_price, takeprofitlevel))
                     SellTakeProfit(idx);
             }
-
-            //DataSeries minusDmi_14 = new Indicators.MinusDI(data.Bars, parameters[0], "");
-            //DataSeries plusDmi_14 = new Indicators.PlusDI(data.Bars, parameters[1], "");
-            //int cutlosslevel = (int)parameters[2];
-            //int takeprofitlevel = (int)parameters[3];
-
-            //AppTypes.MarketTrend lastTrend = AppTypes.MarketTrend.Unspecified;
-            //AppTypes.MarketTrend currentTrend = AppTypes.MarketTrend.Unspecified;
-
-            //for (int idx = 0; idx < minusDmi_14.Count; idx++)
-            //{
-            //    currentTrend = ((plusDmi_14[idx] > minusDmi_14[idx]) ? AppTypes.MarketTrend.Upward : AppTypes.MarketTrend.Downward);
-            //    Buy Condition
-            //    if (lastTrend == AppTypes.MarketTrend.Downward && currentTrend == AppTypes.MarketTrend.Upward)
-            //        BuyAtClose(idx);
-
-            //    Sell Condition
-            //    if (is_bought && lastTrend == AppTypes.MarketTrend.Upward && currentTrend == AppTypes.MarketTrend.Downward)
-            //        SellAtClose(idx);
-
-            //    if (is_bought && CutLossCondition(data.Close[idx], buy_price, cutlosslevel))
-            //        SellCutLoss(idx);
-
-            //    if (is_bought && TakeProfitCondition(data.Close[idx], buy_price, takeprofitlevel))
-            //        SellTakeProfit(idx);
-            //    lastTrend = currentTrend;
-            //}
         }
     }
     #   endregion

@@ -35,6 +35,9 @@ namespace baseClass.controls
             codeGroupCb.SetLanguage();
         }
 
+        /// <summary>
+        /// Load Stock List depends on cbStockSelection.Options
+        /// </summary>
         public override void LoadStockList()
         {
             DataView stockCodeView = null;
@@ -103,6 +106,16 @@ namespace baseClass.controls
             LoadStockList();
             selectAllChk.Checked = false;
             onlySeletedChk.Checked = false;
+        }
+
+        public void CheckStockCode(string code)
+        {
+            for (int i = 0; i < stockCodeClb.Items.Count; i++)
+                if (stockCodeClb.Items[i].ToString().Contains(code))
+                {
+                    stockCodeClb.SetItemChecked(i, true);
+                    break;
+                }
         }
     }
 }

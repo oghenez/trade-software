@@ -144,16 +144,16 @@
             this.toolStripSeparator14 = new System.Windows.Forms.ToolStripSeparator();
             this.chartPropertyMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.screeningMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.strategyEstimationMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.backTestingMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.strategyRankingMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.screeningMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.orderMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator13 = new System.Windows.Forms.ToolStripSeparator();
             this.companyListMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator25 = new System.Windows.Forms.ToolStripSeparator();
-            this.strategyEstimationMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.toolOptionMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator22 = new System.Windows.Forms.ToolStripSeparator();
             this.screeningOptionsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -161,6 +161,7 @@
             this.markovToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator27 = new System.Windows.Forms.ToolStripSeparator();
             this.sysOptionMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.marketSummaryMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.windowsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.closeAllMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
@@ -1091,29 +1092,34 @@
             // toolsMenuItem
             // 
             this.toolsMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.screeningMenuItem,
+            this.strategyEstimationMenuItem,
+            this.toolStripSeparator3,
             this.backTestingMenuItem,
             this.strategyRankingMenuItem,
+            this.screeningMenuItem,
             this.toolStripSeparator6,
             this.orderMenuItem,
             this.toolStripSeparator13,
             this.companyListMenuItem,
             this.toolStripSeparator25,
-            this.strategyEstimationMenuItem,
-            this.toolStripSeparator3,
             this.toolOptionMenu,
             this.toolStripSeparator27,
-            this.sysOptionMenuItem});
+            this.sysOptionMenuItem,
+            this.marketSummaryMenuItem});
             this.toolsMenuItem.Name = "toolsMenuItem";
             this.toolsMenuItem.Size = new System.Drawing.Size(51, 20);
             this.toolsMenuItem.Text = "&Tools";
             // 
-            // screeningMenuItem
+            // strategyEstimationMenuItem
             // 
-            this.screeningMenuItem.Name = "screeningMenuItem";
-            this.screeningMenuItem.Size = new System.Drawing.Size(182, 22);
-            this.screeningMenuItem.Text = "Screening";
-            this.screeningMenuItem.Click += new System.EventHandler(this.screeningMenuItem_Click);
+            this.strategyEstimationMenuItem.Name = "strategyEstimationMenuItem";
+            this.strategyEstimationMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.strategyEstimationMenuItem.Text = "Strategy List";
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(179, 6);
             // 
             // backTestingMenuItem
             // 
@@ -1128,6 +1134,13 @@
             this.strategyRankingMenuItem.Size = new System.Drawing.Size(182, 22);
             this.strategyRankingMenuItem.Text = "Strategy Ranking";
             this.strategyRankingMenuItem.Click += new System.EventHandler(this.strategyRankingMenuItem_Click);
+            // 
+            // screeningMenuItem
+            // 
+            this.screeningMenuItem.Name = "screeningMenuItem";
+            this.screeningMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.screeningMenuItem.Text = "Screening";
+            this.screeningMenuItem.Click += new System.EventHandler(this.screeningMenuItem_Click);
             // 
             // toolStripSeparator6
             // 
@@ -1157,17 +1170,6 @@
             // 
             this.toolStripSeparator25.Name = "toolStripSeparator25";
             this.toolStripSeparator25.Size = new System.Drawing.Size(179, 6);
-            // 
-            // strategyEstimationMenuItem
-            // 
-            this.strategyEstimationMenuItem.Name = "strategyEstimationMenuItem";
-            this.strategyEstimationMenuItem.Size = new System.Drawing.Size(182, 22);
-            this.strategyEstimationMenuItem.Text = "Strategy List";
-            // 
-            // toolStripSeparator3
-            // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(179, 6);
             // 
             // toolOptionMenu
             // 
@@ -1215,6 +1217,14 @@
             this.sysOptionMenuItem.Size = new System.Drawing.Size(182, 22);
             this.sysOptionMenuItem.Text = "Preferences";
             this.sysOptionMenuItem.Click += new System.EventHandler(this.sysOptionMenuItem_Click);
+            // 
+            // marketSummaryMenuItem
+            // 
+            this.marketSummaryMenuItem.Enabled = false;
+            this.marketSummaryMenuItem.Name = "marketSummaryMenuItem";
+            this.marketSummaryMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.marketSummaryMenuItem.Text = "Market Summary";
+            this.marketSummaryMenuItem.Click += new System.EventHandler(this.marketSummaryMenuItem_Click);
             // 
             // windowsMenuItem
             // 
@@ -1543,6 +1553,7 @@
         private System.Windows.Forms.ToolStripMenuItem configMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sysOptionMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator27;
+        private System.Windows.Forms.ToolStripMenuItem marketSummaryMenuItem;
     }
 }
 

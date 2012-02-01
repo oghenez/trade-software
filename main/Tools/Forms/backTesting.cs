@@ -13,6 +13,9 @@ namespace Tools.Forms
 {
     public partial class backTesting : baseTesting
     {
+        /// <summary>
+        /// Constructor: set strategy Check List Box, Code List Box, Period, Result, and Estimation Grid
+        /// </summary>
         public backTesting()
         {
             try
@@ -33,6 +36,9 @@ namespace Tools.Forms
             }
         }
         
+        /// <summary>
+        /// Set language
+        /// </summary>
         public override void SetLanguage()
         {
             base.SetLanguage();
@@ -96,6 +102,9 @@ namespace Tools.Forms
             common.Export.ExportToExcel((DataTable)strategyEstimationGrid.DataSource, saveFileDialog.FileName);
         }
 
+        /// <summary>
+        /// Function to calculate the backtest process
+        /// </summary>
         public void Execute()
         {
             if (this.fOnProccessing) return;
@@ -129,6 +138,12 @@ namespace Tools.Forms
                 progressBar.Visible = false;
             }
         }
+
+        /// <summary>
+        /// Get existing Back Testing form or create new Form
+        /// </summary>
+        /// <param name="formName"></param>
+        /// <returns></returns>
         public static backTesting GetForm(string formName)
         {
             string cacheKey = typeof(backTesting).FullName + (formName != null && formName.Trim() == "" ? "-" + formName.Trim() : "");
@@ -168,6 +183,26 @@ namespace Tools.Forms
             }
         }
 
+
+        public void SetSelectedStocks(DataGridViewSelectedRowCollection SelectedRows)
+        {
+            for (int i = 0; i < SelectedRows.Count; i++){
+                //lay stock code trong watchlist
+                string code=SelectedRows[i].Cells[1].Value.ToString();
+
+                //lam viec voi codeSlectLB la kieu stockCodeSelect
+                //codeSelectLb.myValues.Add(code);
+                codeSelectLb.CheckStockCode(code); 
+            }
+            //Refresh();
+            codeSelectLb.Refresh(); ;
+        }
+
+        /// <summary>
+        /// Set the contend of the Grid with DataTable value
+        /// </summary>
+        /// <param name="grid"></param>
+        /// <param name="tbl"></param>
         private void SetDataGrid(DataGridView grid, DataTable tbl)
         {
             grid.DataSource = tbl;

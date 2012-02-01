@@ -601,7 +601,7 @@ namespace Languages.langs {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Configure.
+        ///   Looks up a localized string similar to Configuration.
         /// </summary>
         internal static string configure {
             get {
@@ -1227,6 +1227,15 @@ namespace Languages.langs {
         internal static string interestedStrategy {
             get {
                 return ResourceManager.GetString("interestedStrategy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please check Internet connexion.
+        /// </summary>
+        internal static string internetError {
+            get {
+                return ResourceManager.GetString("internetError", resourceCulture);
             }
         }
         

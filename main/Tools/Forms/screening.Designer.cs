@@ -29,9 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(screening));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(screening));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataPnl = new System.Windows.Forms.Panel();
             this.resultDataGrid = new common.controls.baseDataGridView();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
@@ -111,6 +112,8 @@
             // 
             this.resultDataGrid.AllowUserToAddRows = false;
             this.resultDataGrid.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Blue;
+            this.resultDataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.resultDataGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
@@ -153,52 +156,52 @@
             // runMenuItem
             // 
             this.runMenuItem.Name = "runMenuItem";
-            this.runMenuItem.Size = new System.Drawing.Size(206, 22);
+            this.runMenuItem.Size = new System.Drawing.Size(193, 22);
             this.runMenuItem.Text = "Run";
             this.runMenuItem.Click += new System.EventHandler(this.okBtn_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(203, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(190, 6);
             // 
             // fullViewMenuItem
             // 
             this.fullViewMenuItem.Enabled = false;
             this.fullViewMenuItem.Name = "fullViewMenuItem";
-            this.fullViewMenuItem.Size = new System.Drawing.Size(206, 22);
+            this.fullViewMenuItem.Size = new System.Drawing.Size(193, 22);
             this.fullViewMenuItem.Text = "Full View";
             this.fullViewMenuItem.Click += new System.EventHandler(this.fullViewMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(203, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(190, 6);
             // 
             // exportResultMenuItem
             // 
             this.exportResultMenuItem.Enabled = false;
             this.exportResultMenuItem.Name = "exportResultMenuItem";
-            this.exportResultMenuItem.Size = new System.Drawing.Size(206, 22);
+            this.exportResultMenuItem.Size = new System.Drawing.Size(193, 22);
             this.exportResultMenuItem.Text = "Export Results";
             this.exportResultMenuItem.Click += new System.EventHandler(this.exportResultMenuItem_Click);
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(203, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(190, 6);
             // 
             // openMenuItem
             // 
             this.openMenuItem.Name = "openMenuItem";
-            this.openMenuItem.Size = new System.Drawing.Size(206, 22);
+            this.openMenuItem.Size = new System.Drawing.Size(193, 22);
             this.openMenuItem.Text = "Open";
             this.openMenuItem.Click += new System.EventHandler(this.openMenuItem_Click);
             // 
             // addToWatchListMenuItem
             // 
             this.addToWatchListMenuItem.Name = "addToWatchListMenuItem";
-            this.addToWatchListMenuItem.Size = new System.Drawing.Size(206, 22);
+            this.addToWatchListMenuItem.Size = new System.Drawing.Size(193, 22);
             this.addToWatchListMenuItem.Text = "Add to Watch List";
             this.addToWatchListMenuItem.Click += new System.EventHandler(this.addToWatchListMenuItem_Click);
             // 
@@ -282,7 +285,8 @@
             this.timeScaleCb.FormattingEnabled = true;
             this.timeScaleCb.Location = new System.Drawing.Point(158, 28);
             this.timeScaleCb.Name = "timeScaleCb";
-            this.timeScaleCb.Size = new System.Drawing.Size(137, 24);
+            this.timeScaleCb.SelectedValue = "RT";
+            this.timeScaleCb.Size = new System.Drawing.Size(137, 21);
             this.timeScaleCb.TabIndex = 2;
             this.timeScaleCb.TabStop = false;
             // 
@@ -305,7 +309,7 @@
             this.timeRangeCb.myValue = commonClass.AppTypes.TimeRanges.None;
             this.timeRangeCb.Name = "timeRangeCb";
             this.timeRangeCb.SelectedValue = ((byte)(0));
-            this.timeRangeCb.Size = new System.Drawing.Size(137, 24);
+            this.timeRangeCb.Size = new System.Drawing.Size(137, 21);
             this.timeRangeCb.TabIndex = 1;
             this.timeRangeCb.TabStop = false;
             // 
@@ -390,7 +394,7 @@
             this.screeningCodeNav.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.screeningCodeNav.Name = "screeningCodeNav";
             this.screeningCodeNav.PositionItem = null;
-            this.screeningCodeNav.Size = new System.Drawing.Size(108, 25);
+            this.screeningCodeNav.Size = new System.Drawing.Size(110, 25);
             this.screeningCodeNav.TabIndex = 319;
             // 
             // bindingNavigatorMoveFirstItem
@@ -443,7 +447,7 @@
             this.strategyCb.Location = new System.Drawing.Point(23, 74);
             this.strategyCb.myValue = "";
             this.strategyCb.Name = "strategyCb";
-            this.strategyCb.Size = new System.Drawing.Size(413, 24);
+            this.strategyCb.Size = new System.Drawing.Size(413, 21);
             this.strategyCb.TabIndex = 1;
             this.strategyCb.ValueMember = "code";
             this.strategyCb.SelectedIndexChanged += new System.EventHandler(this.strategyCb_SelectedIndexChanged);
@@ -579,20 +583,20 @@
             // minColumn
             // 
             this.minColumn.DataPropertyName = "min";
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.Format = "N0";
-            dataGridViewCellStyle1.NullValue = null;
-            this.minColumn.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.Format = "N0";
+            dataGridViewCellStyle2.NullValue = null;
+            this.minColumn.DefaultCellStyle = dataGridViewCellStyle2;
             this.minColumn.HeaderText = "Min";
             this.minColumn.Name = "minColumn";
             // 
             // maxColumn
             // 
             this.maxColumn.DataPropertyName = "max";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.Format = "N0";
-            dataGridViewCellStyle2.NullValue = null;
-            this.maxColumn.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.Format = "N0";
+            dataGridViewCellStyle3.NullValue = null;
+            this.maxColumn.DefaultCellStyle = dataGridViewCellStyle3;
             this.maxColumn.HeaderText = "Max";
             this.maxColumn.Name = "maxColumn";
             // 
@@ -609,6 +613,7 @@
             this.Controls.Add(this.dataPnl);
             this.Controls.Add(this.optionPnl);
             this.Controls.Add(this.menuStrip);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "screening";
             this.Text = "Screening";

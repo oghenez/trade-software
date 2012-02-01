@@ -478,7 +478,7 @@
     <value>Colors</value>
   </data>
   <data name="configure" xml:space="preserve">
-    <value>Configure</value>
+    <value>Configuration</value>
   </data>
   <data name="connection" xml:space="preserve">
     <value>Connection</value>
@@ -1016,5 +1016,8 @@
   </data>
   <data name="loadDataError" xml:space="preserve">
     <value>Failed to load data !</value>
+  </data>
+  <data name="internetError" xml:space="preserve">
+    <value>Please check Internet connexion</value>
   </data>
 </root>

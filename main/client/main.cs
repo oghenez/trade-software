@@ -23,6 +23,7 @@ namespace client
         const string constFormNameStock = "stock-";
         const string constFormNameWatchList = "WatchList-";
         const string constFormNameTradeAlert = "TradeAlert";
+        const string constFormNameMarketSummary = "MarketSummary";
         const string constFormNameEstimateTrade = "EstimateTrade-";
 
         public main()
@@ -31,8 +32,8 @@ namespace client
             {
                 using (new common.PleaseWait(new Point(),new forms.startSplash() ))
                 {
-                    //commonClass.SysLibs.myAccessMode = DataAccessMode.WebService;
-                    commonClass.SysLibs.myAccessMode = DataAccessMode.Local;
+                    commonClass.SysLibs.myAccessMode = DataAccessMode.WebService;
+                    //commonClass.SysLibs.myAccessMode = DataAccessMode.Local;
                     InitializeComponent();
 
                     //test.LoadTestConfig();
@@ -43,7 +44,10 @@ namespace client
             }
             catch (Exception er)
             {
+                common.system.ShowError(Languages.Libs.GetString("loadDataError"), Languages.Libs.GetString("internetError"));
                 common.system.ShowError(Languages.Libs.GetString("loadDataError"),er.Message);
+                common.fileFuncs.WriteLog(this.Name + common.Consts.constTab + er.ToString());
+                
             }
         }
 
@@ -131,138 +135,125 @@ namespace client
         }
         #endregion
 
+        /// <summary>
+        /// Set language for controls's main form
+        /// </summary>
         public override void SetLanguage()
         {
-            base.SetLanguage();
-            this.FileMenuStrip.Text = Languages.Libs.GetString("file");
-            this.loginMenuItem.Text = Languages.Libs.GetString("login");
-            this.logOutMenuItem.Text = Languages.Libs.GetString("logout");
-            this.MyProfileMenuItem.Text = Languages.Libs.GetString("myProfile"); ;
-            this.NewChartMenuItem.Text = Languages.Libs.GetString("openChart");
-            this.closeChartMenuItem.Text = Languages.Libs.GetString("closeChart");
-
-            this.configMenuItem.Text = Languages.Libs.GetString("configure");
-            this.printSetupMenuItem.Text = Languages.Libs.GetString("printSetup");
-            this.printPreViewMenuItem.Text = Languages.Libs.GetString("printPreview");
-            this.printMenuItem.Text = Languages.Libs.GetString("print");
-            this.exitMenuItem.Text = Languages.Libs.GetString("exit");
-
-            this.editMenuStrip.Text = Languages.Libs.GetString("edit");
-            this.undoMenuItem.Text = Languages.Libs.GetString("undo");
-            this.redoMenuItem.Text = Languages.Libs.GetString("redo");
-            this.copyMenuItem.Text = Languages.Libs.GetString("copy");
-            this.cutMenuItem.Text = Languages.Libs.GetString("cut");
-            this.pasteMenuItem.Text = Languages.Libs.GetString("paste");
-            this.deleteMenuItem.Text = Languages.Libs.GetString("delete");
-            this.selectAllMenuItem.Text = Languages.Libs.GetString("selectAll");
-
-            this.viewMenuStrip.Text = Languages.Libs.GetString("view");
-            this.languageMenuItem.Text = Languages.Libs.GetString("language");
-            this.englishMenuItem.Text = Languages.Libs.GetString("english");
-            this.vietnameseMenuItem.Text = Languages.Libs.GetString("vietnamese");
-
-            this.toolBarMenuItem.Text = Languages.Libs.GetString("toolBar");
-            this.tbStandardMenuItem.Text = Languages.Libs.GetString("standard");
-            this.tbChartMenuItem.Text = Languages.Libs.GetString("chart");
-            this.tbPeriodicityMenuItem.Text = Languages.Libs.GetString("periodicity");
-
-            this.marketWatchMenuItem.Text = Languages.Libs.GetString("marketWatch");
-            this.tradeAlertMenuItem.Text = Languages.Libs.GetString("tradeAlert");
-            this.transHistoryMenuItem.Text = Languages.Libs.GetString("transHistory");
-            this.myPortfolioMenuItem.Text = Languages.Libs.GetString("myPortfolio");
-            this.strategyEstimationiMenuItem.Text = Languages.Libs.GetString("strategyEstimation");
-
-            this.chartMenuStrip.Text = Languages.Libs.GetString("chart");
-            this.indicatorMenuItem.Text = Languages.Libs.GetString("indicator");
-            this.chartMenuItem.Text = Languages.Libs.GetString("chart");
-            this.lineChartMenuItem.Text = Languages.Libs.GetString("lineChart");
-            this.barChartMenuItem.Text = Languages.Libs.GetString("barChart");
-            this.candleSticksMenuItem.Text = Languages.Libs.GetString("candleSticks");
-            this.chartGridMenuItem.Text = Languages.Libs.GetString("chartGrid");
-            this.periodicityMenuItem.Text = Languages.Libs.GetString("periodicity");
-            this.zoomInMenuItem.Text = Languages.Libs.GetString("zoomIn");
-            this.zoomOutMenuItem.Text = Languages.Libs.GetString("zoomOut");
-            this.chartVolumeMenuItem.Text = Languages.Libs.GetString("chartVolume");
-            this.chartPropertyMenuItem.Text = Languages.Libs.GetString("chartProperty");
-
-            this.toolsMenuItem.Text = Languages.Libs.GetString("tools");
-            this.backTestingMenuItem.Text = Languages.Libs.GetString("backTesting");
-            this.strategyRankingMenuItem.Text = Languages.Libs.GetString("strategyRanking");
-            this.companyListMenuItem.Text = Languages.Libs.GetString("companyList");
-            
-            this.toolOptionMenu.Text = Languages.Libs.GetString("toolAllOptions");
-            this.strategyOptionsMenuItem.Text = Languages.Libs.GetString("strategyOption");
-            this.screeningOptionsMenuItem.Text = Languages.Libs.GetString("screeningOption");
-
-            this.sysOptionMenuItem.Text = Languages.Libs.GetString("sysOptions");
-
-
-            this.windowsMenuItem.Text = Languages.Libs.GetString("windows");
-            this.closeAllMenuItem.Text = Languages.Libs.GetString("closeAll");
-
-            this.helpMenuItem.Text = Languages.Libs.GetString("help");
-            this.contentsMenuItem.Text = Languages.Libs.GetString("contents");
-            this.indexMenuItem.Text = Languages.Libs.GetString("index");
-            this.searchMenuItem.Text = Languages.Libs.GetString("search");
-            this.aboutMenuItem.Text = Languages.Libs.GetString("about");
-
-            this.screeningMenuItem.Text = Languages.Libs.GetString("screening");
-            this.orderMenuItem.Text = Languages.Libs.GetString("order");
-            this.strategyEstimationMenuItem.Text = Languages.Libs.GetString("strategyEstimation");
-            this.screeningMenuItem.Text = Languages.Libs.GetString("screening");
-
-            dataTimeRangeCb.SetLanguage();
-
-            //Create indicator menu
-            indicatorMenuItem.DropDownItems.Clear();
-            application.Indicators.Libs.CreateIndicatorMenu(indicatorMenuItem, showIndicatorHandler);
-
-            //Strategy menu
-            strategyEstimationMenuItem.DropDownItems.Clear();
-            application.Strategy.Libs.CreateMenu(AppTypes.StrategyTypes.Strategy, strategyEstimationMenuItem, PlotTradepointHandler);
-
-            strategyOptionsMenuItem.DropDownItems.Clear();
-            application.Strategy.Libs.CreateMenu(AppTypes.StrategyTypes.Strategy, strategyOptionsMenuItem, StrategyParaEditHandler);
-
-            screeningOptionsMenuItem.DropDownItems.Clear();
-            application.Strategy.Libs.CreateMenu(AppTypes.StrategyTypes.Screening, screeningOptionsMenuItem, StrategyParaEditHandler);
-
-            strategyCbStrip.Items.Clear();
-            strategyCbStrip.LoadData();
-        }
-        protected override bool ShowLogin()
-        {
-            if (!base.ShowLogin()) return false;
-            CloseAllForms(false);
-            for(int idx=0;idx<cachedForms.Values.Length;idx++)  
+            try
             {
-                Form form = (cachedForms.Values[idx] as Form);
-                if (form == null || form.IsDisposed) continue;
-                form.Close();
+                base.SetLanguage();
+                this.FileMenuStrip.Text = Languages.Libs.GetString("file");
+                this.loginMenuItem.Text = Languages.Libs.GetString("login");
+                this.logOutMenuItem.Text = Languages.Libs.GetString("logout");
+                this.MyProfileMenuItem.Text = Languages.Libs.GetString("myProfile"); ;
+                this.NewChartMenuItem.Text = Languages.Libs.GetString("openChart");
+                this.closeChartMenuItem.Text = Languages.Libs.GetString("closeChart");
+
+                this.configMenuItem.Text = Languages.Libs.GetString("configure");
+                this.printSetupMenuItem.Text = Languages.Libs.GetString("printSetup");
+                this.printPreViewMenuItem.Text = Languages.Libs.GetString("printPreview");
+                this.printMenuItem.Text = Languages.Libs.GetString("print");
+                this.exitMenuItem.Text = Languages.Libs.GetString("exit");
+
+                this.editMenuStrip.Text = Languages.Libs.GetString("edit");
+                this.undoMenuItem.Text = Languages.Libs.GetString("undo");
+                this.redoMenuItem.Text = Languages.Libs.GetString("redo");
+                this.copyMenuItem.Text = Languages.Libs.GetString("copy");
+                this.cutMenuItem.Text = Languages.Libs.GetString("cut");
+                this.pasteMenuItem.Text = Languages.Libs.GetString("paste");
+                this.deleteMenuItem.Text = Languages.Libs.GetString("delete");
+                this.selectAllMenuItem.Text = Languages.Libs.GetString("selectAll");
+
+                this.viewMenuStrip.Text = Languages.Libs.GetString("view");
+                this.languageMenuItem.Text = Languages.Libs.GetString("language");
+                this.englishMenuItem.Text = Languages.Libs.GetString("english");
+                this.vietnameseMenuItem.Text = Languages.Libs.GetString("vietnamese");
+
+                this.toolBarMenuItem.Text = Languages.Libs.GetString("toolBar");
+                this.tbStandardMenuItem.Text = Languages.Libs.GetString("standard");
+                this.tbChartMenuItem.Text = Languages.Libs.GetString("chart");
+                this.tbPeriodicityMenuItem.Text = Languages.Libs.GetString("periodicity");
+
+                this.marketWatchMenuItem.Text = Languages.Libs.GetString("marketWatch");
+                this.tradeAlertMenuItem.Text = Languages.Libs.GetString("tradeAlert");
+                this.transHistoryMenuItem.Text = Languages.Libs.GetString("transHistory");
+                this.myPortfolioMenuItem.Text = Languages.Libs.GetString("myPortfolio");
+                this.strategyEstimationiMenuItem.Text = Languages.Libs.GetString("strategyEstimation");
+
+                this.chartMenuStrip.Text = Languages.Libs.GetString("chart");
+                this.indicatorMenuItem.Text = Languages.Libs.GetString("indicator");
+                this.chartMenuItem.Text = Languages.Libs.GetString("chart");
+                this.lineChartMenuItem.Text = Languages.Libs.GetString("lineChart");
+                this.barChartMenuItem.Text = Languages.Libs.GetString("barChart");
+                this.candleSticksMenuItem.Text = Languages.Libs.GetString("candleSticks");
+                this.chartGridMenuItem.Text = Languages.Libs.GetString("chartGrid");
+                this.periodicityMenuItem.Text = Languages.Libs.GetString("periodicity");
+                this.zoomInMenuItem.Text = Languages.Libs.GetString("zoomIn");
+                this.zoomOutMenuItem.Text = Languages.Libs.GetString("zoomOut");
+                this.chartVolumeMenuItem.Text = Languages.Libs.GetString("chartVolume");
+                this.chartPropertyMenuItem.Text = Languages.Libs.GetString("chartProperty");
+
+                this.toolsMenuItem.Text = Languages.Libs.GetString("tools");
+                this.backTestingMenuItem.Text = Languages.Libs.GetString("backTesting");
+                this.strategyRankingMenuItem.Text = Languages.Libs.GetString("strategyRanking");
+                this.companyListMenuItem.Text = Languages.Libs.GetString("companyList");
+
+                this.toolOptionMenu.Text = Languages.Libs.GetString("toolAllOptions");
+                this.strategyOptionsMenuItem.Text = Languages.Libs.GetString("strategyOption");
+                this.screeningOptionsMenuItem.Text = Languages.Libs.GetString("screeningOption");
+
+                this.sysOptionMenuItem.Text = Languages.Libs.GetString("sysOptions");
+
+
+                this.windowsMenuItem.Text = Languages.Libs.GetString("windows");
+                this.closeAllMenuItem.Text = Languages.Libs.GetString("closeAll");
+
+                this.helpMenuItem.Text = Languages.Libs.GetString("help");
+                this.contentsMenuItem.Text = Languages.Libs.GetString("contents");
+                this.indexMenuItem.Text = Languages.Libs.GetString("index");
+                this.searchMenuItem.Text = Languages.Libs.GetString("search");
+                this.aboutMenuItem.Text = Languages.Libs.GetString("about");
+
+                this.screeningMenuItem.Text = Languages.Libs.GetString("screening");
+                this.orderMenuItem.Text = Languages.Libs.GetString("order");
+                this.strategyEstimationMenuItem.Text = Languages.Libs.GetString("strategyEstimation");
+                this.screeningMenuItem.Text = Languages.Libs.GetString("screening");
+
+                dataTimeRangeCb.SetLanguage();
+
+                //Create indicator menu
+                indicatorMenuItem.DropDownItems.Clear();
+                application.Indicators.Libs.CreateIndicatorMenu(indicatorMenuItem, showIndicatorHandler);
+
+                //Strategy menu
+                strategyEstimationMenuItem.DropDownItems.Clear();
+                application.Strategy.Libs.CreateMenu(AppTypes.StrategyTypes.Strategy, strategyEstimationMenuItem, PlotTradepointHandler);
+
+                strategyOptionsMenuItem.DropDownItems.Clear();
+                application.Strategy.Libs.CreateMenu(AppTypes.StrategyTypes.Strategy, strategyOptionsMenuItem, StrategyParaEditHandler);
+
+                screeningOptionsMenuItem.DropDownItems.Clear();
+                application.Strategy.Libs.CreateMenu(AppTypes.StrategyTypes.Screening, screeningOptionsMenuItem, StrategyParaEditHandler);
+
+                strategyCbStrip.Items.Clear();
+                strategyCbStrip.LoadData();
             }
-            cachedForms.Clear();
-            common.Data.Clear();
-            StartupForms();
-            return true;
+            catch (Exception er)
+            {
+                this.ShowError(er);
+                common.fileFuncs.WriteLog(this.Name + common.Consts.constTab + er.ToString());
+            }
         }
-
-        private common.DictionaryList cachedForms = new common.DictionaryList();  // To cache used forms 
-
-        protected override bool LoadAppConfig()
-        {
-            common.Consts.constValidCallString = common.Consts.constValidCallMarker;
-            return base.LoadAppConfig();
-        }
-        protected override bool CheckValid()
-        {
-            return true;
-        }
-
-        private common.DictionaryList cultureCache = new common.DictionaryList();
+        
+        /// <summary>
+        /// Set US Culture
+        /// </summary>
         private void SetCulture()
         {
             SetCulture("en-US");
         }
+        
         private void SetCulture(string code)
         {
             CultureInfo cultureInfo = null;
@@ -277,7 +268,7 @@ namespace client
                 cultureInfo = (CultureInfo)obj;
             }
             switch (cultureInfo.Name)
-            { 
+            {
                 case "vi-VN":
                     vietnameseMenuItem.Checked = true;
                     englishMenuItem.Checked = false;
@@ -295,13 +286,24 @@ namespace client
             SetLanguage();
             SetLanguageAllOpenForms();
         }
+
         private void SetLanguageAllOpenForms()
         {
             ContextMenuStrip tradeAnalysisContextMenu = CreateContextMenu_TradeAnalysis();
             foreach (Form form in Application.OpenForms)
             {
                 System.Reflection.MethodInfo method = form.GetType().GetMethod("SetLanguage");
-                if (method != null) method.Invoke(form, null);
+                try
+                {
+                    if (method != null)
+                        method.Invoke(form, null);
+                }
+                catch (Exception er)
+                {
+                    ShowError(er);
+                    common.fileFuncs.WriteLog(this.Name + common.Consts.constTab + er.ToString());
+                }
+
                 if (form.GetType() == typeof(Tools.Forms.tradeAnalysis))
                 {
                     (form as Tools.Forms.tradeAnalysis).myContextMenuStrip = tradeAnalysisContextMenu;
@@ -316,6 +318,56 @@ namespace client
                 }
             }
         }
+
+        /// <summary>
+        /// Startup Form - Login
+        /// </summary>
+        /// <returns></returns>
+        protected override bool ShowLogin()
+        {
+            if (!base.ShowLogin())
+            {
+                System.Environment.Exit(1);
+                return false;
+            }
+            CloseAllForms(false);
+            for(int idx=0;idx<cachedForms.Values.Length;idx++)  
+            {
+                Form form = (cachedForms.Values[idx] as Form);
+                if (form == null || form.IsDisposed) continue;
+                form.Close();
+            }
+            cachedForms.Clear();
+            common.Data.Clear();
+            StartupForms();
+            return true;
+        }
+
+        private common.DictionaryList cachedForms = new common.DictionaryList();  // To cache used forms 
+
+        protected override bool LoadAppConfig()
+        {
+            try
+            {
+                common.Consts.constValidCallString = common.Consts.constValidCallMarker;
+                return base.LoadAppConfig();
+            }
+            catch (Exception er)
+            {
+                common.system.ShowError(Languages.Libs.GetString("loadDataError"), er.Message);
+                //this.ShowError(er);
+                common.fileFuncs.WriteLog(this.Name + common.Consts.constTab + er.ToString());
+                //System.Environment.Exit(1);
+            }
+            return false;
+        }
+        protected override bool CheckValid()
+        {
+            return true;
+        }
+
+        private common.DictionaryList cultureCache = new common.DictionaryList();
+        
 
         private void Init()
         {
@@ -370,14 +422,22 @@ namespace client
             else sysTimer.Enabled = true;
         }
 
+        /// <summary>
+        /// Show main windows : MarketWatchForm and MarketSummary Form
+        /// </summary>
         private void StartupForms()
         {
             using (new DataAccess.PleaseWait())
             {
                 ShowMarketWatchForm();
-                
+                //ShowMarketSummaryForm();
             }
         }
+
+        /// <summary>
+        /// Close All Forms except System form
+        /// </summary>
+        /// <param name="excludeSysForm"></param>
         private void CloseAllForms(bool excludeSysForm)
         {
             FormCollection formList = Application.OpenForms;
@@ -397,6 +457,11 @@ namespace client
             }
         }
 
+        /// <summary>
+        /// Create Peridodicity Strip
+        /// </summary>
+        /// <param name="toStrip"></param>
+        /// <param name="toMenu"></param>
         private void CreatePeriodicityStrip(ToolStrip toStrip,ToolStripMenuItem toMenu)
         {
             ToolStripButton btn;
@@ -649,11 +714,39 @@ namespace client
             form.myGrid.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(NewChartMenuItem_Click);
             form.Show(dockPanel, DockState.DockLeft);
         }
-
         private void HideMarketWatchForm()
         {
             Trade.Forms.marketWatch form = GetMarketWatchForm(true);
             form.Hide();
+        }
+
+
+        private void HideMarketSummaryForm()
+        {
+            Tools.Forms.MarketSummary form = GetMarketSummaryForm(true);
+            form.Hide();
+        }
+
+        private Tools.Forms.MarketSummary GetMarketSummaryForm(bool createIfNotFound)
+        {
+            string formName = constFormNameMarketSummary + "Market ";
+            Tools.Forms.MarketSummary myForm = (Tools.Forms.MarketSummary)cachedForms.Find(formName);
+            if (myForm == null || myForm.IsDisposed)
+            {
+                if (!createIfNotFound) return null;
+                myForm = new Tools.Forms.MarketSummary();
+                myForm.Name = formName;
+                cachedForms.Add(formName, myForm);
+            }
+            return myForm;
+        }
+
+        private void ShowMarketSummaryForm()
+        {
+            Tools.Forms.MarketSummary form = GetMarketSummaryForm(true);
+            //form.myContextMenuStrip = CreateContextMenu_MarketWatch();
+            //form.myGrid.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(NewChartMenuItem_Click);
+            form.Show(dockPanel, DockState.Document);
         }
 
         private void addToWatchListMenuItem_Click(object sender, EventArgs e)
@@ -670,6 +763,7 @@ namespace client
             catch (Exception er)
             {
                 this.ShowError(er);
+                common.fileFuncs.WriteLog(this.Name + common.Consts.constTab + er.ToString());
             }
         }
 
@@ -855,6 +949,7 @@ namespace client
             catch (Exception er)
             {
                 this.ShowError(er);
+                common.fileFuncs.WriteLog(this.Name + common.Consts.constTab + er.ToString());
             }
         }
         private void chartPropertyHandler(object sender, common.baseDialogEvent e)
@@ -875,6 +970,7 @@ namespace client
             catch (Exception er)
             {
                 this.ShowError(er);
+                common.fileFuncs.WriteLog(this.Name + common.Consts.constTab + er.ToString());
             }
         }
         
@@ -888,6 +984,7 @@ namespace client
             catch (Exception er)
             {
                 common.system.ShowErrorMessage(er.Message);
+                common.fileFuncs.WriteLog(this.Name + common.Consts.constTab + er.ToString());
             }
         }
 
@@ -913,6 +1010,7 @@ namespace client
             catch (Exception er)
             {
                 this.ShowError(er);
+                common.fileFuncs.WriteLog(this.Name + common.Consts.constTab + er.ToString());
             }
         }
 
@@ -926,6 +1024,7 @@ namespace client
             catch (Exception er)
             {
                 this.ShowError(er);
+                common.fileFuncs.WriteLog(this.Name + common.Consts.constTab + er.ToString());
             }
         }
 
@@ -999,6 +1098,7 @@ namespace client
             catch (Exception er)
             {
                 this.ShowError(er);
+                common.fileFuncs.WriteLog(this.Name + common.Consts.constTab + er.ToString());
             }
         }
         private void CloseChartMenuItem_Click(object sender, EventArgs e)
@@ -1011,6 +1111,7 @@ namespace client
             catch (Exception er)
             {
                 this.ShowError(er);
+                common.fileFuncs.WriteLog(this.Name + common.Consts.constTab + er.ToString());
             }
         }
 
@@ -1023,6 +1124,7 @@ namespace client
             catch (Exception er)
             {
                 this.ShowError(er);
+                common.fileFuncs.WriteLog(this.Name + common.Consts.constTab + er.ToString());
             }
         }
 
@@ -1060,7 +1162,19 @@ namespace client
         {
             try
             {
+                //Kiếm các list selected từ trong watchlist
+                Trade.Forms.marketWatch marketWatch=GetMarketWatchForm(false);
+                //marketWatch
+                common.controls.baseDataGridView mW_Grid = marketWatch.myGrid;
+                DataGridViewSelectedRowCollection rowCollection = mW_Grid.SelectedRows;
+                List<string> list=new List<string>();
+                for (int i=0;i<rowCollection.Count;i++)
+                    list.Add((rowCollection[i].Cells[1]).Value.ToString());
+
+                //Hiển thị form Back Test
                 Tools.Forms.backTesting form = Tools.Forms.backTesting.GetForm("");
+                form.SetSelectedStocks(mW_Grid.SelectedRows);
+
                 form.myDockedPane = dockPanel;
                 form.myShowStock += new Tools.Forms.backTesting.ShowStockFunc(ShowStockHandler);
 
@@ -1070,6 +1184,7 @@ namespace client
             catch (Exception er)
             {
                 this.ShowError(er);
+                common.fileFuncs.WriteLog(this.Name + common.Consts.constTab + er.ToString());
             }
         }
 
@@ -1085,6 +1200,7 @@ namespace client
             catch (Exception er)
             {
                 this.ShowError(er);
+                common.fileFuncs.WriteLog(this.Name + common.Consts.constTab + er.ToString());
             }
         }
        
@@ -1098,6 +1214,7 @@ namespace client
             catch (Exception er)
             {
                 this.ShowError(er);
+                common.fileFuncs.WriteLog(this.Name + common.Consts.constTab + er.ToString());
             }
         }
         private void logOutMenuItem_Click(object sender, EventArgs e)
@@ -1113,6 +1230,7 @@ namespace client
             catch (Exception er)
             {
                 this.ShowError(er);
+                common.fileFuncs.WriteLog(this.Name + common.Consts.constTab + er.ToString());
             }
         }
 
@@ -1126,6 +1244,7 @@ namespace client
             catch (Exception er)
             {
                 this.ShowError(er);
+                common.fileFuncs.WriteLog(this.Name + common.Consts.constTab + er.ToString());
             }
         }
 
@@ -1149,6 +1268,7 @@ namespace client
             catch (Exception er)
             {
                 this.ShowError(er);
+                common.fileFuncs.WriteLog(this.Name + common.Consts.constTab + er.ToString());
             }
         }
         private void portfolioWatchBtn_Click(object sender, EventArgs e)
@@ -1160,6 +1280,7 @@ namespace client
             catch (Exception er)
             {
                 this.ShowError(er);
+                common.fileFuncs.WriteLog(this.Name + common.Consts.constTab + er.ToString());
             }
         }
         private void tradeAlertBtn_Click(object sender, EventArgs e)
@@ -1171,6 +1292,7 @@ namespace client
             catch (Exception er)
             {
                 this.ShowError(er);
+                common.fileFuncs.WriteLog(this.Name + common.Consts.constTab + er.ToString());
             }
         }
         private void dataTimeRangeCb_SelectedIndexChanged(object sender, EventArgs e)
@@ -1183,6 +1305,7 @@ namespace client
             catch (Exception er)
             {
                 this.ShowError(er);
+                common.fileFuncs.WriteLog(this.Name + common.Consts.constTab + er.ToString());
             }
         }
 
@@ -1195,6 +1318,7 @@ namespace client
             catch (Exception er)
             {
                 this.ShowError(er);
+                common.fileFuncs.WriteLog(this.Name + common.Consts.constTab + er.ToString());
             }
         }
 
@@ -1213,6 +1337,7 @@ namespace client
             catch (Exception er)
             {
                 this.ShowError(er);
+                common.fileFuncs.WriteLog(this.Name + common.Consts.constTab + er.ToString());
             }
         }
 
@@ -1225,6 +1350,7 @@ namespace client
             catch (Exception er)
             {
                 this.ShowError(er);
+                common.fileFuncs.WriteLog(this.Name + common.Consts.constTab + er.ToString());
             }
         }
 
@@ -1244,6 +1370,7 @@ namespace client
             catch (Exception er)
             {
                 this.ShowError(er);
+                common.fileFuncs.WriteLog(this.Name + common.Consts.constTab + er.ToString());
             }
         }
 
@@ -1261,6 +1388,7 @@ namespace client
             catch (Exception er)
             {
                 this.ShowError(er);
+                common.fileFuncs.WriteLog(this.Name + common.Consts.constTab + er.ToString());
             }
         }
 
@@ -1322,6 +1450,7 @@ namespace client
             catch (Exception er)
             {
                 this.ShowError(er);
+                common.fileFuncs.WriteLog(this.Name + common.Consts.constTab + er.ToString());
             }
         }
        
@@ -1336,6 +1465,7 @@ namespace client
             catch (Exception er)
             {
                 this.ShowError(er);
+                common.fileFuncs.WriteLog(this.Name + common.Consts.constTab + er.ToString());
             }
         }
 
@@ -1350,6 +1480,7 @@ namespace client
             catch (Exception er)
             {
                 this.ShowError(er);
+                common.fileFuncs.WriteLog(this.Name + common.Consts.constTab + er.ToString());
             }
         }
 
@@ -1362,10 +1493,15 @@ namespace client
             catch (Exception er)
             {
                 this.ShowError(er);
+                common.fileFuncs.WriteLog(this.Name + common.Consts.constTab + er.ToString());
             }
         }
 
-
+        /// <summary>
+        /// Strategy ranking Event
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void strategyRankingMenuItem_Click(object sender, EventArgs e)
         {
             try
@@ -1378,10 +1514,14 @@ namespace client
             catch (Exception er)
             {
                 this.ShowError(er);
+                common.fileFuncs.WriteLog(this.Name + common.Consts.constTab + er.ToString());
             }
         }
 
-
+        /// <summary>
+        /// Change from Amount (in VND) to Percent
+        /// </summary>
+        /// <param name="value"></param>
         private void Amount2Percent(Tools.Forms.baseTesting.ValueTypes value)
         {
             object activeObj = dockPanel.ActiveContent;
@@ -1400,6 +1540,12 @@ namespace client
                 return;
             }
         }        
+
+        /// <summary>
+        /// Amount to Percent Event
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void amountBtn_Click(object sender, EventArgs e)
         {
             try
@@ -1409,8 +1555,15 @@ namespace client
             catch (Exception er)
             {
                 this.ShowError(er);
+                common.fileFuncs.WriteLog(this.Name + common.Consts.constTab + er.ToString());
             }
         }
+
+        /// <summary>
+        /// Percentage Event (for backtesting and strategy ranking forms)
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void percentBtn_Click(object sender, EventArgs e)
         {
             try
@@ -1420,9 +1573,15 @@ namespace client
             catch (Exception er)
             {
                 this.ShowError(er);
+                common.fileFuncs.WriteLog(this.Name + common.Consts.constTab + er.ToString());
             }
         }
         
+        /// <summary>
+        /// Vietnamese language event
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void vietnameseMenuItem_Click(object sender, EventArgs e)
         {
             try
@@ -1432,9 +1591,15 @@ namespace client
             catch (Exception er)
             {
                 this.ShowError(er);
+                common.fileFuncs.WriteLog(this.Name + common.Consts.constTab + er.ToString());
             }
         }
         
+        /// <summary>
+        /// Englist language event
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void englishMenuItem_Click(object sender, EventArgs e)
         {
             try
@@ -1444,10 +1609,15 @@ namespace client
             catch (Exception er)
             {
                 this.ShowError(er);
+                common.fileFuncs.WriteLog(this.Name + common.Consts.constTab + er.ToString());
             }
         }
         
-
+        /// <summary>
+        /// Zoom In Event
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void zoomInMenuItem_Click(object sender, EventArgs e)
         {
             try
@@ -1459,8 +1629,16 @@ namespace client
             catch (Exception er)
             {
                 this.ShowError(er);
+                common.fileFuncs.WriteLog(this.Name + common.Consts.constTab + er.ToString());
             }
         }
+
+
+        /// <summary>
+        /// Zoom Out Event
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void zoomOutMenuItem_Click(object sender, EventArgs e)
         {
             try
@@ -1472,6 +1650,7 @@ namespace client
             catch (Exception er)
             {
                 this.ShowError(er);
+                common.fileFuncs.WriteLog(this.Name + common.Consts.constTab + er.ToString());
             }
         }
 
@@ -1488,9 +1667,16 @@ namespace client
             catch (Exception er)
             {
                 this.ShowError(er);
+                common.fileFuncs.WriteLog(this.Name + common.Consts.constTab + er.ToString());
             }
         }
 
+
+        /// <summary>
+        /// Configuration Action
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void configMenuItem_Click(object sender, EventArgs e)
         {
             try
@@ -1502,6 +1688,7 @@ namespace client
             catch (Exception er)
             {
                 this.ShowError(er);
+                common.fileFuncs.WriteLog(this.Name + common.Consts.constTab + er.ToString());
             }
         }
 
@@ -1515,6 +1702,7 @@ namespace client
             catch (Exception er)
             {
                 this.ShowError(er);
+                common.fileFuncs.WriteLog(this.Name + common.Consts.constTab + er.ToString());
             }
         }
         private void Alert_OpenChartMenuItem_Click(object sender, EventArgs e)
@@ -1529,6 +1717,7 @@ namespace client
             catch (Exception er)
             {
                 this.ShowError(er);
+                common.fileFuncs.WriteLog(this.Name + common.Consts.constTab + er.ToString());
             }
         }
         private void Alert_MakeOrderMenuItem_Click(object sender, EventArgs e)
@@ -1542,9 +1731,15 @@ namespace client
             catch (Exception er)
             {
                 this.ShowError(er);
+                common.fileFuncs.WriteLog(this.Name + common.Consts.constTab + er.ToString());
             }
         }
 
         #endregion event handler
+
+        private void marketSummaryMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowMarketSummaryForm();
+        }
     }
 }
