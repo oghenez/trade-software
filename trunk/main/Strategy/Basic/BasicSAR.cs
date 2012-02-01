@@ -86,6 +86,9 @@ namespace Strategy
             
     }
 
+    /// <summary>
+    /// Screening BasicSAR
+    /// </summary>
     public class BasicSARSCR : GenericStrategy
     {
         protected override void StrategyExecute()
@@ -102,6 +105,9 @@ namespace Strategy
         }
     }
 
+    /// <summary>
+    /// Strategy BasicSAR
+    /// </summary>
     public class BasicSAR : GenericStrategy
     {
         override protected void StrategyExecute()
@@ -113,7 +119,7 @@ namespace Strategy
             Indicators.MIN min = Indicators.MIN.Series(data.Close, 30, "min");
             Indicators.MAX max = Indicators.MAX.Series(data.Close, 30, "max");
 
-            for (int idx = 0; idx < data.Close.Count - 1; idx++)
+            for (int idx = 0; idx < data.Close.Count ; idx++)
             {
                 if (rule.isValid_forBuy(idx))
                 {

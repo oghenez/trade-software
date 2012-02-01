@@ -21,7 +21,11 @@ namespace Tools.Forms
         private void MarketSummary_Load(object sender, EventArgs e)
         {
             //Define trends of a Stock (SSI)
-            
+            //commonClass.BaseAnalysisData stockData = new commonClass.BaseAnalysisData(commonClass.AppTypes.TimeRanges.Y1,
+            //                                                                      commonClass.AppTypes.TimeScaleFromCode("D1"), "SSI",
+            //                                                                      DataAccessMode.WebService);
+            //Ap dung Rule
+            //Strategy
         }
     }
 }

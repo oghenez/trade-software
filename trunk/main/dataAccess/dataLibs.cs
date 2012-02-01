@@ -217,6 +217,9 @@ namespace DataAccess
             }
         }
 
+        /// <summary>
+        /// Stock Exchange table
+        /// </summary>
         public static data.baseDS.stockExchangeDataTable myStockExchangeTbl
         {
             get
@@ -245,6 +248,10 @@ namespace DataAccess
                 return tbl;
             }
         }
+
+        /// <summary>
+        /// Currency table
+        /// </summary>
         public static data.baseDS.currencyDataTable myCurrencyTbl
         {
             get
@@ -257,6 +264,10 @@ namespace DataAccess
                 return tbl;
             }
         }
+
+        /// <summary>
+        /// Country table
+        /// </summary>
         public static data.baseDS.countryDataTable myCountryTbl
         {
             get
@@ -269,6 +280,10 @@ namespace DataAccess
                 return tbl;
             }
         }
+
+        /// <summary>
+        /// Investor categories
+        /// </summary>
         public static data.baseDS.investorCatDataTable myInvestorCatTbl
         {
             get

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(backTesting));
             this.resultDataGrid = new common.controls.baseDataGridView();
             this.periodicityLbl = new baseClass.controls.baseLabel();
@@ -142,6 +143,8 @@
             // 
             this.strategyEstimationGrid.AllowUserToAddRows = false;
             this.strategyEstimationGrid.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Blue;
+            this.strategyEstimationGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
             this.strategyEstimationGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));

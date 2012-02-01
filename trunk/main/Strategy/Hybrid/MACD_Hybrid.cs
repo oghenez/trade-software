@@ -16,6 +16,11 @@ namespace Strategy
         public MACD_ADX_RiskMng_Helper() : base(typeof(MACD_ADX_RiskMng)) { }
     }
 
+    public class TwoSMAMACDSCR_Helper : baseHelper
+    {
+        public TwoSMAMACDSCR_Helper() : base(typeof(TwoSMAMACDSCR)) { }
+    }
+
     public class MACD_ADX : GenericStrategy
     {
         override protected void StrategyExecute()

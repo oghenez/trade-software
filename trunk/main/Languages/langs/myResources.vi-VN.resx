@@ -202,7 +202,7 @@
     <value>Không tìm thấy {0}  </value>
   </data>
   <data name="exitApplication" xml:space="preserve">
-    <value>Thóat khỏi chương trình ?</value>
+    <value>Thoát khỏi chương trình ?</value>
   </data>
   <data name="outOfMoney" xml:space="preserve">
     <value>Không đủ tiền. Sô tiền phải nhỏ hơn {0:g}.</value>
@@ -247,7 +247,7 @@
     <value>Bán</value>
   </data>
   <data name="about" xml:space="preserve">
-    <value>Nói về</value>
+    <value>Giới thiệu</value>
   </data>
   <data name="backTesting" xml:space="preserve">
     <value>Kiểm tra</value>
@@ -412,10 +412,10 @@
     <value>Thu nhỏ</value>
   </data>
   <data name="account" xml:space="preserve">
-    <value>Tài khòan</value>
+    <value>Tài khoản</value>
   </data>
   <data name="accountExpired" xml:space="preserve">
-    <value>Tài khòan đã hết hạn sử dụng !</value>
+    <value>Tài khoản đã hết hạn sử dụng !</value>
   </data>
   <data name="address" xml:space="preserve">
     <value>Địa chỉ</value>
@@ -448,10 +448,10 @@
     <value>Giá mua</value>
   </data>
   <data name="bullCandle" xml:space="preserve">
-    <value>Bull Candle</value>
+    <value>Nến tăng</value>
   </data>
   <data name="bySectors" xml:space="preserve">
-    <value>Theo lãnh vực</value>
+    <value>Theo lĩnh vực</value>
   </data>
   <data name="cannotDelete" xml:space="preserve">
     <value>Không thề xóa dữ liệu này !</value>
@@ -748,10 +748,10 @@
     <value>Giá trị</value>
   </data>
   <data name="averageLossAmt" xml:space="preserve">
-    <value>ST lỗ trung bình</value>
+    <value>Tiền lỗ trung bình</value>
   </data>
   <data name="averageWinAmt" xml:space="preserve">
-    <value>ST lời trung bình</value>
+    <value>Tiền lời trung bình</value>
   </data>
   <data name="lossStockPerc" xml:space="preserve">
     <value>Tỉ lệ CP lỗ</value>
@@ -817,7 +817,7 @@
     <value>Phí</value>
   </data>
   <data name="finished" xml:space="preserve">
-    <value>Hòan tất</value>
+    <value>Hoàn tất</value>
   </data>
   <data name="fullView" xml:space="preserve">
     <value>Toàn màn hình</value>
@@ -940,7 +940,7 @@
     <value>Hệ thống gặp lỗi !</value>
   </data>
   <data name="waitDataLoading" xml:space="preserve">
-    <value>Xin vui lòng chờ đợi  !</value>
+    <value>Xin vui lòng chờ trong giây lát!</value>
   </data>
   <data name="disableAlert" xml:space="preserve">
     <value>Bỏ qua</value>
@@ -1022,5 +1022,8 @@
   </data>
   <data name="loadDataError" xml:space="preserve">
     <value>Có lỗi khi tải dữ liệu ! </value>
+  </data>
+  <data name="internetError" xml:space="preserve">
+    <value>Xin vui lòng kiểm tra lại kết nối Internet</value>
   </data>
 </root>
