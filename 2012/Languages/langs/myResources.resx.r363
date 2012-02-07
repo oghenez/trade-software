@@ -1,0 +1,1020 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="all" xml:space="preserve">
+    <value>All</value>
+  </data>
+  <data name="bar" xml:space="preserve">
+    <value>Bar</value>
+  </data>
+  <data name="candleStick" xml:space="preserve">
+    <value>CandleStick</value>
+  </data>
+  <data name="closeStat" xml:space="preserve">
+    <value>Closed</value>
+  </data>
+  <data name="disableStat" xml:space="preserve">
+    <value>Disabled</value>
+  </data>
+  <data name="enableStat" xml:space="preserve">
+    <value>Enabled</value>
+  </data>
+  <data name="female" xml:space="preserve">
+    <value>Female</value>
+  </data>
+  <data name="hour" xml:space="preserve">
+    <value>Hour</value>
+  </data>
+  <data name="ignoreStat" xml:space="preserve">
+    <value>Ignored</value>
+  </data>
+  <data name="industry" xml:space="preserve">
+    <value>Industry</value>
+  </data>
+  <data name="line" xml:space="preserve">
+    <value>Line</value>
+  </data>
+  <data name="male" xml:space="preserve">
+    <value>Male</value>
+  </data>
+  <data name="minute" xml:space="preserve">
+    <value>Minute</value>
+  </data>
+  <data name="month" xml:space="preserve">
+    <value>Month</value>
+  </data>
+  <data name="NA" xml:space="preserve">
+    <value>N/A</value>
+  </data>
+  <data name="newStat" xml:space="preserve">
+    <value>New</value>
+  </data>
+  <data name="screening" xml:space="preserve">
+    <value>Screening</value>
+  </data>
+  <data name="sector" xml:space="preserve">
+    <value>Sector</value>
+  </data>
+  <data name="select" xml:space="preserve">
+    <value>Select</value>
+  </data>
+  <data name="strategy" xml:space="preserve">
+    <value>Strategy</value>
+  </data>
+  <data name="subsector" xml:space="preserve">
+    <value>Subsector</value>
+  </data>
+  <data name="superSector" xml:space="preserve">
+    <value>SuperSector</value>
+  </data>
+  <data name="unspecifiedSex" xml:space="preserve">
+    <value>Unspecified</value>
+  </data>
+  <data name="week" xml:space="preserve">
+    <value>Week</value>
+  </data>
+  <data name="year" xml:space="preserve">
+    <value>Year</value>
+  </data>
+  <data name="YTD" xml:space="preserve">
+    <value>Year to date</value>
+  </data>
+  <data name="cannotDoTransaction" xml:space="preserve">
+    <value>Cannot do transactions.</value>
+  </data>
+  <data name="dataNotFound" xml:space="preserve">
+    <value>{0} : not found.</value>
+  </data>
+  <data name="exitApplication" xml:space="preserve">
+    <value>Exit application.</value>
+  </data>
+  <data name="outOfMoney" xml:space="preserve">
+    <value>Out of money.Maximum amount must be less than  {0:g}.</value>
+  </data>
+  <data name="outOfQty" xml:space="preserve">
+    <value>Out of quantity.Maximum value must be less than  {0:g}.</value>
+  </data>
+  <data name="hours" xml:space="preserve">
+    <value>Hours</value>
+  </data>
+  <data name="minutes" xml:space="preserve">
+    <value>Minutes</value>
+  </data>
+  <data name="months" xml:space="preserve">
+    <value>Months</value>
+  </data>
+  <data name="weeks" xml:space="preserve">
+    <value>Weeks</value>
+  </data>
+  <data name="years" xml:space="preserve">
+    <value>Years</value>
+  </data>
+  <data name="day" xml:space="preserve">
+    <value>Day</value>
+  </data>
+  <data name="days" xml:space="preserve">
+    <value>Days</value>
+  </data>
+  <data name="accumulateAction" xml:space="preserve">
+    <value>Accumulate</value>
+  </data>
+  <data name="buyAction" xml:space="preserve">
+    <value>Buy</value>
+  </data>
+  <data name="clearAllAction" xml:space="preserve">
+    <value>Clear All</value>
+  </data>
+  <data name="selectAction" xml:space="preserve">
+    <value>Select</value>
+  </data>
+  <data name="sellAction" xml:space="preserve">
+    <value>Sell</value>
+  </data>
+  <data name="about" xml:space="preserve">
+    <value>About</value>
+  </data>
+  <data name="backTesting" xml:space="preserve">
+    <value>Back testing</value>
+  </data>
+  <data name="barChart" xml:space="preserve">
+    <value>Bar</value>
+  </data>
+  <data name="candleSticks" xml:space="preserve">
+    <value>CandleSticks</value>
+  </data>
+  <data name="chart" xml:space="preserve">
+    <value>Charts</value>
+  </data>
+  <data name="chartGrid" xml:space="preserve">
+    <value>Chart grid</value>
+  </data>
+  <data name="chartProperty" xml:space="preserve">
+    <value>Chart property</value>
+  </data>
+  <data name="chartVolume" xml:space="preserve">
+    <value>Chart volume</value>
+  </data>
+  <data name="closeAll" xml:space="preserve">
+    <value>Close All</value>
+  </data>
+  <data name="closeChart" xml:space="preserve">
+    <value>Close </value>
+  </data>
+  <data name="companyList" xml:space="preserve">
+    <value>Company list</value>
+  </data>
+  <data name="contents" xml:space="preserve">
+    <value>Contents</value>
+  </data>
+  <data name="copy" xml:space="preserve">
+    <value>Copy</value>
+  </data>
+  <data name="cut" xml:space="preserve">
+    <value>Cut</value>
+  </data>
+  <data name="delete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="edit" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="english" xml:space="preserve">
+    <value>English</value>
+  </data>
+  <data name="exit" xml:space="preserve">
+    <value>Exit</value>
+  </data>
+  <data name="file" xml:space="preserve">
+    <value>File</value>
+  </data>
+  <data name="help" xml:space="preserve">
+    <value>Help</value>
+  </data>
+  <data name="index" xml:space="preserve">
+    <value>Index</value>
+  </data>
+  <data name="indicator" xml:space="preserve">
+    <value>Indicator</value>
+  </data>
+  <data name="language" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="lineChart" xml:space="preserve">
+    <value>Line chart</value>
+  </data>
+  <data name="login" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="logout" xml:space="preserve">
+    <value>Log out</value>
+  </data>
+  <data name="marketWatch" xml:space="preserve">
+    <value>Market watch</value>
+  </data>
+  <data name="myPortfolio" xml:space="preserve">
+    <value>My portfolio</value>
+  </data>
+  <data name="myProfile" xml:space="preserve">
+    <value>My profile</value>
+  </data>
+  <data name="order" xml:space="preserve">
+    <value>Order</value>
+  </data>
+  <data name="paste" xml:space="preserve">
+    <value>Paste</value>
+  </data>
+  <data name="periodicity" xml:space="preserve">
+    <value>Periodicity</value>
+  </data>
+  <data name="print" xml:space="preserve">
+    <value>Print</value>
+  </data>
+  <data name="printPreview" xml:space="preserve">
+    <value>Print preview</value>
+  </data>
+  <data name="printSetup" xml:space="preserve">
+    <value>Print setup</value>
+  </data>
+  <data name="redo" xml:space="preserve">
+    <value>Redo</value>
+  </data>
+  <data name="screeningOption" xml:space="preserve">
+    <value>Screening options</value>
+  </data>
+  <data name="search" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="selectAll" xml:space="preserve">
+    <value>Select All</value>
+  </data>
+  <data name="standard" xml:space="preserve">
+    <value>Standard</value>
+  </data>
+  <data name="strategyEstimation" xml:space="preserve">
+    <value>Strategy Estimation</value>
+  </data>
+  <data name="strategyOption" xml:space="preserve">
+    <value>Strategy options</value>
+  </data>
+  <data name="strategyRanking" xml:space="preserve">
+    <value>Strategy ranking</value>
+  </data>
+  <data name="toolAllOptions" xml:space="preserve">
+    <value>Options</value>
+  </data>
+  <data name="toolBar" xml:space="preserve">
+    <value>Toolbar</value>
+  </data>
+  <data name="toolOption" xml:space="preserve">
+    <value>Tool options</value>
+  </data>
+  <data name="tools" xml:space="preserve">
+    <value>Tools</value>
+  </data>
+  <data name="tradeAlert" xml:space="preserve">
+    <value>Trade alerts</value>
+  </data>
+  <data name="transHistory" xml:space="preserve">
+    <value>Transaction history</value>
+  </data>
+  <data name="undo" xml:space="preserve">
+    <value>undo</value>
+  </data>
+  <data name="vietnamese" xml:space="preserve">
+    <value>Vietnamese</value>
+  </data>
+  <data name="view" xml:space="preserve">
+    <value>View</value>
+  </data>
+  <data name="windows" xml:space="preserve">
+    <value>Windows</value>
+  </data>
+  <data name="zoomIn" xml:space="preserve">
+    <value>Zoom In</value>
+  </data>
+  <data name="zoomOut" xml:space="preserve">
+    <value>Zoom Out</value>
+  </data>
+  <data name="account" xml:space="preserve">
+    <value>Account</value>
+  </data>
+  <data name="accountExpired" xml:space="preserve">
+    <value>Account was expired !</value>
+  </data>
+  <data name="address" xml:space="preserve">
+    <value>Address</value>
+  </data>
+  <data name="amount" xml:space="preserve">
+    <value>Amount</value>
+  </data>
+  <data name="background" xml:space="preserve">
+    <value>Background</value>
+  </data>
+  <data name="barDn" xml:space="preserve">
+    <value>Bar Down</value>
+  </data>
+  <data name="barUp" xml:space="preserve">
+    <value>Bar Up</value>
+  </data>
+  <data name="bearCandle" xml:space="preserve">
+    <value>Bear Candle</value>
+  </data>
+  <data name="bizSector" xml:space="preserve">
+    <value>Business Sectors</value>
+  </data>
+  <data name="bookPrice" xml:space="preserve">
+    <value>Book price</value>
+  </data>
+  <data name="boughtAmt" xml:space="preserve">
+    <value>Bought Amt</value>
+  </data>
+  <data name="boughtPrice" xml:space="preserve">
+    <value>Bought Price</value>
+  </data>
+  <data name="bullCandle" xml:space="preserve">
+    <value>Bull Candle</value>
+  </data>
+  <data name="bySectors" xml:space="preserve">
+    <value>By Sectors</value>
+  </data>
+  <data name="cannotDelete" xml:space="preserve">
+    <value>Cannot delete the data !</value>
+  </data>
+  <data name="capitalAmt" xml:space="preserve">
+    <value>Capital amount</value>
+  </data>
+  <data name="cashAmt" xml:space="preserve">
+    <value>Cash</value>
+  </data>
+  <data name="category" xml:space="preserve">
+    <value>Category</value>
+  </data>
+  <data name="classificationSystem" xml:space="preserve">
+    <value>Classification system</value>
+  </data>
+  <data name="close" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="code" xml:space="preserve">
+    <value>Code</value>
+  </data>
+  <data name="color" xml:space="preserve">
+    <value>Colors</value>
+  </data>
+  <data name="configure" xml:space="preserve">
+    <value>Configure</value>
+  </data>
+  <data name="connection" xml:space="preserve">
+    <value>Connection</value>
+  </data>
+  <data name="connectionFail" xml:space="preserve">
+    <value>Connetion failed!</value>
+  </data>
+  <data name="connectionOk" xml:space="preserve">
+    <value>Connetion is OK !</value>
+  </data>
+  <data name="country" xml:space="preserve">
+    <value>Country</value>
+  </data>
+  <data name="dataSaved" xml:space="preserve">
+    <value>Data saved</value>
+  </data>
+  <data name="dataTooLong" xml:space="preserve">
+    <value>Data are too long.Maximum size is {0:g} characters.</value>
+  </data>
+  <data name="dataWasDeleted" xml:space="preserve">
+    <value>Data was deleted !</value>
+  </data>
+  <data name="dateTime" xml:space="preserve">
+    <value>Date Time</value>
+  </data>
+  <data name="description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="displayName" xml:space="preserve">
+    <value>Display Name</value>
+  </data>
+  <data name="exchange" xml:space="preserve">
+    <value>Exchange</value>
+  </data>
+  <data name="expireDate" xml:space="preserve">
+    <value>Expired Date</value>
+  </data>
+  <data name="find" xml:space="preserve">
+    <value>Find</value>
+  </data>
+  <data name="firstName" xml:space="preserve">
+    <value>First Name</value>
+  </data>
+  <data name="foreground" xml:space="preserve">
+    <value>Foreground</value>
+  </data>
+  <data name="foreignOwnQty" xml:space="preserve">
+    <value>Foreign Owned </value>
+  </data>
+  <data name="generalInfo" xml:space="preserve">
+    <value>General information</value>
+  </data>
+  <data name="grid" xml:space="preserve">
+    <value>Grid</value>
+  </data>
+  <data name="group" xml:space="preserve">
+    <value>Group</value>
+  </data>
+  <data name="icon" xml:space="preserve">
+    <value>Icon</value>
+  </data>
+  <data name="imageFile" xml:space="preserve">
+    <value>Image file</value>
+  </data>
+  <data name="information" xml:space="preserve">
+    <value>Information</value>
+  </data>
+  <data name="interestedCode" xml:space="preserve">
+    <value>Interested codes</value>
+  </data>
+  <data name="interestedStrategy" xml:space="preserve">
+    <value>Interested Strategies</value>
+  </data>
+  <data name="invalidData" xml:space="preserve">
+    <value>Invalid data</value>
+  </data>
+  <data name="invalidLogin" xml:space="preserve">
+    <value>Invalid login. Please check the account and password!</value>
+  </data>
+  <data name="investment" xml:space="preserve">
+    <value>Investment</value>
+  </data>
+  <data name="investor" xml:space="preserve">
+    <value>Investor</value>
+  </data>
+  <data name="lastName" xml:space="preserve">
+    <value>Last Name</value>
+  </data>
+  <data name="lineGraph" xml:space="preserve">
+    <value>Line graph</value>
+  </data>
+  <data name="listedQty" xml:space="preserve">
+    <value>Listed Qty</value>
+  </data>
+  <data name="logo" xml:space="preserve">
+    <value>logo</value>
+  </data>
+  <data name="maxAccumulatePercent" xml:space="preserve">
+    <value>Accumulation</value>
+  </data>
+  <data name="maxBuyAmtPercent" xml:space="preserve">
+    <value>Max Buy Amount</value>
+  </data>
+  <data name="maxReducePercent" xml:space="preserve">
+    <value>Reduction</value>
+  </data>
+  <data name="maxSize" xml:space="preserve">
+    <value>Max size</value>
+  </data>
+  <data name="mobile" xml:space="preserve">
+    <value>Mobile</value>
+  </data>
+  <data name="name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="nationality" xml:space="preserve">
+    <value>Nationality</value>
+  </data>
+  <data name="noData" xml:space="preserve">
+    <value>No data found !</value>
+  </data>
+  <data name="note" xml:space="preserve">
+    <value>Notes</value>
+  </data>
+  <data name="onlySelected" xml:space="preserve">
+    <value>Only Selected</value>
+  </data>
+  <data name="option" xml:space="preserve">
+    <value>Option</value>
+  </data>
+  <data name="outstandingQty" xml:space="preserve">
+    <value>Outstanding qty</value>
+  </data>
+  <data name="ownedList" xml:space="preserve">
+    <value>Owned list</value>
+  </data>
+  <data name="panRate" xml:space="preserve">
+    <value>Pan rate</value>
+  </data>
+  <data name="password" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="phone" xml:space="preserve">
+    <value>Phone</value>
+  </data>
+  <data name="pleaseSaveBeforeContinue" xml:space="preserve">
+    <value>Please save data before doing the operation !</value>
+  </data>
+  <data name="pleaseSelectRows" xml:space="preserve">
+    <value>Please select one or more rows!</value>
+  </data>
+  <data name="pleaseUseVersion" xml:space="preserve">
+    <value>Please use version {0} or higher !</value>
+  </data>
+  <data name="portfolio" xml:space="preserve">
+    <value>Portfolio</value>
+  </data>
+  <data name="property" xml:space="preserve">
+    <value>Properties</value>
+  </data>
+  <data name="qty" xml:space="preserve">
+    <value>Qty</value>
+  </data>
+  <data name="regDate" xml:space="preserve">
+    <value>Reg. date</value>
+  </data>
+  <data name="reload" xml:space="preserve">
+    <value>Reload</value>
+  </data>
+  <data name="runSetupToCreateConfigFile" xml:space="preserve">
+    <value>Please run setup to create database connection in file :{0}</value>
+  </data>
+  <data name="save" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="saveDataBeforeClose" xml:space="preserve">
+    <value>Please save data before closing !</value>
+  </data>
+  <data name="zoomRate" xml:space="preserve">
+    <value>Zoom rate</value>
+  </data>
+  <data name="sex" xml:space="preserve">
+    <value>Sex</value>
+  </data>
+  <data name="showDescription" xml:space="preserve">
+    <value>Show description</value>
+  </data>
+  <data name="showGrid" xml:space="preserve">
+    <value>Show grid</value>
+  </data>
+  <data name="showLegend" xml:space="preserve">
+    <value>Show legend</value>
+  </data>
+  <data name="showVolume" xml:space="preserve">
+    <value>Show volume</value>
+  </data>
+  <data name="status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="system" xml:space="preserve">
+    <value>System</value>
+  </data>
+  <data name="tag" xml:space="preserve">
+    <value>Tag</value>
+  </data>
+  <data name="targetPrice" xml:space="preserve">
+    <value>Target price</value>
+  </data>
+  <data name="test" xml:space="preserve">
+    <value>Test</value>
+  </data>
+  <data name="ticker" xml:space="preserve">
+    <value>Ticker</value>
+  </data>
+  <data name="timeRange" xml:space="preserve">
+    <value>Periodicity</value>
+  </data>
+  <data name="timeScale" xml:space="preserve">
+    <value>Time Scale</value>
+  </data>
+  <data name="treasuryQty" xml:space="preserve">
+    <value>Treasury</value>
+  </data>
+  <data name="usedAmt" xml:space="preserve">
+    <value>Used amount</value>
+  </data>
+  <data name="visible" xml:space="preserve">
+    <value>Visible</value>
+  </data>
+  <data name="volume" xml:space="preserve">
+    <value>Volume</value>
+  </data>
+  <data name="watchList" xml:space="preserve">
+    <value>Watch List</value>
+  </data>
+  <data name="watchListShort" xml:space="preserve">
+    <value>Watch List</value>
+  </data>
+  <data name="website" xml:space="preserve">
+    <value>Website</value>
+  </data>
+  <data name="weight" xml:space="preserve">
+    <value>Weight</value>
+  </data>
+  <data name="averageLossAmt" xml:space="preserve">
+    <value>Average loss amount</value>
+  </data>
+  <data name="averageWinAmt" xml:space="preserve">
+    <value>Average wining amount</value>
+  </data>
+  <data name="lossStockPerc" xml:space="preserve">
+    <value>Loss percentage</value>
+  </data>
+  <data name="maxLossAmt" xml:space="preserve">
+    <value>Max loss amount</value>
+  </data>
+  <data name="maxWinAmt" xml:space="preserve">
+    <value>Max wining amount</value>
+  </data>
+  <data name="others" xml:space="preserve">
+    <value>Others</value>
+  </data>
+  <data name="parameter" xml:space="preserve">
+    <value>Parameters</value>
+  </data>
+  <data name="saveSetting" xml:space="preserve">
+    <value>Save settings</value>
+  </data>
+  <data name="settingSaved" xml:space="preserve">
+    <value>Settings were saved !</value>
+  </data>
+  <data name="value" xml:space="preserve">
+    <value>Value</value>
+  </data>
+  <data name="winStockPerc" xml:space="preserve">
+    <value>Winning percentage</value>
+  </data>
+  <data name="add" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="addNew" xml:space="preserve">
+    <value>New</value>
+  </data>
+  <data name="addToWatchList" xml:space="preserve">
+    <value>Add to watch list</value>
+  </data>
+  <data name="allProfitDetail" xml:space="preserve">
+    <value>All profit details</value>
+  </data>
+  <data name="allTransaction" xml:space="preserve">
+    <value>All Transactions</value>
+  </data>
+  <data name="backTest" xml:space="preserve">
+    <value>Back testing</value>
+  </data>
+  <data name="buy2SellInterval" xml:space="preserve">
+    <value>Only sell after</value>
+  </data>
+  <data name="closePrice" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="codeList" xml:space="preserve">
+    <value>Code list</value>
+  </data>
+  <data name="criteria" xml:space="preserve">
+    <value>Criteria</value>
+  </data>
+  <data name="date" xml:space="preserve">
+    <value>Date</value>
+  </data>
+  <data name="estimation" xml:space="preserve">
+    <value>Estimation</value>
+  </data>
+  <data name="export" xml:space="preserve">
+    <value>Export</value>
+  </data>
+  <data name="exportEstimation" xml:space="preserve">
+    <value>Export Estimation</value>
+  </data>
+  <data name="exportResult" xml:space="preserve">
+    <value>Export Result</value>
+  </data>
+  <data name="feeAmt" xml:space="preserve">
+    <value>Fee Amt</value>
+  </data>
+  <data name="finished" xml:space="preserve">
+    <value>Finished</value>
+  </data>
+  <data name="fullView" xml:space="preserve">
+    <value>Full View</value>
+  </data>
+  <data name="highPrice" xml:space="preserve">
+    <value>High</value>
+  </data>
+  <data name="keepSellAdvice" xml:space="preserve">
+    <value>Keep sell advice</value>
+  </data>
+  <data name="lowPrice" xml:space="preserve">
+    <value>Low</value>
+  </data>
+  <data name="max" xml:space="preserve">
+    <value>Max</value>
+  </data>
+  <data name="maxBuyQtyPercent" xml:space="preserve">
+    <value>Max Buy Qty</value>
+  </data>
+  <data name="maxQtyAccumulatePercent" xml:space="preserve">
+    <value>Max Qty Accumulate</value>
+  </data>
+  <data name="maxQtyReducePercent" xml:space="preserve">
+    <value>Max qty reduce</value>
+  </data>
+  <data name="min" xml:space="preserve">
+    <value>Min</value>
+  </data>
+  <data name="onDate" xml:space="preserve">
+    <value>On Date</value>
+  </data>
+  <data name="open" xml:space="preserve">
+    <value>Open</value>
+  </data>
+  <data name="openPrice" xml:space="preserve">
+    <value>Open</value>
+  </data>
+  <data name="priceWeight" xml:space="preserve">
+    <value>Price ratio</value>
+  </data>
+  <data name="profit" xml:space="preserve">
+    <value>Profit</value>
+  </data>
+  <data name="profitDetail" xml:space="preserve">
+    <value>Profit details</value>
+  </data>
+  <data name="run" xml:space="preserve">
+    <value>Run</value>
+  </data>
+  <data name="showChart" xml:space="preserve">
+    <value>Show Chart</value>
+  </data>
+  <data name="time" xml:space="preserve">
+    <value>Time</value>
+  </data>
+  <data name="totalAmt" xml:space="preserve">
+    <value>Total Amount</value>
+  </data>
+  <data name="totalCapital" xml:space="preserve">
+    <value>Total capital</value>
+  </data>
+  <data name="volumeWeight" xml:space="preserve">
+    <value>Volume ratio</value>
+  </data>
+  <data name="accept" xml:space="preserve">
+    <value>Accept</value>
+  </data>
+  <data name="alertClosed" xml:space="preserve">
+    <value>Alert was closed !</value>
+  </data>
+  <data name="alertDeleted" xml:space="preserve">
+    <value>{0,g} alert(s) were deteled !</value>
+  </data>
+  <data name="alertRecovered" xml:space="preserve">
+    <value>Alert was recovered !</value>
+  </data>
+  <data name="askDeleteAlert" xml:space="preserve">
+    <value>Delete the alert ?</value>
+  </data>
+  <data name="askDoTransaction" xml:space="preserve">
+    <value>Accept the transaction ?</value>
+  </data>
+  <data name="filter" xml:space="preserve">
+    <value>Filter</value>
+  </data>
+  <data name="ignore" xml:space="preserve">
+    <value>Ignore</value>
+  </data>
+  <data name="recover" xml:space="preserve">
+    <value>Recover</value>
+  </data>
+  <data name="subject" xml:space="preserve">
+    <value>Subject</value>
+  </data>
+  <data name="subTotal" xml:space="preserve">
+    <value>Sub total</value>
+  </data>
+  <data name="tradeAction" xml:space="preserve">
+    <value>Action</value>
+  </data>
+  <data name="transaction" xml:space="preserve">
+    <value>Transaction</value>
+  </data>
+  <data name="transactionCompleted" xml:space="preserve">
+    <value>Transaction completed !</value>
+  </data>
+  <data name="transactionIsClosed" xml:space="preserve">
+    <value>The transaction is closed !</value>
+  </data>
+  <data name="transactionNo" xml:space="preserve">
+    <value>Transaction no.</value>
+  </data>
+  <data name="transactionType" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="draw" xml:space="preserve">
+    <value>Draw</value>
+  </data>
+  <data name="inNewPane" xml:space="preserve">
+    <value>In new window</value>
+  </data>
+  <data name="price" xml:space="preserve">
+    <value>Price</value>
+  </data>
+  <data name="systemError" xml:space="preserve">
+    <value>System error !</value>
+  </data>
+  <data name="waitDataLoading" xml:space="preserve">
+    <value>Please wait for loading !</value>
+  </data>
+  <data name="disableAlert" xml:space="preserve">
+    <value>Disable</value>
+  </data>
+  <data name="enableAlert" xml:space="preserve">
+    <value>Enable</value>
+  </data>
+  <data name="marketInfo" xml:space="preserve">
+    <value>Market info</value>
+  </data>
+  <data name="ownedQty" xml:space="preserve">
+    <value>Owned Qty</value>
+  </data>
+  <data name="transFeePerc" xml:space="preserve">
+    <value>Transaction Fee(%)</value>
+  </data>
+  <data name="currentCash" xml:space="preserve">
+    <value>Current Cash</value>
+  </data>
+  <data name="cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="postTransCash" xml:space="preserve">
+    <value>Cash</value>
+  </data>
+  <data name="dataSource" xml:space="preserve">
+    <value>Data Source</value>
+  </data>
+  <data name="hodidays" xml:space="preserve">
+    <value>Hodidays</value>
+  </data>
+  <data name="workTime" xml:space="preserve">
+    <value>Work Time</value>
+  </data>
+  <data name="market" xml:space="preserve">
+    <value>Market</value>
+  </data>
+  <data name="askToRestartService" xml:space="preserve">
+    <value>Restart service ?</value>
+  </data>
+  <data name="openChart" xml:space="preserve">
+    <value>Open chart</value>
+  </data>
+  <data name="sysOptions" xml:space="preserve">
+    <value>Preferences</value>
+  </data>
+  <data name="decrease" xml:space="preserve">
+    <value>Decrease</value>
+  </data>
+  <data name="increase" xml:space="preserve">
+    <value>Increase</value>
+  </data>
+  <data name="notChange" xml:space="preserve">
+    <value>Not change</value>
+  </data>
+  <data name="percent" xml:space="preserve">
+    <value>Percent</value>
+  </data>
+  <data name="pwdMinLen" xml:space="preserve">
+    <value>Min password lenght</value>
+  </data>
+  <data name="refreshRate" xml:space="preserve">
+    <value>Refresh rate</value>
+  </data>
+  <data name="seconds" xml:space="preserve">
+    <value>Seconds</value>
+  </data>
+  <data name="useStrongPwd" xml:space="preserve">
+    <value>Use strong password</value>
+  </data>
+  <data name="format" xml:space="preserve">
+    <value>Format</value>
+  </data>
+  <data name="number" xml:space="preserve">
+    <value>Number</value>
+  </data>
+  <data name="defaultStr" xml:space="preserve">
+    <value>Default</value>
+  </data>
+  <data name="loadDataError" xml:space="preserve">
+    <value>Failed to load data !</value>
+  </data>
+</root>

@@ -1,0 +1,101 @@
+<Configuration>
+  <WSCONNECTION>
+    <Main wsURI="cr+BsZtc1VaYm7T/XSx9KvPjFq5IavLMA20X3v5ueYNdD2pctDCOqfABbH/XEv2j" />
+  </WSCONNECTION>
+  <WSCONNECTION>
+    <Main wsAccount="KyfIBVMmkxxwVTSmToEeiw==" />
+  </WSCONNECTION>
+  <WSCONNECTION>
+    <Main wsPassword="AsULALTQODioRsx1v+oBlQ==" />
+  </WSCONNECTION>
+  <WSCONNECTION>
+    <Main wsWindowAuthentication="MVsoctThcobSC9M10quTJg==" />
+  </WSCONNECTION>
+  <WSCONNECTION>
+    <Main wsTimeout="RkLVbHhukqmG8DqFrUVKzw==" />
+  </WSCONNECTION>
+  <WSCONNECTION>
+    <Main wsUseProxy="EpAxoobbG0tPxhyMIVa+4Q==" />
+  </WSCONNECTION>
+  <WSCONNECTION>
+    <Main wsUseDefaultProxy="MVsoctThcobSC9M10quTJg==" />
+  </WSCONNECTION>
+  <WSCONNECTION>
+    <Main wsProxyAddress="7BHZBvjz32VpuWUDhn7R+2/BZRuF5p9cYgw0F4WLwDs=" />
+  </WSCONNECTION>
+  <WSCONNECTION>
+    <Main wsProxyPort="t4kAjup6TM1cHa5fDHuYpA==" />
+  </WSCONNECTION>
+  <ENVIRONMENT>
+    <Login LoginName="gFQL6vn2bOh5AMHs6+NWdA==" />
+  </ENVIRONMENT>
+  <ENVIRONMENT>
+    <Login loginLocationId="Qivs4xlMKfhcld4XESkALCbo0gnVtn5ZYgw0F4WLwDs=" />
+  </ENVIRONMENT>
+  <Application>
+    <System stockMaxBuyQtyPerc="yuFaA0nsER+VOcngcLLToA==" />
+  </Application>
+  <Application>
+    <System stockReduceQtyPerc="yuFaA0nsER+VOcngcLLToA==" />
+  </Application>
+  <Application>
+    <System stockAccumulateQtyPerc="yuFaA0nsER+VOcngcLLToA==" />
+  </Application>
+  <Application>
+    <System stockTotalCapAmt="iRlKJICbVJGsItSeWEEft7gel7mtBty9Ygw0F4WLwDs=" />
+  </Application>
+  <Application>
+    <System stockMaxBuyAmtPerc="lNJY16iycunRoLtxamnAUA==" />
+  </Application>
+  <Application>
+    <System companyName="" />
+  </Application>
+  <Application>
+    <System companyAddr1="" />
+  </Application>
+  <Application>
+    <System companyAddr2="" />
+  </Application>
+  <Application>
+    <System companyAddr3="" />
+  </Application>
+  <Application>
+    <System telephone="" />
+  </Application>
+  <Application>
+    <System fax="" />
+  </Application>
+  <Application>
+    <System email="" />
+  </Application>
+  <Application>
+    <System URL="" />
+  </Application>
+  <Application>
+    <System companyTaxcode="" />
+  </Application>
+  <Application>
+    <System bankName="" />
+  </Application>
+  <Application>
+    <System bankAccount="" />
+  </Application>
+  <Application>
+    <System bankCode="" />
+  </Application>
+  <Application>
+    <System director="" />
+  </Application>
+  <Application>
+    <System chiefAccountant="" />
+  </Application>
+  <Application>
+    <System headOfManagementBoard="" />
+  </Application>
+  <Application>
+    <System warehouseManager="" />
+  </Application>
+  <Application>
+    <System cashier="" />
+  </Application>
+</Configuration>
