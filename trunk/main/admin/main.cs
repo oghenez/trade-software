@@ -173,5 +173,10 @@ namespace admin
                 this.ShowError(er);
             }
         }
+
+        private void listMenuStrip_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

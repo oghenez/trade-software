@@ -4026,3 +4026,565 @@ Exception rethrown at [0]:
    at application.Indicators.Data.get_Metas() in C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\HQTrader122011\application\IndicatorLibs.cs:line 102
    at application.Indicators.Libs.CreateIndicatorMenu(ToolStripMenuItem toMenu, EventHandler ShowIndicatorHandler) in C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\HQTrader122011\application\IndicatorLibs.cs:line 561
    at client.main.SetLanguage() in C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\HQTrader122011\client\main.cs:line 227
+01/02/2012 10:55:23 CH baseApplication	System.ServiceModel.EndpointNotFoundException: There was no endpoint listening at http://test01.cesti.gov.vn/DataLibs.svc that could accept the message. This is often caused by an incorrect address or SOAP action. See InnerException, if present, for more details. ---> System.Net.WebException: The remote name could not be resolved: 'test01.cesti.gov.vn'
+   at System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   at System.Net.HttpWebRequest.GetRequestStream()
+   at System.ServiceModel.Channels.HttpOutput.WebRequestHttpOutput.GetOutputStream()
+   --- End of inner exception stack trace ---
+
+Server stack trace: 
+   at System.ServiceModel.Security.IssuanceTokenProviderBase`1.DoNegotiation(TimeSpan timeout)
+   at System.ServiceModel.Security.SspiNegotiationTokenProvider.OnOpen(TimeSpan timeout)
+   at System.ServiceModel.Security.WrapperSecurityCommunicationObject.OnOpen(TimeSpan timeout)
+   at System.ServiceModel.Channels.CommunicationObject.Open(TimeSpan timeout)
+   at System.ServiceModel.Security.CommunicationObjectSecurityTokenProvider.Open(TimeSpan timeout)
+   at System.ServiceModel.Security.SecurityUtils.OpenTokenProviderIfRequired(SecurityTokenProvider tokenProvider, TimeSpan timeout)
+   at System.ServiceModel.Security.SymmetricSecurityProtocol.OnOpen(TimeSpan timeout)
+   at System.ServiceModel.Security.WrapperSecurityCommunicationObject.OnOpen(TimeSpan timeout)
+   at System.ServiceModel.Channels.CommunicationObject.Open(TimeSpan timeout)
+   at System.ServiceModel.Channels.SecurityChannelFactory`1.ClientSecurityChannel`1.OnOpen(TimeSpan timeout)
+   at System.ServiceModel.Channels.CommunicationObject.Open(TimeSpan timeout)
+   at System.ServiceModel.Security.SecuritySessionSecurityTokenProvider.DoOperation(SecuritySessionOperation operation, EndpointAddress target, Uri via, SecurityToken currentToken, TimeSpan timeout)
+   at System.ServiceModel.Security.SecuritySessionSecurityTokenProvider.GetTokenCore(TimeSpan timeout)
+   at System.IdentityModel.Selectors.SecurityTokenProvider.GetToken(TimeSpan timeout)
+   at System.ServiceModel.Security.SecuritySessionClientSettings`1.ClientSecuritySessionChannel.OnOpen(TimeSpan timeout)
+   at System.ServiceModel.Channels.CommunicationObject.Open(TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannel.OnOpen(TimeSpan timeout)
+   at System.ServiceModel.Channels.CommunicationObject.Open(TimeSpan timeout)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at System.ServiceModel.ICommunicationObject.Open(TimeSpan timeout)
+   at System.ServiceModel.ClientBase`1.System.ServiceModel.ICommunicationObject.Open(TimeSpan timeout)
+   at System.ServiceModel.ClientBase`1.Open()
+   at DataAccess.Libs.OpenConnection(wsConnectionInfo wsInfo) in C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\HQTrader122011\dataAccess\dataLibs.cs:line 108
+   at DataAccess.Libs.OpenConnection() in C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\HQTrader122011\dataAccess\dataLibs.cs:line 49
+   at DataAccess.Libs.get_myClient() in C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\HQTrader122011\dataAccess\dataLibs.cs:line 37
+   at DataAccess.Libs.Load_Global_Settings() in C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\HQTrader122011\dataAccess\dataLibs.cs:line 816
+   at baseClass.forms.baseApplication.LoadAppConfig() in C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\HQTrader122011\baseClass\forms\baseApplication.cs:line 47
+   at client.main.LoadAppConfig() in C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\HQTrader122011\client\main.cs:line 353
+01/02/2012 10:55:31 CH main	System.ServiceModel.EndpointNotFoundException: There was no endpoint listening at http://test01.cesti.gov.vn/DataLibs.svc that could accept the message. This is often caused by an incorrect address or SOAP action. See InnerException, if present, for more details. ---> System.Net.WebException: The remote name could not be resolved: 'test01.cesti.gov.vn'
+   at System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   at System.Net.HttpWebRequest.GetRequestStream()
+   at System.ServiceModel.Channels.HttpOutput.WebRequestHttpOutput.GetOutputStream()
+   --- End of inner exception stack trace ---
+
+Server stack trace: 
+   at System.ServiceModel.Security.IssuanceTokenProviderBase`1.DoNegotiation(TimeSpan timeout)
+   at System.ServiceModel.Security.SspiNegotiationTokenProvider.OnOpen(TimeSpan timeout)
+   at System.ServiceModel.Security.WrapperSecurityCommunicationObject.OnOpen(TimeSpan timeout)
+   at System.ServiceModel.Channels.CommunicationObject.Open(TimeSpan timeout)
+   at System.ServiceModel.Security.CommunicationObjectSecurityTokenProvider.Open(TimeSpan timeout)
+   at System.ServiceModel.Security.SecurityUtils.OpenTokenProviderIfRequired(SecurityTokenProvider tokenProvider, TimeSpan timeout)
+   at System.ServiceModel.Security.SymmetricSecurityProtocol.OnOpen(TimeSpan timeout)
+   at System.ServiceModel.Security.WrapperSecurityCommunicationObject.OnOpen(TimeSpan timeout)
+   at System.ServiceModel.Channels.CommunicationObject.Open(TimeSpan timeout)
+   at System.ServiceModel.Channels.SecurityChannelFactory`1.ClientSecurityChannel`1.OnOpen(TimeSpan timeout)
+   at System.ServiceModel.Channels.CommunicationObject.Open(TimeSpan timeout)
+   at System.ServiceModel.Security.SecuritySessionSecurityTokenProvider.DoOperation(SecuritySessionOperation operation, EndpointAddress target, Uri via, SecurityToken currentToken, TimeSpan timeout)
+   at System.ServiceModel.Security.SecuritySessionSecurityTokenProvider.GetTokenCore(TimeSpan timeout)
+   at System.IdentityModel.Selectors.SecurityTokenProvider.GetToken(TimeSpan timeout)
+   at System.ServiceModel.Security.SecuritySessionClientSettings`1.ClientSecuritySessionChannel.OnOpen(TimeSpan timeout)
+   at System.ServiceModel.Channels.CommunicationObject.Open(TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannel.OnOpen(TimeSpan timeout)
+   at System.ServiceModel.Channels.CommunicationObject.Open(TimeSpan timeout)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at System.ServiceModel.ICommunicationObject.Open(TimeSpan timeout)
+   at System.ServiceModel.ClientBase`1.System.ServiceModel.ICommunicationObject.Open(TimeSpan timeout)
+   at System.ServiceModel.ClientBase`1.Open()
+   at DataAccess.Libs.OpenConnection(wsConnectionInfo wsInfo) in C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\HQTrader122011\dataAccess\dataLibs.cs:line 108
+   at DataAccess.Libs.OpenConnection() in C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\HQTrader122011\dataAccess\dataLibs.cs:line 49
+   at DataAccess.Libs.get_myClient() in C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\HQTrader122011\dataAccess\dataLibs.cs:line 37
+   at DataAccess.Libs.get_myStockCodeTbl() in C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\HQTrader122011\dataAccess\dataLibs.cs:line 212
+   at DataAccess.Libs.LoadSystemVars() in C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\HQTrader122011\dataAccess\dataLibs.cs:line 188
+   at client.main..ctor() in C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\HQTrader122011\client\main.cs:line 40
+01/02/2012 10:55:31 CH main	System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.ServiceModel.EndpointNotFoundException: There was no endpoint listening at http://test01.cesti.gov.vn/DataLibs.svc that could accept the message. This is often caused by an incorrect address or SOAP action. See InnerException, if present, for more details. ---> System.Net.WebException: The remote name could not be resolved: 'test01.cesti.gov.vn'
+   at System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   at System.Net.HttpWebRequest.GetRequestStream()
+   at System.ServiceModel.Channels.HttpOutput.WebRequestHttpOutput.GetOutputStream()
+   --- End of inner exception stack trace ---
+
+Server stack trace: 
+   at System.ServiceModel.Security.IssuanceTokenProviderBase`1.DoNegotiation(TimeSpan timeout)
+   at System.ServiceModel.Security.SspiNegotiationTokenProvider.OnOpen(TimeSpan timeout)
+   at System.ServiceModel.Security.WrapperSecurityCommunicationObject.OnOpen(TimeSpan timeout)
+   at System.ServiceModel.Channels.CommunicationObject.Open(TimeSpan timeout)
+   at System.ServiceModel.Security.CommunicationObjectSecurityTokenProvider.Open(TimeSpan timeout)
+   at System.ServiceModel.Security.SecurityUtils.OpenTokenProviderIfRequired(SecurityTokenProvider tokenProvider, TimeSpan timeout)
+   at System.ServiceModel.Security.SymmetricSecurityProtocol.OnOpen(TimeSpan timeout)
+   at System.ServiceModel.Security.WrapperSecurityCommunicationObject.OnOpen(TimeSpan timeout)
+   at System.ServiceModel.Channels.CommunicationObject.Open(TimeSpan timeout)
+   at System.ServiceModel.Channels.SecurityChannelFactory`1.ClientSecurityChannel`1.OnOpen(TimeSpan timeout)
+   at System.ServiceModel.Channels.CommunicationObject.Open(TimeSpan timeout)
+   at System.ServiceModel.Security.SecuritySessionSecurityTokenProvider.DoOperation(SecuritySessionOperation operation, EndpointAddress target, Uri via, SecurityToken currentToken, TimeSpan timeout)
+   at System.ServiceModel.Security.SecuritySessionSecurityTokenProvider.GetTokenCore(TimeSpan timeout)
+   at System.IdentityModel.Selectors.SecurityTokenProvider.GetToken(TimeSpan timeout)
+   at System.ServiceModel.Security.SecuritySessionClientSettings`1.ClientSecuritySessionChannel.OnOpen(TimeSpan timeout)
+   at System.ServiceModel.Channels.CommunicationObject.Open(TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannel.OnOpen(TimeSpan timeout)
+   at System.ServiceModel.Channels.CommunicationObject.Open(TimeSpan timeout)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at System.ServiceModel.ICommunicationObject.Open(TimeSpan timeout)
+   at System.ServiceModel.ClientBase`1.System.ServiceModel.ICommunicationObject.Open(TimeSpan timeout)
+   at System.ServiceModel.ClientBase`1.Open()
+   at DataAccess.Libs.OpenConnection(wsConnectionInfo wsInfo) in C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\HQTrader122011\dataAccess\dataLibs.cs:line 108
+   at DataAccess.Libs.OpenConnection() in C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\HQTrader122011\dataAccess\dataLibs.cs:line 49
+   at DataAccess.Libs.get_myClient() in C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\HQTrader122011\dataAccess\dataLibs.cs:line 37
+   at DataAccess.Libs.GetXml(String fileName) in C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\HQTrader122011\dataAccess\dataLibs.cs:line 808
+   at application.Indicators.Data.get_sysXmlDocument() in C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\HQTrader122011\application\IndicatorLibs.cs:line 42
+   at application.Indicators.Meta.GetMeta(Meta meta) in C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\HQTrader122011\application\IndicatorLibs.cs:line 252
+   at application.Indicators.Helpers.Init(Type indicatorType, Type indicatorFormType, String typeName, Type inputDataType) in C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\HQTrader122011\application\IndicatorLibs.cs:line 119
+   at application.Indicators.Helpers.Init(Type indicatorType, Type indicatorFormType, Type inputDataType) in C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\HQTrader122011\application\IndicatorLibs.cs:line 123
+   at Indicators.MEDPRICEHelper..ctor() in C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\HQTrader122011\indicators\class\MEDPRICE.cs:line 22
+   --- End of inner exception stack trace ---
+   at System.RuntimeTypeHandle.CreateInstance(RuntimeType type, Boolean publicOnly, Boolean noCheck, Boolean& canBeCached, RuntimeMethodHandle& ctor, Boolean& bNeedSecurityCheck)
+   at System.RuntimeType.CreateInstanceSlow(Boolean publicOnly, Boolean fillCache)
+   at System.RuntimeType.CreateInstanceImpl(Boolean publicOnly, Boolean skipVisibilityChecks, Boolean fillCache)
+   at System.Activator.CreateInstance(Type type, Boolean nonPublic)
+   at application.Indicators.Libs.GetMeta(Assembly indicatorAss, DictionaryList MetaList) in C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\HQTrader122011\application\IndicatorLibs.cs:line 485
+   at application.Indicators.Libs.GetMeta(String path, String files, DictionaryList MetaList) in C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\HQTrader122011\application\IndicatorLibs.cs:line 506
+   at application.Indicators.Data.get_Metas() in C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\HQTrader122011\application\IndicatorLibs.cs:line 102
+   at application.Indicators.Libs.CreateIndicatorMenu(ToolStripMenuItem toMenu, EventHandler ShowIndicatorHandler) in C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\HQTrader122011\application\IndicatorLibs.cs:line 561
+   at client.main.SetLanguage() in C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\HQTrader122011\client\main.cs:line 227
+06/02/2012 9:26:51 SA baseApplication	System.TimeoutException: Client is unable to finish the security negotiation within the configured timeout (00:00:14.5779759).  The current negotiation leg is 1 (00:00:14.5769759).   ---> System.TimeoutException: The request channel timed out while waiting for a reply after 00:00:14.3399623. Increase the timeout value passed to the call to Request or increase the SendTimeout value on the Binding. The time allotted to this operation may have been a portion of a longer timeout. ---> System.TimeoutException: The HTTP request to 'http://test01.cesti.gov.vn/DataLibs.svc' has exceeded the allotted timeout of 00:00:14.5430000. The time allotted to this operation may have been a portion of a longer timeout. ---> System.Net.WebException: The operation has timed out
+   at System.Net.HttpWebRequest.GetResponse()
+   at System.ServiceModel.Channels.HttpChannelFactory.HttpRequestChannel.HttpChannelRequest.WaitForReply(TimeSpan timeout)
+   --- End of inner exception stack trace ---
+   at System.ServiceModel.Channels.HttpChannelUtilities.ProcessGetResponseWebException(WebException webException, HttpWebRequest request, HttpAbortReason abortReason)
+   at System.ServiceModel.Channels.HttpChannelFactory.HttpRequestChannel.HttpChannelRequest.WaitForReply(TimeSpan timeout)
+   at System.ServiceModel.Channels.RequestChannel.Request(Message message, TimeSpan timeout)
+   --- End of inner exception stack trace ---
+   at System.ServiceModel.Channels.RequestChannel.Request(Message message, TimeSpan timeout)
+   at System.ServiceModel.Security.IssuanceTokenProviderBase`1.DoNegotiation(TimeSpan timeout)
+   --- End of inner exception stack trace ---
+
+Server stack trace: 
+   at System.ServiceModel.Security.IssuanceTokenProviderBase`1.DoNegotiation(TimeSpan timeout)
+   at System.ServiceModel.Security.SspiNegotiationTokenProvider.OnOpen(TimeSpan timeout)
+   at System.ServiceModel.Security.WrapperSecurityCommunicationObject.OnOpen(TimeSpan timeout)
+   at System.ServiceModel.Channels.CommunicationObject.Open(TimeSpan timeout)
+   at System.ServiceModel.Security.CommunicationObjectSecurityTokenProvider.Open(TimeSpan timeout)
+   at System.ServiceModel.Security.SecurityUtils.OpenTokenProviderIfRequired(SecurityTokenProvider tokenProvider, TimeSpan timeout)
+   at System.ServiceModel.Security.SymmetricSecurityProtocol.OnOpen(TimeSpan timeout)
+   at System.ServiceModel.Security.WrapperSecurityCommunicationObject.OnOpen(TimeSpan timeout)
+   at System.ServiceModel.Channels.CommunicationObject.Open(TimeSpan timeout)
+   at System.ServiceModel.Channels.SecurityChannelFactory`1.ClientSecurityChannel`1.OnOpen(TimeSpan timeout)
+   at System.ServiceModel.Channels.CommunicationObject.Open(TimeSpan timeout)
+   at System.ServiceModel.Security.SecuritySessionSecurityTokenProvider.DoOperation(SecuritySessionOperation operation, EndpointAddress target, Uri via, SecurityToken currentToken, TimeSpan timeout)
+   at System.ServiceModel.Security.SecuritySessionSecurityTokenProvider.GetTokenCore(TimeSpan timeout)
+   at System.IdentityModel.Selectors.SecurityTokenProvider.GetToken(TimeSpan timeout)
+   at System.ServiceModel.Security.SecuritySessionClientSettings`1.ClientSecuritySessionChannel.OnOpen(TimeSpan timeout)
+   at System.ServiceModel.Channels.CommunicationObject.Open(TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannel.OnOpen(TimeSpan timeout)
+   at System.ServiceModel.Channels.CommunicationObject.Open(TimeSpan timeout)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at System.ServiceModel.ICommunicationObject.Open(TimeSpan timeout)
+   at System.ServiceModel.ClientBase`1.System.ServiceModel.ICommunicationObject.Open(TimeSpan timeout)
+   at System.ServiceModel.ClientBase`1.Open()
+   at DataAccess.Libs.OpenConnection(wsConnectionInfo wsInfo) in C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\HQTrader122011\dataAccess\dataLibs.cs:line 108
+   at DataAccess.Libs.OpenConnection() in C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\HQTrader122011\dataAccess\dataLibs.cs:line 49
+   at DataAccess.Libs.get_myClient() in C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\HQTrader122011\dataAccess\dataLibs.cs:line 37
+   at DataAccess.Libs.Load_Global_Settings() in C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\HQTrader122011\dataAccess\dataLibs.cs:line 816
+   at baseClass.forms.baseApplication.LoadAppConfig() in C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\HQTrader122011\baseClass\forms\baseApplication.cs:line 47
+   at client.main.LoadAppConfig() in C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\HQTrader122011\client\main.cs:line 353
+06/02/2012 9:27:00 SA main	System.ServiceModel.FaultException`1[System.ServiceModel.ExceptionDetail]: Could not load type 'common.Settings' from assembly 'common, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null'. (Fault Detail is equal to An ExceptionDetail, likely created by IncludeExceptionDetailInFaults=true, whose value is:
+System.TypeLoadException: Could not load type 'common.Settings' from assembly 'common, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null'.
+   at wsServices.DataLibs.SetConfig()
+   at wsServices.DataLibs..ctor()
+   at CreatewsServices.DataLibs()
+   at System.ServiceModel.Dispatcher.InstanceProvider.GetInstance(InstanceContext instanceContext, Message message)
+   at System.ServiceModel.Dispatcher.InstanceBehavior.GetInstance(InstanceContext instanceContext, Message request)
+   at System.ServiceModel.InstanceContext.GetServiceInstance(Message message)
+   at System.ServiceModel.Dispatcher.InstanceBehavior.EnsureServiceInstance(MessageRpc& rpc)
+   at System.ServiceModel.Dispatcher.ImmutableDispatchRuntime.ProcessMessage41(MessageRpc& rpc)
+   at System.ServiceModel.Dispatcher.ImmutableDispatchRuntime.ProcessMessage4(MessageRpc& rpc)
+   at System.ServiceModel.Dispatcher.ImmutableDispatchRuntime.ProcessMessage31...).
+06/02/2012 9:27:03 SA main	System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.ServiceModel.FaultException`1[System.ServiceModel.ExceptionDetail]: Could not load type 'common.Settings' from assembly 'common, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null'. (Fault Detail is equal to An ExceptionDetail, likely created by IncludeExceptionDetailInFaults=true, whose value is:
+System.TypeLoadException: Could not load type 'common.Settings' from assembly 'common, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null'.
+   at wsServices.DataLibs.SetConfig()
+   at wsServices.DataLibs..ctor()
+   at CreatewsServices.DataLibs()
+   at System.ServiceModel.Dispatcher.InstanceProvider.GetInstance(InstanceContext instanceContext, Message message)
+   at System.ServiceModel.Dispatcher.InstanceBehavior.GetInstance(InstanceContext instanceContext, Message request)
+   at System.ServiceModel.InstanceContext.GetServiceInstance(Message message)
+   at System.ServiceModel.Dispatcher.InstanceBehavior.EnsureServiceInstance(MessageRpc& rpc)
+   at System.ServiceModel.Dispatcher.ImmutableDispatchRuntime.ProcessMessage41(MessageRpc& rpc)
+   at System.ServiceModel.Dispatcher.ImmutableDispatchRuntime.ProcessMessage4(MessageRpc& rpc)
+   at System.ServiceModel.Dispatcher.ImmutableDispatchRuntime.ProcessMessage31...).
+   --- End of inner exception stack trace ---
+   at System.RuntimeTypeHandle.CreateInstance(RuntimeType type, Boolean publicOnly, Boolean noCheck, Boolean& canBeCached, RuntimeMethodHandle& ctor, Boolean& bNeedSecurityCheck)
+   at System.RuntimeType.CreateInstanceSlow(Boolean publicOnly, Boolean fillCache)
+   at System.RuntimeType.CreateInstanceImpl(Boolean publicOnly, Boolean skipVisibilityChecks, Boolean fillCache)
+   at System.Activator.CreateInstance(Type type, Boolean nonPublic)
+   at application.Indicators.Libs.GetMeta(Assembly indicatorAss, DictionaryList MetaList) in C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\HQTrader122011\application\IndicatorLibs.cs:line 485
+   at application.Indicators.Libs.GetMeta(String path, String files, DictionaryList MetaList) in C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\HQTrader122011\application\IndicatorLibs.cs:line 506
+   at application.Indicators.Data.get_Metas() in C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\HQTrader122011\application\IndicatorLibs.cs:line 102
+   at application.Indicators.Libs.CreateIndicatorMenu(ToolStripMenuItem toMenu, EventHandler ShowIndicatorHandler) in C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\HQTrader122011\application\IndicatorLibs.cs:line 561
+   at client.main.SetLanguage() in C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\HQTrader122011\client\main.cs:line 227
+06/02/2012 9:27:46 SA baseApplication	System.ServiceModel.FaultException`1[System.ServiceModel.ExceptionDetail]: Could not load type 'common.Settings' from assembly 'common, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null'. (Fault Detail is equal to An ExceptionDetail, likely created by IncludeExceptionDetailInFaults=true, whose value is:
+System.TypeLoadException: Could not load type 'common.Settings' from assembly 'common, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null'.
+   at wsServices.DataLibs.SetConfig()
+   at wsServices.DataLibs..ctor()
+   at CreatewsServices.DataLibs()
+   at System.ServiceModel.Dispatcher.InstanceProvider.GetInstance(InstanceContext instanceContext, Message message)
+   at System.ServiceModel.Dispatcher.InstanceBehavior.GetInstance(InstanceContext instanceContext, Message request)
+   at System.ServiceModel.InstanceContext.GetServiceInstance(Message message)
+   at System.ServiceModel.Dispatcher.InstanceBehavior.EnsureServiceInstance(MessageRpc& rpc)
+   at System.ServiceModel.Dispatcher.ImmutableDispatchRuntime.ProcessMessage41(MessageRpc& rpc)
+   at System.ServiceModel.Dispatcher.ImmutableDispatchRuntime.ProcessMessage4(MessageRpc& rpc)
+   at System.ServiceModel.Dispatcher.ImmutableDispatchRuntime.ProcessMessage31...).
+06/02/2012 9:28:00 SA main	System.ServiceModel.FaultException`1[System.ServiceModel.ExceptionDetail]: Could not load type 'common.Settings' from assembly 'common, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null'. (Fault Detail is equal to An ExceptionDetail, likely created by IncludeExceptionDetailInFaults=true, whose value is:
+System.TypeLoadException: Could not load type 'common.Settings' from assembly 'common, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null'.
+   at wsServices.DataLibs.SetConfig()
+   at wsServices.DataLibs..ctor()
+   at CreatewsServices.DataLibs()
+   at System.ServiceModel.Dispatcher.InstanceProvider.GetInstance(InstanceContext instanceContext, Message message)
+   at System.ServiceModel.Dispatcher.InstanceBehavior.GetInstance(InstanceContext instanceContext, Message request)
+   at System.ServiceModel.InstanceContext.GetServiceInstance(Message message)
+   at System.ServiceModel.Dispatcher.InstanceBehavior.EnsureServiceInstance(MessageRpc& rpc)
+   at System.ServiceModel.Dispatcher.ImmutableDispatchRuntime.ProcessMessage41(MessageRpc& rpc)
+   at System.ServiceModel.Dispatcher.ImmutableDispatchRuntime.ProcessMessage4(MessageRpc& rpc)
+   at System.ServiceModel.Dispatcher.ImmutableDispatchRuntime.ProcessMessage31...).
+06/02/2012 9:28:03 SA main	System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.ServiceModel.FaultException`1[System.ServiceModel.ExceptionDetail]: Could not load type 'common.Settings' from assembly 'common, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null'. (Fault Detail is equal to An ExceptionDetail, likely created by IncludeExceptionDetailInFaults=true, whose value is:
+System.TypeLoadException: Could not load type 'common.Settings' from assembly 'common, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null'.
+   at wsServices.DataLibs.SetConfig()
+   at wsServices.DataLibs..ctor()
+   at CreatewsServices.DataLibs()
+   at System.ServiceModel.Dispatcher.InstanceProvider.GetInstance(InstanceContext instanceContext, Message message)
+   at System.ServiceModel.Dispatcher.InstanceBehavior.GetInstance(InstanceContext instanceContext, Message request)
+   at System.ServiceModel.InstanceContext.GetServiceInstance(Message message)
+   at System.ServiceModel.Dispatcher.InstanceBehavior.EnsureServiceInstance(MessageRpc& rpc)
+   at System.ServiceModel.Dispatcher.ImmutableDispatchRuntime.ProcessMessage41(MessageRpc& rpc)
+   at System.ServiceModel.Dispatcher.ImmutableDispatchRuntime.ProcessMessage4(MessageRpc& rpc)
+   at System.ServiceModel.Dispatcher.ImmutableDispatchRuntime.ProcessMessage31...).
+   --- End of inner exception stack trace ---
+   at System.RuntimeTypeHandle.CreateInstance(RuntimeType type, Boolean publicOnly, Boolean noCheck, Boolean& canBeCached, RuntimeMethodHandle& ctor, Boolean& bNeedSecurityCheck)
+   at System.RuntimeType.CreateInstanceSlow(Boolean publicOnly, Boolean fillCache)
+   at System.RuntimeType.CreateInstanceImpl(Boolean publicOnly, Boolean skipVisibilityChecks, Boolean fillCache)
+   at System.Activator.CreateInstance(Type type, Boolean nonPublic)
+   at application.Indicators.Libs.GetMeta(Assembly indicatorAss, DictionaryList MetaList) in C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\HQTrader122011\application\IndicatorLibs.cs:line 485
+   at application.Indicators.Libs.GetMeta(String path, String files, DictionaryList MetaList) in C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\HQTrader122011\application\IndicatorLibs.cs:line 506
+   at application.Indicators.Data.get_Metas() in C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\HQTrader122011\application\IndicatorLibs.cs:line 102
+   at application.Indicators.Libs.CreateIndicatorMenu(ToolStripMenuItem toMenu, EventHandler ShowIndicatorHandler) in C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\HQTrader122011\application\IndicatorLibs.cs:line 561
+   at client.main.SetLanguage() in C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\HQTrader122011\client\main.cs:line 227
+06/02/2012 9:31:13 SA baseApplication	System.ServiceModel.FaultException`1[System.ServiceModel.ExceptionDetail]: Could not load type 'common.Settings' from assembly 'common, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null'. (Fault Detail is equal to An ExceptionDetail, likely created by IncludeExceptionDetailInFaults=true, whose value is:
+System.TypeLoadException: Could not load type 'common.Settings' from assembly 'common, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null'.
+   at wsServices.DataLibs.SetConfig()
+   at wsServices.DataLibs..ctor()
+   at CreatewsServices.DataLibs()
+   at System.ServiceModel.Dispatcher.InstanceProvider.GetInstance(InstanceContext instanceContext, Message message)
+   at System.ServiceModel.Dispatcher.InstanceBehavior.GetInstance(InstanceContext instanceContext, Message request)
+   at System.ServiceModel.InstanceContext.GetServiceInstance(Message message)
+   at System.ServiceModel.Dispatcher.InstanceBehavior.EnsureServiceInstance(MessageRpc& rpc)
+   at System.ServiceModel.Dispatcher.ImmutableDispatchRuntime.ProcessMessage41(MessageRpc& rpc)
+   at System.ServiceModel.Dispatcher.ImmutableDispatchRuntime.ProcessMessage4(MessageRpc& rpc)
+   at System.ServiceModel.Dispatcher.ImmutableDispatchRuntime.ProcessMessage31...).
+06/02/2012 9:31:26 SA main	System.ServiceModel.FaultException`1[System.ServiceModel.ExceptionDetail]: Could not load type 'common.Settings' from assembly 'common, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null'. (Fault Detail is equal to An ExceptionDetail, likely created by IncludeExceptionDetailInFaults=true, whose value is:
+System.TypeLoadException: Could not load type 'common.Settings' from assembly 'common, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null'.
+   at wsServices.DataLibs.SetConfig()
+   at wsServices.DataLibs..ctor()
+   at CreatewsServices.DataLibs()
+   at System.ServiceModel.Dispatcher.InstanceProvider.GetInstance(InstanceContext instanceContext, Message message)
+   at System.ServiceModel.Dispatcher.InstanceBehavior.GetInstance(InstanceContext instanceContext, Message request)
+   at System.ServiceModel.InstanceContext.GetServiceInstance(Message message)
+   at System.ServiceModel.Dispatcher.InstanceBehavior.EnsureServiceInstance(MessageRpc& rpc)
+   at System.ServiceModel.Dispatcher.ImmutableDispatchRuntime.ProcessMessage41(MessageRpc& rpc)
+   at System.ServiceModel.Dispatcher.ImmutableDispatchRuntime.ProcessMessage4(MessageRpc& rpc)
+   at System.ServiceModel.Dispatcher.ImmutableDispatchRuntime.ProcessMessage31...).
+06/02/2012 9:31:32 SA main	System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.ServiceModel.FaultException`1[System.ServiceModel.ExceptionDetail]: Could not load type 'common.Settings' from assembly 'common, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null'. (Fault Detail is equal to An ExceptionDetail, likely created by IncludeExceptionDetailInFaults=true, whose value is:
+System.TypeLoadException: Could not load type 'common.Settings' from assembly 'common, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null'.
+   at wsServices.DataLibs.SetConfig()
+   at wsServices.DataLibs..ctor()
+   at CreatewsServices.DataLibs()
+   at System.ServiceModel.Dispatcher.InstanceProvider.GetInstance(InstanceContext instanceContext, Message message)
+   at System.ServiceModel.Dispatcher.InstanceBehavior.GetInstance(InstanceContext instanceContext, Message request)
+   at System.ServiceModel.InstanceContext.GetServiceInstance(Message message)
+   at System.ServiceModel.Dispatcher.InstanceBehavior.EnsureServiceInstance(MessageRpc& rpc)
+   at System.ServiceModel.Dispatcher.ImmutableDispatchRuntime.ProcessMessage41(MessageRpc& rpc)
+   at System.ServiceModel.Dispatcher.ImmutableDispatchRuntime.ProcessMessage4(MessageRpc& rpc)
+   at System.ServiceModel.Dispatcher.ImmutableDispatchRuntime.ProcessMessage31...).
+   --- End of inner exception stack trace ---
+   at System.RuntimeTypeHandle.CreateInstance(RuntimeType type, Boolean publicOnly, Boolean noCheck, Boolean& canBeCached, RuntimeMethodHandle& ctor, Boolean& bNeedSecurityCheck)
+   at System.RuntimeType.CreateInstanceSlow(Boolean publicOnly, Boolean fillCache)
+   at System.RuntimeType.CreateInstanceImpl(Boolean publicOnly, Boolean skipVisibilityChecks, Boolean fillCache)
+   at System.Activator.CreateInstance(Type type, Boolean nonPublic)
+   at application.Indicators.Libs.GetMeta(Assembly indicatorAss, DictionaryList MetaList) in C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\HQTrader122011\application\IndicatorLibs.cs:line 485
+   at application.Indicators.Libs.GetMeta(String path, String files, DictionaryList MetaList) in C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\HQTrader122011\application\IndicatorLibs.cs:line 506
+   at application.Indicators.Data.get_Metas() in C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\HQTrader122011\application\IndicatorLibs.cs:line 102
+   at application.Indicators.Libs.CreateIndicatorMenu(ToolStripMenuItem toMenu, EventHandler ShowIndicatorHandler) in C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\HQTrader122011\application\IndicatorLibs.cs:line 561
+   at client.main.SetLanguage() in C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\HQTrader122011\client\main.cs:line 227
+06/02/2012 12:10:49 CH baseApplication	System.ServiceModel.FaultException`1[System.ServiceModel.ExceptionDetail]: Could not load type 'common.Settings' from assembly 'common, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null'. (Fault Detail is equal to An ExceptionDetail, likely created by IncludeExceptionDetailInFaults=true, whose value is:
+System.TypeLoadException: Could not load type 'common.Settings' from assembly 'common, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null'.
+   at wsServices.DataLibs.SetConfig()
+   at wsServices.DataLibs..ctor()
+   at CreatewsServices.DataLibs()
+   at System.ServiceModel.Dispatcher.InstanceProvider.GetInstance(InstanceContext instanceContext, Message message)
+   at System.ServiceModel.Dispatcher.InstanceBehavior.GetInstance(InstanceContext instanceContext, Message request)
+   at System.ServiceModel.InstanceContext.GetServiceInstance(Message message)
+   at System.ServiceModel.Dispatcher.InstanceBehavior.EnsureServiceInstance(MessageRpc& rpc)
+   at System.ServiceModel.Dispatcher.ImmutableDispatchRuntime.ProcessMessage41(MessageRpc& rpc)
+   at System.ServiceModel.Dispatcher.ImmutableDispatchRuntime.ProcessMessage4(MessageRpc& rpc)
+   at System.ServiceModel.Dispatcher.ImmutableDispatchRuntime.ProcessMessage31...).
+06/02/2012 12:11:01 CH main	System.ServiceModel.FaultException`1[System.ServiceModel.ExceptionDetail]: Could not load type 'common.Settings' from assembly 'common, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null'. (Fault Detail is equal to An ExceptionDetail, likely created by IncludeExceptionDetailInFaults=true, whose value is:
+System.TypeLoadException: Could not load type 'common.Settings' from assembly 'common, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null'.
+   at wsServices.DataLibs.SetConfig()
+   at wsServices.DataLibs..ctor()
+   at CreatewsServices.DataLibs()
+   at System.ServiceModel.Dispatcher.InstanceProvider.GetInstance(InstanceContext instanceContext, Message message)
+   at System.ServiceModel.Dispatcher.InstanceBehavior.GetInstance(InstanceContext instanceContext, Message request)
+   at System.ServiceModel.InstanceContext.GetServiceInstance(Message message)
+   at System.ServiceModel.Dispatcher.InstanceBehavior.EnsureServiceInstance(MessageRpc& rpc)
+   at System.ServiceModel.Dispatcher.ImmutableDispatchRuntime.ProcessMessage41(MessageRpc& rpc)
+   at System.ServiceModel.Dispatcher.ImmutableDispatchRuntime.ProcessMessage4(MessageRpc& rpc)
+   at System.ServiceModel.Dispatcher.ImmutableDispatchRuntime.ProcessMessage31...).
+06/02/2012 12:11:05 CH main	System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.ServiceModel.FaultException`1[System.ServiceModel.ExceptionDetail]: Could not load type 'common.Settings' from assembly 'common, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null'. (Fault Detail is equal to An ExceptionDetail, likely created by IncludeExceptionDetailInFaults=true, whose value is:
+System.TypeLoadException: Could not load type 'common.Settings' from assembly 'common, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null'.
+   at wsServices.DataLibs.SetConfig()
+   at wsServices.DataLibs..ctor()
+   at CreatewsServices.DataLibs()
+   at System.ServiceModel.Dispatcher.InstanceProvider.GetInstance(InstanceContext instanceContext, Message message)
+   at System.ServiceModel.Dispatcher.InstanceBehavior.GetInstance(InstanceContext instanceContext, Message request)
+   at System.ServiceModel.InstanceContext.GetServiceInstance(Message message)
+   at System.ServiceModel.Dispatcher.InstanceBehavior.EnsureServiceInstance(MessageRpc& rpc)
+   at System.ServiceModel.Dispatcher.ImmutableDispatchRuntime.ProcessMessage41(MessageRpc& rpc)
+   at System.ServiceModel.Dispatcher.ImmutableDispatchRuntime.ProcessMessage4(MessageRpc& rpc)
+   at System.ServiceModel.Dispatcher.ImmutableDispatchRuntime.ProcessMessage31...).
+   --- End of inner exception stack trace ---
+   at System.RuntimeTypeHandle.CreateInstance(RuntimeType type, Boolean publicOnly, Boolean noCheck, Boolean& canBeCached, RuntimeMethodHandle& ctor, Boolean& bNeedSecurityCheck)
+   at System.RuntimeType.CreateInstanceSlow(Boolean publicOnly, Boolean fillCache)
+   at System.RuntimeType.CreateInstanceImpl(Boolean publicOnly, Boolean skipVisibilityChecks, Boolean fillCache)
+   at System.Activator.CreateInstance(Type type, Boolean nonPublic)
+   at application.Indicators.Libs.GetMeta(Assembly indicatorAss, DictionaryList MetaList) in C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\HQTrader122011\application\IndicatorLibs.cs:line 485
+   at application.Indicators.Libs.GetMeta(String path, String files, DictionaryList MetaList) in C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\HQTrader122011\application\IndicatorLibs.cs:line 506
+   at application.Indicators.Data.get_Metas() in C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\HQTrader122011\application\IndicatorLibs.cs:line 102
+   at application.Indicators.Libs.CreateIndicatorMenu(ToolStripMenuItem toMenu, EventHandler ShowIndicatorHandler) in C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\HQTrader122011\application\IndicatorLibs.cs:line 561
+   at client.main.SetLanguage() in C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\HQTrader122011\client\main.cs:line 227
+06/02/2012 12:12:03 CH baseApplication	System.ServiceModel.FaultException`1[System.ServiceModel.ExceptionDetail]: Could not load type 'common.Settings' from assembly 'common, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null'. (Fault Detail is equal to An ExceptionDetail, likely created by IncludeExceptionDetailInFaults=true, whose value is:
+System.TypeLoadException: Could not load type 'common.Settings' from assembly 'common, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null'.
+   at wsServices.DataLibs.SetConfig()
+   at wsServices.DataLibs..ctor()
+   at CreatewsServices.DataLibs()
+   at System.ServiceModel.Dispatcher.InstanceProvider.GetInstance(InstanceContext instanceContext, Message message)
+   at System.ServiceModel.Dispatcher.InstanceBehavior.GetInstance(InstanceContext instanceContext, Message request)
+   at System.ServiceModel.InstanceContext.GetServiceInstance(Message message)
+   at System.ServiceModel.Dispatcher.InstanceBehavior.EnsureServiceInstance(MessageRpc& rpc)
+   at System.ServiceModel.Dispatcher.ImmutableDispatchRuntime.ProcessMessage41(MessageRpc& rpc)
+   at System.ServiceModel.Dispatcher.ImmutableDispatchRuntime.ProcessMessage4(MessageRpc& rpc)
+   at System.ServiceModel.Dispatcher.ImmutableDispatchRuntime.ProcessMessage31...).
+06/02/2012 12:12:14 CH main	System.ServiceModel.FaultException`1[System.ServiceModel.ExceptionDetail]: Could not load type 'common.Settings' from assembly 'common, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null'. (Fault Detail is equal to An ExceptionDetail, likely created by IncludeExceptionDetailInFaults=true, whose value is:
+System.TypeLoadException: Could not load type 'common.Settings' from assembly 'common, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null'.
+   at wsServices.DataLibs.SetConfig()
+   at wsServices.DataLibs..ctor()
+   at CreatewsServices.DataLibs()
+   at System.ServiceModel.Dispatcher.InstanceProvider.GetInstance(InstanceContext instanceContext, Message message)
+   at System.ServiceModel.Dispatcher.InstanceBehavior.GetInstance(InstanceContext instanceContext, Message request)
+   at System.ServiceModel.InstanceContext.GetServiceInstance(Message message)
+   at System.ServiceModel.Dispatcher.InstanceBehavior.EnsureServiceInstance(MessageRpc& rpc)
+   at System.ServiceModel.Dispatcher.ImmutableDispatchRuntime.ProcessMessage41(MessageRpc& rpc)
+   at System.ServiceModel.Dispatcher.ImmutableDispatchRuntime.ProcessMessage4(MessageRpc& rpc)
+   at System.ServiceModel.Dispatcher.ImmutableDispatchRuntime.ProcessMessage31...).
+06/02/2012 12:12:17 CH main	System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.ServiceModel.FaultException`1[System.ServiceModel.ExceptionDetail]: Could not load type 'common.Settings' from assembly 'common, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null'. (Fault Detail is equal to An ExceptionDetail, likely created by IncludeExceptionDetailInFaults=true, whose value is:
+System.TypeLoadException: Could not load type 'common.Settings' from assembly 'common, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null'.
+   at wsServices.DataLibs.SetConfig()
+   at wsServices.DataLibs..ctor()
+   at CreatewsServices.DataLibs()
+   at System.ServiceModel.Dispatcher.InstanceProvider.GetInstance(InstanceContext instanceContext, Message message)
+   at System.ServiceModel.Dispatcher.InstanceBehavior.GetInstance(InstanceContext instanceContext, Message request)
+   at System.ServiceModel.InstanceContext.GetServiceInstance(Message message)
+   at System.ServiceModel.Dispatcher.InstanceBehavior.EnsureServiceInstance(MessageRpc& rpc)
+   at System.ServiceModel.Dispatcher.ImmutableDispatchRuntime.ProcessMessage41(MessageRpc& rpc)
+   at System.ServiceModel.Dispatcher.ImmutableDispatchRuntime.ProcessMessage4(MessageRpc& rpc)
+   at System.ServiceModel.Dispatcher.ImmutableDispatchRuntime.ProcessMessage31...).
+   --- End of inner exception stack trace ---
+   at System.RuntimeTypeHandle.CreateInstance(RuntimeType type, Boolean publicOnly, Boolean noCheck, Boolean& canBeCached, RuntimeMethodHandle& ctor, Boolean& bNeedSecurityCheck)
+   at System.RuntimeType.CreateInstanceSlow(Boolean publicOnly, Boolean fillCache)
+   at System.RuntimeType.CreateInstanceImpl(Boolean publicOnly, Boolean skipVisibilityChecks, Boolean fillCache)
+   at System.Activator.CreateInstance(Type type, Boolean nonPublic)
+   at System.Activator.CreateInstance(Type type)
+   at application.Indicators.Libs.GetMeta(Assembly indicatorAss, DictionaryList MetaList) in C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\HQTrader122011\application\IndicatorLibs.cs:line 486
+   at application.Indicators.Libs.GetMeta(String assemblyFile, DictionaryList MetaList) in C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\HQTrader122011\application\IndicatorLibs.cs:line 474
+   at application.Indicators.Libs.GetMeta(String path, String files, DictionaryList MetaList) in C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\HQTrader122011\application\IndicatorLibs.cs:line 506
+   at application.Indicators.Data.get_Metas() in C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\HQTrader122011\application\IndicatorLibs.cs:line 103
+   at application.Indicators.Libs.CreateIndicatorMenu(ToolStripMenuItem toMenu, EventHandler ShowIndicatorHandler) in C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\HQTrader122011\application\IndicatorLibs.cs:line 561
+   at client.main.SetLanguage() in C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\HQTrader122011\client\main.cs:line 227
+06/02/2012 12:43:23 CH baseApplication	System.TimeoutException: Client is unable to finish the security negotiation within the configured timeout (00:00:14.6411993).  The current negotiation leg is 3 (00:00:09.3215900).   ---> System.TimeoutException: The request channel timed out while waiting for a reply after 00:00:09.3215900. Increase the timeout value passed to the call to Request or increase the SendTimeout value on the Binding. The time allotted to this operation may have been a portion of a longer timeout. ---> System.TimeoutException: The HTTP request to 'http://test01.cesti.gov.vn/DataLibs.svc' has exceeded the allotted timeout of 00:00:09.3210000. The time allotted to this operation may have been a portion of a longer timeout. ---> System.Net.WebException: The operation has timed out
+   at System.Net.HttpWebRequest.GetResponse()
+   at System.ServiceModel.Channels.HttpChannelFactory.HttpRequestChannel.HttpChannelRequest.WaitForReply(TimeSpan timeout)
+   --- End of inner exception stack trace ---
+   at System.ServiceModel.Channels.HttpChannelUtilities.ProcessGetResponseWebException(WebException webException, HttpWebRequest request, HttpAbortReason abortReason)
+   at System.ServiceModel.Channels.HttpChannelFactory.HttpRequestChannel.HttpChannelRequest.WaitForReply(TimeSpan timeout)
+   at System.ServiceModel.Channels.RequestChannel.Request(Message message, TimeSpan timeout)
+   --- End of inner exception stack trace ---
+   at System.ServiceModel.Channels.RequestChannel.Request(Message message, TimeSpan timeout)
+   at System.ServiceModel.Security.IssuanceTokenProviderBase`1.DoNegotiation(TimeSpan timeout)
+   --- End of inner exception stack trace ---
+
+Server stack trace: 
+   at System.ServiceModel.Security.IssuanceTokenProviderBase`1.DoNegotiation(TimeSpan timeout)
+   at System.ServiceModel.Security.SspiNegotiationTokenProvider.OnOpen(TimeSpan timeout)
+   at System.ServiceModel.Security.WrapperSecurityCommunicationObject.OnOpen(TimeSpan timeout)
+   at System.ServiceModel.Channels.CommunicationObject.Open(TimeSpan timeout)
+   at System.ServiceModel.Security.CommunicationObjectSecurityTokenProvider.Open(TimeSpan timeout)
+   at System.ServiceModel.Security.SecurityUtils.OpenTokenProviderIfRequired(SecurityTokenProvider tokenProvider, TimeSpan timeout)
+   at System.ServiceModel.Security.SymmetricSecurityProtocol.OnOpen(TimeSpan timeout)
+   at System.ServiceModel.Security.WrapperSecurityCommunicationObject.OnOpen(TimeSpan timeout)
+   at System.ServiceModel.Channels.CommunicationObject.Open(TimeSpan timeout)
+   at System.ServiceModel.Channels.SecurityChannelFactory`1.ClientSecurityChannel`1.OnOpen(TimeSpan timeout)
+   at System.ServiceModel.Channels.CommunicationObject.Open(TimeSpan timeout)
+   at System.ServiceModel.Security.SecuritySessionSecurityTokenProvider.DoOperation(SecuritySessionOperation operation, EndpointAddress target, Uri via, SecurityToken currentToken, TimeSpan timeout)
+   at System.ServiceModel.Security.SecuritySessionSecurityTokenProvider.GetTokenCore(TimeSpan timeout)
+   at System.IdentityModel.Selectors.SecurityTokenProvider.GetToken(TimeSpan timeout)
+   at System.ServiceModel.Security.SecuritySessionClientSettings`1.ClientSecuritySessionChannel.OnOpen(TimeSpan timeout)
+   at System.ServiceModel.Channels.CommunicationObject.Open(TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannel.OnOpen(TimeSpan timeout)
+   at System.ServiceModel.Channels.CommunicationObject.Open(TimeSpan timeout)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at System.ServiceModel.ICommunicationObject.Open(TimeSpan timeout)
+   at System.ServiceModel.ClientBase`1.System.ServiceModel.ICommunicationObject.Open(TimeSpan timeout)
+   at System.ServiceModel.ClientBase`1.Open()
+   at DataAccess.Libs.OpenConnection(wsConnectionInfo wsInfo) in C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\HQTrader122011\dataAccess\dataLibs.cs:line 108
+   at DataAccess.Libs.OpenConnection() in C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\HQTrader122011\dataAccess\dataLibs.cs:line 49
+   at DataAccess.Libs.get_myClient() in C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\HQTrader122011\dataAccess\dataLibs.cs:line 37
+   at DataAccess.Libs.Load_Global_Settings() in C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\HQTrader122011\dataAccess\dataLibs.cs:line 816
+   at baseClass.forms.baseApplication.LoadAppConfig() in C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\HQTrader122011\baseClass\forms\baseApplication.cs:line 47
+   at client.main.LoadAppConfig() in C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\HQTrader122011\client\main.cs:line 353
+2/6/2012 2:47:42 PM main	System.ServiceModel.FaultException`1[System.ServiceModel.ExceptionDetail]: Failed to enable constraints. One or more rows contain values violating non-null, unique, or foreign-key constraints. (Fault Detail is equal to An ExceptionDetail, likely created by IncludeExceptionDetailInFaults=true, whose value is:
+System.Data.ConstraintException: Failed to enable constraints. One or more rows contain values violating non-null, unique, or foreign-key constraints.
+   at System.Data.DataTable.EnableConstraints()
+   at System.Data.DataTable.set_EnforceConstraints(Boolean value)
+   at System.Data.DataTable.EndLoadData()
+   at System.Data.Common.DataAdapter.FillFromReader(DataSet dataset, DataTable datatable, String srcTable, DataReaderContainer dataReader, Int32 startRecord, Int32 maxRecords, DataColumn parentChapterColumn, Object parentChapterValue)
+   at System.Data.Common.DataAdapter.Fill(DataTable[] dataTables, IDataReader dataReader, Int32 startRecord, Int32 maxRecords)
+   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTa...).
+06/02/2012 3:03:51 CH baseApplication	System.ServiceModel.FaultException`1[System.ServiceModel.ExceptionDetail]: Failed to enable constraints. One or more rows contain values violating non-null, unique, or foreign-key constraints. (Fault Detail is equal to An ExceptionDetail, likely created by IncludeExceptionDetailInFaults=true, whose value is:
+System.Data.ConstraintException: Failed to enable constraints. One or more rows contain values violating non-null, unique, or foreign-key constraints.
+   at System.Data.DataTable.EnableConstraints()
+   at System.Data.DataTable.set_EnforceConstraints(Boolean value)
+   at System.Data.DataTable.EndLoadData()
+   at System.Data.Common.DataAdapter.FillFromReader(DataSet dataset, DataTable datatable, String srcTable, DataReaderContainer dataReader, Int32 startRecord, Int32 maxRecords, DataColumn parentChapterColumn, Object parentChapterValue)
+   at System.Data.Common.DataAdapter.Fill(DataTable[] dataTables, IDataReader dataReader, Int32 startRecord, Int32 maxRecords)
+   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTa...).
+06/02/2012 3:04:02 CH main	System.ServiceModel.FaultException`1[System.ServiceModel.ExceptionDetail]: Failed to enable constraints. One or more rows contain values violating non-null, unique, or foreign-key constraints. (Fault Detail is equal to An ExceptionDetail, likely created by IncludeExceptionDetailInFaults=true, whose value is:
+System.Data.ConstraintException: Failed to enable constraints. One or more rows contain values violating non-null, unique, or foreign-key constraints.
+   at System.Data.DataTable.EnableConstraints()
+   at System.Data.DataTable.set_EnforceConstraints(Boolean value)
+   at System.Data.DataTable.EndLoadData()
+   at System.Data.Common.DataAdapter.FillFromReader(DataSet dataset, DataTable datatable, String srcTable, DataReaderContainer dataReader, Int32 startRecord, Int32 maxRecords, DataColumn parentChapterColumn, Object parentChapterValue)
+   at System.Data.Common.DataAdapter.Fill(DataTable[] dataTables, IDataReader dataReader, Int32 startRecord, Int32 maxRecords)
+   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTa...).
+06/02/2012 3:07:55 CH baseApplication	System.ServiceModel.FaultException`1[System.ServiceModel.ExceptionDetail]: Failed to enable constraints. One or more rows contain values violating non-null, unique, or foreign-key constraints. (Fault Detail is equal to An ExceptionDetail, likely created by IncludeExceptionDetailInFaults=true, whose value is:
+System.Data.ConstraintException: Failed to enable constraints. One or more rows contain values violating non-null, unique, or foreign-key constraints.
+   at System.Data.DataTable.EnableConstraints()
+   at System.Data.DataTable.set_EnforceConstraints(Boolean value)
+   at System.Data.DataTable.EndLoadData()
+   at System.Data.Common.DataAdapter.FillFromReader(DataSet dataset, DataTable datatable, String srcTable, DataReaderContainer dataReader, Int32 startRecord, Int32 maxRecords, DataColumn parentChapterColumn, Object parentChapterValue)
+   at System.Data.Common.DataAdapter.Fill(DataTable[] dataTables, IDataReader dataReader, Int32 startRecord, Int32 maxRecords)
+   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTa...).
+06/02/2012 3:08:08 CH main	System.ServiceModel.FaultException`1[System.ServiceModel.ExceptionDetail]: Failed to enable constraints. One or more rows contain values violating non-null, unique, or foreign-key constraints. (Fault Detail is equal to An ExceptionDetail, likely created by IncludeExceptionDetailInFaults=true, whose value is:
+System.Data.ConstraintException: Failed to enable constraints. One or more rows contain values violating non-null, unique, or foreign-key constraints.
+   at System.Data.DataTable.EnableConstraints()
+   at System.Data.DataTable.set_EnforceConstraints(Boolean value)
+   at System.Data.DataTable.EndLoadData()
+   at System.Data.Common.DataAdapter.FillFromReader(DataSet dataset, DataTable datatable, String srcTable, DataReaderContainer dataReader, Int32 startRecord, Int32 maxRecords, DataColumn parentChapterColumn, Object parentChapterValue)
+   at System.Data.Common.DataAdapter.Fill(DataTable[] dataTables, IDataReader dataReader, Int32 startRecord, Int32 maxRecords)
+   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTa...).
+06/02/2012 3:12:05 CH baseApplication	System.ServiceModel.FaultException`1[System.ServiceModel.ExceptionDetail]: Failed to enable constraints. One or more rows contain values violating non-null, unique, or foreign-key constraints. (Fault Detail is equal to An ExceptionDetail, likely created by IncludeExceptionDetailInFaults=true, whose value is:
+System.Data.ConstraintException: Failed to enable constraints. One or more rows contain values violating non-null, unique, or foreign-key constraints.
+   at System.Data.DataTable.EnableConstraints()
+   at System.Data.DataTable.set_EnforceConstraints(Boolean value)
+   at System.Data.DataTable.EndLoadData()
+   at System.Data.Common.DataAdapter.FillFromReader(DataSet dataset, DataTable datatable, String srcTable, DataReaderContainer dataReader, Int32 startRecord, Int32 maxRecords, DataColumn parentChapterColumn, Object parentChapterValue)
+   at System.Data.Common.DataAdapter.Fill(DataTable[] dataTables, IDataReader dataReader, Int32 startRecord, Int32 maxRecords)
+   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTa...).
+06/02/2012 3:12:15 CH main	System.ServiceModel.FaultException`1[System.ServiceModel.ExceptionDetail]: Failed to enable constraints. One or more rows contain values violating non-null, unique, or foreign-key constraints. (Fault Detail is equal to An ExceptionDetail, likely created by IncludeExceptionDetailInFaults=true, whose value is:
+System.Data.ConstraintException: Failed to enable constraints. One or more rows contain values violating non-null, unique, or foreign-key constraints.
+   at System.Data.DataTable.EnableConstraints()
+   at System.Data.DataTable.set_EnforceConstraints(Boolean value)
+   at System.Data.DataTable.EndLoadData()
+   at System.Data.Common.DataAdapter.FillFromReader(DataSet dataset, DataTable datatable, String srcTable, DataReaderContainer dataReader, Int32 startRecord, Int32 maxRecords, DataColumn parentChapterColumn, Object parentChapterValue)
+   at System.Data.Common.DataAdapter.Fill(DataTable[] dataTables, IDataReader dataReader, Int32 startRecord, Int32 maxRecords)
+   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTa...).
+06/02/2012 3:15:36 CH baseApplication	System.ServiceModel.FaultException`1[System.ServiceModel.ExceptionDetail]: Failed to enable constraints. One or more rows contain values violating non-null, unique, or foreign-key constraints. (Fault Detail is equal to An ExceptionDetail, likely created by IncludeExceptionDetailInFaults=true, whose value is:
+System.Data.ConstraintException: Failed to enable constraints. One or more rows contain values violating non-null, unique, or foreign-key constraints.
+   at System.Data.DataTable.EnableConstraints()
+   at System.Data.DataTable.set_EnforceConstraints(Boolean value)
+   at System.Data.DataTable.EndLoadData()
+   at System.Data.Common.DataAdapter.FillFromReader(DataSet dataset, DataTable datatable, String srcTable, DataReaderContainer dataReader, Int32 startRecord, Int32 maxRecords, DataColumn parentChapterColumn, Object parentChapterValue)
+   at System.Data.Common.DataAdapter.Fill(DataTable[] dataTables, IDataReader dataReader, Int32 startRecord, Int32 maxRecords)
+   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTa...).
+06/02/2012 3:15:41 CH main	System.ServiceModel.FaultException`1[System.ServiceModel.ExceptionDetail]: Failed to enable constraints. One or more rows contain values violating non-null, unique, or foreign-key constraints. (Fault Detail is equal to An ExceptionDetail, likely created by IncludeExceptionDetailInFaults=true, whose value is:
+System.Data.ConstraintException: Failed to enable constraints. One or more rows contain values violating non-null, unique, or foreign-key constraints.
+   at System.Data.DataTable.EnableConstraints()
+   at System.Data.DataTable.set_EnforceConstraints(Boolean value)
+   at System.Data.DataTable.EndLoadData()
+   at System.Data.Common.DataAdapter.FillFromReader(DataSet dataset, DataTable datatable, String srcTable, DataReaderContainer dataReader, Int32 startRecord, Int32 maxRecords, DataColumn parentChapterColumn, Object parentChapterValue)
+   at System.Data.Common.DataAdapter.Fill(DataTable[] dataTables, IDataReader dataReader, Int32 startRecord, Int32 maxRecords)
+   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTa...).
+06/02/2012 3:17:42 CH baseApplication	System.ServiceModel.FaultException`1[System.ServiceModel.ExceptionDetail]: Failed to enable constraints. One or more rows contain values violating non-null, unique, or foreign-key constraints. (Fault Detail is equal to An ExceptionDetail, likely created by IncludeExceptionDetailInFaults=true, whose value is:
+System.Data.ConstraintException: Failed to enable constraints. One or more rows contain values violating non-null, unique, or foreign-key constraints.
+   at System.Data.DataTable.EnableConstraints()
+   at System.Data.DataTable.set_EnforceConstraints(Boolean value)
+   at System.Data.DataTable.EndLoadData()
+   at System.Data.Common.DataAdapter.FillFromReader(DataSet dataset, DataTable datatable, String srcTable, DataReaderContainer dataReader, Int32 startRecord, Int32 maxRecords, DataColumn parentChapterColumn, Object parentChapterValue)
+   at System.Data.Common.DataAdapter.Fill(DataTable[] dataTables, IDataReader dataReader, Int32 startRecord, Int32 maxRecords)
+   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTa...).
+06/02/2012 3:17:54 CH main	System.ServiceModel.FaultException`1[System.ServiceModel.ExceptionDetail]: Failed to enable constraints. One or more rows contain values violating non-null, unique, or foreign-key constraints. (Fault Detail is equal to An ExceptionDetail, likely created by IncludeExceptionDetailInFaults=true, whose value is:
+System.Data.ConstraintException: Failed to enable constraints. One or more rows contain values violating non-null, unique, or foreign-key constraints.
+   at System.Data.DataTable.EnableConstraints()
+   at System.Data.DataTable.set_EnforceConstraints(Boolean value)
+   at System.Data.DataTable.EndLoadData()
+   at System.Data.Common.DataAdapter.FillFromReader(DataSet dataset, DataTable datatable, String srcTable, DataReaderContainer dataReader, Int32 startRecord, Int32 maxRecords, DataColumn parentChapterColumn, Object parentChapterValue)
+   at System.Data.Common.DataAdapter.Fill(DataTable[] dataTables, IDataReader dataReader, Int32 startRecord, Int32 maxRecords)
+   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTa...).
+2/6/2012 3:36:43 PM main	System.Xml.XPath.XPathException: Expression must evaluate to a node-set.
+   at MS.Internal.Xml.XPath.XPathParser.ParseNodeTest(AstNode qyInput, AxisType axisType, XPathNodeType nodeType)
+   at MS.Internal.Xml.XPath.XPathParser.ParseStep(AstNode qyInput)
+   at MS.Internal.Xml.XPath.XPathParser.ParseRelativeLocationPath(AstNode qyInput)
+   at MS.Internal.Xml.XPath.XPathParser.ParseRelativeLocationPath(AstNode qyInput)
+   at MS.Internal.Xml.XPath.XPathParser.ParseLocationPath(AstNode qyInput)
+   at MS.Internal.Xml.XPath.XPathParser.ParsePathExpr(AstNode qyInput)
+   at MS.Internal.Xml.XPath.XPathParser.ParseUnionExpr(AstNode qyInput)
+   at MS.Internal.Xml.XPath.XPathParser.ParseUnaryExpr(AstNode qyInput)
+   at MS.Internal.Xml.XPath.XPathParser.ParseMultiplicativeExpr(AstNode qyInput)
+   at MS.Internal.Xml.XPath.XPathParser.ParseAdditiveExpr(AstNode qyInput)
+   at MS.Internal.Xml.XPath.XPathParser.ParseRelationalExpr(AstNode qyInput)
+   at MS.Internal.Xml.XPath.XPathParser.ParseEqualityExpr(AstNode qyInput)
+   at MS.Internal.Xml.XPath.XPathParser.ParseAndExpr(AstNode qyInput)
+   at MS.Internal.Xml.XPath.XPathParser.ParseOrExpr(AstNode qyInput)
+   at MS.Internal.Xml.XPath.XPathParser.ParseXPathExpresion(String xpathExpresion)
+   at MS.Internal.Xml.XPath.QueryBuilder.Build(String query, Boolean allowVar, Boolean allowKey)
+   at MS.Internal.Xml.XPath.QueryBuilder.Build(String query, Boolean& needContext)
+   at System.Xml.XPath.XPathExpression.Compile(String xpath, IXmlNamespaceResolver nsResolver)
+   at System.Xml.XPath.XPathNavigator.Select(String xpath)
+   at System.Xml.XmlNode.SelectNodes(String xpath)
+   at common.configuration.SearchInXML(XmlDocument XMLDom, String nodeName, String childNodeName, String key)
+   at common.configuration.GetConfiguration(XmlDocument XMLDoc, String subNode, String childNode, StringCollection aFields, Boolean useEncryption)
+   at common.configuration.GetConfiguration(String XMLFile, String subNode, String childNode, StringCollection aFields, Boolean useEncryption)
+   at commonClass.Configuration.GetUserSettings(String type, StringCollection aFields) in C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\HQTrader122011\commonClass\system.cs:line 398
+   at application.Strategy.Libs.GetUserSettings(Meta meta) in C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\HQTrader122011\application\StrategyLibs.cs:line 917
+   at application.Strategy.Libs.ShowStrategyForm(Meta meta) in C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\HQTrader122011\application\StrategyLibs.cs:line 908
+   at client.main.StrategyParaEditHandler(Object sender, EventArgs e) in C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\HQTrader122011\client\main.cs:line 982
