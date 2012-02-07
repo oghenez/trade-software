@@ -1,12 +1,12 @@
 <Configuration>
 <CATEGORY>
       <CAT0 Code="HFT" />
-      <CAT0 Description="HFT-VN"/>
+      <CAT0 Description="Biến động"/>
   </CATEGORY>
 
   <CATEGORY>
      <CAT1 Code="TRE" />
-     <CAT1 Description="Trending"/>
+     <CAT1 Description="Xu hướng"/>
   </CATEGORY>
 
   <STRATEGY>
@@ -16,8 +16,8 @@
     <TwoSMAMACDSCR Category="TRE" />
     <TwoSMAMACDSCR Parameters="MACD Fast=12,MACD Slow=26,MACD Signal=9,Short Period=5,Long Period=10" />
     <TwoSMAMACDSCR ParameterDescriptions="Period defines the input data for the strategy" />
-    <TwoSMAMACDSCR Name="MACD and Two SMA Screening" />
-    <TwoSMAMACDSCR Description="Screen stock macd line above 0 and Short term SMA is above Long term SMA" />
+    <TwoSMAMACDSCR Name="Tín hiệu mua theo chiến lược MACD và 2 SMA" />
+    <TwoSMAMACDSCR Description="Tín hiệu mua trong ngày theo chiến lược MACD và 2 SMA" />
     <TwoSMAMACDSCR URL="http://www.quantum.vn" />
     <TwoSMAMACDSCR Authors="Quan Nguyen" />
     <TwoSMAMACDSCR Version="1.0" />
@@ -107,16 +107,16 @@
     <StochFastSCR Version="1.0" />
   </STRATEGY>
   <STRATEGY>
-    <BasicMACDSCR Type="SCREENING" />
-    <BasicMACDSCR Code="SCR009" />
-    <BasicMACDSCR Category="TRE" />
-    <BasicMACDSCR Parameters="MACD Fast=12,MACD Slow=26,MACD Signal=9" />
-    <BasicMACDSCR ParameterDescriptions="Period defines the input data for the strategy" />
-    <BasicMACDSCR Name="Basic MACD Screening" />
-    <BasicMACDSCR Description="Screen stock with DI+ above DI-" />
-    <BasicMACDSCR URL="http://www.quantum.vn" />
-    <BasicMACDSCR Authors="Quan Nguyen" />
-    <BasicMACDSCR Version="1.0" />
+    <BasicMACD_BUYSCR Type="SCREENING" />
+    <BasicMACD_BUYSCR Code="SCR009" />
+    <BasicMACD_BUYSCR Category="TRE" />
+    <BasicMACD_BUYSCR Parameters="MACD Fast=12,MACD Slow=26,MACD Signal=9" />
+    <BasicMACD_BUYSCR ParameterDescriptions="Period defines the input data for the strategy" />
+    <BasicMACD_BUYSCR Name="Basic MACD Screening" />
+    <BasicMACD_BUYSCR Description="Screen stock with DI+ above DI-" />
+    <BasicMACD_BUYSCR URL="http://www.quantum.vn" />
+    <BasicMACD_BUYSCR Authors="Quan Nguyen" />
+    <BasicMACD_BUYSCR Version="1.0" />
   </STRATEGY>
   <STRATEGY>
     <PriceSCR Type="SCREENING" />

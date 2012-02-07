@@ -13,7 +13,7 @@ namespace Strategy
 
     public class BasicMACDSCR_Helper : baseHelper
     {
-        public BasicMACDSCR_Helper() : base(typeof(BasicMACDSCR)) { }
+        public BasicMACDSCR_Helper() : base(typeof(BasicMACD_BUYSCR)) { }
     }
 
     /// <summary>
@@ -94,7 +94,7 @@ namespace Strategy
         }
     }
 
-    public class BasicMACDSCR : GenericStrategy
+    public class BasicMACD_BUYSCR : GenericStrategy
     {
         /// <summary>
         /// Screening following basic MACD rule
@@ -102,11 +102,11 @@ namespace Strategy
         override protected void StrategyExecute()
         {
             BasicMACDRule rule = new BasicMACDRule(data.Close, (int)parameters[0], (int)parameters[1], (int)parameters[2]);
-            if (rule.isValid())
+            int Bar = data.Close.Count - 1;
+            if (rule.isValid_forBuy(Bar))
             {
-                int Bar = data.Close.Count - 1;
                 BusinessInfo info = new BusinessInfo();
-                info.Weight = rule.macd[Bar] * 100;
+                info.Weight = data.Close[Bar];
                 SelectStock(Bar, info);
             }            
         }

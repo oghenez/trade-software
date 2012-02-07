@@ -9,7 +9,11 @@
      <CAT1 Description="Trending"/>
   </CATEGORY>
 
-
+  <CATEGORY>
+    <CAT2 Code="BUYSIG" />
+    <CAT2 Description="Buy Signal"/>
+  </CATEGORY>
+  
   <STRATEGY>
     <TwoSMAMACDSCR Type="SCREENING" />
     <TwoSMAMACDSCR ParameterPrecision="1"/>
@@ -17,7 +21,7 @@
     <TwoSMAMACDSCR Category="TRE" />
     <TwoSMAMACDSCR Parameters="MACD Fast=12,MACD Slow=26,MACD Signal=9,Short Period=5,Long Period=10" />
     <TwoSMAMACDSCR ParameterDescriptions="Period defines the input data for the strategy" />
-    <TwoSMAMACDSCR Name="MACD and Two SMA Screening" />
+    <TwoSMAMACDSCR Name="MACD and Two SMA Buy Signal" />
     <TwoSMAMACDSCR Description="Screen stock macd line above 0 and Short term SMA is above Long term SMA" />
     <TwoSMAMACDSCR URL="http://www.quantum.vn" />
     <TwoSMAMACDSCR Authors="Quan Nguyen" />
@@ -29,7 +33,7 @@
     <TwoSMASCR Category="TRE" />
     <TwoSMASCR Parameters="Short Period=5,Long Period=10" />
     <TwoSMASCR ParameterDescriptions="Period defines the parameter for the screening" />
-    <TwoSMASCR Name="Two SMA Screening" />
+    <TwoSMASCR Name="Two SMA Strategy Buy Signal" />
     <TwoSMASCR Description="Two SMA Screening" />
     <TwoSMASCR URL="http://www.quantum.vn" />
     <TwoSMASCR Authors="Quan Nguyen" />
@@ -114,7 +118,7 @@
     <BasicMACDSCR Parameters="MACD Fast=12,MACD Slow=26,MACD Signal=9" />
     <BasicMACDSCR ParameterDescriptions="Period defines the input data for the strategy" />
     <BasicMACDSCR Name="Basic MACD Screening" />
-    <BasicMACDSCR Description="Screen stock with DI+ above DI-" />
+    <BasicMACDSCR Description="Screen stock with MACD line above 0" />
     <BasicMACDSCR URL="http://www.quantum.vn" />
     <BasicMACDSCR Authors="Quan Nguyen" />
     <BasicMACDSCR Version="1.0" />
