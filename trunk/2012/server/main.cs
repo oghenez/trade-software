@@ -16,7 +16,7 @@ namespace server
             try
             {
                 common.language.myCulture = new System.Globalization.CultureInfo("vi-VN");
-                commonClass.SysLibs.myAccessMode = commonClass.DataAccessMode.WebService;
+                commonClass.Settings.sysAccessMode = commonClass.AppTypes.DataAccessMode.WebService;
                 InitializeComponent();
                 //object obj = Strategy.Data.sysXmlDocument;
                 //test.LoadTestConfig();
