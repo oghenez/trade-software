@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="wsServices.DataLibs" CodeBehind="dataLibs.svc.cs"%>
