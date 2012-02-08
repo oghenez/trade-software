@@ -153,7 +153,7 @@ namespace baseClass.forms
             try
             {
                 this.fOnProccessing = true;
-                myMasterSource.DataSource = DataAccess.Libs.GetPortfolio_ByType(this.myWatchListType);
+                myMasterSource.DataSource = DataAccess.Libs.GetPortfolio_ByInvestorAndType(this.myInvestorCode, this.myWatchListType);
                 PortfolioCurrentChanged();
                 this.fOnProccessing = saveOnProccessing;
             }

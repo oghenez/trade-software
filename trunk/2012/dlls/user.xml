@@ -1,6 +1,6 @@
 <Configuration>
   <A00000004>
-    <ChartSettings sysChartShowDescription="True" />
+    <ChartSettings sysChartShowDescription="False" />
   </A00000004>
   <A00000004>
     <ChartSettings sysChartShowVolume="False" />
@@ -21,10 +21,10 @@
     <ChartSettings sysPAN_MoveCount="6" />
   </A00000004>
   <A00000004>
-    <ChartSettings sysViewSpaceAtLEFT="0" />
+    <ChartSettings sysViewSpaceAtLEFT="12" />
   </A00000004>
   <A00000004>
-    <ChartSettings sysViewSpaceAtRIGHT="12" />
+    <ChartSettings sysViewSpaceAtRIGHT="0" />
   </A00000004>
   <A00000004>
     <System sysTimerIntervalInSecs="5" />
@@ -99,13 +99,13 @@
     <ChartSettings sysViewSpaceAtRIGHT="12" />
   </A00000005>
   <A00000004>
-    <ChartSettings sysZoom_Percent="1" />
+    <ChartSettings sysZoom_Percent="2" />
   </A00000004>
   <A00000004>
     <ChartSettings sysZoom_MinCount="10" />
   </A00000004>
   <A00000004>
-    <ChartSettings sysPAN_MovePercent="1" />
+    <ChartSettings sysPAN_MovePercent="3" />
   </A00000004>
   <A00000004>
     <ChartSettings sysPAN_MoveMinCount="10" />

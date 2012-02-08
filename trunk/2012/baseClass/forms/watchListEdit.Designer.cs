@@ -261,6 +261,7 @@
             this.descriptionEd.BackColor = System.Drawing.SystemColors.Window;
             this.descriptionEd.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.portfolioSource, "description", true));
             this.descriptionEd.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.descriptionEd.isRequired = true;
             this.descriptionEd.isToUpperCase = false;
             this.descriptionEd.Location = new System.Drawing.Point(25, 106);
             this.descriptionEd.Multiline = true;
@@ -295,6 +296,7 @@
             this.codeEd.BackColor = System.Drawing.SystemColors.Window;
             this.codeEd.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.portfolioSource, "code", true));
             this.codeEd.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.codeEd.isRequired = true;
             this.codeEd.isToUpperCase = false;
             this.codeEd.Location = new System.Drawing.Point(25, 56);
             this.codeEd.Name = "codeEd";
@@ -308,6 +310,7 @@
             this.nameEd.BackColor = System.Drawing.SystemColors.Window;
             this.nameEd.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.portfolioSource, "name", true));
             this.nameEd.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nameEd.isRequired = true;
             this.nameEd.isToUpperCase = false;
             this.nameEd.Location = new System.Drawing.Point(133, 56);
             this.nameEd.Name = "nameEd";
@@ -342,6 +345,7 @@
             this.portfolioGrid.Name = "portfolioGrid";
             this.portfolioGrid.ReadOnly = true;
             this.portfolioGrid.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.portfolioGrid.RowTemplate.Height = 24;
             this.portfolioGrid.Size = new System.Drawing.Size(481, 677);
             this.portfolioGrid.TabIndex = 362;
             this.portfolioGrid.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.grid_DataError);
