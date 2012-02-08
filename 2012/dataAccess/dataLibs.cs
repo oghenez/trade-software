@@ -69,10 +69,6 @@ namespace DataAccess
             binding.UseDefaultWebProxy = false;
             if (wsInfo.useProxy)
             {
-                //Chua loi proxy http://chrishaas.wordpress.com/2009/11/02/fixing-the-remote-server-returned-an-error-417-expectation-failed/
-
-                ServicePointManager.Expect100Continue = false;
-
                 if (wsInfo.useDefaultProxy) binding.UseDefaultWebProxy = true;
                 else
                 {
@@ -96,9 +92,11 @@ namespace DataAccess
                 _myClient.ClientCredentials.UserName.UserName = wsInfo.account;
                 _myClient.ClientCredentials.UserName.Password = wsInfo.password;
             }
+
+            ServicePointManager.Expect100Continue = false; //loi proxy http://chrishaas.wordpress.com/2009/11/02/fixing-the-remote-server-returned-an-error-417-expectation-failed/
             ServicePointManager.UseNagleAlgorithm = true;
             ServicePointManager.CheckCertificateRevocationList = true;
-            ServicePointManager.DefaultConnectionLimit = ServicePointManager.DefaultPersistentConnectionLimit;
+            ServicePointManager.DefaultConnectionLimit = 100; //ServicePointManager.DefaultPersistentConnectionLimit;
 
             //For testing
             //_myClient.Endpoint.Address = new System.ServiceModel.EndpointAddress("http://localhost:8731/wsServices/DataLibs/?wsdl");

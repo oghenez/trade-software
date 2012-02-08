@@ -151,7 +151,9 @@ namespace baseClass.controls
             if (force)
             {
                 DataAccess.Libs.ClearCache();
+                int saveGroupIndex = codeGroupCb.SelectedIndex;
                 codeGroupCb.LoadData();
+                if (saveGroupIndex >= 0) codeGroupCb.SelectedIndex = saveGroupIndex;
             }
             int lastPosition = stockSource.Position;
             LoadData();

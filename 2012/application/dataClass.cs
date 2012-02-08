@@ -12,13 +12,13 @@ namespace application
     public class AnalysisData : commonClass.BaseAnalysisData 
     {
         public AnalysisData() : base() { }
-        public AnalysisData(AppTypes.TimeScale timeScale, string stockCode, AppTypes.DataAccessMode accessMode) : base(timeScale, stockCode, accessMode) { }
+        //public AnalysisData(AppTypes.TimeScale timeScale, string stockCode, AppTypes.DataAccessMode accessMode) : base(timeScale, stockCode, accessMode) { }
         public AnalysisData(AppTypes.TimeRanges timeRange, commonClass.AppTypes.TimeScale timeScale, string stockCode, AppTypes.DataAccessMode accessMode) :
             base(timeRange,timeScale, stockCode, accessMode) { }
 
         public AnalysisData New(string stockCode)
         {
-            AnalysisData newData = new AnalysisData(this.DataTimeScale, stockCode, commonClass.Settings.sysAccessMode);
+            AnalysisData newData = new AnalysisData(this.DataTimeRange, this.DataTimeScale, stockCode, commonClass.Settings.sysAccessMode);
             newData.DataTimeScale = this.DataTimeScale;
             newData.DataStockCode = stockCode;
             newData.LoadData();

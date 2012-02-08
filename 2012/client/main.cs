@@ -410,7 +410,8 @@ namespace client
                 sysTimer.Interval = Settings.sysTimerIntervalInSecs * 1000; //Convert to mili-seconds 
                 sysTimer.Enabled = true;
             }
-            else sysTimer.Enabled = true;
+            else sysTimer.Enabled = false;
+            sysTimer.Enabled = false;
         }
 
         /// <summary>
