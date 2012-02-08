@@ -148,7 +148,11 @@ namespace baseClass.controls
 
         public void RefreshData(bool force)
         {
-            if (force) DataAccess.Libs.ClearCache();
+            if (force)
+            {
+                DataAccess.Libs.ClearCache();
+                codeGroupCb.LoadData();
+            }
             int lastPosition = stockSource.Position;
             LoadData();
             if (force) DoFilter();

@@ -1,4 +1,4 @@
-﻿<Configuration>
+<Configuration>
   <A00000004>
     <ChartSettings sysChartShowDescription="True" />
   </A00000004>
@@ -98,4 +98,46 @@
   <A00000005>
     <ChartSettings sysViewSpaceAtRIGHT="12" />
   </A00000005>
+  <A00000004>
+    <ChartSettings sysZoom_Percent="1" />
+  </A00000004>
+  <A00000004>
+    <ChartSettings sysZoom_MinCount="10" />
+  </A00000004>
+  <A00000004>
+    <ChartSettings sysPAN_MovePercent="1" />
+  </A00000004>
+  <A00000004>
+    <ChartSettings sysPAN_MoveMinCount="10" />
+  </A00000004>
+  <A00000004>
+    <ChartSettings sysNumberOfPoint_DEFA="100" />
+  </A00000004>
+  <A00000004>
+    <ChartSettings sysNumberOfPoint_MIN="10" />
+  </A00000004>
+  <A00000004>
+    <ChartSettings sysViewMinBarAtLEFT="5" />
+  </A00000004>
+  <A00000004>
+    <ChartSettings sysViewMinBarAtRIGHT="5" />
+  </A00000004>
+  <A00000004>
+    <ChartSettings sysChartMarginLEFT="50" />
+  </A00000004>
+  <A00000004>
+    <ChartSettings sysChartMarginRIGHT="0" />
+  </A00000004>
+  <A00000004>
+    <ChartSettings sysChartMarginTOP="0" />
+  </A00000004>
+  <A00000004>
+    <ChartSettings sysChartMarginBOT="3" />
+  </A00000004>
+  <A00000004>
+    <ChartSettings sysViewSpaceAtTOP="0.2" />
+  </A00000004>
+  <A00000004>
+    <ChartSettings sysViewSpaceAtBOT="0.2" />
+  </A00000004>
 </Configuration>

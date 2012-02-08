@@ -11,6 +11,7 @@ namespace application
 {
     public class AnalysisData : commonClass.BaseAnalysisData 
     {
+        public AnalysisData() : base() { }
         public AnalysisData(AppTypes.TimeScale timeScale, string stockCode, AppTypes.DataAccessMode accessMode) : base(timeScale, stockCode, accessMode) { }
         public AnalysisData(AppTypes.TimeRanges timeRange, commonClass.AppTypes.TimeScale timeScale, string stockCode, AppTypes.DataAccessMode accessMode) :
             base(timeRange,timeScale, stockCode, accessMode) { }
@@ -38,7 +39,6 @@ namespace application
                      DataAccess.Libs.LoadAnalysisData(this);
                      break;
             }
-            ClearCache();
         }
 
         ///// <summary>

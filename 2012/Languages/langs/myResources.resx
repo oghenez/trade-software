@@ -1047,4 +1047,7 @@
   <data name="trailing" xml:space="preserve">
     <value>Trailing</value>
   </data>
+  <data name="serverClientTimeDifference" xml:space="preserve">
+    <value>Time difference between the Client and Server is more than {0:g} seconds. Please setup the computer time.</value>
+  </data>
 </root>

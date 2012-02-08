@@ -96,15 +96,17 @@ namespace DataAccess
                 _myClient.ClientCredentials.UserName.UserName = wsInfo.account;
                 _myClient.ClientCredentials.UserName.Password = wsInfo.password;
             }
+            ServicePointManager.UseNagleAlgorithm = true;
+            ServicePointManager.CheckCertificateRevocationList = true;
+            ServicePointManager.DefaultConnectionLimit = ServicePointManager.DefaultPersistentConnectionLimit;
+
             //For testing
             //_myClient.Endpoint.Address = new System.ServiceModel.EndpointAddress("http://localhost:8731/wsServices/DataLibs/?wsdl");
             //_myClient.Endpoint.Address = new System.ServiceModel.EndpointAddress("http://localhost/DataLibs.svc");
             //_myClient.Endpoint.Address = new System.ServiceModel.EndpointAddress("http://localhost:8731/wsServices/DataLibs");
             //_myClient.ClientCredentials.Windows.ClientCredential.UserName = "";
             //_myClient.ClientCredentials.Windows.ClientCredential.Password = "";
-            //ServicePointManager.UseNagleAlgorithm = true;
-            //ServicePointManager.CheckCertificateRevocationList = true;
-            //ServicePointManager.DefaultConnectionLimit = ServicePointManager.DefaultPersistentConnectionLimit;
+            //End testing
 
             _myClient.Open();
         }

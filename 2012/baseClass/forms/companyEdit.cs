@@ -112,8 +112,7 @@ namespace baseClass.forms
             data.baseDS.stockCodeRow row = (data.baseDS.stockCodeRow)(myMasterSource.Current as DataRowView).Row;
             if (row.HasVersion(DataRowVersion.Original))
                 DataAccess.Libs.DeleteData(row);
-            myMasterSource.RemoveCurrent();
-            this.ShowMessage(Languages.Libs.GetString("dataWasDeleted"));
+            base.RemoveCurrent();
         }
         public override void AddNew(string code)
         {

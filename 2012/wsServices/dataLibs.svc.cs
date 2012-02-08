@@ -612,12 +612,12 @@ namespace wsServices
 
         #region test
 
-        public object[] GetPriceByCode(string stockCode)
-        {
-            data.baseDS.priceDataRow priceRow = DbAccess.GetLastPriceData(stockCode);
-            if (priceRow == null) return null;
-            return priceRow.ItemArray;
-        }
+        //public object[] GetPriceByCode(string stockCode)
+        //{
+        //    data.baseDS.priceDataRow priceRow = DbAccess.GetLastPriceData(stockCode);
+        //    if (priceRow == null) return null;
+        //    return priceRow.ItemArray;
+        //}
 
         //[OperationBehavior]
         public DataTable Test(string sql)
