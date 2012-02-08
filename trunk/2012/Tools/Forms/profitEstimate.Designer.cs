@@ -39,16 +39,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(profitEstimate));
             this.dataGrid = new common.controls.baseDataGridView();
-            this.ignoredColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.tradeActionColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.onDateColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.priceDataColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.qtyColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.amountColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cashAmtColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.totalAmtColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.feeAmtColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.profitColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tradeEstimateSource = new System.Windows.Forms.BindingSource(this.components);
             this.myTmpDS = new data.tmpDS();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
@@ -62,8 +52,18 @@
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.exportMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mainContainer = new common.controls.baseContainer();
-            this.chartPnl = new Charts.Controls.baseGraphPanel();
             this.dataPnl = new common.controls.basePanel();
+            this.chartPnl = new Charts.Controls.baseGraphPanel();
+            this.ignoredColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.tradeActionColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.onDateColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.priceDataColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.qtyColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.amountColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cashAmtColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.totalAmtColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.feeAmtColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.profitColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tradeEstimateSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.myTmpDS)).BeginInit();
@@ -90,7 +90,6 @@
             // TitleLbl
             // 
             this.TitleLbl.Location = new System.Drawing.Point(1210, 202);
-            this.TitleLbl.Size = new System.Drawing.Size(87, 20);
             // 
             // dataGrid
             // 
@@ -117,118 +116,11 @@
             this.dataGrid.Location = new System.Drawing.Point(-2, -2);
             this.dataGrid.Name = "dataGrid";
             this.dataGrid.ReadOnly = true;
+            this.dataGrid.RowTemplate.Height = 24;
             this.dataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGrid.Size = new System.Drawing.Size(541, 250);
             this.dataGrid.TabIndex = 20;
             this.dataGrid.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.grid_DataError);
-            // 
-            // ignoredColumn
-            // 
-            this.ignoredColumn.DataPropertyName = "ignored";
-            this.ignoredColumn.HeaderText = "";
-            this.ignoredColumn.Name = "ignoredColumn";
-            this.ignoredColumn.ReadOnly = true;
-            this.ignoredColumn.Width = 30;
-            // 
-            // tradeActionColumn
-            // 
-            this.tradeActionColumn.DataPropertyName = "tradeAction";
-            this.tradeActionColumn.HeaderText = "";
-            this.tradeActionColumn.Name = "tradeActionColumn";
-            this.tradeActionColumn.ReadOnly = true;
-            this.tradeActionColumn.Width = 45;
-            // 
-            // onDateColumn
-            // 
-            this.onDateColumn.DataPropertyName = "onDate";
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.Format = "d";
-            dataGridViewCellStyle1.NullValue = null;
-            this.onDateColumn.DefaultCellStyle = dataGridViewCellStyle1;
-            this.onDateColumn.HeaderText = "Date/Time";
-            this.onDateColumn.Name = "onDateColumn";
-            this.onDateColumn.ReadOnly = true;
-            this.onDateColumn.Width = 140;
-            // 
-            // priceDataColumn
-            // 
-            this.priceDataColumn.DataPropertyName = "price";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.priceDataColumn.DefaultCellStyle = dataGridViewCellStyle2;
-            this.priceDataColumn.HeaderText = "Price";
-            this.priceDataColumn.Name = "priceDataColumn";
-            this.priceDataColumn.ReadOnly = true;
-            this.priceDataColumn.Width = 60;
-            // 
-            // qtyColumn
-            // 
-            this.qtyColumn.DataPropertyName = "qty";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle3.Format = "N0";
-            dataGridViewCellStyle3.NullValue = null;
-            this.qtyColumn.DefaultCellStyle = dataGridViewCellStyle3;
-            this.qtyColumn.HeaderText = "Qty";
-            this.qtyColumn.Name = "qtyColumn";
-            this.qtyColumn.ReadOnly = true;
-            this.qtyColumn.Width = 80;
-            // 
-            // amountColumn
-            // 
-            this.amountColumn.DataPropertyName = "stockAmt";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle4.Format = "N0";
-            dataGridViewCellStyle4.NullValue = null;
-            this.amountColumn.DefaultCellStyle = dataGridViewCellStyle4;
-            this.amountColumn.HeaderText = "Amount";
-            this.amountColumn.Name = "amountColumn";
-            this.amountColumn.ReadOnly = true;
-            // 
-            // cashAmtColumn
-            // 
-            this.cashAmtColumn.DataPropertyName = "cashAmt";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle5.Format = "N0";
-            dataGridViewCellStyle5.NullValue = null;
-            this.cashAmtColumn.DefaultCellStyle = dataGridViewCellStyle5;
-            this.cashAmtColumn.HeaderText = "Cash ";
-            this.cashAmtColumn.Name = "cashAmtColumn";
-            this.cashAmtColumn.ReadOnly = true;
-            // 
-            // totalAmtColumn
-            // 
-            this.totalAmtColumn.DataPropertyName = "totalAmt";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle6.Format = "N0";
-            dataGridViewCellStyle6.NullValue = null;
-            this.totalAmtColumn.DefaultCellStyle = dataGridViewCellStyle6;
-            this.totalAmtColumn.HeaderText = "Total";
-            this.totalAmtColumn.Name = "totalAmtColumn";
-            this.totalAmtColumn.ReadOnly = true;
-            this.totalAmtColumn.Width = 110;
-            // 
-            // feeAmtColumn
-            // 
-            this.feeAmtColumn.DataPropertyName = "feeAmt";
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle7.Format = "N0";
-            dataGridViewCellStyle7.NullValue = null;
-            this.feeAmtColumn.DefaultCellStyle = dataGridViewCellStyle7;
-            this.feeAmtColumn.HeaderText = "Fee";
-            this.feeAmtColumn.Name = "feeAmtColumn";
-            this.feeAmtColumn.ReadOnly = true;
-            this.feeAmtColumn.Width = 90;
-            // 
-            // profitColumn
-            // 
-            this.profitColumn.DataPropertyName = "profit";
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle8.Format = "N0";
-            dataGridViewCellStyle8.NullValue = null;
-            this.profitColumn.DefaultCellStyle = dataGridViewCellStyle8;
-            this.profitColumn.HeaderText = "Profit";
-            this.profitColumn.Name = "profitColumn";
-            this.profitColumn.ReadOnly = true;
-            this.profitColumn.Width = 90;
             // 
             // tradeEstimateSource
             // 
@@ -317,28 +209,14 @@
             // mainContainer
             // 
             this.mainContainer.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.mainContainer.Controls.Add(this.dataPnl);
             this.mainContainer.Controls.Add(this.chartPnl);
+            this.mainContainer.Controls.Add(this.dataPnl);
             this.mainContainer.Location = new System.Drawing.Point(2, 52);
             this.mainContainer.myArrangeOptions = common.controls.childArrangeOptions.Casscade;
             this.mainContainer.myPaneDimensionSpecs = null;
             this.mainContainer.Name = "mainContainer";
             this.mainContainer.Size = new System.Drawing.Size(1025, 448);
             this.mainContainer.TabIndex = 300;
-            // 
-            // chartPnl
-            // 
-            this.chartPnl.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.chartPnl.haveCloseButton = true;
-            this.chartPnl.isExpanded = true;
-            this.chartPnl.Location = new System.Drawing.Point(640, 0);
-            this.chartPnl.myIconLocations = common.controls.basePanel.IconLocations.None;
-            this.chartPnl.mySizingOptions = common.controls.basePanel.SizingOptions.Left;
-            this.chartPnl.myWeight = 70;
-            this.chartPnl.Name = "chartPnl";
-            this.chartPnl.Size = new System.Drawing.Size(366, 446);
-            this.chartPnl.TabIndex = 298;
-            this.chartPnl.myOnClosing += new common.controls.basePanel.OnClosing(this.chartPnl_myOnClosing);
             // 
             // dataPnl
             // 
@@ -353,6 +231,129 @@
             this.dataPnl.Name = "dataPnl";
             this.dataPnl.Size = new System.Drawing.Size(611, 300);
             this.dataPnl.TabIndex = 0;
+            // 
+            // chartPnl
+            // 
+            this.chartPnl.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.chartPnl.haveCloseButton = true;
+            this.chartPnl.HaveRangeBarX = false;
+            this.chartPnl.isExpanded = true;
+            this.chartPnl.Location = new System.Drawing.Point(640, 0);
+            this.chartPnl.myIconLocations = common.controls.basePanel.IconLocations.None;
+            this.chartPnl.mySizingOptions = common.controls.basePanel.SizingOptions.Left;
+            this.chartPnl.myWeight = 70;
+            this.chartPnl.Name = "chartPnl";
+            this.chartPnl.Size = new System.Drawing.Size(366, 446);
+            this.chartPnl.TabIndex = 298;
+            this.chartPnl.myOnClosing += new common.controls.basePanel.OnClosing(this.chartPnl_myOnClosing);
+            // 
+            // ignoredColumn
+            // 
+            this.ignoredColumn.DataPropertyName = "ignored";
+            this.ignoredColumn.HeaderText = "";
+            this.ignoredColumn.Name = "ignoredColumn";
+            this.ignoredColumn.ReadOnly = true;
+            this.ignoredColumn.Width = 30;
+            // 
+            // tradeActionColumn
+            // 
+            this.tradeActionColumn.DataPropertyName = "tradeAction";
+            this.tradeActionColumn.HeaderText = "";
+            this.tradeActionColumn.Name = "tradeActionColumn";
+            this.tradeActionColumn.ReadOnly = true;
+            this.tradeActionColumn.Width = 45;
+            // 
+            // onDateColumn
+            // 
+            this.onDateColumn.DataPropertyName = "onDate";
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.Format = "g";
+            dataGridViewCellStyle1.NullValue = null;
+            this.onDateColumn.DefaultCellStyle = dataGridViewCellStyle1;
+            this.onDateColumn.HeaderText = "Date/Time";
+            this.onDateColumn.Name = "onDateColumn";
+            this.onDateColumn.ReadOnly = true;
+            this.onDateColumn.Width = 140;
+            // 
+            // priceDataColumn
+            // 
+            this.priceDataColumn.DataPropertyName = "price";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.priceDataColumn.DefaultCellStyle = dataGridViewCellStyle2;
+            this.priceDataColumn.HeaderText = "Price";
+            this.priceDataColumn.Name = "priceDataColumn";
+            this.priceDataColumn.ReadOnly = true;
+            this.priceDataColumn.Width = 60;
+            // 
+            // qtyColumn
+            // 
+            this.qtyColumn.DataPropertyName = "qty";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle3.Format = "N0";
+            dataGridViewCellStyle3.NullValue = null;
+            this.qtyColumn.DefaultCellStyle = dataGridViewCellStyle3;
+            this.qtyColumn.HeaderText = "Qty";
+            this.qtyColumn.Name = "qtyColumn";
+            this.qtyColumn.ReadOnly = true;
+            this.qtyColumn.Width = 80;
+            // 
+            // amountColumn
+            // 
+            this.amountColumn.DataPropertyName = "stockAmt";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle4.Format = "N0";
+            dataGridViewCellStyle4.NullValue = null;
+            this.amountColumn.DefaultCellStyle = dataGridViewCellStyle4;
+            this.amountColumn.HeaderText = "Amount";
+            this.amountColumn.Name = "amountColumn";
+            this.amountColumn.ReadOnly = true;
+            // 
+            // cashAmtColumn
+            // 
+            this.cashAmtColumn.DataPropertyName = "cashAmt";
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle5.Format = "N0";
+            dataGridViewCellStyle5.NullValue = null;
+            this.cashAmtColumn.DefaultCellStyle = dataGridViewCellStyle5;
+            this.cashAmtColumn.HeaderText = "Cash ";
+            this.cashAmtColumn.Name = "cashAmtColumn";
+            this.cashAmtColumn.ReadOnly = true;
+            // 
+            // totalAmtColumn
+            // 
+            this.totalAmtColumn.DataPropertyName = "totalAmt";
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle6.Format = "N0";
+            dataGridViewCellStyle6.NullValue = null;
+            this.totalAmtColumn.DefaultCellStyle = dataGridViewCellStyle6;
+            this.totalAmtColumn.HeaderText = "Total";
+            this.totalAmtColumn.Name = "totalAmtColumn";
+            this.totalAmtColumn.ReadOnly = true;
+            this.totalAmtColumn.Width = 110;
+            // 
+            // feeAmtColumn
+            // 
+            this.feeAmtColumn.DataPropertyName = "feeAmt";
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle7.Format = "N0";
+            dataGridViewCellStyle7.NullValue = null;
+            this.feeAmtColumn.DefaultCellStyle = dataGridViewCellStyle7;
+            this.feeAmtColumn.HeaderText = "Fee";
+            this.feeAmtColumn.Name = "feeAmtColumn";
+            this.feeAmtColumn.ReadOnly = true;
+            this.feeAmtColumn.Width = 90;
+            // 
+            // profitColumn
+            // 
+            this.profitColumn.DataPropertyName = "profit";
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle8.Format = "N0";
+            dataGridViewCellStyle8.NullValue = null;
+            this.profitColumn.DefaultCellStyle = dataGridViewCellStyle8;
+            this.profitColumn.HeaderText = "Profit";
+            this.profitColumn.Name = "profitColumn";
+            this.profitColumn.ReadOnly = true;
+            this.profitColumn.Width = 90;
             // 
             // profitEstimate
             // 

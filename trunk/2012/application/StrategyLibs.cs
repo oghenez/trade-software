@@ -702,7 +702,7 @@ namespace application.Strategy
             for (int rowId = 0; rowId < stockCodeList.Count; rowId++)
             {
                 Data.ClearCache();
-                AnalysisData analysisData = new AnalysisData(timeScale, stockCodeList[rowId], AppTypes.DataAccessMode.Local);
+                AnalysisData analysisData = new AnalysisData(timeRange,timeScale, stockCodeList[rowId], AppTypes.DataAccessMode.Local);
                 decimal[] rowRetList = new decimal[strategyList.Count];
                 for (int colId = 0; colId < strategyList.Count; colId++)
                 {

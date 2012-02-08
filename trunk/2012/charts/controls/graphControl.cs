@@ -107,10 +107,11 @@ namespace Charts.Controls
         //Chart may have several curves with the same X-Axis data. 
         // - [mySeriesX] is used to keep the common X-Axis data
         // - [myAxisType] is used to keep the common X-Axis type
-        private double[] mySeriesX = new double[0];
-        public double[] SeriesX
+        private double[] _mySeriesX = new double[0];
+        public double[] mySeriesX
         {
-            get { return mySeriesX;}
+            get { return _mySeriesX; }
+            set { _mySeriesX=value; }
         }
         //To decide the direction (backward/forward) of chart-moving
         private Point lastMouseLocation = new Point();
@@ -317,7 +318,7 @@ namespace Charts.Controls
                  if (this.myGraphPane.CurveList.Count == 0)  return;
                  this.mySeriesX = new double[0];
             }
-            Libs.UpdateSeriesX(this.myGraphPane.CurveList[0], ref mySeriesX);
+            Libs.UpdateSeriesX(this.myGraphPane.CurveList[0], ref _mySeriesX);
         }
 
         public void SetSeriesX(double[] xSeries, AxisType axisType)

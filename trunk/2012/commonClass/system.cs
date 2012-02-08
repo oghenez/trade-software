@@ -17,7 +17,9 @@ namespace commonClass
         {
             get
             {
-                //return "D:\\work\\stockProject\\code\\wsServices\\obj\\Debug"; //For testing 
+                //For testing 
+                //return "D:\\work\\stockProject\\code\\wsServices\\obj\\Debug"; 
+
                 if (_executeDirectory == null)
                 {
                     string tmp = common.system.GetWebRootPath();

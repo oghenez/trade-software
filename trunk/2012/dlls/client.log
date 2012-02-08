@@ -75,3 +75,398 @@ Exception rethrown at [0]:
    at DataAccess.Libs.Load_Global_Settings() in D:\work\stockProject\code\dataAccess\dataLibs.cs:line 817
    at baseClass.forms.baseApplication.LoadAppConfig() in D:\work\stockProject\code\baseClass\forms\baseApplication.cs:line 47
    at client.main.LoadAppConfig() in D:\work\stockProject\code\client\main.cs:line 350
+main	System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.ServiceModel.FaultException`1[System.ServiceModel.ExceptionDetail]: Could not find a part of the path 'C:\Program Files\Microsoft Visual Studio 9.0\Common7\IDE\vi-VN\indicators.xml'. (Fault Detail is equal to An ExceptionDetail, likely created by IncludeExceptionDetailInFaults=true, whose value is:
+System.IO.DirectoryNotFoundException: Could not find a part of the path 'C:\Program Files\Microsoft Visual Studio 9.0\Common7\IDE\vi-VN\indicators.xml'.
+   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize)
+   at System.Xml.XmlDownloadManager.GetStream(Uri uri, ICredentials credentials)
+   at System.Xml.XmlUrlResolver.GetEntity(Uri absoluteUri, String role, Type ofObjectToReturn)
+   at System.Xml.XmlTextReaderImpl.OpenUrlDelegate(Object xmlResolver)
+   at System.Threading.CompressedStack.runTryCode(Object userData)
+   at System.Runtime.CompilerServ...).
+   --- End of inner exception stack trace ---
+   at System.RuntimeTypeHandle.CreateInstance(RuntimeType type, Boolean publicOnly, Boolean noCheck, Boolean& canBeCached, RuntimeMethodHandle& ctor, Boolean& bNeedSecurityCheck)
+   at System.RuntimeType.CreateInstanceSlow(Boolean publicOnly, Boolean fillCache)
+   at System.RuntimeType.CreateInstanceImpl(Boolean publicOnly, Boolean skipVisibilityChecks, Boolean fillCache)
+   at System.Activator.CreateInstance(Type type, Boolean nonPublic)
+   at System.Activator.CreateInstance(Type type)
+   at application.Indicators.Libs.GetMeta(Assembly indicatorAss, DictionaryList MetaList) in D:\work\stockProject\code\application\IndicatorLibs.cs:line 486
+   at application.Indicators.Libs.GetMeta(String assemblyFile, DictionaryList MetaList) in D:\work\stockProject\code\application\IndicatorLibs.cs:line 474
+   at application.Indicators.Libs.GetMeta(String path, String files, DictionaryList MetaList) in D:\work\stockProject\code\application\IndicatorLibs.cs:line 506
+   at application.Indicators.Data.get_Metas() in D:\work\stockProject\code\application\IndicatorLibs.cs:line 103
+   at application.Indicators.Libs.CreateIndicatorMenu(ToolStripMenuItem toMenu, EventHandler ShowIndicatorHandler) in D:\work\stockProject\code\application\IndicatorLibs.cs:line 561
+   at client.main.SetLanguage() in D:\work\stockProject\code\client\main.cs:line 224
+baseApplication	System.TimeoutException: The request channel timed out while waiting for a reply after 00:00:15. Increase the timeout value passed to the call to Request or increase the SendTimeout value on the Binding. The time allotted to this operation may have been a portion of a longer timeout. ---> System.TimeoutException: The HTTP request to 'http://localhost:8731/wsServices/DataLibs' has exceeded the allotted timeout of 00:00:15. The time allotted to this operation may have been a portion of a longer timeout. ---> System.Net.WebException: The operation has timed out
+   at System.Net.HttpWebRequest.GetResponse()
+   at System.ServiceModel.Channels.HttpChannelFactory.HttpRequestChannel.HttpChannelRequest.WaitForReply(TimeSpan timeout)
+   --- End of inner exception stack trace ---
+   at System.ServiceModel.Channels.HttpChannelUtilities.ProcessGetResponseWebException(WebException webException, HttpWebRequest request, HttpAbortReason abortReason)
+   at System.ServiceModel.Channels.HttpChannelFactory.HttpRequestChannel.HttpChannelRequest.WaitForReply(TimeSpan timeout)
+   at System.ServiceModel.Channels.RequestChannel.Request(Message message, TimeSpan timeout)
+   --- End of inner exception stack trace ---
+
+Server stack trace: 
+   at System.ServiceModel.Channels.RequestChannel.Request(Message message, TimeSpan timeout)
+   at System.ServiceModel.Channels.ClientReliableChannelBinder`1.RequestClientReliableChannelBinder`1.OnRequest(TRequestChannel channel, Message message, TimeSpan timeout, MaskingMode maskingMode)
+   at System.ServiceModel.Channels.ClientReliableChannelBinder`1.Request(Message message, TimeSpan timeout, MaskingMode maskingMode)
+   at System.ServiceModel.Channels.ClientReliableChannelBinder`1.Request(Message message, TimeSpan timeout)
+   at System.ServiceModel.Security.SecuritySessionClientSettings`1.SecurityRequestSessionChannel.Request(Message message, TimeSpan timeout)
+   at System.ServiceModel.Dispatcher.RequestChannelBinder.Request(Message message, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at DataAccess.ServiceReference1.IStockService.Load_Global_Settings()
+   at DataAccess.ServiceReference1.StockServiceClient.Load_Global_Settings() in D:\work\stockProject\code\dataAccess\serviceReferences\ServiceReference1\Reference.cs:line 314
+   at DataAccess.Libs.Load_Global_Settings() in D:\work\stockProject\code\dataAccess\dataLibs.cs:line 817
+   at baseClass.forms.baseApplication.LoadAppConfig() in D:\work\stockProject\code\baseClass\forms\baseApplication.cs:line 47
+   at client.main.LoadAppConfig() in D:\work\stockProject\code\client\main.cs:line 350
+main	System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.ServiceModel.FaultException`1[System.ServiceModel.ExceptionDetail]: Could not find a part of the path 'C:\Program Files\Microsoft Visual Studio 9.0\Common7\IDE\en-US\indicators.xml'. (Fault Detail is equal to An ExceptionDetail, likely created by IncludeExceptionDetailInFaults=true, whose value is:
+System.IO.DirectoryNotFoundException: Could not find a part of the path 'C:\Program Files\Microsoft Visual Studio 9.0\Common7\IDE\en-US\indicators.xml'.
+   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize)
+   at System.Xml.XmlDownloadManager.GetStream(Uri uri, ICredentials credentials)
+   at System.Xml.XmlUrlResolver.GetEntity(Uri absoluteUri, String role, Type ofObjectToReturn)
+   at System.Xml.XmlTextReaderImpl.OpenUrlDelegate(Object xmlResolver)
+   at System.Threading.CompressedStack.runTryCode(Object userData)
+   at System.Runtime.CompilerServ...).
+   --- End of inner exception stack trace ---
+   at System.RuntimeTypeHandle.CreateInstance(RuntimeType type, Boolean publicOnly, Boolean noCheck, Boolean& canBeCached, RuntimeMethodHandle& ctor, Boolean& bNeedSecurityCheck)
+   at System.RuntimeType.CreateInstanceSlow(Boolean publicOnly, Boolean fillCache)
+   at System.RuntimeType.CreateInstanceImpl(Boolean publicOnly, Boolean skipVisibilityChecks, Boolean fillCache)
+   at System.Activator.CreateInstance(Type type, Boolean nonPublic)
+   at System.Activator.CreateInstance(Type type)
+   at application.Indicators.Libs.GetMeta(Assembly indicatorAss, DictionaryList MetaList) in D:\work\stockProject\code\application\IndicatorLibs.cs:line 486
+   at application.Indicators.Libs.GetMeta(String assemblyFile, DictionaryList MetaList) in D:\work\stockProject\code\application\IndicatorLibs.cs:line 474
+   at application.Indicators.Libs.GetMeta(String path, String files, DictionaryList MetaList) in D:\work\stockProject\code\application\IndicatorLibs.cs:line 506
+   at application.Indicators.Data.get_Metas() in D:\work\stockProject\code\application\IndicatorLibs.cs:line 103
+   at application.Indicators.Libs.CreateIndicatorMenu(ToolStripMenuItem toMenu, EventHandler ShowIndicatorHandler) in D:\work\stockProject\code\application\IndicatorLibs.cs:line 561
+   at client.main.SetLanguage() in D:\work\stockProject\code\client\main.cs:line 224
+main	System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.ServiceModel.FaultException`1[System.ServiceModel.ExceptionDetail]: Could not find a part of the path 'C:\Program Files\Microsoft Visual Studio 9.0\Common7\IDE\en-US\indicators.xml'. (Fault Detail is equal to An ExceptionDetail, likely created by IncludeExceptionDetailInFaults=true, whose value is:
+System.IO.DirectoryNotFoundException: Could not find a part of the path 'C:\Program Files\Microsoft Visual Studio 9.0\Common7\IDE\en-US\indicators.xml'.
+   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize)
+   at System.Xml.XmlDownloadManager.GetStream(Uri uri, ICredentials credentials)
+   at System.Xml.XmlUrlResolver.GetEntity(Uri absoluteUri, String role, Type ofObjectToReturn)
+   at System.Xml.XmlTextReaderImpl.OpenUrlDelegate(Object xmlResolver)
+   at System.Threading.CompressedStack.runTryCode(Object userData)
+   at System.Runtime.CompilerServ...).
+   --- End of inner exception stack trace ---
+   at System.RuntimeTypeHandle.CreateInstance(RuntimeType type, Boolean publicOnly, Boolean noCheck, Boolean& canBeCached, RuntimeMethodHandle& ctor, Boolean& bNeedSecurityCheck)
+   at System.RuntimeType.CreateInstanceSlow(Boolean publicOnly, Boolean fillCache)
+   at System.RuntimeType.CreateInstanceImpl(Boolean publicOnly, Boolean skipVisibilityChecks, Boolean fillCache)
+   at System.Activator.CreateInstance(Type type, Boolean nonPublic)
+   at System.Activator.CreateInstance(Type type)
+   at application.Indicators.Libs.GetMeta(Assembly indicatorAss, DictionaryList MetaList) in D:\work\stockProject\code\application\IndicatorLibs.cs:line 486
+   at application.Indicators.Libs.GetMeta(String assemblyFile, DictionaryList MetaList) in D:\work\stockProject\code\application\IndicatorLibs.cs:line 474
+   at application.Indicators.Libs.GetMeta(String path, String files, DictionaryList MetaList) in D:\work\stockProject\code\application\IndicatorLibs.cs:line 506
+   at application.Indicators.Data.get_Metas() in D:\work\stockProject\code\application\IndicatorLibs.cs:line 103
+   at application.Indicators.Libs.CreateIndicatorMenu(ToolStripMenuItem toMenu, EventHandler ShowIndicatorHandler) in D:\work\stockProject\code\application\IndicatorLibs.cs:line 561
+   at client.main.SetLanguage() in D:\work\stockProject\code\client\main.cs:line 224
+main	System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.ServiceModel.FaultException`1[System.ServiceModel.ExceptionDetail]: Could not find a part of the path 'C:\Program Files\Microsoft Visual Studio 9.0\Common7\IDE\en-US\indicators.xml'. (Fault Detail is equal to An ExceptionDetail, likely created by IncludeExceptionDetailInFaults=true, whose value is:
+System.IO.DirectoryNotFoundException: Could not find a part of the path 'C:\Program Files\Microsoft Visual Studio 9.0\Common7\IDE\en-US\indicators.xml'.
+   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize)
+   at System.Xml.XmlDownloadManager.GetStream(Uri uri, ICredentials credentials)
+   at System.Xml.XmlUrlResolver.GetEntity(Uri absoluteUri, String role, Type ofObjectToReturn)
+   at System.Xml.XmlTextReaderImpl.OpenUrlDelegate(Object xmlResolver)
+   at System.Threading.CompressedStack.runTryCode(Object userData)
+   at System.Runtime.CompilerServ...).
+   --- End of inner exception stack trace ---
+   at System.RuntimeTypeHandle.CreateInstance(RuntimeType type, Boolean publicOnly, Boolean noCheck, Boolean& canBeCached, RuntimeMethodHandle& ctor, Boolean& bNeedSecurityCheck)
+   at System.RuntimeType.CreateInstanceSlow(Boolean publicOnly, Boolean fillCache)
+   at System.RuntimeType.CreateInstanceImpl(Boolean publicOnly, Boolean skipVisibilityChecks, Boolean fillCache)
+   at System.Activator.CreateInstance(Type type, Boolean nonPublic)
+   at System.Activator.CreateInstance(Type type)
+   at application.Indicators.Libs.GetMeta(Assembly indicatorAss, DictionaryList MetaList) in D:\work\stockProject\code\application\IndicatorLibs.cs:line 486
+   at application.Indicators.Libs.GetMeta(String assemblyFile, DictionaryList MetaList) in D:\work\stockProject\code\application\IndicatorLibs.cs:line 474
+   at application.Indicators.Libs.GetMeta(String path, String files, DictionaryList MetaList) in D:\work\stockProject\code\application\IndicatorLibs.cs:line 506
+   at application.Indicators.Data.get_Metas() in D:\work\stockProject\code\application\IndicatorLibs.cs:line 103
+   at application.Indicators.Libs.CreateIndicatorMenu(ToolStripMenuItem toMenu, EventHandler ShowIndicatorHandler) in D:\work\stockProject\code\application\IndicatorLibs.cs:line 561
+   at client.main.SetLanguage() in D:\work\stockProject\code\client\main.cs:line 224
+main	System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.ServiceModel.FaultException`1[System.ServiceModel.ExceptionDetail]: Could not find a part of the path 'D:\work\stockProject\code\wsServices\obj\Debug\en-US\indicators.xml'. (Fault Detail is equal to An ExceptionDetail, likely created by IncludeExceptionDetailInFaults=true, whose value is:
+System.IO.DirectoryNotFoundException: Could not find a part of the path 'D:\work\stockProject\code\wsServices\obj\Debug\en-US\indicators.xml'.
+   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize)
+   at System.Xml.XmlDownloadManager.GetStream(Uri uri, ICredentials credentials)
+   at System.Xml.XmlUrlResolver.GetEntity(Uri absoluteUri, String role, Type ofObjectToReturn)
+   at System.Xml.XmlTextReaderImpl.OpenUrlDelegate(Object xmlResolver)
+   at System.Threading.CompressedStack.runTryCode(Object userData)
+   at System.Runtime.CompilerServices.Runti...).
+   --- End of inner exception stack trace ---
+   at System.RuntimeTypeHandle.CreateInstance(RuntimeType type, Boolean publicOnly, Boolean noCheck, Boolean& canBeCached, RuntimeMethodHandle& ctor, Boolean& bNeedSecurityCheck)
+   at System.RuntimeType.CreateInstanceSlow(Boolean publicOnly, Boolean fillCache)
+   at System.RuntimeType.CreateInstanceImpl(Boolean publicOnly, Boolean skipVisibilityChecks, Boolean fillCache)
+   at System.Activator.CreateInstance(Type type, Boolean nonPublic)
+   at System.Activator.CreateInstance(Type type)
+   at application.Indicators.Libs.GetMeta(Assembly indicatorAss, DictionaryList MetaList) in D:\work\stockProject\code\application\IndicatorLibs.cs:line 486
+   at application.Indicators.Libs.GetMeta(String assemblyFile, DictionaryList MetaList) in D:\work\stockProject\code\application\IndicatorLibs.cs:line 474
+   at application.Indicators.Libs.GetMeta(String path, String files, DictionaryList MetaList) in D:\work\stockProject\code\application\IndicatorLibs.cs:line 506
+   at application.Indicators.Data.get_Metas() in D:\work\stockProject\code\application\IndicatorLibs.cs:line 103
+   at application.Indicators.Libs.CreateIndicatorMenu(ToolStripMenuItem toMenu, EventHandler ShowIndicatorHandler) in D:\work\stockProject\code\application\IndicatorLibs.cs:line 561
+   at client.main.SetLanguage() in D:\work\stockProject\code\client\main.cs:line 224
+baseApplication	System.ServiceModel.EndpointNotFoundException: Could not connect to http://localhost:8731/wsServices/DataLibs. TCP error code 10061: No connection could be made because the target machine actively refused it 127.0.0.1:8731.  ---> System.Net.WebException: Unable to connect to the remote server ---> System.Net.Sockets.SocketException: No connection could be made because the target machine actively refused it 127.0.0.1:8731
+   at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.InternalConnect(EndPoint remoteEP)
+   at System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Int32 timeout, Exception& exception)
+   --- End of inner exception stack trace ---
+   at System.Net.HttpWebRequest.GetRequestStream()
+   at System.ServiceModel.Channels.HttpOutput.WebRequestHttpOutput.GetOutputStream()
+   --- End of inner exception stack trace ---
+
+Server stack trace: 
+   at System.ServiceModel.Security.IssuanceTokenProviderBase`1.DoNegotiation(TimeSpan timeout)
+   at System.ServiceModel.Security.SspiNegotiationTokenProvider.OnOpen(TimeSpan timeout)
+   at System.ServiceModel.Security.WrapperSecurityCommunicationObject.OnOpen(TimeSpan timeout)
+   at System.ServiceModel.Channels.CommunicationObject.Open(TimeSpan timeout)
+   at System.ServiceModel.Security.CommunicationObjectSecurityTokenProvider.Open(TimeSpan timeout)
+   at System.ServiceModel.Security.SecurityUtils.OpenTokenProviderIfRequired(SecurityTokenProvider tokenProvider, TimeSpan timeout)
+   at System.ServiceModel.Security.SymmetricSecurityProtocol.OnOpen(TimeSpan timeout)
+   at System.ServiceModel.Security.WrapperSecurityCommunicationObject.OnOpen(TimeSpan timeout)
+   at System.ServiceModel.Channels.CommunicationObject.Open(TimeSpan timeout)
+   at System.ServiceModel.Channels.SecurityChannelFactory`1.ClientSecurityChannel`1.OnOpen(TimeSpan timeout)
+   at System.ServiceModel.Channels.CommunicationObject.Open(TimeSpan timeout)
+   at System.ServiceModel.Security.SecuritySessionSecurityTokenProvider.DoOperation(SecuritySessionOperation operation, EndpointAddress target, Uri via, SecurityToken currentToken, TimeSpan timeout)
+   at System.ServiceModel.Security.SecuritySessionSecurityTokenProvider.GetTokenCore(TimeSpan timeout)
+   at System.IdentityModel.Selectors.SecurityTokenProvider.GetToken(TimeSpan timeout)
+   at System.ServiceModel.Security.SecuritySessionClientSettings`1.ClientSecuritySessionChannel.OnOpen(TimeSpan timeout)
+   at System.ServiceModel.Channels.CommunicationObject.Open(TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannel.OnOpen(TimeSpan timeout)
+   at System.ServiceModel.Channels.CommunicationObject.Open(TimeSpan timeout)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at System.ServiceModel.ICommunicationObject.Open(TimeSpan timeout)
+   at System.ServiceModel.ClientBase`1.System.ServiceModel.ICommunicationObject.Open(TimeSpan timeout)
+   at System.ServiceModel.ClientBase`1.Open()
+   at DataAccess.Libs.OpenConnection(wsConnectionInfo wsInfo) in D:\work\stockProject\code\dataAccess\dataLibs.cs:line 109
+   at DataAccess.Libs.OpenConnection() in D:\work\stockProject\code\dataAccess\dataLibs.cs:line 51
+   at DataAccess.Libs.get_myClient() in D:\work\stockProject\code\dataAccess\dataLibs.cs:line 37
+   at DataAccess.Libs.Load_Global_Settings() in D:\work\stockProject\code\dataAccess\dataLibs.cs:line 817
+   at baseClass.forms.baseApplication.LoadAppConfig() in D:\work\stockProject\code\baseClass\forms\baseApplication.cs:line 47
+   at client.main.LoadAppConfig() in D:\work\stockProject\code\client\main.cs:line 350
+main	System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.ServiceModel.EndpointNotFoundException: Could not connect to http://localhost:8731/wsServices/DataLibs. TCP error code 10061: No connection could be made because the target machine actively refused it 127.0.0.1:8731.  ---> System.Net.WebException: Unable to connect to the remote server ---> System.Net.Sockets.SocketException: No connection could be made because the target machine actively refused it 127.0.0.1:8731
+   at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.InternalConnect(EndPoint remoteEP)
+   at System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Int32 timeout, Exception& exception)
+   --- End of inner exception stack trace ---
+   at System.Net.HttpWebRequest.GetRequestStream()
+   at System.ServiceModel.Channels.HttpOutput.WebRequestHttpOutput.GetOutputStream()
+   --- End of inner exception stack trace ---
+
+Server stack trace: 
+   at System.ServiceModel.Security.IssuanceTokenProviderBase`1.DoNegotiation(TimeSpan timeout)
+   at System.ServiceModel.Security.SspiNegotiationTokenProvider.OnOpen(TimeSpan timeout)
+   at System.ServiceModel.Security.WrapperSecurityCommunicationObject.OnOpen(TimeSpan timeout)
+   at System.ServiceModel.Channels.CommunicationObject.Open(TimeSpan timeout)
+   at System.ServiceModel.Security.CommunicationObjectSecurityTokenProvider.Open(TimeSpan timeout)
+   at System.ServiceModel.Security.SecurityUtils.OpenTokenProviderIfRequired(SecurityTokenProvider tokenProvider, TimeSpan timeout)
+   at System.ServiceModel.Security.SymmetricSecurityProtocol.OnOpen(TimeSpan timeout)
+   at System.ServiceModel.Security.WrapperSecurityCommunicationObject.OnOpen(TimeSpan timeout)
+   at System.ServiceModel.Channels.CommunicationObject.Open(TimeSpan timeout)
+   at System.ServiceModel.Channels.SecurityChannelFactory`1.ClientSecurityChannel`1.OnOpen(TimeSpan timeout)
+   at System.ServiceModel.Channels.CommunicationObject.Open(TimeSpan timeout)
+   at System.ServiceModel.Security.SecuritySessionSecurityTokenProvider.DoOperation(SecuritySessionOperation operation, EndpointAddress target, Uri via, SecurityToken currentToken, TimeSpan timeout)
+   at System.ServiceModel.Security.SecuritySessionSecurityTokenProvider.GetTokenCore(TimeSpan timeout)
+   at System.IdentityModel.Selectors.SecurityTokenProvider.GetToken(TimeSpan timeout)
+   at System.ServiceModel.Security.SecuritySessionClientSettings`1.ClientSecuritySessionChannel.OnOpen(TimeSpan timeout)
+   at System.ServiceModel.Channels.CommunicationObject.Open(TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannel.OnOpen(TimeSpan timeout)
+   at System.ServiceModel.Channels.CommunicationObject.Open(TimeSpan timeout)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at System.ServiceModel.ICommunicationObject.Open(TimeSpan timeout)
+   at System.ServiceModel.ClientBase`1.System.ServiceModel.ICommunicationObject.Open(TimeSpan timeout)
+   at System.ServiceModel.ClientBase`1.Open()
+   at DataAccess.Libs.OpenConnection(wsConnectionInfo wsInfo) in D:\work\stockProject\code\dataAccess\dataLibs.cs:line 109
+   at DataAccess.Libs.OpenConnection() in D:\work\stockProject\code\dataAccess\dataLibs.cs:line 51
+   at DataAccess.Libs.get_myClient() in D:\work\stockProject\code\dataAccess\dataLibs.cs:line 37
+   at DataAccess.Libs.GetXml(String fileName) in D:\work\stockProject\code\dataAccess\dataLibs.cs:line 809
+   at application.Indicators.Data.get_sysXmlDocument() in D:\work\stockProject\code\application\IndicatorLibs.cs:line 42
+   at application.Indicators.Meta.GetMeta(Meta meta) in D:\work\stockProject\code\application\IndicatorLibs.cs:line 252
+   at application.Indicators.Helpers.Init(Type indicatorType, Type indicatorFormType, String typeName, Type inputDataType) in D:\work\stockProject\code\application\IndicatorLibs.cs:line 119
+   at application.Indicators.Helpers.Init(Type indicatorType, Type indicatorFormType, Type inputDataType) in D:\work\stockProject\code\application\IndicatorLibs.cs:line 123
+   at Indicators.BopHelper..ctor() in D:\work\stockProject\code\indicators\class\Bop.cs:line 19
+   --- End of inner exception stack trace ---
+   at System.RuntimeTypeHandle.CreateInstance(RuntimeType type, Boolean publicOnly, Boolean noCheck, Boolean& canBeCached, RuntimeMethodHandle& ctor, Boolean& bNeedSecurityCheck)
+   at System.RuntimeType.CreateInstanceSlow(Boolean publicOnly, Boolean fillCache)
+   at System.RuntimeType.CreateInstanceImpl(Boolean publicOnly, Boolean skipVisibilityChecks, Boolean fillCache)
+   at System.Activator.CreateInstance(Type type, Boolean nonPublic)
+   at System.Activator.CreateInstance(Type type)
+   at application.Indicators.Libs.GetMeta(Assembly indicatorAss, DictionaryList MetaList) in D:\work\stockProject\code\application\IndicatorLibs.cs:line 486
+   at application.Indicators.Libs.GetMeta(String assemblyFile, DictionaryList MetaList) in D:\work\stockProject\code\application\IndicatorLibs.cs:line 474
+   at application.Indicators.Libs.GetMeta(String path, String files, DictionaryList MetaList) in D:\work\stockProject\code\application\IndicatorLibs.cs:line 506
+   at application.Indicators.Data.get_Metas() in D:\work\stockProject\code\application\IndicatorLibs.cs:line 103
+   at application.Indicators.Libs.CreateIndicatorMenu(ToolStripMenuItem toMenu, EventHandler ShowIndicatorHandler) in D:\work\stockProject\code\application\IndicatorLibs.cs:line 561
+   at client.main.SetLanguage() in D:\work\stockProject\code\client\main.cs:line 224
+baseApplication	System.TimeoutException: The request channel timed out while waiting for a reply after 00:00:15. Increase the timeout value passed to the call to Request or increase the SendTimeout value on the Binding. The time allotted to this operation may have been a portion of a longer timeout. ---> System.TimeoutException: The HTTP request to 'http://localhost:8731/wsServices/DataLibs' has exceeded the allotted timeout of 00:00:15. The time allotted to this operation may have been a portion of a longer timeout. ---> System.Net.WebException: The operation has timed out
+   at System.Net.HttpWebRequest.GetResponse()
+   at System.ServiceModel.Channels.HttpChannelFactory.HttpRequestChannel.HttpChannelRequest.WaitForReply(TimeSpan timeout)
+   --- End of inner exception stack trace ---
+   at System.ServiceModel.Channels.HttpChannelUtilities.ProcessGetResponseWebException(WebException webException, HttpWebRequest request, HttpAbortReason abortReason)
+   at System.ServiceModel.Channels.HttpChannelFactory.HttpRequestChannel.HttpChannelRequest.WaitForReply(TimeSpan timeout)
+   at System.ServiceModel.Channels.RequestChannel.Request(Message message, TimeSpan timeout)
+   --- End of inner exception stack trace ---
+
+Server stack trace: 
+   at System.ServiceModel.Channels.RequestChannel.Request(Message message, TimeSpan timeout)
+   at System.ServiceModel.Channels.ClientReliableChannelBinder`1.RequestClientReliableChannelBinder`1.OnRequest(TRequestChannel channel, Message message, TimeSpan timeout, MaskingMode maskingMode)
+   at System.ServiceModel.Channels.ClientReliableChannelBinder`1.Request(Message message, TimeSpan timeout, MaskingMode maskingMode)
+   at System.ServiceModel.Channels.ClientReliableChannelBinder`1.Request(Message message, TimeSpan timeout)
+   at System.ServiceModel.Security.SecuritySessionClientSettings`1.SecurityRequestSessionChannel.Request(Message message, TimeSpan timeout)
+   at System.ServiceModel.Dispatcher.RequestChannelBinder.Request(Message message, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at DataAccess.ServiceReference1.IStockService.Load_Global_Settings()
+   at DataAccess.ServiceReference1.StockServiceClient.Load_Global_Settings() in D:\work\stockProject\code\dataAccess\serviceReferences\ServiceReference1\Reference.cs:line 314
+   at DataAccess.Libs.Load_Global_Settings() in D:\work\stockProject\code\dataAccess\dataLibs.cs:line 817
+   at baseClass.forms.baseApplication.LoadAppConfig() in D:\work\stockProject\code\baseClass\forms\baseApplication.cs:line 47
+   at client.main.LoadAppConfig() in D:\work\stockProject\code\client\main.cs:line 350
+main	System.TimeoutException: The request channel timed out while waiting for a reply after 00:00:15. Increase the timeout value passed to the call to Request or increase the SendTimeout value on the Binding. The time allotted to this operation may have been a portion of a longer timeout. ---> System.TimeoutException: The HTTP request to 'http://localhost:8731/wsServices/DataLibs' has exceeded the allotted timeout of 00:00:15. The time allotted to this operation may have been a portion of a longer timeout. ---> System.Net.WebException: The operation has timed out
+   at System.Net.HttpWebRequest.GetResponse()
+   at System.ServiceModel.Channels.HttpChannelFactory.HttpRequestChannel.HttpChannelRequest.WaitForReply(TimeSpan timeout)
+   --- End of inner exception stack trace ---
+   at System.ServiceModel.Channels.HttpChannelUtilities.ProcessGetResponseWebException(WebException webException, HttpWebRequest request, HttpAbortReason abortReason)
+   at System.ServiceModel.Channels.HttpChannelFactory.HttpRequestChannel.HttpChannelRequest.WaitForReply(TimeSpan timeout)
+   at System.ServiceModel.Channels.RequestChannel.Request(Message message, TimeSpan timeout)
+   --- End of inner exception stack trace ---
+
+Server stack trace: 
+   at System.ServiceModel.Channels.RequestChannel.Request(Message message, TimeSpan timeout)
+   at System.ServiceModel.Channels.ClientReliableChannelBinder`1.RequestClientReliableChannelBinder`1.OnRequest(TRequestChannel channel, Message message, TimeSpan timeout, MaskingMode maskingMode)
+   at System.ServiceModel.Channels.ClientReliableChannelBinder`1.Request(Message message, TimeSpan timeout, MaskingMode maskingMode)
+   at System.ServiceModel.Channels.ClientReliableChannelBinder`1.Request(Message message, TimeSpan timeout)
+   at System.ServiceModel.Security.SecuritySessionClientSettings`1.SecurityRequestSessionChannel.Request(Message message, TimeSpan timeout)
+   at System.ServiceModel.Dispatcher.RequestChannelBinder.Request(Message message, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at DataAccess.ServiceReference1.IStockService.GetAnalysis_Data(Int32& firstData, TimeRanges timeRanges, String timeScaleCode, String stockCode)
+   at DataAccess.ServiceReference1.StockServiceClient.GetAnalysis_Data(Int32& firstData, TimeRanges timeRanges, String timeScaleCode, String stockCode) in D:\work\stockProject\code\dataAccess\serviceReferences\ServiceReference1\Reference.cs:line 286
+   at DataAccess.Libs.LoadAnalysisData(BaseAnalysisData dataObj) in D:\work\stockProject\code\dataAccess\dataLibs.cs:line 764
+   at application.AnalysisData.LoadData() in D:\work\stockProject\code\application\dataClass.cs:line 38
+   at Tools.Forms.tradeAnalysis.ReloadChart() in D:\work\stockProject\code\Tools\Forms\tradeAnalysis.cs:line 315
+   at Tools.Forms.tradeAnalysis.UseStock(stockCodeRow stockCodeRow) in D:\work\stockProject\code\Tools\Forms\tradeAnalysis.cs:line 289
+   at client.main.ShowStockChart(String stockCode) in D:\work\stockProject\code\client\main.cs:line 809
+   at client.main.NewChartMenuItem_Click(Object sender, EventArgs e) in D:\work\stockProject\code\client\main.cs:line 1088
+main	System.NullReferenceException: Object reference not set to an instance of an object.
+   at Tools.Forms.tradeAnalysis.UseStock(stockCodeRow stockCodeRow) in D:\work\stockProject\code\Tools\Forms\tradeAnalysis.cs:line 288
+   at client.main.ShowStockChart(String stockCode) in D:\work\stockProject\code\client\main.cs:line 809
+   at client.main.NewChartMenuItem_Click(Object sender, EventArgs e) in D:\work\stockProject\code\client\main.cs:line 1088
+main	System.NullReferenceException: Object reference not set to an instance of an object.
+   at Tools.Forms.tradeAnalysis.UseStock(stockCodeRow stockCodeRow) in D:\work\stockProject\code\Tools\Forms\tradeAnalysis.cs:line 288
+   at client.main.ShowStockChart(String stockCode) in D:\work\stockProject\code\client\main.cs:line 809
+   at client.main.NewChartMenuItem_Click(Object sender, EventArgs e) in D:\work\stockProject\code\client\main.cs:line 1088
+main	System.NullReferenceException: Object reference not set to an instance of an object.
+   at Tools.Forms.tradeAnalysis.UseStock(stockCodeRow stockCodeRow) in D:\work\stockProject\code\Tools\Forms\tradeAnalysis.cs:line 288
+   at client.main.ShowStockChart(String stockCode) in D:\work\stockProject\code\client\main.cs:line 809
+   at client.main.NewChartMenuItem_Click(Object sender, EventArgs e) in D:\work\stockProject\code\client\main.cs:line 1088
+main	System.NullReferenceException: Object reference not set to an instance of an object.
+   at Tools.Forms.tradeAnalysis.UseStock(stockCodeRow stockCodeRow) in D:\work\stockProject\code\Tools\Forms\tradeAnalysis.cs:line 288
+   at client.main.ShowStockChart(String stockCode) in D:\work\stockProject\code\client\main.cs:line 809
+   at client.main.NewChartMenuItem_Click(Object sender, EventArgs e) in D:\work\stockProject\code\client\main.cs:line 1088
+main	System.NullReferenceException: Object reference not set to an instance of an object.
+   at Tools.Forms.tradeAnalysis.UseStock(stockCodeRow stockCodeRow) in D:\work\stockProject\code\Tools\Forms\tradeAnalysis.cs:line 288
+   at client.main.ShowStockChart(String stockCode) in D:\work\stockProject\code\client\main.cs:line 809
+   at client.main.NewChartMenuItem_Click(Object sender, EventArgs e) in D:\work\stockProject\code\client\main.cs:line 1088
+main	System.NullReferenceException: Object reference not set to an instance of an object.
+   at Tools.Forms.tradeAnalysis.UseStock(stockCodeRow stockCodeRow) in D:\work\stockProject\code\Tools\Forms\tradeAnalysis.cs:line 288
+   at client.main.ShowStockChart(String stockCode) in D:\work\stockProject\code\client\main.cs:line 809
+   at client.main.NewChartMenuItem_Click(Object sender, EventArgs e) in D:\work\stockProject\code\client\main.cs:line 1088
+main	System.NullReferenceException: Object reference not set to an instance of an object.
+   at Tools.Forms.tradeAnalysis.UseStock(stockCodeRow stockCodeRow) in D:\work\stockProject\code\Tools\Forms\tradeAnalysis.cs:line 288
+   at client.main.ShowStockChart(String stockCode) in D:\work\stockProject\code\client\main.cs:line 809
+   at client.main.NewChartMenuItem_Click(Object sender, EventArgs e) in D:\work\stockProject\code\client\main.cs:line 1088
+baseApplication	System.TimeoutException: The request channel timed out while waiting for a reply after 00:00:14.9843750. Increase the timeout value passed to the call to Request or increase the SendTimeout value on the Binding. The time allotted to this operation may have been a portion of a longer timeout. ---> System.TimeoutException: The HTTP request to 'http://localhost:8731/wsServices/DataLibs' has exceeded the allotted timeout of 00:00:15. The time allotted to this operation may have been a portion of a longer timeout. ---> System.Net.WebException: The operation has timed out
+   at System.Net.HttpWebRequest.GetResponse()
+   at System.ServiceModel.Channels.HttpChannelFactory.HttpRequestChannel.HttpChannelRequest.WaitForReply(TimeSpan timeout)
+   --- End of inner exception stack trace ---
+   at System.ServiceModel.Channels.HttpChannelUtilities.ProcessGetResponseWebException(WebException webException, HttpWebRequest request, HttpAbortReason abortReason)
+   at System.ServiceModel.Channels.HttpChannelFactory.HttpRequestChannel.HttpChannelRequest.WaitForReply(TimeSpan timeout)
+   at System.ServiceModel.Channels.RequestChannel.Request(Message message, TimeSpan timeout)
+   --- End of inner exception stack trace ---
+
+Server stack trace: 
+   at System.ServiceModel.Channels.RequestChannel.Request(Message message, TimeSpan timeout)
+   at System.ServiceModel.Channels.ClientReliableChannelBinder`1.RequestClientReliableChannelBinder`1.OnRequest(TRequestChannel channel, Message message, TimeSpan timeout, MaskingMode maskingMode)
+   at System.ServiceModel.Channels.ClientReliableChannelBinder`1.Request(Message message, TimeSpan timeout, MaskingMode maskingMode)
+   at System.ServiceModel.Channels.ClientReliableChannelBinder`1.Request(Message message, TimeSpan timeout)
+   at System.ServiceModel.Security.SecuritySessionClientSettings`1.SecurityRequestSessionChannel.Request(Message message, TimeSpan timeout)
+   at System.ServiceModel.Dispatcher.RequestChannelBinder.Request(Message message, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at DataAccess.ServiceReference1.IStockService.Load_Global_Settings()
+   at DataAccess.ServiceReference1.StockServiceClient.Load_Global_Settings() in D:\work\stockProject\code\dataAccess\serviceReferences\ServiceReference1\Reference.cs:line 314
+   at DataAccess.Libs.Load_Global_Settings() in D:\work\stockProject\code\dataAccess\dataLibs.cs:line 817
+   at baseClass.forms.baseApplication.LoadAppConfig() in D:\work\stockProject\code\baseClass\forms\baseApplication.cs:line 47
+   at client.main.LoadAppConfig() in D:\work\stockProject\code\client\main.cs:line 350
+main	System.TimeoutException: The request channel timed out while waiting for a reply after 00:00:15. Increase the timeout value passed to the call to Request or increase the SendTimeout value on the Binding. The time allotted to this operation may have been a portion of a longer timeout. ---> System.TimeoutException: The HTTP request to 'http://localhost:8731/wsServices/DataLibs' has exceeded the allotted timeout of 00:00:15. The time allotted to this operation may have been a portion of a longer timeout. ---> System.Net.WebException: The operation has timed out
+   at System.Net.HttpWebRequest.GetResponse()
+   at System.ServiceModel.Channels.HttpChannelFactory.HttpRequestChannel.HttpChannelRequest.WaitForReply(TimeSpan timeout)
+   --- End of inner exception stack trace ---
+   at System.ServiceModel.Channels.HttpChannelUtilities.ProcessGetResponseWebException(WebException webException, HttpWebRequest request, HttpAbortReason abortReason)
+   at System.ServiceModel.Channels.HttpChannelFactory.HttpRequestChannel.HttpChannelRequest.WaitForReply(TimeSpan timeout)
+   at System.ServiceModel.Channels.RequestChannel.Request(Message message, TimeSpan timeout)
+   --- End of inner exception stack trace ---
+
+Server stack trace: 
+   at System.ServiceModel.Channels.RequestChannel.Request(Message message, TimeSpan timeout)
+   at System.ServiceModel.Channels.ClientReliableChannelBinder`1.RequestClientReliableChannelBinder`1.OnRequest(TRequestChannel channel, Message message, TimeSpan timeout, MaskingMode maskingMode)
+   at System.ServiceModel.Channels.ClientReliableChannelBinder`1.Request(Message message, TimeSpan timeout, MaskingMode maskingMode)
+   at System.ServiceModel.Channels.ClientReliableChannelBinder`1.Request(Message message, TimeSpan timeout)
+   at System.ServiceModel.Security.SecuritySessionClientSettings`1.SecurityRequestSessionChannel.Request(Message message, TimeSpan timeout)
+   at System.ServiceModel.Dispatcher.RequestChannelBinder.Request(Message message, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at DataAccess.ServiceReference1.IStockService.GetAnalysis_Data(Int32& firstData, TimeRanges timeRanges, String timeScaleCode, String stockCode)
+   at DataAccess.ServiceReference1.StockServiceClient.GetAnalysis_Data(Int32& firstData, TimeRanges timeRanges, String timeScaleCode, String stockCode) in D:\work\stockProject\code\dataAccess\serviceReferences\ServiceReference1\Reference.cs:line 286
+   at DataAccess.Libs.LoadAnalysisData(BaseAnalysisData dataObj) in D:\work\stockProject\code\dataAccess\dataLibs.cs:line 764
+   at application.AnalysisData.LoadData() in D:\work\stockProject\code\application\dataClass.cs:line 38
+   at Tools.Forms.tradeAnalysis.ReloadChart() in D:\work\stockProject\code\Tools\Forms\tradeAnalysis.cs:line 315
+   at Tools.Forms.tradeAnalysis.UseStock(stockCodeRow stockCodeRow) in D:\work\stockProject\code\Tools\Forms\tradeAnalysis.cs:line 289
+   at client.main.ShowStockChart(String stockCode) in D:\work\stockProject\code\client\main.cs:line 809
+   at client.main.NewChartMenuItem_Click(Object sender, EventArgs e) in D:\work\stockProject\code\client\main.cs:line 1088
+main	System.ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index
+   at System.ThrowHelper.ThrowArgumentOutOfRangeException(ExceptionArgument argument, ExceptionResource resource)
+   at System.ThrowHelper.ThrowArgumentOutOfRangeException()
+   at System.Collections.Generic.List`1.get_Item(Int32 index)
+   at ZedGraph.StockPointList.get_Item(Int32 index)
+   at Tools.Forms.tradeAnalysis.PlotStrategyTradepoints(TradePoints tradePoints, graphPanel toPanel) in D:\work\stockProject\code\Tools\Forms\tradeAnalysis.cs:line 374
+   at Tools.Forms.tradeAnalysis.PlotStrategyTradepoints(Meta meta, Boolean showEstimation) in D:\work\stockProject\code\Tools\Forms\tradeAnalysis.cs:line 421
+   at client.main.PlotTradepointHandler(Object sender, EventArgs e) in D:\work\stockProject\code\client\main.cs:line 997

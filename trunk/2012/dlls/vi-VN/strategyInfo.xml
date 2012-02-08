@@ -1,13 +1,14 @@
 <Configuration>
 <CATEGORY>
       <CAT0 Code="HFT" />
-      <CAT0 Description="HFT-VN"/>
+      <CAT0 Description="HFT"/>
   </CATEGORY>
 
   <CATEGORY>
      <CAT1 Code="TRE" />
      <CAT1 Description="Trending"/>
   </CATEGORY>
+
 
   <STRATEGY>
     <TwoSMAMACDSCR Type="SCREENING" />
@@ -28,7 +29,7 @@
     <TwoSMASCR Category="TRE" />
     <TwoSMASCR Parameters="Short Period=5,Long Period=10" />
     <TwoSMASCR ParameterDescriptions="Period defines the parameter for the screening" />
-    <TwoSMASCR Name="Two SMA Strategy Buy Signal" />
+    <TwoSMASCR Name="Two SMA Screening" />
     <TwoSMASCR Description="Two SMA Screening" />
     <TwoSMASCR URL="http://www.quantum.vn" />
     <TwoSMASCR Authors="Quan Nguyen" />
@@ -40,7 +41,7 @@
     <BasicADXSCR Category="TRE" />
     <BasicADXSCR Parameters="ADX Period=14" />
     <BasicADXSCR ParameterDescriptions="Period defines the parameter for the screening" />
-    <BasicADXSCR Name="Basic ADX Buy Signal" />
+    <BasicADXSCR Name="ADX Screening" />
     <BasicADXSCR Description="Screen stock with ADX as parameter" />
     <BasicADXSCR URL="http://www.quantum.vn" />
     <BasicADXSCR Authors="Quan Nguyen" />
@@ -74,10 +75,10 @@
     <SupportSCR Type="SCREENING" />
     <SupportSCR Code="SCR006" />
     <SupportSCR Category="TRE" />
-    <SupportSCR Parameters="Thời gian=30, Khoảng cách (%)=1" />
+    <SupportSCR Parameters="Period=30, Distance (%)=1" />
     <SupportSCR ParameterDescriptions="Period defines the parameter for support line. Distance is between price and support line" />
-    <SupportSCR Name="Cổ phiếu gần mức hỗ trợ" />
-    <SupportSCR Description="Cổ phiếu gần đường hỗ trợ" />
+    <SupportSCR Name="Stocks near support" />
+    <SupportSCR Description="Screen stock near support line" />
     <SupportSCR URL="http://www.quantum.vn" />
     <SupportSCR Authors="Quan Nguyen" />
     <SupportSCR Version="1.0" />
@@ -314,7 +315,7 @@
     <SMA_Stochastic Category="HFT" />
     <SMA_Stochastic Parameters="Short SMA=5,Long SMA=10,Fast K=15,Slow K=5,Slow D=3,Ma Type=4" />
     <SMA_Stochastic ParameterDescriptions="SMA define Simple Moving Average lines. &#xD;&#xA;                    Fast K, Slow K, Slow D define parameters for slow stochastic" />
-    <SMA_Stochastic Name="Stochastic Slow" />
+    <SMA_Stochastic Name="SMA Stochastic Slow" />
     <SMA_Stochastic Description="Buy and sell condition following Stochastic Slow" />
     <SMA_Stochastic URL="http://www.quantum.vn" />
     <SMA_Stochastic Authors="Quan Nguyen" />

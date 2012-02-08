@@ -2212,6 +2212,15 @@ namespace Languages.langs {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Time difference between the Client and Server is more than {0:g} seconds. Please setup the computer time..
+        /// </summary>
+        internal static string serverClientTimeDifference {
+            get {
+                return ResourceManager.GetString("serverClientTimeDifference", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Settings were saved !.
         /// </summary>
         internal static string settingSaved {

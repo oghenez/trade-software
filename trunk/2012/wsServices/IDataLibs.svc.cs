@@ -176,8 +176,8 @@ namespace wsServices
         [OperationContract]
         bool GetTransactionInfo(ref TransactionInfo transInfo);
 
-        [OperationContract]
-        object[] GetPriceByCode(string stockCode);
+        //[OperationContract]
+        //object[] GetPriceByCode(string stockCode);
 
         #endregion
 

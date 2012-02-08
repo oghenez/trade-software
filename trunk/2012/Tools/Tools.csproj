@@ -108,7 +108,6 @@
     <Compile Include="Forms\tradeAnalysis.designer.cs">
       <DependentUpon>tradeAnalysis.cs</DependentUpon>
     </Compile>
-    <Compile Include="Libs\lib.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Forms\backTesting.resx">
       <DependentUpon>backTesting.cs</DependentUpon>

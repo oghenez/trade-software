@@ -358,10 +358,7 @@ namespace client
             }
             return false;
         }
-        protected override bool CheckValid()
-        {
-            return true;
-        }
+       
 
         private common.DictionaryList cultureCache = new common.DictionaryList();
         

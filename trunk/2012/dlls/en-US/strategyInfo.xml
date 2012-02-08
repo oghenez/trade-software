@@ -315,7 +315,7 @@
     <SMA_Stochastic Category="HFT" />
     <SMA_Stochastic Parameters="Short SMA=5,Long SMA=10,Fast K=15,Slow K=5,Slow D=3,Ma Type=4" />
     <SMA_Stochastic ParameterDescriptions="SMA define Simple Moving Average lines. &#xD;&#xA;                    Fast K, Slow K, Slow D define parameters for slow stochastic" />
-    <SMA_Stochastic Name="Stochastic Slow" />
+    <SMA_Stochastic Name="SMA Stochastic Slow" />
     <SMA_Stochastic Description="Buy and sell condition following Stochastic Slow" />
     <SMA_Stochastic URL="http://www.quantum.vn" />
     <SMA_Stochastic Authors="Quan Nguyen" />

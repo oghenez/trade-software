@@ -36,7 +36,7 @@ namespace Tools.Forms
                 mainContainer.Location = new Point(0, 0);
                 mainContainer.AddChild(dataPnl, "data");
                 mainContainer.AddChild(chartPnl, "chart");
-                mainContainer.myPaneDimensionSpecs = new[,] { { 1, 10, 10 }}; // Display scale (data:chart) = 10:10
+                mainContainer.myPaneDimensionSpecs = new[,] { { 1, 13, 10 }}; // Display scale (data:chart) = 13:10
                 mainContainer.ArrangeChildren();
             }
             catch (Exception er)

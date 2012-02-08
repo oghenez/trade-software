@@ -74,8 +74,8 @@ namespace baseClass.forms
         {
             if (this.portfolioSource.Current == null) return;
             data.baseDS.portfolioRow row = (data.baseDS.portfolioRow)((DataRowView)this.portfolioSource.Current).Row;
-            cashAmtEd.Value = row.startCapAmt - row.usedCapAmt;
-            cashAmtEd.Refresh();
+            if (row.IsNull(myDataSet.portfolio.startCapAmtColumn.ColumnName)) cashAmtEd.Value = 0;
+            else cashAmtEd.Value = row.startCapAmt - row.usedCapAmt;
         }
 
         private string _myInvestorCode = "";
@@ -104,15 +104,12 @@ namespace baseClass.forms
         protected void LoadDetailData()
         {
             if (this.portfolioSource.Current == null) return;
-            data.baseDS.portfolioRow portfolioRow = (data.baseDS.portfolioRow)((DataRowView)this.portfolioSource.Current).Row;
-
+            data.baseDS.portfolioRow row = (data.baseDS.portfolioRow)((DataRowView)this.portfolioSource.Current).Row;
             //Investor stock
-            investorStockSource.DataSource = DataAccess.Libs.GetOwnedStock(portfolioRow.code);
-            data.baseDS.investorStockDataTable investorStockTbl = (investorStockSource.DataSource as data.baseDS.investorStockDataTable);
-            for (int idx = 0; idx < investorStockTbl.Count; idx++)
-            {
-                if (investorStockTbl[idx].RowState == DataRowState.Deleted) continue;
-            }
+            if (row.IsNull(myDataSet.portfolio.codeColumn.ColumnName))
+                 investorStockSource.DataSource = null;
+            else investorStockSource.DataSource = DataAccess.Libs.GetOwnedStock(row.code);
+
         }
 
         #region override funcs
@@ -171,10 +168,19 @@ namespace baseClass.forms
             myMasterSource.Position = position;
             SetFirstFocus();
         }
+        protected override void RemoveCurrent()
+        {
+            this.ShowMessage("");
+            data.baseDS.portfolioRow row = (data.baseDS.portfolioRow)((DataRowView)myMasterSource.Current).Row;
+            if (row.HasVersion(DataRowVersion.Original))
+                DataAccess.Libs.DeleteData(row);
+            base.RemoveCurrent();
+        }
         protected override void UpdateData(DataRow row)
         {
             if (row == null) return;
             DataAccess.Libs.UpdateData((data.baseDS.portfolioRow)row);
+            LoadData();
         }
 
         protected override bool DataChanged()
