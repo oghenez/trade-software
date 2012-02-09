@@ -1056,4 +1056,7 @@
   <data name="serverClientTimeDifference" xml:space="preserve">
     <value>Thời gian của máy làm việc và máy chủ lệch nhau {0:g} giây. Xin vui lòng điều chỉnh thời gian máy làm việc.</value>
   </data>
+  <data name="noDataBars" xml:space="preserve">
+    <value>SL dữ liệu</value>
+  </data>
 </root>

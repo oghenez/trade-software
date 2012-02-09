@@ -19,7 +19,7 @@ namespace test
             //Application.Run(new testPanel());
             //Application.Run(new Form2());
             //Application.Run(new baseClass.forms.configure());
-            Application.Run(new chartTest());
+            Application.Run(new test());
         }
     }
 }

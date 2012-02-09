@@ -184,12 +184,12 @@ namespace wsServices
         #region application
         
         [OperationContract]
-        string LoadAnalysisData(AppTypes.TimeRanges timeRange, string timeScaleCode, string code, bool forceReadNew);
+        string LoadAnalysisData(string code, commonClass.DataParams dataParam, bool forceReadNew);
         [OperationContract]
         data.baseDS.priceDataDataTable GetAnalysis_Data_ByKey(string dataKey, out int firstData);
 
         [OperationContract]
-        data.baseDS.priceDataDataTable GetAnalysis_Data(AppTypes.TimeRanges timeRanges, string timeScaleCode, string stockCode, out int firstData);
+        data.baseDS.priceDataDataTable GetAnalysis_Data(string stockCode, DataParams dataParam, out int firstData);
 
 
         [OperationContract]
@@ -198,9 +198,7 @@ namespace wsServices
                                                EstimateOptions option);
         
         [OperationContract]
-        List<double[]> Estimate_Matrix_LastBizWeight(AppTypes.TimeRanges timeRange, string timeScaleCode,
-                                                     string[] stockCodeList, string[] strategyList);
-
+        List<double[]> Estimate_Matrix_LastBizWeight(DataParams dataParams,string[] stockCodeList, string[] strategyList);
         [OperationContract]
         TradePointInfo[] Analysis(string dataKey, string strategyCode);
 
@@ -208,8 +206,7 @@ namespace wsServices
         data.baseDS.transactionsDataTable MakeTransaction(AppTypes.TradeActions type, string stockCode, string portfolioCode, int qty, decimal feePerc,out string errorText);
 
         [OperationContract]
-        TradePointInfo[] GetTradePointWithEstimationDetail(AppTypes.TimeRanges timeRange, string timeScaleCode,
-                                                           string stockCode, string strategyCode, EstimateOptions options,
+        TradePointInfo[] GetTradePointWithEstimationDetail(DataParams dataParam,string stockCode, string strategyCode, EstimateOptions options,
                                                            out data.tmpDS.tradeEstimateDataTable toTbl);
 
         [OperationContract]

@@ -57,7 +57,12 @@ namespace admin.forms
             smtpSSLChk.Checked = common.sendMail.mySettings.smtpSSL;
 
             //Others
-            dataStartDateEd.myDateTime = commonClass.SysLibs.sysDataStartDate;
+            defaultTimeRangeCb.myValue = Settings.sysDefaultTimeRange;
+            defaultTimeScaleCb.myValue = Settings.sysDefaultTimeScale;
+
+            //??screenTimeRangeCb.myValue = Settings.sysScreeningDataCount ;
+            screenTimeScaleCb.myValue = Settings.sysScreeningTimeScale;
+
         }
         private void SaveSettings()
         {
@@ -91,9 +96,58 @@ namespace admin.forms
             common.sendMail.mySettings.smtpSSL = smtpSSLChk.Checked;
 
             //Others
-            commonClass.SysLibs.sysDataStartDate = dataStartDateEd.myDateTime;
+            Settings.sysDefaultTimeRange = defaultTimeRangeCb.myValue;
+            Settings.sysDefaultTimeScale = defaultTimeScaleCb.myValue;
+
+            //??Settings.sysScreeningTimeRange = screenTimeRangeCb.myValue;
+            Settings.sysScreeningTimeScale = screenTimeScaleCb.myValue;
+
 
             DataAccess.Libs.Save_Global_Settings();
+        }
+
+        public override void SetLanguage()
+        {
+            base.SetLanguage();
+            this.Text = Languages.Libs.GetString("option");
+
+            systemPg.Text = Languages.Libs.GetString("system");
+            
+            generalPg.Text = Languages.Libs.GetString("general");
+            cultureCodeLbl.Text = Languages.Libs.GetString("cultureCode");
+            percentMaskLbl.Text = Languages.Libs.GetString("percent");
+            pwdMinLenLbl.Text = Languages.Libs.GetString("pwdMinLen");
+            pwdCharLbl.Text = Languages.Libs.GetString("pwdChar");
+            useStrongPassChk.Text = Languages.Libs.GetString("useStrongPass");
+            debugModeChk.Text = Languages.Libs.GetString("debugMode");
+
+            autoKeyPg.Text = Languages.Libs.GetString("autoKey");
+            dataKeyPrefixLbl.Text = Languages.Libs.GetString("dataKeyPrefix");
+            sysAutoDataKeySizeLbl.Text = Languages.Libs.GetString("sysAutoDataKeySize");
+            timeOutAutoKeyLbl.Text = Languages.Libs.GetString("timeOutAutoKey");
+            secondLbl.Text = Languages.Libs.GetString("second");
+
+            formatPg.Text = Languages.Libs.GetString("format");
+            localAmtMaskLbl.Text = Languages.Libs.GetString("localAmtMask");
+            foreignAmtMaskLbl.Text = Languages.Libs.GetString("foreignAmtMask");
+            qtyMaskLbl.Text = Languages.Libs.GetString("qtyMask");
+            percentMaskLbl.Text = Languages.Libs.GetString("percentMask");
+
+            emailPg.Text = Languages.Libs.GetString("email");
+            smtpServerLbl.Text = Languages.Libs.GetString("smtpServer");
+            smtpAuthAccountLbl.Text = Languages.Libs.GetString("account");
+            smtpAuthPasswordLbl.Text = Languages.Libs.GetString("password");
+            smtpPortLbl.Text = Languages.Libs.GetString("smtpPort");
+            smtpSSLChk.Text = Languages.Libs.GetString("smtpSSL");
+
+            paramsPg.Text = Languages.Libs.GetString("params");
+            defaultGb.Text = Languages.Libs.GetString("default");
+            defaTimeRangeLbl.Text = Languages.Libs.GetString("timeRange");
+            defaTimeScaleLbl.Text = Languages.Libs.GetString("timeScale");
+
+            screeningGb.Text = Languages.Libs.GetString("screening");
+            screenDataCounLbl.Text = Languages.Libs.GetString("dataCount");
+            screenTimeScaleLbl.Text = Languages.Libs.GetString("timeScale");
         }
 
         private void closeBtn_Click(object sender, EventArgs e)
@@ -128,5 +182,6 @@ namespace admin.forms
                 this.ShowError(er);
             }
         }
+
     }
 }

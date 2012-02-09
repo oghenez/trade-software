@@ -29,6 +29,14 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="TransactionInfo" nillable="true" type="tns:TransactionInfo" />
+  <xs:complexType name="DataParams">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="MaxDataCount" type="xs:int" />
+      <xs:element minOccurs="0" name="TimeRange" type="tns:AppTypes.TimeRanges" />
+      <xs:element minOccurs="0" name="TimeScale" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DataParams" nillable="true" type="tns:DataParams" />
   <xs:simpleType name="AppTypes.TimeRanges">
     <xs:annotation>
       <xs:appinfo>

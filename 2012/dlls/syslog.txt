@@ -1,0 +1,17 @@
+09/02/2012 11:53:08 CH	Exception	N/A	Void HandleReturnMessage(System.Runtime.Remoting.Messaging.IMessage, System.Runtime.Remoting.Messaging.IMessage)	mscorlib	ExecuteReader requires an open and available Connection. The connection's current state is connecting.	Server stack trace: 
+   at System.ServiceModel.Channels.ServiceChannel.ThrowIfFaultUnderstood(Message reply, MessageFault fault, String action, MessageVersion version, FaultConverter faultConverter)
+   at System.ServiceModel.Channels.ServiceChannel.HandleReply(ProxyOperationRuntime operation, ProxyRpc& rpc)
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at DataAccess.ServiceReference1.IStockService.Load_Global_Settings()
+   at DataAccess.ServiceReference1.StockServiceClient.Load_Global_Settings() in D:\work\stockProject\code\dataAccess\serviceReferences\ServiceReference1\Reference.cs:line 346
+   at DataAccess.Libs.Load_Global_Settings() in D:\work\stockProject\code\dataAccess\dataLibs.cs:line 816
+   at baseClass.forms.baseApplication.LoadAppConfig() in D:\work\stockProject\code\baseClass\forms\baseApplication.cs:line 47
+   at admin.main.LoadAppConfig() in D:\work\stockProject\code\admin\main.cs:line 32
+   at common.forms.baseApplication..ctor() in D:\work\ketoan-moi\code\common\forms\baseApplication.cs:line 30

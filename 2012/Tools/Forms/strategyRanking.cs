@@ -101,8 +101,7 @@ namespace Tools.Forms
 
                 progressBar.Visible = true;
                 DateTime startTime = DateTime.Now;
-                if (Settings.sysUseWebservice) DoRankingWS();
-                else DoRankingDB();
+                DoRanking();
 
                 DateTime endTime = DateTime.Now;
                 this.myFormMode = formMode.OptionWithData;
@@ -305,57 +304,7 @@ namespace Tools.Forms
             return retVal;
         }
 
-        private void DoRankingDB()
-        {
-            this.myValueType = ValueTypes.Amount;
-            this.Amount2PercentDenominator = Settings.sysStockTotalCapAmt;
-
-            resultTab.TabPages.Clear();
-            StringCollection stockCodeList = codeListLb.myValues;
-            StringCollection timeRangeList = timeRangeLb.myCheckedValues;
-            string[] strategyList = common.system.Collection2List(strategyClb.myCheckedValues);
-            progressBar.Value = 0; progressBar.Minimum = 0; progressBar.Maximum = stockCodeList.Count * timeRangeList.Count;
-
-            EstimateOptions  estimateOption = new EstimateOptions();
-
-            for (int stockCodeId = 0; stockCodeId < stockCodeList.Count; stockCodeId++)
-            {
-                string stockCode = stockCodeList[stockCodeId].ToString();
-                DataTable testRetsultTbl = CreateDataTable(timeRangeList, strategyList);
-                common.controls.baseDataGridView resultGrid = CreateResultGrid(stockCode, testRetsultTbl);
-
-                for (int colId = 0; colId < timeRangeList.Count; colId++)
-                {
-                    try
-                    {
-                        progressBar.Value++;
-                        Application.DoEvents();
-                        this.ShowReccount(progressBar.Value.ToString() + "/" + progressBar.Maximum.ToString());
-
-                        AppTypes.TimeRanges timeRange = AppTypes.TimeRangeFromCode(timeRangeList[colId]);
-                        application.AnalysisData analysisData = new application.AnalysisData(timeRange, timeScaleCb.myValue, stockCode,
-                                                                             AppTypes.DataAccessMode.WebService);
-                        for (int rowId = 0; rowId < strategyList.Length; rowId++)
-                        {
-                            testRetsultTbl.Rows[rowId][colId + 1] = 0;
-                            //Analysis cached data so we MUST clear cache to ensure the system run correctly
-                            application.Strategy.Data.ClearCache();
-                            application.Strategy.Data.TradePoints advices = application.Strategy.Libs.Analysis(analysisData, strategyList[rowId]);
-                            if (advices != null)
-                            {
-                                testRetsultTbl.Rows[rowId][colId + 1] = 
-                                    application.Strategy.Libs.EstimateTrading_Profit(analysisData,application.Strategy.Libs.ToTradePointInfo(advices),estimateOption);
-                            }
-                        }
-                    }
-                    catch (Exception er)
-                    {
-                        this.ShowError(er);
-                    }
-                }
-            }
-        }
-        private void DoRankingWS()
+        private void DoRanking()
         {
             this.ShowReccount("");
 
@@ -518,7 +467,8 @@ namespace Tools.Forms
                 if (stockCodeRow == null) return;
 
                 string strategyCode = resultDataGrid.CurrentRow.Cells[0].Value.ToString();
-                ShowTradeTransactions(stockCodeRow, strategyCode, timeRange,timeScaleCb.myValue);
+                DataParams dataParam = new DataParams(timeScaleCb.myValue.Code, timeRange,0);
+                ShowTradeTransactions(stockCodeRow, strategyCode, dataParam);
             }
             catch (Exception er)
             {
@@ -627,6 +577,7 @@ namespace Tools.Forms
                     data.tmpDS.stockCodeRow stockCodeRow = DataAccess.Libs.myStockCodeTbl.FindBycode(stockCode);
                     if (stockCodeRow == null) return;
 
+                    DataParams dataParam = new DataParams(timeScaleCb.myValue.Code, AppTypes.TimeRanges.None,0);
                     if (resultDataGrid.SelectedRows.Count > 0)
                     {
                         for (int rowId = 0; rowId < resultDataGrid.SelectedRows.Count; rowId++)
@@ -634,8 +585,8 @@ namespace Tools.Forms
                             application.Strategy.Meta meta = application.Strategy.Libs.FindMetaByName(resultDataGrid.SelectedRows[rowId].Cells[0].Value.ToString());
                             for (int idx = 1; idx < resultDataGrid.ColumnCount; idx++)
                             {
-                                AppTypes.TimeRanges timeRange = AppTypes.TimeRangeFromCode(resultDataGrid.Columns[idx].DataPropertyName);
-                                ShowTradeTransactions(stockCodeRow, meta.Code, timeRange, timeScaleCb.myValue);
+                                dataParam.TimeRange = AppTypes.TimeRangeFromCode(resultDataGrid.Columns[idx].DataPropertyName);
+                                ShowTradeTransactions(stockCodeRow, meta.Code, dataParam);
                             }
                         }
                     }
@@ -646,8 +597,8 @@ namespace Tools.Forms
                             application.Strategy.Meta meta = application.Strategy.Libs.FindMetaByName(resultDataGrid.CurrentRow.Cells[0].Value.ToString());
                             for (int idx = 1; idx < resultDataGrid.ColumnCount; idx++)
                             {
-                                AppTypes.TimeRanges timeRange = AppTypes.TimeRangeFromCode(resultDataGrid.Columns[idx].DataPropertyName);
-                                ShowTradeTransactions(stockCodeRow, meta.Code, timeRange, timeScaleCb.myValue);
+                                dataParam.TimeRange = AppTypes.TimeRangeFromCode(resultDataGrid.Columns[idx].DataPropertyName);
+                                ShowTradeTransactions(stockCodeRow, meta.Code, dataParam);
                             }
                         }
                     }
@@ -672,8 +623,8 @@ namespace Tools.Forms
                 application.Strategy.Meta meta = application.Strategy.Libs.FindMetaByName(resultDataGrid.CurrentRow.Cells[0].Value.ToString());
 
                 int colId = resultDataGrid.CurrentCell.ColumnIndex;
-                AppTypes.TimeRanges timeRange = AppTypes.TimeRangeFromCode(resultDataGrid.Columns[colId].DataPropertyName);
-                ShowTradeTransactions(stockCodeRow, meta.Code, timeRange, timeScaleCb.myValue);
+                DataParams dataParam = new DataParams(timeScaleCb.myValue.Code, AppTypes.TimeRangeFromCode(resultDataGrid.Columns[colId].DataPropertyName),0);
+                ShowTradeTransactions(stockCodeRow, meta.Code, dataParam);
             }
             catch (Exception er)
             {

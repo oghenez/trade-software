@@ -76,9 +76,7 @@ namespace Tools.Forms
             common.Data.dataCache.Add(cacheKey, form);
             return form;
         }
-
-        public AppTypes.TimeRanges myTimeRange = AppTypes.TimeRanges.All;
-        public AppTypes.TimeScale myTimeScale = null;
+        public DataParams myDataParam = null;
         public string myStockCode = "";
         public string myStrategyCode = "";
         public EstimateOptions myOptions = new EstimateOptions();
@@ -91,7 +89,7 @@ namespace Tools.Forms
         public void ReLoad()
         {
             data.tmpDS.tradeEstimateDataTable dataTbl = new data.tmpDS.tradeEstimateDataTable();
-            DataAccess.Libs.GetTradePointWithEstimationDetail(this.myTimeRange, this.myTimeScale.Code, this.myStockCode, this.myStrategyCode, this.myOptions,out dataTbl);
+            DataAccess.Libs.GetTradePointWithEstimationDetail(this.myDataParam, this.myStockCode, this.myStrategyCode, this.myOptions,out dataTbl);
             tradeEstimateSource.DataSource = dataTbl;
             DoFilter();
             PlotProfitChart();

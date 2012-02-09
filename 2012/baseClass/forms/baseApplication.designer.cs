@@ -43,6 +43,8 @@ namespace baseClass.forms
             this.ClientSize = new System.Drawing.Size(1080, 562);
             this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "baseApplication";
+            this.Load += new System.EventHandler(this.Form_Load);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 

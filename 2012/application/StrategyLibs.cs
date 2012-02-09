@@ -699,10 +699,11 @@ namespace application.Strategy
         {
             List<decimal[]> retList = new List<decimal[]>(); 
 
+            commonClass.DataParams dataParm = new DataParams(timeScale.Code,timeRange,0);
             for (int rowId = 0; rowId < stockCodeList.Count; rowId++)
             {
                 Data.ClearCache();
-                AnalysisData analysisData = new AnalysisData(timeRange,timeScale, stockCodeList[rowId], AppTypes.DataAccessMode.Local);
+                AnalysisData analysisData = new AnalysisData(stockCodeList[rowId],dataParm, AppTypes.DataAccessMode.Local);
                 decimal[] rowRetList = new decimal[strategyList.Count];
                 for (int colId = 0; colId < strategyList.Count; colId++)
                 {
@@ -718,14 +719,13 @@ namespace application.Strategy
             return retList;
         }
 
-        public static List<double[]> Estimate_Matrix_LastBizWeight(AppTypes.TimeRanges timeRange, AppTypes.TimeScale timeScale,
-                                                                   StringCollection stockCodeList, StringCollection strategyList)
+        public static List<double[]> Estimate_Matrix_LastBizWeight(commonClass.DataParams dataParm,StringCollection stockCodeList, StringCollection strategyList)
         {
             List<double[]> retList = new List<double[]>();
             for (int rowId = 0; rowId < stockCodeList.Count; rowId++)
             {
                 Data.ClearCache();
-                AnalysisData analysisData = new AnalysisData(timeRange, timeScale, stockCodeList[rowId], AppTypes.DataAccessMode.Local);
+                AnalysisData analysisData = new AnalysisData(stockCodeList[rowId], dataParm, AppTypes.DataAccessMode.Local);
                 double[] rowRetList = new double[strategyList.Count];
                 for (int colId = 0; colId < strategyList.Count; colId++)
                 {
@@ -733,6 +733,11 @@ namespace application.Strategy
                     if (tradePoints != null && tradePoints.Count>0)
                     {
                         rowRetList[colId] = (tradePoints[tradePoints.Count - 1] as TradePointInfo).BusinessInfo.Weight;
+                        //Test
+                        if ((tradePoints[tradePoints.Count - 1] as TradePointInfo).DataIdx != analysisData.Close.Count - 1)
+                        {
+                            commonClass.SysLibs.WriteSystemLog("test", stockCodeList[rowId], strategyList[colId]);
+                        }
                     }
                     else rowRetList[colId] = double.NaN;
                 }
@@ -740,7 +745,7 @@ namespace application.Strategy
             }
             return retList;
         }
-
+        
         //??
         public static void ExportData(string toFileName, AnalysisData data, params object[] paras)
         {

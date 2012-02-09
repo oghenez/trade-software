@@ -30,24 +30,21 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(sysOptions));
             this.mainTab = new System.Windows.Forms.TabControl();
-            this.setupPg = new System.Windows.Forms.TabPage();
+            this.systemPg = new System.Windows.Forms.TabPage();
             this.systemTab = new System.Windows.Forms.TabControl();
             this.generalPg = new System.Windows.Forms.TabPage();
             this.useStrongPassChk = new common.controls.baseCheckBox();
-            this.cultureCode = new common.controls.baseLabel();
+            this.cultureCodeLbl = new common.controls.baseLabel();
             this.cultureCodeEd = new common.controls.baseComboBox();
-            this.pwdMinLenLbl1 = new common.controls.baseLabel();
+            this.pwdCharLbl = new common.controls.baseLabel();
             this.passwordMinLenEd = new common.controls.baseNumericUpDown();
             this.pwdMinLenLbl = new common.controls.baseLabel();
             this.debugModeChk = new common.controls.baseCheckBox();
             this.autoKeyPg = new System.Windows.Forms.TabPage();
-            this.autoVoucheNoFormatLbl = new common.controls.baseLabel();
-            this.label7 = new common.controls.baseLabel();
-            this.label6 = new common.controls.baseLabel();
-            this.label5 = new common.controls.baseLabel();
+            this.sysAutoEditKeySizeLbl = new common.controls.baseLabel();
             this.sysAutoEditKeySizeEd = new common.controls.baseNumericUpDown();
-            this.label1 = new common.controls.baseLabel();
-            this.timeOutAutoKeyLbl1 = new common.controls.baseLabel();
+            this.sysAutoDataKeySizeLbl = new common.controls.baseLabel();
+            this.secondLbl = new common.controls.baseLabel();
             this.timeOutAutoKeyLbl = new common.controls.baseLabel();
             this.timeOutAutoKeyEd = new common.controls.baseNumericUpDown();
             this.sysAutoDataKeySizeEd = new common.controls.baseNumericUpDown();
@@ -67,35 +64,43 @@
             this.foreignAmtMaskEd = new common.controls.baseMaskedTextBox();
             this.localAmtMaskEd = new common.controls.baseMaskedTextBox();
             this.emailPg = new System.Windows.Forms.TabPage();
+            this.smtpAuthAccountLbl = new common.controls.baseLabel();
             this.smtpPortLbl = new common.controls.baseLabel();
             this.smtpAuthPasswordEd = new common.controls.baseMaskedTextBox();
             this.smtpAuthPasswordLbl = new common.controls.baseLabel();
             this.smtpAuthAccountEd = new common.controls.baseMaskedTextBox();
-            this.label9 = new common.controls.baseLabel();
             this.smtpSSLChk = new common.controls.baseCheckBox();
             this.smtpPortEd = new common.controls.baseMaskedTextBox();
             this.smtpServerLbl = new common.controls.baseLabel();
             this.smtpServerEd = new common.controls.baseMaskedTextBox();
-            this.otherPg = new System.Windows.Forms.TabPage();
-            this.dataStartDateEd = new common.controls.baseDate();
-            this.dateLbl = new common.controls.baseLabel();
+            this.paramsPg = new System.Windows.Forms.TabPage();
+            this.screeningGb = new System.Windows.Forms.GroupBox();
+            this.screenTimeScaleLbl = new baseClass.controls.baseLabel();
+            this.screenDataCounEd = new common.controls.numberTextBox();
+            this.screenDataCounLbl = new baseClass.controls.baseLabel();
+            this.screenTimeScaleCb = new baseClass.controls.cbTimeScale();
+            this.defaultGb = new System.Windows.Forms.GroupBox();
+            this.defaTimeRangeCb = new baseClass.controls.cbTimeRange();
+            this.defaTimeScaleCb = new baseClass.controls.cbTimeScale();
+            this.defaTimeRangeLbl = new baseClass.controls.baseLabel();
+            this.defaTimeScaleLbl = new baseClass.controls.baseLabel();
             this.closeBtn = new System.Windows.Forms.Button();
             this.saveBtn = new System.Windows.Forms.Button();
-            this.screeningGb = new System.Windows.Forms.GroupBox();
             this.screenTimeRangeCb = new baseClass.controls.cbTimeRange();
-            this.screenTimeScaleCb = new baseClass.controls.cbTimeScale();
             this.screenTimeRangeLbl = new baseClass.controls.baseLabel();
-            this.screenTimeScaleLbl = new baseClass.controls.baseLabel();
-            this.refreshRateLbl = new baseClass.controls.baseLabel();
-            this.secondLbl = new baseClass.controls.baseLabel();
-            this.refreshRateEd = new common.controls.numberTextBox();
-            this.defaultGb = new System.Windows.Forms.GroupBox();
             this.defaultTimeRangeCb = new baseClass.controls.cbTimeRange();
             this.defaultTimeScaleCb = new baseClass.controls.cbTimeScale();
             this.defaultTimeRangeLbl = new baseClass.controls.baseLabel();
             this.defaultTimeScaleLbl = new baseClass.controls.baseLabel();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cbTimeRange1 = new baseClass.controls.cbTimeRange();
+            this.cbTimeScale1 = new baseClass.controls.cbTimeScale();
+            this.numberTextBox1 = new common.controls.numberTextBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.cbTimeRange2 = new baseClass.controls.cbTimeRange();
+            this.cbTimeScale2 = new baseClass.controls.cbTimeScale();
             this.mainTab.SuspendLayout();
-            this.setupPg.SuspendLayout();
+            this.systemPg.SuspendLayout();
             this.systemTab.SuspendLayout();
             this.generalPg.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.passwordMinLenEd)).BeginInit();
@@ -109,9 +114,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.foreignAmtPrecisionEd)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.localAmtPrecisionEd)).BeginInit();
             this.emailPg.SuspendLayout();
-            this.otherPg.SuspendLayout();
+            this.paramsPg.SuspendLayout();
             this.screeningGb.SuspendLayout();
             this.defaultGb.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // TitleLbl
@@ -123,24 +130,26 @@
             // 
             // mainTab
             // 
-            this.mainTab.Controls.Add(this.setupPg);
+            this.mainTab.Controls.Add(this.systemPg);
+            this.mainTab.Controls.Add(this.paramsPg);
             this.mainTab.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
             this.mainTab.Location = new System.Drawing.Point(0, 2);
+            this.mainTab.Multiline = true;
             this.mainTab.Name = "mainTab";
             this.mainTab.SelectedIndex = 0;
-            this.mainTab.Size = new System.Drawing.Size(420, 354);
+            this.mainTab.Size = new System.Drawing.Size(422, 308);
             this.mainTab.TabIndex = 1;
             // 
-            // setupPg
+            // systemPg
             // 
-            this.setupPg.Controls.Add(this.systemTab);
-            this.setupPg.Location = new System.Drawing.Point(4, 25);
-            this.setupPg.Name = "setupPg";
-            this.setupPg.Padding = new System.Windows.Forms.Padding(3);
-            this.setupPg.Size = new System.Drawing.Size(412, 325);
-            this.setupPg.TabIndex = 0;
-            this.setupPg.Text = "Hệ thống";
-            this.setupPg.UseVisualStyleBackColor = true;
+            this.systemPg.Controls.Add(this.systemTab);
+            this.systemPg.Location = new System.Drawing.Point(4, 25);
+            this.systemPg.Name = "systemPg";
+            this.systemPg.Padding = new System.Windows.Forms.Padding(3);
+            this.systemPg.Size = new System.Drawing.Size(414, 279);
+            this.systemPg.TabIndex = 0;
+            this.systemPg.Text = "Hệ thống";
+            this.systemPg.UseVisualStyleBackColor = true;
             // 
             // systemTab
             // 
@@ -148,26 +157,26 @@
             this.systemTab.Controls.Add(this.autoKeyPg);
             this.systemTab.Controls.Add(this.formatPg);
             this.systemTab.Controls.Add(this.emailPg);
-            this.systemTab.Controls.Add(this.otherPg);
             this.systemTab.Location = new System.Drawing.Point(-3, 3);
+            this.systemTab.Multiline = true;
             this.systemTab.Name = "systemTab";
             this.systemTab.SelectedIndex = 0;
-            this.systemTab.Size = new System.Drawing.Size(419, 288);
+            this.systemTab.Size = new System.Drawing.Size(419, 259);
             this.systemTab.TabIndex = 146;
             // 
             // generalPg
             // 
             this.generalPg.Controls.Add(this.useStrongPassChk);
-            this.generalPg.Controls.Add(this.cultureCode);
+            this.generalPg.Controls.Add(this.cultureCodeLbl);
             this.generalPg.Controls.Add(this.cultureCodeEd);
-            this.generalPg.Controls.Add(this.pwdMinLenLbl1);
+            this.generalPg.Controls.Add(this.pwdCharLbl);
             this.generalPg.Controls.Add(this.passwordMinLenEd);
             this.generalPg.Controls.Add(this.pwdMinLenLbl);
             this.generalPg.Controls.Add(this.debugModeChk);
             this.generalPg.Location = new System.Drawing.Point(4, 25);
             this.generalPg.Name = "generalPg";
             this.generalPg.Padding = new System.Windows.Forms.Padding(3);
-            this.generalPg.Size = new System.Drawing.Size(411, 259);
+            this.generalPg.Size = new System.Drawing.Size(411, 230);
             this.generalPg.TabIndex = 1;
             this.generalPg.Text = "Chung";
             this.generalPg.UseVisualStyleBackColor = true;
@@ -176,7 +185,7 @@
             // 
             this.useStrongPassChk.AutoSize = true;
             this.useStrongPassChk.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.useStrongPassChk.Location = new System.Drawing.Point(105, 112);
+            this.useStrongPassChk.Location = new System.Drawing.Point(105, 96);
             this.useStrongPassChk.Name = "useStrongPassChk";
             this.useStrongPassChk.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.useStrongPassChk.Size = new System.Drawing.Size(163, 20);
@@ -184,16 +193,16 @@
             this.useStrongPassChk.Text = "Dùng mật khẩu mạnh";
             this.useStrongPassChk.UseVisualStyleBackColor = true;
             // 
-            // cultureCode
+            // cultureCodeLbl
             // 
-            this.cultureCode.AutoSize = true;
-            this.cultureCode.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cultureCode.Location = new System.Drawing.Point(105, 47);
-            this.cultureCode.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.cultureCode.Name = "cultureCode";
-            this.cultureCode.Size = new System.Drawing.Size(63, 16);
-            this.cultureCode.TabIndex = 215;
-            this.cultureCode.Text = "Mã vùng";
+            this.cultureCodeLbl.AutoSize = true;
+            this.cultureCodeLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cultureCodeLbl.Location = new System.Drawing.Point(105, 31);
+            this.cultureCodeLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.cultureCodeLbl.Name = "cultureCodeLbl";
+            this.cultureCodeLbl.Size = new System.Drawing.Size(63, 16);
+            this.cultureCodeLbl.TabIndex = 215;
+            this.cultureCodeLbl.Text = "Mã vùng";
             // 
             // cultureCodeEd
             // 
@@ -201,26 +210,26 @@
             this.cultureCodeEd.Items.AddRange(new object[] {
             "vi-VN",
             "us-US"});
-            this.cultureCodeEd.Location = new System.Drawing.Point(188, 46);
+            this.cultureCodeEd.Location = new System.Drawing.Point(188, 30);
             this.cultureCodeEd.myValue = "";
             this.cultureCodeEd.Name = "cultureCodeEd";
             this.cultureCodeEd.Size = new System.Drawing.Size(80, 24);
             this.cultureCodeEd.TabIndex = 1;
             // 
-            // pwdMinLenLbl1
+            // pwdCharLbl
             // 
-            this.pwdMinLenLbl1.AutoSize = true;
-            this.pwdMinLenLbl1.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pwdMinLenLbl1.Location = new System.Drawing.Point(240, 80);
-            this.pwdMinLenLbl1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.pwdMinLenLbl1.Name = "pwdMinLenLbl1";
-            this.pwdMinLenLbl1.Size = new System.Drawing.Size(46, 16);
-            this.pwdMinLenLbl1.TabIndex = 213;
-            this.pwdMinLenLbl1.Text = "ký tự ";
+            this.pwdCharLbl.AutoSize = true;
+            this.pwdCharLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pwdCharLbl.Location = new System.Drawing.Point(240, 64);
+            this.pwdCharLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.pwdCharLbl.Name = "pwdCharLbl";
+            this.pwdCharLbl.Size = new System.Drawing.Size(46, 16);
+            this.pwdCharLbl.TabIndex = 213;
+            this.pwdCharLbl.Text = "ký tự ";
             // 
             // passwordMinLenEd
             // 
-            this.passwordMinLenEd.Location = new System.Drawing.Point(188, 77);
+            this.passwordMinLenEd.Location = new System.Drawing.Point(188, 61);
             this.passwordMinLenEd.Maximum = new decimal(new int[] {
             20,
             0,
@@ -244,7 +253,7 @@
             // 
             this.pwdMinLenLbl.AutoSize = true;
             this.pwdMinLenLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pwdMinLenLbl.Location = new System.Drawing.Point(105, 80);
+            this.pwdMinLenLbl.Location = new System.Drawing.Point(105, 64);
             this.pwdMinLenLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.pwdMinLenLbl.Name = "pwdMinLenLbl";
             this.pwdMinLenLbl.Size = new System.Drawing.Size(68, 16);
@@ -255,7 +264,7 @@
             // 
             this.debugModeChk.AutoSize = true;
             this.debugModeChk.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.debugModeChk.Location = new System.Drawing.Point(105, 145);
+            this.debugModeChk.Location = new System.Drawing.Point(105, 129);
             this.debugModeChk.Name = "debugModeChk";
             this.debugModeChk.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.debugModeChk.Size = new System.Drawing.Size(194, 20);
@@ -265,13 +274,10 @@
             // 
             // autoKeyPg
             // 
-            this.autoKeyPg.Controls.Add(this.autoVoucheNoFormatLbl);
-            this.autoKeyPg.Controls.Add(this.label7);
-            this.autoKeyPg.Controls.Add(this.label6);
-            this.autoKeyPg.Controls.Add(this.label5);
+            this.autoKeyPg.Controls.Add(this.sysAutoEditKeySizeLbl);
             this.autoKeyPg.Controls.Add(this.sysAutoEditKeySizeEd);
-            this.autoKeyPg.Controls.Add(this.label1);
-            this.autoKeyPg.Controls.Add(this.timeOutAutoKeyLbl1);
+            this.autoKeyPg.Controls.Add(this.sysAutoDataKeySizeLbl);
+            this.autoKeyPg.Controls.Add(this.secondLbl);
             this.autoKeyPg.Controls.Add(this.timeOutAutoKeyLbl);
             this.autoKeyPg.Controls.Add(this.timeOutAutoKeyEd);
             this.autoKeyPg.Controls.Add(this.sysAutoDataKeySizeEd);
@@ -280,59 +286,26 @@
             this.autoKeyPg.Location = new System.Drawing.Point(4, 22);
             this.autoKeyPg.Name = "autoKeyPg";
             this.autoKeyPg.Padding = new System.Windows.Forms.Padding(3);
-            this.autoKeyPg.Size = new System.Drawing.Size(411, 262);
+            this.autoKeyPg.Size = new System.Drawing.Size(411, 233);
             this.autoKeyPg.TabIndex = 0;
             this.autoKeyPg.Text = "Số tự động";
             this.autoKeyPg.UseVisualStyleBackColor = true;
             // 
-            // autoVoucheNoFormatLbl
+            // sysAutoEditKeySizeLbl
             // 
-            this.autoVoucheNoFormatLbl.AutoSize = true;
-            this.autoVoucheNoFormatLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.autoVoucheNoFormatLbl.Location = new System.Drawing.Point(50, 155);
-            this.autoVoucheNoFormatLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.autoVoucheNoFormatLbl.Name = "autoVoucheNoFormatLbl";
-            this.autoVoucheNoFormatLbl.Size = new System.Drawing.Size(147, 16);
-            this.autoVoucheNoFormatLbl.TabIndex = 217;
-            this.autoVoucheNoFormatLbl.Text = "Định dạng số tự động";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(313, 96);
-            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(42, 16);
-            this.label7.TabIndex = 215;
-            this.label7.Text = "ký tự";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(313, 68);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(42, 16);
-            this.label6.TabIndex = 214;
-            this.label6.Text = "ký tự";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(50, 97);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(191, 16);
-            this.label5.TabIndex = 213;
-            this.label5.Text = "Độ dài tối đa của số tự động";
+            this.sysAutoEditKeySizeLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sysAutoEditKeySizeLbl.Location = new System.Drawing.Point(58, 96);
+            this.sysAutoEditKeySizeLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.sysAutoEditKeySizeLbl.Name = "sysAutoEditKeySizeLbl";
+            this.sysAutoEditKeySizeLbl.Size = new System.Drawing.Size(191, 18);
+            this.sysAutoEditKeySizeLbl.TabIndex = 218;
+            this.sysAutoEditKeySizeLbl.Text = "Độ dài tối đa của số tự động";
+            this.sysAutoEditKeySizeLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // sysAutoEditKeySizeEd
             // 
             this.sysAutoEditKeySizeEd.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.sysAutoEditKeySizeEd.Location = new System.Drawing.Point(254, 95);
+            this.sysAutoEditKeySizeEd.Location = new System.Drawing.Point(254, 92);
             this.sysAutoEditKeySizeEd.Maximum = new decimal(new int[] {
             10,
             0,
@@ -358,43 +331,43 @@
             0,
             0});
             // 
-            // label1
+            // sysAutoDataKeySizeLbl
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(50, 68);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(199, 16);
-            this.label1.TabIndex = 211;
-            this.label1.Text = "Độ dài tối đa của dữ liệu khóa";
+            this.sysAutoDataKeySizeLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sysAutoDataKeySizeLbl.Location = new System.Drawing.Point(58, 67);
+            this.sysAutoDataKeySizeLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.sysAutoDataKeySizeLbl.Name = "sysAutoDataKeySizeLbl";
+            this.sysAutoDataKeySizeLbl.Size = new System.Drawing.Size(191, 18);
+            this.sysAutoDataKeySizeLbl.TabIndex = 211;
+            this.sysAutoDataKeySizeLbl.Text = "Độ dài tối đa của dữ liệu khóa";
+            this.sysAutoDataKeySizeLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // timeOutAutoKeyLbl1
+            // secondLbl
             // 
-            this.timeOutAutoKeyLbl1.AutoSize = true;
-            this.timeOutAutoKeyLbl1.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.timeOutAutoKeyLbl1.Location = new System.Drawing.Point(313, 126);
-            this.timeOutAutoKeyLbl1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.timeOutAutoKeyLbl1.Name = "timeOutAutoKeyLbl1";
-            this.timeOutAutoKeyLbl1.Size = new System.Drawing.Size(35, 16);
-            this.timeOutAutoKeyLbl1.TabIndex = 210;
-            this.timeOutAutoKeyLbl1.Text = "giây";
+            this.secondLbl.AutoSize = true;
+            this.secondLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.secondLbl.Location = new System.Drawing.Point(313, 124);
+            this.secondLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.secondLbl.Name = "secondLbl";
+            this.secondLbl.Size = new System.Drawing.Size(35, 16);
+            this.secondLbl.TabIndex = 210;
+            this.secondLbl.Text = "giây";
             // 
             // timeOutAutoKeyLbl
             // 
-            this.timeOutAutoKeyLbl.AutoSize = true;
             this.timeOutAutoKeyLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.timeOutAutoKeyLbl.Location = new System.Drawing.Point(50, 126);
+            this.timeOutAutoKeyLbl.Location = new System.Drawing.Point(58, 124);
             this.timeOutAutoKeyLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.timeOutAutoKeyLbl.Name = "timeOutAutoKeyLbl";
-            this.timeOutAutoKeyLbl.Size = new System.Drawing.Size(163, 16);
+            this.timeOutAutoKeyLbl.Size = new System.Drawing.Size(191, 18);
             this.timeOutAutoKeyLbl.TabIndex = 209;
             this.timeOutAutoKeyLbl.Text = "Thời gian giữ số tự động";
+            this.timeOutAutoKeyLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // timeOutAutoKeyEd
             // 
             this.timeOutAutoKeyEd.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.timeOutAutoKeyEd.Location = new System.Drawing.Point(254, 123);
+            this.timeOutAutoKeyEd.Location = new System.Drawing.Point(254, 120);
             this.timeOutAutoKeyEd.Maximum = new decimal(new int[] {
             3600,
             0,
@@ -417,7 +390,7 @@
             // sysAutoDataKeySizeEd
             // 
             this.sysAutoDataKeySizeEd.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.sysAutoDataKeySizeEd.Location = new System.Drawing.Point(254, 67);
+            this.sysAutoDataKeySizeEd.Location = new System.Drawing.Point(254, 64);
             this.sysAutoDataKeySizeEd.Maximum = new decimal(new int[] {
             10,
             0,
@@ -445,25 +418,26 @@
             // 
             // dataKeyPrefixLbl
             // 
-            this.dataKeyPrefixLbl.AutoSize = true;
             this.dataKeyPrefixLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataKeyPrefixLbl.Location = new System.Drawing.Point(50, 39);
+            this.dataKeyPrefixLbl.Location = new System.Drawing.Point(58, 38);
             this.dataKeyPrefixLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.dataKeyPrefixLbl.Name = "dataKeyPrefixLbl";
-            this.dataKeyPrefixLbl.Size = new System.Drawing.Size(161, 16);
+            this.dataKeyPrefixLbl.Size = new System.Drawing.Size(191, 18);
             this.dataKeyPrefixLbl.TabIndex = 208;
             this.dataKeyPrefixLbl.Text = "Tiền tố của khóa dữ liệu";
+            this.dataKeyPrefixLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // sysDataKeyPrefixEd
             // 
             this.sysDataKeyPrefixEd.BeepOnError = true;
             this.sysDataKeyPrefixEd.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.sysDataKeyPrefixEd.Location = new System.Drawing.Point(254, 39);
+            this.sysDataKeyPrefixEd.Location = new System.Drawing.Point(254, 36);
             this.sysDataKeyPrefixEd.Margin = new System.Windows.Forms.Padding(4);
             this.sysDataKeyPrefixEd.Name = "sysDataKeyPrefixEd";
-            this.sysDataKeyPrefixEd.Size = new System.Drawing.Size(29, 24);
+            this.sysDataKeyPrefixEd.Size = new System.Drawing.Size(35, 24);
             this.sysDataKeyPrefixEd.TabIndex = 1;
             this.sysDataKeyPrefixEd.Text = "A";
+            this.sysDataKeyPrefixEd.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // formatPg
             // 
@@ -482,7 +456,7 @@
             this.formatPg.Location = new System.Drawing.Point(4, 22);
             this.formatPg.Name = "formatPg";
             this.formatPg.Padding = new System.Windows.Forms.Padding(3);
-            this.formatPg.Size = new System.Drawing.Size(411, 262);
+            this.formatPg.Size = new System.Drawing.Size(411, 233);
             this.formatPg.TabIndex = 4;
             this.formatPg.Text = "Định dạng";
             this.formatPg.UseVisualStyleBackColor = true;
@@ -490,7 +464,7 @@
             // percentPrecisionEd
             // 
             this.percentPrecisionEd.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.percentPrecisionEd.Location = new System.Drawing.Point(195, 118);
+            this.percentPrecisionEd.Location = new System.Drawing.Point(195, 114);
             this.percentPrecisionEd.Maximum = new decimal(new int[] {
             4,
             0,
@@ -504,11 +478,12 @@
             this.percentPrecisionEd.Name = "percentPrecisionEd";
             this.percentPrecisionEd.Size = new System.Drawing.Size(46, 24);
             this.percentPrecisionEd.TabIndex = 31;
+            this.percentPrecisionEd.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // qtyPrecisionEd
             // 
             this.qtyPrecisionEd.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.qtyPrecisionEd.Location = new System.Drawing.Point(308, 93);
+            this.qtyPrecisionEd.Location = new System.Drawing.Point(326, 88);
             this.qtyPrecisionEd.Maximum = new decimal(new int[] {
             4,
             0,
@@ -522,6 +497,7 @@
             this.qtyPrecisionEd.Name = "qtyPrecisionEd";
             this.qtyPrecisionEd.Size = new System.Drawing.Size(46, 24);
             this.qtyPrecisionEd.TabIndex = 21;
+            this.qtyPrecisionEd.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.qtyPrecisionEd.Value = new decimal(new int[] {
             2,
             0,
@@ -531,7 +507,7 @@
             // foreignAmtPrecisionEd
             // 
             this.foreignAmtPrecisionEd.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.foreignAmtPrecisionEd.Location = new System.Drawing.Point(308, 68);
+            this.foreignAmtPrecisionEd.Location = new System.Drawing.Point(326, 62);
             this.foreignAmtPrecisionEd.Maximum = new decimal(new int[] {
             4,
             0,
@@ -545,6 +521,7 @@
             this.foreignAmtPrecisionEd.Name = "foreignAmtPrecisionEd";
             this.foreignAmtPrecisionEd.Size = new System.Drawing.Size(46, 24);
             this.foreignAmtPrecisionEd.TabIndex = 11;
+            this.foreignAmtPrecisionEd.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.foreignAmtPrecisionEd.Value = new decimal(new int[] {
             2,
             0,
@@ -554,7 +531,7 @@
             // localAmtPrecisionEd
             // 
             this.localAmtPrecisionEd.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.localAmtPrecisionEd.Location = new System.Drawing.Point(308, 43);
+            this.localAmtPrecisionEd.Location = new System.Drawing.Point(326, 36);
             this.localAmtPrecisionEd.Maximum = new decimal(new int[] {
             4,
             0,
@@ -568,56 +545,57 @@
             this.localAmtPrecisionEd.Name = "localAmtPrecisionEd";
             this.localAmtPrecisionEd.Size = new System.Drawing.Size(46, 24);
             this.localAmtPrecisionEd.TabIndex = 2;
+            this.localAmtPrecisionEd.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // percentMaskLbl
             // 
-            this.percentMaskLbl.AutoSize = true;
             this.percentMaskLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
-            this.percentMaskLbl.Location = new System.Drawing.Point(48, 120);
+            this.percentMaskLbl.Location = new System.Drawing.Point(23, 115);
             this.percentMaskLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.percentMaskLbl.Name = "percentMaskLbl";
-            this.percentMaskLbl.Size = new System.Drawing.Size(33, 16);
+            this.percentMaskLbl.Size = new System.Drawing.Size(95, 20);
             this.percentMaskLbl.TabIndex = 202;
             this.percentMaskLbl.Text = "Tỉ lệ";
+            this.percentMaskLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // qtyMaskLbl
             // 
-            this.qtyMaskLbl.AutoSize = true;
             this.qtyMaskLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
-            this.qtyMaskLbl.Location = new System.Drawing.Point(48, 96);
+            this.qtyMaskLbl.Location = new System.Drawing.Point(23, 90);
             this.qtyMaskLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.qtyMaskLbl.Name = "qtyMaskLbl";
-            this.qtyMaskLbl.Size = new System.Drawing.Size(64, 16);
+            this.qtyMaskLbl.Size = new System.Drawing.Size(95, 20);
             this.qtyMaskLbl.TabIndex = 201;
             this.qtyMaskLbl.Text = "Số lượng";
+            this.qtyMaskLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // foreignAmtMaskLbl
             // 
-            this.foreignAmtMaskLbl.AutoSize = true;
             this.foreignAmtMaskLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
-            this.foreignAmtMaskLbl.Location = new System.Drawing.Point(48, 72);
+            this.foreignAmtMaskLbl.Location = new System.Drawing.Point(23, 65);
             this.foreignAmtMaskLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.foreignAmtMaskLbl.Name = "foreignAmtMaskLbl";
-            this.foreignAmtMaskLbl.Size = new System.Drawing.Size(65, 16);
+            this.foreignAmtMaskLbl.Size = new System.Drawing.Size(95, 20);
             this.foreignAmtMaskLbl.TabIndex = 200;
             this.foreignAmtMaskLbl.Text = "Ngọai  tệ";
+            this.foreignAmtMaskLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // localAmtMaskLbl
             // 
-            this.localAmtMaskLbl.AutoSize = true;
             this.localAmtMaskLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
-            this.localAmtMaskLbl.Location = new System.Drawing.Point(48, 47);
+            this.localAmtMaskLbl.Location = new System.Drawing.Point(23, 39);
             this.localAmtMaskLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.localAmtMaskLbl.Name = "localAmtMaskLbl";
-            this.localAmtMaskLbl.Size = new System.Drawing.Size(74, 16);
+            this.localAmtMaskLbl.Size = new System.Drawing.Size(95, 20);
             this.localAmtMaskLbl.TabIndex = 199;
             this.localAmtMaskLbl.Text = "Nguyên tệ";
+            this.localAmtMaskLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // percentMaskEd
             // 
             this.percentMaskEd.BeepOnError = true;
             this.percentMaskEd.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.percentMaskEd.Location = new System.Drawing.Point(123, 118);
+            this.percentMaskEd.Location = new System.Drawing.Point(123, 114);
             this.percentMaskEd.Margin = new System.Windows.Forms.Padding(4);
             this.percentMaskEd.Name = "percentMaskEd";
             this.percentMaskEd.Size = new System.Drawing.Size(71, 24);
@@ -628,10 +606,10 @@
             // 
             this.qtyMaskEd.BeepOnError = true;
             this.qtyMaskEd.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.qtyMaskEd.Location = new System.Drawing.Point(123, 93);
+            this.qtyMaskEd.Location = new System.Drawing.Point(123, 88);
             this.qtyMaskEd.Margin = new System.Windows.Forms.Padding(4);
             this.qtyMaskEd.Name = "qtyMaskEd";
-            this.qtyMaskEd.Size = new System.Drawing.Size(184, 24);
+            this.qtyMaskEd.Size = new System.Drawing.Size(203, 24);
             this.qtyMaskEd.TabIndex = 20;
             this.qtyMaskEd.Text = "###,###,##0.00";
             // 
@@ -639,10 +617,10 @@
             // 
             this.foreignAmtMaskEd.BeepOnError = true;
             this.foreignAmtMaskEd.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.foreignAmtMaskEd.Location = new System.Drawing.Point(123, 68);
+            this.foreignAmtMaskEd.Location = new System.Drawing.Point(123, 62);
             this.foreignAmtMaskEd.Margin = new System.Windows.Forms.Padding(4);
             this.foreignAmtMaskEd.Name = "foreignAmtMaskEd";
-            this.foreignAmtMaskEd.Size = new System.Drawing.Size(184, 24);
+            this.foreignAmtMaskEd.Size = new System.Drawing.Size(203, 24);
             this.foreignAmtMaskEd.TabIndex = 10;
             this.foreignAmtMaskEd.Text = "###,###,###,##0.00";
             // 
@@ -650,20 +628,20 @@
             // 
             this.localAmtMaskEd.BeepOnError = true;
             this.localAmtMaskEd.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.localAmtMaskEd.Location = new System.Drawing.Point(123, 43);
+            this.localAmtMaskEd.Location = new System.Drawing.Point(123, 36);
             this.localAmtMaskEd.Margin = new System.Windows.Forms.Padding(4);
             this.localAmtMaskEd.Name = "localAmtMaskEd";
-            this.localAmtMaskEd.Size = new System.Drawing.Size(184, 24);
+            this.localAmtMaskEd.Size = new System.Drawing.Size(203, 24);
             this.localAmtMaskEd.TabIndex = 1;
             this.localAmtMaskEd.Text = "###,###,###,###,##0";
             // 
             // emailPg
             // 
+            this.emailPg.Controls.Add(this.smtpAuthAccountLbl);
             this.emailPg.Controls.Add(this.smtpPortLbl);
             this.emailPg.Controls.Add(this.smtpAuthPasswordEd);
             this.emailPg.Controls.Add(this.smtpAuthPasswordLbl);
             this.emailPg.Controls.Add(this.smtpAuthAccountEd);
-            this.emailPg.Controls.Add(this.label9);
             this.emailPg.Controls.Add(this.smtpSSLChk);
             this.emailPg.Controls.Add(this.smtpPortEd);
             this.emailPg.Controls.Add(this.smtpServerLbl);
@@ -671,27 +649,38 @@
             this.emailPg.Location = new System.Drawing.Point(4, 22);
             this.emailPg.Name = "emailPg";
             this.emailPg.Padding = new System.Windows.Forms.Padding(3);
-            this.emailPg.Size = new System.Drawing.Size(411, 262);
+            this.emailPg.Size = new System.Drawing.Size(411, 233);
             this.emailPg.TabIndex = 5;
             this.emailPg.Text = "E-mail";
             this.emailPg.UseVisualStyleBackColor = true;
             // 
+            // smtpAuthAccountLbl
+            // 
+            this.smtpAuthAccountLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
+            this.smtpAuthAccountLbl.Location = new System.Drawing.Point(26, 64);
+            this.smtpAuthAccountLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.smtpAuthAccountLbl.Name = "smtpAuthAccountLbl";
+            this.smtpAuthAccountLbl.Size = new System.Drawing.Size(114, 18);
+            this.smtpAuthAccountLbl.TabIndex = 224;
+            this.smtpAuthAccountLbl.Text = "Tài khỏan";
+            this.smtpAuthAccountLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // smtpPortLbl
             // 
-            this.smtpPortLbl.AutoSize = true;
             this.smtpPortLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
-            this.smtpPortLbl.Location = new System.Drawing.Point(34, 107);
+            this.smtpPortLbl.Location = new System.Drawing.Point(26, 112);
             this.smtpPortLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.smtpPortLbl.Name = "smtpPortLbl";
-            this.smtpPortLbl.Size = new System.Drawing.Size(90, 16);
+            this.smtpPortLbl.Size = new System.Drawing.Size(114, 18);
             this.smtpPortLbl.TabIndex = 223;
             this.smtpPortLbl.Text = "Cổng dịch vụ";
+            this.smtpPortLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // smtpAuthPasswordEd
             // 
             this.smtpAuthPasswordEd.BeepOnError = true;
             this.smtpAuthPasswordEd.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.smtpAuthPasswordEd.Location = new System.Drawing.Point(142, 80);
+            this.smtpAuthPasswordEd.Location = new System.Drawing.Point(147, 84);
             this.smtpAuthPasswordEd.Margin = new System.Windows.Forms.Padding(4);
             this.smtpAuthPasswordEd.Name = "smtpAuthPasswordEd";
             this.smtpAuthPasswordEd.Size = new System.Drawing.Size(132, 24);
@@ -699,53 +688,40 @@
             // 
             // smtpAuthPasswordLbl
             // 
-            this.smtpAuthPasswordLbl.AutoSize = true;
             this.smtpAuthPasswordLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
-            this.smtpAuthPasswordLbl.Location = new System.Drawing.Point(34, 83);
+            this.smtpAuthPasswordLbl.Location = new System.Drawing.Point(26, 88);
             this.smtpAuthPasswordLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.smtpAuthPasswordLbl.Name = "smtpAuthPasswordLbl";
-            this.smtpAuthPasswordLbl.Size = new System.Drawing.Size(68, 16);
+            this.smtpAuthPasswordLbl.Size = new System.Drawing.Size(114, 18);
             this.smtpAuthPasswordLbl.TabIndex = 222;
             this.smtpAuthPasswordLbl.Text = "Mật khẩu";
+            this.smtpAuthPasswordLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // smtpAuthAccountEd
             // 
             this.smtpAuthAccountEd.BeepOnError = true;
             this.smtpAuthAccountEd.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.smtpAuthAccountEd.Location = new System.Drawing.Point(142, 55);
+            this.smtpAuthAccountEd.Location = new System.Drawing.Point(147, 59);
             this.smtpAuthAccountEd.Margin = new System.Windows.Forms.Padding(4);
             this.smtpAuthAccountEd.Name = "smtpAuthAccountEd";
             this.smtpAuthAccountEd.Size = new System.Drawing.Size(132, 24);
             this.smtpAuthAccountEd.TabIndex = 2;
             // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label9.Location = new System.Drawing.Point(34, 59);
-            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(87, 16);
-            this.label9.TabIndex = 220;
-            this.label9.Text = "T.K xác thực";
-            // 
             // smtpSSLChk
             // 
-            this.smtpSSLChk.AutoSize = true;
             this.smtpSSLChk.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
-            this.smtpSSLChk.Location = new System.Drawing.Point(34, 130);
+            this.smtpSSLChk.Location = new System.Drawing.Point(148, 136);
             this.smtpSSLChk.Name = "smtpSSLChk";
-            this.smtpSSLChk.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.smtpSSLChk.Size = new System.Drawing.Size(121, 20);
+            this.smtpSSLChk.Size = new System.Drawing.Size(219, 21);
             this.smtpSSLChk.TabIndex = 6;
-            this.smtpSSLChk.Text = "Mã hóa (SSL)  ";
+            this.smtpSSLChk.Text = "Dùng mã hóa (SSL)  ";
             // 
             // smtpPortEd
             // 
             this.smtpPortEd.BeepOnError = true;
             this.smtpPortEd.Enabled = false;
             this.smtpPortEd.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.smtpPortEd.Location = new System.Drawing.Point(142, 105);
+            this.smtpPortEd.Location = new System.Drawing.Point(147, 109);
             this.smtpPortEd.Margin = new System.Windows.Forms.Padding(4);
             this.smtpPortEd.Name = "smtpPortEd";
             this.smtpPortEd.Size = new System.Drawing.Size(50, 24);
@@ -754,75 +730,166 @@
             // 
             // smtpServerLbl
             // 
-            this.smtpServerLbl.AutoSize = true;
             this.smtpServerLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
-            this.smtpServerLbl.Location = new System.Drawing.Point(34, 35);
+            this.smtpServerLbl.Location = new System.Drawing.Point(26, 38);
             this.smtpServerLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.smtpServerLbl.Name = "smtpServerLbl";
-            this.smtpServerLbl.Size = new System.Drawing.Size(100, 16);
+            this.smtpServerLbl.Size = new System.Drawing.Size(114, 18);
             this.smtpServerLbl.TabIndex = 210;
             this.smtpServerLbl.Text = "Máy chủ SMTP";
+            this.smtpServerLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // smtpServerEd
             // 
             this.smtpServerEd.BeepOnError = true;
             this.smtpServerEd.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.smtpServerEd.Location = new System.Drawing.Point(142, 30);
+            this.smtpServerEd.Location = new System.Drawing.Point(147, 34);
             this.smtpServerEd.Margin = new System.Windows.Forms.Padding(4);
             this.smtpServerEd.Name = "smtpServerEd";
             this.smtpServerEd.Size = new System.Drawing.Size(221, 24);
             this.smtpServerEd.TabIndex = 1;
             this.smtpServerEd.Text = "127.0.0.1";
             // 
-            // otherPg
+            // paramsPg
             // 
-            this.otherPg.Controls.Add(this.dataStartDateEd);
-            this.otherPg.Controls.Add(this.dateLbl);
-            this.otherPg.Location = new System.Drawing.Point(4, 22);
-            this.otherPg.Name = "otherPg";
-            this.otherPg.Padding = new System.Windows.Forms.Padding(3);
-            this.otherPg.Size = new System.Drawing.Size(411, 262);
-            this.otherPg.TabIndex = 2;
-            this.otherPg.Text = "Khác";
-            this.otherPg.UseVisualStyleBackColor = true;
-            this.otherPg.Click += new System.EventHandler(this.otherPg_Click);
+            this.paramsPg.Controls.Add(this.screeningGb);
+            this.paramsPg.Controls.Add(this.defaultGb);
+            this.paramsPg.Location = new System.Drawing.Point(4, 25);
+            this.paramsPg.Name = "paramsPg";
+            this.paramsPg.Padding = new System.Windows.Forms.Padding(3);
+            this.paramsPg.Size = new System.Drawing.Size(414, 279);
+            this.paramsPg.TabIndex = 1;
+            this.paramsPg.Text = "Tham số";
+            this.paramsPg.UseVisualStyleBackColor = true;
             // 
-            // dataStartDateEd
+            // screeningGb
             // 
-            this.dataStartDateEd.BackColor = System.Drawing.Color.White;
-            this.dataStartDateEd.BeepOnError = true;
-            this.dataStartDateEd.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.dataStartDateEd.ForeColor = System.Drawing.Color.Black;
-            this.dataStartDateEd.InsertKeyMode = System.Windows.Forms.InsertKeyMode.Overwrite;
-            this.dataStartDateEd.Location = new System.Drawing.Point(188, 38);
-            this.dataStartDateEd.Mask = "00/00/0000";
-            this.dataStartDateEd.myDateTime = new System.DateTime(((long)(0)));
-            this.dataStartDateEd.Name = "dataStartDateEd";
-            this.dataStartDateEd.Size = new System.Drawing.Size(81, 24);
-            this.dataStartDateEd.TabIndex = 1;
-            this.dataStartDateEd.Text = "01010001";
-            this.dataStartDateEd.ValidatingType = typeof(System.DateTime);
+            this.screeningGb.Controls.Add(this.screenTimeScaleLbl);
+            this.screeningGb.Controls.Add(this.screenDataCounEd);
+            this.screeningGb.Controls.Add(this.screenDataCounLbl);
+            this.screeningGb.Controls.Add(this.screenTimeScaleCb);
+            this.screeningGb.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.screeningGb.Location = new System.Drawing.Point(19, 99);
+            this.screeningGb.Name = "screeningGb";
+            this.screeningGb.Size = new System.Drawing.Size(375, 89);
+            this.screeningGb.TabIndex = 219;
+            this.screeningGb.TabStop = false;
+            this.screeningGb.Text = " Screening ";
             // 
-            // dateLbl
+            // screenTimeScaleLbl
             // 
-            this.dateLbl.AutoSize = true;
-            this.dateLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
-            this.dateLbl.Location = new System.Drawing.Point(83, 40);
-            this.dateLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.dateLbl.Name = "dateLbl";
-            this.dateLbl.Size = new System.Drawing.Size(98, 16);
-            this.dateLbl.TabIndex = 215;
-            this.dateLbl.Text = "Ngày bắt đầu ";
+            this.screenTimeScaleLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.screenTimeScaleLbl.Location = new System.Drawing.Point(17, 49);
+            this.screenTimeScaleLbl.Name = "screenTimeScaleLbl";
+            this.screenTimeScaleLbl.Size = new System.Drawing.Size(103, 20);
+            this.screenTimeScaleLbl.TabIndex = 382;
+            this.screenTimeScaleLbl.Text = "Time scale";
+            this.screenTimeScaleLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // screenDataCounEd
+            // 
+            this.screenDataCounEd.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.screenDataCounEd.InsertKeyMode = System.Windows.Forms.InsertKeyMode.Overwrite;
+            this.screenDataCounEd.Location = new System.Drawing.Point(125, 21);
+            this.screenDataCounEd.myFormat = "###,###,###,###,##0";
+            this.screenDataCounEd.Name = "screenDataCounEd";
+            this.screenDataCounEd.Size = new System.Drawing.Size(78, 24);
+            this.screenDataCounEd.TabIndex = 380;
+            this.screenDataCounEd.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.screenDataCounEd.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludePromptAndLiterals;
+            this.screenDataCounEd.Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            // 
+            // screenDataCounLbl
+            // 
+            this.screenDataCounLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.screenDataCounLbl.Location = new System.Drawing.Point(17, 24);
+            this.screenDataCounLbl.Name = "screenDataCounLbl";
+            this.screenDataCounLbl.Size = new System.Drawing.Size(103, 20);
+            this.screenDataCounLbl.TabIndex = 381;
+            this.screenDataCounLbl.Text = "No of bars";
+            this.screenDataCounLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // screenTimeScaleCb
+            // 
+            this.screenTimeScaleCb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.screenTimeScaleCb.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.screenTimeScaleCb.FormattingEnabled = true;
+            this.screenTimeScaleCb.Location = new System.Drawing.Point(125, 48);
+            this.screenTimeScaleCb.Name = "screenTimeScaleCb";
+            this.screenTimeScaleCb.SelectedValue = "RT";
+            this.screenTimeScaleCb.Size = new System.Drawing.Size(196, 24);
+            this.screenTimeScaleCb.TabIndex = 2;
+            // 
+            // defaultGb
+            // 
+            this.defaultGb.Controls.Add(this.defaTimeRangeCb);
+            this.defaultGb.Controls.Add(this.defaTimeScaleCb);
+            this.defaultGb.Controls.Add(this.defaTimeRangeLbl);
+            this.defaultGb.Controls.Add(this.defaTimeScaleLbl);
+            this.defaultGb.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.defaultGb.Location = new System.Drawing.Point(18, 6);
+            this.defaultGb.Name = "defaultGb";
+            this.defaultGb.Size = new System.Drawing.Size(377, 91);
+            this.defaultGb.TabIndex = 218;
+            this.defaultGb.TabStop = false;
+            this.defaultGb.Text = " Default ";
+            // 
+            // defaTimeRangeCb
+            // 
+            this.defaTimeRangeCb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.defaTimeRangeCb.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.defaTimeRangeCb.FormattingEnabled = true;
+            this.defaTimeRangeCb.Location = new System.Drawing.Point(126, 21);
+            this.defaTimeRangeCb.myValue = commonClass.AppTypes.TimeRanges.None;
+            this.defaTimeRangeCb.Name = "defaTimeRangeCb";
+            this.defaTimeRangeCb.SelectedValue = ((byte)(0));
+            this.defaTimeRangeCb.Size = new System.Drawing.Size(196, 24);
+            this.defaTimeRangeCb.TabIndex = 15;
+            // 
+            // defaTimeScaleCb
+            // 
+            this.defaTimeScaleCb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.defaTimeScaleCb.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.defaTimeScaleCb.FormattingEnabled = true;
+            this.defaTimeScaleCb.Location = new System.Drawing.Point(126, 48);
+            this.defaTimeScaleCb.Name = "defaTimeScaleCb";
+            this.defaTimeScaleCb.SelectedValue = "RT";
+            this.defaTimeScaleCb.Size = new System.Drawing.Size(196, 24);
+            this.defaTimeScaleCb.TabIndex = 2;
+            // 
+            // defaTimeRangeLbl
+            // 
+            this.defaTimeRangeLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.defaTimeRangeLbl.Location = new System.Drawing.Point(17, 24);
+            this.defaTimeRangeLbl.Name = "defaTimeRangeLbl";
+            this.defaTimeRangeLbl.Size = new System.Drawing.Size(103, 19);
+            this.defaTimeRangeLbl.TabIndex = 17;
+            this.defaTimeRangeLbl.Text = "Time range";
+            this.defaTimeRangeLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // defaTimeScaleLbl
+            // 
+            this.defaTimeScaleLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.defaTimeScaleLbl.Location = new System.Drawing.Point(17, 51);
+            this.defaTimeScaleLbl.Name = "defaTimeScaleLbl";
+            this.defaTimeScaleLbl.Size = new System.Drawing.Size(103, 19);
+            this.defaTimeScaleLbl.TabIndex = 16;
+            this.defaTimeScaleLbl.Text = "Time scale";
+            this.defaTimeScaleLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // closeBtn
             // 
             this.closeBtn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.closeBtn.Image = ((System.Drawing.Image)(resources.GetObject("closeBtn.Image")));
             this.closeBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.closeBtn.Location = new System.Drawing.Point(318, 320);
+            this.closeBtn.Location = new System.Drawing.Point(308, 227);
             this.closeBtn.Margin = new System.Windows.Forms.Padding(0, 4, 0, 4);
             this.closeBtn.Name = "closeBtn";
-            this.closeBtn.Size = new System.Drawing.Size(73, 29);
+            this.closeBtn.Size = new System.Drawing.Size(84, 29);
             this.closeBtn.TabIndex = 11;
             this.closeBtn.Text = "Đóng";
             this.closeBtn.UseVisualStyleBackColor = true;
@@ -833,28 +900,14 @@
             this.saveBtn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.saveBtn.Image = global::admin.Properties.Resources.save;
             this.saveBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.saveBtn.Location = new System.Drawing.Point(245, 320);
+            this.saveBtn.Location = new System.Drawing.Point(224, 227);
             this.saveBtn.Margin = new System.Windows.Forms.Padding(4);
             this.saveBtn.Name = "saveBtn";
-            this.saveBtn.Size = new System.Drawing.Size(73, 29);
+            this.saveBtn.Size = new System.Drawing.Size(84, 29);
             this.saveBtn.TabIndex = 10;
             this.saveBtn.Text = "&Lưu";
             this.saveBtn.UseVisualStyleBackColor = true;
             this.saveBtn.Click += new System.EventHandler(this.saveBtn_Click);
-            // 
-            // screeningGb
-            // 
-            this.screeningGb.Controls.Add(this.screenTimeRangeCb);
-            this.screeningGb.Controls.Add(this.screenTimeScaleCb);
-            this.screeningGb.Controls.Add(this.screenTimeRangeLbl);
-            this.screeningGb.Controls.Add(this.screenTimeScaleLbl);
-            this.screeningGb.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.screeningGb.Location = new System.Drawing.Point(24, 140);
-            this.screeningGb.Name = "screeningGb";
-            this.screeningGb.Size = new System.Drawing.Size(375, 76);
-            this.screeningGb.TabIndex = 3;
-            this.screeningGb.TabStop = false;
-            this.screeningGb.Text = "Screening";
             // 
             // screenTimeRangeCb
             // 
@@ -868,17 +921,6 @@
             this.screenTimeRangeCb.Size = new System.Drawing.Size(196, 24);
             this.screenTimeRangeCb.TabIndex = 1;
             // 
-            // screenTimeScaleCb
-            // 
-            this.screenTimeScaleCb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.screenTimeScaleCb.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.screenTimeScaleCb.FormattingEnabled = true;
-            this.screenTimeScaleCb.Location = new System.Drawing.Point(125, 44);
-            this.screenTimeScaleCb.Name = "screenTimeScaleCb";
-            this.screenTimeScaleCb.SelectedValue = "RT";
-            this.screenTimeScaleCb.Size = new System.Drawing.Size(196, 24);
-            this.screenTimeScaleCb.TabIndex = 2;
-            // 
             // screenTimeRangeLbl
             // 
             this.screenTimeRangeLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -888,68 +930,6 @@
             this.screenTimeRangeLbl.TabIndex = 17;
             this.screenTimeRangeLbl.Text = "Time range";
             this.screenTimeRangeLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // screenTimeScaleLbl
-            // 
-            this.screenTimeScaleLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.screenTimeScaleLbl.Location = new System.Drawing.Point(11, 46);
-            this.screenTimeScaleLbl.Name = "screenTimeScaleLbl";
-            this.screenTimeScaleLbl.Size = new System.Drawing.Size(108, 16);
-            this.screenTimeScaleLbl.TabIndex = 16;
-            this.screenTimeScaleLbl.Text = "Time scale";
-            this.screenTimeScaleLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // refreshRateLbl
-            // 
-            this.refreshRateLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.refreshRateLbl.Location = new System.Drawing.Point(23, 22);
-            this.refreshRateLbl.Name = "refreshRateLbl";
-            this.refreshRateLbl.Size = new System.Drawing.Size(116, 16);
-            this.refreshRateLbl.TabIndex = 12;
-            this.refreshRateLbl.Text = "Refresh rate";
-            this.refreshRateLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // secondLbl
-            // 
-            this.secondLbl.AutoSize = true;
-            this.secondLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.secondLbl.Location = new System.Drawing.Point(208, 23);
-            this.secondLbl.Name = "secondLbl";
-            this.secondLbl.Size = new System.Drawing.Size(61, 16);
-            this.secondLbl.TabIndex = 13;
-            this.secondLbl.Text = "seconds";
-            // 
-            // refreshRateEd
-            // 
-            this.refreshRateEd.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.refreshRateEd.InsertKeyMode = System.Windows.Forms.InsertKeyMode.Overwrite;
-            this.refreshRateEd.Location = new System.Drawing.Point(149, 18);
-            this.refreshRateEd.myFormat = "###.##";
-            this.refreshRateEd.Name = "refreshRateEd";
-            this.refreshRateEd.Size = new System.Drawing.Size(53, 26);
-            this.refreshRateEd.TabIndex = 1;
-            this.refreshRateEd.Text = "1";
-            this.refreshRateEd.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.refreshRateEd.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludePromptAndLiterals;
-            this.refreshRateEd.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
-            // defaultGb
-            // 
-            this.defaultGb.Controls.Add(this.defaultTimeRangeCb);
-            this.defaultGb.Controls.Add(this.defaultTimeScaleCb);
-            this.defaultGb.Controls.Add(this.defaultTimeRangeLbl);
-            this.defaultGb.Controls.Add(this.defaultTimeScaleLbl);
-            this.defaultGb.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.defaultGb.Location = new System.Drawing.Point(24, 56);
-            this.defaultGb.Name = "defaultGb";
-            this.defaultGb.Size = new System.Drawing.Size(377, 85);
-            this.defaultGb.TabIndex = 2;
-            this.defaultGb.TabStop = false;
-            this.defaultGb.Text = "Default";
             // 
             // defaultTimeRangeCb
             // 
@@ -994,24 +974,112 @@
             this.defaultTimeScaleLbl.Text = "Time scale";
             this.defaultTimeScaleLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // sysOptions2
+            // groupBox1
             // 
-            this.ClientSize = new System.Drawing.Size(420, 383);
+            this.groupBox1.Controls.Add(this.cbTimeRange1);
+            this.groupBox1.Controls.Add(this.cbTimeScale1);
+            this.groupBox1.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Location = new System.Drawing.Point(24, 140);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(375, 76);
+            this.groupBox1.TabIndex = 3;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Screening";
+            // 
+            // cbTimeRange1
+            // 
+            this.cbTimeRange1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbTimeRange1.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbTimeRange1.FormattingEnabled = true;
+            this.cbTimeRange1.Location = new System.Drawing.Point(125, 17);
+            this.cbTimeRange1.myValue = commonClass.AppTypes.TimeRanges.None;
+            this.cbTimeRange1.Name = "cbTimeRange1";
+            this.cbTimeRange1.SelectedValue = ((byte)(0));
+            this.cbTimeRange1.Size = new System.Drawing.Size(196, 24);
+            this.cbTimeRange1.TabIndex = 1;
+            // 
+            // cbTimeScale1
+            // 
+            this.cbTimeScale1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbTimeScale1.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbTimeScale1.FormattingEnabled = true;
+            this.cbTimeScale1.Location = new System.Drawing.Point(125, 44);
+            this.cbTimeScale1.Name = "cbTimeScale1";
+            this.cbTimeScale1.SelectedValue = "RT";
+            this.cbTimeScale1.Size = new System.Drawing.Size(196, 24);
+            this.cbTimeScale1.TabIndex = 2;
+            // 
+            // numberTextBox1
+            // 
+            this.numberTextBox1.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numberTextBox1.InsertKeyMode = System.Windows.Forms.InsertKeyMode.Overwrite;
+            this.numberTextBox1.Location = new System.Drawing.Point(149, 18);
+            this.numberTextBox1.myFormat = "###.##";
+            this.numberTextBox1.Name = "numberTextBox1";
+            this.numberTextBox1.Size = new System.Drawing.Size(53, 26);
+            this.numberTextBox1.TabIndex = 1;
+            this.numberTextBox1.Text = "1";
+            this.numberTextBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.numberTextBox1.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludePromptAndLiterals;
+            this.numberTextBox1.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.cbTimeRange2);
+            this.groupBox2.Controls.Add(this.cbTimeScale2);
+            this.groupBox2.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.Location = new System.Drawing.Point(24, 56);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(377, 85);
+            this.groupBox2.TabIndex = 2;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Default";
+            // 
+            // cbTimeRange2
+            // 
+            this.cbTimeRange2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbTimeRange2.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbTimeRange2.FormattingEnabled = true;
+            this.cbTimeRange2.Location = new System.Drawing.Point(126, 21);
+            this.cbTimeRange2.myValue = commonClass.AppTypes.TimeRanges.None;
+            this.cbTimeRange2.Name = "cbTimeRange2";
+            this.cbTimeRange2.SelectedValue = ((byte)(0));
+            this.cbTimeRange2.Size = new System.Drawing.Size(196, 24);
+            this.cbTimeRange2.TabIndex = 15;
+            // 
+            // cbTimeScale2
+            // 
+            this.cbTimeScale2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbTimeScale2.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbTimeScale2.FormattingEnabled = true;
+            this.cbTimeScale2.Location = new System.Drawing.Point(126, 48);
+            this.cbTimeScale2.Name = "cbTimeScale2";
+            this.cbTimeScale2.SelectedValue = "RT";
+            this.cbTimeScale2.Size = new System.Drawing.Size(196, 24);
+            this.cbTimeScale2.TabIndex = 2;
+            // 
+            // sysOptions
+            // 
+            this.ClientSize = new System.Drawing.Size(422, 289);
             this.Controls.Add(this.closeBtn);
             this.Controls.Add(this.saveBtn);
             this.Controls.Add(this.mainTab);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimizeBox = false;
-            this.Name = "sysOptions2";
+            this.Name = "sysOptions";
             this.Text = "Thiet lap thong so";
             this.Load += new System.EventHandler(this.paraSetup_Load);
-            this.Controls.SetChildIndex(this.TitleLbl, 0);
             this.Controls.SetChildIndex(this.mainTab, 0);
+            this.Controls.SetChildIndex(this.TitleLbl, 0);
             this.Controls.SetChildIndex(this.saveBtn, 0);
             this.Controls.SetChildIndex(this.closeBtn, 0);
             this.mainTab.ResumeLayout(false);
-            this.setupPg.ResumeLayout(false);
+            this.systemPg.ResumeLayout(false);
             this.systemTab.ResumeLayout(false);
             this.generalPg.ResumeLayout(false);
             this.generalPg.PerformLayout();
@@ -1029,10 +1097,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.localAmtPrecisionEd)).EndInit();
             this.emailPg.ResumeLayout(false);
             this.emailPg.PerformLayout();
-            this.otherPg.ResumeLayout(false);
-            this.otherPg.PerformLayout();
+            this.paramsPg.ResumeLayout(false);
             this.screeningGb.ResumeLayout(false);
+            this.screeningGb.PerformLayout();
             this.defaultGb.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1042,21 +1112,18 @@
 
         protected System.Windows.Forms.Button closeBtn;
         protected System.Windows.Forms.Button saveBtn;
-        private System.Windows.Forms.TabPage setupPg;
+        private System.Windows.Forms.TabPage systemPg;
         private System.Windows.Forms.TabPage autoKeyPg;
-        protected common.controls.baseLabel label1;
-        protected common.controls.baseLabel timeOutAutoKeyLbl1;
+        protected common.controls.baseLabel sysAutoDataKeySizeLbl;
+        protected common.controls.baseLabel secondLbl;
         protected common.controls.baseLabel timeOutAutoKeyLbl;
         protected common.controls.baseLabel dataKeyPrefixLbl;
         protected common.controls.baseMaskedTextBox sysDataKeyPrefixEd;
         private System.Windows.Forms.TabPage generalPg;
-        protected common.controls.baseLabel cultureCode;
+        protected common.controls.baseLabel cultureCodeLbl;
         protected common.controls.baseComboBox cultureCodeEd;
-        protected common.controls.baseLabel pwdMinLenLbl1;
+        protected common.controls.baseLabel pwdCharLbl;
         protected common.controls.baseLabel pwdMinLenLbl;
-        private System.Windows.Forms.TabPage otherPg;
-        protected common.controls.baseDate dataStartDateEd;
-        protected common.controls.baseLabel dateLbl;
         private System.Windows.Forms.TabPage formatPg;
         protected common.controls.baseLabel percentMaskLbl;
         protected common.controls.baseMaskedTextBox percentMaskEd;
@@ -1073,15 +1140,11 @@
         protected common.controls.baseCheckBox useStrongPassChk;
         protected common.controls.baseNumericUpDown passwordMinLenEd;
         protected common.controls.baseCheckBox debugModeChk;
-        protected common.controls.baseLabel label5;
         protected common.controls.baseNumericUpDown sysAutoEditKeySizeEd;
-        protected common.controls.baseLabel label7;
-        protected common.controls.baseLabel label6;
         protected common.controls.baseNumericUpDown localAmtPrecisionEd;
         protected common.controls.baseNumericUpDown qtyPrecisionEd;
         protected common.controls.baseNumericUpDown foreignAmtPrecisionEd;
         protected common.controls.baseNumericUpDown percentPrecisionEd;
-        protected common.controls.baseLabel autoVoucheNoFormatLbl;
         private System.Windows.Forms.TabPage emailPg;
         protected common.controls.baseLabel smtpServerLbl;
         protected common.controls.baseMaskedTextBox smtpServerEd;
@@ -1089,21 +1152,33 @@
         protected common.controls.baseMaskedTextBox smtpAuthPasswordEd;
         protected common.controls.baseLabel smtpAuthPasswordLbl;
         protected common.controls.baseMaskedTextBox smtpAuthAccountEd;
-        protected common.controls.baseLabel label9;
         protected common.controls.baseMaskedTextBox smtpPortEd;
         protected common.controls.baseLabel smtpPortLbl;
-        private System.Windows.Forms.GroupBox screeningGb;
         private baseClass.controls.cbTimeRange screenTimeRangeCb;
-        private baseClass.controls.cbTimeScale screenTimeScaleCb;
         private baseClass.controls.baseLabel screenTimeRangeLbl;
-        private baseClass.controls.baseLabel screenTimeScaleLbl;
-        private baseClass.controls.baseLabel refreshRateLbl;
-        private baseClass.controls.baseLabel secondLbl;
-        private common.controls.numberTextBox refreshRateEd;
-        private System.Windows.Forms.GroupBox defaultGb;
         private baseClass.controls.cbTimeRange defaultTimeRangeCb;
         private baseClass.controls.cbTimeScale defaultTimeScaleCb;
         private baseClass.controls.baseLabel defaultTimeRangeLbl;
         private baseClass.controls.baseLabel defaultTimeScaleLbl;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private baseClass.controls.cbTimeRange cbTimeRange1;
+        private baseClass.controls.cbTimeScale cbTimeScale1;
+        private common.controls.numberTextBox numberTextBox1;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private baseClass.controls.cbTimeRange cbTimeRange2;
+        private baseClass.controls.cbTimeScale cbTimeScale2;
+        private System.Windows.Forms.TabPage paramsPg;
+        private System.Windows.Forms.GroupBox screeningGb;
+        private common.controls.numberTextBox screenDataCounEd;
+        protected baseClass.controls.baseLabel screenDataCounLbl;
+        private baseClass.controls.cbTimeScale screenTimeScaleCb;
+        private System.Windows.Forms.GroupBox defaultGb;
+        private baseClass.controls.cbTimeRange defaTimeRangeCb;
+        private baseClass.controls.cbTimeScale defaTimeScaleCb;
+        private baseClass.controls.baseLabel defaTimeRangeLbl;
+        private baseClass.controls.baseLabel defaTimeScaleLbl;
+        protected common.controls.baseLabel sysAutoEditKeySizeLbl;
+        protected common.controls.baseLabel smtpAuthAccountLbl;
+        protected baseClass.controls.baseLabel screenTimeScaleLbl;
     }
 }

@@ -15,20 +15,44 @@ namespace DataAccess.ServiceReference1 {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.IStockService")]
     public interface IStockService {
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetOwnedStock", ReplyAction="http://tempuri.org/IStockService/GetOwnedStockResponse")]
+        data.baseDS.investorStockDataTable GetOwnedStock(string portfolioCode);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetLastPrice", ReplyAction="http://tempuri.org/IStockService/GetLastPriceResponse")]
+        data.baseDS.lastPriceDataDataTable GetLastPrice(commonClass.AppTypes.PriceDataType type);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetLastAlertTime", ReplyAction="http://tempuri.org/IStockService/GetLastAlertTimeResponse")]
+        System.DateTime GetLastAlertTime(string investorCode);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetData_ByTimeScale_Code_FrDate", ReplyAction="http://tempuri.org/IStockService/GetData_ByTimeScale_Code_FrDateResponse")]
+        data.baseDS.priceDataDataTable GetData_ByTimeScale_Code_FrDate(string timeScaleCode, string stockCode, System.DateTime fromDate);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetData_ByTimeScale_Code_DateRange", ReplyAction="http://tempuri.org/IStockService/GetData_ByTimeScale_Code_DateRangeResponse")]
+        data.baseDS.priceDataDataTable GetData_ByTimeScale_Code_DateRange(string timeScaleCode, string stockCode, System.DateTime frDate, System.DateTime toDate);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetMarketData_BySQL", ReplyAction="http://tempuri.org/IStockService/GetMarketData_BySQLResponse")]
+        data.tmpDS.marketDataDataTable GetMarketData_BySQL(string sqlCmd);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetData_TotalRow", ReplyAction="http://tempuri.org/IStockService/GetData_TotalRowResponse")]
+        int GetData_TotalRow(string timeScaleCode, string stockCode, System.DateTime frDate, System.DateTime toDate);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetTransactionInfo", ReplyAction="http://tempuri.org/IStockService/GetTransactionInfoResponse")]
+        bool GetTransactionInfo(ref commonClass.TransactionInfo transInfo);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/LoadAnalysisData", ReplyAction="http://tempuri.org/IStockService/LoadAnalysisDataResponse")]
-        string LoadAnalysisData(commonClass.AppTypes.TimeRanges timeRange, string timeScaleCode, string code, bool forceReadNew);
+        string LoadAnalysisData(string code, commonClass.DataParams dataParam, bool forceReadNew);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetAnalysis_Data_ByKey", ReplyAction="http://tempuri.org/IStockService/GetAnalysis_Data_ByKeyResponse")]
         data.baseDS.priceDataDataTable GetAnalysis_Data_ByKey(out int firstData, string dataKey);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetAnalysis_Data", ReplyAction="http://tempuri.org/IStockService/GetAnalysis_DataResponse")]
-        data.baseDS.priceDataDataTable GetAnalysis_Data(out int firstData, commonClass.AppTypes.TimeRanges timeRanges, string timeScaleCode, string stockCode);
+        data.baseDS.priceDataDataTable GetAnalysis_Data(out int firstData, string stockCode, commonClass.DataParams dataParam);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/Estimate_Matrix_Profit", ReplyAction="http://tempuri.org/IStockService/Estimate_Matrix_ProfitResponse")]
         decimal[][] Estimate_Matrix_Profit(commonClass.AppTypes.TimeRanges timeRange, string timeScaleCode, string[] stockCodeList, string[] strategyList, commonClass.EstimateOptions option);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/Estimate_Matrix_LastBizWeight", ReplyAction="http://tempuri.org/IStockService/Estimate_Matrix_LastBizWeightResponse")]
-        double[][] Estimate_Matrix_LastBizWeight(commonClass.AppTypes.TimeRanges timeRange, string timeScaleCode, string[] stockCodeList, string[] strategyList);
+        double[][] Estimate_Matrix_LastBizWeight(commonClass.DataParams dataParams, string[] stockCodeList, string[] strategyList);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/Analysis", ReplyAction="http://tempuri.org/IStockService/AnalysisResponse")]
         commonClass.TradePointInfo[] Analysis(string dataKey, string strategyCode);
@@ -37,7 +61,7 @@ namespace DataAccess.ServiceReference1 {
         data.baseDS.transactionsDataTable MakeTransaction(out string errorText, commonClass.AppTypes.TradeActions type, string stockCode, string portfolioCode, int qty, decimal feePerc);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetTradePointWithEstimationDetail", ReplyAction="http://tempuri.org/IStockService/GetTradePointWithEstimationDetailResponse")]
-        commonClass.TradePointInfo[] GetTradePointWithEstimationDetail(out data.tmpDS.tradeEstimateDataTable toTbl, commonClass.AppTypes.TimeRanges timeRange, string timeScaleCode, string stockCode, string strategyCode, commonClass.EstimateOptions options);
+        commonClass.TradePointInfo[] GetTradePointWithEstimationDetail(out data.tmpDS.tradeEstimateDataTable toTbl, commonClass.DataParams dataParam, string stockCode, string strategyCode, commonClass.EstimateOptions options);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetXml", ReplyAction="http://tempuri.org/IStockService/GetXmlResponse")]
         string GetXml(string filePath);
@@ -53,6 +77,18 @@ namespace DataAccess.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/Test", ReplyAction="http://tempuri.org/IStockService/TestResponse")]
         System.Data.DataTable Test(string sql);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetBizIndustry", ReplyAction="http://tempuri.org/IStockService/GetBizIndustryResponse")]
+        data.baseDS.bizIndustryDataTable GetBizIndustry();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetBizSuperSector", ReplyAction="http://tempuri.org/IStockService/GetBizSuperSectorResponse")]
+        data.baseDS.bizSuperSectorDataTable GetBizSuperSector();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetBizSector", ReplyAction="http://tempuri.org/IStockService/GetBizSectorResponse")]
+        data.baseDS.bizSectorDataTable GetBizSector();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetBizSubSector", ReplyAction="http://tempuri.org/IStockService/GetBizSubSectorResponse")]
+        data.baseDS.bizSubSectorDataTable GetBizSubSector();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetBizSubSectorByIndustry", ReplyAction="http://tempuri.org/IStockService/GetBizSubSectorByIndustryResponse")]
         data.baseDS.bizSubSectorDataTable GetBizSubSectorByIndustry(string industryCode);
@@ -125,30 +161,6 @@ namespace DataAccess.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetPortfolioDetail_ByCode", ReplyAction="http://tempuri.org/IStockService/GetPortfolioDetail_ByCodeResponse")]
         data.baseDS.portfolioDetailDataTable GetPortfolioDetail_ByCode(string portfolioCode);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetOwnedStock", ReplyAction="http://tempuri.org/IStockService/GetOwnedStockResponse")]
-        data.baseDS.investorStockDataTable GetOwnedStock(string portfolioCode);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetLastPrice", ReplyAction="http://tempuri.org/IStockService/GetLastPriceResponse")]
-        data.baseDS.lastPriceDataDataTable GetLastPrice(commonClass.AppTypes.PriceDataType type);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetLastAlertTime", ReplyAction="http://tempuri.org/IStockService/GetLastAlertTimeResponse")]
-        System.DateTime GetLastAlertTime(string investorCode);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetData_ByTimeScale_Code_FrDate", ReplyAction="http://tempuri.org/IStockService/GetData_ByTimeScale_Code_FrDateResponse")]
-        data.baseDS.priceDataDataTable GetData_ByTimeScale_Code_FrDate(string timeScaleCode, string stockCode, System.DateTime fromDate);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetData_ByTimeScale_Code_DateRange", ReplyAction="http://tempuri.org/IStockService/GetData_ByTimeScale_Code_DateRangeResponse")]
-        data.baseDS.priceDataDataTable GetData_ByTimeScale_Code_DateRange(string timeScaleCode, string stockCode, System.DateTime frDate, System.DateTime toDate);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetMarketData_BySQL", ReplyAction="http://tempuri.org/IStockService/GetMarketData_BySQLResponse")]
-        data.tmpDS.marketDataDataTable GetMarketData_BySQL(string sqlCmd);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetData_TotalRow", ReplyAction="http://tempuri.org/IStockService/GetData_TotalRowResponse")]
-        int GetData_TotalRow(string timeScaleCode, string stockCode, System.DateTime frDate, System.DateTime toDate);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetTransactionInfo", ReplyAction="http://tempuri.org/IStockService/GetTransactionInfoResponse")]
-        bool GetTransactionInfo(ref commonClass.TransactionInfo transInfo);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/Reset", ReplyAction="http://tempuri.org/IStockService/ResetResponse")]
         void Reset();
@@ -233,18 +245,6 @@ namespace DataAccess.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetEmployeeRange", ReplyAction="http://tempuri.org/IStockService/GetEmployeeRangeResponse")]
         data.baseDS.employeeRangeDataTable GetEmployeeRange();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetBizIndustry", ReplyAction="http://tempuri.org/IStockService/GetBizIndustryResponse")]
-        data.baseDS.bizIndustryDataTable GetBizIndustry();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetBizSuperSector", ReplyAction="http://tempuri.org/IStockService/GetBizSuperSectorResponse")]
-        data.baseDS.bizSuperSectorDataTable GetBizSuperSector();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetBizSector", ReplyAction="http://tempuri.org/IStockService/GetBizSectorResponse")]
-        data.baseDS.bizSectorDataTable GetBizSector();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetBizSubSector", ReplyAction="http://tempuri.org/IStockService/GetBizSubSectorResponse")]
-        data.baseDS.bizSubSectorDataTable GetBizSubSector();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "3.0.0.0")]
@@ -274,24 +274,56 @@ namespace DataAccess.ServiceReference1 {
                 base(binding, remoteAddress) {
         }
         
-        public string LoadAnalysisData(commonClass.AppTypes.TimeRanges timeRange, string timeScaleCode, string code, bool forceReadNew) {
-            return base.Channel.LoadAnalysisData(timeRange, timeScaleCode, code, forceReadNew);
+        public data.baseDS.investorStockDataTable GetOwnedStock(string portfolioCode) {
+            return base.Channel.GetOwnedStock(portfolioCode);
+        }
+        
+        public data.baseDS.lastPriceDataDataTable GetLastPrice(commonClass.AppTypes.PriceDataType type) {
+            return base.Channel.GetLastPrice(type);
+        }
+        
+        public System.DateTime GetLastAlertTime(string investorCode) {
+            return base.Channel.GetLastAlertTime(investorCode);
+        }
+        
+        public data.baseDS.priceDataDataTable GetData_ByTimeScale_Code_FrDate(string timeScaleCode, string stockCode, System.DateTime fromDate) {
+            return base.Channel.GetData_ByTimeScale_Code_FrDate(timeScaleCode, stockCode, fromDate);
+        }
+        
+        public data.baseDS.priceDataDataTable GetData_ByTimeScale_Code_DateRange(string timeScaleCode, string stockCode, System.DateTime frDate, System.DateTime toDate) {
+            return base.Channel.GetData_ByTimeScale_Code_DateRange(timeScaleCode, stockCode, frDate, toDate);
+        }
+        
+        public data.tmpDS.marketDataDataTable GetMarketData_BySQL(string sqlCmd) {
+            return base.Channel.GetMarketData_BySQL(sqlCmd);
+        }
+        
+        public int GetData_TotalRow(string timeScaleCode, string stockCode, System.DateTime frDate, System.DateTime toDate) {
+            return base.Channel.GetData_TotalRow(timeScaleCode, stockCode, frDate, toDate);
+        }
+        
+        public bool GetTransactionInfo(ref commonClass.TransactionInfo transInfo) {
+            return base.Channel.GetTransactionInfo(ref transInfo);
+        }
+        
+        public string LoadAnalysisData(string code, commonClass.DataParams dataParam, bool forceReadNew) {
+            return base.Channel.LoadAnalysisData(code, dataParam, forceReadNew);
         }
         
         public data.baseDS.priceDataDataTable GetAnalysis_Data_ByKey(out int firstData, string dataKey) {
             return base.Channel.GetAnalysis_Data_ByKey(out firstData, dataKey);
         }
         
-        public data.baseDS.priceDataDataTable GetAnalysis_Data(out int firstData, commonClass.AppTypes.TimeRanges timeRanges, string timeScaleCode, string stockCode) {
-            return base.Channel.GetAnalysis_Data(out firstData, timeRanges, timeScaleCode, stockCode);
+        public data.baseDS.priceDataDataTable GetAnalysis_Data(out int firstData, string stockCode, commonClass.DataParams dataParam) {
+            return base.Channel.GetAnalysis_Data(out firstData, stockCode, dataParam);
         }
         
         public decimal[][] Estimate_Matrix_Profit(commonClass.AppTypes.TimeRanges timeRange, string timeScaleCode, string[] stockCodeList, string[] strategyList, commonClass.EstimateOptions option) {
             return base.Channel.Estimate_Matrix_Profit(timeRange, timeScaleCode, stockCodeList, strategyList, option);
         }
         
-        public double[][] Estimate_Matrix_LastBizWeight(commonClass.AppTypes.TimeRanges timeRange, string timeScaleCode, string[] stockCodeList, string[] strategyList) {
-            return base.Channel.Estimate_Matrix_LastBizWeight(timeRange, timeScaleCode, stockCodeList, strategyList);
+        public double[][] Estimate_Matrix_LastBizWeight(commonClass.DataParams dataParams, string[] stockCodeList, string[] strategyList) {
+            return base.Channel.Estimate_Matrix_LastBizWeight(dataParams, stockCodeList, strategyList);
         }
         
         public commonClass.TradePointInfo[] Analysis(string dataKey, string strategyCode) {
@@ -302,8 +334,8 @@ namespace DataAccess.ServiceReference1 {
             return base.Channel.MakeTransaction(out errorText, type, stockCode, portfolioCode, qty, feePerc);
         }
         
-        public commonClass.TradePointInfo[] GetTradePointWithEstimationDetail(out data.tmpDS.tradeEstimateDataTable toTbl, commonClass.AppTypes.TimeRanges timeRange, string timeScaleCode, string stockCode, string strategyCode, commonClass.EstimateOptions options) {
-            return base.Channel.GetTradePointWithEstimationDetail(out toTbl, timeRange, timeScaleCode, stockCode, strategyCode, options);
+        public commonClass.TradePointInfo[] GetTradePointWithEstimationDetail(out data.tmpDS.tradeEstimateDataTable toTbl, commonClass.DataParams dataParam, string stockCode, string strategyCode, commonClass.EstimateOptions options) {
+            return base.Channel.GetTradePointWithEstimationDetail(out toTbl, dataParam, stockCode, strategyCode, options);
         }
         
         public string GetXml(string filePath) {
@@ -324,6 +356,22 @@ namespace DataAccess.ServiceReference1 {
         
         public System.Data.DataTable Test(string sql) {
             return base.Channel.Test(sql);
+        }
+        
+        public data.baseDS.bizIndustryDataTable GetBizIndustry() {
+            return base.Channel.GetBizIndustry();
+        }
+        
+        public data.baseDS.bizSuperSectorDataTable GetBizSuperSector() {
+            return base.Channel.GetBizSuperSector();
+        }
+        
+        public data.baseDS.bizSectorDataTable GetBizSector() {
+            return base.Channel.GetBizSector();
+        }
+        
+        public data.baseDS.bizSubSectorDataTable GetBizSubSector() {
+            return base.Channel.GetBizSubSector();
         }
         
         public data.baseDS.bizSubSectorDataTable GetBizSubSectorByIndustry(string industryCode) {
@@ -420,38 +468,6 @@ namespace DataAccess.ServiceReference1 {
         
         public data.baseDS.portfolioDetailDataTable GetPortfolioDetail_ByCode(string portfolioCode) {
             return base.Channel.GetPortfolioDetail_ByCode(portfolioCode);
-        }
-        
-        public data.baseDS.investorStockDataTable GetOwnedStock(string portfolioCode) {
-            return base.Channel.GetOwnedStock(portfolioCode);
-        }
-        
-        public data.baseDS.lastPriceDataDataTable GetLastPrice(commonClass.AppTypes.PriceDataType type) {
-            return base.Channel.GetLastPrice(type);
-        }
-        
-        public System.DateTime GetLastAlertTime(string investorCode) {
-            return base.Channel.GetLastAlertTime(investorCode);
-        }
-        
-        public data.baseDS.priceDataDataTable GetData_ByTimeScale_Code_FrDate(string timeScaleCode, string stockCode, System.DateTime fromDate) {
-            return base.Channel.GetData_ByTimeScale_Code_FrDate(timeScaleCode, stockCode, fromDate);
-        }
-        
-        public data.baseDS.priceDataDataTable GetData_ByTimeScale_Code_DateRange(string timeScaleCode, string stockCode, System.DateTime frDate, System.DateTime toDate) {
-            return base.Channel.GetData_ByTimeScale_Code_DateRange(timeScaleCode, stockCode, frDate, toDate);
-        }
-        
-        public data.tmpDS.marketDataDataTable GetMarketData_BySQL(string sqlCmd) {
-            return base.Channel.GetMarketData_BySQL(sqlCmd);
-        }
-        
-        public int GetData_TotalRow(string timeScaleCode, string stockCode, System.DateTime frDate, System.DateTime toDate) {
-            return base.Channel.GetData_TotalRow(timeScaleCode, stockCode, frDate, toDate);
-        }
-        
-        public bool GetTransactionInfo(ref commonClass.TransactionInfo transInfo) {
-            return base.Channel.GetTransactionInfo(ref transInfo);
         }
         
         public void Reset() {
@@ -564,22 +580,6 @@ namespace DataAccess.ServiceReference1 {
         
         public data.baseDS.employeeRangeDataTable GetEmployeeRange() {
             return base.Channel.GetEmployeeRange();
-        }
-        
-        public data.baseDS.bizIndustryDataTable GetBizIndustry() {
-            return base.Channel.GetBizIndustry();
-        }
-        
-        public data.baseDS.bizSuperSectorDataTable GetBizSuperSector() {
-            return base.Channel.GetBizSuperSector();
-        }
-        
-        public data.baseDS.bizSectorDataTable GetBizSector() {
-            return base.Channel.GetBizSector();
-        }
-        
-        public data.baseDS.bizSubSectorDataTable GetBizSubSector() {
-            return base.Channel.GetBizSubSector();
         }
     }
 }
