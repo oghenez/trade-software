@@ -712,7 +712,6 @@ namespace client
             form.Hide();
         }
 
-
         private void HideMarketSummaryForm()
         {
             Tools.Forms.MarketSummary form = GetMarketSummaryForm(true);
@@ -913,8 +912,7 @@ namespace client
             }
             //myForm.CheckTradepoints(sendder.myData, tradePoints);
 
-            myForm.myTimeRange = sender.myData.DataTimeRange;
-            myForm.myTimeScale = sender.myData.DataTimeScale;
+            myForm.myDataParam = new DataParams(sender.myData.DataTimeScale.Code,sender.myData.DataTimeRange,0);
             myForm.myStockCode = sender.myData.DataStockCode;
             myForm.myStrategyCode = strategyCode;
             myForm.myOptions = option;

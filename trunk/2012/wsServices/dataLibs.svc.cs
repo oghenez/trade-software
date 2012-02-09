@@ -76,9 +76,9 @@ namespace wsServices
             return (AnalysisData)obj;
         }
 
-        private static string MakeCacheKey(AppTypes.TimeRanges timeRange, string timeScaleCode, string code)
+        private static string MakeCacheKey(string code, commonClass.DataParams dataParam)
         {
-            return "data" + "-" + code + "-" + timeRange.ToString() + "-" + timeScaleCode;
+            return "data" + "-" + code + "-" + dataParam.TimeRange.ToString() + "-" + dataParam.MaxDataCount.ToString()+ "-" + dataParam.TimeScale;
         }
         private static string MakeCacheKey()
         {
@@ -101,12 +101,12 @@ namespace wsServices
         /// <param name="code"></param>
         /// <param name="forceReadNew"> if true always read from database, ignore the cached data</param>
         /// <returns>Data key used for data accessing</returns>
-        public string LoadAnalysisData(AppTypes.TimeRanges timeRange, string timeScaleCode, string code, bool forceReadNew)
+        public string LoadAnalysisData(string code,commonClass.DataParams dataParam, bool forceReadNew)
         {
-            string cacheName = MakeCacheKey(timeRange,timeScaleCode,code);
+            string cacheName = MakeCacheKey(code,dataParam);
             if (forceReadNew || sysDataCache.Find(cacheName) == null)
             {
-                AnalysisData myData = new AnalysisData(timeRange, AppTypes.TimeScaleFromCode(timeScaleCode), code, AppTypes.DataAccessMode.Local);
+                AnalysisData myData = new AnalysisData(code,dataParam, AppTypes.DataAccessMode.Local);
                 sysDataCache.Add(cacheName, myData);
             }
             return cacheName;
@@ -121,9 +121,9 @@ namespace wsServices
             firstData = (dataObj as AnalysisData).FirstDataStartAt;
             return (dataObj as AnalysisData).priceDataTbl;
         }
-        public data.baseDS.priceDataDataTable GetAnalysis_Data(AppTypes.TimeRanges timeRange,string timeScaleCode, string stockCode, out int firstData)
+        public data.baseDS.priceDataDataTable GetAnalysis_Data(string code,commonClass.DataParams dataParam, out int firstData)
         {
-            string dataKey = LoadAnalysisData(timeRange, timeScaleCode, stockCode, true);
+            string dataKey = LoadAnalysisData(code,dataParam,true);
             return GetAnalysis_Data_ByKey(dataKey, out firstData); 
         }
 
@@ -146,13 +146,13 @@ namespace wsServices
                                                         common.system.List2Collection(stockCodeList),
                                                         common.system.List2Collection(strategyList), option);
         }
-        public List<double[]> Estimate_Matrix_LastBizWeight(AppTypes.TimeRanges timeRange, string timeScaleCode,
-                                                            string[] stockCodeList, string[] strategyList)
+
+        public List<double[]> Estimate_Matrix_LastBizWeight(DataParams dataParam,string[] stockCodeList, string[] strategyList)
         {
-            return application.Strategy.Libs.Estimate_Matrix_LastBizWeight(timeRange, AppTypes.TimeScaleFromCode(timeScaleCode),
-                                                        common.system.List2Collection(stockCodeList),
-                                                        common.system.List2Collection(strategyList));
+            return application.Strategy.Libs.Estimate_Matrix_LastBizWeight(dataParam,common.system.List2Collection(stockCodeList),
+                                                                           common.system.List2Collection(strategyList));
         }
+
         #endregion Tools
 
         #region Load/Get data
@@ -566,11 +566,10 @@ namespace wsServices
         {
             return application.AppLibs.MakeTransaction(type, stockCode, portfolioCode, qty, feePerc,out errorText);
         }
-        public TradePointInfo[] GetTradePointWithEstimationDetail(AppTypes.TimeRanges timeRange, string timeScaleCode,
-                                                                  string stockCode, string strategyCode, EstimateOptions options,
+        public TradePointInfo[] GetTradePointWithEstimationDetail(DataParams dataParam,string stockCode, string strategyCode, EstimateOptions options,
                                                                   out data.tmpDS.tradeEstimateDataTable toTbl)
         {
-            string dataKey = LoadAnalysisData(timeRange, timeScaleCode, stockCode, false);
+            string dataKey = LoadAnalysisData(stockCode,dataParam, false);
             TradePointInfo[] tradePoints = Analysis(dataKey, strategyCode);
             toTbl = application.Strategy.Libs.EstimateTrading_Details(sysDataCache.Find(dataKey) as AnalysisData, tradePoints, options);
             return tradePoints;

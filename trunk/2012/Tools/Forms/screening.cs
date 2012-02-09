@@ -32,8 +32,8 @@ namespace Tools.Forms
                 timeScaleCb.BackColor = common.Settings.sysColorDisableBG;
                 timeScaleCb.ForeColor = common.Settings.sysColorDisableFG;
 
-                timeRangeCb.BackColor = common.Settings.sysColorDisableBG;
-                timeRangeCb.ForeColor = common.Settings.sysColorDisableFG;
+                dataCounEd.BackColor = common.Settings.sysColorDisableBG;
+                dataCounEd.ForeColor = common.Settings.sysColorDisableFG;
             }
             catch (Exception er)
             {
@@ -56,7 +56,7 @@ namespace Tools.Forms
             addToWatchListMenuItem.Text = Languages.Libs.GetString("addToWatchList");
 
             this.Text = Languages.Libs.GetString("screening");
-            timeRangeLbl.Text = Languages.Libs.GetString("timeRange");
+            maxDataCountLbl.Text = Languages.Libs.GetString("noDataBars");
             timeScaleLbl.Text = Languages.Libs.GetString("timeScale");
 
             criteriaLbl.Text = Languages.Libs.GetString("criteria");
@@ -71,10 +71,9 @@ namespace Tools.Forms
             minColumn.HeaderText = Languages.Libs.GetString("min");
             maxColumn.HeaderText = Languages.Libs.GetString("max");
 
-            timeRangeCb.LoadData();
             timeScaleCb.LoadData();
 
-            timeRangeCb.myValue = Settings.sysScreeningTimeRange;
+            dataCounEd.Value = Settings.sysScreeningDataCount;
             timeScaleCb.myValue = Settings.sysScreeningTimeScale;
 
             stockCodeLb.SetLanguage();
@@ -106,9 +105,7 @@ namespace Tools.Forms
                 progressBar.Visible = true;
                 this.myFormMode = formMode.OptionWithData;
                 DateTime startTime = DateTime.Now;
-                if (Settings.sysUseWebservice) DoScreeningWS();
-                else DoScreeningDB();
-                //DoScreeningDB();
+                DoScreening();
                 this.fullViewMenuItem.Enabled = true;
                 this.exportResultMenuItem.Enabled = true;
                 DateTime endTime = DateTime.Now;
@@ -310,76 +307,7 @@ namespace Tools.Forms
             criteriaGrid.Refresh();
             return retVal;
         }
-
-        private void DoScreeningDB()
-        {
-            decimal weight = 0;
-            StringCollection stockCodeList = stockCodeLb.myValues;
-            StringCollection strategyList = new StringCollection();
-
-            for (int idx = 0; idx < tmpDS.screeningCriteria.Count; idx++)
-            {
-                if (tmpDS.screeningCriteria[idx].code != "" && tmpDS.screeningCriteria[idx].selected) 
-                {
-                    if (strategyList.Contains(tmpDS.screeningCriteria[idx].code)) continue;
-                    strategyList.Add(tmpDS.screeningCriteria[idx].code);
-                }
-            }
-            DataTable testRetsultTbl = CreateDataTable(strategyList);
-            SetDataGrid(resultDataGrid, testRetsultTbl);
-
-            progressBar.Value = 0; progressBar.Minimum=0; progressBar.Maximum = stockCodeList.Count;
-            data.tmpDS.stockCodeRow stockCodeRow;
-            bool fMatched = false;
-            for (int rowId = 0; rowId < stockCodeList.Count; rowId++)
-            {
-                fMatched = false;
-                stockCodeRow = DataAccess.Libs.myStockCodeTbl.FindBycode(stockCodeList[rowId]);
-                if (stockCodeRow == null) continue;
-                DataRow row = testRetsultTbl.NewRow();
-                row[0] = stockCodeList[rowId];
-                application.AnalysisData analysisData = new application.AnalysisData(timeRangeCb.myValue, timeScaleCb.myValue,
-                                                                     stockCodeRow.code, AppTypes.DataAccessMode.WebService);
-                for (int colId = 0; colId < strategyList.Count; colId++)
-                {
-                    try
-                    {
-                        //Analysis cached data so we MUST clear cache to ensure the system run correctly
-                        application.Strategy.Data.ClearCache();
-                        application.Strategy.Data.TradePoints tradePoints = application.Strategy.Libs.Analysis(analysisData, strategyList[colId]);
-                        // BusinessInfo.Weight value is used as estimation value. The higher value, the better chance to match user need.
-                        if (tradePoints != null && tradePoints.Count > 0)
-                        {
-                            weight = (decimal)(tradePoints[tradePoints.Count - 1] as TradePointInfo).BusinessInfo.Weight;
-                            DataView criteriaView = new DataView(tmpDS.screeningCriteria);
-                            criteriaView.RowFilter = tmpDS.screeningCriteria.codeColumn + "='" + strategyList[colId] + "' AND " +
-                                                     tmpDS.screeningCriteria.selectedColumn + "=1";
-                            Data.tmpDataSet.screeningCriteriaRow criteriaRow;
-                            // If there is more than one criteria for the same code,
-                            // matching one criteria is viewed as MATCHED , as OR operaror. 
-                            for (int idx = 0; idx < criteriaView.Count; idx++)
-                            {
-                                criteriaRow = (Data.tmpDataSet.screeningCriteriaRow)criteriaView[idx].Row;
-                                if (weight < criteriaRow.min || weight > criteriaRow.max) continue;
-                                row[colId + 1] = weight;
-                                fMatched = true;
-                                break;
-                            }
-                        }
-                    }
-                    catch (Exception er)
-                    {
-                        this.ShowError(er);
-                    }
-                }
-                if (fMatched) testRetsultTbl.Rows.Add(row);
-                progressBar.Value++;
-                this.ShowReccount(progressBar.Value.ToString() + "/" + progressBar.Maximum);
-                Application.DoEvents();
-            }
-            this.ShowReccount(resultDataGrid.Rows.Count);
-        }
-        private void DoScreeningWS()
+        private void DoScreening()
         {
             decimal weight = 0;
             StringCollection stockCodeList = stockCodeLb.myValues;
@@ -405,13 +333,14 @@ namespace Tools.Forms
             string[] strategy = common.system.Collection2List(strategyList);
             this.ShowReccount(progressBar.Value.ToString() + "/" + progressBar.Maximum.ToString());
             int codeStartIdx=0, codeEndIdx=0;
+            DataParams dataParam = new DataParams(timeScaleCb.myValue.Code, AppTypes.TimeRanges.None, (int)dataCounEd.Value);
             while (codeStartIdx < stockCodeList.Count)
             {
                 codeEndIdx += Settings.sysNumberOfItemsInBatchProcess;
                 if (codeEndIdx >= stockCodeList.Count) codeEndIdx = stockCodeList.Count - 1;
 
                 string[] stocks = common.system.Collection2List(stockCodeList, codeStartIdx, codeEndIdx);
-                double[][] weightList = DataAccess.Libs.Estimate_Matrix_LastBizWeight(timeRangeCb.myValue, timeScaleCb.myValue.Code, stocks, strategy);
+                double[][] weightList = DataAccess.Libs.Estimate_Matrix_LastBizWeight(dataParam, stocks, strategy);
 
                 for (int idx1 = 0, rowId = codeStartIdx; idx1 < weightList.Length; idx1++, rowId++)
                 {

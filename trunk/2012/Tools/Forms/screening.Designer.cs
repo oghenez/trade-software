@@ -49,10 +49,10 @@
             this.codeListLbl = new baseClass.controls.baseLabel();
             this.optionPnl = new System.Windows.Forms.Panel();
             this.strategyGb = new System.Windows.Forms.GroupBox();
+            this.dataCounEd = new common.controls.numberTextBox();
             this.timeScaleLbl = new baseClass.controls.baseLabel();
             this.timeScaleCb = new baseClass.controls.cbTimeScale();
-            this.timeRangeLbl = new baseClass.controls.baseLabel();
-            this.timeRangeCb = new baseClass.controls.cbTimeRange();
+            this.maxDataCountLbl = new baseClass.controls.baseLabel();
             this.selectAllChk = new common.controls.baseCheckBox();
             this.criteriaGridLbl = new baseClass.controls.baseLabel();
             this.editBtn = new System.Windows.Forms.Button();
@@ -243,10 +243,10 @@
             // 
             // strategyGb
             // 
+            this.strategyGb.Controls.Add(this.dataCounEd);
             this.strategyGb.Controls.Add(this.timeScaleLbl);
             this.strategyGb.Controls.Add(this.timeScaleCb);
-            this.strategyGb.Controls.Add(this.timeRangeLbl);
-            this.strategyGb.Controls.Add(this.timeRangeCb);
+            this.strategyGb.Controls.Add(this.maxDataCountLbl);
             this.strategyGb.Controls.Add(this.selectAllChk);
             this.strategyGb.Controls.Add(this.criteriaGridLbl);
             this.strategyGb.Controls.Add(this.editBtn);
@@ -268,11 +268,28 @@
             this.strategyGb.TabIndex = 1;
             this.strategyGb.TabStop = false;
             // 
+            // dataCounEd
+            // 
+            this.dataCounEd.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataCounEd.InsertKeyMode = System.Windows.Forms.InsertKeyMode.Overwrite;
+            this.dataCounEd.Location = new System.Drawing.Point(178, 31);
+            this.dataCounEd.myFormat = "###,###,###,###,##0";
+            this.dataCounEd.Name = "dataCounEd";
+            this.dataCounEd.Size = new System.Drawing.Size(99, 24);
+            this.dataCounEd.TabIndex = 2;
+            this.dataCounEd.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.dataCounEd.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludePromptAndLiterals;
+            this.dataCounEd.Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            // 
             // timeScaleLbl
             // 
             this.timeScaleLbl.AutoSize = true;
             this.timeScaleLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.timeScaleLbl.Location = new System.Drawing.Point(159, 10);
+            this.timeScaleLbl.Location = new System.Drawing.Point(24, 13);
             this.timeScaleLbl.Name = "timeScaleLbl";
             this.timeScaleLbl.Size = new System.Drawing.Size(74, 16);
             this.timeScaleLbl.TabIndex = 381;
@@ -283,35 +300,22 @@
             this.timeScaleCb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.timeScaleCb.Enabled = false;
             this.timeScaleCb.FormattingEnabled = true;
-            this.timeScaleCb.Location = new System.Drawing.Point(158, 28);
+            this.timeScaleCb.Location = new System.Drawing.Point(23, 31);
             this.timeScaleCb.Name = "timeScaleCb";
             this.timeScaleCb.SelectedValue = "RT";
-            this.timeScaleCb.Size = new System.Drawing.Size(137, 24);
-            this.timeScaleCb.TabIndex = 2;
+            this.timeScaleCb.Size = new System.Drawing.Size(155, 24);
+            this.timeScaleCb.TabIndex = 1;
             this.timeScaleCb.TabStop = false;
             // 
-            // timeRangeLbl
+            // maxDataCountLbl
             // 
-            this.timeRangeLbl.AutoSize = true;
-            this.timeRangeLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.timeRangeLbl.Location = new System.Drawing.Point(20, 10);
-            this.timeRangeLbl.Name = "timeRangeLbl";
-            this.timeRangeLbl.Size = new System.Drawing.Size(79, 16);
-            this.timeRangeLbl.TabIndex = 379;
-            this.timeRangeLbl.Text = "Time range";
-            // 
-            // timeRangeCb
-            // 
-            this.timeRangeCb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.timeRangeCb.Enabled = false;
-            this.timeRangeCb.FormattingEnabled = true;
-            this.timeRangeCb.Location = new System.Drawing.Point(23, 28);
-            this.timeRangeCb.myValue = commonClass.AppTypes.TimeRanges.None;
-            this.timeRangeCb.Name = "timeRangeCb";
-            this.timeRangeCb.SelectedValue = ((byte)(0));
-            this.timeRangeCb.Size = new System.Drawing.Size(137, 24);
-            this.timeRangeCb.TabIndex = 1;
-            this.timeRangeCb.TabStop = false;
+            this.maxDataCountLbl.AutoSize = true;
+            this.maxDataCountLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.maxDataCountLbl.Location = new System.Drawing.Point(178, 13);
+            this.maxDataCountLbl.Name = "maxDataCountLbl";
+            this.maxDataCountLbl.Size = new System.Drawing.Size(74, 16);
+            this.maxDataCountLbl.TabIndex = 379;
+            this.maxDataCountLbl.Text = "No of bars";
             // 
             // selectAllChk
             // 
@@ -689,9 +693,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn maxColumn;
         private common.controls.gridViewImageColumn editColumn;
         private common.controls.baseCheckBox selectAllChk;
-        protected baseClass.controls.baseLabel timeRangeLbl;
-        private baseClass.controls.cbTimeRange timeRangeCb;
         protected baseClass.controls.baseLabel timeScaleLbl;
         private baseClass.controls.cbTimeScale timeScaleCb;
+        protected baseClass.controls.baseLabel maxDataCountLbl;
+        private common.controls.numberTextBox dataCounEd;
     }
 }

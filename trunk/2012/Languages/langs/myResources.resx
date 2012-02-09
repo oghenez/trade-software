@@ -1050,4 +1050,7 @@
   <data name="serverClientTimeDifference" xml:space="preserve">
     <value>Time difference between the Client and Server is more than {0:g} seconds. Please setup the computer time.</value>
   </data>
+  <data name="noDataBars" xml:space="preserve">
+    <value>No. of bars</value>
+  </data>
 </root>

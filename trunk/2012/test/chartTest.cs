@@ -26,7 +26,9 @@ namespace test
                 cbChartType.LoadData();
                 timer1.Interval = 5000;
                 data.SysLibs.dbConnectionString = "Data Source=(local);Initial Catalog=stock;Integrated Security=True";
-                myData = new application.AnalysisData(commonClass.AppTypes.MainDataTimeScale,"", DataAccessMode.Local);
+                myData = new application.AnalysisData();
+                myData.AccessMode = AppTypes.DataAccessMode.Local;
+                myData.DataTimeScale  = AppTypes.MainDataTimeScale;
                 LoadData();
             }
             catch (Exception er)

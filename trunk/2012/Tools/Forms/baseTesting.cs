@@ -56,13 +56,11 @@ namespace Tools.Forms
             myShowStock(stockCode, timeRange, timeScale);
         }
 
-        protected void ShowTradeTransactions(data.tmpDS.stockCodeRow stockCodeRow, string strategyCode,
-                                             AppTypes.TimeRanges timeRange,AppTypes.TimeScale timeScale)
+        protected void ShowTradeTransactions(data.tmpDS.stockCodeRow stockCodeRow, string strategyCode, DataParams dataParam)
         {
-            string formName = stockCodeRow.code.Trim() + "," + timeRange.ToString() + "," + application.Strategy.Libs.GetMetaName(strategyCode) + "," + timeScale.Code;
+            string formName = stockCodeRow.code.Trim() + "," + dataParam.TimeRange.ToString() + "," + application.Strategy.Libs.GetMetaName(strategyCode) + "," + dataParam.TimeScale;
             profitEstimate myForm = profitEstimate.GetForm(formName);
-            myForm.myTimeRange = timeRange;
-            myForm.myTimeScale = timeScale;
+            myForm.myDataParam = dataParam;
             myForm.myStockCode = stockCodeRow.code;
             myForm.myOptions = new EstimateOptions();
             myForm.myStrategyCode = strategyCode;

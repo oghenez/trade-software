@@ -81,7 +81,7 @@ namespace commonClass
         public static void WriteSystemLog(string type ,string investorCode, string text)
         {
             common.fileFuncs.WriteLog(DateTime.Now.ToString() + common.Consts.constTab + type + common.Consts.constTab +
-                                      (investorCode.Trim() == "" ? common.Consts.constNotAvailable : SysLibs.sysLoginCode) + 
+                                      (investorCode.Trim() == "" ? common.Consts.constNotAvailable : investorCode.Trim()) + 
                                       common.Consts.constTab + text, 
                                       common.fileFuncs.ConcatFileName(myExecuteDirectory, Consts.constFile_SysLog));
         }
@@ -97,7 +97,7 @@ namespace commonClass
         public static short sysConnectionTimeout = 30; //In seconds
         
         //Upload
-        public static DateTime sysDataStartDate = common.Consts.constNullDate;
+        //??public static DateTime sysDataStartDate = common.Consts.constNullDate;
         public static int sysLoginUserId = common.Consts.constNullInt;
         public static int sysLoginLocationId = common.Consts.constNullInt;
 

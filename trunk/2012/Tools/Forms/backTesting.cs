@@ -33,6 +33,14 @@ namespace Tools.Forms
                 this.ShowError(er);
             }
         }
+
+        public DataParams myDataParam
+        {
+            get
+            {
+                return new DataParams(periodicityEd.myTimeScale.Code,periodicityEd.myTimeRange,0);
+            }
+        }
         
         /// <summary>
         /// Set language
@@ -117,8 +125,7 @@ namespace Tools.Forms
                 this.myFormMode = formMode.OptionWithData;
                 DateTime startTime = DateTime.Now;
 
-                if (Settings.sysUseWebservice)  DoBackTestUseWS();
-                else DoBackTestUseDB();
+                DoBackTesting();
                 FormResize();
 
                 DateTime endTime = DateTime.Now;
@@ -347,48 +354,7 @@ namespace Tools.Forms
             return tbl;
         }
 
-        private void DoBackTestUseDB()
-        {
-            this.myValueType = ValueTypes.Amount;
-            this.Amount2PercentDenominator = Settings.sysStockTotalCapAmt;
-            StringCollection strategyList = strategyClb.myCheckedValues;
-            StringCollection stockCodeList = codeSelectLb.myValues;
-            DataTable testRetsultTbl = CreateEstimateTbl(strategyList);
-            SetDataGrid(resultDataGrid, testRetsultTbl);
-
-            progressBar.Value = 0; progressBar.Minimum = 0; progressBar.Maximum = stockCodeList.Count;
-
-            EstimateOptions estOptions = new EstimateOptions();
-            for (int rowId = 0; rowId < stockCodeList.Count; rowId++)
-            {
-                application.AnalysisData analysisData = new application.AnalysisData(periodicityEd.myTimeRange, periodicityEd.myTimeScale,
-                                                                     stockCodeList[rowId], AppTypes.DataAccessMode.WebService);
-                DataRow row = testRetsultTbl.Rows.Add(stockCodeList[rowId]);
-                for (int colId = 0; colId < strategyList.Count; colId++)
-                {
-                    try
-                    {
-                        //Analysis cached data so we MUST clear cache to ensure the system run correctly
-                        application.Strategy.Data.ClearCache();
-                        application.Strategy.Data.TradePoints advices = application.Strategy.Libs.Analysis(analysisData, strategyList[colId]);
-                        if (advices != null)
-                        {
-                            row[colId + 1] = application.Strategy.Libs.EstimateTrading_Profit(analysisData, application.Strategy.Libs.ToTradePointInfo(advices), estOptions);
-                        }
-                        else row[colId + 1] = 0;
-                    }
-                    catch (Exception er)
-                    {
-                        this.ShowError(er);
-                    }
-                }
-                progressBar.Value++;
-                this.ShowReccount(progressBar.Value.ToString() + "/" + progressBar.Maximum.ToString());
-                Application.DoEvents();
-            }
-            SetEstimateDataGrid(application.Strategy.Libs.GetStrategyStats(testRetsultTbl));
-        }
-        private void DoBackTestUseWS()
+        private void DoBackTesting()
         {
             this.ShowReccount("");
             this.myValueType = ValueTypes.Amount;
@@ -528,7 +494,7 @@ namespace Tools.Forms
                 }
                 stockCodeRow = DataAccess.Libs.myStockCodeTbl.FindBycode(stockCode);
                 string strategyCode = strategyClb.myCheckedValues[e.ColumnIndex - 1];
-                ShowTradeTransactions(stockCodeRow, strategyCode, periodicityEd.myTimeRange, periodicityEd.myTimeScale);
+                ShowTradeTransactions(stockCodeRow, strategyCode, this.myDataParam);
             }
             catch (Exception er)
             {
@@ -685,8 +651,7 @@ namespace Tools.Forms
                             if (stockCodeRow == null) continue;
                             for (int idx2 = 0; idx2 < strategyClb.myCheckedValues.Count; idx2++)
                             {
-                                ShowTradeTransactions(stockCodeRow, strategyClb.myCheckedValues[idx2],
-                                                      periodicityEd.myTimeRange, periodicityEd.myTimeScale);
+                                ShowTradeTransactions(stockCodeRow, strategyClb.myCheckedValues[idx2],this.myDataParam);
                             }
                         }
                     }
@@ -699,8 +664,7 @@ namespace Tools.Forms
                             if (stockCodeRow == null) return;
                             for (int idx2 = 0; idx2 < strategyClb.myCheckedValues.Count; idx2++)
                             {
-                                ShowTradeTransactions(stockCodeRow, strategyClb.myCheckedValues[idx2],
-                                                      periodicityEd.myTimeRange, periodicityEd.myTimeScale);
+                                ShowTradeTransactions(stockCodeRow, strategyClb.myCheckedValues[idx2],this.myDataParam);
                             }
                         }
                     }
@@ -721,8 +685,7 @@ namespace Tools.Forms
                 string stockCode = resultDataGrid.CurrentRow.Cells[0].Value.ToString();
                 data.tmpDS.stockCodeRow stockCodeRow = DataAccess.Libs.myStockCodeTbl.FindBycode(stockCode);
                 if (stockCodeRow == null) return;
-                ShowTradeTransactions(stockCodeRow, strategyClb.myCheckedValues[resultDataGrid.CurrentCell.ColumnIndex-1],
-                                      periodicityEd.myTimeRange, periodicityEd.myTimeScale);
+                ShowTradeTransactions(stockCodeRow, strategyClb.myCheckedValues[resultDataGrid.CurrentCell.ColumnIndex-1], this.myDataParam);
             }
             catch (Exception er)
             {

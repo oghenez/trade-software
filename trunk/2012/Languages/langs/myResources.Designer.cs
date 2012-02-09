@@ -1690,6 +1690,15 @@ namespace Languages.langs {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to No. of bars.
+        /// </summary>
+        internal static string noDataBars {
+            get {
+                return ResourceManager.GetString("noDataBars", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Not change.
         /// </summary>
         internal static string notChange {

@@ -104,7 +104,7 @@ namespace DataAccess
             //_myClient.Endpoint.Address = new System.ServiceModel.EndpointAddress("http://localhost:8731/wsServices/DataLibs");
             //_myClient.ClientCredentials.Windows.ClientCredential.UserName = "";
             //_myClient.ClientCredentials.Windows.ClientCredential.Password = "";
-            //End testing
+            ////End testing
 
             _myClient.Open();
         }
@@ -710,10 +710,9 @@ namespace DataAccess
         #endregion Update
 
         #region client
-        public static double[][] Estimate_Matrix_LastBizWeight(AppTypes.TimeRanges timeRange, string timeScaleCode,
-                                                            string[] stockCodeList, string[] strategyList)
+        public static double[][] Estimate_Matrix_LastBizWeight(DataParams dataParam,string[] stockCodeList, string[] strategyList)
         {
-            return myClient.Estimate_Matrix_LastBizWeight(timeRange, timeScaleCode, stockCodeList, strategyList);
+            return myClient.Estimate_Matrix_LastBizWeight(dataParam, stockCodeList, strategyList);
         }
 
         public static decimal[][] Estimate_Matrix_Profit(AppTypes.TimeRanges timeRange, string timeScaleCode,
@@ -761,7 +760,8 @@ namespace DataAccess
             {
                 data = new AnalysisDataCache();
                 int firstData = 0;
-                data.dataTbl = myClient.GetAnalysis_Data(out firstData, dataObj.DataTimeRange, dataObj.DataTimeScale.Code, dataObj.DataStockCode);
+                DataParams dataParam = new DataParams(dataObj.DataTimeScale.Code, dataObj.DataTimeRange, dataObj.DataMaxCount);
+                data.dataTbl = myClient.GetAnalysis_Data(out firstData, dataObj.DataStockCode, dataParam);
                 data.firstData = firstData;
                 AddCache(cacheKey, data);
                 dataObj.priceDataTbl = (data.baseDS.priceDataDataTable)data.dataTbl.Copy();
@@ -770,11 +770,10 @@ namespace DataAccess
             return true;
         }
 
-        public static TradePointInfo[] GetTradePointWithEstimationDetail(AppTypes.TimeRanges timeRange, string timeScaleCode,
-                                                                         string stockCode, string strategyCode, EstimateOptions options,
-                                                                         out data.tmpDS.tradeEstimateDataTable toTbl)
+        public static TradePointInfo[] GetTradePointWithEstimationDetail(DataParams dataParam,string stockCode, string strategyCode, 
+                                                                         EstimateOptions options,out data.tmpDS.tradeEstimateDataTable toTbl)
         {
-            return myClient.GetTradePointWithEstimationDetail(out toTbl, timeRange, timeScaleCode, stockCode, strategyCode, options);
+            return myClient.GetTradePointWithEstimationDetail(out toTbl,dataParam, stockCode, strategyCode, options);
         }
         
         //Updated data from the last read/update point

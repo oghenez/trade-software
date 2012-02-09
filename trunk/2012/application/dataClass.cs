@@ -12,28 +12,29 @@ namespace application
     public class AnalysisData : commonClass.BaseAnalysisData 
     {
         public AnalysisData() : base() { }
-        //public AnalysisData(AppTypes.TimeScale timeScale, string stockCode, AppTypes.DataAccessMode accessMode) : base(timeScale, stockCode, accessMode) { }
-        public AnalysisData(AppTypes.TimeRanges timeRange, commonClass.AppTypes.TimeScale timeScale, string stockCode, AppTypes.DataAccessMode accessMode) :
-            base(timeRange,timeScale, stockCode, accessMode) { }
+        public AnalysisData(string code, DataParams dataParam,AppTypes.DataAccessMode accessMode) :
+            base(code,AppTypes.TimeScaleFromCode(dataParam.TimeScale), dataParam.TimeRange, dataParam.MaxDataCount, accessMode) { }
 
+        public DataParams myDataParam
+        {
+            get
+            {
+                return new DataParams(this.DataTimeScale.Code, this.DataTimeRange, this.DataMaxCount);
+            }
+        }
         public AnalysisData New(string stockCode)
         {
-            AnalysisData newData = new AnalysisData(this.DataTimeRange, this.DataTimeScale, stockCode, commonClass.Settings.sysAccessMode);
-            newData.DataTimeScale = this.DataTimeScale;
-            newData.DataStockCode = stockCode;
-            newData.LoadData();
-            return newData;
+            return new AnalysisData(stockCode, this.myDataParam, commonClass.Settings.sysAccessMode);
         }
 
         public override void LoadData()
         {
+            //commonClass.SysLibs.WriteSystemLog("LoadData", this.DataStockCode, this.DataMaxCount.ToString());
             priceDataTbl.Clear();
             switch (this.AccessMode)
             {
                 case AppTypes.DataAccessMode.Local:
-                     if (this.DataTimeRange == AppTypes.TimeRanges.None)
-                          AppLibs.LoadAnalysisData(this,commonClass.Settings.sysChartMaxLoadCount_FIRST);
-                     else AppLibs.LoadAnalysisData(this);
+                     AppLibs.LoadAnalysisData(this);
                      break;
                 case AppTypes.DataAccessMode.WebService:
                      DataAccess.Libs.LoadAnalysisData(this);
@@ -377,25 +378,25 @@ namespace application
         private class Samples
         {
             //Create from analysis data for all enable stocks
-            private MarketData Create1()
-            {
-                commonClass.BaseAnalysisData stockData = new commonClass.BaseAnalysisData(commonClass.AppTypes.TimeRanges.Y1, 
-                                                                                   commonClass.AppTypes.TimeScaleFromCode("D1"), "SSI",
-                                                                                   AppTypes.DataAccessMode.WebService);
-                return new MarketData(stockData);
-            }
+            //private MarketData Create1()
+            //{
+            //    commonClass.BaseAnalysisData stockData = new commonClass.BaseAnalysisData(commonClass.AppTypes.TimeRanges.Y1, 
+            //                                                                       commonClass.AppTypes.TimeScaleFromCode("D1"), "SSI",
+            //                                                                       AppTypes.DataAccessMode.WebService);
+            //    return new MarketData(stockData);
+            //}
 
             //Create from analysis data for stocks : ACB, FPT
-            private MarketData Create2()
-            {
-                StringCollection list = new StringCollection();
-                list.AddRange(new string[] { "ACB", "FPT" });
+            //private MarketData Create2()
+            //{
+            //    StringCollection list = new StringCollection();
+            //    list.AddRange(new string[] { "ACB", "FPT" });
 
-                commonClass.BaseAnalysisData stockData = new commonClass.BaseAnalysisData(commonClass.AppTypes.TimeRanges.Y1, 
-                                                                                  commonClass.AppTypes.TimeScaleFromCode("D1"), "SSI",
-                                                                                  AppTypes.DataAccessMode.WebService);
-                return new MarketData(stockData);
-            }
+            //    commonClass.BaseAnalysisData stockData = new commonClass.BaseAnalysisData(commonClass.AppTypes.TimeRanges.Y1, 
+            //                                                                      commonClass.AppTypes.TimeScaleFromCode("D1"), "SSI",
+            //                                                                      AppTypes.DataAccessMode.WebService);
+            //    return new MarketData(stockData);
+            //}
 
             //Create in specific time range and time scale for stocks : ACB, FPT
             private MarketData Create3()
