@@ -37,33 +37,90 @@
             this.toolBox.SuspendLayout();
             this.SuspendLayout();
             // 
+            // codeEd
+            // 
+            this.codeEd.Location = new System.Drawing.Point(155, 69);
+            // 
+            // firstNameEd
+            // 
+            this.firstNameEd.Location = new System.Drawing.Point(265, 122);
+            this.firstNameEd.ReadOnly = true;
+            // 
             // nameLbl
             // 
+            this.nameLbl.Location = new System.Drawing.Point(264, 102);
             this.nameLbl.Size = new System.Drawing.Size(75, 16);
             this.nameLbl.Text = "First Name";
             // 
             // lastNameEd
             // 
+            this.lastNameEd.Location = new System.Drawing.Point(25, 122);
             this.lastNameEd.ReadOnly = true;
             // 
             // lastNameLbl
             // 
+            this.lastNameLbl.Location = new System.Drawing.Point(25, 102);
             this.lastNameLbl.Size = new System.Drawing.Size(75, 16);
             this.lastNameLbl.Text = "Last Name";
             // 
+            // address1Ed
+            // 
+            this.address1Ed.Location = new System.Drawing.Point(25, 220);
+            this.address1Ed.ReadOnly = true;
+            // 
             // address1Lbl
             // 
+            this.address1Lbl.Location = new System.Drawing.Point(25, 201);
             this.address1Lbl.Size = new System.Drawing.Size(74, 16);
             this.address1Lbl.Text = "Address 1";
             // 
+            // sexLbl
+            // 
+            this.sexLbl.Location = new System.Drawing.Point(389, 103);
+            // 
+            // address2Lbl
+            // 
+            this.address2Lbl.Location = new System.Drawing.Point(25, 265);
+            // 
+            // address2Ed
+            // 
+            this.address2Ed.Location = new System.Drawing.Point(25, 284);
+            this.address2Ed.ReadOnly = true;
+            // 
+            // countryLbl
+            // 
+            this.countryLbl.Location = new System.Drawing.Point(25, 378);
+            // 
+            // emailEd
+            // 
+            this.emailEd.Location = new System.Drawing.Point(268, 349);
+            this.emailEd.ReadOnly = true;
+            // 
+            // emailLbl
+            // 
+            this.emailLbl.Location = new System.Drawing.Point(268, 330);
+            // 
+            // accountLbl
+            // 
+            this.accountLbl.Location = new System.Drawing.Point(25, 50);
+            // 
             // accountEd
             // 
+            this.accountEd.Location = new System.Drawing.Point(25, 69);
             this.accountEd.ReadOnly = true;
             // 
             // passwordLbl
             // 
+            this.passwordLbl.Location = new System.Drawing.Point(549, 43);
             this.passwordLbl.Size = new System.Drawing.Size(71, 16);
             this.passwordLbl.Text = "Password";
+            this.passwordLbl.Visible = false;
+            // 
+            // passwordEd
+            // 
+            this.passwordEd.Location = new System.Drawing.Point(549, 62);
+            this.passwordEd.ReadOnly = true;
+            this.passwordEd.Visible = false;
             // 
             // statusLbl
             // 
@@ -84,7 +141,6 @@
             // 
             this.expireDateEd.Location = new System.Drawing.Point(688, 295);
             this.expireDateEd.Margin = new System.Windows.Forms.Padding(3);
-            this.expireDateEd.Size = new System.Drawing.Size(99, 20);
             this.expireDateEd.Visible = false;
             // 
             // expireDateLbl
@@ -93,6 +149,20 @@
             this.expireDateLbl.Size = new System.Drawing.Size(90, 16);
             this.expireDateLbl.Text = "Expired Date";
             this.expireDateLbl.Visible = false;
+            // 
+            // phoneEd
+            // 
+            this.phoneEd.Location = new System.Drawing.Point(25, 349);
+            this.phoneEd.ReadOnly = true;
+            // 
+            // phoneLbl
+            // 
+            this.phoneLbl.Location = new System.Drawing.Point(25, 330);
+            // 
+            // countryCb
+            // 
+            this.countryCb.Location = new System.Drawing.Point(25, 397);
+            this.countryCb.Size = new System.Drawing.Size(286, 24);
             // 
             // investorCatCb
             // 
@@ -103,23 +173,41 @@
             // statusCb
             // 
             this.statusCb.Location = new System.Drawing.Point(688, 337);
+            this.statusCb.Size = new System.Drawing.Size(103, 24);
             this.statusCb.Visible = false;
+            // 
+            // sexCb
+            // 
+            this.sexCb.Location = new System.Drawing.Point(389, 122);
+            this.sexCb.Size = new System.Drawing.Size(118, 24);
             // 
             // displayNameEd
             // 
-            this.displayNameEd.Size = new System.Drawing.Size(251, 20);
+            this.displayNameEd.Location = new System.Drawing.Point(25, 173);
+            this.displayNameEd.ReadOnly = true;
             // 
             // noteLbl
             // 
-            this.noteLbl.Location = new System.Drawing.Point(24, 440);
+            this.noteLbl.Location = new System.Drawing.Point(24, 426);
             // 
             // noteEd
             // 
-            this.noteEd.Location = new System.Drawing.Point(24, 459);
+            this.noteEd.Location = new System.Drawing.Point(24, 445);
+            this.noteEd.ReadOnly = true;
             this.noteEd.Size = new System.Drawing.Size(483, 139);
+            // 
+            // mobileLbl
+            // 
+            this.mobileLbl.Location = new System.Drawing.Point(146, 330);
+            // 
+            // mobileEd
+            // 
+            this.mobileEd.Location = new System.Drawing.Point(143, 349);
+            this.mobileEd.ReadOnly = true;
             // 
             // displayNameLbl
             // 
+            this.displayNameLbl.Location = new System.Drawing.Point(25, 154);
             this.displayNameLbl.Text = "Display Name";
             // 
             // exitBtn
@@ -184,7 +272,6 @@
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(530, 677);
-            
             this.Margin = new System.Windows.Forms.Padding(3);
             this.Name = "investorEdit";
             ((System.ComponentModel.ISupportInitialize)(this.portfolioSource)).EndInit();
