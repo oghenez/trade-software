@@ -18,7 +18,8 @@ namespace commonClass
             get
             {
                 //For testing 
-                //return "D:\\work\\stockProject\\code\\wsServices\\obj\\Debug"; 
+                if (common.Consts.isTestMode)
+                    return "D:\\work\\stockProject\\code\\wsServices\\obj\\Debug"; 
 
                 if (_executeDirectory == null)
                 {
@@ -75,7 +76,6 @@ namespace commonClass
             sysLoginCode = "";
             sysLoginAccount = "";
             sysLoginType = "";
-            sysLoginLocationName = "";
         }
 
         public static void WriteSystemLog(string type ,string investorCode, string text)
@@ -99,8 +99,7 @@ namespace commonClass
         //Upload
         //??public static DateTime sysDataStartDate = common.Consts.constNullDate;
         public static int sysLoginUserId = common.Consts.constNullInt;
-        public static int sysLoginLocationId = common.Consts.constNullInt;
-
+        
         //public static StringCollection sysLoginInterestedBizSectors = null;
         //public static StringCollection sysLoginInterestedStockCode = null;
         //public static StringCollection sysLoginInterestedStrategy = null;
@@ -115,24 +114,14 @@ namespace commonClass
         public static string sysLoginCode = "";
         public static string sysLoginAccount = "";
         public static string sysLoginType = "";
-        public static string sysLoginLocationName = "";
         public static string sysCompanyName = "";
         public static string sysCompanyAddr1 = "";
         public static string sysCompanyAddr2 = "";
         public static string sysCompanyAddr3 = "";
-        public static string sysCompanyTaxCode = "";
-        public static string sysCompanyBankCode = "";
-        public static string sysCompanyBankName = "";
-        public static string sysCompanyBankAccount = "";
         public static string sysCompanyPhone = "";
         public static string sysCompanyFax = "";
         public static string sysCompanyEmail = "";
         public static string sysCompanyURL = "";
-        public static string sysCompanyDirector = "";
-        public static string sysCompanyChiefAccountant = "";
-        public static string sysCompanyHeadOfManagementBoard = "";
-        public static string sysCompanyCashier = "";
-        public static string sysWarehouseManager = "";
         #endregion system environment
     }
     public static class AppLibs
@@ -416,39 +405,6 @@ namespace commonClass
         {
             if (SysLibs.sysLoginCode.Trim() == "") return false;
             return common.configuration.SaveConfiguration(Settings.sysUserConfigFile, SysLibs.sysLoginCode, type, aFields, aValues, false);
-        }
-
-        public enum configKeys
-        {
-            //System
-            sysDebugMode,
-            sysCultureCode, sysPasswdMinLen, sysUseStrongPassword,
-            sysDataKeyPrefix, sysDataKeySize, sysAutoEditKeySize, sysTimeOutAutoKey,
-            sysProductCostMethod, sysProductCostDistMethod,
-            sysMaskLocalAmount, sysMaskForeignAmt, sysMaskQty, sysMaskPrice, sysMaskPercent,
-            sysPrecisionLocal, sysPrecisionForeign, sysPrecisionQty, sysPrecisionPrice, sysPrecisionPercentage,
-            sysMainCurrency,
-
-            sysSmtpServer, sysSmtpPort, sysSmtpAuthAccount, sysSmtpAuthPassword, sysSmptSSL,
-
-            sysProdVersion, sysReleaseDate,
-            sysDataStartDate,
-            sysTradeAlertLastRun,
-
-            //To local file
-            useLocalConfigFile,
-            LoginName, loginLocationId,
-
-            companyName, companyAddr1, companyAddr2, companyAddr3, companyTaxcode,
-            telephone, fax, email, URL,
-            director, headOfManagementBoard, chiefAccountant, warehouseManager, cashier,
-            bankCode, bankAccount, bankName,
-            useTransactionInUpdate,
-            imgFilePathBackground, imgFilePathIcon,
-            imgFilePathComanyLogo1, imgFilePathComanyLogo2,
-            //Stock
-            stockMaxBuyQtyPerc, stockReduceQtyPerc, stockAccumulateQtyPerc,
-            stockMaxBuyAmtPerc, stockTotalCapAmt
         }
 
         //private const string constRootXMLElementStr = "Configuration";

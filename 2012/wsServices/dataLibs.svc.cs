@@ -472,8 +472,7 @@ namespace wsServices
             {
                 if (tbl[idx].code.Trim() == Consts.constNotMarkerNEW)
                 {
-                    common.myAutoKeyInfo info = application.SysLibs.GetAutoKey(tbl.TableName, false);
-                    tbl[idx].code = info.value.ToString().PadLeft(tbl.codeColumn.MaxLength, '0');
+                    tbl[idx].code = application.SysLibs.GetAutoDataKey(tbl.TableName, false).Trim();
                 }
             }
             DbAccess.UpdateData(tbl);
@@ -589,15 +588,15 @@ namespace wsServices
             StringWriter writer = new StringWriter();
             xml.Save(writer);
             return writer.ToString();
-        }        
-        
-        public void Load_Global_Settings()
-        {
-            application.Configuration.Load_Global_Settings();
         }
-        public void Save_Global_Settings()
+
+        public void Load_Global_Settings(ref GlobalSettings settings)
         {
-            application.Configuration.Save_Global_Settings();
+            application.Configuration.Load_Global_Settings(ref settings);
+        }
+        public void Save_Global_Settings(GlobalSettings settings)
+        {
+            application.Configuration.Save_Global_Settings(settings);
         }
 
         #endregion

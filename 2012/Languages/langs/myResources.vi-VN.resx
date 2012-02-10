@@ -1059,4 +1059,61 @@
   <data name="noDataBars" xml:space="preserve">
     <value>SL dữ liệu</value>
   </data>
+  <data name="autoKey" xml:space="preserve">
+    <value>Khóa tự động</value>
+  </data>
+  <data name="character" xml:space="preserve">
+    <value>Ký tự</value>
+  </data>
+  <data name="dataCount" xml:space="preserve">
+    <value>Số lương dữ liệu</value>
+  </data>
+  <data name="dataKeyPrefix" xml:space="preserve">
+    <value>Tiền tố khóa</value>
+  </data>
+  <data name="debugMode" xml:space="preserve">
+    <value>Chế độ tìm lỗi(Debug)</value>
+  </data>
+  <data name="default" xml:space="preserve">
+    <value>Mặc định</value>
+  </data>
+  <data name="email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="foreignAmtMask" xml:space="preserve">
+    <value>Định dạng ngọai tệ</value>
+  </data>
+  <data name="localAmtMask" xml:space="preserve">
+    <value>Định dạng giá trị</value>
+  </data>
+  <data name="percentMask" xml:space="preserve">
+    <value>Định dạng tỉ lệ</value>
+  </data>
+  <data name="qtyMask" xml:space="preserve">
+    <value>Định dạng số lượng</value>
+  </data>
+  <data name="second" xml:space="preserve">
+    <value>Giây</value>
+  </data>
+  <data name="smtpPort" xml:space="preserve">
+    <value>Cổng dịch vụ SMTP</value>
+  </data>
+  <data name="smtpServer" xml:space="preserve">
+    <value>Máy chủ SMTP</value>
+  </data>
+  <data name="smtpSSL" xml:space="preserve">
+    <value>Dùng mã hóa SSL</value>
+  </data>
+  <data name="sysAutoDataKeySize" xml:space="preserve">
+    <value>Độ dài khóa tự động</value>
+  </data>
+  <data name="timeOutAutoKey" xml:space="preserve">
+    <value>Giữ khóa trong</value>
+  </data>
+  <data name="useStrongPass" xml:space="preserve">
+    <value>Dùng mật khẩu mạnh</value>
+  </data>
+  <data name="weakPassReEnter" xml:space="preserve">
+    <value>Mật khẩu không đủ mạnh, xin vui lòng chọn lại !</value>
+  </data>
 </root>

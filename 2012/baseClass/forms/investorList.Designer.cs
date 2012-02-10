@@ -125,10 +125,6 @@
             this.countryCb.Margin = new System.Windows.Forms.Padding(2);
             this.countryCb.Size = new System.Drawing.Size(239, 24);
             // 
-            // investorCatCb
-            // 
-            this.investorCatCb.Size = new System.Drawing.Size(285, 24);
-            // 
             // statusCb
             // 
             this.statusCb.Size = new System.Drawing.Size(103, 24);
@@ -140,10 +136,6 @@
             // displayNameEd
             // 
             this.displayNameEd.ReadOnly = true;
-            // 
-            // passwordEd2
-            // 
-            this.passwordEd2.ReadOnly = true;
             // 
             // noteEd
             // 
@@ -211,6 +203,7 @@
             // 
             this.dataGrid.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
             this.dataGrid.AllowUserToAddRows = false;
+            this.dataGrid.AllowUserToDeleteRows = false;
             this.dataGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
@@ -226,6 +219,7 @@
             this.dataGrid.ReadOnly = true;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dataGrid.RowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGrid.RowTemplate.Height = 24;
             this.dataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGrid.Size = new System.Drawing.Size(433, 652);
             this.dataGrid.TabIndex = 231;

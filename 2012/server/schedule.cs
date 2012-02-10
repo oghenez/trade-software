@@ -53,7 +53,10 @@ namespace server
                 common.system.ShowMessage("Không thể kết nối đến nguồn dữ liệu.Xin vui lòng chạy lại chương trình [Setup].");
                 return false;
             }
-            application.Configuration.Load_Global_Settings();
+            commonClass.GlobalSettings globalSetting = commonClass.Settings.sysGlobal;
+            application.Configuration.Load_Global_Settings(ref globalSetting);
+            commonClass.Settings.sysGlobal = globalSetting;
+
             application.Configuration.Load_Local_Settings();
             return true;
         }

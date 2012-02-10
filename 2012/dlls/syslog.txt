@@ -15,3 +15,33 @@ Exception rethrown at [0]:
    at baseClass.forms.baseApplication.LoadAppConfig() in D:\work\stockProject\code\baseClass\forms\baseApplication.cs:line 47
    at admin.main.LoadAppConfig() in D:\work\stockProject\code\admin\main.cs:line 32
    at common.forms.baseApplication..ctor() in D:\work\ketoan-moi\code\common\forms\baseApplication.cs:line 30
+10/02/2012 5:41:39 CH	Exception	N/A	Void set_sysGlobal(commonClass.GlobalSettings)	commonClass	Object reference not set to an instance of an object.	at commonClass.Settings.set_sysGlobal(GlobalSettings value) in D:\work\stockProject\code\commonClass\settings.cs:line 21
+   at DataAccess.Libs.Load_Global_Settings() in D:\work\stockProject\code\dataAccess\dataLibs.cs:line 820
+   at baseClass.forms.baseApplication.LoadAppConfig() in D:\work\stockProject\code\baseClass\forms\baseApplication.cs:line 47
+   at admin.main.LoadAppConfig() in D:\work\stockProject\code\admin\main.cs:line 32
+   at common.forms.baseApplication..ctor() in D:\work\ketoan-moi\code\common\forms\baseApplication.cs:line 30
+10/02/2012 5:41:58 CH	Exception	A00000004	Void set_sysGlobal(commonClass.GlobalSettings)	commonClass	Object reference not set to an instance of an object.	at commonClass.Settings.set_sysGlobal(GlobalSettings value) in D:\work\stockProject\code\commonClass\settings.cs:line 21
+   at DataAccess.Libs.Load_Global_Settings() in D:\work\stockProject\code\dataAccess\dataLibs.cs:line 820
+   at admin.forms.sysOptions.LoadSettings() in D:\work\stockProject\code\admin\forms\sysOptions.cs:line 30
+   at admin.forms.sysOptions.paraSetup_Load(Object sender, EventArgs e) in D:\work\stockProject\code\admin\forms\sysOptions.cs:line 151
+10/02/2012 5:42:04 CH	Exception	A00000004	Void SaveSettings()	admin	Object reference not set to an instance of an object.	at admin.forms.sysOptions.SaveSettings() in D:\work\stockProject\code\admin\forms\sysOptions.cs:line 61
+   at admin.forms.sysOptions.saveBtn_Click(Object sender, EventArgs e) in D:\work\stockProject\code\admin\forms\sysOptions.cs:line 134
+10/02/2012 5:42:09 CH	Exception	N/A	Void set_sysGlobal(commonClass.GlobalSettings)	commonClass	Object reference not set to an instance of an object.	at commonClass.Settings.set_sysGlobal(GlobalSettings value) in D:\work\stockProject\code\commonClass\settings.cs:line 21
+   at DataAccess.Libs.Load_Global_Settings() in D:\work\stockProject\code\dataAccess\dataLibs.cs:line 820
+   at baseClass.forms.baseApplication.LoadAppConfig() in D:\work\stockProject\code\baseClass\forms\baseApplication.cs:line 47
+   at admin.main.LoadAppConfig() in D:\work\stockProject\code\admin\main.cs:line 32
+   at common.forms.baseApplication..ctor() in D:\work\ketoan-moi\code\common\forms\baseApplication.cs:line 30
+10/02/2012 5:42:17 CH	Exception	A00000004	Void set_sysGlobal(commonClass.GlobalSettings)	commonClass	Object reference not set to an instance of an object.	at commonClass.Settings.set_sysGlobal(GlobalSettings value) in D:\work\stockProject\code\commonClass\settings.cs:line 21
+   at DataAccess.Libs.Load_Global_Settings() in D:\work\stockProject\code\dataAccess\dataLibs.cs:line 820
+   at admin.forms.sysOptions.LoadSettings() in D:\work\stockProject\code\admin\forms\sysOptions.cs:line 30
+   at admin.forms.sysOptions.paraSetup_Load(Object sender, EventArgs e) in D:\work\stockProject\code\admin\forms\sysOptions.cs:line 151
+10/02/2012 5:43:12 CH	Exception	N/A	Void set_sysGlobal(commonClass.GlobalSettings)	commonClass	Object reference not set to an instance of an object.	at commonClass.Settings.set_sysGlobal(GlobalSettings value) in D:\work\stockProject\code\commonClass\settings.cs:line 21
+   at DataAccess.Libs.Load_Global_Settings() in D:\work\stockProject\code\dataAccess\dataLibs.cs:line 820
+   at baseClass.forms.baseApplication.LoadAppConfig() in D:\work\stockProject\code\baseClass\forms\baseApplication.cs:line 47
+   at admin.main.LoadAppConfig() in D:\work\stockProject\code\admin\main.cs:line 32
+   at common.forms.baseApplication..ctor() in D:\work\ketoan-moi\code\common\forms\baseApplication.cs:line 30
+10/02/2012 5:43:57 CH	Exception	N/A	Void set_sysGlobal(commonClass.GlobalSettings)	commonClass	Object reference not set to an instance of an object.	at commonClass.Settings.set_sysGlobal(GlobalSettings value) in D:\work\stockProject\code\commonClass\settings.cs:line 21
+   at DataAccess.Libs.Load_Global_Settings() in D:\work\stockProject\code\dataAccess\dataLibs.cs:line 820
+   at baseClass.forms.baseApplication.LoadAppConfig() in D:\work\stockProject\code\baseClass\forms\baseApplication.cs:line 47
+   at admin.main.LoadAppConfig() in D:\work\stockProject\code\admin\main.cs:line 32
+   at common.forms.baseApplication..ctor() in D:\work\ketoan-moi\code\common\forms\baseApplication.cs:line 30

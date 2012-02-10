@@ -78,8 +78,6 @@ namespace baseClass.forms
             this.dataGrid.ReadOnly = true;
             this.dataGrid.ReOrderColumn(new string[] { "codeColumn", "nameColumn" });
             dataGrid.AutoFitGridColumn(this.nameColumn.Name);
-
-            dataGrid.DisbaleReadOnlyColumns();
         }
         
         private void ShowFindPanel(bool state)

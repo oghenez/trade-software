@@ -1053,4 +1053,61 @@
   <data name="noDataBars" xml:space="preserve">
     <value>No. of bars</value>
   </data>
+  <data name="autoKey" xml:space="preserve">
+    <value>Auto Key</value>
+  </data>
+  <data name="character" xml:space="preserve">
+    <value>Chars</value>
+  </data>
+  <data name="dataCount" xml:space="preserve">
+    <value>No. of data</value>
+  </data>
+  <data name="dataKeyPrefix" xml:space="preserve">
+    <value>Data key prefix</value>
+  </data>
+  <data name="debugMode" xml:space="preserve">
+    <value>Debug mode</value>
+  </data>
+  <data name="default" xml:space="preserve">
+    <value>Default</value>
+  </data>
+  <data name="email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="foreignAmtMask" xml:space="preserve">
+    <value>Foreign amount mask</value>
+  </data>
+  <data name="localAmtMask" xml:space="preserve">
+    <value>Local amount mask</value>
+  </data>
+  <data name="percentMask" xml:space="preserve">
+    <value>Percent mask</value>
+  </data>
+  <data name="qtyMask" xml:space="preserve">
+    <value>Quantity mask</value>
+  </data>
+  <data name="second" xml:space="preserve">
+    <value>Second(s)</value>
+  </data>
+  <data name="smtpPort" xml:space="preserve">
+    <value>SMTP port</value>
+  </data>
+  <data name="smtpServer" xml:space="preserve">
+    <value>SMTP server</value>
+  </data>
+  <data name="smtpSSL" xml:space="preserve">
+    <value>Use SSL</value>
+  </data>
+  <data name="sysAutoDataKeySize" xml:space="preserve">
+    <value>System auto key size</value>
+  </data>
+  <data name="timeOutAutoKey" xml:space="preserve">
+    <value>Keep auto-key in</value>
+  </data>
+  <data name="useStrongPass" xml:space="preserve">
+    <value>Use strong password</value>
+  </data>
+  <data name="weakPassReEnter" xml:space="preserve">
+    <value>Password is not strong enogh.Please enter a new on !</value>
+  </data>
 </root>

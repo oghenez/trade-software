@@ -387,7 +387,7 @@ namespace client
             strategyCbStrip.SelectedIndexChanged += new EventHandler(PlotTradepointHandler);
 
             this.ChartType = AppTypes.ChartTypes.CandleStick;
-            this.ChartTimeScale = commonClass.Settings.sysDefaultTimeScale;
+            this.ChartTimeScale = AppTypes.TimeScaleFromCode(Settings.sysGlobal.DefaultTimeScaleCode);
 
             //dockPanel
             dockPanel.Parent = this;     
