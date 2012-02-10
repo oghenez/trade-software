@@ -50,11 +50,11 @@
             this.capitalUnitLbl = new baseClass.controls.baseLabel();
             this.stockPercLbl = new baseClass.controls.baseLabel();
             this.capitalAmtLbl = new baseClass.controls.baseLabel();
-            this.stockAccumulatePercEd = new common.controls.numberTextBox();
-            this.maxBuyAmtPercEd = new common.controls.numberTextBox();
+            this.stockAccumulatePercEd = new common.controls.baseNumericUpDown();
+            this.maxBuyAmtPercEd = new common.controls.baseNumericUpDown();
             this.maxReducePercLbl = new baseClass.controls.baseLabel();
             this.maxBuyAmtPercLbl = new baseClass.controls.baseLabel();
-            this.stockReducePercEd = new common.controls.numberTextBox();
+            this.stockReducePercEd = new common.controls.baseNumericUpDown();
             this.capitalAmtEd = new common.controls.numberTextBox();
             this.maxAccumulatePercLbl = new baseClass.controls.baseLabel();
             this.xpPane_generalInfo = new UIComponents.XPPanel(214);
@@ -79,6 +79,9 @@
             this.xpPane_ownedStock.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.stockGrid)).BeginInit();
             this.xpPanel_Investment.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.stockAccumulatePercEd)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.maxBuyAmtPercEd)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.stockReducePercEd)).BeginInit();
             this.xpPane_generalInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.portfolioGrid)).BeginInit();
             this.SuspendLayout();
@@ -236,6 +239,7 @@
             this.stockGrid.Name = "stockGrid";
             this.stockGrid.ReadOnly = true;
             this.stockGrid.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.stockGrid.RowTemplate.Height = 24;
             this.stockGrid.Size = new System.Drawing.Size(479, 314);
             this.stockGrid.TabIndex = 40;
             // 
@@ -408,40 +412,32 @@
             this.stockAccumulatePercEd.BackColor = System.Drawing.SystemColors.Window;
             this.stockAccumulatePercEd.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.portfolioSource, "stockAccumulatePerc", true));
             this.stockAccumulatePercEd.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.stockAccumulatePercEd.InsertKeyMode = System.Windows.Forms.InsertKeyMode.Overwrite;
             this.stockAccumulatePercEd.Location = new System.Drawing.Point(156, 124);
-            this.stockAccumulatePercEd.myFormat = "###";
-            this.stockAccumulatePercEd.Name = "stockAccumulatePercEd";
-            this.stockAccumulatePercEd.Size = new System.Drawing.Size(130, 24);
-            this.stockAccumulatePercEd.TabIndex = 11;
-            this.stockAccumulatePercEd.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.stockAccumulatePercEd.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludePromptAndLiterals;
-            this.stockAccumulatePercEd.Value = new decimal(new int[] {
+            this.stockAccumulatePercEd.myValue = new decimal(new int[] {
             0,
             0,
             0,
             0});
+            this.stockAccumulatePercEd.Name = "stockAccumulatePercEd";
+            this.stockAccumulatePercEd.Size = new System.Drawing.Size(130, 24);
+            this.stockAccumulatePercEd.TabIndex = 11;
+            this.stockAccumulatePercEd.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // maxBuyAmtPercEd
             // 
             this.maxBuyAmtPercEd.BackColor = System.Drawing.SystemColors.Window;
             this.maxBuyAmtPercEd.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.portfolioSource, "maxBuyAmtPerc", true));
             this.maxBuyAmtPercEd.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.maxBuyAmtPercEd.InsertKeyMode = System.Windows.Forms.InsertKeyMode.Overwrite;
             this.maxBuyAmtPercEd.Location = new System.Drawing.Point(26, 124);
-            this.maxBuyAmtPercEd.myFormat = "###";
-            this.maxBuyAmtPercEd.Name = "maxBuyAmtPercEd";
-            this.maxBuyAmtPercEd.ReadOnly = true;
-            this.maxBuyAmtPercEd.Size = new System.Drawing.Size(130, 24);
-            this.maxBuyAmtPercEd.TabIndex = 10;
-            this.maxBuyAmtPercEd.TabStop = false;
-            this.maxBuyAmtPercEd.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.maxBuyAmtPercEd.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludePromptAndLiterals;
-            this.maxBuyAmtPercEd.Value = new decimal(new int[] {
+            this.maxBuyAmtPercEd.myValue = new decimal(new int[] {
             0,
             0,
             0,
             0});
+            this.maxBuyAmtPercEd.Name = "maxBuyAmtPercEd";
+            this.maxBuyAmtPercEd.Size = new System.Drawing.Size(130, 24);
+            this.maxBuyAmtPercEd.TabIndex = 10;
+            this.maxBuyAmtPercEd.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // maxReducePercLbl
             // 
@@ -468,21 +464,16 @@
             this.stockReducePercEd.BackColor = System.Drawing.SystemColors.Window;
             this.stockReducePercEd.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.portfolioSource, "stockReducePerc", true));
             this.stockReducePercEd.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.stockReducePercEd.InsertKeyMode = System.Windows.Forms.InsertKeyMode.Overwrite;
             this.stockReducePercEd.Location = new System.Drawing.Point(286, 124);
-            this.stockReducePercEd.myFormat = "###";
-            this.stockReducePercEd.Name = "stockReducePercEd";
-            this.stockReducePercEd.ReadOnly = true;
-            this.stockReducePercEd.Size = new System.Drawing.Size(130, 24);
-            this.stockReducePercEd.TabIndex = 12;
-            this.stockReducePercEd.TabStop = false;
-            this.stockReducePercEd.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.stockReducePercEd.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludePromptAndLiterals;
-            this.stockReducePercEd.Value = new decimal(new int[] {
+            this.stockReducePercEd.myValue = new decimal(new int[] {
             0,
             0,
             0,
             0});
+            this.stockReducePercEd.Name = "stockReducePercEd";
+            this.stockReducePercEd.Size = new System.Drawing.Size(130, 24);
+            this.stockReducePercEd.TabIndex = 12;
+            this.stockReducePercEd.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // capitalAmtEd
             // 
@@ -554,6 +545,7 @@
             this.descriptionEd.BackColor = System.Drawing.SystemColors.Window;
             this.descriptionEd.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.portfolioSource, "description", true));
             this.descriptionEd.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.descriptionEd.isRequired = true;
             this.descriptionEd.isToUpperCase = false;
             this.descriptionEd.Location = new System.Drawing.Point(25, 157);
             this.descriptionEd.Multiline = true;
@@ -588,6 +580,7 @@
             this.codeEd.BackColor = System.Drawing.SystemColors.Window;
             this.codeEd.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.portfolioSource, "code", true));
             this.codeEd.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.codeEd.isRequired = true;
             this.codeEd.isToUpperCase = false;
             this.codeEd.Location = new System.Drawing.Point(25, 58);
             this.codeEd.Name = "codeEd";
@@ -601,6 +594,7 @@
             this.nameEd.BackColor = System.Drawing.SystemColors.Window;
             this.nameEd.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.portfolioSource, "name", true));
             this.nameEd.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nameEd.isRequired = true;
             this.nameEd.isToUpperCase = false;
             this.nameEd.Location = new System.Drawing.Point(26, 106);
             this.nameEd.Name = "nameEd";
@@ -635,6 +629,7 @@
             this.portfolioGrid.Name = "portfolioGrid";
             this.portfolioGrid.ReadOnly = true;
             this.portfolioGrid.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.portfolioGrid.RowTemplate.Height = 24;
             this.portfolioGrid.Size = new System.Drawing.Size(363, 777);
             this.portfolioGrid.TabIndex = 361;
             this.portfolioGrid.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.grid_DataError);
@@ -684,6 +679,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.stockGrid)).EndInit();
             this.xpPanel_Investment.ResumeLayout(false);
             this.xpPanel_Investment.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.stockAccumulatePercEd)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.maxBuyAmtPercEd)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.stockReducePercEd)).EndInit();
             this.xpPane_generalInfo.ResumeLayout(false);
             this.xpPane_generalInfo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.portfolioGrid)).EndInit();
@@ -716,11 +714,11 @@
         protected baseClass.controls.baseLabel capitalUnitLbl;
         protected baseClass.controls.baseLabel stockPercLbl;
         protected baseClass.controls.baseLabel capitalAmtLbl;
-        protected common.controls.numberTextBox stockAccumulatePercEd;
-        protected common.controls.numberTextBox maxBuyAmtPercEd;
+        protected common.controls.baseNumericUpDown stockAccumulatePercEd;
+        protected common.controls.baseNumericUpDown maxBuyAmtPercEd;
         protected baseClass.controls.baseLabel maxReducePercLbl;
         protected baseClass.controls.baseLabel maxBuyAmtPercLbl;
-        protected common.controls.numberTextBox stockReducePercEd;
+        protected common.controls.baseNumericUpDown stockReducePercEd;
         protected common.controls.numberTextBox capitalAmtEd;
         protected baseClass.controls.baseLabel maxAccumulatePercLbl;
         protected UIComponents.XPPanel xpPane_ownedStock;

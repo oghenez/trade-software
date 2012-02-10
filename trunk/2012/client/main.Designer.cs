@@ -179,6 +179,8 @@
             this.periodicityStrip = new System.Windows.Forms.ToolStrip();
             this.dummyStripBtn = new System.Windows.Forms.ToolStripButton();
             this.sysTimer = new System.Windows.Forms.Timer(this.components);
+            this.changePassMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator28 = new System.Windows.Forms.ToolStripSeparator();
             this.chartStrip.SuspendLayout();
             this.standartStrip.SuspendLayout();
             this.toolsStrip.SuspendLayout();
@@ -605,6 +607,8 @@
             this.FileMenuStrip.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.loginMenuItem,
             this.logOutMenuItem,
+            this.changePassMenuItem,
+            this.toolStripSeparator28,
             this.MyProfileMenuItem,
             this.toolStripSeparator2,
             this.NewChartMenuItem,
@@ -624,33 +628,33 @@
             // 
             this.loginMenuItem.Image = global::client.Properties.Resources.login;
             this.loginMenuItem.Name = "loginMenuItem";
-            this.loginMenuItem.Size = new System.Drawing.Size(169, 22);
+            this.loginMenuItem.Size = new System.Drawing.Size(195, 22);
             this.loginMenuItem.Text = "Log in";
             this.loginMenuItem.Click += new System.EventHandler(this.loginMenuItem_Click);
             // 
             // logOutMenuItem
             // 
             this.logOutMenuItem.Name = "logOutMenuItem";
-            this.logOutMenuItem.Size = new System.Drawing.Size(169, 22);
+            this.logOutMenuItem.Size = new System.Drawing.Size(195, 22);
             this.logOutMenuItem.Text = "Log Out";
             this.logOutMenuItem.Click += new System.EventHandler(this.logOutMenuItem_Click);
             // 
             // MyProfileMenuItem
             // 
             this.MyProfileMenuItem.Name = "MyProfileMenuItem";
-            this.MyProfileMenuItem.Size = new System.Drawing.Size(169, 22);
+            this.MyProfileMenuItem.Size = new System.Drawing.Size(195, 22);
             this.MyProfileMenuItem.Text = "My Profile";
             this.MyProfileMenuItem.Click += new System.EventHandler(this.MyProfileMenuItem_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(166, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(192, 6);
             // 
             // NewChartMenuItem
             // 
             this.NewChartMenuItem.Name = "NewChartMenuItem";
-            this.NewChartMenuItem.Size = new System.Drawing.Size(169, 22);
+            this.NewChartMenuItem.Size = new System.Drawing.Size(195, 22);
             this.NewChartMenuItem.Text = "New Chart";
             this.NewChartMenuItem.ToolTipText = "New Stock Chart";
             this.NewChartMenuItem.Click += new System.EventHandler(this.NewChartMenuItem_Click);
@@ -658,7 +662,7 @@
             // closeChartMenuItem
             // 
             this.closeChartMenuItem.Name = "closeChartMenuItem";
-            this.closeChartMenuItem.Size = new System.Drawing.Size(169, 22);
+            this.closeChartMenuItem.Size = new System.Drawing.Size(195, 22);
             this.closeChartMenuItem.Text = "Close";
             this.closeChartMenuItem.ToolTipText = "Close chart";
             this.closeChartMenuItem.Click += new System.EventHandler(this.CloseChartMenuItem_Click);
@@ -666,12 +670,12 @@
             // toolStripSeparator7
             // 
             this.toolStripSeparator7.Name = "toolStripSeparator7";
-            this.toolStripSeparator7.Size = new System.Drawing.Size(166, 6);
+            this.toolStripSeparator7.Size = new System.Drawing.Size(192, 6);
             // 
             // configMenuItem
             // 
             this.configMenuItem.Name = "configMenuItem";
-            this.configMenuItem.Size = new System.Drawing.Size(169, 22);
+            this.configMenuItem.Size = new System.Drawing.Size(195, 22);
             this.configMenuItem.Tag = " ";
             this.configMenuItem.Text = "Configure";
             this.configMenuItem.Click += new System.EventHandler(this.configMenuItem_Click);
@@ -679,7 +683,7 @@
             // printSetupMenuItem
             // 
             this.printSetupMenuItem.Name = "printSetupMenuItem";
-            this.printSetupMenuItem.Size = new System.Drawing.Size(169, 22);
+            this.printSetupMenuItem.Size = new System.Drawing.Size(195, 22);
             this.printSetupMenuItem.Text = "Print Setup...";
             this.printSetupMenuItem.Click += new System.EventHandler(this.printSetupMenuItem_Click);
             // 
@@ -687,26 +691,26 @@
             // 
             this.printPreViewMenuItem.Enabled = false;
             this.printPreViewMenuItem.Name = "printPreViewMenuItem";
-            this.printPreViewMenuItem.Size = new System.Drawing.Size(169, 22);
+            this.printPreViewMenuItem.Size = new System.Drawing.Size(195, 22);
             this.printPreViewMenuItem.Text = "Print Preview";
             // 
             // printMenuItem
             // 
             this.printMenuItem.Enabled = false;
             this.printMenuItem.Name = "printMenuItem";
-            this.printMenuItem.Size = new System.Drawing.Size(169, 22);
+            this.printMenuItem.Size = new System.Drawing.Size(195, 22);
             this.printMenuItem.Text = "Print";
             // 
             // toolStripSeparator20
             // 
             this.toolStripSeparator20.Name = "toolStripSeparator20";
-            this.toolStripSeparator20.Size = new System.Drawing.Size(166, 6);
+            this.toolStripSeparator20.Size = new System.Drawing.Size(192, 6);
             // 
             // exitMenuItem
             // 
             this.exitMenuItem.Image = global::client.Properties.Resources.close;
             this.exitMenuItem.Name = "exitMenuItem";
-            this.exitMenuItem.Size = new System.Drawing.Size(169, 22);
+            this.exitMenuItem.Size = new System.Drawing.Size(195, 22);
             this.exitMenuItem.Text = "E&xit";
             this.exitMenuItem.Click += new System.EventHandler(this.exitMenuItem_Click);
             // 
@@ -1365,12 +1369,25 @@
             this.sysTimer.Interval = 2000;
             this.sysTimer.Tick += new System.EventHandler(this.sysTimer_Tick);
             // 
+            // changePassMenuItem
+            // 
+            this.changePassMenuItem.Name = "changePassMenuItem";
+            this.changePassMenuItem.Size = new System.Drawing.Size(195, 22);
+            this.changePassMenuItem.Text = "Change Password";
+            this.changePassMenuItem.Click += new System.EventHandler(this.changePassMenuItem_Click);
+            // 
+            // toolStripSeparator28
+            // 
+            this.toolStripSeparator28.Name = "toolStripSeparator28";
+            this.toolStripSeparator28.Size = new System.Drawing.Size(192, 6);
+            // 
             // main
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(1284, 672);
             this.Controls.Add(this.dockPanel);
             this.Controls.Add(this.toolStripPanel);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.mainMenu;
@@ -1541,6 +1558,8 @@
         private System.Windows.Forms.ToolStripMenuItem sysOptionMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator27;
         private System.Windows.Forms.ToolStripMenuItem marketSummaryMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem changePassMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator28;
     }
 }
 

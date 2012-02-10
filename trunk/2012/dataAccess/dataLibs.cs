@@ -823,7 +823,8 @@ namespace DataAccess
         }
         public static void Save_Global_Settings()
         {
-            myClient.Save_Global_Settings(Settings.sysGlobal);
+            GlobalSettings globSettings = Settings.sysGlobal;
+            myClient.Save_Global_Settings(globSettings);
         }
         #endregion
 

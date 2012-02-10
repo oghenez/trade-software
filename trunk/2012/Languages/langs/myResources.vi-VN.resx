@@ -1116,4 +1116,25 @@
   <data name="weakPassReEnter" xml:space="preserve">
     <value>Mật khẩu không đủ mạnh, xin vui lòng chọn lại !</value>
   </data>
+  <data name="changePassword" xml:space="preserve">
+    <value>Thay đổi mật khẩu</value>
+  </data>
+  <data name="loginNotFount" xml:space="preserve">
+    <value>Không có tài khoản [{0}] trong hệ thống !</value>
+  </data>
+  <data name="oldPassword" xml:space="preserve">
+    <value>Mật khẩu cũ</value>
+  </data>
+  <data name="passwordNotMatched" xml:space="preserve">
+    <value>Hai mật khẩu không giống, xin vui lòng nhập lại !</value>
+  </data>
+  <data name="rePassword" xml:space="preserve">
+    <value>Nhập lại mật khẩu</value>
+  </data>
+  <data name="matched" xml:space="preserve">
+    <value>Khớp</value>
+  </data>
+  <data name="notMatched" xml:space="preserve">
+    <value>Không khớp</value>
+  </data>
 </root>

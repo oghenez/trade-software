@@ -493,6 +493,15 @@ namespace Languages.langs {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Change Password.
+        /// </summary>
+        internal static string changePassword {
+            get {
+                return ResourceManager.GetString("changePassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Chars.
         /// </summary>
         internal static string character {
@@ -1465,6 +1474,15 @@ namespace Languages.langs {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Login account [{0}] was not found !.
+        /// </summary>
+        internal static string loginNotFount {
+            get {
+                return ResourceManager.GetString("loginNotFount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to logo.
         /// </summary>
         internal static string logo {
@@ -1542,6 +1560,15 @@ namespace Languages.langs {
         internal static string marketWatch {
             get {
                 return ResourceManager.GetString("marketWatch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Matched.
+        /// </summary>
+        internal static string matched {
+            get {
+                return ResourceManager.GetString("matched", resourceCulture);
             }
         }
         
@@ -1798,11 +1825,29 @@ namespace Languages.langs {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Not match.
+        /// </summary>
+        internal static string notMatched {
+            get {
+                return ResourceManager.GetString("notMatched", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Number.
         /// </summary>
         internal static string number {
             get {
                 return ResourceManager.GetString("number", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Old Password.
+        /// </summary>
+        internal static string oldPassword {
+            get {
+                return ResourceManager.GetString("oldPassword", resourceCulture);
             }
         }
         
@@ -1947,6 +1992,15 @@ namespace Languages.langs {
         internal static string password {
             get {
                 return ResourceManager.GetString("password", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Passwords do not match !.
+        /// </summary>
+        internal static string passwordNotMatched {
+            get {
+                return ResourceManager.GetString("passwordNotMatched", resourceCulture);
             }
         }
         
@@ -2181,6 +2235,15 @@ namespace Languages.langs {
         internal static string reload {
             get {
                 return ResourceManager.GetString("reload", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Re-enter .
+        /// </summary>
+        internal static string rePassword {
+            get {
+                return ResourceManager.GetString("rePassword", resourceCulture);
             }
         }
         

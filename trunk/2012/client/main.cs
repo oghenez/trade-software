@@ -144,7 +144,10 @@ namespace client
                 this.FileMenuStrip.Text = Languages.Libs.GetString("file");
                 this.loginMenuItem.Text = Languages.Libs.GetString("login");
                 this.logOutMenuItem.Text = Languages.Libs.GetString("logout");
+                this.changePassMenuItem.Text = Languages.Libs.GetString("changePassword");
                 this.MyProfileMenuItem.Text = Languages.Libs.GetString("myProfile"); ;
+
+
                 this.NewChartMenuItem.Text = Languages.Libs.GetString("openChart");
                 this.closeChartMenuItem.Text = Languages.Libs.GetString("closeChart");
 
@@ -239,7 +242,6 @@ namespace client
             catch (Exception er)
             {
                 this.ShowError(er);
-                common.fileFuncs.WriteLog(this.Name + common.Consts.constTab + er.ToString());
             }
         }
         
@@ -298,7 +300,6 @@ namespace client
                 catch (Exception er)
                 {
                     ShowError(er);
-                    common.fileFuncs.WriteLog(this.Name + common.Consts.constTab + er.ToString());
                 }
 
                 if (form.GetType() == typeof(Tools.Forms.tradeAnalysis))
@@ -351,10 +352,7 @@ namespace client
             }
             catch (Exception er)
             {
-                common.system.ShowError(Languages.Libs.GetString("loadDataError"), er.Message);
-                //this.ShowError(er);
-                common.fileFuncs.WriteLog(this.Name + common.Consts.constTab + er.ToString());
-                //System.Environment.Exit(1);
+                this.ShowError(er);
             }
             return false;
         }
@@ -754,7 +752,6 @@ namespace client
             catch (Exception er)
             {
                 this.ShowError(er);
-                common.fileFuncs.WriteLog(this.Name + common.Consts.constTab + er.ToString());
             }
         }
 
@@ -937,7 +934,6 @@ namespace client
             catch (Exception er)
             {
                 this.ShowError(er);
-                common.fileFuncs.WriteLog(this.Name + common.Consts.constTab + er.ToString());
             }
         }
         private void chartPropertyHandler(object sender, common.baseDialogEvent e)
@@ -958,7 +954,6 @@ namespace client
             catch (Exception er)
             {
                 this.ShowError(er);
-                common.fileFuncs.WriteLog(this.Name + common.Consts.constTab + er.ToString());
             }
         }
         
@@ -971,8 +966,7 @@ namespace client
             }
             catch (Exception er)
             {
-                common.system.ShowErrorMessage(er.Message);
-                common.fileFuncs.WriteLog(this.Name + common.Consts.constTab + er.ToString());
+                this.ShowError(er);
             }
         }
 
@@ -998,7 +992,6 @@ namespace client
             catch (Exception er)
             {
                 this.ShowError(er);
-                common.fileFuncs.WriteLog(this.Name + common.Consts.constTab + er.ToString());
             }
         }
 
@@ -1012,7 +1005,6 @@ namespace client
             catch (Exception er)
             {
                 this.ShowError(er);
-                common.fileFuncs.WriteLog(this.Name + common.Consts.constTab + er.ToString());
             }
         }
 
@@ -1086,7 +1078,6 @@ namespace client
             catch (Exception er)
             {
                 this.ShowError(er);
-                common.fileFuncs.WriteLog(this.Name + common.Consts.constTab + er.ToString());
             }
         }
         private void CloseChartMenuItem_Click(object sender, EventArgs e)
@@ -1099,7 +1090,6 @@ namespace client
             catch (Exception er)
             {
                 this.ShowError(er);
-                common.fileFuncs.WriteLog(this.Name + common.Consts.constTab + er.ToString());
             }
         }
 
@@ -1112,7 +1102,6 @@ namespace client
             catch (Exception er)
             {
                 this.ShowError(er);
-                common.fileFuncs.WriteLog(this.Name + common.Consts.constTab + er.ToString());
             }
         }
 
@@ -1172,7 +1161,6 @@ namespace client
             catch (Exception er)
             {
                 this.ShowError(er);
-                common.fileFuncs.WriteLog(this.Name + common.Consts.constTab + er.ToString());
             }
         }
 
@@ -1188,7 +1176,6 @@ namespace client
             catch (Exception er)
             {
                 this.ShowError(er);
-                common.fileFuncs.WriteLog(this.Name + common.Consts.constTab + er.ToString());
             }
         }
        
@@ -1202,7 +1189,6 @@ namespace client
             catch (Exception er)
             {
                 this.ShowError(er);
-                common.fileFuncs.WriteLog(this.Name + common.Consts.constTab + er.ToString());
             }
         }
         private void logOutMenuItem_Click(object sender, EventArgs e)
@@ -1218,7 +1204,6 @@ namespace client
             catch (Exception er)
             {
                 this.ShowError(er);
-                common.fileFuncs.WriteLog(this.Name + common.Consts.constTab + er.ToString());
             }
         }
 
@@ -1232,7 +1217,6 @@ namespace client
             catch (Exception er)
             {
                 this.ShowError(er);
-                common.fileFuncs.WriteLog(this.Name + common.Consts.constTab + er.ToString());
             }
         }
 
@@ -1256,7 +1240,6 @@ namespace client
             catch (Exception er)
             {
                 this.ShowError(er);
-                common.fileFuncs.WriteLog(this.Name + common.Consts.constTab + er.ToString());
             }
         }
         private void portfolioWatchBtn_Click(object sender, EventArgs e)
@@ -1268,7 +1251,6 @@ namespace client
             catch (Exception er)
             {
                 this.ShowError(er);
-                common.fileFuncs.WriteLog(this.Name + common.Consts.constTab + er.ToString());
             }
         }
         private void tradeAlertBtn_Click(object sender, EventArgs e)
@@ -1280,7 +1262,6 @@ namespace client
             catch (Exception er)
             {
                 this.ShowError(er);
-                common.fileFuncs.WriteLog(this.Name + common.Consts.constTab + er.ToString());
             }
         }
         private void dataTimeRangeCb_SelectedIndexChanged(object sender, EventArgs e)
@@ -1293,7 +1274,6 @@ namespace client
             catch (Exception er)
             {
                 this.ShowError(er);
-                common.fileFuncs.WriteLog(this.Name + common.Consts.constTab + er.ToString());
             }
         }
 
@@ -1306,7 +1286,6 @@ namespace client
             catch (Exception er)
             {
                 this.ShowError(er);
-                common.fileFuncs.WriteLog(this.Name + common.Consts.constTab + er.ToString());
             }
         }
 
@@ -1325,7 +1304,6 @@ namespace client
             catch (Exception er)
             {
                 this.ShowError(er);
-                common.fileFuncs.WriteLog(this.Name + common.Consts.constTab + er.ToString());
             }
         }
 
@@ -1338,7 +1316,6 @@ namespace client
             catch (Exception er)
             {
                 this.ShowError(er);
-                common.fileFuncs.WriteLog(this.Name + common.Consts.constTab + er.ToString());
             }
         }
 
@@ -1358,7 +1335,6 @@ namespace client
             catch (Exception er)
             {
                 this.ShowError(er);
-                common.fileFuncs.WriteLog(this.Name + common.Consts.constTab + er.ToString());
             }
         }
 
@@ -1376,7 +1352,6 @@ namespace client
             catch (Exception er)
             {
                 this.ShowError(er);
-                common.fileFuncs.WriteLog(this.Name + common.Consts.constTab + er.ToString());
             }
         }
 
@@ -1438,7 +1413,6 @@ namespace client
             catch (Exception er)
             {
                 this.ShowError(er);
-                common.fileFuncs.WriteLog(this.Name + common.Consts.constTab + er.ToString());
             }
         }
        
@@ -1453,7 +1427,6 @@ namespace client
             catch (Exception er)
             {
                 this.ShowError(er);
-                common.fileFuncs.WriteLog(this.Name + common.Consts.constTab + er.ToString());
             }
         }
 
@@ -1468,7 +1441,6 @@ namespace client
             catch (Exception er)
             {
                 this.ShowError(er);
-                common.fileFuncs.WriteLog(this.Name + common.Consts.constTab + er.ToString());
             }
         }
 
@@ -1481,7 +1453,6 @@ namespace client
             catch (Exception er)
             {
                 this.ShowError(er);
-                common.fileFuncs.WriteLog(this.Name + common.Consts.constTab + er.ToString());
             }
         }
 
@@ -1502,7 +1473,6 @@ namespace client
             catch (Exception er)
             {
                 this.ShowError(er);
-                common.fileFuncs.WriteLog(this.Name + common.Consts.constTab + er.ToString());
             }
         }
 
@@ -1543,7 +1513,6 @@ namespace client
             catch (Exception er)
             {
                 this.ShowError(er);
-                common.fileFuncs.WriteLog(this.Name + common.Consts.constTab + er.ToString());
             }
         }
 
@@ -1561,7 +1530,6 @@ namespace client
             catch (Exception er)
             {
                 this.ShowError(er);
-                common.fileFuncs.WriteLog(this.Name + common.Consts.constTab + er.ToString());
             }
         }
         
@@ -1579,7 +1547,6 @@ namespace client
             catch (Exception er)
             {
                 this.ShowError(er);
-                common.fileFuncs.WriteLog(this.Name + common.Consts.constTab + er.ToString());
             }
         }
         
@@ -1597,7 +1564,6 @@ namespace client
             catch (Exception er)
             {
                 this.ShowError(er);
-                common.fileFuncs.WriteLog(this.Name + common.Consts.constTab + er.ToString());
             }
         }
         
@@ -1617,7 +1583,6 @@ namespace client
             catch (Exception er)
             {
                 this.ShowError(er);
-                common.fileFuncs.WriteLog(this.Name + common.Consts.constTab + er.ToString());
             }
         }
 
@@ -1638,7 +1603,6 @@ namespace client
             catch (Exception er)
             {
                 this.ShowError(er);
-                common.fileFuncs.WriteLog(this.Name + common.Consts.constTab + er.ToString());
             }
         }
 
@@ -1655,7 +1619,6 @@ namespace client
             catch (Exception er)
             {
                 this.ShowError(er);
-                common.fileFuncs.WriteLog(this.Name + common.Consts.constTab + er.ToString());
             }
         }
 
@@ -1676,7 +1639,6 @@ namespace client
             catch (Exception er)
             {
                 this.ShowError(er);
-                common.fileFuncs.WriteLog(this.Name + common.Consts.constTab + er.ToString());
             }
         }
 
@@ -1690,7 +1652,6 @@ namespace client
             catch (Exception er)
             {
                 this.ShowError(er);
-                common.fileFuncs.WriteLog(this.Name + common.Consts.constTab + er.ToString());
             }
         }
         private void Alert_OpenChartMenuItem_Click(object sender, EventArgs e)
@@ -1705,7 +1666,6 @@ namespace client
             catch (Exception er)
             {
                 this.ShowError(er);
-                common.fileFuncs.WriteLog(this.Name + common.Consts.constTab + er.ToString());
             }
         }
         private void Alert_MakeOrderMenuItem_Click(object sender, EventArgs e)
@@ -1719,11 +1679,8 @@ namespace client
             catch (Exception er)
             {
                 this.ShowError(er);
-                common.fileFuncs.WriteLog(this.Name + common.Consts.constTab + er.ToString());
             }
         }
-
-        
 
         private void marketSummaryMenuItem_Click(object sender, EventArgs e)
         {
@@ -1735,6 +1692,28 @@ namespace client
             try
             {
                 CloseAllForms(false);
+            }
+            catch (Exception er)
+            {
+                this.ShowError(er);
+            }
+        }
+
+        private void changePassMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string formName = "changePassword";
+                baseClass.forms.changePassword myForm = (baseClass.forms.changePassword)cachedForms.Find(formName);
+                if (myForm == null || myForm.IsDisposed)
+                {
+                    myForm = new baseClass.forms.changePassword();
+                    myForm.Name = formName;
+                    cachedForms.Add(formName, myForm);
+                }
+                if (myForm == null) return;
+                myForm.loginAccount = commonClass.SysLibs.sysLoginAccount;
+                myForm.ShowDialog();
             }
             catch (Exception er)
             {
