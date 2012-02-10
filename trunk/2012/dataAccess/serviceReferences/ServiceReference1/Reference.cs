@@ -67,10 +67,10 @@ namespace DataAccess.ServiceReference1 {
         string GetXml(string filePath);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/Load_Global_Settings", ReplyAction="http://tempuri.org/IStockService/Load_Global_SettingsResponse")]
-        void Load_Global_Settings();
+        void Load_Global_Settings(ref commonClass.GlobalSettings settings);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/Save_Global_Settings", ReplyAction="http://tempuri.org/IStockService/Save_Global_SettingsResponse")]
-        void Save_Global_Settings();
+        void Save_Global_Settings(commonClass.GlobalSettings settings);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/WriteSyslog", ReplyAction="http://tempuri.org/IStockService/WriteSyslogResponse")]
         void WriteSyslog(commonClass.AppTypes.SyslogTypes logType, string investorCode, string desc, string source, string msg);
@@ -342,12 +342,12 @@ namespace DataAccess.ServiceReference1 {
             return base.Channel.GetXml(filePath);
         }
         
-        public void Load_Global_Settings() {
-            base.Channel.Load_Global_Settings();
+        public void Load_Global_Settings(ref commonClass.GlobalSettings settings) {
+            base.Channel.Load_Global_Settings(ref settings);
         }
         
-        public void Save_Global_Settings() {
-            base.Channel.Save_Global_Settings();
+        public void Save_Global_Settings(commonClass.GlobalSettings settings) {
+            base.Channel.Save_Global_Settings(settings);
         }
         
         public void WriteSyslog(commonClass.AppTypes.SyslogTypes logType, string investorCode, string desc, string source, string msg) {

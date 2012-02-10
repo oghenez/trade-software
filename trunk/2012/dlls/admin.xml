@@ -98,4 +98,7 @@
   <Application>
     <System cashier="" />
   </Application>
+  <ENVIRONMENT>
+    <Login sysLoginAccount="" />
+  </ENVIRONMENT>
 </Configuration>

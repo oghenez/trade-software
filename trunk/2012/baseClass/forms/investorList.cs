@@ -48,7 +48,6 @@ namespace baseClass.forms
             myMasterSource.DataSource = DataAccess.Libs.GetInvestor_BySQL(findCriteria.GetSQL());
             CurrentDataChanged();
         }
-
         private void SetDetailGrid()
         {
             data.baseDS.investorDataTable investorTbl = new data.baseDS.investorDataTable();
@@ -76,7 +75,6 @@ namespace baseClass.forms
             this.dataGrid.Columns.AddRange(new DataGridViewColumn[] { this.codeColumn, this.displayNameColumn });
             this.dataGrid.ReadOnly = true;
 
-            dataGrid.DisbaleReadOnlyColumns();
             common.system.AutoFitGridColumn(dataGrid, this.displayNameColumn.Name);
         }
         

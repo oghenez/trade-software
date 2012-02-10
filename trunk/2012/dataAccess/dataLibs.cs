@@ -99,12 +99,14 @@ namespace DataAccess
             ServicePointManager.DefaultConnectionLimit = 100; //ServicePointManager.DefaultPersistentConnectionLimit;
 
             //For testing
-            //_myClient.Endpoint.Address = new System.ServiceModel.EndpointAddress("http://localhost:8731/wsServices/DataLibs/?wsdl");
-            //_myClient.Endpoint.Address = new System.ServiceModel.EndpointAddress("http://localhost/DataLibs.svc");
-            //_myClient.Endpoint.Address = new System.ServiceModel.EndpointAddress("http://localhost:8731/wsServices/DataLibs");
-            //_myClient.ClientCredentials.Windows.ClientCredential.UserName = "";
-            //_myClient.ClientCredentials.Windows.ClientCredential.Password = "";
-            ////End testing
+            if (common.Consts.isTestMode)
+            {
+                //_myClient.Endpoint.Address = new System.ServiceModel.EndpointAddress("http://localhost:8731/wsServices/DataLibs/?wsdl");
+                _myClient.Endpoint.Address = new System.ServiceModel.EndpointAddress("http://localhost:8731/wsServices/DataLibs");
+                _myClient.ClientCredentials.Windows.ClientCredential.UserName = "";
+                _myClient.ClientCredentials.Windows.ClientCredential.Password = "";
+            }
+            //End testing
 
             _myClient.Open();
         }
@@ -123,7 +125,9 @@ namespace DataAccess
                 CloseConnection();
                 myClient.ClearCache();
                 myClient.Reset();
-                myClient.Load_Global_Settings();
+                GlobalSettings globalSetting = Settings.sysGlobal;
+                myClient.Load_Global_Settings(ref globalSetting);
+                Settings.sysGlobal = globalSetting;
             }
         }
         public static void Reset()
@@ -813,11 +817,13 @@ namespace DataAccess
         #region Configuration
         public static void Load_Global_Settings()
         {
-            myClient.Load_Global_Settings();
+            GlobalSettings globSettings = Settings.sysGlobal;
+            myClient.Load_Global_Settings(ref globSettings);
+            Settings.sysGlobal =  globSettings;
         }
         public static void Save_Global_Settings()
         {
-            myClient.Save_Global_Settings();
+            myClient.Save_Global_Settings(Settings.sysGlobal);
         }
         #endregion
 

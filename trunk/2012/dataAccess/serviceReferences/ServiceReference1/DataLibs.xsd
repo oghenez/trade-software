@@ -132,6 +132,28 @@
     </xs:restriction>
   </xs:simpleType>
   <xs:element name="AppTypes.TradeActions" nillable="true" type="tns:AppTypes.TradeActions" />
+  <xs:complexType name="GlobalSettings">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AlertDataCount" type="xs:int" />
+      <xs:element minOccurs="0" name="AutoEditKeySize" type="xs:int" />
+      <xs:element minOccurs="0" name="DataKeyPrefix" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DataKeySize" type="xs:int" />
+      <xs:element minOccurs="0" name="DebugMode" type="xs:boolean" />
+      <xs:element minOccurs="0" name="DefaultTimeRange" type="tns:AppTypes.TimeRanges" />
+      <xs:element minOccurs="0" name="DefaultTimeScaleCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PasswordMinLen" type="xs:unsignedByte" />
+      <xs:element minOccurs="0" name="ScreeningDataCount" type="xs:int" />
+      <xs:element minOccurs="0" name="ScreeningTimeScaleCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TimeOut_AutoKey" type="xs:int" />
+      <xs:element minOccurs="0" name="UseStrongPassword" type="xs:boolean" />
+      <xs:element minOccurs="0" name="smtpAddress" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="smtpAuthAccount" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="smtpAuthPassword" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="smtpPort" type="xs:int" />
+      <xs:element minOccurs="0" name="smtpSSL" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GlobalSettings" nillable="true" type="tns:GlobalSettings" />
   <xs:simpleType name="AppTypes.SyslogTypes">
     <xs:annotation>
       <xs:appinfo>

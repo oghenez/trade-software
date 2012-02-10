@@ -61,6 +61,15 @@ namespace Languages.langs {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Default.
+        /// </summary>
+        internal static string _default {
+            get {
+                return ResourceManager.GetString("default", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to About.
         /// </summary>
         internal static string about {
@@ -228,6 +237,15 @@ namespace Languages.langs {
         internal static string askToRestartService {
             get {
                 return ResourceManager.GetString("askToRestartService", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Auto Key.
+        /// </summary>
+        internal static string autoKey {
+            get {
+                return ResourceManager.GetString("autoKey", resourceCulture);
             }
         }
         
@@ -475,6 +493,15 @@ namespace Languages.langs {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Chars.
+        /// </summary>
+        internal static string character {
+            get {
+                return ResourceManager.GetString("character", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Charts.
         /// </summary>
         internal static string chart {
@@ -700,6 +727,24 @@ namespace Languages.langs {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to No. of data.
+        /// </summary>
+        internal static string dataCount {
+            get {
+                return ResourceManager.GetString("dataCount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Data key prefix.
+        /// </summary>
+        internal static string dataKeyPrefix {
+            get {
+                return ResourceManager.GetString("dataKeyPrefix", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to {0} : not found..
         /// </summary>
         internal static string dataNotFound {
@@ -781,6 +826,15 @@ namespace Languages.langs {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Debug mode.
+        /// </summary>
+        internal static string debugMode {
+            get {
+                return ResourceManager.GetString("debugMode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Decrease.
         /// </summary>
         internal static string decrease {
@@ -858,6 +912,15 @@ namespace Languages.langs {
         internal static string edit {
             get {
                 return ResourceManager.GetString("edit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Email.
+        /// </summary>
+        internal static string email {
+            get {
+                return ResourceManager.GetString("email", resourceCulture);
             }
         }
         
@@ -1029,6 +1092,15 @@ namespace Languages.langs {
         internal static string foreground {
             get {
                 return ResourceManager.GetString("foreground", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Foreign amount mask.
+        /// </summary>
+        internal static string foreignAmtMask {
+            get {
+                return ResourceManager.GetString("foreignAmtMask", resourceCulture);
             }
         }
         
@@ -1371,6 +1443,15 @@ namespace Languages.langs {
         internal static string loadDataError {
             get {
                 return ResourceManager.GetString("loadDataError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Local amount mask.
+        /// </summary>
+        internal static string localAmtMask {
+            get {
+                return ResourceManager.GetString("localAmtMask", resourceCulture);
             }
         }
         
@@ -1888,6 +1969,15 @@ namespace Languages.langs {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Percent mask.
+        /// </summary>
+        internal static string percentMask {
+            get {
+                return ResourceManager.GetString("percentMask", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Periodicity.
         /// </summary>
         internal static string periodicity {
@@ -2041,6 +2131,15 @@ namespace Languages.langs {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Quantity mask.
+        /// </summary>
+        internal static string qtyMask {
+            get {
+                return ResourceManager.GetString("qtyMask", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Recover.
         /// </summary>
         internal static string recover {
@@ -2163,6 +2262,15 @@ namespace Languages.langs {
         internal static string search {
             get {
                 return ResourceManager.GetString("search", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Second(s).
+        /// </summary>
+        internal static string second {
+            get {
+                return ResourceManager.GetString("second", resourceCulture);
             }
         }
         
@@ -2293,6 +2401,33 @@ namespace Languages.langs {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to SMTP port.
+        /// </summary>
+        internal static string smtpPort {
+            get {
+                return ResourceManager.GetString("smtpPort", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SMTP server.
+        /// </summary>
+        internal static string smtpServer {
+            get {
+                return ResourceManager.GetString("smtpServer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use SSL.
+        /// </summary>
+        internal static string smtpSSL {
+            get {
+                return ResourceManager.GetString("smtpSSL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Standard.
         /// </summary>
         internal static string standard {
@@ -2383,6 +2518,15 @@ namespace Languages.langs {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to System auto key size.
+        /// </summary>
+        internal static string sysAutoDataKeySize {
+            get {
+                return ResourceManager.GetString("sysAutoDataKeySize", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Preferences.
         /// </summary>
         internal static string sysOptions {
@@ -2451,6 +2595,15 @@ namespace Languages.langs {
         internal static string time {
             get {
                 return ResourceManager.GetString("time", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Keep auto-key in.
+        /// </summary>
+        internal static string timeOutAutoKey {
+            get {
+                return ResourceManager.GetString("timeOutAutoKey", resourceCulture);
             }
         }
         
@@ -2664,6 +2817,15 @@ namespace Languages.langs {
         /// <summary>
         ///   Looks up a localized string similar to Use strong password.
         /// </summary>
+        internal static string useStrongPass {
+            get {
+                return ResourceManager.GetString("useStrongPass", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use strong password.
+        /// </summary>
         internal static string useStrongPwd {
             get {
                 return ResourceManager.GetString("useStrongPwd", resourceCulture);
@@ -2748,6 +2910,15 @@ namespace Languages.langs {
         internal static string watchListShort {
             get {
                 return ResourceManager.GetString("watchListShort", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Password is not strong enogh.Please enter a new on !.
+        /// </summary>
+        internal static string weakPassReEnter {
+            get {
+                return ResourceManager.GetString("weakPassReEnter", resourceCulture);
             }
         }
         

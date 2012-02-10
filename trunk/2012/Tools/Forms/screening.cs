@@ -73,8 +73,8 @@ namespace Tools.Forms
 
             timeScaleCb.LoadData();
 
-            dataCounEd.Value = Settings.sysScreeningDataCount;
-            timeScaleCb.myValue = Settings.sysScreeningTimeScale;
+            dataCounEd.Value = Settings.sysGlobal.ScreeningDataCount;
+            timeScaleCb.myValue = AppTypes.TimeScaleFromCode(Settings.sysGlobal.ScreeningTimeScaleCode);
 
             stockCodeLb.SetLanguage();
             strategyCb.SetLanguage();
@@ -434,7 +434,7 @@ namespace Tools.Forms
                 if (e.ColumnIndex == 0)
                 {
                     //ShowStock(stockCode, Settings.sysScreeningTimeRange, Settings.sysScreeningTimeScale);
-                    ShowStock(stockCode, Settings.sysDefaultTimeRange, Settings.sysScreeningTimeScale);
+                    ShowStock(stockCode, Settings.sysGlobal.DefaultTimeRange, AppTypes.TimeScaleFromCode(Settings.sysGlobal.ScreeningTimeScaleCode));
                     return;
                 }
             }
@@ -493,7 +493,7 @@ namespace Tools.Forms
                     {
                         stockCode = resultDataGrid.SelectedRows[idx].Cells[0].Value.ToString();
                         //ShowStock(stockCode, Settings.sysScreeningTimeRange, Settings.sysScreeningTimeScale);
-                        ShowStock(stockCode, Settings.sysDefaultTimeRange, Settings.sysScreeningTimeScale);
+                        ShowStock(stockCode, Settings.sysGlobal.DefaultTimeRange, AppTypes.TimeScaleFromCode(Settings.sysGlobal.ScreeningTimeScaleCode));
                     }
                 }
                 else
@@ -502,7 +502,7 @@ namespace Tools.Forms
                     {
                         stockCode = resultDataGrid.CurrentRow.Cells[0].Value.ToString();
                         //ShowStock(stockCode, Settings.sysScreeningTimeRange, Settings.sysScreeningTimeScale);
-                        ShowStock(stockCode, Settings.sysDefaultTimeRange, Settings.sysScreeningTimeScale);
+                        ShowStock(stockCode, Settings.sysGlobal.DefaultTimeRange, AppTypes.TimeScaleFromCode(Settings.sysGlobal.ScreeningTimeScaleCode));
                     }
                 }
             }

@@ -34,8 +34,6 @@
             this.systemTab = new System.Windows.Forms.TabControl();
             this.generalPg = new System.Windows.Forms.TabPage();
             this.useStrongPassChk = new common.controls.baseCheckBox();
-            this.cultureCodeLbl = new common.controls.baseLabel();
-            this.cultureCodeEd = new common.controls.baseComboBox();
             this.pwdCharLbl = new common.controls.baseLabel();
             this.passwordMinLenEd = new common.controls.baseNumericUpDown();
             this.pwdMinLenLbl = new common.controls.baseLabel();
@@ -50,19 +48,6 @@
             this.sysAutoDataKeySizeEd = new common.controls.baseNumericUpDown();
             this.dataKeyPrefixLbl = new common.controls.baseLabel();
             this.sysDataKeyPrefixEd = new common.controls.baseMaskedTextBox();
-            this.formatPg = new System.Windows.Forms.TabPage();
-            this.percentPrecisionEd = new common.controls.baseNumericUpDown();
-            this.qtyPrecisionEd = new common.controls.baseNumericUpDown();
-            this.foreignAmtPrecisionEd = new common.controls.baseNumericUpDown();
-            this.localAmtPrecisionEd = new common.controls.baseNumericUpDown();
-            this.percentMaskLbl = new common.controls.baseLabel();
-            this.qtyMaskLbl = new common.controls.baseLabel();
-            this.foreignAmtMaskLbl = new common.controls.baseLabel();
-            this.localAmtMaskLbl = new common.controls.baseLabel();
-            this.percentMaskEd = new common.controls.baseMaskedTextBox();
-            this.qtyMaskEd = new common.controls.baseMaskedTextBox();
-            this.foreignAmtMaskEd = new common.controls.baseMaskedTextBox();
-            this.localAmtMaskEd = new common.controls.baseMaskedTextBox();
             this.emailPg = new System.Windows.Forms.TabPage();
             this.smtpAuthAccountLbl = new common.controls.baseLabel();
             this.smtpPortLbl = new common.controls.baseLabel();
@@ -108,11 +93,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.sysAutoEditKeySizeEd)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.timeOutAutoKeyEd)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sysAutoDataKeySizeEd)).BeginInit();
-            this.formatPg.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.percentPrecisionEd)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.qtyPrecisionEd)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.foreignAmtPrecisionEd)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.localAmtPrecisionEd)).BeginInit();
             this.emailPg.SuspendLayout();
             this.paramsPg.SuspendLayout();
             this.screeningGb.SuspendLayout();
@@ -137,7 +117,7 @@
             this.mainTab.Multiline = true;
             this.mainTab.Name = "mainTab";
             this.mainTab.SelectedIndex = 0;
-            this.mainTab.Size = new System.Drawing.Size(422, 308);
+            this.mainTab.Size = new System.Drawing.Size(422, 265);
             this.mainTab.TabIndex = 1;
             // 
             // systemPg
@@ -146,7 +126,7 @@
             this.systemPg.Location = new System.Drawing.Point(4, 25);
             this.systemPg.Name = "systemPg";
             this.systemPg.Padding = new System.Windows.Forms.Padding(3);
-            this.systemPg.Size = new System.Drawing.Size(414, 279);
+            this.systemPg.Size = new System.Drawing.Size(414, 236);
             this.systemPg.TabIndex = 0;
             this.systemPg.Text = "Hệ thống";
             this.systemPg.UseVisualStyleBackColor = true;
@@ -155,7 +135,6 @@
             // 
             this.systemTab.Controls.Add(this.generalPg);
             this.systemTab.Controls.Add(this.autoKeyPg);
-            this.systemTab.Controls.Add(this.formatPg);
             this.systemTab.Controls.Add(this.emailPg);
             this.systemTab.Location = new System.Drawing.Point(-3, 3);
             this.systemTab.Multiline = true;
@@ -167,8 +146,6 @@
             // generalPg
             // 
             this.generalPg.Controls.Add(this.useStrongPassChk);
-            this.generalPg.Controls.Add(this.cultureCodeLbl);
-            this.generalPg.Controls.Add(this.cultureCodeEd);
             this.generalPg.Controls.Add(this.pwdCharLbl);
             this.generalPg.Controls.Add(this.passwordMinLenEd);
             this.generalPg.Controls.Add(this.pwdMinLenLbl);
@@ -185,7 +162,7 @@
             // 
             this.useStrongPassChk.AutoSize = true;
             this.useStrongPassChk.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.useStrongPassChk.Location = new System.Drawing.Point(105, 96);
+            this.useStrongPassChk.Location = new System.Drawing.Point(105, 81);
             this.useStrongPassChk.Name = "useStrongPassChk";
             this.useStrongPassChk.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.useStrongPassChk.Size = new System.Drawing.Size(163, 20);
@@ -193,34 +170,11 @@
             this.useStrongPassChk.Text = "Dùng mật khẩu mạnh";
             this.useStrongPassChk.UseVisualStyleBackColor = true;
             // 
-            // cultureCodeLbl
-            // 
-            this.cultureCodeLbl.AutoSize = true;
-            this.cultureCodeLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cultureCodeLbl.Location = new System.Drawing.Point(105, 31);
-            this.cultureCodeLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.cultureCodeLbl.Name = "cultureCodeLbl";
-            this.cultureCodeLbl.Size = new System.Drawing.Size(63, 16);
-            this.cultureCodeLbl.TabIndex = 215;
-            this.cultureCodeLbl.Text = "Mã vùng";
-            // 
-            // cultureCodeEd
-            // 
-            this.cultureCodeEd.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cultureCodeEd.Items.AddRange(new object[] {
-            "vi-VN",
-            "us-US"});
-            this.cultureCodeEd.Location = new System.Drawing.Point(188, 30);
-            this.cultureCodeEd.myValue = "";
-            this.cultureCodeEd.Name = "cultureCodeEd";
-            this.cultureCodeEd.Size = new System.Drawing.Size(80, 24);
-            this.cultureCodeEd.TabIndex = 1;
-            // 
             // pwdCharLbl
             // 
             this.pwdCharLbl.AutoSize = true;
             this.pwdCharLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pwdCharLbl.Location = new System.Drawing.Point(240, 64);
+            this.pwdCharLbl.Location = new System.Drawing.Point(279, 49);
             this.pwdCharLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.pwdCharLbl.Name = "pwdCharLbl";
             this.pwdCharLbl.Size = new System.Drawing.Size(46, 16);
@@ -229,7 +183,7 @@
             // 
             // passwordMinLenEd
             // 
-            this.passwordMinLenEd.Location = new System.Drawing.Point(188, 61);
+            this.passwordMinLenEd.Location = new System.Drawing.Point(227, 46);
             this.passwordMinLenEd.Maximum = new decimal(new int[] {
             20,
             0,
@@ -243,6 +197,7 @@
             this.passwordMinLenEd.Name = "passwordMinLenEd";
             this.passwordMinLenEd.Size = new System.Drawing.Size(45, 23);
             this.passwordMinLenEd.TabIndex = 2;
+            this.passwordMinLenEd.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.passwordMinLenEd.Value = new decimal(new int[] {
             5,
             0,
@@ -253,18 +208,18 @@
             // 
             this.pwdMinLenLbl.AutoSize = true;
             this.pwdMinLenLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pwdMinLenLbl.Location = new System.Drawing.Point(105, 64);
+            this.pwdMinLenLbl.Location = new System.Drawing.Point(109, 49);
             this.pwdMinLenLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.pwdMinLenLbl.Name = "pwdMinLenLbl";
-            this.pwdMinLenLbl.Size = new System.Drawing.Size(68, 16);
+            this.pwdMinLenLbl.Size = new System.Drawing.Size(113, 16);
             this.pwdMinLenLbl.TabIndex = 212;
-            this.pwdMinLenLbl.Text = "Mật khẩu";
+            this.pwdMinLenLbl.Text = "Độ dài mật khẩu";
             // 
             // debugModeChk
             // 
             this.debugModeChk.AutoSize = true;
             this.debugModeChk.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.debugModeChk.Location = new System.Drawing.Point(105, 129);
+            this.debugModeChk.Location = new System.Drawing.Point(105, 114);
             this.debugModeChk.Name = "debugModeChk";
             this.debugModeChk.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.debugModeChk.Size = new System.Drawing.Size(194, 20);
@@ -438,202 +393,6 @@
             this.sysDataKeyPrefixEd.TabIndex = 1;
             this.sysDataKeyPrefixEd.Text = "A";
             this.sysDataKeyPrefixEd.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // formatPg
-            // 
-            this.formatPg.Controls.Add(this.percentPrecisionEd);
-            this.formatPg.Controls.Add(this.qtyPrecisionEd);
-            this.formatPg.Controls.Add(this.foreignAmtPrecisionEd);
-            this.formatPg.Controls.Add(this.localAmtPrecisionEd);
-            this.formatPg.Controls.Add(this.percentMaskLbl);
-            this.formatPg.Controls.Add(this.qtyMaskLbl);
-            this.formatPg.Controls.Add(this.foreignAmtMaskLbl);
-            this.formatPg.Controls.Add(this.localAmtMaskLbl);
-            this.formatPg.Controls.Add(this.percentMaskEd);
-            this.formatPg.Controls.Add(this.qtyMaskEd);
-            this.formatPg.Controls.Add(this.foreignAmtMaskEd);
-            this.formatPg.Controls.Add(this.localAmtMaskEd);
-            this.formatPg.Location = new System.Drawing.Point(4, 22);
-            this.formatPg.Name = "formatPg";
-            this.formatPg.Padding = new System.Windows.Forms.Padding(3);
-            this.formatPg.Size = new System.Drawing.Size(411, 233);
-            this.formatPg.TabIndex = 4;
-            this.formatPg.Text = "Định dạng";
-            this.formatPg.UseVisualStyleBackColor = true;
-            // 
-            // percentPrecisionEd
-            // 
-            this.percentPrecisionEd.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.percentPrecisionEd.Location = new System.Drawing.Point(195, 114);
-            this.percentPrecisionEd.Maximum = new decimal(new int[] {
-            4,
-            0,
-            0,
-            0});
-            this.percentPrecisionEd.myValue = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this.percentPrecisionEd.Name = "percentPrecisionEd";
-            this.percentPrecisionEd.Size = new System.Drawing.Size(46, 24);
-            this.percentPrecisionEd.TabIndex = 31;
-            this.percentPrecisionEd.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // qtyPrecisionEd
-            // 
-            this.qtyPrecisionEd.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.qtyPrecisionEd.Location = new System.Drawing.Point(326, 88);
-            this.qtyPrecisionEd.Maximum = new decimal(new int[] {
-            4,
-            0,
-            0,
-            0});
-            this.qtyPrecisionEd.myValue = new decimal(new int[] {
-            2,
-            0,
-            0,
-            0});
-            this.qtyPrecisionEd.Name = "qtyPrecisionEd";
-            this.qtyPrecisionEd.Size = new System.Drawing.Size(46, 24);
-            this.qtyPrecisionEd.TabIndex = 21;
-            this.qtyPrecisionEd.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.qtyPrecisionEd.Value = new decimal(new int[] {
-            2,
-            0,
-            0,
-            0});
-            // 
-            // foreignAmtPrecisionEd
-            // 
-            this.foreignAmtPrecisionEd.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.foreignAmtPrecisionEd.Location = new System.Drawing.Point(326, 62);
-            this.foreignAmtPrecisionEd.Maximum = new decimal(new int[] {
-            4,
-            0,
-            0,
-            0});
-            this.foreignAmtPrecisionEd.myValue = new decimal(new int[] {
-            2,
-            0,
-            0,
-            0});
-            this.foreignAmtPrecisionEd.Name = "foreignAmtPrecisionEd";
-            this.foreignAmtPrecisionEd.Size = new System.Drawing.Size(46, 24);
-            this.foreignAmtPrecisionEd.TabIndex = 11;
-            this.foreignAmtPrecisionEd.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.foreignAmtPrecisionEd.Value = new decimal(new int[] {
-            2,
-            0,
-            0,
-            0});
-            // 
-            // localAmtPrecisionEd
-            // 
-            this.localAmtPrecisionEd.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.localAmtPrecisionEd.Location = new System.Drawing.Point(326, 36);
-            this.localAmtPrecisionEd.Maximum = new decimal(new int[] {
-            4,
-            0,
-            0,
-            0});
-            this.localAmtPrecisionEd.myValue = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this.localAmtPrecisionEd.Name = "localAmtPrecisionEd";
-            this.localAmtPrecisionEd.Size = new System.Drawing.Size(46, 24);
-            this.localAmtPrecisionEd.TabIndex = 2;
-            this.localAmtPrecisionEd.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // percentMaskLbl
-            // 
-            this.percentMaskLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
-            this.percentMaskLbl.Location = new System.Drawing.Point(23, 115);
-            this.percentMaskLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.percentMaskLbl.Name = "percentMaskLbl";
-            this.percentMaskLbl.Size = new System.Drawing.Size(95, 20);
-            this.percentMaskLbl.TabIndex = 202;
-            this.percentMaskLbl.Text = "Tỉ lệ";
-            this.percentMaskLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // qtyMaskLbl
-            // 
-            this.qtyMaskLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
-            this.qtyMaskLbl.Location = new System.Drawing.Point(23, 90);
-            this.qtyMaskLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.qtyMaskLbl.Name = "qtyMaskLbl";
-            this.qtyMaskLbl.Size = new System.Drawing.Size(95, 20);
-            this.qtyMaskLbl.TabIndex = 201;
-            this.qtyMaskLbl.Text = "Số lượng";
-            this.qtyMaskLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // foreignAmtMaskLbl
-            // 
-            this.foreignAmtMaskLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
-            this.foreignAmtMaskLbl.Location = new System.Drawing.Point(23, 65);
-            this.foreignAmtMaskLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.foreignAmtMaskLbl.Name = "foreignAmtMaskLbl";
-            this.foreignAmtMaskLbl.Size = new System.Drawing.Size(95, 20);
-            this.foreignAmtMaskLbl.TabIndex = 200;
-            this.foreignAmtMaskLbl.Text = "Ngọai  tệ";
-            this.foreignAmtMaskLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // localAmtMaskLbl
-            // 
-            this.localAmtMaskLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
-            this.localAmtMaskLbl.Location = new System.Drawing.Point(23, 39);
-            this.localAmtMaskLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.localAmtMaskLbl.Name = "localAmtMaskLbl";
-            this.localAmtMaskLbl.Size = new System.Drawing.Size(95, 20);
-            this.localAmtMaskLbl.TabIndex = 199;
-            this.localAmtMaskLbl.Text = "Nguyên tệ";
-            this.localAmtMaskLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // percentMaskEd
-            // 
-            this.percentMaskEd.BeepOnError = true;
-            this.percentMaskEd.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.percentMaskEd.Location = new System.Drawing.Point(123, 114);
-            this.percentMaskEd.Margin = new System.Windows.Forms.Padding(4);
-            this.percentMaskEd.Name = "percentMaskEd";
-            this.percentMaskEd.Size = new System.Drawing.Size(71, 24);
-            this.percentMaskEd.TabIndex = 30;
-            this.percentMaskEd.Text = "#0";
-            // 
-            // qtyMaskEd
-            // 
-            this.qtyMaskEd.BeepOnError = true;
-            this.qtyMaskEd.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.qtyMaskEd.Location = new System.Drawing.Point(123, 88);
-            this.qtyMaskEd.Margin = new System.Windows.Forms.Padding(4);
-            this.qtyMaskEd.Name = "qtyMaskEd";
-            this.qtyMaskEd.Size = new System.Drawing.Size(203, 24);
-            this.qtyMaskEd.TabIndex = 20;
-            this.qtyMaskEd.Text = "###,###,##0.00";
-            // 
-            // foreignAmtMaskEd
-            // 
-            this.foreignAmtMaskEd.BeepOnError = true;
-            this.foreignAmtMaskEd.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.foreignAmtMaskEd.Location = new System.Drawing.Point(123, 62);
-            this.foreignAmtMaskEd.Margin = new System.Windows.Forms.Padding(4);
-            this.foreignAmtMaskEd.Name = "foreignAmtMaskEd";
-            this.foreignAmtMaskEd.Size = new System.Drawing.Size(203, 24);
-            this.foreignAmtMaskEd.TabIndex = 10;
-            this.foreignAmtMaskEd.Text = "###,###,###,##0.00";
-            // 
-            // localAmtMaskEd
-            // 
-            this.localAmtMaskEd.BeepOnError = true;
-            this.localAmtMaskEd.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.localAmtMaskEd.Location = new System.Drawing.Point(123, 36);
-            this.localAmtMaskEd.Margin = new System.Windows.Forms.Padding(4);
-            this.localAmtMaskEd.Name = "localAmtMaskEd";
-            this.localAmtMaskEd.Size = new System.Drawing.Size(203, 24);
-            this.localAmtMaskEd.TabIndex = 1;
-            this.localAmtMaskEd.Text = "###,###,###,###,##0";
             // 
             // emailPg
             // 
@@ -1068,7 +827,6 @@
             this.Controls.Add(this.closeBtn);
             this.Controls.Add(this.saveBtn);
             this.Controls.Add(this.mainTab);
-            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimizeBox = false;
             this.Name = "sysOptions";
@@ -1089,12 +847,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.sysAutoEditKeySizeEd)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.timeOutAutoKeyEd)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sysAutoDataKeySizeEd)).EndInit();
-            this.formatPg.ResumeLayout(false);
-            this.formatPg.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.percentPrecisionEd)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.qtyPrecisionEd)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.foreignAmtPrecisionEd)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.localAmtPrecisionEd)).EndInit();
             this.emailPg.ResumeLayout(false);
             this.emailPg.PerformLayout();
             this.paramsPg.ResumeLayout(false);
@@ -1120,31 +872,15 @@
         protected common.controls.baseLabel dataKeyPrefixLbl;
         protected common.controls.baseMaskedTextBox sysDataKeyPrefixEd;
         private System.Windows.Forms.TabPage generalPg;
-        protected common.controls.baseLabel cultureCodeLbl;
-        protected common.controls.baseComboBox cultureCodeEd;
         protected common.controls.baseLabel pwdCharLbl;
         protected common.controls.baseLabel pwdMinLenLbl;
-        private System.Windows.Forms.TabPage formatPg;
-        protected common.controls.baseLabel percentMaskLbl;
-        protected common.controls.baseMaskedTextBox percentMaskEd;
-        protected common.controls.baseLabel qtyMaskLbl;
-        protected common.controls.baseMaskedTextBox qtyMaskEd;
-        protected common.controls.baseLabel foreignAmtMaskLbl;
-        protected common.controls.baseMaskedTextBox foreignAmtMaskEd;
-        protected common.controls.baseLabel localAmtMaskLbl;
-        protected common.controls.baseMaskedTextBox localAmtMaskEd;
         protected System.Windows.Forms.TabControl mainTab;
         protected System.Windows.Forms.TabControl systemTab;
         protected common.controls.baseNumericUpDown timeOutAutoKeyEd;
         protected common.controls.baseNumericUpDown sysAutoDataKeySizeEd;
-        protected common.controls.baseCheckBox useStrongPassChk;
         protected common.controls.baseNumericUpDown passwordMinLenEd;
         protected common.controls.baseCheckBox debugModeChk;
         protected common.controls.baseNumericUpDown sysAutoEditKeySizeEd;
-        protected common.controls.baseNumericUpDown localAmtPrecisionEd;
-        protected common.controls.baseNumericUpDown qtyPrecisionEd;
-        protected common.controls.baseNumericUpDown foreignAmtPrecisionEd;
-        protected common.controls.baseNumericUpDown percentPrecisionEd;
         private System.Windows.Forms.TabPage emailPg;
         protected common.controls.baseLabel smtpServerLbl;
         protected common.controls.baseMaskedTextBox smtpServerEd;
@@ -1180,5 +916,6 @@
         protected common.controls.baseLabel sysAutoEditKeySizeLbl;
         protected common.controls.baseLabel smtpAuthAccountLbl;
         protected baseClass.controls.baseLabel screenTimeScaleLbl;
+        protected common.controls.baseCheckBox useStrongPassChk;
     }
 }

@@ -27,27 +27,16 @@ namespace admin.forms
         }
         private void LoadSettings()
         {
-            DataAccess.Libs.Load_Global_Settings();
-            cultureCodeEd.myValue = Settings.sysCultureCode;
-            passwordMinLenEd.Value = Settings.sysPasswordMinLen;
-            useStrongPassChk.Checked = Settings.sysUseStrongPassword;
-            debugModeChk.Checked = Settings.sysDebugMode;
-            sysDataKeyPrefixEd.Text = Settings.sysDataKeyPrefix;
+            //General
+            passwordMinLenEd.Value = Settings.sysGlobal.PasswordMinLen;
+            useStrongPassChk.Checked = Settings.sysGlobal.UseStrongPassword;
+            debugModeChk.Checked = Settings.sysGlobal.DebugMode;
 
-            sysAutoDataKeySizeEd.myValue = Settings.sysDataKeySize;
-            sysAutoEditKeySizeEd.myValue = Settings.sysAutoEditKeySize;
-            timeOutAutoKeyEd.Value = Settings.sysTimeOut_AutoKey;
-
-            //Format
-            localAmtMaskEd.Text = Settings.sysMaskLocalAmt;
-            foreignAmtMaskEd.Text = Settings.sysMaskForeignAmt;
-            qtyMaskEd.Text = Settings.sysMaskQty;
-            percentMaskEd.Text = Settings.sysMaskPercent;
-
-            foreignAmtPrecisionEd.Value = Settings.sysPrecisionForeign;
-            localAmtPrecisionEd.Value = Settings.sysPrecisionLocal;
-            qtyPrecisionEd.Value = Settings.sysPrecisionQty;
-            percentPrecisionEd.Value = Settings.sysPrecisionPercentage;
+            //Auto number
+            sysDataKeyPrefixEd.Text = Settings.sysGlobal.DataKeyPrefix;
+            sysAutoDataKeySizeEd.myValue = Settings.sysGlobal.DataKeySize;
+            sysAutoEditKeySizeEd.myValue = Settings.sysGlobal.AutoEditKeySize;
+            timeOutAutoKeyEd.Value = Settings.sysGlobal.TimeOut_AutoKey;
 
             //email
             smtpServerEd.Text = common.sendMail.mySettings.smtpAddress;
@@ -56,36 +45,26 @@ namespace admin.forms
             smtpAuthPasswordEd.Text = (common.sendMail.mySettings.authPassword == null ? "" : common.sendMail.mySettings.authPassword);
             smtpSSLChk.Checked = common.sendMail.mySettings.smtpSSL;
 
-            //Others
-            defaultTimeRangeCb.myValue = Settings.sysDefaultTimeRange;
-            defaultTimeScaleCb.myValue = Settings.sysDefaultTimeScale;
+            //Params
+            defaultTimeRangeCb.myValue = Settings.sysGlobal.DefaultTimeRange;
+            defaultTimeScaleCb.myValue = AppTypes.TimeScaleFromCode(Settings.sysGlobal.DefaultTimeScaleCode);
 
-            //??screenTimeRangeCb.myValue = Settings.sysScreeningDataCount ;
-            screenTimeScaleCb.myValue = Settings.sysScreeningTimeScale;
+            screenDataCounEd.Value = Settings.sysGlobal.ScreeningDataCount;
+            screenTimeScaleCb.myValue = AppTypes.TimeScaleFromCode(Settings.sysGlobal.ScreeningTimeScaleCode);
 
         }
         private void SaveSettings()
         {
-            Settings.sysCultureCode = cultureCodeEd.myValue;
-            Settings.sysPasswordMinLen = (byte)passwordMinLenEd.Value;
-            Settings.sysUseStrongPassword = useStrongPassChk.Checked;
-            Settings.sysDebugMode = debugModeChk.Checked;
-            Settings.sysDataKeyPrefix = sysDataKeyPrefixEd.Text;
+            //General
+            Settings.sysGlobal.PasswordMinLen = (byte)passwordMinLenEd.Value;
+            Settings.sysGlobal.UseStrongPassword = useStrongPassChk.Checked;
+            Settings.sysGlobal.DebugMode = debugModeChk.Checked;
 
-            Settings.sysDataKeySize = (byte)sysAutoDataKeySizeEd.Value;
-            Settings.sysAutoEditKeySize = (byte)sysAutoEditKeySizeEd.Value;
-            Settings.sysTimeOut_AutoKey = (int)timeOutAutoKeyEd.Value;
-
-            //Format
-            Settings.sysMaskLocalAmt = localAmtMaskEd.Text;
-            Settings.sysMaskForeignAmt = foreignAmtMaskEd.Text;
-            Settings.sysMaskQty = qtyMaskEd.Text;
-            Settings.sysMaskPercent = percentMaskEd.Text;
-
-            Settings.sysPrecisionForeign = (byte)foreignAmtPrecisionEd.Value;
-            Settings.sysPrecisionLocal = (byte)localAmtPrecisionEd.Value;
-            Settings.sysPrecisionQty = (byte)qtyPrecisionEd.Value;
-            Settings.sysPrecisionPercentage = (byte)percentPrecisionEd.Value;
+            //Auto number
+            Settings.sysGlobal.DataKeyPrefix = sysDataKeyPrefixEd.Text;
+            Settings.sysGlobal.DataKeySize = (byte)sysAutoDataKeySizeEd.Value;
+            Settings.sysGlobal.AutoEditKeySize = (byte)sysAutoEditKeySizeEd.Value;
+            Settings.sysGlobal.TimeOut_AutoKey = (int)timeOutAutoKeyEd.Value;
 
             //Email
             common.sendMail.mySettings.smtpAddress = smtpServerEd.Text.Trim();
@@ -95,12 +74,12 @@ namespace admin.forms
             common.sendMail.mySettings.authPassword = (smtpAuthPasswordEd.Text.Trim() == "" ? "" : smtpAuthPasswordEd.Text.Trim());
             common.sendMail.mySettings.smtpSSL = smtpSSLChk.Checked;
 
-            //Others
-            Settings.sysDefaultTimeRange = defaultTimeRangeCb.myValue;
-            Settings.sysDefaultTimeScale = defaultTimeScaleCb.myValue;
+            //Params
+            Settings.sysGlobal.DefaultTimeRange = defaultTimeRangeCb.myValue;
+            Settings.sysGlobal.DefaultTimeScaleCode = defaultTimeScaleCb.myValue.Code;
 
-            //??Settings.sysScreeningTimeRange = screenTimeRangeCb.myValue;
-            Settings.sysScreeningTimeScale = screenTimeScaleCb.myValue;
+            Settings.sysGlobal.ScreeningDataCount = (int)screenDataCounEd.Value;
+            Settings.sysGlobal.ScreeningTimeScaleCode = screenTimeScaleCb.myValue.Code;
 
 
             DataAccess.Libs.Save_Global_Settings();
@@ -109,15 +88,13 @@ namespace admin.forms
         public override void SetLanguage()
         {
             base.SetLanguage();
-            this.Text = Languages.Libs.GetString("option");
+            this.Text = Languages.Libs.GetString("sysOptions");
 
             systemPg.Text = Languages.Libs.GetString("system");
-            
-            generalPg.Text = Languages.Libs.GetString("general");
-            cultureCodeLbl.Text = Languages.Libs.GetString("cultureCode");
-            percentMaskLbl.Text = Languages.Libs.GetString("percent");
+
+            generalPg.Text = Languages.Libs.GetString("generalInfo");
             pwdMinLenLbl.Text = Languages.Libs.GetString("pwdMinLen");
-            pwdCharLbl.Text = Languages.Libs.GetString("pwdChar");
+            pwdCharLbl.Text = Languages.Libs.GetString("character");
             useStrongPassChk.Text = Languages.Libs.GetString("useStrongPass");
             debugModeChk.Text = Languages.Libs.GetString("debugMode");
 
@@ -127,12 +104,6 @@ namespace admin.forms
             timeOutAutoKeyLbl.Text = Languages.Libs.GetString("timeOutAutoKey");
             secondLbl.Text = Languages.Libs.GetString("second");
 
-            formatPg.Text = Languages.Libs.GetString("format");
-            localAmtMaskLbl.Text = Languages.Libs.GetString("localAmtMask");
-            foreignAmtMaskLbl.Text = Languages.Libs.GetString("foreignAmtMask");
-            qtyMaskLbl.Text = Languages.Libs.GetString("qtyMask");
-            percentMaskLbl.Text = Languages.Libs.GetString("percentMask");
-
             emailPg.Text = Languages.Libs.GetString("email");
             smtpServerLbl.Text = Languages.Libs.GetString("smtpServer");
             smtpAuthAccountLbl.Text = Languages.Libs.GetString("account");
@@ -140,7 +111,7 @@ namespace admin.forms
             smtpPortLbl.Text = Languages.Libs.GetString("smtpPort");
             smtpSSLChk.Text = Languages.Libs.GetString("smtpSSL");
 
-            paramsPg.Text = Languages.Libs.GetString("params");
+            paramsPg.Text = Languages.Libs.GetString("parameter");
             defaultGb.Text = Languages.Libs.GetString("default");
             defaTimeRangeLbl.Text = Languages.Libs.GetString("timeRange");
             defaTimeScaleLbl.Text = Languages.Libs.GetString("timeScale");

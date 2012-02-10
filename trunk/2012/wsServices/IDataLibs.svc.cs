@@ -213,9 +213,9 @@ namespace wsServices
         string GetXml(string filePath);
 
         [OperationContract]
-        void Load_Global_Settings();
+        void Load_Global_Settings(ref GlobalSettings settings);
         [OperationContract]
-        void Save_Global_Settings();
+        void Save_Global_Settings(GlobalSettings settings);
 
         #endregion
 
