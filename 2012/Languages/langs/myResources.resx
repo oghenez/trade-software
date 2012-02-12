@@ -1068,9 +1068,6 @@
   <data name="debugMode" xml:space="preserve">
     <value>Debug mode</value>
   </data>
-  <data name="default" xml:space="preserve">
-    <value>Default</value>
-  </data>
   <data name="email" xml:space="preserve">
     <value>Email</value>
   </data>
@@ -1130,5 +1127,14 @@
   </data>
   <data name="notMatched" xml:space="preserve">
     <value>Not match</value>
+  </data>
+  <data name="general" xml:space="preserve">
+    <value>General</value>
+  </data>
+  <data name="defaultLanguage" xml:space="preserve">
+    <value>Default language</value>
+  </data>
+  <data name="appearance" xml:space="preserve">
+    <value>Appearance</value>
   </data>
 </root>

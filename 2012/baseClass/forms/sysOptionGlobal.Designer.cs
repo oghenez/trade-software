@@ -1,6 +1,6 @@
-﻿namespace admin.forms
+﻿namespace baseClass.forms
 {
-    partial class sysOptions
+    partial class sysOptionGlobal
     {
         /// <summary>
         /// Required designer variable.
@@ -28,11 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(sysOptions));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(sysOptionGlobal));
             this.mainTab = new System.Windows.Forms.TabControl();
             this.systemPg = new System.Windows.Forms.TabPage();
             this.systemTab = new System.Windows.Forms.TabControl();
             this.generalPg = new System.Windows.Forms.TabPage();
+            this.defaLanguageLbl = new baseClass.controls.baseLabel();
+            this.defaLanguageCb = new baseClass.controls.cbLanguages();
             this.useStrongPassChk = new common.controls.baseCheckBox();
             this.pwdCharLbl = new common.controls.baseLabel();
             this.passwordMinLenEd = new common.controls.baseNumericUpDown();
@@ -141,6 +143,8 @@
             // 
             // generalPg
             // 
+            this.generalPg.Controls.Add(this.defaLanguageLbl);
+            this.generalPg.Controls.Add(this.defaLanguageCb);
             this.generalPg.Controls.Add(this.useStrongPassChk);
             this.generalPg.Controls.Add(this.pwdCharLbl);
             this.generalPg.Controls.Add(this.passwordMinLenEd);
@@ -154,11 +158,32 @@
             this.generalPg.Text = "Chung";
             this.generalPg.UseVisualStyleBackColor = true;
             // 
+            // defaLanguageLbl
+            // 
+            this.defaLanguageLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.defaLanguageLbl.Location = new System.Drawing.Point(91, 25);
+            this.defaLanguageLbl.Name = "defaLanguageLbl";
+            this.defaLanguageLbl.Size = new System.Drawing.Size(133, 16);
+            this.defaLanguageLbl.TabIndex = 215;
+            this.defaLanguageLbl.Text = "Default language";
+            this.defaLanguageLbl.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // defaLanguageCb
+            // 
+            this.defaLanguageCb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.defaLanguageCb.FormattingEnabled = true;
+            this.defaLanguageCb.Location = new System.Drawing.Point(227, 22);
+            this.defaLanguageCb.myCulture = new System.Globalization.CultureInfo("en-US");
+            this.defaLanguageCb.myValue = commonClass.AppTypes.LanguageCodes.EN;
+            this.defaLanguageCb.Name = "defaLanguageCb";
+            this.defaLanguageCb.Size = new System.Drawing.Size(121, 24);
+            this.defaLanguageCb.TabIndex = 1;
+            // 
             // useStrongPassChk
             // 
             this.useStrongPassChk.AutoSize = true;
             this.useStrongPassChk.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.useStrongPassChk.Location = new System.Drawing.Point(105, 81);
+            this.useStrongPassChk.Location = new System.Drawing.Point(91, 82);
             this.useStrongPassChk.Name = "useStrongPassChk";
             this.useStrongPassChk.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.useStrongPassChk.Size = new System.Drawing.Size(163, 20);
@@ -170,7 +195,7 @@
             // 
             this.pwdCharLbl.AutoSize = true;
             this.pwdCharLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pwdCharLbl.Location = new System.Drawing.Point(279, 49);
+            this.pwdCharLbl.Location = new System.Drawing.Point(279, 54);
             this.pwdCharLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.pwdCharLbl.Name = "pwdCharLbl";
             this.pwdCharLbl.Size = new System.Drawing.Size(46, 16);
@@ -179,7 +204,7 @@
             // 
             // passwordMinLenEd
             // 
-            this.passwordMinLenEd.Location = new System.Drawing.Point(227, 46);
+            this.passwordMinLenEd.Location = new System.Drawing.Point(227, 51);
             this.passwordMinLenEd.Maximum = new decimal(new int[] {
             20,
             0,
@@ -202,12 +227,11 @@
             // 
             // pwdMinLenLbl
             // 
-            this.pwdMinLenLbl.AutoSize = true;
             this.pwdMinLenLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pwdMinLenLbl.Location = new System.Drawing.Point(109, 49);
+            this.pwdMinLenLbl.Location = new System.Drawing.Point(91, 54);
             this.pwdMinLenLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.pwdMinLenLbl.Name = "pwdMinLenLbl";
-            this.pwdMinLenLbl.Size = new System.Drawing.Size(113, 16);
+            this.pwdMinLenLbl.Size = new System.Drawing.Size(133, 16);
             this.pwdMinLenLbl.TabIndex = 212;
             this.pwdMinLenLbl.Text = "Độ dài mật khẩu";
             // 
@@ -215,7 +239,7 @@
             // 
             this.debugModeChk.AutoSize = true;
             this.debugModeChk.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.debugModeChk.Location = new System.Drawing.Point(105, 114);
+            this.debugModeChk.Location = new System.Drawing.Point(91, 115);
             this.debugModeChk.Name = "debugModeChk";
             this.debugModeChk.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.debugModeChk.Size = new System.Drawing.Size(194, 20);
@@ -652,7 +676,7 @@
             // saveBtn
             // 
             this.saveBtn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.saveBtn.Image = global::admin.Properties.Resources.save;
+            this.saveBtn.Image = Properties.Resources.save;
             this.saveBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.saveBtn.Location = new System.Drawing.Point(224, 227);
             this.saveBtn.Margin = new System.Windows.Forms.Padding(4);
@@ -865,5 +889,7 @@
         protected common.controls.baseCheckBox useStrongPassChk;
         private baseClass.controls.cbTimeScale defaTimeScaleCb;
         private baseClass.controls.cbTimeRange defaTimeRangeCb;
+        protected baseClass.controls.baseLabel defaLanguageLbl;
+        protected baseClass.controls.cbLanguages defaLanguageCb;
     }
 }

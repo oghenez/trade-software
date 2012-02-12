@@ -1074,9 +1074,6 @@
   <data name="debugMode" xml:space="preserve">
     <value>Chế độ tìm lỗi(Debug)</value>
   </data>
-  <data name="default" xml:space="preserve">
-    <value>Mặc định</value>
-  </data>
   <data name="email" xml:space="preserve">
     <value>Email</value>
   </data>
@@ -1136,5 +1133,14 @@
   </data>
   <data name="notMatched" xml:space="preserve">
     <value>Không khớp</value>
+  </data>
+  <data name="general" xml:space="preserve">
+    <value>Chung</value>
+  </data>
+  <data name="defaultLanguage" xml:space="preserve">
+    <value>Ngôn ngữ mặc định</value>
+  </data>
+  <data name="appearance" xml:space="preserve">
+    <value>Thể hiện</value>
   </data>
 </root>

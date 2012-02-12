@@ -54,6 +54,12 @@ namespace commonClass
             }
         }
 
+        //Images and logo
+        public static string sysImgFilePathIcon = "";
+        public static string sysImgFilePathBackGround = "";
+        public static string sysImgFilePathCompanyLogo1 = "";
+        public static string sysImgFilePathCompanyLogo2 = "";
+
         public static int sysChartFontSize = 12;
         public static int sysTradePointMarkerFontSize = 12;
         public static Color sysTradePointMarkerColorBG = Color.LightYellow;
@@ -98,11 +104,10 @@ namespace commonClass
         public static int sysDefaultLoginAccountDayToExpire = 365;
         public static string sysSuperAdminName = "admin";
         public static string sysDefaultImageFile = "images/employee.png";
-        public static string sysCultureCode = "vi-VN";
+        public static AppTypes.LanguageCodes sysLanguage = AppTypes.LanguageCodes.EN; 
 
         //Country
         public static string sysDefaultCountry = "VN";
-
 
         public static Color sysColorTradePoint = Color.Red;
         public static Color sysColorTradePointAnnotation = Color.FromArgb(255, 255, 128);

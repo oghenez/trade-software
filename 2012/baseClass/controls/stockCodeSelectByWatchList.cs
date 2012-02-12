@@ -148,18 +148,30 @@ namespace baseClass.controls
 
         public void RefreshData(bool force)
         {
-            if (force)
+            try
             {
-                DataAccess.Libs.ClearCache();
-                int saveGroupIndex = codeGroupCb.SelectedIndex;
-                codeGroupCb.LoadData();
-                if (saveGroupIndex >= 0) codeGroupCb.SelectedIndex = saveGroupIndex;
+                fProcessing = true;
+                if (force)
+                {
+                    DataAccess.Libs.ClearCache();
+                    int saveGroupIndex = codeGroupCb.SelectedIndex;
+                    codeGroupCb.LoadData();
+                    if (saveGroupIndex >= 0) codeGroupCb.SelectedIndex = saveGroupIndex;
+                }
+                int lastPosition = stockSource.Position;
+                stockSource.DataSource = this.myStockTbl;
+                if (force) DoFilter();
+                if (lastPosition >= 0) stockSource.Position = lastPosition;
+                base.Refresh();
+                fProcessing = false;
+                RefreshPrice();
+                SetColor();
             }
-            int lastPosition = stockSource.Position;
-            LoadData();
-            if (force) DoFilter();
-            if (lastPosition >= 0) stockSource.Position = lastPosition;
-            base.Refresh();
+            catch (Exception er)
+            {
+                fProcessing = false;
+                ErrorHandler(this, er);
+            }
         }
         public void RefreshPrice()
         {
@@ -191,11 +203,6 @@ namespace baseClass.controls
             }
         }
 
-        private  void LoadData()
-        {
-            stockSource.DataSource = this.myStockTbl;
-            RefreshPrice();
-        }
         
         private void DoFilter()
         {
@@ -368,7 +375,7 @@ namespace baseClass.controls
         {
             try
             {
-                RefreshData(false);
+                //RefreshData(false);
             }
             catch (Exception er)
             {
@@ -380,6 +387,7 @@ namespace baseClass.controls
         {
             try
             {
+                if (fProcessing) return;
                 SetColor();
             }
             catch (Exception er)

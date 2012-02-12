@@ -45,6 +45,19 @@ namespace baseClass
                 return;
             }
 
+            if (type == typeof(AppTypes.LanguageCodes))
+            {
+                items.Clear();
+                for (int idx = 0; idx < saveKeys.Count; idx++)
+                {
+                    object obj = FindCodeInEnum(saveKeys[idx], typeof(AppTypes.LanguageCodes));
+                    if (obj == null) continue;
+                    AppTypes.LanguageCodes item = (AppTypes.LanguageCodes)obj;
+                    items.Add(new common.myComboBoxItem(AppTypes.Type2Text(item), item.ToString()));
+                }
+                return;
+            }
+
             if (type == typeof(AppTypes.TradeActions))
             {
                 items.Clear();

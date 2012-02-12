@@ -1403,7 +1403,6 @@
             this.MaximizeBox = true;
             this.Name = "main";
             this.Text = "Quantum Automatic Trading System";
-            this.Load += new System.EventHandler(this.main_Load);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.main_FormClosed);
             this.Controls.SetChildIndex(this.toolStripPanel, 0);
             this.Controls.SetChildIndex(this.dockPanel, 0);
