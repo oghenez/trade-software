@@ -20,7 +20,7 @@ namespace application.forms
         public baseIndicatorForm(Indicators.Meta meta)
         {
             InitializeComponent();
-            Indicators.Libs.GetUserSettings(meta);
+            Indicators.Libs.GetLocalConfig(meta);
             this.FormMeta = meta;
         }
         public override void SetLanguage()
@@ -43,7 +43,7 @@ namespace application.forms
         protected virtual void SaveSettings()
         {
             CollectMetaData(this.FormMeta);
-            Indicators.Libs.SaveUserSettings(this.FormMeta);
+            Indicators.Libs.SaveLocalConfig(this.FormMeta);
             this.ShowMessage(Languages.Libs.GetString("settingSaved"));
         }
 

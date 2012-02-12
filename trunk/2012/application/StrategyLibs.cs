@@ -131,7 +131,7 @@ namespace application.Strategy
             aFields.Add("URL");
             aFields.Add("Authors");
             aFields.Add("Version");
-            common.configuration.GetConfiguration(Data.sysXmlDocument, "STRATEGY", meta.ClassType.Name, aFields, false);
+            common.configuration.GetConfiguration(new string[] { "STRATEGY", meta.ClassType.Name }, aFields, Data.sysXmlDocument, false);
 
             meta.Type = AppTypes.Text2StrategyType(aFields[0]);
             meta.Code = aFields[1];
@@ -918,7 +918,7 @@ namespace application.Strategy
         {
             StringCollection aFields = new StringCollection();
             aFields.Add("params");
-            if (commonClass.Configuration.GetUserSettings(meta.ClassType.FullName, aFields))
+            if (commonClass.Configuration.GetLocalConfig(meta.ClassType.FullName, aFields))
                 meta.Parameters = common.system.String2DoubleList(aFields[0]);
         }
         public static void SaveUserSettings(Meta meta)
@@ -928,7 +928,7 @@ namespace application.Strategy
             aFields.Add("params");
             StringCollection aValues = new StringCollection();
             aValues.Add(common.system.ToString(meta.Parameters));
-            commonClass.Configuration.SaveUserSettings(meta.ClassType.FullName, aFields, aValues);
+            commonClass.Configuration.SaveLocalConfig(meta.ClassType.FullName, aFields, aValues);
         }
 
         //Load strategy to table
@@ -1041,7 +1041,7 @@ namespace application.Strategy
                         aFields.Clear();
                         aFields.Add("Code");
                         aFields.Add("Description");
-                        if (!common.configuration.GetConfiguration(Data.sysXmlDocument, "CATEGORY", "CAT" + count.ToString(), aFields, false)) break;
+                        if (!common.configuration.GetConfiguration(new string[] { "CATEGORY", "CAT" + count.ToString() }, aFields, Data.sysXmlDocument, false)) break;
                         _myCatList.Add(new commonClass.DataCategory(aFields[0], aFields[1]));
                         count++;
                     }

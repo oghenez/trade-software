@@ -96,10 +96,10 @@ namespace DataAccess
             ServicePointManager.Expect100Continue = false; //loi proxy http://chrishaas.wordpress.com/2009/11/02/fixing-the-remote-server-returned-an-error-417-expectation-failed/
             ServicePointManager.UseNagleAlgorithm = true;
             ServicePointManager.CheckCertificateRevocationList = true;
-            ServicePointManager.DefaultConnectionLimit = 100; //ServicePointManager.DefaultPersistentConnectionLimit;
+            ServicePointManager.DefaultConnectionLimit = ServicePointManager.DefaultPersistentConnectionLimit;
 
             //For testing
-            if (common.Consts.isTestMode)
+            if (common.Settings.sysTestMode)
             {
                 //_myClient.Endpoint.Address = new System.ServiceModel.EndpointAddress("http://localhost:8731/wsServices/DataLibs/?wsdl");
                 _myClient.Endpoint.Address = new System.ServiceModel.EndpointAddress("http://localhost:8731/wsServices/DataLibs");

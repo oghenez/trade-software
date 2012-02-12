@@ -1,7 +1,32 @@
 <Configuration>
-  <A00000017>
-    <Strategy.PriceChangeSCR params="1111" />
-  </A00000017>
+  <Environment sysLoginAccount="dungvq" />
+  <A00000004>
+    <ChartColors sysChartBgColor="Black" />
+  </A00000004>
+  <A00000004>
+    <ChartColors sysChartFgColor="Black" />
+  </A00000004>
+  <A00000004>
+    <ChartColors sysChartGridColor="Black" />
+  </A00000004>
+  <A00000004>
+    <ChartColors sysChartVolumesColor="Navy" />
+  </A00000004>
+  <A00000004>
+    <ChartColors sysChartLineCandleColor="DarkBlue" />
+  </A00000004>
+  <A00000004>
+    <ChartColors sysChartBearCandleColor="Red" />
+  </A00000004>
+  <A00000004>
+    <ChartColors sysChartBullCandleColor="Green" />
+  </A00000004>
+  <A00000004>
+    <ChartColors sysChartBarDnColor="Pink" />
+  </A00000004>
+  <A00000004>
+    <ChartColors sysChartBarUpColor="Blue" />
+  </A00000004>
   <A00000004>
     <ChartSettings sysChartShowDescription="False" />
   </A00000004>
@@ -64,5 +89,131 @@
   </A00000004>
   <A00000004>
     <ChartSettings sysViewSpaceAtBOT="0.2" />
+  </A00000004>
+  <A00000004>
+    <Indicators.ADX params="14" />
+  </A00000004>
+  <A00000004>
+    <Indicators.ADX output="Blue:1" />
+  </A00000004>
+  <A00000004>
+    <Indicators.ADX drawInNewWindow="True" />
+  </A00000004>
+  <A00000004>
+    <Strategy.PriceChangeSCR params="35" />
+  </A00000004>
+  <A00000004>
+    <Indicators.TRANGE params="" />
+  </A00000004>
+  <A00000004>
+    <Indicators.TRANGE output="Blue:1" />
+  </A00000004>
+  <A00000004>
+    <Indicators.TRANGE drawInNewWindow="True" />
+  </A00000004>
+  <A00000004>
+    <STOCK sysStockMaxBuyQtyPerc="10" />
+  </A00000004>
+  <A00000004>
+    <STOCK sysStockReduceQtyPerc="10" />
+  </A00000004>
+  <A00000004>
+    <STOCK sysStockAccumulateQtyPerc="10" />
+  </A00000004>
+  <A00000004>
+    <STOCK sysStockTotalCapAmt="10000000" />
+  </A00000004>
+  <A00000004>
+    <STOCK sysStockMaxBuyAmtPerc="100" />
+  </A00000004>
+  <A00000004>
+    <Format sysMaskGeneralValue="###,###,###,##0.00" />
+  </A00000004>
+  <A00000004>
+    <Format sysMaskLocalAmt="###,###,###,##0.00" />
+  </A00000004>
+  <A00000004>
+    <Format sysMaskForeignAmt="###,###,###,##0.00" />
+  </A00000004>
+  <A00000004>
+    <Format sysMaskPercent="#0" />
+  </A00000004>
+  <A00000004>
+    <Format sysMaskQty="###,###,###,##0" />
+  </A00000004>
+  <A00000004>
+    <Format sysMaskPrice="###,###,##0.0" />
+  </A00000004>
+  <A00000004>
+    <Format sysPrecisionLocal="0" />
+  </A00000004>
+  <A00000004>
+    <Format sysPrecisionForeign="2" />
+  </A00000004>
+  <A00000004>
+    <Format sysPrecisionQty="0" />
+  </A00000004>
+  <A00000004>
+    <Format sysPrecisionPrice="1" />
+  </A00000004>
+  <A00000004>
+    <Format sysPrecisionPercentage="1" />
+  </A00000004>
+  <A00000004>
+    <Format sysTimerIntervalInSecs="0" />
+  </A00000004>
+  <A00000004>
+    <Format sysPriceColor_Increase_BG="SkyBlue" />
+  </A00000004>
+  <A00000004>
+    <Format sysPriceColor_Increase_FG="Black" />
+  </A00000004>
+  <A00000004>
+    <Format sysPriceColor_Decrease_BG="Red" />
+  </A00000004>
+  <A00000004>
+    <Format sysPriceColor_Decrease_FG="Black" />
+  </A00000004>
+  <A00000004>
+    <Format sysPriceColor_NotChange_BG="Yellow" />
+  </A00000004>
+  <A00000004>
+    <Format sysPriceColor_NotChange_FG="Black" />
+  </A00000004>
+  <A00000004>
+    <Investor sysCompanyName="" />
+  </A00000004>
+  <A00000004>
+    <Investor sysCompanyAddr1="" />
+  </A00000004>
+  <A00000004>
+    <Investor sysCompanyAddr2="" />
+  </A00000004>
+  <A00000004>
+    <Investor sysCompanyAddr3="" />
+  </A00000004>
+  <A00000004>
+    <Investor sysCompanyPhone="" />
+  </A00000004>
+  <A00000004>
+    <Investor sysCompanyFax="" />
+  </A00000004>
+  <A00000004>
+    <Investor sysCompanyEmail="" />
+  </A00000004>
+  <A00000004>
+    <Investor sysCompanyURL="" />
+  </A00000004>
+  <A00000004>
+    <Others sysImgFilePathBackGround="" />
+  </A00000004>
+  <A00000004>
+    <Others sysImgFilePathIcon="" />
+  </A00000004>
+  <A00000004>
+    <Others sysImgFilePathCompanyLogo1="" />
+  </A00000004>
+  <A00000004>
+    <Others sysImgFilePathCompanyLogo2="" />
   </A00000004>
 </Configuration>

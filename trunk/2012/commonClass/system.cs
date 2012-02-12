@@ -18,7 +18,7 @@ namespace commonClass
             get
             {
                 //For testing 
-                if (common.Consts.isTestMode)
+                if (common.Settings.sysTestMode)
                     return "D:\\work\\stockProject\\code\\wsServices\\obj\\Debug"; 
 
                 if (_executeDirectory == null)
@@ -397,11 +397,11 @@ namespace commonClass
     }
     public static class Configuration
     {
-        public static bool GetUserSettings(string type, StringCollection aFields)
+        public static bool GetLocalConfig(string type, StringCollection aFields)
         {
             return common.configuration.GetConfiguration(Settings.sysUserConfigFile, SysLibs.sysLoginCode,type, aFields, false);
         }
-        public static bool SaveUserSettings(string type, StringCollection aFields, StringCollection aValues)
+        public static bool SaveLocalConfig(string type, StringCollection aFields, StringCollection aValues)
         {
             if (SysLibs.sysLoginCode.Trim() == "") return false;
             return common.configuration.SaveConfiguration(Settings.sysUserConfigFile, SysLibs.sysLoginCode, type, aFields, aValues, false);

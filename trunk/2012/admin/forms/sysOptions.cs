@@ -19,6 +19,11 @@ namespace admin.forms
                 sysDataKeyPrefixEd.maxlen = 2;
                 sysDataKeyPrefixEd.isToUpperCase = true;
                 smtpPortEd.BackColor = common.Settings.sysColorDisableBG;
+
+                defaTimeRangeCb.LoadData();
+                defaTimeScaleCb.LoadData();
+                screenTimeRangeCb.LoadData();
+                screenTimeScaleCb.LoadData();
             }
             catch (Exception er)
             {
@@ -46,8 +51,8 @@ namespace admin.forms
             smtpSSLChk.Checked = common.sendMail.mySettings.smtpSSL;
 
             //Params
-            defaultTimeRangeCb.myValue = Settings.sysGlobal.DefaultTimeRange;
-            defaultTimeScaleCb.myValue = AppTypes.TimeScaleFromCode(Settings.sysGlobal.DefaultTimeScaleCode);
+            defaTimeRangeCb.myValue = Settings.sysGlobal.DefaultTimeRange;
+            defaTimeScaleCb.myValue = AppTypes.TimeScaleFromCode(Settings.sysGlobal.DefaultTimeScaleCode);
 
             screenDataCounEd.Value = Settings.sysGlobal.ScreeningDataCount;
             screenTimeScaleCb.myValue = AppTypes.TimeScaleFromCode(Settings.sysGlobal.ScreeningTimeScaleCode);
@@ -75,12 +80,11 @@ namespace admin.forms
             common.sendMail.mySettings.smtpSSL = smtpSSLChk.Checked;
 
             //Params
-            Settings.sysGlobal.DefaultTimeRange = defaultTimeRangeCb.myValue;
-            Settings.sysGlobal.DefaultTimeScaleCode = defaultTimeScaleCb.myValue.Code;
+            Settings.sysGlobal.DefaultTimeRange = defaTimeRangeCb.myValue;
+            Settings.sysGlobal.DefaultTimeScaleCode = defaTimeScaleCb.myValue.Code;
 
             Settings.sysGlobal.ScreeningDataCount = (int)screenDataCounEd.Value;
             Settings.sysGlobal.ScreeningTimeScaleCode = screenTimeScaleCb.myValue.Code;
-
 
             DataAccess.Libs.Save_Global_Settings();
         }
@@ -153,6 +157,5 @@ namespace admin.forms
                 this.ShowError(er);
             }
         }
-
     }
 }

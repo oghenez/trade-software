@@ -41,6 +41,7 @@ namespace client
                     Init();
                     SetTimer();
                 }
+                testMenuItem.Visible = (common.Settings.sysDebugMode || common.Settings.sysTestMode);
             }
             catch (Exception er)
             {
@@ -345,16 +346,8 @@ namespace client
 
         protected override bool LoadAppConfig()
         {
-            try
-            {
-                common.Consts.constValidCallString = common.Consts.constValidCallMarker;
-                return base.LoadAppConfig();
-            }
-            catch (Exception er)
-            {
-                this.ShowError(er);
-            }
-            return false;
+            common.Consts.constValidCallString = common.Consts.constValidCallMarker;
+            return base.LoadAppConfig();
         }
        
 
@@ -1329,6 +1322,7 @@ namespace client
                     myForm = new forms.investorEdit();
                     myForm.Name = "investorEdit";
                     myForm.myDockedPane = dockPanel;
+                    myForm.myOnWatchListChanged += new common.forms.baseMasterEditForm.onDataChanged(UpdateWatchList);  
                 }
                 myForm.Show(dockPanel);
             }
@@ -1337,6 +1331,20 @@ namespace client
                 this.ShowError(er);
             }
         }
+        private void UpdateWatchList(object sender, common.forms.baseMasterEditForm.myEventArgs e)
+        {
+            try
+            {
+                Trade.Forms.marketWatch form = GetMarketWatchForm(false);
+                if (form == null) return;
+                form.RefreshData();
+            }
+            catch (Exception er)
+            {
+                this.ShowError(er);
+            }
+        }
+
 
         private void printSetupMenuItem_Click(object sender, EventArgs e)
         {
@@ -1721,5 +1729,19 @@ namespace client
             }
         }
         #endregion event handler
+
+        private void testMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Trade.Forms.marketWatch form = GetMarketWatchForm(false);
+                if (form == null) return;
+                form.RefreshData();
+            }
+            catch (Exception er)
+            {
+                this.ShowError(er);
+            }
+        }
     }
 }
