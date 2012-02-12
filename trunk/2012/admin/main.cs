@@ -109,7 +109,7 @@ namespace admin
             Form myForm = this.FindForm("sysOptions");
             if (myForm == null || myForm.IsDisposed)
             {
-                myForm = new forms.sysOptions();
+                myForm = new baseClass.forms.sysOptionGlobal();
                 myForm.Name = "sysOptions";
             }
             this.ShowForm(myForm);

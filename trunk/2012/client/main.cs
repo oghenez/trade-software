@@ -40,8 +40,10 @@ namespace client
                     DataAccess.Libs.LoadSystemVars();
                     Init();
                     SetTimer();
+
+                    //Display test menu
+                    testMenuItem.Visible = (Settings.sysGlobal.DebugMode || common.Settings.sysTestMode);
                 }
-                testMenuItem.Visible = (common.Settings.sysDebugMode || common.Settings.sysTestMode);
             }
             catch (Exception er)
             {
@@ -245,31 +247,22 @@ namespace client
                 this.ShowError(er);
             }
         }
-        
-        /// <summary>
-        /// Set US Culture
-        /// </summary>
-        private void SetCulture()
+
+        private void SetCulture(AppTypes.LanguageCodes code)
         {
-            SetCulture("en-US");
-        }
-        
-        private void SetCulture(string code)
-        {
-            CultureInfo cultureInfo = null;
-            object obj = cultureCache.Find(code);
+            CultureInfo cultureInfo = AppTypes.Code2Culture(code);
+            object obj = cultureCache.Find(cultureInfo.Name);
             if (obj == null)
             {
-                cultureInfo = common.language.CreateCulture(code);
-                cultureCache.Add(code, cultureInfo);
+                cultureCache.Add(cultureInfo.Name, cultureInfo);
             }
             else
             {
                 cultureInfo = (CultureInfo)obj;
             }
-            switch (cultureInfo.Name)
+            switch (code)
             {
-                case "vi-VN":
+                case AppTypes.LanguageCodes.VI: 
                     vietnameseMenuItem.Checked = true;
                     englishMenuItem.Checked = false;
                     break;
@@ -338,6 +331,8 @@ namespace client
             }
             cachedForms.Clear();
             common.Data.Clear();
+            LoadUserConfig();
+
             StartupForms();
             return true;
         }
@@ -347,9 +342,16 @@ namespace client
         protected override bool LoadAppConfig()
         {
             common.Consts.constValidCallString = common.Consts.constValidCallMarker;
-            return base.LoadAppConfig();
+            if(!base.LoadAppConfig()) return false;
+            return true;
         }
-       
+        protected override bool LoadUserConfig()
+        {
+            common.Consts.constValidCallString = common.Consts.constValidCallMarker;
+            if (!base.LoadUserConfig()) return false;
+            SetCulture(Settings.sysLanguage);
+            return true;
+        }
 
         private common.DictionaryList cultureCache = new common.DictionaryList();
         
@@ -385,9 +387,9 @@ namespace client
             dockPanel.DockLeftPortion = (double)constPaneLeftWidth/100;
             dockPanel.AllowDrop = true;
             dockPanel.ActiveAutoHideContent = null;
-            
-            //Language default
-            SetCulture();
+
+            //Default language from global settings
+            SetCulture(Settings.sysGlobal.DeafautLanguage);
         }
         private void Reset()
         {
@@ -695,6 +697,7 @@ namespace client
             Trade.Forms.marketWatch form = GetMarketWatchForm(true);
             form.myContextMenuStrip = CreateContextMenu_MarketWatch();
             form.myGrid.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(NewChartMenuItem_Click);
+            form.RefreshData();
             form.Show(dockPanel, DockState.DockLeft);
         }
         private void HideMarketWatchForm()
@@ -1351,18 +1354,6 @@ namespace client
             myPrintDialog.ShowDialog();
         }
 
-        private void main_Load(object sender, EventArgs e)
-        {
-            try
-            {
-                StartupForms();
-            }
-            catch (Exception er)
-            {
-                this.ShowError(er);
-            }
-        }
-
         private void toolRunBtn_Click(object sender, EventArgs e)
         {
             try
@@ -1550,7 +1541,7 @@ namespace client
         {
             try
             {
-                SetCulture("vi-VN");
+                SetCulture(AppTypes.LanguageCodes.VI);
             }
             catch (Exception er)
             {
@@ -1567,7 +1558,7 @@ namespace client
         {
             try
             {
-                SetCulture("en-US");
+                SetCulture(AppTypes.LanguageCodes.EN);
             }
             catch (Exception er)
             {
@@ -1654,7 +1645,7 @@ namespace client
         {
             try
             {
-                client.forms.sysOptions.GetForm("").ShowDialog();
+                baseClass.forms.sysOptionLocal.GetForm("").ShowDialog();
                 Reset();
             }
             catch (Exception er)

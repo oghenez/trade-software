@@ -61,15 +61,6 @@ namespace Languages.langs {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Default.
-        /// </summary>
-        internal static string _default {
-            get {
-                return ResourceManager.GetString("default", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to About.
         /// </summary>
         internal static string about {
@@ -210,6 +201,15 @@ namespace Languages.langs {
         internal static string amount {
             get {
                 return ResourceManager.GetString("amount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Appearance.
+        /// </summary>
+        internal static string appearance {
+            get {
+                return ResourceManager.GetString("appearance", resourceCulture);
             }
         }
         
@@ -853,6 +853,15 @@ namespace Languages.langs {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Default language.
+        /// </summary>
+        internal static string defaultLanguage {
+            get {
+                return ResourceManager.GetString("defaultLanguage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Default.
         /// </summary>
         internal static string defaultStr {
@@ -1137,6 +1146,15 @@ namespace Languages.langs {
         internal static string fullView {
             get {
                 return ResourceManager.GetString("fullView", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to General.
+        /// </summary>
+        internal static string general {
+            get {
+                return ResourceManager.GetString("general", resourceCulture);
             }
         }
         

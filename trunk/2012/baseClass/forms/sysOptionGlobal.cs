@@ -7,15 +7,16 @@ using System.Text;
 using System.Windows.Forms;
 using commonClass;
 
-namespace admin.forms
+namespace baseClass.forms
 {
-    public partial class sysOptions : baseClass.forms.baseForm
+    public partial class sysOptionGlobal : baseClass.forms.baseForm
     {
-        public sysOptions()
+        public sysOptionGlobal()
         {
             try
             {
                 InitializeComponent();
+                defaLanguageCb.LoadData();
                 sysDataKeyPrefixEd.maxlen = 2;
                 sysDataKeyPrefixEd.isToUpperCase = true;
                 smtpPortEd.BackColor = common.Settings.sysColorDisableBG;
@@ -33,6 +34,7 @@ namespace admin.forms
         private void LoadSettings()
         {
             //General
+            defaLanguageCb.myValue = Settings.sysGlobal.DeafautLanguage;
             passwordMinLenEd.Value = Settings.sysGlobal.PasswordMinLen;
             useStrongPassChk.Checked = Settings.sysGlobal.UseStrongPassword;
             debugModeChk.Checked = Settings.sysGlobal.DebugMode;
@@ -61,6 +63,7 @@ namespace admin.forms
         private void SaveSettings()
         {
             //General
+            Settings.sysGlobal.DeafautLanguage = defaLanguageCb.myValue;
             Settings.sysGlobal.PasswordMinLen = (byte)passwordMinLenEd.Value;
             Settings.sysGlobal.UseStrongPassword = useStrongPassChk.Checked;
             Settings.sysGlobal.DebugMode = debugModeChk.Checked;
@@ -95,8 +98,8 @@ namespace admin.forms
             this.Text = Languages.Libs.GetString("sysOptions");
 
             systemPg.Text = Languages.Libs.GetString("system");
-
             generalPg.Text = Languages.Libs.GetString("generalInfo");
+            defaLanguageLbl.Text = Languages.Libs.GetString("defaultLanguage");
             pwdMinLenLbl.Text = Languages.Libs.GetString("pwdMinLen");
             pwdCharLbl.Text = Languages.Libs.GetString("character");
             useStrongPassChk.Text = Languages.Libs.GetString("useStrongPass");
@@ -116,7 +119,7 @@ namespace admin.forms
             smtpSSLChk.Text = Languages.Libs.GetString("smtpSSL");
 
             paramsPg.Text = Languages.Libs.GetString("parameter");
-            defaultGb.Text = Languages.Libs.GetString("default");
+            defaultGb.Text = Languages.Libs.GetString("defaultStr");
             defaTimeRangeLbl.Text = Languages.Libs.GetString("timeRange");
             defaTimeScaleLbl.Text = Languages.Libs.GetString("timeScale");
 

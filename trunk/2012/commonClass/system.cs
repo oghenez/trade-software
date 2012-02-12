@@ -50,10 +50,10 @@ namespace commonClass
             common.system.ExitApplication();
         }
 
-        public static void SetAppEnvironment()
-        {
-            common.language.myCulture = new CultureInfo(Settings.sysCultureCode);
-        }
+        //public static void SetAppEnvironment()
+        //{
+        //    common.language.myCulture = new CultureInfo(Settings.sysLanguage);
+        //}
 
         public static bool isSupperAdminLogin(string loginName)
         {
@@ -100,15 +100,6 @@ namespace commonClass
         //??public static DateTime sysDataStartDate = common.Consts.constNullDate;
         public static int sysLoginUserId = common.Consts.constNullInt;
         
-        //public static StringCollection sysLoginInterestedBizSectors = null;
-        //public static StringCollection sysLoginInterestedStockCode = null;
-        //public static StringCollection sysLoginInterestedStrategy = null;
-
-        //Images and logo
-        public static string sysImgFilePathIcon = "";
-        public static string sysImgFilePathBackGround = "";
-        public static string sysImgFilePathCompanyLogo1 = "";
-        public static string sysImgFilePathCompanyLogo2 = "";
 
         //User
         public static string sysLoginCode = "";

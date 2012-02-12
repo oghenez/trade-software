@@ -93,6 +93,7 @@
     <Compile Include="AppLibs.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Configuration.cs" />
     <Compile Include="dataClass.cs">
       <SubType>Code</SubType>
     </Compile>
