@@ -183,7 +183,6 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <None Include="ClassDiagram2.cd" />
     <None Include="Resources\save.png" />
   </ItemGroup>
   <ItemGroup>
