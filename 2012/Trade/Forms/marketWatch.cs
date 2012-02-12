@@ -32,8 +32,7 @@ namespace Trade.Forms
 
         public void RefreshData()
         {
-            //bgWorker_RunWorkerCompleted(this, null);
-            //stockCodeList.RefreshData(false);
+            stockCodeList.RefreshData(true);
         }
         public ContextMenuStrip myContextMenuStrip
         {

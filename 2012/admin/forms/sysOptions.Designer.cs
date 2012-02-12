@@ -65,18 +65,14 @@
             this.screenDataCounLbl = new baseClass.controls.baseLabel();
             this.screenTimeScaleCb = new baseClass.controls.cbTimeScale();
             this.defaultGb = new System.Windows.Forms.GroupBox();
-            this.defaTimeRangeCb = new baseClass.controls.cbTimeRange();
             this.defaTimeScaleCb = new baseClass.controls.cbTimeScale();
+            this.defaTimeRangeCb = new baseClass.controls.cbTimeRange();
             this.defaTimeRangeLbl = new baseClass.controls.baseLabel();
             this.defaTimeScaleLbl = new baseClass.controls.baseLabel();
             this.closeBtn = new System.Windows.Forms.Button();
             this.saveBtn = new System.Windows.Forms.Button();
             this.screenTimeRangeCb = new baseClass.controls.cbTimeRange();
             this.screenTimeRangeLbl = new baseClass.controls.baseLabel();
-            this.defaultTimeRangeCb = new baseClass.controls.cbTimeRange();
-            this.defaultTimeScaleCb = new baseClass.controls.cbTimeScale();
-            this.defaultTimeRangeLbl = new baseClass.controls.baseLabel();
-            this.defaultTimeScaleLbl = new baseClass.controls.baseLabel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cbTimeRange1 = new baseClass.controls.cbTimeRange();
             this.cbTimeScale1 = new baseClass.controls.cbTimeScale();
@@ -516,7 +512,7 @@
             this.paramsPg.Location = new System.Drawing.Point(4, 25);
             this.paramsPg.Name = "paramsPg";
             this.paramsPg.Padding = new System.Windows.Forms.Padding(3);
-            this.paramsPg.Size = new System.Drawing.Size(414, 279);
+            this.paramsPg.Size = new System.Drawing.Size(414, 236);
             this.paramsPg.TabIndex = 1;
             this.paramsPg.Text = "Tham số";
             this.paramsPg.UseVisualStyleBackColor = true;
@@ -585,8 +581,8 @@
             // 
             // defaultGb
             // 
-            this.defaultGb.Controls.Add(this.defaTimeRangeCb);
             this.defaultGb.Controls.Add(this.defaTimeScaleCb);
+            this.defaultGb.Controls.Add(this.defaTimeRangeCb);
             this.defaultGb.Controls.Add(this.defaTimeRangeLbl);
             this.defaultGb.Controls.Add(this.defaTimeScaleLbl);
             this.defaultGb.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -596,6 +592,17 @@
             this.defaultGb.TabIndex = 218;
             this.defaultGb.TabStop = false;
             this.defaultGb.Text = " Default ";
+            // 
+            // defaTimeScaleCb
+            // 
+            this.defaTimeScaleCb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.defaTimeScaleCb.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.defaTimeScaleCb.FormattingEnabled = true;
+            this.defaTimeScaleCb.Location = new System.Drawing.Point(126, 46);
+            this.defaTimeScaleCb.Name = "defaTimeScaleCb";
+            this.defaTimeScaleCb.SelectedValue = "RT";
+            this.defaTimeScaleCb.Size = new System.Drawing.Size(196, 24);
+            this.defaTimeScaleCb.TabIndex = 16;
             // 
             // defaTimeRangeCb
             // 
@@ -608,17 +615,6 @@
             this.defaTimeRangeCb.SelectedValue = ((byte)(0));
             this.defaTimeRangeCb.Size = new System.Drawing.Size(196, 24);
             this.defaTimeRangeCb.TabIndex = 15;
-            // 
-            // defaTimeScaleCb
-            // 
-            this.defaTimeScaleCb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.defaTimeScaleCb.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.defaTimeScaleCb.FormattingEnabled = true;
-            this.defaTimeScaleCb.Location = new System.Drawing.Point(126, 48);
-            this.defaTimeScaleCb.Name = "defaTimeScaleCb";
-            this.defaTimeScaleCb.SelectedValue = "RT";
-            this.defaTimeScaleCb.Size = new System.Drawing.Size(196, 24);
-            this.defaTimeScaleCb.TabIndex = 2;
             // 
             // defaTimeRangeLbl
             // 
@@ -643,7 +639,6 @@
             // closeBtn
             // 
             this.closeBtn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.closeBtn.Image = ((System.Drawing.Image)(resources.GetObject("closeBtn.Image")));
             this.closeBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.closeBtn.Location = new System.Drawing.Point(308, 227);
             this.closeBtn.Margin = new System.Windows.Forms.Padding(0, 4, 0, 4);
@@ -689,49 +684,6 @@
             this.screenTimeRangeLbl.TabIndex = 17;
             this.screenTimeRangeLbl.Text = "Time range";
             this.screenTimeRangeLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // defaultTimeRangeCb
-            // 
-            this.defaultTimeRangeCb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.defaultTimeRangeCb.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.defaultTimeRangeCb.FormattingEnabled = true;
-            this.defaultTimeRangeCb.Location = new System.Drawing.Point(126, 21);
-            this.defaultTimeRangeCb.myValue = commonClass.AppTypes.TimeRanges.None;
-            this.defaultTimeRangeCb.Name = "defaultTimeRangeCb";
-            this.defaultTimeRangeCb.SelectedValue = ((byte)(0));
-            this.defaultTimeRangeCb.Size = new System.Drawing.Size(196, 24);
-            this.defaultTimeRangeCb.TabIndex = 15;
-            // 
-            // defaultTimeScaleCb
-            // 
-            this.defaultTimeScaleCb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.defaultTimeScaleCb.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.defaultTimeScaleCb.FormattingEnabled = true;
-            this.defaultTimeScaleCb.Location = new System.Drawing.Point(126, 48);
-            this.defaultTimeScaleCb.Name = "defaultTimeScaleCb";
-            this.defaultTimeScaleCb.SelectedValue = "RT";
-            this.defaultTimeScaleCb.Size = new System.Drawing.Size(196, 24);
-            this.defaultTimeScaleCb.TabIndex = 2;
-            // 
-            // defaultTimeRangeLbl
-            // 
-            this.defaultTimeRangeLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.defaultTimeRangeLbl.Location = new System.Drawing.Point(12, 24);
-            this.defaultTimeRangeLbl.Name = "defaultTimeRangeLbl";
-            this.defaultTimeRangeLbl.Size = new System.Drawing.Size(108, 16);
-            this.defaultTimeRangeLbl.TabIndex = 17;
-            this.defaultTimeRangeLbl.Text = "Time range";
-            this.defaultTimeRangeLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // defaultTimeScaleLbl
-            // 
-            this.defaultTimeScaleLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.defaultTimeScaleLbl.Location = new System.Drawing.Point(12, 47);
-            this.defaultTimeScaleLbl.Name = "defaultTimeScaleLbl";
-            this.defaultTimeScaleLbl.Size = new System.Drawing.Size(108, 16);
-            this.defaultTimeScaleLbl.TabIndex = 16;
-            this.defaultTimeScaleLbl.Text = "Time scale";
-            this.defaultTimeScaleLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // groupBox1
             // 
@@ -892,10 +844,6 @@
         protected common.controls.baseLabel smtpPortLbl;
         private baseClass.controls.cbTimeRange screenTimeRangeCb;
         private baseClass.controls.baseLabel screenTimeRangeLbl;
-        private baseClass.controls.cbTimeRange defaultTimeRangeCb;
-        private baseClass.controls.cbTimeScale defaultTimeScaleCb;
-        private baseClass.controls.baseLabel defaultTimeRangeLbl;
-        private baseClass.controls.baseLabel defaultTimeScaleLbl;
         private System.Windows.Forms.GroupBox groupBox1;
         private baseClass.controls.cbTimeRange cbTimeRange1;
         private baseClass.controls.cbTimeScale cbTimeScale1;
@@ -909,13 +857,13 @@
         protected baseClass.controls.baseLabel screenDataCounLbl;
         private baseClass.controls.cbTimeScale screenTimeScaleCb;
         private System.Windows.Forms.GroupBox defaultGb;
-        private baseClass.controls.cbTimeRange defaTimeRangeCb;
-        private baseClass.controls.cbTimeScale defaTimeScaleCb;
         private baseClass.controls.baseLabel defaTimeRangeLbl;
         private baseClass.controls.baseLabel defaTimeScaleLbl;
         protected common.controls.baseLabel sysAutoEditKeySizeLbl;
         protected common.controls.baseLabel smtpAuthAccountLbl;
         protected baseClass.controls.baseLabel screenTimeScaleLbl;
         protected common.controls.baseCheckBox useStrongPassChk;
+        private baseClass.controls.cbTimeScale defaTimeScaleCb;
+        private baseClass.controls.cbTimeRange defaTimeRangeCb;
     }
 }

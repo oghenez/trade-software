@@ -390,8 +390,8 @@ namespace Tools.Forms
                     {
                         row[colId + 1] = retList[idx][colId]; 
                     }
-                    Application.DoEvents();
                 }
+                Application.DoEvents();
                 codeStartIdx = codeEndIdx + 1;
                 progressBar.Value = codeEndIdx+1;
                 this.ShowReccount(progressBar.Value.ToString() + "/" + progressBar.Maximum.ToString());

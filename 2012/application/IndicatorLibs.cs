@@ -69,7 +69,7 @@ namespace application.Indicators
                         aFields.Clear();
                         aFields.Add("Code");
                         aFields.Add("Description");
-                        if (!common.configuration.GetConfiguration(Data.sysXmlDocument, "CATEGORY", "CAT" + count.ToString(), aFields, false)) break;
+                        if (!common.configuration.GetConfiguration(new string[]{"CATEGORY", "CAT" + count.ToString()}, aFields, Data.sysXmlDocument, false)) break;
                         _myIndicatorCatList.Add(new commonClass.DataCategory(aFields[0], aFields[1]));
                         count++;
                     }
@@ -249,7 +249,7 @@ namespace application.Indicators
             aFields.Add("Authors");
             aFields.Add("Version");
 
-            common.configuration.GetConfiguration(Data.sysXmlDocument, "INDICATORS", meta.ClassType.Name, aFields, false);
+            common.configuration.GetConfiguration(new string[]{"INDICATORS", meta.ClassType.Name}, aFields, Data.sysXmlDocument, false);
             meta.Category = aFields[0];
             meta.ParameterList = String2ParameterList(aFields[1]);
 
@@ -562,13 +562,13 @@ namespace application.Indicators
         }
 
         //Read and save setting to users's XML file
-        public static void GetUserSettings(Meta meta)
+        public static void GetLocalConfig(Meta meta)
         {
             StringCollection aFields = new StringCollection();
             aFields.Add("params");
             aFields.Add("output");
             aFields.Add("drawInNewWindow");
-            if (!commonClass.Configuration.GetUserSettings(meta.ClassType.FullName, aFields)) return;
+            if (!commonClass.Configuration.GetLocalConfig(meta.ClassType.FullName, aFields)) return;
             meta.Parameters = common.system.String2DoubleList(aFields[0]);
             Meta.OutputInfo[] saveMetaOutput = meta.Output;
             meta.Output = Meta.String2OutputInfo(aFields[1]);
@@ -580,7 +580,7 @@ namespace application.Indicators
             }
             meta.DrawInNewWindow = (aFields[2]==Boolean.TrueString);
         }
-        public static void SaveUserSettings(Meta meta)
+        public static void SaveLocalConfig(Meta meta)
         {
             StringCollection aFields = new StringCollection();
             aFields.Clear();
@@ -591,7 +591,7 @@ namespace application.Indicators
             aValues.Add(common.system.ToString(meta.Parameters));
             aValues.Add(Meta.OutputInfo2Tring(meta.Output));
             aValues.Add(meta.DrawInNewWindow.ToString());
-            commonClass.Configuration.SaveUserSettings(meta.ClassType.FullName, aFields, aValues);
+            commonClass.Configuration.SaveLocalConfig(meta.ClassType.FullName, aFields, aValues);
         }
     }
 }

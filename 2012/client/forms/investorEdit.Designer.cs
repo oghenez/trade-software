@@ -179,7 +179,6 @@
             // sexCb
             // 
             this.sexCb.Location = new System.Drawing.Point(389, 122);
-            this.sexCb.Size = new System.Drawing.Size(118, 24);
             // 
             // displayNameEd
             // 
@@ -209,6 +208,13 @@
             // 
             this.displayNameLbl.Location = new System.Drawing.Point(25, 154);
             this.displayNameLbl.Text = "Display Name";
+            // 
+            // passStrenghtLbl
+            // 
+            this.passStrenghtLbl.Location = new System.Drawing.Point(565, 69);
+            this.passStrenghtLbl.Size = new System.Drawing.Size(114, 16);
+            this.passStrenghtLbl.Text = "passStrenghtLbl";
+            this.passStrenghtLbl.Visible = false;
             // 
             // exitBtn
             // 

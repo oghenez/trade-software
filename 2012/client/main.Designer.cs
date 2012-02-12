@@ -84,6 +84,8 @@
             this.FileMenuStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.loginMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logOutMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.changePassMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator28 = new System.Windows.Forms.ToolStripSeparator();
             this.MyProfileMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.NewChartMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -170,6 +172,7 @@
             this.searchMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.aboutMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.testMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripPanel = new System.Windows.Forms.ToolStripPanel();
             this.formatStrip = new System.Windows.Forms.ToolStrip();
             this.amountBtn = new System.Windows.Forms.ToolStripButton();
@@ -179,8 +182,6 @@
             this.periodicityStrip = new System.Windows.Forms.ToolStrip();
             this.dummyStripBtn = new System.Windows.Forms.ToolStripButton();
             this.sysTimer = new System.Windows.Forms.Timer(this.components);
-            this.changePassMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator28 = new System.Windows.Forms.ToolStripSeparator();
             this.chartStrip.SuspendLayout();
             this.standartStrip.SuspendLayout();
             this.toolsStrip.SuspendLayout();
@@ -595,7 +596,8 @@
             this.chartMenuStrip,
             this.toolsMenuItem,
             this.windowsMenuItem,
-            this.helpMenuItem});
+            this.helpMenuItem,
+            this.testMenuItem});
             this.mainMenu.Location = new System.Drawing.Point(0, 0);
             this.mainMenu.MdiWindowListItem = this.windowsMenuItem;
             this.mainMenu.Name = "mainMenu";
@@ -638,6 +640,18 @@
             this.logOutMenuItem.Size = new System.Drawing.Size(195, 22);
             this.logOutMenuItem.Text = "Log Out";
             this.logOutMenuItem.Click += new System.EventHandler(this.logOutMenuItem_Click);
+            // 
+            // changePassMenuItem
+            // 
+            this.changePassMenuItem.Name = "changePassMenuItem";
+            this.changePassMenuItem.Size = new System.Drawing.Size(195, 22);
+            this.changePassMenuItem.Text = "Change Password";
+            this.changePassMenuItem.Click += new System.EventHandler(this.changePassMenuItem_Click);
+            // 
+            // toolStripSeparator28
+            // 
+            this.toolStripSeparator28.Name = "toolStripSeparator28";
+            this.toolStripSeparator28.Size = new System.Drawing.Size(192, 6);
             // 
             // MyProfileMenuItem
             // 
@@ -1281,6 +1295,13 @@
             this.aboutMenuItem.Text = "&About...";
             this.aboutMenuItem.Click += new System.EventHandler(this.aboutMenuItem_Click);
             // 
+            // testMenuItem
+            // 
+            this.testMenuItem.Name = "testMenuItem";
+            this.testMenuItem.Size = new System.Drawing.Size(45, 20);
+            this.testMenuItem.Text = "Test";
+            this.testMenuItem.Click += new System.EventHandler(this.testMenuItem_Click);
+            // 
             // toolStripPanel
             // 
             this.toolStripPanel.Controls.Add(this.mainMenu);
@@ -1369,25 +1390,12 @@
             this.sysTimer.Interval = 2000;
             this.sysTimer.Tick += new System.EventHandler(this.sysTimer_Tick);
             // 
-            // changePassMenuItem
-            // 
-            this.changePassMenuItem.Name = "changePassMenuItem";
-            this.changePassMenuItem.Size = new System.Drawing.Size(195, 22);
-            this.changePassMenuItem.Text = "Change Password";
-            this.changePassMenuItem.Click += new System.EventHandler(this.changePassMenuItem_Click);
-            // 
-            // toolStripSeparator28
-            // 
-            this.toolStripSeparator28.Name = "toolStripSeparator28";
-            this.toolStripSeparator28.Size = new System.Drawing.Size(192, 6);
-            // 
             // main
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(1284, 672);
             this.Controls.Add(this.dockPanel);
             this.Controls.Add(this.toolStripPanel);
-            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.mainMenu;
@@ -1560,6 +1568,7 @@
         private System.Windows.Forms.ToolStripMenuItem marketSummaryMenuItem;
         private System.Windows.Forms.ToolStripMenuItem changePassMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator28;
+        private System.Windows.Forms.ToolStripMenuItem testMenuItem;
     }
 }
 
