@@ -34,12 +34,11 @@ namespace Strategy
             Indicators.MIN min = Indicators.MIN.Series(data.Close, parameters[3], "min");
             Indicators.MAX max = Indicators.MAX.Series(data.Close, parameters[3], "max");
 
-            for (int idx = 0; idx < data.Close.Count - 1; idx++)
+            for (int idx = 0; idx < data.Close.Count ; idx++)
             {
                 if (adx[idx] > 25)
                 {
                     if ((!is_bought) && ((sarRule.isValid_forBuy(idx) && smarule.UpTrend(idx))))
-                    //if (dmiRule.isValid_forBuy(idx)&&sarRule.isValid_forBuy(idx))
                     {
                         BusinessInfo info = new BusinessInfo();
                         info.SetTrend(AppTypes.MarketTrend.Upward, AppTypes.MarketTrend.Unspecified, AppTypes.MarketTrend.Unspecified);
@@ -49,7 +48,6 @@ namespace Strategy
                     }
                 }
                 if (is_bought && (sarRule.isValid_forSell(idx) || smarule.isValid_forSell(idx)))
-                //if (dmiRule.isValid_forSell(idx))
                 {
                     BusinessInfo info = new BusinessInfo();
                     info.SetTrend(AppTypes.MarketTrend.Downward, AppTypes.MarketTrend.Unspecified, AppTypes.MarketTrend.Unspecified);
@@ -77,7 +75,7 @@ namespace Strategy
             int takeprofitlevel = (int)parameters[5];
 
 
-            for (int idx = 0; idx < data.Close.Count - 1; idx++)
+            for (int idx = 0; idx < data.Close.Count; idx++)
             {
                 if ((!is_bought) && ((sarRule.isValid_forBuy(idx) && emaRule.UpTrend(idx))))
                 {
