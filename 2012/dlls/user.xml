@@ -1,4 +1,8 @@
 <Configuration>
+<<<<<<< .mine
+  <Environment sysLoginAccount="quan_nh" />
+=======
+>>>>>>> .r400
   <A00000004>
     <Format sysMaskGeneralValue="###,###,###,##0.00" />
   </A00000004>
