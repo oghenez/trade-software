@@ -98,4 +98,16 @@
   <A00000005>
     <ChartSettings sysViewSpaceAtRIGHT="12" />
   </A00000005>
+  <A00000004>
+    <Strategy.RelativeStrengthSCR params="180" />
+  </A00000004>
+  <A000000035>
+    <Indicators.Stoch params="14 3 3 4" />
+  </A000000035>
+  <A000000035>
+    <Indicators.Stoch output="Red:1,Navy:1" />
+  </A000000035>
+  <A000000035>
+    <Indicators.Stoch drawInNewWindow="True" />
+  </A000000035>
 </Configuration>

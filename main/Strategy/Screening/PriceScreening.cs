@@ -76,7 +76,7 @@ namespace Strategy
             if (data.Close[Bar] > sma[Bar])
             {
                 BusinessInfo info = new BusinessInfo();
-                info.Weight = sma[Bar];
+                info.Weight = data.Close[Bar];
                 SelectStock(Bar, info);
             }
         }

@@ -9,11 +9,26 @@
      <CAT1 Description="Xu hướng"/>
   </CATEGORY>
 
+  <CATEGORY>
+    <CAT2 Code="BUYSIG" />
+    <CAT2 Description="Tín hiệu mua"/>
+  </CATEGORY>
+
+  <CATEGORY>
+    <CAT3 Code="SELLSIG" />
+    <CAT3 Description="Tín hiệu bán"/>
+  </CATEGORY>
+
+  <CATEGORY>
+    <CAT4 Code="PFL" />
+    <CAT4 Description="Chọn cổ phiếu"/>
+  </CATEGORY>
+  
   <STRATEGY>
     <TwoSMAMACDSCR Type="SCREENING" />
     <TwoSMAMACDSCR ParameterPrecision="1"/>
     <TwoSMAMACDSCR Code="SCR001" />
-    <TwoSMAMACDSCR Category="TRE" />
+    <TwoSMAMACDSCR Category="BUYSIG" />
     <TwoSMAMACDSCR Parameters="MACD Fast=12,MACD Slow=26,MACD Signal=9,Short Period=5,Long Period=10" />
     <TwoSMAMACDSCR ParameterDescriptions="Period defines the input data for the strategy" />
     <TwoSMAMACDSCR Name="Tín hiệu mua theo chiến lược MACD và 2 SMA" />
@@ -233,6 +248,35 @@
   </STRATEGY>
 
   <STRATEGY>
+    <TwoSMAMACD_SELL Type="SCREENING" />
+    <TwoSMAMACD_SELL ParameterPrecision="1"/>
+    <TwoSMAMACD_SELL Code="SELL001" />
+    <TwoSMAMACD_SELL Category="SELLSIG" />
+    <TwoSMAMACD_SELL Parameters="MACD Fast=12,MACD Slow=26,MACD Signal=9,Short Period=5,Long Period=10" />
+    <TwoSMAMACD_SELL ParameterDescriptions="Period defines the input data for the strategy" />
+    <TwoSMAMACD_SELL Name="MACD and Two SMA Sell Signal" />
+    <TwoSMAMACD_SELL Description="Screen sell signal for stock macd line below 0 and Short term SMA is below Long term SMA" />
+    <TwoSMAMACD_SELL URL="http://www.quantum.vn" />
+    <TwoSMAMACD_SELL Authors="Quan Nguyen" />
+    <TwoSMAMACD_SELL Version="1.0" />
+  </STRATEGY>
+
+  <!--Up Trend Screening Description-->
+  <STRATEGY>
+    <TwoSMAMACD_UPTREND Type="SCREENING" />
+    <TwoSMAMACD_UPTREND ParameterPrecision="1"/>
+    <TwoSMAMACD_UPTREND Code="UPTREND001" />
+    <TwoSMAMACD_UPTREND Category="TRE" />
+    <TwoSMAMACD_UPTREND Parameters="MACD Fast=12,MACD Slow=26,MACD Signal=9,Short Period=5,Long Period=10" />
+    <TwoSMAMACD_UPTREND ParameterDescriptions="Period defines the input data for the strategy" />
+    <TwoSMAMACD_UPTREND Name="MACD and Two SMA Up Trend" />
+    <TwoSMAMACD_UPTREND Description="Screen Up Trend for stock macd line below 0 and Short term SMA is below Long term SMA" />
+    <TwoSMAMACD_UPTREND URL="http://www.quantum.vn" />
+    <TwoSMAMACD_UPTREND Authors="Quan Nguyen" />
+    <TwoSMAMACD_UPTREND Version="1.0" />
+  </STRATEGY>
+  
+  <STRATEGY>
     <BuyAndHold Code="STR001"/>
     <BuyAndHold Category="TRE" />
     <BuyAndHold Parameters="" />
@@ -287,17 +331,17 @@
     <RandomStrategy Authors="Quan Nguyen" />
     <RandomStrategy Version="1.0" />
   </STRATEGY>
-  <STRATEGY>
+  <!--<STRATEGY>
     <StochasticFast Code="STR006"/>
     <StochasticFast Category="TRE" />
-    <StochasticFast Parameters="Fast K=14,Fast D=3" />
+    <StochasticFast Parameters="Fast K=14,Fast D=3,Stop Loss Level (%)=5,Trailing Stop (%)=10, Take Profit Level (%)=50" />
     <StochasticFast ParameterDescriptions="Parameters Fast K and Fast D" />
     <StochasticFast Name="Stochastic Fast" />
     <StochasticFast Description="Buy when fast K line above fast D line" />
     <StochasticFast URL="http://www.quantum.vn" />
     <StochasticFast Authors="Quan Nguyen" />
     <StochasticFast Version="1.0" />
-  </STRATEGY>
+  </STRATEGY>-->
   <STRATEGY>
     <StochasticSlow Code="STR007"/>
     <StochasticSlow Category="TRE" />
@@ -314,7 +358,7 @@
     <SMA_Stochastic Category="HFT" />
     <SMA_Stochastic Parameters="Short SMA=5,Long SMA=10,Fast K=15,Slow K=5,Slow D=3,Ma Type=4" />
     <SMA_Stochastic ParameterDescriptions="SMA define Simple Moving Average lines. &#xD;&#xA;                    Fast K, Slow K, Slow D define parameters for slow stochastic" />
-    <SMA_Stochastic Name="Stochastic Slow" />
+    <SMA_Stochastic Name="Stochastic Slow and Two SMA" />
     <SMA_Stochastic Description="Buy and sell condition following Stochastic Slow" />
     <SMA_Stochastic URL="http://www.quantum.vn" />
     <SMA_Stochastic Authors="Quan Nguyen" />
@@ -716,6 +760,19 @@
     <BasicStochRSI URL="http://www.quantum.vn" />
     <BasicStochRSI Authors="Quan Nguyen" />
     <BasicStochRSI Version="1.0" />
+  </STRATEGY>
+
+  <STRATEGY>
+    <TwoSMABasicMACD ParameterPrecision="1"/>
+    <TwoSMABasicMACD Code="STR044" />
+    <TwoSMABasicMACD Category="HFT" />
+    <TwoSMABasicMACD Parameters="MACD Fast=12,MACD Slow=26,MACD Signal=9,Short Period=5,Long Period=10,Stop Loss Level (%)=5,Trailing Stop (%)=15, Take Profit Level (%)=50" />
+    <TwoSMABasicMACD ParameterDescriptions="Period defines the input data for the strategy" />
+    <TwoSMABasicMACD Name="Basic MACD and Two SMA cut" />
+    <TwoSMABasicMACD Description="Screen sell signal for stock macd line below 0 and Short term SMA is below Long term SMA" />
+    <TwoSMABasicMACD URL="http://www.quantum.vn" />
+    <TwoSMABasicMACD Authors="Quan Nguyen" />
+    <TwoSMABasicMACD Version="1.0" />
   </STRATEGY>
   
   <STRATEGY>

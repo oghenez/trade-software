@@ -31,12 +31,12 @@ namespace Strategy
         }
     }
 
-    public class BasicDMICutLoss_Helper : baseHelper
-    {
-        public BasicDMICutLoss_Helper() : base(typeof(BasicDMI_CutLoss))
-        {
-        }
-    }
+    //public class BasicDMICutLoss_Helper : baseHelper
+    //{
+    //    public BasicDMICutLoss_Helper() : base(typeof(BasicDMI_CutLoss))
+    //    {
+    //    }
+    //}
     #   endregion
 
     #region DMI Rule, Screening and Strategy
@@ -48,11 +48,14 @@ namespace Strategy
             Indicators.ADX adx = new Indicators.ADX(data.Bars, parameters[0], "");
             int Bar = adx.Count - 1;
             if (Bar < adx.FirstValidValue) return;
-            BusinessInfo info = new BusinessInfo();
-            info.SetTrend(AppTypes.MarketTrend.Unspecified,
-                AppTypes.MarketTrend.Unspecified, AppTypes.MarketTrend.Unspecified);
-            info.Weight = adx[Bar];
-            SelectStock(Bar, info);
+            if (adx[Bar] > 25)
+            {
+                BusinessInfo info = new BusinessInfo();
+                info.SetTrend(AppTypes.MarketTrend.Unspecified,
+                    AppTypes.MarketTrend.Unspecified, AppTypes.MarketTrend.Unspecified);
+                info.Weight = data.Close[Bar];
+                SelectStock(Bar, info);
+            }
         }
     }
 
@@ -76,6 +79,11 @@ namespace Strategy
             return isValid_forBuy(minusDmi.Count - 1);
         }
 
+        /// <summary>
+        /// Test for buy order when there is trend and it's up
+        /// </summary>
+        /// <param name="idx"></param>
+        /// <returns></returns>
         public override bool isValid_forBuy(int idx)
         {
             if (UpTrend(idx ) && DownTrend(idx-1)&&(emaadx[idx]<adx[idx]))
@@ -83,6 +91,11 @@ namespace Strategy
             return false;
         }
 
+        /// <summary>
+        /// Test for sell order when there is trend and it's down
+        /// </summary>
+        /// <param name="idx"></param>
+        /// <returns></returns>
         public override bool isValid_forSell(int idx)
         {
             if (UpTrend(idx - 1) && DownTrend(idx) && (emaadx[idx] < adx[idx]) )
@@ -133,6 +146,10 @@ namespace Strategy
             Indicators.MIN min = Indicators.MIN.Series(data.Close, parameters[0], "min");
             Indicators.MAX max = Indicators.MAX.Series(data.Close, parameters[1], "max");
 
+            int cutlosslevel = (int)parameters[2];
+            int trailingstoplevel=(int)parameters[3];
+            int takeprofitlevel = (int)parameters[4];
+
             for (int idx = 0; idx < data.Close.Count; idx++)
             {
                 if (rule.isValid_forBuy(idx))
@@ -152,36 +169,44 @@ namespace Strategy
                     info.Stop_Loss = max[idx];
                     SellAtClose(idx,info);
                 }
-            }
-        }
-    }
-
-    public class BasicDMI_CutLoss : GenericStrategy
-    { 
-        override protected void StrategyExecute()
-        {
-            BasicDMIRule rule = new BasicDMIRule(data.Bars, parameters[0], parameters[1]);
-
-            int cutlosslevel = (int)parameters[2];
-            int takeprofitlevel = (int)parameters[3];
-
-            for (int idx = rule.minusDmi.FirstValidValue; idx < rule.minusDmi.Count; idx++)
-            {
-                //Buy Condition
-                if (rule.isValid_forBuy(idx))
-                    BuyAtClose(idx);
-
-                //Sell Condition
-                if (rule.isValid_forSell(idx))
-                    SellAtClose(idx);
-
                 if (is_bought && CutLossCondition(data.Close[idx], buy_price, cutlosslevel))
                     SellCutLoss(idx);
 
                 if (is_bought && TakeProfitCondition(data.Close[idx], buy_price, takeprofitlevel))
                     SellTakeProfit(idx);
+
+                if (trailingstoplevel > 0)
+                    TrailingStopWithBuyBack(rule, data.Close[idx], trailingstoplevel, idx);
             }
         }
     }
+
+    //public class BasicDMI_CutLoss : GenericStrategy
+    //{ 
+    //    override protected void StrategyExecute()
+    //    {
+    //        BasicDMIRule rule = new BasicDMIRule(data.Bars, parameters[0], parameters[1]);
+
+    //        int cutlosslevel = (int)parameters[2];
+    //        int takeprofitlevel = (int)parameters[3];
+
+    //        for (int idx = rule.minusDmi.FirstValidValue; idx < rule.minusDmi.Count; idx++)
+    //        {
+    //            //Buy Condition
+    //            if (rule.isValid_forBuy(idx))
+    //                BuyAtClose(idx);
+
+    //            //Sell Condition
+    //            if (rule.isValid_forSell(idx))
+    //                SellAtClose(idx);
+
+    //            if (is_bought && CutLossCondition(data.Close[idx], buy_price, cutlosslevel))
+    //                SellCutLoss(idx);
+
+    //            if (is_bought && TakeProfitCondition(data.Close[idx], buy_price, takeprofitlevel))
+    //                SellTakeProfit(idx);
+    //        }
+    //    }
+    //}
     #   endregion
 }
