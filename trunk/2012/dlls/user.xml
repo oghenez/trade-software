@@ -1,8 +1,4 @@
 <Configuration>
-<<<<<<< .mine
-  <Environment sysLoginAccount="quan_nh" />
-=======
->>>>>>> .r400
   <A00000004>
     <Format sysMaskGeneralValue="###,###,###,##0.00" />
   </A00000004>
@@ -96,5 +92,5 @@
   <A00000004>
     <Others sysImgFilePathCompanyLogo2="" />
   </A00000004>
-  <Environment sysLoginAccount="dungvq" />
+  <Environment sysLoginAccount="quan_nh" />
 </Configuration>
