@@ -7,6 +7,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using commonTypes;
 
 namespace server
 {
@@ -48,14 +49,14 @@ namespace server
 
             application.Configuration.Load_User_Envir();
             //Check data connection after db-setting were loaded
-            if (!data.SysLibs.CheckAllDbConnection())
+            if (!databases.SysLibs.CheckAllDbConnection())
             {
                 common.system.ShowMessage("Không thể kết nối đến nguồn dữ liệu.Xin vui lòng chạy lại chương trình [Setup].");
                 return false;
             }
-            commonClass.GlobalSettings globalSetting = commonClass.Settings.sysGlobal;
+            GlobalSettings globalSetting = Settings.sysGlobal;
             application.Configuration.Load_Global_Settings(ref globalSetting);
-            commonClass.Settings.sysGlobal = globalSetting;
+            Settings.sysGlobal = globalSetting;
 
             application.Configuration.Load_Local_Settings();
             return true;

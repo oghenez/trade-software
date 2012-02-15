@@ -1,5 +1,6 @@
 ﻿using application;
 using application.Strategy;
+using commonTypes;
 using commonClass;
 
 namespace Strategy

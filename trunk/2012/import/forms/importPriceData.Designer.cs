@@ -36,7 +36,7 @@
             this.closeBtn = new common.controls.baseButton();
             this.importBtn = new common.controls.baseButton();
             this.selectFileBtn = new common.controls.baseButton();
-            this.myDataSet = new data.baseDS();
+            this.myDataSet = new databases.baseDS();
             this.stockExchangeCb = new baseClass.controls.cbStockExchange();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.viewLogBtn = new common.controls.baseButton();
@@ -292,7 +292,7 @@
         protected common.controls.baseButton importBtn;
         protected common.controls.baseButton closeBtn;
         protected common.controls.baseButton cancelBtn;
-        protected data.baseDS myDataSet;
+        protected databases.baseDS myDataSet;
         protected System.Windows.Forms.OpenFileDialog openFileDialog;
         protected common.controls.baseButton viewLogBtn;
         private System.Windows.Forms.GroupBox noteGb;

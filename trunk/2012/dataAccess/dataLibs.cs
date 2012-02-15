@@ -8,6 +8,7 @@ using System.Data;
 using System.Text;
 using System.Drawing;
 using System.Xml;
+using commonTypes;
 using commonClass;
 using System.Net;
 
@@ -109,6 +110,7 @@ namespace DataAccess
             //End testing
 
             _myClient.Open();
+            //DataTable tbl = _myClient.Test("select * from investor");
         }
         private static void CloseConnection()
         {
@@ -176,7 +178,17 @@ namespace DataAccess
         {
             cacheData.Clear();
         }
-       
+
+        public static bool CheckConnection()
+        {
+            try
+            {
+                return myClient.IsWorking();
+            }
+            catch{}
+            return false;
+        }
+
         public static DateTime GetServerDateTime()
         {
             return myClient.GetServerDateTime();
@@ -187,7 +199,7 @@ namespace DataAccess
         #region System variables
         public static void LoadSystemVars()
         {
-            //myClient.Test("select * from priceData");
+            //DataTable tbl =  myClient.Test("select * from investor");
 
             object dummyObj;
             dummyObj = myStockCodeTbl;
@@ -205,14 +217,30 @@ namespace DataAccess
             GetSystemWatchList();
         }
 
-        public static data.tmpDS.stockCodeDataTable myStockCodeTbl
+        public static databases.tmpDS.investorDataTable  myInvestorShortTbl
+        {
+            get
+            {
+                string cacheKey = MakeCacheKey("Investor", "Short");
+                object obj = GetCache(cacheKey);
+                if (obj != null) return (databases.tmpDS.investorDataTable)obj;
+                databases.tmpDS.investorDataTable tbl = myClient.GetInvestorShortList();
+                AddCache(cacheKey, tbl);
+                return tbl;
+            }
+            set
+            {
+                ClearCache(MakeCacheKey("Investor", "Short"));
+            }
+        }
+        public static databases.tmpDS.stockCodeDataTable myStockCodeTbl
         {
             get
             {
                 string cacheKey = MakeCacheKey("StockList", "Enable");
                 object obj = GetCache(cacheKey);
-                if (obj != null) return (data.tmpDS.stockCodeDataTable)obj;
-                data.tmpDS.stockCodeDataTable tbl = myClient.GetStockByStatus(AppTypes.CommonStatus.Enable);
+                if (obj != null) return (databases.tmpDS.stockCodeDataTable)obj;
+                databases.tmpDS.stockCodeDataTable tbl = myClient.GetStockByStatus(AppTypes.CommonStatus.Enable);
                 AddCache(cacheKey, tbl);
                 return tbl;
             }
@@ -225,14 +253,14 @@ namespace DataAccess
         /// <summary>
         /// Stock Exchange table
         /// </summary>
-        public static data.baseDS.stockExchangeDataTable myStockExchangeTbl
+        public static databases.baseDS.stockExchangeDataTable myStockExchangeTbl
         {
             get
             {
                 string cacheKey = MakeCacheKey("stockExchange", "All");
                 object obj = GetCache(cacheKey);
-                if (obj != null) return (data.baseDS.stockExchangeDataTable)obj;
-                data.baseDS.stockExchangeDataTable tbl = myClient.GetStockExchange();
+                if (obj != null) return (databases.baseDS.stockExchangeDataTable)obj;
+                databases.baseDS.stockExchangeDataTable tbl = myClient.GetStockExchange();
                 AddCache(cacheKey, tbl);
                 return tbl;
             }
@@ -241,14 +269,14 @@ namespace DataAccess
                 ClearCache(MakeCacheKey("stockExchange", "All"));
             }
         }
-        public static data.baseDS.sysCodeCatDataTable mySysCodeCatTbl
+        public static databases.baseDS.sysCodeCatDataTable mySysCodeCatTbl
         {
             get
             {
                 string cacheKey = MakeCacheKey("SysCodeCat", "All");
                 object obj = GetCache(cacheKey);
-                if (obj != null) return (data.baseDS.sysCodeCatDataTable)obj;
-                data.baseDS.sysCodeCatDataTable tbl = myClient.GetSysCodeCat();
+                if (obj != null) return (databases.baseDS.sysCodeCatDataTable)obj;
+                databases.baseDS.sysCodeCatDataTable tbl = myClient.GetSysCodeCat();
                 AddCache(cacheKey, tbl);
                 return tbl;
             }
@@ -257,14 +285,14 @@ namespace DataAccess
         /// <summary>
         /// Currency table
         /// </summary>
-        public static data.baseDS.currencyDataTable myCurrencyTbl
+        public static databases.baseDS.currencyDataTable myCurrencyTbl
         {
             get
             {
                 string cacheKey = MakeCacheKey("Currency", "All");
                 object obj = GetCache(cacheKey);
-                if (obj != null) return (data.baseDS.currencyDataTable)obj;
-                data.baseDS.currencyDataTable tbl = myClient.GetCurrency();
+                if (obj != null) return (databases.baseDS.currencyDataTable)obj;
+                databases.baseDS.currencyDataTable tbl = myClient.GetCurrency();
                 AddCache(cacheKey, tbl);
                 return tbl;
             }
@@ -273,14 +301,14 @@ namespace DataAccess
         /// <summary>
         /// Country table
         /// </summary>
-        public static data.baseDS.countryDataTable myCountryTbl
+        public static databases.baseDS.countryDataTable myCountryTbl
         {
             get
             {
                 string cacheKey = MakeCacheKey("Country", "All");
                 object obj = GetCache(cacheKey);
-                if (obj != null) return (data.baseDS.countryDataTable)obj;
-                data.baseDS.countryDataTable tbl = myClient.GetCountry();
+                if (obj != null) return (databases.baseDS.countryDataTable)obj;
+                databases.baseDS.countryDataTable tbl = myClient.GetCountry();
                 AddCache(cacheKey, tbl);
                 return tbl;
             }
@@ -289,75 +317,75 @@ namespace DataAccess
         /// <summary>
         /// Investor categories
         /// </summary>
-        public static data.baseDS.investorCatDataTable myInvestorCatTbl
+        public static databases.baseDS.investorCatDataTable myInvestorCatTbl
         {
             get
             {
                 string cacheKey = MakeCacheKey("InvestorCat", "All");
                 object obj = GetCache(cacheKey);
-                if (obj != null) return (data.baseDS.investorCatDataTable)obj;
-                data.baseDS.investorCatDataTable tbl = myClient.GetInvestorCat();
+                if (obj != null) return (databases.baseDS.investorCatDataTable)obj;
+                databases.baseDS.investorCatDataTable tbl = myClient.GetInvestorCat();
                 AddCache(cacheKey, tbl);
                 return tbl;
             }
         }
-        public static data.baseDS.employeeRangeDataTable myEmployeeRangeTbl
+        public static databases.baseDS.employeeRangeDataTable myEmployeeRangeTbl
         {
             get
             {
                 string cacheKey = MakeCacheKey("EmployeeRange", "All");
                 object obj = GetCache(cacheKey);
-                if (obj != null) return (data.baseDS.employeeRangeDataTable)obj;
-                data.baseDS.employeeRangeDataTable tbl = myClient.GetEmployeeRange();
+                if (obj != null) return (databases.baseDS.employeeRangeDataTable)obj;
+                databases.baseDS.employeeRangeDataTable tbl = myClient.GetEmployeeRange();
                 AddCache(cacheKey, tbl);
                 return tbl;
             }
         }
-        public static data.baseDS.bizSectorDataTable myBizSectorTbl
+        public static databases.baseDS.bizSectorDataTable myBizSectorTbl
         {
             get
             {
                 string cacheKey = MakeCacheKey("BizSector", "All");
                 object obj = GetCache(cacheKey);
-                if (obj != null) return (data.baseDS.bizSectorDataTable)obj;
-                data.baseDS.bizSectorDataTable tbl = myClient.GetBizSector();
+                if (obj != null) return (databases.baseDS.bizSectorDataTable)obj;
+                databases.baseDS.bizSectorDataTable tbl = myClient.GetBizSector();
                 AddCache(cacheKey, tbl);
                 return tbl;
             }
         }
 
-        public static data.baseDS.bizSubSectorDataTable myBizSubSectorTbl
+        public static databases.baseDS.bizSubSectorDataTable myBizSubSectorTbl
         {
             get
             {
                 string cacheKey = MakeCacheKey("BizSubSector", "All");
                 object obj = GetCache(cacheKey);
-                if (obj != null) return (data.baseDS.bizSubSectorDataTable)obj;
-                data.baseDS.bizSubSectorDataTable tbl = myClient.GetBizSubSector();
+                if (obj != null) return (databases.baseDS.bizSubSectorDataTable)obj;
+                databases.baseDS.bizSubSectorDataTable tbl = myClient.GetBizSubSector();
                 AddCache(cacheKey, tbl);
                 return tbl;
             }
         }
-        public static data.baseDS.bizSuperSectorDataTable myBizSuperSectorTbl
+        public static databases.baseDS.bizSuperSectorDataTable myBizSuperSectorTbl
         {
             get
             {
                 string cacheKey = MakeCacheKey("BizSuperSector", "All");
                 object obj = GetCache(cacheKey);
-                if (obj != null) return (data.baseDS.bizSuperSectorDataTable)obj;
-                data.baseDS.bizSuperSectorDataTable tbl = myClient.GetBizSuperSector();
+                if (obj != null) return (databases.baseDS.bizSuperSectorDataTable)obj;
+                databases.baseDS.bizSuperSectorDataTable tbl = myClient.GetBizSuperSector();
                 AddCache(cacheKey, tbl);
                 return tbl;
             }
         }
-        public static data.baseDS.bizIndustryDataTable myBizIndustryTbl
+        public static databases.baseDS.bizIndustryDataTable myBizIndustryTbl
         {
             get
             {
                 string cacheKey = MakeCacheKey("BizIndustry", "All");
                 object obj = GetCache(cacheKey);
-                if (obj != null) return (data.baseDS.bizIndustryDataTable)obj;
-                data.baseDS.bizIndustryDataTable tbl = myClient.GetBizIndustry();
+                if (obj != null) return (databases.baseDS.bizIndustryDataTable)obj;
+                databases.baseDS.bizIndustryDataTable tbl = myClient.GetBizIndustry();
                 AddCache(cacheKey, tbl);
                 return tbl;
             }
@@ -366,39 +394,39 @@ namespace DataAccess
 
         #region Load/Get
 
-        public static data.baseDS.stockCodeDataTable GetStockFull(bool force)
+        public static databases.baseDS.stockCodeDataTable GetStockFull(bool force)
         {
             string cacheKey = MakeCacheKey("StockFull", "All");
             if (!force)
             {
                 object obj = GetCache(cacheKey);
-                if (obj != null) return (data.baseDS.stockCodeDataTable)obj;
+                if (obj != null) return (databases.baseDS.stockCodeDataTable)obj;
             }
-            data.baseDS.stockCodeDataTable tbl = myClient.GetStockFull();
+            databases.baseDS.stockCodeDataTable tbl = myClient.GetStockFull();
             AddCache(cacheKey, tbl);
             return tbl;
         }
 
-        public static data.baseDS.portfolioDataTable GetSystemWatchList()
+        public static databases.baseDS.portfolioDataTable GetSystemWatchList()
         {
             string cacheKey = MakeCacheKey("SysWatchList", "List");
             object obj = GetCache(cacheKey);
-            if (obj != null) return (data.baseDS.portfolioDataTable)obj;
-            data.baseDS.portfolioDataTable tbl = myClient.GetPortfolio_ByType(AppTypes.PortfolioTypes.SysWatchList);
+            if (obj != null) return (databases.baseDS.portfolioDataTable)obj;
+            databases.baseDS.portfolioDataTable tbl = myClient.GetPortfolio_ByType(AppTypes.PortfolioTypes.SysWatchList);
             AddCache(cacheKey, tbl);
             return tbl;
         }
-        public static data.baseDS.portfolioRow GetPortfolio_DefaultStrategy()
+        public static databases.baseDS.portfolioRow GetPortfolio_DefaultStrategy()
         {
             string cacheKey = MakeCacheKey("SysPortfolio", "DefaultStrategy");
             object obj = GetCache(cacheKey);
-            if (obj != null) return (data.baseDS.portfolioRow)obj;
-            data.baseDS.portfolioRow row = null;
-            data.baseDS.portfolioDataTable tbl = myClient.GetPortfolio_ByType(AppTypes.PortfolioTypes.PortfolioDefaultStrategy);
+            if (obj != null) return (databases.baseDS.portfolioRow)obj;
+            databases.baseDS.portfolioRow row = null;
+            databases.baseDS.portfolioDataTable tbl = myClient.GetPortfolio_ByType(AppTypes.PortfolioTypes.PortfolioDefaultStrategy);
             if (tbl.Count == 0)
             {
                 row = tbl.NewportfolioRow();
-                commonClass.AppLibs.InitData(row);
+                databases.AppLibs.InitData(row);
                 row.type = (byte)AppTypes.PortfolioTypes.PortfolioDefaultStrategy;
                 row.code = Consts.constNotMarkerNEW;
                 row.investorCode = commonClass.SysLibs.sysLoginCode;
@@ -409,59 +437,59 @@ namespace DataAccess
             AddCache(cacheKey, row);
             return row;
         }
-        public static data.baseDS.portfolioRow GetPortfolio_ByCode(string code)
+        public static databases.baseDS.portfolioRow GetPortfolio_ByCode(string code)
         {
-            data.baseDS.portfolioDataTable tbl = myClient.GetPortfolio_ByCode(code);
+            databases.baseDS.portfolioDataTable tbl = myClient.GetPortfolio_ByCode(code);
             if (tbl.Count == 0) return null;
             return tbl[0];
         }
-        public static data.baseDS.portfolioDataTable GetPortfolio_ByType(AppTypes.PortfolioTypes type)
+        public static databases.baseDS.portfolioDataTable GetPortfolio_ByType(AppTypes.PortfolioTypes type)
         {
             return myClient.GetPortfolio_ByType(type);
         }
 
-        public static data.baseDS.portfolioDataTable GetPortfolio_ByInvestorAndType(string investorCode, AppTypes.PortfolioTypes type)
+        public static databases.baseDS.portfolioDataTable GetPortfolio_ByInvestorAndType(string investorCode, AppTypes.PortfolioTypes type)
         {
             return myClient.GetPortfolio_ByInvestorAndType(investorCode,type);
         }
-        public static data.baseDS.portfolioDataTable GetPortfolio_ByInvestor(string investorCode)
+        public static databases.baseDS.portfolioDataTable GetPortfolio_ByInvestor(string investorCode)
         {
             return myClient.GetPortfolio_ByInvestor(investorCode);
         }
 
-        public static data.baseDS.portfolioDetailDataTable GetPortfolioDetail_ByCode(string portfolioCode)
+        public static databases.baseDS.portfolioDetailDataTable GetPortfolioDetail_ByCode(string portfolioCode)
         {
             return myClient.GetPortfolioDetail_ByCode(portfolioCode);
         }
-        public static data.baseDS.portfolioDetailDataTable GetPortfolioDetail_ByType(AppTypes.PortfolioTypes[] types)
+        public static databases.baseDS.portfolioDetailDataTable GetPortfolioDetail_ByType(AppTypes.PortfolioTypes[] types)
         { 
             return myClient.GetPortfolioDetail_ByType(types);
         }
 
-        public static data.baseDS.tradeAlertDataTable GetTradeAlert_BySQL(string sql)
+        public static databases.baseDS.tradeAlertDataTable GetTradeAlert_BySQL(string sql)
         {
             return myClient.GetTradeAlert_BySQL(sql);
         }
-        public static data.baseDS.transactionsDataTable GetTransactions_BySQL(string sql)
+        public static databases.baseDS.transactionsDataTable GetTransactions_BySQL(string sql)
         {
             return myClient.GetTransaction_BySQL(sql);
         }
 
-        public static data.baseDS.investorStockDataTable GetOwnedStock(string portfolio)
+        public static databases.baseDS.investorStockDataTable GetOwnedStock(string portfolio)
         {
             return myClient.GetOwnedStock(portfolio);
         }
 
-        public static data.tmpDS.stockCodeDataTable GetStock_InPortfolio(StringCollection portfolios)
+        public static databases.tmpDS.stockCodeDataTable GetStock_InPortfolio(StringCollection portfolios)
         {
             return myClient.GetStock_InPortfolio(common.system.Collection2List(portfolios)); 
         }
-        private static data.tmpDS.stockCodeDataTable StockFromCodeList(string[] codes)
+        private static databases.tmpDS.stockCodeDataTable StockFromCodeList(string[] codes)
         {
-            data.tmpDS.stockCodeDataTable retTbl = new data.tmpDS.stockCodeDataTable();
+            databases.tmpDS.stockCodeDataTable retTbl = new databases.tmpDS.stockCodeDataTable();
 
-            data.tmpDS.stockCodeRow stockRow;
-            data.tmpDS.stockCodeDataTable stockCodeTbl = myStockCodeTbl;
+            databases.tmpDS.stockCodeRow stockRow;
+            databases.tmpDS.stockCodeDataTable stockCodeTbl = myStockCodeTbl;
             for (int idx = 0; idx < codes.Length; idx++)
             {
                 stockRow = stockCodeTbl.FindBycode(codes[idx]);
@@ -469,7 +497,7 @@ namespace DataAccess
             }
             return retTbl;
         }
-        public static data.tmpDS.stockCodeDataTable GetStock_ByWatchList(StringCollection codes)
+        public static databases.tmpDS.stockCodeDataTable GetStock_ByWatchList(StringCollection codes)
         {
             string[] codeList = myClient.GetStockList_ByWatchList(common.system.Collection2List(codes));
             return StockFromCodeList(codeList);
@@ -483,65 +511,65 @@ namespace DataAccess
             return myClient.GetStockList_ByBizSector(common.system.Collection2List(codes));
         }
 
-        public static data.tmpDS.stockCodeDataTable GetStock_ByBizSector(StringCollection bizSector)
+        public static databases.tmpDS.stockCodeDataTable GetStock_ByBizSector(StringCollection bizSector)
         {
             string[] codeList = myClient.GetStockList_ByBizSector(common.system.Collection2List(bizSector));
             return StockFromCodeList(codeList);
         }
 
-        public static data.baseDS.bizSubSectorDataTable GetBizSubSector_ByIndustry(string code)
+        public static databases.baseDS.bizSubSectorDataTable GetBizSubSector_ByIndustry(string code)
         {
             string cacheKey = MakeCacheKey("BizSubSector_ByIndustry", code);
             object obj = GetCache(cacheKey);
-            if (obj != null) return (data.baseDS.bizSubSectorDataTable)obj;
-            data.baseDS.bizSubSectorDataTable tbl = myClient.GetBizSubSector_ByIndustry(code);
+            if (obj != null) return (databases.baseDS.bizSubSectorDataTable)obj;
+            databases.baseDS.bizSubSectorDataTable tbl = myClient.GetBizSubSector_ByIndustry(code);
             AddCache(cacheKey, tbl);
             return tbl;
         }
-        public static data.baseDS.bizSubSectorDataTable GetBizSubSector_BySuperSector(string code)
+        public static databases.baseDS.bizSubSectorDataTable GetBizSubSector_BySuperSector(string code)
         {
             string cacheKey = MakeCacheKey("BizSubSector_BySuperSector", code);
             object obj = GetCache(cacheKey);
-            if (obj != null) return (data.baseDS.bizSubSectorDataTable)obj;
-            data.baseDS.bizSubSectorDataTable tbl = myClient.GetBizSubSector_BySuperSector(code);
+            if (obj != null) return (databases.baseDS.bizSubSectorDataTable)obj;
+            databases.baseDS.bizSubSectorDataTable tbl = myClient.GetBizSubSector_BySuperSector(code);
             AddCache(cacheKey, tbl);
             return tbl;
         }
-        public static data.baseDS.bizSubSectorDataTable GetBizSubSector_BySector(string code)
+        public static databases.baseDS.bizSubSectorDataTable GetBizSubSector_BySector(string code)
         {
             string cacheKey = MakeCacheKey("BizSubSector_BySector", code);
             object obj = GetCache(cacheKey);
-            if (obj != null) return (data.baseDS.bizSubSectorDataTable)obj;
-            data.baseDS.bizSubSectorDataTable tbl = myClient.GetBizSubSector_BySector(code);
+            if (obj != null) return (databases.baseDS.bizSubSectorDataTable)obj;
+            databases.baseDS.bizSubSectorDataTable tbl = myClient.GetBizSubSector_BySector(code);
             AddCache(cacheKey, tbl);
             return tbl;
         }
         
-        public static data.baseDS.investorDataTable GetInvestor_BySQL(string sql)
+        public static databases.baseDS.investorDataTable GetInvestor_BySQL(string sql)
         {
             return myClient.GetInvestor_BySQL(sql);
         }
-        public static data.baseDS.investorDataTable GetInvestor_ByCode(string code)
+        public static databases.baseDS.investorDataTable GetInvestor_ByCode(string code)
         {
             return myClient.GetInvestor_ByCode(code);
         }
-        public static data.baseDS.investorDataTable GetInvestor_ByAccount(string account)
+        public static databases.baseDS.investorDataTable GetInvestor_ByAccount(string account)
         {
-            data.baseDS.investorDataTable tbl = new data.baseDS.investorDataTable();
+            databases.baseDS.investorDataTable tbl = new databases.baseDS.investorDataTable();
             return myClient.GetInvestor_BySQL("SELECT * FROM " + tbl.TableName + 
                                                " WHERE " + tbl.accountColumn.ColumnName + "=N'" + account + "'");
         }
-        public static data.baseDS.investorDataTable GetInvestor_ByCriteria(string criteria)
+        public static databases.baseDS.investorDataTable GetInvestor_ByCriteria(string criteria)
         {
-            data.baseDS.investorDataTable tbl = new data.baseDS.investorDataTable();
+            databases.baseDS.investorDataTable tbl = new databases.baseDS.investorDataTable();
             return myClient.GetInvestor_BySQL("SELECT * FROM " + tbl.TableName + (criteria.Trim()==""?"":" WHERE " + criteria));
         }
 
-        public static data.baseDS.sysCodeCatDataTable GetSysCodeCat()
+        public static databases.baseDS.sysCodeCatDataTable GetSysCodeCat()
         {
             return myClient.GetSysCodeCat();
         }
-        public static data.baseDS.sysCodeDataTable GetSysCode(string catCode)
+        public static databases.baseDS.sysCodeDataTable GetSysCode(string catCode)
         {
             return myClient.GetSysCode(catCode);
         }
@@ -549,16 +577,16 @@ namespace DataAccess
         public static void GetConfig(ref StringCollection aFields){}
         public static void SaveConfig(StringCollection aFields, StringCollection aValues){}
 
-        public static data.baseDS.lastPriceDataDataTable GetLastPrice(AppTypes.PriceDataType type)
+        public static databases.baseDS.lastPriceDataDataTable GetLastPrice(AppTypes.PriceDataType type)
         {
             return myClient.GetLastPrice(type);
         }
-        //public static void GetLastPrice(data.baseDS.priceDataDataTable tbl, string stockCode)
+        //public static void GetLastPrice(databases.baseDS.priceDataDataTable tbl, string stockCode)
         //{
         //    object[] data = myClient.GetLastPriceByCode(stockCode);
         //    if (data == null) return;
         //    object aa = data[0];
-        //    //return (data.baseDS.priceDataRow)data;
+        //    //return (databases.baseDS.priceDataRow)data;
         //}
 
         public static bool GetTransactionInfo(ref TransactionInfo transInfo)
@@ -571,15 +599,15 @@ namespace DataAccess
             return  myClient.GetLastAlertTime(investorCode);
         }
 
-        public static data.baseDS.priceDataDataTable GetData_ByTimeScale_Code_FrDate(string timeScaleCode, string stockCode, DateTime fromDate)
+        public static databases.baseDS.priceDataDataTable GetData_ByTimeScale_Code_FrDate(string timeScaleCode, string stockCode, DateTime fromDate)
         {
             return myClient.GetData_ByTimeScale_Code_FrDate(timeScaleCode, stockCode, fromDate);
         }
-        public static data.baseDS.priceDataDataTable GetData_ByTimeScale_Code_DateRange(string timeScaleCode, string stockCode, DateTime frDate, DateTime toDate)
+        public static databases.baseDS.priceDataDataTable GetData_ByTimeScale_Code_DateRange(string timeScaleCode, string stockCode, DateTime frDate, DateTime toDate)
         {
             return myClient.GetData_ByTimeScale_Code_DateRange(timeScaleCode, stockCode, frDate,toDate);
         }
-        public static data.tmpDS.marketDataDataTable GetMarketData_BySQL(string sqlCmd)
+        public static databases.tmpDS.marketDataDataTable GetMarketData_BySQL(string sqlCmd)
         {
             return myClient.GetMarketData_BySQL(sqlCmd);
         }
@@ -590,28 +618,28 @@ namespace DataAccess
         #endregion 
 
         #region Delete
-        public static void DeleteData(data.baseDS.stockExchangeRow row)
+        public static void DeleteData(databases.baseDS.stockExchangeRow row)
         {
             myClient.DeleteStockExchange(row.code);
         }
-        public static void DeleteData(data.baseDS.stockCodeRow row)
+        public static void DeleteData(databases.baseDS.stockCodeRow row)
         {
             myClient.DeleteStock(row.code);
         }
-        public static void DeleteData(data.baseDS.investorRow row)
+        public static void DeleteData(databases.baseDS.investorRow row)
         {
             myClient.DeleteInvestor(row.code);
         }
-        public static void DeleteData(data.baseDS.portfolioRow row)
+        public static void DeleteData(databases.baseDS.portfolioRow row)
         {
             myClient.DeletePortfolio(row.code);
         }
 
-        public static void DeleteData(data.baseDS.sysCodeCatRow row)
+        public static void DeleteData(databases.baseDS.sysCodeCatRow row)
         {
             myClient.DeleteSysCodeCat(row.category);
         }
-        public static void DeleteData(data.baseDS.sysCodeRow row)
+        public static void DeleteData(databases.baseDS.sysCodeRow row)
         {
             myClient.DeleteSysCode(row.category, row.code);
         }
@@ -623,89 +651,89 @@ namespace DataAccess
         #endregion
 
         #region Update
-        public static data.baseDS.sysCodeCatRow UpdateData(data.baseDS.sysCodeCatRow row)
+        public static databases.baseDS.sysCodeCatRow UpdateData(databases.baseDS.sysCodeCatRow row)
         {
-            data.baseDS.sysCodeCatDataTable tbl = new data.baseDS.sysCodeCatDataTable();
+            databases.baseDS.sysCodeCatDataTable tbl = new databases.baseDS.sysCodeCatDataTable();
             tbl.ImportRow(row);
             myClient.UpdateSysCodeCat(ref tbl);
             row.AcceptChanges();
             return tbl[0];
         }
-        public static data.baseDS.sysCodeRow UpdateData(data.baseDS.sysCodeRow row)
+        public static databases.baseDS.sysCodeRow UpdateData(databases.baseDS.sysCodeRow row)
         {
-            data.baseDS.sysCodeDataTable tbl = new data.baseDS.sysCodeDataTable();
+            databases.baseDS.sysCodeDataTable tbl = new databases.baseDS.sysCodeDataTable();
             tbl.ImportRow(row);
             myClient.UpdateSysCode(ref tbl);
             row.AcceptChanges();
             return tbl[0];
         }
 
-        public static data.baseDS.stockCodeRow UpdateData(data.baseDS.stockCodeRow row)
+        public static databases.baseDS.stockCodeRow UpdateData(databases.baseDS.stockCodeRow row)
         {
-            data.baseDS.stockCodeDataTable tbl = new data.baseDS.stockCodeDataTable();
+            databases.baseDS.stockCodeDataTable tbl = new databases.baseDS.stockCodeDataTable();
             tbl.ImportRow(row);
             myClient.UpdateStock(ref tbl); 
             row.AcceptChanges();
             return tbl[0];
         }
-        public static data.baseDS.investorRow UpdateData(data.baseDS.investorRow row)
+        public static databases.baseDS.investorRow UpdateData(databases.baseDS.investorRow row)
         {
-            data.baseDS.investorDataTable tbl = new data.baseDS.investorDataTable();
+            databases.baseDS.investorDataTable tbl = new databases.baseDS.investorDataTable();
             tbl.ImportRow(row);
             myClient.UpdateInvestor(ref tbl);
             row.AcceptChanges();
             return tbl[0];
         }
-        public static data.baseDS.portfolioRow UpdateData(data.baseDS.portfolioRow row)
+        public static databases.baseDS.portfolioRow UpdateData(databases.baseDS.portfolioRow row)
         {
-            data.baseDS.portfolioDataTable tbl = new data.baseDS.portfolioDataTable();
+            databases.baseDS.portfolioDataTable tbl = new databases.baseDS.portfolioDataTable();
             tbl.ImportRow(row);
             myClient.UpdatePortfolio(ref tbl);
             row.AcceptChanges();
             return tbl[0];
         }
-        public static void UpdateData(data.baseDS.portfolioDetailDataTable tbl)
+        public static void UpdateData(databases.baseDS.portfolioDetailDataTable tbl)
         {
             myClient.UpdatePortfolioDetail(ref tbl);
             tbl.AcceptChanges();
         }
 
-        public static data.baseDS.stockExchangeRow UpdateData(data.baseDS.stockExchangeRow row)
+        public static databases.baseDS.stockExchangeRow UpdateData(databases.baseDS.stockExchangeRow row)
         {
-            data.baseDS.stockExchangeDataTable tbl = new data.baseDS.stockExchangeDataTable();
+            databases.baseDS.stockExchangeDataTable tbl = new databases.baseDS.stockExchangeDataTable();
             tbl.ImportRow(row);
             myClient.UpdateStockExchange(ref tbl);
             row.AcceptChanges();
             return tbl[0];
         }
-        public static data.baseDS.transactionsRow UpdateData(data.baseDS.transactionsRow row)
+        public static databases.baseDS.transactionsRow UpdateData(databases.baseDS.transactionsRow row)
         {
-            data.baseDS.transactionsDataTable tbl = new data.baseDS.transactionsDataTable();
+            databases.baseDS.transactionsDataTable tbl = new databases.baseDS.transactionsDataTable();
             tbl.ImportRow(row);
             myClient.UpdateTransactions(ref tbl);
             row.AcceptChanges();
             return tbl[0];
         }
-        public static data.baseDS.investorStockRow UpdateData(data.baseDS.investorStockRow row)
+        public static databases.baseDS.investorStockRow UpdateData(databases.baseDS.investorStockRow row)
         {
-            data.baseDS.investorStockDataTable tbl = new data.baseDS.investorStockDataTable();
+            databases.baseDS.investorStockDataTable tbl = new databases.baseDS.investorStockDataTable();
             tbl.ImportRow(row);
             myClient.UpdateInvestorStock(ref tbl);
             row.AcceptChanges();
             return tbl[0];
         }
-        public static data.baseDS.tradeAlertRow UpdateData(data.baseDS.tradeAlertRow row)
+        public static databases.baseDS.tradeAlertRow UpdateData(databases.baseDS.tradeAlertRow row)
         {
-            data.baseDS.tradeAlertDataTable tbl = new data.baseDS.tradeAlertDataTable();
+            databases.baseDS.tradeAlertDataTable tbl = new databases.baseDS.tradeAlertDataTable();
             tbl.ImportRow(row);
             myClient.UpdateTradeAlert(ref tbl);
             row.AcceptChanges();
             return tbl[0];
         }
 
-        public static data.baseDS.sysAutoKeyPendingRow UpdateData(data.baseDS.sysAutoKeyPendingRow row)
+        public static databases.baseDS.sysAutoKeyPendingRow UpdateData(databases.baseDS.sysAutoKeyPendingRow row)
         {
-            data.baseDS.sysAutoKeyPendingDataTable tbl = new data.baseDS.sysAutoKeyPendingDataTable();
+            databases.baseDS.sysAutoKeyPendingDataTable tbl = new databases.baseDS.sysAutoKeyPendingDataTable();
             tbl.ImportRow(row);
             myClient.UpdateSysAutoKeyPending(ref tbl);
             row.AcceptChanges();
@@ -725,18 +753,18 @@ namespace DataAccess
             return myClient.Estimate_Matrix_Profit(timeRange, timeScaleCode, stocks, strategyList, option);
         }
 
-        public static data.baseDS.transactionsDataTable MakeTransaction(AppTypes.TradeActions type, string stockCode, 
+        public static databases.baseDS.transactionsDataTable MakeTransaction(AppTypes.TradeActions type, string stockCode, 
                                                                         string portfolioCode, int qty, decimal feePerc)
         { 
             string errorText = "";
-            data.baseDS.transactionsDataTable retVal = myClient.MakeTransaction(out errorText, type, stockCode, portfolioCode, qty, feePerc);
+            databases.baseDS.transactionsDataTable retVal = myClient.MakeTransaction(out errorText, type, stockCode, portfolioCode, qty, feePerc);
             if (retVal == null)  common.system.ShowErrorMessage(errorText);
             return retVal;
         }
 
         private class AnalysisDataCache
         {
-            public data.baseDS.priceDataDataTable dataTbl = null;
+            public databases.baseDS.priceDataDataTable dataTbl = null;
             public int firstData=0;
         }
         private static string MakeAnalysisDataCacheKey(commonClass.BaseAnalysisData dataObj)
@@ -757,7 +785,7 @@ namespace DataAccess
             if (obj != null)
             {
                 data = (AnalysisDataCache)obj;
-                dataObj.priceDataTbl = (data.baseDS.priceDataDataTable)data.dataTbl.Copy();
+                dataObj.priceDataTbl = (databases.baseDS.priceDataDataTable)data.dataTbl.Copy();
                 return true;
             }
             using (new PleaseWait())
@@ -768,14 +796,14 @@ namespace DataAccess
                 data.dataTbl = myClient.GetAnalysis_Data(out firstData, dataObj.DataStockCode, dataParam);
                 data.firstData = firstData;
                 AddCache(cacheKey, data);
-                dataObj.priceDataTbl = (data.baseDS.priceDataDataTable)data.dataTbl.Copy();
+                dataObj.priceDataTbl = (databases.baseDS.priceDataDataTable)data.dataTbl.Copy();
                 dataObj.FirstDataStartAt = firstData;
             }
             return true;
         }
 
         public static TradePointInfo[] GetTradePointWithEstimationDetail(DataParams dataParam,string stockCode, string strategyCode, 
-                                                                         EstimateOptions options,out data.tmpDS.tradeEstimateDataTable toTbl)
+                                                                         EstimateOptions options,out databases.tmpDS.tradeEstimateDataTable toTbl)
         {
             return myClient.GetTradePointWithEstimationDetail(out toTbl,dataParam, stockCode, strategyCode, options);
         }
@@ -785,32 +813,32 @@ namespace DataAccess
         {
             int lastDataIdx = dataObj.priceDataTbl.Count - 1;
             DateTime lastDateTime;
-            if (lastDataIdx < 0) lastDateTime = commonClass.Settings.sysStartDataDate;
+            if (lastDataIdx < 0) lastDateTime = Settings.sysStartDataDate;
             else lastDateTime = dataObj.priceDataTbl[lastDataIdx].onDate;
 
-            data.baseDS.priceDataDataTable tbl = GetData_ByTimeScale_Code_FrDate(dataObj.DataTimeScale.Code, dataObj.DataStockCode,lastDateTime);
+            databases.baseDS.priceDataDataTable tbl = GetData_ByTimeScale_Code_FrDate(dataObj.DataTimeScale.Code, dataObj.DataStockCode,lastDateTime);
             if (tbl.Count > 0)
             {
                 //Delete the last data because the updated data will include this one.
                 if (lastDataIdx >= 0)
                 {
                     dataObj.priceDataTbl[lastDataIdx].ItemArray = tbl[0].ItemArray;
-                    commonClass.AppLibs.DataConcat(tbl, 1, dataObj.priceDataTbl);
+                    databases.AppLibs.DataConcat(tbl, 1, dataObj.priceDataTbl);
                 }
-                else commonClass.AppLibs.DataConcat(tbl, 0, dataObj.priceDataTbl);
+                else databases.AppLibs.DataConcat(tbl, 0, dataObj.priceDataTbl);
             }
             //Update cache
             AnalysisDataCache data = new AnalysisDataCache();
-            data.dataTbl = (data.baseDS.priceDataDataTable)dataObj.priceDataTbl.Copy();
+            data.dataTbl = (databases.baseDS.priceDataDataTable)dataObj.priceDataTbl.Copy();
             data.firstData = dataObj.FirstDataStartAt;
             AddCache(MakeAnalysisDataCacheKey(dataObj), data);
             return dataObj.priceDataTbl.Count - 1 - lastDataIdx;
         }
 
-        public static string GetXml(string fileName)
-        {
-            return myClient.GetXml(fileName);
-        }
+        //public static string GetXml(string fileName)
+        //{
+        //    return myClient.GetXml(fileName);
+        //}
 
         #endregion
         
@@ -837,6 +865,30 @@ namespace DataAccess
         {
             myClient.WriteSyslog(AppTypes.SyslogTypes.Exception,investorCode, er.TargetSite.ToString(), er.Source, er.Message.Trim() + " " + er.StackTrace.Trim());
         }
-         #endregion
+        #endregion
+
+        ///// <summary>
+        /// Update data to the most recent from the last update.
+        /// </summary>
+        /// <returns>Number of updated items</returns>
+        //public static int UpdateAnalysisData()
+        //{
+        //    int numberOfUpdate = UpdateAnalysisData(this);
+        //    this.ClearCache();
+        //    return numberOfUpdate;
+        //}
+
+        public static XmlDocument GetXmlDocumentSTRATEGY()
+        {
+            XmlDocument xmlDoc = new XmlDocument();
+            xmlDoc.LoadXml(myClient.GetXmlDoc2StringSTRATEGY());
+            return xmlDoc;
+        }
+        public static XmlDocument GetXmlDocumentINDICATOR()
+        {
+            XmlDocument xmlDoc = new XmlDocument();
+            xmlDoc.LoadXml(myClient.GetXmlDoc2StringINDICATOR());
+            return xmlDoc;
+        }
     }
 }

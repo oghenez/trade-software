@@ -4,6 +4,7 @@
 //The cut loss function work with some cut loss level
 
 using application.Strategy;
+using commonTypes;
 using commonClass;
 
 namespace Strategy

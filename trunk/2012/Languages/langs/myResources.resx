@@ -1024,7 +1024,7 @@
     <value>Moves per pan</value>
   </data>
   <data name="internetError" xml:space="preserve">
-    <value>Please check Internet connexion</value>
+    <value>Please check the Internet connection !</value>
   </data>
   <data name="bottom" xml:space="preserve">
     <value>Bottom</value>

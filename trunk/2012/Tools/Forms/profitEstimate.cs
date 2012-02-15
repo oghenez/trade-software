@@ -7,6 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 using application;
 using ZedGraph;
+using commonTypes;
 using commonClass;
 
 namespace Tools.Forms
@@ -80,7 +81,7 @@ namespace Tools.Forms
         public string myStockCode = "";
         public string myStrategyCode = "";
         public EstimateOptions myOptions = new EstimateOptions();
-        public void SetData(data.tmpDS.tradeEstimateDataTable dataTbl)
+        public void SetData(databases.tmpDS.tradeEstimateDataTable dataTbl)
         {
             tradeEstimateSource.Sort = dataTbl.onDateColumn.ColumnName + " DESC"; 
             tradeEstimateSource.DataSource = dataTbl;
@@ -88,7 +89,7 @@ namespace Tools.Forms
         }
         public void ReLoad()
         {
-            data.tmpDS.tradeEstimateDataTable dataTbl = new data.tmpDS.tradeEstimateDataTable();
+            databases.tmpDS.tradeEstimateDataTable dataTbl = new databases.tmpDS.tradeEstimateDataTable();
             DataAccess.Libs.GetTradePointWithEstimationDetail(this.myDataParam, this.myStockCode, this.myStrategyCode, this.myOptions,out dataTbl);
             tradeEstimateSource.DataSource = dataTbl;
             DoFilter();
@@ -122,7 +123,7 @@ namespace Tools.Forms
         {
             string saveSort = tradeEstimateSource.Sort;
             tradeEstimateSource.Sort = "";
-            data.tmpDS.tradeEstimateDataTable tbl = tradeEstimateSource.DataSource as data.tmpDS.tradeEstimateDataTable;
+            databases.tmpDS.tradeEstimateDataTable tbl = tradeEstimateSource.DataSource as databases.tmpDS.tradeEstimateDataTable;
             chartPnl.ResetGraph();
             chartPnl.RemoveAllCurves();
             DataSeries xSeries = new DataSeries();

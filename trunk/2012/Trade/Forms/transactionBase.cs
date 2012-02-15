@@ -7,6 +7,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using application;
+using commonTypes;
 using commonClass;
 
 namespace Trade.Forms
@@ -111,7 +112,7 @@ namespace Trade.Forms
 
             codeEd.Focus();
         }
-        public virtual void SetEditData(data.baseDS.transactionsRow row)
+        public virtual void SetEditData(databases.baseDS.transactionsRow row)
         {
             transCodeEd.Text = row.id.ToString();
             codeEd.Text = row.stockCode;
@@ -127,11 +128,15 @@ namespace Trade.Forms
 
             codeEd.Focus();
         }
-        public virtual void SetEditData(data.baseDS.tradeAlertRow row)
+        public virtual void SetEditData(databases.baseDS.tradeAlertRow row)
         {
             transCodeEd.Text = "";
-            data.baseDS.stockExchangeRow stockExchangeRow = application.AppLibs.GetStockExchange(row.stockCode);
-            if (stockExchangeRow != null) feePercEd.Value = stockExchangeRow.tranFeePerc;
+            databases.tmpDS.stockCodeRow stockCodeRow = DataAccess.Libs.myStockCodeTbl.FindBycode(row.stockCode);
+            if (stockCodeRow != null)
+            {
+                databases.baseDS.stockExchangeRow stockExchangeRow = DataAccess.Libs.myStockExchangeTbl.FindBycode(stockCodeRow.stockExchange);
+                if (stockExchangeRow != null) feePercEd.Value = stockExchangeRow.tranFeePerc;
+            }
             codeEd.Text = row.stockCode;
             onTimeEd.myDateTime = row.onTime;
             portfolioCb.myValue = row.portfolio;
@@ -165,7 +170,7 @@ namespace Trade.Forms
                 common.system.ShowErrorMessage(Languages.Libs.GetString("transactionIsClosed"));
                 return false;
             }
-            data.baseDS.transactionsDataTable transTbl=
+            databases.baseDS.transactionsDataTable transTbl=
                             DataAccess.Libs.MakeTransaction(transTypeCb.myValue, codeEd.Text, portfolioCb.myValue, 
                                                           (int)qtyEd.Value,feePercEd.Value);
             if (transTbl == null) return false;

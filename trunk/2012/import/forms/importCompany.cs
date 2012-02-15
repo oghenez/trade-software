@@ -10,6 +10,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.IO;
 using LumenWorks.Framework.IO.Csv;
+using commonTypes;
 using commonClass;
 
 
@@ -34,7 +35,7 @@ namespace imports.forms
             myDataSet.stockCode.Clear();
 
             myDataSet.stockExchange.Clear();
-            application.DbAccess.LoadStockCode_ByStatus(myDataSet.stockCode,AppTypes.CommonStatus.Enable);
+            databases.DbAccess.LoadStockCode_ByStatus(myDataSet.stockCode,AppTypes.CommonStatus.Enable);
 
             this.ShowMessage(" Import from sheet : " + dataFileNameEd.Text);
             common.fileFuncs.WriteLog("Import from sheet : " + dataFileNameEd.Text);
@@ -53,9 +54,9 @@ namespace imports.forms
         //Add to database
         private bool Import_UpdateStockCode(DataTable tbl)
         {
-            data.baseDS.stockCodeRow stockCodeRow;
+            databases.baseDS.stockCodeRow stockCodeRow;
             string comCode = "",stockExchangeCode = "";
-            data.baseDS.stockExchangeRow stockExchangeRow;
+            databases.baseDS.stockExchangeRow stockExchangeRow;
             
             myDataSet.stockCode.Clear();
             myDataSet.stockExchange.Clear();
@@ -79,7 +80,7 @@ namespace imports.forms
                     if (stockCodeRow == null)
                     {
                         stockCodeRow = myDataSet.stockCode.NewstockCodeRow();
-                        commonClass.AppLibs.InitData(stockCodeRow);
+                        databases.AppLibs.InitData(stockCodeRow);
                         stockCodeRow.code = comCode;
                         stockCodeRow.tickerCode = comCode;
                         stockCodeRow.code = comCode;
@@ -118,7 +119,7 @@ namespace imports.forms
                     stockCodeRow.totalDebt = GetNum(tbl.Rows[count][23].ToString());
                     stockCodeRow.totaAssets = GetNum(tbl.Rows[count][24].ToString());
                 }
-                application.DbAccess.UpdateData(myDataSet.stockCode);
+                databases.DbAccess.UpdateData(myDataSet.stockCode);
             }
             catch (Exception er)
             {

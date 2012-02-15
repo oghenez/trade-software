@@ -34,7 +34,7 @@
             this.resultDataGrid = new common.controls.baseDataGridView();
             this.periodicityLbl = new baseClass.controls.baseLabel();
             this.periodicityEd = new baseClass.controls.chartTiming();
-            this.myTmpDS = new data.tmpDS();
+            this.myTmpDS = new databases.tmpDS();
             this.dataPnl = new System.Windows.Forms.Panel();
             this.strategyEstimationPnl = new common.controls.basePanel();
             this.strategyEstimationGrid = new common.controls.baseDataGridView();
@@ -100,7 +100,7 @@
             // 
             this.periodicityEd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.periodicityEd.Location = new System.Drawing.Point(21, 21);
-            this.periodicityEd.myTimeRange = commonClass.AppTypes.TimeRanges.Y5;
+            this.periodicityEd.myTimeRange =commonTypes.AppTypes.TimeRanges.Y5;
             this.periodicityEd.Name = "periodicityEd";
             this.periodicityEd.Size = new System.Drawing.Size(378, 24);
             this.periodicityEd.TabIndex = 1;
@@ -360,7 +360,7 @@
         protected common.controls.baseDataGridView resultDataGrid;
         protected baseClass.controls.baseLabel periodicityLbl;
         protected baseClass.controls.chartTiming periodicityEd;
-        private data.tmpDS myTmpDS;
+        private databases.tmpDS myTmpDS;
         protected System.Windows.Forms.Panel dataPnl;
         protected common.controls.baseDataGridView strategyEstimationGrid;
         protected System.Windows.Forms.Panel optionPnl;

@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(strategyRanking));
-            this.myTmpDS = new data.tmpDS();
+            this.myTmpDS = new databases.tmpDS();
             this.optionPnl = new System.Windows.Forms.Panel();
             this.codeListLb = new baseClass.controls.stockCodeSelect();
             this.timeScaleLbl = new baseClass.controls.baseLabel();
@@ -331,7 +331,7 @@
 
         #endregion
 
-        private data.tmpDS myTmpDS;
+        private databases.tmpDS myTmpDS;
         protected System.Windows.Forms.Panel optionPnl;
         protected baseClass.controls.baseLabel strategyLbl;
         protected baseClass.controls.strategySelect strategyClb;

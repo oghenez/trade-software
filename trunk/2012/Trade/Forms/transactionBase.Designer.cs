@@ -264,7 +264,7 @@
             this.statusCb.Enabled = false;
             this.statusCb.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.statusCb.Location = new System.Drawing.Point(163, 258);
-            this.statusCb.myValue = commonClass.AppTypes.CommonStatus.None;
+            this.statusCb.myValue = commonTypes.AppTypes.CommonStatus.None;
             this.statusCb.Name = "statusCb";
             this.statusCb.SelectedValue = ((byte)(0));
             this.statusCb.Size = new System.Drawing.Size(163, 24);
@@ -363,7 +363,7 @@
             // 
             this.transTypeCb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.transTypeCb.Location = new System.Drawing.Point(163, 62);
-            this.transTypeCb.myValue = commonClass.AppTypes.TradeActions.None;
+            this.transTypeCb.myValue = commonTypes.AppTypes.TradeActions.None;
             this.transTypeCb.Name = "transTypeCb";
             this.transTypeCb.SelectedValue = ((byte)(0));
             this.transTypeCb.Size = new System.Drawing.Size(163, 24);

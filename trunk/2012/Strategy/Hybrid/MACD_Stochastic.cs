@@ -1,5 +1,6 @@
 ﻿//Copyright by NHQ, HCM city, 2011 
 using application.Strategy;
+using commonTypes;
 using commonClass;
 
 namespace Strategy

@@ -7,6 +7,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using application;
+using commonTypes;
 using commonClass;
 
 namespace Tools.Forms
@@ -486,7 +487,7 @@ namespace Tools.Forms
             {
                 if (resultDataGrid.CurrentRow == null) return;
                 string stockCode = resultDataGrid.CurrentRow.Cells[0].Value.ToString();
-                data.tmpDS.stockCodeRow stockCodeRow;
+                databases.tmpDS.stockCodeRow stockCodeRow;
                 if (e.ColumnIndex == 0)
                 {
                     ShowStock(stockCode, periodicityEd.myTimeRange, periodicityEd.myTimeScale);
@@ -641,7 +642,7 @@ namespace Tools.Forms
                 using (new DataAccess.PleaseWait())
                 {
                     string stockCode;
-                    data.tmpDS.stockCodeRow stockCodeRow;
+                    databases.tmpDS.stockCodeRow stockCodeRow;
                     if (resultDataGrid.SelectedRows.Count > 0)
                     {
                         for (int idx1 = 0; idx1 < resultDataGrid.SelectedRows.Count; idx1++)
@@ -683,7 +684,7 @@ namespace Tools.Forms
                 if (resultDataGrid.CurrentCell.ColumnIndex <= 0) return;
 
                 string stockCode = resultDataGrid.CurrentRow.Cells[0].Value.ToString();
-                data.tmpDS.stockCodeRow stockCodeRow = DataAccess.Libs.myStockCodeTbl.FindBycode(stockCode);
+                databases.tmpDS.stockCodeRow stockCodeRow = DataAccess.Libs.myStockCodeTbl.FindBycode(stockCode);
                 if (stockCodeRow == null) return;
                 ShowTradeTransactions(stockCodeRow, strategyClb.myCheckedValues[resultDataGrid.CurrentCell.ColumnIndex-1], this.myDataParam);
             }

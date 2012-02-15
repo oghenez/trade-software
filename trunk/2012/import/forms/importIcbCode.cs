@@ -24,27 +24,27 @@ namespace imports.forms
         {
             this.ShowMessage("");
             string flds = "Industry,Supersector,Sector,Subsector,Definition";
-            data.importDS.icbCodeDataTable icbTbl = new data.importDS.icbCodeDataTable();
+            databases.importDS.icbCodeDataTable icbTbl = new databases.importDS.icbCodeDataTable();
             common.import.ImportFromExcel(dataFileNameEd.Text, sheetNameEd.Text, flds, true, icbTbl);
             ImportICB_ValidateData(icbTbl);
             
             //Add to database
             string sysCodeCat = sysCodeCatEd.Text.Trim();
-            data.baseDS.sysCodeDataTable sysCodeTbl = new data.baseDS.sysCodeDataTable();
+            databases.baseDS.sysCodeDataTable sysCodeTbl = new databases.baseDS.sysCodeDataTable();
             ImportICB_AddToDb(icbTbl, icbTbl.industryColumn.ColumnName, false, sysCodeTbl, sysCodeCat, null);
             ImportICB_AddToDb(icbTbl, icbTbl.superSectorColumn.ColumnName, false, sysCodeTbl, sysCodeCat, icbTbl.industryColumn.ColumnName);
             ImportICB_AddToDb(icbTbl, icbTbl.sectorColumn.ColumnName, false, sysCodeTbl, sysCodeCat, icbTbl.superSectorColumn.ColumnName);
             ImportICB_AddToDb(icbTbl, icbTbl.subSectorColumn.ColumnName, true, sysCodeTbl, sysCodeCat, icbTbl.sectorColumn.ColumnName);
 
-            application.DbAccess.DeleteSysCode_ByCategory(sysCodeCat);
-            application.DbAccess.UpdateData(sysCodeTbl);
+            databases.DbAccess.DeleteSysCode_ByCategory(sysCodeCat);
+            databases.DbAccess.UpdateData(sysCodeTbl);
 
             this.ShowMessage("Hòan tất");
             //ImportICB_AddToDb("ICB", icbTbl);
             //common.Export.ExportToExcel(icbTbl.DefaultView.ToTable(),"d://tmp.xls");
         }
         //Fill empty cells with the above one and delete empty rows
-        private static void ImportICB_ValidateData(data.importDS.icbCodeDataTable tbl)
+        private static void ImportICB_ValidateData(databases.importDS.icbCodeDataTable tbl)
         {
             string lastIndusty = "", lastSupperSector = "", lastSector = "", lastSubSector = "";
             for (int idx = 0; idx < tbl.Count; idx++)
@@ -69,10 +69,10 @@ namespace imports.forms
         }
 
         //Add to database
-        private void ImportICB_AddToDb(data.importDS.icbCodeDataTable tbl, string fldName, bool haveDefitionFld, 
-                                              data.baseDS.sysCodeDataTable sysCodeTbl,string category,string codeGroupFldName)
+        private void ImportICB_AddToDb(databases.importDS.icbCodeDataTable tbl, string fldName, bool haveDefitionFld, 
+                                              databases.baseDS.sysCodeDataTable sysCodeTbl,string category,string codeGroupFldName)
         {
-            data.baseDS.sysCodeRow sysCodeRow;
+            databases.baseDS.sysCodeRow sysCodeRow;
             common.myKeyValueItem item;
             for (int idx = 0; idx < tbl.Count; idx++)
             {
@@ -86,7 +86,7 @@ namespace imports.forms
                 if (sysCodeTbl.FindBycategorycode(category, item.Key) == null)
                 {
                     sysCodeRow = sysCodeTbl.NewsysCodeRow();
-                    commonClass.AppLibs.InitData(sysCodeRow);
+                    databases.AppLibs.InitData(sysCodeRow);
                     sysCodeRow.category = category;
                     sysCodeRow.code = item.Key;
                     sysCodeRow.description1 = item.Value;

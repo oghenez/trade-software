@@ -211,20 +211,20 @@
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.stockCodeLb.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.stockCodeLb.Location = new System.Drawing.Point(2, 439);
+            this.stockCodeLb.Location = new System.Drawing.Point(2, 433);
             this.stockCodeLb.Margin = new System.Windows.Forms.Padding(2);
             this.stockCodeLb.myItemString = "";
             this.stockCodeLb.myValues = ((System.Collections.Specialized.StringCollection)(resources.GetObject("stockCodeLb.myValues")));
             this.stockCodeLb.Name = "stockCodeLb";
             this.stockCodeLb.ShowCheckedOnly = false;
-            this.stockCodeLb.Size = new System.Drawing.Size(465, 200);
+            this.stockCodeLb.Size = new System.Drawing.Size(465, 205);
             this.stockCodeLb.TabIndex = 2;
             // 
             // codeListLbl
             // 
             this.codeListLbl.AutoSize = true;
             this.codeListLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.codeListLbl.Location = new System.Drawing.Point(1, 421);
+            this.codeListLbl.Location = new System.Drawing.Point(1, 415);
             this.codeListLbl.Name = "codeListLbl";
             this.codeListLbl.Size = new System.Drawing.Size(67, 16);
             this.codeListLbl.TabIndex = 316;
@@ -264,7 +264,7 @@
             this.strategyGb.Controls.Add(this.criteriaGrid);
             this.strategyGb.Location = new System.Drawing.Point(3, -4);
             this.strategyGb.Name = "strategyGb";
-            this.strategyGb.Size = new System.Drawing.Size(460, 421);
+            this.strategyGb.Size = new System.Drawing.Size(460, 413);
             this.strategyGb.TabIndex = 1;
             this.strategyGb.TabStop = false;
             // 
@@ -559,7 +559,7 @@
             this.criteriaGrid.Name = "criteriaGrid";
             this.criteriaGrid.RowHeadersWidth = 25;
             this.criteriaGrid.RowTemplate.Height = 24;
-            this.criteriaGrid.Size = new System.Drawing.Size(463, 176);
+            this.criteriaGrid.Size = new System.Drawing.Size(463, 169);
             this.criteriaGrid.TabIndex = 375;
             this.criteriaGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.criteriaGrid_CellClick);
             // 

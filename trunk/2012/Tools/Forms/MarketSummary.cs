@@ -14,7 +14,7 @@ namespace Tools.Forms
         public MarketSummary()
         {
             InitializeComponent();
-            data.baseDS.investorDataTable investor=DataAccess.Libs.GetInvestor_ByCode(commonClass.SysLibs.sysLoginCode);
+            databases.baseDS.investorDataTable investor=DataAccess.Libs.GetInvestor_ByCode(commonClass.SysLibs.sysLoginCode);
             TitleLbl.Text = "Hi " + investor[0].firstName + investor[0].lastName + ",\r\n" + TitleLbl.Text;
         }
 

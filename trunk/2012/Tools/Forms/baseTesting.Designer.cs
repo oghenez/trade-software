@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(baseTesting));
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
-            this.myDataSet = new data.baseDS();
+            this.myDataSet = new databases.baseDS();
             ((System.ComponentModel.ISupportInitialize)(this.myDataSet)).BeginInit();
             this.SuspendLayout();
             // 
@@ -64,6 +64,6 @@
         #endregion
 
         protected System.Windows.Forms.SaveFileDialog saveFileDialog;
-        protected data.baseDS myDataSet;
+        protected databases.baseDS myDataSet;
     }
 }

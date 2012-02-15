@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using application.Strategy;
+using commonTypes;
 using commonClass;
 
 namespace Strategy

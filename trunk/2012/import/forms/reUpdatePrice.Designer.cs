@@ -31,8 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(reUpdatePrice));
             this.closeBtn = new common.controls.baseButton();
             this.importBtn = new common.controls.baseButton();
-            this.myBaseDS = new data.baseDS();
-            this.myImportDS = new data.importDS();
+            this.myBaseDS = new databases.baseDS();
+            this.myImportDS = new databases.importDS();
             this.noteGb = new System.Windows.Forms.GroupBox();
             this.noteLbl = new baseClass.controls.baseLabel();
             this.dateRangeEd = new common.controls.dateRange2();
@@ -171,8 +171,8 @@
 
         protected common.controls.baseButton importBtn;
         protected common.controls.baseButton closeBtn;
-        protected data.baseDS myBaseDS;
-        private data.importDS myImportDS;
+        protected databases.baseDS myBaseDS;
+        private databases.importDS myImportDS;
         private System.Windows.Forms.GroupBox noteGb;
         private baseClass.controls.baseLabel noteLbl;
         private common.controls.dateRange2 dateRangeEd;
