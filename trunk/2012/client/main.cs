@@ -33,41 +33,9 @@ namespace client
             {
                 this.myStatusImageVisibled = true;
                 this.myStatusImage = Properties.Resources.disconnected; 
-
-                //using (new common.PleaseWait(new Point(),new forms.startSplash() ))
-                {
-                    InitializeComponent();
-
-                    bool isConnected = false;
-                    for (int idx = 0; idx < 3; idx++)
-                    {
-                        if (DataAccess.Libs.CheckConnection())
-                        {
-                            isConnected = true;
-                            break;
-                        }
-                    }
-                    if (isConnected)
-                    {
-                        this.myStatusImage = Properties.Resources.connected;
-                    }
-                    else
-                    {
-                        common.system.ShowError(Languages.Libs.GetString("loadDataError"), Languages.Libs.GetString("internetError"));
-                        QuitApplication();
-                    }
-
-
-                    //Load XML meta for STRATEGY and INDICATOR
-                    application.Strategy.Data.sysXmlDocument = DataAccess.Libs.GetXmlDocumentSTRATEGY();
-                    application.Indicators.Data.sysXmlDocument = DataAccess.Libs.GetXmlDocumentINDICATOR(); 
-
-                    //test.LoadTestConfig();
-                    DataAccess.Libs.LoadSystemVars();
-                    Init();
-                    //Display test menu
-                    testMenuItem.Visible = (Settings.sysGlobal.DebugMode || common.Settings.sysTestMode);
-                }
+                InitializeComponent();
+                Init();
+                testMenuItem.Visible = false;
             }
             catch (Exception er)
             {
@@ -75,6 +43,41 @@ namespace client
                 common.system.ShowError(Languages.Libs.GetString("loadDataError"),er.Message);
                 this.ShowError(er);
             }
+        }
+
+        private static bool fStarted = false;
+        private bool ReStart(bool force)
+        {
+            if (fStarted && !force) return true;
+
+
+            using (new common.PleaseWait(new Point(), new forms.startSplash()))
+            {
+                bool isConnected = false;
+                for (int idx = 0; idx < 3; idx++)
+                {
+                    if (DataAccess.Libs.CheckConnection())
+                    {
+                        isConnected = true;
+                        break;
+                    }
+                }
+                if (isConnected)
+                {
+                    this.myStatusImage = Properties.Resources.connected;
+                }
+                else
+                {
+                    return false;
+                }
+
+                //Load XML meta for STRATEGY and INDICATOR
+                application.Strategy.Data.sysXmlDocument = DataAccess.Libs.GetXmlDocumentSTRATEGY();
+                application.Indicators.Data.sysXmlDocument = DataAccess.Libs.GetXmlDocumentINDICATOR();
+                DataAccess.Libs.LoadSystemVars();
+                fStarted = true;
+            }
+            return true;
         }
 
         #region CreateContextMenu
@@ -355,6 +358,9 @@ namespace client
             }
             cachedForms.Clear();
             common.Data.Clear();
+
+            ReStart(false);
+
             LoadUserConfig();
 
             StartupForms();
