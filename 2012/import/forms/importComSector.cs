@@ -10,6 +10,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.IO;
 using LumenWorks.Framework.IO.Csv;
+using commonTypes;
 using commonClass;
 
 namespace imports.forms
@@ -39,8 +40,8 @@ namespace imports.forms
             myDataSet.stockCode.Clear();
             myDataSet.bizSubSector.Clear();
 
-            application.DbAccess.LoadStockCode_ByStatus(myDataSet.stockCode,AppTypes.CommonStatus.Enable);
-            application.DbAccess.LoadData(myDataSet.bizSubSector);
+            databases.DbAccess.LoadStockCode_ByStatus(myDataSet.stockCode, AppTypes.CommonStatus.Enable);
+            databases.DbAccess.LoadData(myDataSet.bizSubSector);
 
             mySubSectorView = new DataView(myDataSet.bizSubSector);
             mySubSectorView.Sort = myDataSet.bizSubSector.description1Column.ColumnName;
@@ -84,7 +85,7 @@ namespace imports.forms
         //Add to database
         private void Import_UpdateSectors(DataTable tbl)
         {
-            data.baseDS.stockCodeRow stockCodeRow;
+            databases.baseDS.stockCodeRow stockCodeRow;
             string comCode = "", comName, subSectorDesc;
 
             DataRowView[] foundRows;
@@ -106,7 +107,7 @@ namespace imports.forms
                 if (stockCodeRow == null)
                 {
                     stockCodeRow = myDataSet.stockCode.NewstockCodeRow();
-                    commonClass.AppLibs.InitData(stockCodeRow);
+                    databases.AppLibs.InitData(stockCodeRow);
                     stockCodeRow.code = comCode;
                     stockCodeRow.name = "<New>";
                     stockCodeRow.regDate = DateTime.Today;
@@ -146,7 +147,7 @@ namespace imports.forms
                                                                     common.Settings.sysListSeparatorPostfix);
                 }
             }
-            application.DbAccess.UpdateData(myDataSet.stockCode);
+            databases.DbAccess.UpdateData(myDataSet.stockCode);
         }
 
         private bool ValidateImport()

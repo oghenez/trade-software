@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using commonTypes;
 
 namespace server
 {
@@ -16,7 +17,6 @@ namespace server
             try
             {
                 common.language.myCulture = new System.Globalization.CultureInfo("vi-VN");
-                commonClass.Settings.sysAccessMode = commonClass.AppTypes.DataAccessMode.WebService;
                 InitializeComponent();
                 //object obj = Strategy.Data.sysXmlDocument;
                 //test.LoadTestConfig();

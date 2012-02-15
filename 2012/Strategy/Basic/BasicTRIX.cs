@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Indicators;
 using application.Strategy;
+using commonTypes;
 using commonClass;
 
 namespace Strategy

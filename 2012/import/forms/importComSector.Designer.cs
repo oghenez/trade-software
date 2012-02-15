@@ -32,7 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(importComSector));
             this.dataFileLbl = new common.controls.baseLabel();
             this.dataFileNameEd = new common.controls.baseTextBox();
-            this.myDataSet = new data.baseDS();
+            this.myDataSet = new databases.baseDS();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.bizIndustryClb = new baseClass.controls.clbBizIndustry();
             this.industryLbl = new common.controls.baseLabel();
@@ -227,7 +227,7 @@
         protected common.controls.baseTextBox dataFileNameEd;
         protected common.controls.baseButton importBtn;
         protected common.controls.baseButton closeBtn;
-        protected data.baseDS myDataSet;
+        protected databases.baseDS myDataSet;
         protected System.Windows.Forms.OpenFileDialog openFileDialog;
         protected common.controls.baseLabel industryLbl;
         protected baseClass.controls.clbBizIndustry bizIndustryClb;

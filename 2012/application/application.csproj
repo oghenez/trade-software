@@ -55,8 +55,8 @@
     <Reference Include="Charts, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="common, Version=1.5.0.0, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="commonClass, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
-    <Reference Include="data, Version=2.1.0.0, Culture=neutral, processorArchitecture=MSIL" />
-    <Reference Include="DataAccess, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="commonTypes, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="databases, Version=2.1.0.0, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="Languages, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core">
@@ -97,7 +97,6 @@
     <Compile Include="dataClass.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="DbAccess.cs" />
     <Compile Include="forms\baseIndicatorForm.cs">
       <SubType>Form</SubType>
     </Compile>

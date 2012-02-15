@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using TicTacTec.TA.Library;
 using application.Indicators;
+using commonTypes;
 using commonClass;
 
 

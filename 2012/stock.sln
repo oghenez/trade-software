@@ -1,8 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 10.00
 # Visual Studio 2008
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "data", "data\data.csproj", "{6C985FC9-D5A1-4638-BE59-5939EB59B8B0}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "baseClass", "baseClass\baseClass.csproj", "{D14859F5-0C41-4D7E-91AD-ED1C9195234D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "setup", "setup\setup.csproj", "{6914F1B1-F5EE-41FB-B9DD-D5031F1212D1}"
@@ -11,7 +9,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "application", "application\
 	ProjectSection(ProjectDependencies) = postProject
 		{1463FC47-2B74-4E63-9710-2C3B8ED3DE8A} = {1463FC47-2B74-4E63-9710-2C3B8ED3DE8A}
 		{001346B6-40DD-4D1B-BFE6-7C760850C3EB} = {001346B6-40DD-4D1B-BFE6-7C760850C3EB}
-		{6C985FC9-D5A1-4638-BE59-5939EB59B8B0} = {6C985FC9-D5A1-4638-BE59-5939EB59B8B0}
 		{D14859F5-0C41-4D7E-91AD-ED1C9195234D} = {D14859F5-0C41-4D7E-91AD-ED1C9195234D}
 	EndProjectSection
 EndProject
@@ -47,16 +44,16 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "testcharts", "testCharts\te
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "common", "..\..\ketoan-moi\code\common\common.csproj", "{90A73556-87A1-4887-BB82-F482669A7784}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "commonTypes", "commonTypes\commonTypes.csproj", "{AE392C66-BEBF-4507-ADD9-F17D9E51FC42}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "databases", "databases\databases.csproj", "{B698A85B-1837-49DF-B2E5-221DFB0D02CA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{6C985FC9-D5A1-4638-BE59-5939EB59B8B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6C985FC9-D5A1-4638-BE59-5939EB59B8B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6C985FC9-D5A1-4638-BE59-5939EB59B8B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6C985FC9-D5A1-4638-BE59-5939EB59B8B0}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D14859F5-0C41-4D7E-91AD-ED1C9195234D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D14859F5-0C41-4D7E-91AD-ED1C9195234D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D14859F5-0C41-4D7E-91AD-ED1C9195234D}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -133,6 +130,14 @@ Global
 		{90A73556-87A1-4887-BB82-F482669A7784}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{90A73556-87A1-4887-BB82-F482669A7784}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{90A73556-87A1-4887-BB82-F482669A7784}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AE392C66-BEBF-4507-ADD9-F17D9E51FC42}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE392C66-BEBF-4507-ADD9-F17D9E51FC42}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE392C66-BEBF-4507-ADD9-F17D9E51FC42}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE392C66-BEBF-4507-ADD9-F17D9E51FC42}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B698A85B-1837-49DF-B2E5-221DFB0D02CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B698A85B-1837-49DF-B2E5-221DFB0D02CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B698A85B-1837-49DF-B2E5-221DFB0D02CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B698A85B-1837-49DF-B2E5-221DFB0D02CA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

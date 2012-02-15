@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using commonTypes;
 
 namespace admin
 {
@@ -15,8 +16,7 @@ namespace admin
         {
             try
             {
-                common.language.myCulture = new System.Globalization.CultureInfo("vi-VN");
-                commonClass.Settings.sysAccessMode = commonClass.AppTypes.DataAccessMode.WebService;
+                 common.language.myCulture = new System.Globalization.CultureInfo("vi-VN");
                 InitializeComponent();
                 //test.LoadTestConfig();
             }

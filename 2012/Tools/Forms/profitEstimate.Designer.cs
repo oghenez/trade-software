@@ -40,7 +40,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(profitEstimate));
             this.dataGrid = new common.controls.baseDataGridView();
             this.tradeEstimateSource = new System.Windows.Forms.BindingSource(this.components);
-            this.myTmpDS = new data.tmpDS();
+            this.myTmpDS = new databases.tmpDS();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.estimationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -386,7 +386,7 @@
         #endregion
 
         private System.Windows.Forms.BindingSource tradeEstimateSource;
-        private data.tmpDS myTmpDS;
+        private databases.tmpDS myTmpDS;
         protected common.controls.baseDataGridView dataGrid;
         protected System.Windows.Forms.SaveFileDialog saveFileDialog;
         protected System.Windows.Forms.MenuStrip menuStrip;

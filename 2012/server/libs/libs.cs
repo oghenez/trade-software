@@ -104,7 +104,7 @@ namespace server
         public static void FetchRealTimeData(DateTime updateTime)
         {
             string[] parts;
-            data.baseDS.stockExchangeRow marketRow;
+            databases.baseDS.stockExchangeRow marketRow;
             for (int idx1 = 0; idx1 < application.SysLibs.myStockExchangeTbl.Rows.Count; idx1++)
             {
                 marketRow = application.SysLibs.myStockExchangeTbl[idx1];

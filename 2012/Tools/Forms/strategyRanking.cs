@@ -8,6 +8,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using application;
+using commonTypes;
 using commonClass;
 
 namespace Tools.Forms
@@ -463,7 +464,7 @@ namespace Tools.Forms
 
                 if (resultDataGrid.CurrentRow == null) return;
                 AppTypes.TimeRanges timeRange = AppTypes.TimeRangeFromCode(resultDataGrid.Columns[e.ColumnIndex].DataPropertyName);
-                data.tmpDS.stockCodeRow stockCodeRow = DataAccess.Libs.myStockCodeTbl.FindBycode(stockCode);
+                databases.tmpDS.stockCodeRow stockCodeRow = DataAccess.Libs.myStockCodeTbl.FindBycode(stockCode);
                 if (stockCodeRow == null) return;
 
                 string strategyCode = resultDataGrid.CurrentRow.Cells[0].Value.ToString();
@@ -574,7 +575,7 @@ namespace Tools.Forms
                     if (resultDataGrid == null) return;
 
                     string stockCode = resultTab.SelectedTab.Name;
-                    data.tmpDS.stockCodeRow stockCodeRow = DataAccess.Libs.myStockCodeTbl.FindBycode(stockCode);
+                    databases.tmpDS.stockCodeRow stockCodeRow = DataAccess.Libs.myStockCodeTbl.FindBycode(stockCode);
                     if (stockCodeRow == null) return;
 
                     DataParams dataParam = new DataParams(timeScaleCb.myValue.Code, AppTypes.TimeRanges.None,0);
@@ -618,7 +619,7 @@ namespace Tools.Forms
                 if (resultDataGrid.CurrentCell.ColumnIndex<=0) return;
 
                 string stockCode = resultTab.SelectedTab.Name;
-                data.tmpDS.stockCodeRow stockCodeRow = DataAccess.Libs.myStockCodeTbl.FindBycode(stockCode);
+                databases.tmpDS.stockCodeRow stockCodeRow = DataAccess.Libs.myStockCodeTbl.FindBycode(stockCode);
                 if (stockCodeRow == null) return;
                 application.Strategy.Meta meta = application.Strategy.Libs.FindMetaByName(resultDataGrid.CurrentRow.Cells[0].Value.ToString());
 

@@ -10,7 +10,7 @@ using System.Data;
 using System.Reflection;
 using System.Web;
 using System.Xml;
-using application;
+using commonTypes;
 using commonClass;
 
 namespace wsServices
@@ -28,32 +28,35 @@ namespace wsServices
 
         [OperationContract]
         DateTime GetServerDateTime();
+
+        [OperationContract]
+        bool IsWorking();
         #endregion
 
         #region update
         [OperationContract]
-        void UpdateSysCodeCat(ref data.baseDS.sysCodeCatDataTable sysCodeCatTbl);
+        void UpdateSysCodeCat(ref databases.baseDS.sysCodeCatDataTable sysCodeCatTbl);
         [OperationContract]
-        void UpdateSysCode(ref data.baseDS.sysCodeDataTable sysCodeTbl);
+        void UpdateSysCode(ref databases.baseDS.sysCodeDataTable sysCodeTbl);
 
         [OperationContract]
-        void UpdateStock(ref data.baseDS.stockCodeDataTable stockCodeTbl);
+        void UpdateStock(ref databases.baseDS.stockCodeDataTable stockCodeTbl);
         [OperationContract]
-        void UpdateInvestor(ref data.baseDS.investorDataTable investorTbl);
+        void UpdateInvestor(ref databases.baseDS.investorDataTable investorTbl);
         [OperationContract]
-        void UpdatePortfolio(ref data.baseDS.portfolioDataTable portfolioTbl);
+        void UpdatePortfolio(ref databases.baseDS.portfolioDataTable portfolioTbl);
         [OperationContract]
-        void UpdatePortfolioDetail(ref data.baseDS.portfolioDetailDataTable portfolioDetailTbl);
+        void UpdatePortfolioDetail(ref databases.baseDS.portfolioDetailDataTable portfolioDetailTbl);
         [OperationContract]
-        void UpdateStockExchange(ref data.baseDS.stockExchangeDataTable stockExchangeTbl);
+        void UpdateStockExchange(ref databases.baseDS.stockExchangeDataTable stockExchangeTbl);
         [OperationContract]
-        void UpdateTransactions(ref data.baseDS.transactionsDataTable transactionsTbl);
+        void UpdateTransactions(ref databases.baseDS.transactionsDataTable transactionsTbl);
         [OperationContract]
-        void UpdateInvestorStock(ref data.baseDS.investorStockDataTable investorStockTbl);
+        void UpdateInvestorStock(ref databases.baseDS.investorStockDataTable investorStockTbl);
         [OperationContract]
-        void UpdateTradeAlert(ref data.baseDS.tradeAlertDataTable tradeAlertTbl);
+        void UpdateTradeAlert(ref databases.baseDS.tradeAlertDataTable tradeAlertTbl);
         [OperationContract]
-        void UpdateSysAutoKeyPending(ref data.baseDS.sysAutoKeyPendingDataTable sysAutoKeyPendingTbl);
+        void UpdateSysAutoKeyPending(ref databases.baseDS.sysAutoKeyPendingDataTable sysAutoKeyPendingTbl);
 
         #endregion
 
@@ -77,10 +80,13 @@ namespace wsServices
 
         #region Get/Load
         [OperationContract]
-        data.tmpDS.stockCodeDataTable GetStockByStatus(AppTypes.CommonStatus status);
+        databases.tmpDS.stockCodeDataTable GetStockByStatus(AppTypes.CommonStatus status);
+
+        [OperationContract]
+        databases.tmpDS.investorDataTable GetInvestorShortList();
         
         [OperationContract]
-        data.baseDS.stockCodeDataTable GetStockFull();
+        databases.baseDS.stockCodeDataTable GetStockFull();
 
         [OperationContract]
         string[] GetStockList_ByWatchList(string[] watchList);
@@ -88,89 +94,89 @@ namespace wsServices
         string[] GetStockList_ByBizSector(string[] sectors);
 
         [OperationContract]
-        data.baseDS.stockExchangeDataTable GetStockExchange();
+        databases.baseDS.stockExchangeDataTable GetStockExchange();
         [OperationContract]
-        data.baseDS.employeeRangeDataTable GetEmployeeRange();
+        databases.baseDS.employeeRangeDataTable GetEmployeeRange();
         [OperationContract]
-        data.baseDS.bizIndustryDataTable GetBizIndustry();
+        databases.baseDS.bizIndustryDataTable GetBizIndustry();
         [OperationContract]
-        data.baseDS.bizSuperSectorDataTable GetBizSuperSector();
+        databases.baseDS.bizSuperSectorDataTable GetBizSuperSector();
         [OperationContract]
-        data.baseDS.bizSectorDataTable GetBizSector();
+        databases.baseDS.bizSectorDataTable GetBizSector();
         
         [OperationContract]
-        data.baseDS.bizSubSectorDataTable GetBizSubSector();
+        databases.baseDS.bizSubSectorDataTable GetBizSubSector();
         [OperationContract]
-        data.baseDS.bizSubSectorDataTable GetBizSubSectorByIndustry(string industryCode);
+        databases.baseDS.bizSubSectorDataTable GetBizSubSectorByIndustry(string industryCode);
         [OperationContract]
-        data.baseDS.bizSubSectorDataTable GetBizSubSectorBySuperSector(string superSectorCode);
+        databases.baseDS.bizSubSectorDataTable GetBizSubSectorBySuperSector(string superSectorCode);
         [OperationContract]
-        data.baseDS.bizSubSectorDataTable GetBizSubSectorBySector(string sectorCode);
+        databases.baseDS.bizSubSectorDataTable GetBizSubSectorBySector(string sectorCode);
 
         [OperationContract]
-        data.baseDS.countryDataTable GetCountry();
+        databases.baseDS.countryDataTable GetCountry();
         [OperationContract]
-        data.baseDS.currencyDataTable GetCurrency();
+        databases.baseDS.currencyDataTable GetCurrency();
         [OperationContract]
-        data.baseDS.investorCatDataTable GetInvestorCat();
+        databases.baseDS.investorCatDataTable GetInvestorCat();
         [OperationContract]
-        data.baseDS.sysCodeDataTable GetSysCode(string catCode);
+        databases.baseDS.sysCodeDataTable GetSysCode(string catCode);
         [OperationContract]
-        data.baseDS.sysCodeCatDataTable GetSysCodeCat();
+        databases.baseDS.sysCodeCatDataTable GetSysCodeCat();
 
         [OperationContract]
-        data.baseDS.investorDataTable GetInvestor_ByAccount(string account);
+        databases.baseDS.investorDataTable GetInvestor_ByAccount(string account);
         [OperationContract]
-        data.baseDS.investorDataTable GetInvestor_ByCode(string code);
+        databases.baseDS.investorDataTable GetInvestor_ByCode(string code);
         [OperationContract]
-        data.baseDS.investorDataTable GetInvestor_BySQL(string sql);
+        databases.baseDS.investorDataTable GetInvestor_BySQL(string sql);
         
         
         [OperationContract]
-        data.tmpDS.stockCodeDataTable GetStock_InPortfolio(string[] portfolios);
+        databases.tmpDS.stockCodeDataTable GetStock_InPortfolio(string[] portfolios);
         [OperationContract]
-        data.tmpDS.stockCodeDataTable GetStock_ByBizSector(string[] bizSector);
+        databases.tmpDS.stockCodeDataTable GetStock_ByBizSector(string[] bizSector);
         [OperationContract]
-        data.baseDS.bizSubSectorDataTable GetBizSubSector_ByIndustry(string code);
+        databases.baseDS.bizSubSectorDataTable GetBizSubSector_ByIndustry(string code);
         [OperationContract]
-        data.baseDS.bizSubSectorDataTable GetBizSubSector_BySuperSector(string code);
+        databases.baseDS.bizSubSectorDataTable GetBizSubSector_BySuperSector(string code);
         [OperationContract]
-        data.baseDS.bizSubSectorDataTable GetBizSubSector_BySector(string code);
+        databases.baseDS.bizSubSectorDataTable GetBizSubSector_BySector(string code);
 
         [OperationContract]
-        data.baseDS.portfolioDataTable GetPortfolio_ByInvestorAndType(string investorCode, AppTypes.PortfolioTypes type);
+        databases.baseDS.portfolioDataTable GetPortfolio_ByInvestorAndType(string investorCode, AppTypes.PortfolioTypes type);
         [OperationContract]
-        data.baseDS.portfolioDataTable GetPortfolio_ByType(AppTypes.PortfolioTypes type);
+        databases.baseDS.portfolioDataTable GetPortfolio_ByType(AppTypes.PortfolioTypes type);
         [OperationContract]
-        data.baseDS.portfolioDataTable GetPortfolio_ByCode(string portfolioCode);
+        databases.baseDS.portfolioDataTable GetPortfolio_ByCode(string portfolioCode);
         [OperationContract]
-        data.baseDS.portfolioDataTable GetPortfolio_ByInvestor(string investorCode);
+        databases.baseDS.portfolioDataTable GetPortfolio_ByInvestor(string investorCode);
 
         [OperationContract]
-        data.baseDS.tradeAlertDataTable GetTradeAlert_BySQL(string alertSql);
+        databases.baseDS.tradeAlertDataTable GetTradeAlert_BySQL(string alertSql);
         [OperationContract]
-        data.baseDS.transactionsDataTable GetTransaction_BySQL(string transSql);
+        databases.baseDS.transactionsDataTable GetTransaction_BySQL(string transSql);
 
         [OperationContract]
-        data.baseDS.portfolioDetailDataTable GetPortfolioDetail_ByType(AppTypes.PortfolioTypes[] types);
+        databases.baseDS.portfolioDetailDataTable GetPortfolioDetail_ByType(AppTypes.PortfolioTypes[] types);
         [OperationContract]
-        data.baseDS.portfolioDetailDataTable GetPortfolioDetail_ByCode(string portfolioCode);
+        databases.baseDS.portfolioDetailDataTable GetPortfolioDetail_ByCode(string portfolioCode);
         
         [OperationContract]
-        data.baseDS.investorStockDataTable GetOwnedStock(string portfolioCode);
+        databases.baseDS.investorStockDataTable GetOwnedStock(string portfolioCode);
 
         [OperationContract]
-        data.baseDS.lastPriceDataDataTable GetLastPrice(AppTypes.PriceDataType type);
+        databases.baseDS.lastPriceDataDataTable GetLastPrice(AppTypes.PriceDataType type);
         
         [OperationContract]
         DateTime GetLastAlertTime(string investorCode);
 
         [OperationContract]
-        data.baseDS.priceDataDataTable GetData_ByTimeScale_Code_FrDate(string timeScaleCode, string stockCode, DateTime fromDate);
+        databases.baseDS.priceDataDataTable GetData_ByTimeScale_Code_FrDate(string timeScaleCode, string stockCode, DateTime fromDate);
         [OperationContract]
-        data.baseDS.priceDataDataTable GetData_ByTimeScale_Code_DateRange(string timeScaleCode, string stockCode, DateTime frDate, DateTime toDate);
+        databases.baseDS.priceDataDataTable GetData_ByTimeScale_Code_DateRange(string timeScaleCode, string stockCode, DateTime frDate, DateTime toDate);
         [OperationContract]
-        data.tmpDS.marketDataDataTable GetMarketData_BySQL(string sqlCmd);
+        databases.tmpDS.marketDataDataTable GetMarketData_BySQL(string sqlCmd);
         [OperationContract]
         int GetData_TotalRow(string timeScaleCode, string stockCode, DateTime frDate, DateTime toDate);
         [OperationContract]
@@ -186,10 +192,10 @@ namespace wsServices
         [OperationContract]
         string LoadAnalysisData(string code, commonClass.DataParams dataParam, bool forceReadNew);
         [OperationContract]
-        data.baseDS.priceDataDataTable GetAnalysis_Data_ByKey(string dataKey, out int firstData);
+        databases.baseDS.priceDataDataTable GetAnalysis_Data_ByKey(string dataKey, out int firstData);
 
         [OperationContract]
-        data.baseDS.priceDataDataTable GetAnalysis_Data(string stockCode, DataParams dataParam, out int firstData);
+        databases.baseDS.priceDataDataTable GetAnalysis_Data(string stockCode, DataParams dataParam, out int firstData);
 
 
         [OperationContract]
@@ -203,14 +209,16 @@ namespace wsServices
         TradePointInfo[] Analysis(string dataKey, string strategyCode);
 
         [OperationContract]
-        data.baseDS.transactionsDataTable MakeTransaction(AppTypes.TradeActions type, string stockCode, string portfolioCode, int qty, decimal feePerc,out string errorText);
+        databases.baseDS.transactionsDataTable MakeTransaction(AppTypes.TradeActions type, string stockCode, string portfolioCode, int qty, decimal feePerc,out string errorText);
 
         [OperationContract]
         TradePointInfo[] GetTradePointWithEstimationDetail(DataParams dataParam,string stockCode, string strategyCode, EstimateOptions options,
-                                                           out data.tmpDS.tradeEstimateDataTable toTbl);
+                                                           out databases.tmpDS.tradeEstimateDataTable toTbl);
 
         [OperationContract]
-        string GetXml(string filePath);
+        string GetXmlDoc2StringSTRATEGY();
+        [OperationContract]
+        string GetXmlDoc2StringINDICATOR();
 
         [OperationContract]
         void Load_Global_Settings(ref GlobalSettings settings);

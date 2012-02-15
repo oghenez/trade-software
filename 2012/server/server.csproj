@@ -42,8 +42,8 @@
       <HintPath>..\dlls\common.dll</HintPath>
     </Reference>
     <Reference Include="commonClass, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
-    <Reference Include="data, Version=2.1.0.0, Culture=neutral, processorArchitecture=MSIL" />
-    <Reference Include="DataAccess, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="commonTypes, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="databases, Version=2.1.0.0, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="imports, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="Languages, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="strategy, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />

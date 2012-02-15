@@ -7,6 +7,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using application;
+using commonTypes;
 using commonClass;
 
 namespace Tools.Forms
@@ -56,7 +57,7 @@ namespace Tools.Forms
             myShowStock(stockCode, timeRange, timeScale);
         }
 
-        protected void ShowTradeTransactions(data.tmpDS.stockCodeRow stockCodeRow, string strategyCode, DataParams dataParam)
+        protected void ShowTradeTransactions(databases.tmpDS.stockCodeRow stockCodeRow, string strategyCode, DataParams dataParam)
         {
             string formName = stockCodeRow.code.Trim() + "," + dataParam.TimeRange.ToString() + "," + application.Strategy.Libs.GetMetaName(strategyCode) + "," + dataParam.TimeScale;
             profitEstimate myForm = profitEstimate.GetForm(formName);

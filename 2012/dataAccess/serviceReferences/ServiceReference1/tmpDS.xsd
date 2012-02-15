@@ -61,6 +61,33 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="investor">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="code">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="displayName">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="account">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
         <xs:element name="tradeEstimate">
           <xs:complexType>
             <xs:sequence>
@@ -102,6 +129,10 @@
     </xs:complexType>
     <xs:unique msdata:PrimaryKey="true" name="Constraint1">
       <xs:selector xpath=".//stockCode" />
+      <xs:field xpath="code" />
+    </xs:unique>
+    <xs:unique msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true" name="investor_Constraint1">
+      <xs:selector xpath=".//investor" />
       <xs:field xpath="code" />
     </xs:unique>
     <xs:unique msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true" name="codeList_Constraint1">

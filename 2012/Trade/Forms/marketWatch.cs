@@ -54,7 +54,7 @@ namespace Trade.Forms
             stockCodeList.Export();
         }
 
-        public delegate void onShowChart(data.baseDS.stockCodeRow stockRow);
+        public delegate void onShowChart(databases.baseDS.stockCodeRow stockRow);
         public virtual event baseClass.Events.onShowChart myOnShowChart
         {
             add
@@ -66,7 +66,7 @@ namespace Trade.Forms
                 stockCodeList.myOnShowChart -= value;
             }
         }
-        public data.tmpDS.stockCodeRow CurrentRow
+        public databases.tmpDS.stockCodeRow CurrentRow
         {
             get
             {

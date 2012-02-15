@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using System.IO;
 using System.Globalization;
 using LumenWorks.Framework.IO.Csv;
+using commonTypes;
 using commonClass;
 
 namespace imports.forms
@@ -36,7 +37,7 @@ namespace imports.forms
         {
             common.fileFuncs.WriteLog(" - Add company : " + code);
         }
-        private void OnUpdateData(data.baseDS.priceDataRow row, libs.importStat stat)
+        private void OnUpdateData(databases.baseDS.priceDataRow row, libs.importStat stat)
         {
             if (fCanceled) stat.cancel =true;
             this.ShowMessage(stat.updateCount.ToString("###,###,##0") + "/" + 
@@ -46,7 +47,7 @@ namespace imports.forms
             //Do Aggregate and reset import to clear system resource
             if (myDataSet.priceData.Count > constNumberOfImportInBatch)
             {
-                application.DbAccess.UpdateData(myDataSet.priceData);
+                databases.DbAccess.UpdateData(myDataSet.priceData);
                 DoAggregate(myDataSet.priceData);
                 myDataSet.priceData.Clear();
             }
@@ -65,18 +66,18 @@ namespace imports.forms
                 case 0: //Data from copheu 68
                     stock.ImportOHLCV_CSV(dataFileNameEd.Text,stockExchangeCb.myValue,
                                           myDataSet.priceData, OnUpdateData);
-                    application.DbAccess.UpdateData(myDataSet.priceData);
+                    databases.DbAccess.UpdateData(myDataSet.priceData);
                     DoAggregate(myDataSet.priceData);
                     break;
                 case 1:
                     gold.ImportOHLCV_CSV(dataFileNameEd.Text,stockExchangeCb.myValue,
                                          myDataSet.priceData, OnUpdateData);
-                    application.DbAccess.UpdateData(myDataSet.priceData);
+                    databases.DbAccess.UpdateData(myDataSet.priceData);
                     DoAggregate(myDataSet.priceData);
                     break;
             }
         }
-        private void DoAggregate(data.baseDS.priceDataDataTable tbl )
+        private void DoAggregate(databases.baseDS.priceDataDataTable tbl )
         {
             libs.AggregatePriceData(tbl,libs.CultureInfoVN, onAggregateData);
         }
@@ -115,15 +116,15 @@ namespace imports.forms
                     case 2:
                         myDataSet.stockCode.Clear();
                         this.ShowMessage("Delete aggregation data...");
-                        application.DbAccess.DeletePriceSumData();
+                        databases.DbAccess.DeletePriceSumData();
                         this.ShowMessage("Loading data...");
-                        application.DbAccess.LoadStockCode_ByStatus(myDataSet.stockCode, AppTypes.CommonStatus.Enable);
+                        databases.DbAccess.LoadStockCode_ByStatus(myDataSet.stockCode, AppTypes.CommonStatus.Enable);
                         for (int idx = 0; idx < myDataSet.stockCode.Count; idx++)
                         {
                             if (fCanceled) break;
                             this.ShowMessage("Arregate stock : " + myDataSet.stockCode[idx].code);
                             myDataSet.priceData.Clear();
-                            application.DbAccess.LoadData(myDataSet.priceData, myDataSet.stockCode[idx].code);
+                            databases.DbAccess.LoadData(myDataSet.priceData, myDataSet.stockCode[idx].code);
                             libs.AggregatePriceData(myDataSet.priceData,libs.CultureInfoVN, null);
                             this.ShowMessage("");
                         }

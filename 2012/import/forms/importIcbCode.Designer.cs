@@ -34,7 +34,7 @@
             this.closeBtn = new common.controls.baseButton();
             this.importBtn = new common.controls.baseButton();
             this.selectFileBtn = new common.controls.baseButton();
-            this.myDataSet = new data.baseDS();
+            this.myDataSet = new databases.baseDS();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.sheetNameEd = new common.controls.baseTextBox();
             this.sheetNameLbl = new common.controls.baseLabel();
@@ -241,7 +241,7 @@
         protected common.controls.baseTextBox dataFileNameEd;
         protected common.controls.baseButton importBtn;
         protected common.controls.baseButton closeBtn;
-        protected data.baseDS myDataSet;
+        protected databases.baseDS myDataSet;
         protected System.Windows.Forms.OpenFileDialog openFileDialog;
         protected common.controls.baseTextBox sheetNameEd;
         protected common.controls.baseLabel sheetNameLbl;

@@ -1339,7 +1339,7 @@ namespace Languages.langs {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Please check Internet connexion.
+        ///   Looks up a localized string similar to Please check the Internet connection !.
         /// </summary>
         internal static string internetError {
             get {
