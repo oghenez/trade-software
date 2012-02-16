@@ -35,7 +35,7 @@ namespace application.Indicators
                 if (_sysXmlDocument == null)
                 {
                     _sysXmlDocument = commonClass.Configuration.GetLocalXmlDocINDICATOR();
-                    if (common.Settings.sysTestMode)
+                    if (common.Settings.sysDebugMode)
                         commonClass.SysLibs.WriteSysLog(AppTypes.SyslogTypes.Others, commonClass.SysLibs.sysLoginCode, "Use local INDICATOR XML");
                 }
                 return _sysXmlDocument;

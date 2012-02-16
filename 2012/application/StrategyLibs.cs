@@ -734,7 +734,7 @@ namespace application.Strategy
                     if (tradePoints != null && tradePoints.Count>0)
                     {
                         rowRetList[colId] = (tradePoints[tradePoints.Count - 1] as TradePointInfo).BusinessInfo.Weight;
-                        if (common.Settings.sysTestMode && (tradePoints[tradePoints.Count - 1] as TradePointInfo).DataIdx != analysisData.Close.Count - 1)
+                        if (common.Settings.sysDebugMode && (tradePoints[tradePoints.Count - 1] as TradePointInfo).DataIdx != analysisData.Close.Count - 1)
                         {
                             commonClass.SysLibs.WriteSysLog( AppTypes.SyslogTypes.Others,stockCodeList[rowId], strategyList[colId]);
                         }
@@ -1006,7 +1006,7 @@ namespace application.Strategy
                 if (_sysXmlDocument == null)
                 {
                     _sysXmlDocument = commonClass.Configuration.GetLocalXmlDocSTRATEGY();
-                    if (common.Settings.sysTestMode)
+                    if (common.Settings.sysDebugMode)
                         commonClass.SysLibs.WriteSysLog(AppTypes.SyslogTypes.Others, commonClass.SysLibs.sysLoginCode,"Use local STRATEGY XML");
                 }
                 return _sysXmlDocument;

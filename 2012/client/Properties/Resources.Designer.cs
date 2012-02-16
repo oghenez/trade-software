@@ -109,13 +109,6 @@ namespace client.Properties {
             }
         }
         
-        internal static System.Drawing.Bitmap connected {
-            get {
-                object obj = ResourceManager.GetObject("connected", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
         internal static System.Drawing.Bitmap cup {
             get {
                 object obj = ResourceManager.GetObject("cup", resourceCulture);
@@ -126,13 +119,6 @@ namespace client.Properties {
         internal static System.Drawing.Bitmap data {
             get {
                 object obj = ResourceManager.GetObject("data", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        internal static System.Drawing.Bitmap disconnected {
-            get {
-                object obj = ResourceManager.GetObject("disconnected", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

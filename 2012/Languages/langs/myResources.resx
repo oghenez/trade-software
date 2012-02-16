@@ -1065,9 +1065,6 @@
   <data name="dataKeyPrefix" xml:space="preserve">
     <value>Data key prefix</value>
   </data>
-  <data name="debugMode" xml:space="preserve">
-    <value>Debug mode</value>
-  </data>
   <data name="email" xml:space="preserve">
     <value>Email</value>
   </data>
@@ -1136,5 +1133,26 @@
   </data>
   <data name="appearance" xml:space="preserve">
     <value>Appearance</value>
+  </data>
+  <data name="connected" xml:space="preserve">
+    <value>Connection is available</value>
+  </data>
+  <data name="noConnection" xml:space="preserve">
+    <value>No connection</value>
+  </data>
+  <data name="configFileError" xml:space="preserve">
+    <value>Configuration file {0} was not found  or corrupted !</value>
+  </data>
+  <data name="autoCheckAfter" xml:space="preserve">
+    <value>Auto-checking after</value>
+  </data>
+  <data name="noTimerUnit" xml:space="preserve">
+    <value>time(s)</value>
+  </data>
+  <data name="timerUnit" xml:space="preserve">
+    <value>Timer unit</value>
+  </data>
+  <data name="timing" xml:space="preserve">
+    <value>Timing</value>
   </data>
 </root>

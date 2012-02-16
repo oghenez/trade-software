@@ -38,7 +38,6 @@ namespace baseClass.forms
             defaLanguageCb.myValue = Settings.sysGlobal.DeafautLanguage;
             passwordMinLenEd.Value = Settings.sysGlobal.PasswordMinLen;
             useStrongPassChk.Checked = Settings.sysGlobal.UseStrongPassword;
-            debugModeChk.Checked = Settings.sysGlobal.DebugMode;
 
             //Auto number
             sysDataKeyPrefixEd.Text = Settings.sysGlobal.DataKeyPrefix;
@@ -47,19 +46,22 @@ namespace baseClass.forms
             timeOutAutoKeyEd.Value = Settings.sysGlobal.TimeOut_AutoKey;
 
             //email
-            smtpServerEd.Text = common.sendMail.mySettings.smtpAddress;
-            smtpPortEd.Text = common.sendMail.mySettings.smtpPort.ToString();
-            smtpAuthAccountEd.Text = (common.sendMail.mySettings.authAccount == null ? "" : common.sendMail.mySettings.authAccount);
-            smtpAuthPasswordEd.Text = (common.sendMail.mySettings.authPassword == null ? "" : common.sendMail.mySettings.authPassword);
-            smtpSSLChk.Checked = common.sendMail.mySettings.smtpSSL;
+            smtpServerEd.Text = Settings.sysGlobal.smtpAddress;
+            smtpPortEd.Text = Settings.sysGlobal.smtpPort.ToString();
+            smtpAuthAccountEd.Text = (Settings.sysGlobal.smtpAuthAccount == null ? "" : Settings.sysGlobal.smtpAuthAccount);
+            smtpAuthPasswordEd.Text = (Settings.sysGlobal.smtpAuthPassword == null ? "" : Settings.sysGlobal.smtpAuthPassword);
+            smtpSSLChk.Checked = Settings.sysGlobal.smtpSSL;
 
-            //Params
+            //Default
             defaTimeRangeCb.myValue = Settings.sysGlobal.DefaultTimeRange;
             defaTimeScaleCb.myValue = AppTypes.TimeScaleFromCode(Settings.sysGlobal.DefaultTimeScaleCode);
 
             screenDataCounEd.Value = Settings.sysGlobal.ScreeningDataCount;
             screenTimeScaleCb.myValue = AppTypes.TimeScaleFromCode(Settings.sysGlobal.ScreeningTimeScaleCode);
 
+            //Timming
+            timerUnitEd.myValue = Settings.sysGlobal.TimerUnitInSecs;
+            timerUnitToAutoCheckEd.myValue = Settings.sysGlobal.TimerUnitToAutoCheck;
         }
         private void SaveSettings()
         {
@@ -67,7 +69,6 @@ namespace baseClass.forms
             Settings.sysGlobal.DeafautLanguage = defaLanguageCb.myValue;
             Settings.sysGlobal.PasswordMinLen = (byte)passwordMinLenEd.Value;
             Settings.sysGlobal.UseStrongPassword = useStrongPassChk.Checked;
-            Settings.sysGlobal.DebugMode = debugModeChk.Checked;
 
             //Auto number
             Settings.sysGlobal.DataKeyPrefix = sysDataKeyPrefixEd.Text;
@@ -76,19 +77,23 @@ namespace baseClass.forms
             Settings.sysGlobal.TimeOut_AutoKey = (int)timeOutAutoKeyEd.Value;
 
             //Email
-            common.sendMail.mySettings.smtpAddress = smtpServerEd.Text.Trim();
+            Settings.sysGlobal.smtpAddress = smtpServerEd.Text.Trim();
             int port = 25; int.TryParse(smtpPortEd.Text,out port);
-            common.sendMail.mySettings.smtpPort = port;
-            common.sendMail.mySettings.authAccount = (smtpAuthAccountEd.Text.Trim() == "" ? "" : smtpAuthAccountEd.Text.Trim());
-            common.sendMail.mySettings.authPassword = (smtpAuthPasswordEd.Text.Trim() == "" ? "" : smtpAuthPasswordEd.Text.Trim());
-            common.sendMail.mySettings.smtpSSL = smtpSSLChk.Checked;
+            Settings.sysGlobal.smtpPort = port;
+            Settings.sysGlobal.smtpAuthAccount = (smtpAuthAccountEd.Text.Trim() == "" ? "" : smtpAuthAccountEd.Text.Trim());
+            Settings.sysGlobal.smtpAuthPassword = (smtpAuthPasswordEd.Text.Trim() == "" ? "" : smtpAuthPasswordEd.Text.Trim());
+            Settings.sysGlobal.smtpSSL = smtpSSLChk.Checked;
 
-            //Params
+            //Default
             Settings.sysGlobal.DefaultTimeRange = defaTimeRangeCb.myValue;
             Settings.sysGlobal.DefaultTimeScaleCode = defaTimeScaleCb.myValue.Code;
 
             Settings.sysGlobal.ScreeningDataCount = (int)screenDataCounEd.Value;
             Settings.sysGlobal.ScreeningTimeScaleCode = screenTimeScaleCb.myValue.Code;
+
+            //Timing
+            Settings.sysGlobal.TimerUnitInSecs = (short)timerUnitEd.myValue;
+            Settings.sysGlobal.TimerUnitToAutoCheck = (short)timerUnitToAutoCheckEd.myValue;
 
             DataAccess.Libs.Save_Global_Settings();
         }
@@ -104,7 +109,6 @@ namespace baseClass.forms
             pwdMinLenLbl.Text = Languages.Libs.GetString("pwdMinLen");
             pwdCharLbl.Text = Languages.Libs.GetString("character");
             useStrongPassChk.Text = Languages.Libs.GetString("useStrongPass");
-            debugModeChk.Text = Languages.Libs.GetString("debugMode");
 
             autoKeyPg.Text = Languages.Libs.GetString("autoKey");
             dataKeyPrefixLbl.Text = Languages.Libs.GetString("dataKeyPrefix");
@@ -119,7 +123,7 @@ namespace baseClass.forms
             smtpPortLbl.Text = Languages.Libs.GetString("smtpPort");
             smtpSSLChk.Text = Languages.Libs.GetString("smtpSSL");
 
-            paramsPg.Text = Languages.Libs.GetString("parameter");
+            defaultPg.Text = Languages.Libs.GetString("defaultStr");
             defaultGb.Text = Languages.Libs.GetString("defaultStr");
             defaTimeRangeLbl.Text = Languages.Libs.GetString("timeRange");
             defaTimeScaleLbl.Text = Languages.Libs.GetString("timeScale");
@@ -127,6 +131,12 @@ namespace baseClass.forms
             screeningGb.Text = Languages.Libs.GetString("screening");
             screenDataCounLbl.Text = Languages.Libs.GetString("dataCount");
             screenTimeScaleLbl.Text = Languages.Libs.GetString("timeScale");
+
+            timingPg.Text = Languages.Libs.GetString("timing");
+            timerUnitLbl.Text = Languages.Libs.GetString("timerUnit");
+            secondLbl2.Text = Languages.Libs.GetString("seconds");
+            timerUnitToAutoCheckLbl.Text = Languages.Libs.GetString("autoCheckAfter");
+            noTimerUnitLbl.Text = Languages.Libs.GetString("noTimerUnit");
         }
 
         private void closeBtn_Click(object sender, EventArgs e)
@@ -145,11 +155,7 @@ namespace baseClass.forms
                 this.ShowError(er);
             }
         }
-        private void otherPg_Click(object sender, EventArgs e)
-        {
-
-        }
-        private void paraSetup_Load(object sender, EventArgs e)
+        private void Form_Load(object sender, EventArgs e)
         {
             try
             {

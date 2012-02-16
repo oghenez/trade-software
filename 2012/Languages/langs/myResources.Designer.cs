@@ -241,6 +241,15 @@ namespace Languages.langs {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Auto-checking after.
+        /// </summary>
+        internal static string autoCheckAfter {
+            get {
+                return ResourceManager.GetString("autoCheckAfter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Auto Key.
         /// </summary>
         internal static string autoKey {
@@ -646,11 +655,29 @@ namespace Languages.langs {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Configuration file {0} was not found  or corrupted !.
+        /// </summary>
+        internal static string configFileError {
+            get {
+                return ResourceManager.GetString("configFileError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Configure.
         /// </summary>
         internal static string configure {
             get {
                 return ResourceManager.GetString("configure", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Connection is available.
+        /// </summary>
+        internal static string connected {
+            get {
+                return ResourceManager.GetString("connected", resourceCulture);
             }
         }
         
@@ -831,15 +858,6 @@ namespace Languages.langs {
         internal static string days {
             get {
                 return ResourceManager.GetString("days", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Debug mode.
-        /// </summary>
-        internal static string debugMode {
-            get {
-                return ResourceManager.GetString("debugMode", resourceCulture);
             }
         }
         
@@ -1807,6 +1825,15 @@ namespace Languages.langs {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to No connection.
+        /// </summary>
+        internal static string noConnection {
+            get {
+                return ResourceManager.GetString("noConnection", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to No data found !.
         /// </summary>
         internal static string noData {
@@ -1839,6 +1866,15 @@ namespace Languages.langs {
         internal static string note {
             get {
                 return ResourceManager.GetString("note", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to time(s).
+        /// </summary>
+        internal static string noTimerUnit {
+            get {
+                return ResourceManager.GetString("noTimerUnit", resourceCulture);
             }
         }
         
@@ -2698,11 +2734,29 @@ namespace Languages.langs {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Timer unit.
+        /// </summary>
+        internal static string timerUnit {
+            get {
+                return ResourceManager.GetString("timerUnit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Time Scale.
         /// </summary>
         internal static string timeScale {
             get {
                 return ResourceManager.GetString("timeScale", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Timing.
+        /// </summary>
+        internal static string timing {
+            get {
+                return ResourceManager.GetString("timing", resourceCulture);
             }
         }
         

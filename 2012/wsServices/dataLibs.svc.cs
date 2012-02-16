@@ -41,7 +41,6 @@ namespace wsServices
         /// </summary>
         public static void SetConfig()
         {
-            common.Consts.constValidCallString = common.Consts.constValidCallMarker;
             common.configuration.withEncryption = true;
             common.Settings.sysConfigFile = common.fileFuncs.ConcatFileName(commonClass.SysLibs.myExecuteDirectory, commonTypes.Consts.constWebServiceConf);
             databases.SysLibs.dbConnectionString = common.configuration.GetDbConnectionString();

@@ -1071,9 +1071,6 @@
   <data name="dataKeyPrefix" xml:space="preserve">
     <value>Tiền tố khóa</value>
   </data>
-  <data name="debugMode" xml:space="preserve">
-    <value>Chế độ tìm lỗi(Debug)</value>
-  </data>
   <data name="email" xml:space="preserve">
     <value>Email</value>
   </data>
@@ -1142,5 +1139,26 @@
   </data>
   <data name="appearance" xml:space="preserve">
     <value>Thể hiện</value>
+  </data>
+  <data name="connected" xml:space="preserve">
+    <value>Kết nối tốt</value>
+  </data>
+  <data name="noConnection" xml:space="preserve">
+    <value>Không có kết nối</value>
+  </data>
+  <data name="configFileError" xml:space="preserve">
+    <value>Tệp cấu hình {0} hỏng hoặc không có trong hệ thống !</value>
+  </data>
+  <data name="autoCheckAfter" xml:space="preserve">
+    <value>Tự kiểm tra sau</value>
+  </data>
+  <data name="noTimerUnit" xml:space="preserve">
+    <value>lần</value>
+  </data>
+  <data name="timerUnit" xml:space="preserve">
+    <value>Đơn vị định thời</value>
+  </data>
+  <data name="timing" xml:space="preserve">
+    <value>Định thời</value>
   </data>
 </root>

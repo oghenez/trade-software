@@ -19,7 +19,7 @@ namespace commonClass
             get
             {
                 //For testing 
-                if (common.Settings.sysTestMode)
+                if (common.Settings.sysDebugMode)
                     return "D:\\work\\stockProject\\code\\wsServices\\obj\\Debug"; 
 
                 if (_executeDirectory == null)
@@ -43,16 +43,6 @@ namespace commonClass
         }
 
         public static DateTime GetWorkDayDate(DateTime frDate, int days) { return frDate.AddDays(days); }
-
-        public static void ExitApplication()
-        {
-            if (common.Settings.sysDebugMode)
-            {
-                common.system.ShowMessage(Languages.Libs.GetString("exitApplication"));
-                return;
-            }
-            common.system.ExitApplication();
-        }
 
         public static bool isSupperAdminLogin(string loginName)
         {
@@ -80,7 +70,7 @@ namespace commonClass
         public static void WriteSysLog(AppTypes.SyslogTypes type, string investorCode, string text)
         {
             common.fileFuncs.WriteLog(DateTime.Now.ToString() + common.Consts.constTab + type.ToString() + common.Consts.constTab +
-                                      (investorCode.Trim() == "" ? common.Consts.constNotAvailable : investorCode.Trim()) + 
+                                      (investorCode==null || investorCode.Trim() == "" ? common.Consts.constNotAvailable : investorCode.Trim()) + 
                                       common.Consts.constTab + text, 
                                       common.fileFuncs.ConcatFileName(myExecuteDirectory, Consts.constFile_SysLog));
         }
