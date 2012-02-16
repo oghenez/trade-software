@@ -31,10 +31,13 @@ namespace client
         {
             try
             {
-                this.myStatusImageVisibled = true;
-                this.myStatusImage = Properties.Resources.disconnected; 
-                InitializeComponent();
-                Init();
+                using (new common.PleaseWait(new Point(), new forms.startSplash()))
+                {
+                    InitializeComponent();
+                    SetFormAppearance();
+
+                    InitSystem(false);
+                }
                 testMenuItem.Visible = false;
             }
             catch (Exception er)
@@ -44,39 +47,13 @@ namespace client
                 this.ShowError(er);
             }
         }
-
-        private static bool fStarted = false;
-        private bool ReStart(bool force)
+        private bool InitSystem(bool force)
         {
-            if (fStarted && !force) return true;
-
-
-            using (new common.PleaseWait(new Point(), new forms.startSplash()))
-            {
-                bool isConnected = false;
-                for (int idx = 0; idx < 3; idx++)
-                {
-                    if (DataAccess.Libs.CheckConnection())
-                    {
-                        isConnected = true;
-                        break;
-                    }
-                }
-                if (isConnected)
-                {
-                    this.myStatusImage = Properties.Resources.connected;
-                }
-                else
-                {
-                    return false;
-                }
-
-                //Load XML meta for STRATEGY and INDICATOR
-                application.Strategy.Data.sysXmlDocument = DataAccess.Libs.GetXmlDocumentSTRATEGY();
-                application.Indicators.Data.sysXmlDocument = DataAccess.Libs.GetXmlDocumentINDICATOR();
-                DataAccess.Libs.LoadSystemVars();
-                fStarted = true;
-            }
+            if (force) DataAccess.Libs.ClearCache();
+            //Load XML meta for STRATEGY and INDICATOR
+            application.Strategy.Data.sysXmlDocument = DataAccess.Libs.GetXmlDocumentSTRATEGY();
+            application.Indicators.Data.sysXmlDocument = DataAccess.Libs.GetXmlDocumentINDICATOR();
+            DataAccess.Libs.LoadSystemVars();
             return true;
         }
 
@@ -163,6 +140,17 @@ namespace client
         }
         #endregion
 
+        static common.TimerProcess RefreshDataProc = null;
+        protected override void ProcessSysTimerTick()
+        {
+            base.ProcessSysTimerTick();
+            if (RefreshDataProc == null)
+            {
+                RefreshDataProc.WaitingUnit = Settings.sysTimerUnitToRefresh;
+                RefreshDataProc.OnProcess += new common.TimerProcess.OnProcessEvent(RefreshData);
+            }
+            RefreshDataProc.Execute();
+        }
         /// <summary>
         /// Set language for controls's main form
         /// </summary>
@@ -275,6 +263,29 @@ namespace client
             }
         }
 
+        //Check user config file
+        protected override bool CheckValid()
+        {
+            if(!base.CheckValid()) return false;
+
+            if (!DataAccess.Libs.OpenConnection())
+            {
+                ShowConfigForm();
+                if (!DataAccess.Libs.OpenConnection())
+                {
+                    commonClass.SysLibs.WriteSysLog(AppTypes.SyslogTypes.Others, null, "Invalid configuration file :" + common.Settings.sysConfigFile);
+                    return false;
+                }
+            }
+            //Ensure that user.xml file is valid
+            if (!common.xmlLibs.IsValidXML(commonTypes.Settings.sysUserConfigFile))
+            {
+                commonClass.SysLibs.WriteSysLog(AppTypes.SyslogTypes.Others, null,"Invalid configuration file :" +  commonTypes.Settings.sysUserConfigFile);
+                common.xmlLibs.CreateEmptyXML(commonTypes.Settings.sysUserConfigFile);
+            }
+            return true;
+        }
+
         private void SetCulture(AppTypes.LanguageCodes code)
         {
             CultureInfo cultureInfo = AppTypes.Code2Culture(code);
@@ -358,36 +369,21 @@ namespace client
             }
             cachedForms.Clear();
             common.Data.Clear();
-
-            ReStart(false);
-
-            LoadUserConfig();
-
-            StartupForms();
-            SetTimer(true);
             return true;
         }
 
         private common.DictionaryList cachedForms = new common.DictionaryList();  // To cache used forms 
 
-        protected override bool LoadAppConfig()
-        {
-            common.Consts.constValidCallString = common.Consts.constValidCallMarker;
-            if(!base.LoadAppConfig()) return false;
-            return true;
-        }
         protected override bool LoadUserConfig()
         {
-            common.Consts.constValidCallString = common.Consts.constValidCallMarker;
             if (!base.LoadUserConfig()) return false;
             SetCulture(Settings.sysLanguage);
             return true;
         }
 
         private common.DictionaryList cultureCache = new common.DictionaryList();
-        
 
-        private void Init()
+        private void SetFormAppearance()
         {
             standartStrip.BringToFront();
             chartStrip.BringToFront();
@@ -427,14 +423,41 @@ namespace client
             DataAccess.Libs.Reset();
             SetTimer(true);
         }
-        private void SetTimer(bool enabled)
+        
+
+        /// <summary>
+        /// Refresh data  : the function will be called after each [sysTimerIntervalInSecs] seconds 
+        /// </summary>
+        private void RefreshData()
         {
-            if (enabled && Settings.sysTimerIntervalInSecs > 0)
+            IDockContent[] fomrs = new IDockContent[0];
+            for (int idx = 0; idx < dockPanel.Contents.Count; idx++)
             {
-                sysTimer.Interval = Settings.sysTimerIntervalInSecs * 1000; //Convert to mili-seconds 
-                sysTimer.Enabled = true;
+                //Update stock charts
+                //if (dockPanel.Contents[idx].GetType() == typeof(Tools.Forms.tradeAnalysis))
+                //{
+                //    (dockPanel.Contents[idx] as Tools.Forms.tradeAnalysis).UpdateDataFromLastTime();
+                //    continue;
+                //}
+                //Market watch
+                if (dockPanel.Contents[idx].GetType() == typeof(Trade.Forms.marketWatch))
+                {
+                    (dockPanel.Contents[idx] as Trade.Forms.marketWatch).RefreshData();
+                    continue;
+                }
+                //Portfolio watch
+                //if (dockPanel.Contents[idx].GetType() == typeof(Trade.Forms.portfolioWatch))
+                //{
+                //    (dockPanel.Contents[idx] as Trade.Forms.portfolioWatch).RefreshData();
+                //    continue;
+                //}
+                //Trade Alert
+                //if (dockPanel.Contents[idx].GetType() == typeof(Trade.Forms.tradeAlertList))
+                //{
+                //    (dockPanel.Contents[idx] as Trade.Forms.tradeAlertList).Refresh();
+                //    continue;
+                //}
             }
-             else sysTimer.Enabled = false;
         }
 
         /// <summary>
@@ -570,41 +593,6 @@ namespace client
             }
         }
 
-        /// <summary>
-        /// Refresh data  : the function will be called after each [sysTimerIntervalInSecs] seconds 
-        /// </summary>
-        private void RefreshData()
-        {
-            IDockContent[] fomrs = new IDockContent[0];
-            for (int idx = 0; idx < dockPanel.Contents.Count; idx++)
-            {
-                //Update stock charts
-                //if (dockPanel.Contents[idx].GetType() == typeof(Tools.Forms.tradeAnalysis))
-                //{
-                //    (dockPanel.Contents[idx] as Tools.Forms.tradeAnalysis).UpdateDataFromLastTime();
-                //    continue;
-                //}
-                //Market watch
-                if (dockPanel.Contents[idx].GetType() == typeof(Trade.Forms.marketWatch))
-                {
-                    (dockPanel.Contents[idx] as Trade.Forms.marketWatch).RefreshData();
-                    continue;
-                }
-                //Portfolio watch
-                //if (dockPanel.Contents[idx].GetType() == typeof(Trade.Forms.portfolioWatch))
-                //{
-                //    (dockPanel.Contents[idx] as Trade.Forms.portfolioWatch).RefreshData();
-                //    continue;
-                //}
-                //Trade Alert
-                //if (dockPanel.Contents[idx].GetType() == typeof(Trade.Forms.tradeAlertList))
-                //{
-                //    (dockPanel.Contents[idx] as Trade.Forms.tradeAlertList).Refresh();
-                //    continue;
-                //}
-            }
-        }
-
         private AppTypes.ChartTypes ChartType
         {
             get
@@ -722,11 +710,13 @@ namespace client
             }
             return myForm;
         }
+
         private void ShowMarketWatchForm()
         {
             Trade.Forms.marketWatch form = GetMarketWatchForm(true);
             form.myContextMenuStrip = CreateContextMenu_MarketWatch();
             form.myGrid.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(NewChartMenuItem_Click);
+            //?? Slow : RefreshData()
             form.RefreshData();
             form.Show(dockPanel, DockState.DockLeft);
         }
@@ -838,7 +828,6 @@ namespace client
             myForm.Show(dockPanel);
             UpdateActiveForm(FormOptions.ChartType); 
         }
-
         private void ShowStockChart(string stockCode,AppTypes.TimeRanges timeRange, AppTypes.TimeScale timeScale)
         {
             DateTime frDate = common.Consts.constNullDate, toDate = common.Consts.constNullDate;
@@ -1021,7 +1010,6 @@ namespace client
             }
         }
 
-
         private void ShowStockHandler(string stockCode,AppTypes.TimeRanges timeRange, AppTypes.TimeScale timeScale)
         {
             try
@@ -1159,7 +1147,6 @@ namespace client
             if (myForm == null || myForm.IsDisposed || !myForm.IsActivated) return null;
             return myForm;
         }
-
         
         private void backTestingMenuItem_Click(object sender, EventArgs e)
         {
@@ -1224,7 +1211,7 @@ namespace client
                 commonClass.SysLibs.ClearLogin();
                 if (!this.ShowLogin())
                 {
-                    commonClass.SysLibs.ExitApplication();
+                    common.system.ExitApplication();
                 }
             }
             catch (Exception er)
@@ -1237,7 +1224,6 @@ namespace client
         {
             try
             {
-                //commonClass.SysLibs.ExitApplication();
                 this.Close();
             }
             catch (Exception er)
@@ -1377,7 +1363,6 @@ namespace client
                 this.ShowError(er);
             }
         }
-
 
         private void printSetupMenuItem_Click(object sender, EventArgs e)
         {
@@ -1635,21 +1620,7 @@ namespace client
             }
         }
 
-
-        static Thread myRefreshThread = null;
-        private void sysTimer_Tick(object sender, EventArgs e)
-        {
-            try
-            {
-                myRefreshThread = new Thread(new ThreadStart(RefreshData));
-                myRefreshThread.Start();
-                myRefreshThread = null;
-            }
-            catch (Exception er)
-            {
-                this.ShowError(er);
-            }
-        }
+       
 
 
         /// <summary>
@@ -1661,8 +1632,7 @@ namespace client
         {
             try
             {
-                baseClass.forms.configure form = new baseClass.forms.configure();
-                form.ShowDialog();
+                ShowConfigForm();
                 Reset();
             }
             catch (Exception er)
@@ -1749,6 +1719,21 @@ namespace client
                 this.ShowError(er);
             }
         }
+
+        private void main_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                //LoadUserConfig();
+                StartupForms();
+                SetTimer(true);
+            }
+            catch (Exception er)
+            {
+                this.ShowError(er);
+            }
+        }
+
         #endregion event handler
 
         private void testMenuItem_Click(object sender, EventArgs e)

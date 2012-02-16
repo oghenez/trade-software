@@ -28,7 +28,9 @@ namespace baseClass.forms
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.loginInfoLbl = new System.Windows.Forms.ToolStripStatusLabel();
+            this.sysTimer = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // loginInfoLbl
@@ -37,6 +39,11 @@ namespace baseClass.forms
             this.loginInfoLbl.Name = "loginInfoLbl";
             this.loginInfoLbl.Size = new System.Drawing.Size(0, 17);
             this.loginInfoLbl.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // sysTimer
+            // 
+            this.sysTimer.Interval = 2000;
+            this.sysTimer.Tick += new System.EventHandler(this.sysTimer_Tick);
             // 
             // baseApplication
             // 
@@ -53,6 +60,7 @@ namespace baseClass.forms
         #endregion
 
         private System.Windows.Forms.ToolStripStatusLabel loginInfoLbl;
+        protected System.Windows.Forms.Timer sysTimer;
 
     }
 }

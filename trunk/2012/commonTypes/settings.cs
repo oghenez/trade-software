@@ -11,8 +11,6 @@ namespace commonTypes
     {
         [DataMember]
         public byte PasswordMinLen = 0; //Minimum pasword len
-        [DataMember]
-        public bool DebugMode = false;
 
         [DataMember]
         public AppTypes.LanguageCodes DeafautLanguage = AppTypes.LanguageCodes.EN;
@@ -64,6 +62,14 @@ namespace commonTypes
         public string ScreeningTimeScaleCode = "";
         [DataMember]
         public string DefaultTimeScaleCode = "";
+
+        //Interval in seconds at which  system time events occur.
+        [DataMember]
+        public short TimerUnitInSecs = 5;   // 5 Possitive number to enable system timer
+
+        //How long (seconds) to perform auto checking (connection,...) :  TimerUnitToAutoCheck * sysTimerUnitInSecs
+        [DataMember]
+        public short TimerUnitToAutoCheck = 10;   //50*5 seconds
     }
     public static class Settings
     {
@@ -79,7 +85,6 @@ namespace commonTypes
             set
             {
                 _sysGlobal = value;
-                common.Settings.sysDebugMode = value.DebugMode;
                 common.sendMail.mySettings.smtpAddress = value.smtpAddress;
                 common.sendMail.mySettings.smtpPort = value.smtpPort;
                 common.sendMail.mySettings.authAccount = value.smtpAuthAccount.Trim();
@@ -98,8 +103,8 @@ namespace commonTypes
         // The setting specifies the number of items put in each batch process.
         public static int sysNumberOfItemsInBatchProcess = 5;
 
-        //Interval in seconds at which  system time events occur.
-        public static int sysTimerIntervalInSecs = 0;   // 5 Possitive number to enable system timer
+        //How long (seconds) to make update : seconds = sysTimerUnitToRefresh * sysTimerUnitInSecs
+        public static short sysTimerUnitToRefresh = 1;
 
         // Price can be querried from SQL continouously and cause some bottleneck. 
         // The setting specified the time (in seconds) that data cached in the application server
@@ -154,10 +159,6 @@ namespace commonTypes
         public static string sysListSeparatorPrefix = "/";
         public static string sysListSeparatorPostfix = "/";
         public static string sysListSeparator = " ";
-
-        //Write log where having error ?
-        //public static bool sysLogError = true;
-
 
         //Default        
         public static int sysDefaultLoginAccountDayToExpire = 365;
@@ -222,8 +223,5 @@ namespace commonTypes
         // Whether to log exception, user access...
         public static AppTypes.SyslogMedia sysWriteLogException = AppTypes.SyslogMedia.File;
         public static AppTypes.SyslogMedia sysWriteLogAccess = AppTypes.SyslogMedia.None;
-
-        //Data access
-        //public static AppTypes.DataAccessMode sysAccessMode = AppTypes.DataAccessMode.Local;
     }
 }

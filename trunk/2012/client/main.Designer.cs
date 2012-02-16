@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             WeifenLuo.WinFormsUI.Docking.DockPanelSkin dockPanelSkin1 = new WeifenLuo.WinFormsUI.Docking.DockPanelSkin();
             WeifenLuo.WinFormsUI.Docking.AutoHideStripSkin autoHideStripSkin1 = new WeifenLuo.WinFormsUI.Docking.AutoHideStripSkin();
             WeifenLuo.WinFormsUI.Docking.DockPanelGradient dockPanelGradient1 = new WeifenLuo.WinFormsUI.Docking.DockPanelGradient();
@@ -181,7 +180,6 @@
             this.strategyCbStrip = new baseClass.controls.ToolStripCbStrategy();
             this.periodicityStrip = new System.Windows.Forms.ToolStrip();
             this.dummyStripBtn = new System.Windows.Forms.ToolStripButton();
-            this.sysTimer = new System.Windows.Forms.Timer(this.components);
             this.chartStrip.SuspendLayout();
             this.standartStrip.SuspendLayout();
             this.toolsStrip.SuspendLayout();
@@ -1385,11 +1383,6 @@
             this.dummyStripBtn.Size = new System.Drawing.Size(85, 22);
             this.dummyStripBtn.Text = "Auto created";
             // 
-            // sysTimer
-            // 
-            this.sysTimer.Interval = 2000;
-            this.sysTimer.Tick += new System.EventHandler(this.sysTimer_Tick);
-            // 
             // main
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -1404,6 +1397,7 @@
             this.MaximizeBox = true;
             this.Name = "main";
             this.Text = "Quantum Automatic Trading System";
+            this.Load += new System.EventHandler(this.main_Load);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.main_FormClosed);
             this.Controls.SetChildIndex(this.toolStripPanel, 0);
             this.Controls.SetChildIndex(this.dockPanel, 0);
@@ -1559,7 +1553,6 @@
         private System.Windows.Forms.ToolStripMenuItem screeningOptionsMenuItem;
         private System.Windows.Forms.ToolStrip strategyStrip;
         private baseClass.controls.ToolStripCbStrategy strategyCbStrip;
-        protected System.Windows.Forms.Timer sysTimer;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator26;
         private System.Windows.Forms.ToolStripMenuItem strategyEstimationiMenuItem;
         private System.Windows.Forms.ToolStripMenuItem configMenuItem;

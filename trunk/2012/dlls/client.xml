@@ -1,6 +1,6 @@
 <Configuration>
   <WSCONNECTION>
-    <Main wsURI="1XSF9ehvHg/abbWHppvU2QKZw7Ghhis+JAdj+LtSp5ea9Epd39W6A0HsSznK6TBF26M7GLusFtQkbiOTH3odxGIMNBeFi8A7" />
+    <Main wsURI="cr+BsZtc1VaYm7T/XSx9KvPjFq5IavLMA20X3v5ueYNdD2pctDCOqfABbH/XEv2j" />
   </WSCONNECTION>
   <WSCONNECTION>
     <Main wsAccount="KyfIBVMmkxxwVTSmToEeiw==" />
@@ -12,18 +12,18 @@
     <Main wsWindowAuthentication="MVsoctThcobSC9M10quTJg==" />
   </WSCONNECTION>
   <WSCONNECTION>
-    <Main wsTimeout="TFxgWMRyZ8Wb/dG0orW7Mg==" />
+    <Main wsTimeout="v4/XvWEiC0nPjWIc1ykw5Q==" />
   </WSCONNECTION>
   <WSCONNECTION>
     <Main wsUseProxy="EpAxoobbG0tPxhyMIVa+4Q==" />
   </WSCONNECTION>
   <WSCONNECTION>
-    <Main wsUseDefaultProxy="EpAxoobbG0tPxhyMIVa+4Q==" />
+    <Main wsUseDefaultProxy="MVsoctThcobSC9M10quTJg==" />
   </WSCONNECTION>
   <WSCONNECTION>
-    <Main wsProxyAddress="+vH66t4KJl+gNUvOide9JfKcmJ3FnwAt2DUJMAfAoKpiDDQXhYvAOw==" />
+    <Main wsProxyAddress="" />
   </WSCONNECTION>
   <WSCONNECTION>
-    <Main wsProxyPort="mlgAq3/uSHR+dMFv0j5L3Q==" />
+    <Main wsProxyPort="" />
   </WSCONNECTION>
 </Configuration>
