@@ -25,7 +25,7 @@ namespace server
             try
             {
                 InitializeComponent();
-                if (!Init()) commonClass.SysLibs.ExitApplication();
+                if (!Init()) common.system.ExitApplication();
                 LoadConfig();
                 myTimer.Interval = timerIntervalInSecs * 1000;
             }
@@ -42,9 +42,6 @@ namespace server
         {
             //application.sysLibs.sysProductOwner = application.Consts.constProductOwner;
             //application.sysLibs.sysProductCode = application.Consts.constProductCode;
-
-            common.Consts.constValidCallString = common.Consts.constValidCallMarker;
-            //common.Settings.sysConfigFile = configFile;
             common.configuration.withEncryption = true;
 
             application.Configuration.Load_User_Envir();
@@ -60,11 +57,6 @@ namespace server
 
             application.Configuration.Load_Local_Settings();
             return true;
-        }
-        protected override bool LoadAppConfig()
-        {
-            common.Consts.constValidCallString = common.Consts.constValidCallMarker;
-            return base.LoadAppConfig();
         }
         protected override bool CheckValid()
         {

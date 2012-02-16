@@ -26,11 +26,6 @@ namespace server
                 this.ShowError(er);
             }
         }
-        protected override bool LoadAppConfig()
-        {
-            common.Consts.constValidCallString = common.Consts.constValidCallMarker;
-            return base.LoadAppConfig();
-        }
         protected override bool CheckValid()
         {
             return true;
