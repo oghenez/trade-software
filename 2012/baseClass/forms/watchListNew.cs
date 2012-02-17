@@ -45,7 +45,7 @@ namespace baseClass.forms
         }
         public databases.baseDS.portfolioRow ShowNew(AppTypes.PortfolioTypes type,string investorCode)
         {
-            codeEd.Text = Consts.constNotMarkerNEW;
+            codeEd.Text = Consts.constMarkerNEW;
             nameEd.Text = "";
             descriptionEd.Text = "";
 
@@ -90,7 +90,7 @@ namespace baseClass.forms
             {
                 portfolioRow = myPortfolioTbl.NewportfolioRow();
                 databases.AppLibs.InitData(portfolioRow);
-                portfolioRow.code = Consts.constNotMarkerNEW;
+                portfolioRow.code = Consts.constMarkerNEW;
                 myPortfolioTbl.AddportfolioRow(portfolioRow);
             }
             else portfolioRow = myPortfolioTbl[0];

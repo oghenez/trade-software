@@ -29,6 +29,11 @@ namespace wsServices
             public long timeStamp = 0; 
         }
 
+        private void WriteSysLog(Exception er)
+        {
+            commonClass.SysLibs.WriteSysLog(er, null);
+        }
+
         #region system
         //Start-up function. See http://stackoverflow.com/questions/739268/wcf-application-start-event
         public DataLibs()
@@ -108,23 +113,38 @@ namespace wsServices
         /// <returns>Data key used for data accessing</returns>
         public string LoadAnalysisData(string code,commonClass.DataParams dataParam, bool forceReadNew)
         {
-            string cacheName = MakeCacheKey(code,dataParam);
-            if (forceReadNew || sysDataCache.Find(cacheName) == null)
+            try
             {
-                application.AnalysisData myData = new application.AnalysisData(code, dataParam);
-                sysDataCache.Add(cacheName, myData);
+                string cacheName = MakeCacheKey(code, dataParam);
+                if (forceReadNew || sysDataCache.Find(cacheName) == null)
+                {
+                    application.AnalysisData myData = new application.AnalysisData(code, dataParam);
+                    sysDataCache.Add(cacheName, myData);
+                }
+                return cacheName;
             }
-            return cacheName;
+            catch (Exception ex)
+            {
+                WriteSysLog(ex);
+            }
+            return null;
         }
-
         
         public databases.baseDS.priceDataDataTable GetAnalysis_Data_ByKey(string dataKey,out int firstData)
         {
             firstData = 0;
-            object dataObj = sysDataCache.Find(dataKey);
-            if (dataObj == null) return null;
-            firstData = (dataObj as application.AnalysisData).FirstDataStartAt;
-            return (dataObj as application.AnalysisData).priceDataTbl;
+            try
+            {
+                object dataObj = sysDataCache.Find(dataKey);
+                if (dataObj == null) return null;
+                firstData = (dataObj as application.AnalysisData).FirstDataStartAt;
+                return (dataObj as application.AnalysisData).priceDataTbl;
+            }
+            catch (Exception ex)
+            {
+                WriteSysLog(ex);
+            }
+            return null;
         }
         public databases.baseDS.priceDataDataTable GetAnalysis_Data(string code,commonClass.DataParams dataParam, out int firstData)
         {
@@ -135,27 +155,51 @@ namespace wsServices
         //[ServiceKnownType(typeof(TradePointInfo[]))]
         public TradePointInfo[] Analysis(string dataKey, string strategyCode)
         {
-            TradePointInfo[] tradePointList = new TradePointInfo[0];
-            application.AnalysisData data = GetAnalysisData(dataKey);
-            if (data == null) return tradePointList;
-            application.Strategy.Meta meta = application.Strategy.Libs.FindMetaByCode(strategyCode);
-            if (meta == null) return tradePointList;
-            return application.Strategy.Libs.ToTradePointInfo(application.Strategy.Libs.Analysis(data, meta));
+            try
+            {
+                TradePointInfo[] tradePointList = new TradePointInfo[0];
+                application.AnalysisData data = GetAnalysisData(dataKey);
+                if (data == null) return tradePointList;
+                application.Strategy.Meta meta = application.Strategy.Libs.FindMetaByCode(strategyCode);
+                if (meta == null) return tradePointList;
+                return application.Strategy.Libs.ToTradePointInfo(application.Strategy.Libs.Analysis(data, meta));
+            }
+            catch (Exception ex)
+            {
+                WriteSysLog(ex);
+            }
+            return null;
         }
 
         public List<decimal[]> Estimate_Matrix_Profit(AppTypes.TimeRanges timeRange, string timeScaleCode,
                                                       string[] stockCodeList, string[] strategyList,
                                                       EstimateOptions option)
         {
-            return application.Strategy.Libs.Estimate_Matrix_Profit(timeRange, AppTypes.TimeScaleFromCode(timeScaleCode), 
-                                                        common.system.List2Collection(stockCodeList),
-                                                        common.system.List2Collection(strategyList), option);
+            try
+            {
+                return application.Strategy.Libs.Estimate_Matrix_Profit(timeRange, AppTypes.TimeScaleFromCode(timeScaleCode),
+                                                            common.system.List2Collection(stockCodeList),
+                                                            common.system.List2Collection(strategyList), option);
+            }
+            catch (Exception ex)
+            {
+                WriteSysLog(ex);
+            }
+            return null;
         }
 
         public List<double[]> Estimate_Matrix_LastBizWeight(DataParams dataParam,string[] stockCodeList, string[] strategyList)
         {
-            return application.Strategy.Libs.Estimate_Matrix_LastBizWeight(dataParam,common.system.List2Collection(stockCodeList),
-                                                                           common.system.List2Collection(strategyList));
+            try
+            {
+                return application.Strategy.Libs.Estimate_Matrix_LastBizWeight(dataParam, common.system.List2Collection(stockCodeList),
+                                                                               common.system.List2Collection(strategyList));
+            }
+            catch (Exception ex)
+            {
+                WriteSysLog(ex);
+            }
+            return null;
         }
 
         #endregion Tools
@@ -183,6 +227,12 @@ namespace wsServices
         {
             databases.baseDS.investorDataTable tbl = new databases.baseDS.investorDataTable();
             databases.DbAccess.LoadInvestorByAccount(tbl, account);
+            return tbl;
+        }
+        public databases.baseDS.investorDataTable GetInvestor_ByEmail(string email)
+        {
+            databases.baseDS.investorDataTable tbl = new databases.baseDS.investorDataTable();
+            databases.DbAccess.LoadInvestorByEmail(tbl, email);
             return tbl;
         }
 
@@ -467,96 +517,220 @@ namespace wsServices
         #region Update
         public void UpdateSysCodeCat(ref databases.baseDS.sysCodeCatDataTable tbl)
         {
-            databases.DbAccess.UpdateData(tbl);
+            try
+            {
+                databases.DbAccess.UpdateData(tbl);
+            }
+            catch (Exception ex)
+            {
+                WriteSysLog(ex);
+            }
         }
         public void UpdateSysCode(ref databases.baseDS.sysCodeDataTable tbl)
         {
-            databases.DbAccess.UpdateData(tbl);
+            try
+            {
+                databases.DbAccess.UpdateData(tbl);
+            }
+            catch (Exception ex)
+            {
+                WriteSysLog(ex);
+            }
         }
-
         public void UpdateStock(ref databases.baseDS.stockCodeDataTable tbl)
         {
-            databases.DbAccess.UpdateData(tbl);
+            try
+            {
+                databases.DbAccess.UpdateData(tbl);
+            }
+            catch (Exception ex)
+            {
+                WriteSysLog(ex);
+            }
         }
         public void UpdateInvestor(ref databases.baseDS.investorDataTable tbl)
         {
-            for (int idx = 0; idx < tbl.Count; idx++)
+            try
             {
-                if (tbl[idx].code.Trim() == Consts.constNotMarkerNEW)
+                for (int idx = 0; idx < tbl.Count; idx++)
                 {
-                    tbl[idx].code = application.SysLibs.GetAutoDataKey(tbl.TableName, false).Trim();
+                    if (tbl[idx].code.Trim() == Consts.constMarkerNEW)
+                    {
+                        tbl[idx].code = application.SysLibs.GetAutoDataKey(tbl.TableName, false).Trim();
+                    }
                 }
+                databases.DbAccess.UpdateData(tbl);
             }
-            databases.DbAccess.UpdateData(tbl);
+            catch (Exception ex)
+            {
+                WriteSysLog(ex);
+            }
         }
         public void UpdatePortfolio(ref databases.baseDS.portfolioDataTable tbl)
         {
-            for (int idx = 0; idx < tbl.Count; idx++)
+            try
             {
-                if (tbl[idx].code.Trim() == Consts.constNotMarkerNEW)
+                for (int idx = 0; idx < tbl.Count; idx++)
                 {
-                    common.myAutoKeyInfo info = application.SysLibs.GetAutoKey(tbl.TableName, false);
-                    tbl[idx].code = info.value.ToString().PadLeft(tbl.codeColumn.MaxLength, '0');
+                    if (tbl[idx].code.Trim() == Consts.constMarkerNEW)
+                    {
+                        common.myAutoKeyInfo info = application.SysLibs.GetAutoKey(tbl.TableName, false);
+                        tbl[idx].code = info.value.ToString().PadLeft(tbl.codeColumn.MaxLength, '0');
+                    }
                 }
+                databases.DbAccess.UpdateData(tbl);
             }
-            databases.DbAccess.UpdateData(tbl);
+            catch (Exception ex)
+            {
+                WriteSysLog(ex);
+            }
         }
         public void UpdatePortfolioDetail(ref databases.baseDS.portfolioDetailDataTable tbl)
         {
-            databases.DbAccess.UpdateData(tbl);
+            try
+            {
+                databases.DbAccess.UpdateData(tbl);
+            }
+            catch (Exception ex)
+            {
+                WriteSysLog(ex);
+            }
         }
         public void UpdateStockExchange(ref databases.baseDS.stockExchangeDataTable tbl)
         {
-            databases.DbAccess.UpdateData(tbl);
+            try
+            {
+                databases.DbAccess.UpdateData(tbl);
+            }
+            catch (Exception ex)
+            {
+                WriteSysLog(ex);
+            }
         }
         public void UpdateTransactions(ref databases.baseDS.transactionsDataTable tbl)
         {
-            databases.DbAccess.UpdateData(tbl);
+            try
+            {
+                databases.DbAccess.UpdateData(tbl);
+            }
+            catch (Exception ex)
+            {
+                WriteSysLog(ex);
+            }
         }
         public void UpdateInvestorStock(ref databases.baseDS.investorStockDataTable tbl)
         {
-            databases.DbAccess.UpdateData(tbl);
+            try
+            {
+                databases.DbAccess.UpdateData(tbl);
+            }
+            catch (Exception ex)
+            {
+                WriteSysLog(ex);
+            }
         }
         public void UpdateTradeAlert(ref databases.baseDS.tradeAlertDataTable tbl)
         {
-            databases.DbAccess.UpdateData(tbl);
+            try
+            {
+                databases.DbAccess.UpdateData(tbl);
+            }
+            catch (Exception ex)
+            {
+                WriteSysLog(ex);
+            }
         }
-
         public void UpdateSysAutoKeyPending(ref databases.baseDS.sysAutoKeyPendingDataTable tbl)
         {
-            databases.DbAccess.UpdateData(tbl);
+            try
+            {
+                databases.DbAccess.UpdateData(tbl);
+            }
+            catch (Exception ex)
+            {
+                WriteSysLog(ex);
+            }
         }
         #endregion
 
         #region Delete
         public void DeleteStockExchange(string code)
         {
-            databases.DbAccess.DeleteStockExchange(code);
+            try
+            {
+                databases.DbAccess.DeleteStockExchange(code);
+            }
+            catch (Exception ex)
+            {
+                WriteSysLog(ex);
+            }
         }
         public void DeleteStock(string code)
         {
-            databases.DbAccess.DeleteStock(code);
+            try
+            {
+                databases.DbAccess.DeleteStock(code);
+            }
+            catch (Exception ex)
+            {
+                WriteSysLog(ex);
+            }
         }
         public void DeleteInvestor(string code)
         {
-            databases.DbAccess.DeleteInvestor(code);
+            try
+            {
+                databases.DbAccess.DeleteInvestor(code);
+            }
+            catch (Exception ex)
+            {
+                WriteSysLog(ex);
+            }
         }
         public void DeletePortfolio(string code)
         {
-            databases.DbAccess.DeletePortfolio(code);
+            try
+            {
+                databases.DbAccess.DeletePortfolio(code);
+            }
+            catch (Exception ex)
+            {
+                WriteSysLog(ex);
+            }
         }
         public void DeleteTradeAlert(int rowId)
         {
-            databases.DbAccess.DeleteTradeAlert(rowId);
+            try
+            {
+                databases.DbAccess.DeleteTradeAlert(rowId);
+            }
+            catch (Exception ex)
+            {
+                WriteSysLog(ex);
+            }
         }
 
         public void DeleteSysCodeCat(string code)
         {
-            databases.DbAccess.DeleteSysCodeCat(code);
+            try
+            {
+                databases.DbAccess.DeleteSysCodeCat(code);
+            }
+            catch (Exception ex)
+            {
+                WriteSysLog(ex);
+            }
         }
         public void DeleteSysCode(string catCode,string code)
         {
-            databases.DbAccess.DeleteSysCode(catCode,code);
+            try
+            {
+                databases.DbAccess.DeleteSysCode(catCode, code);
+            }
+            catch (Exception ex)
+            {
+                WriteSysLog(ex);
+            }
         }
         #endregion
 
@@ -575,41 +749,89 @@ namespace wsServices
         /// 
         public databases.baseDS.transactionsDataTable MakeTransaction(AppTypes.TradeActions type,string stockCode, string portfolioCode, int qty, decimal feePerc,out string errorText)
         {
-            return application.AppLibs.MakeTransaction(type, stockCode, portfolioCode, qty, feePerc,out errorText);
+            errorText = "";
+            try
+            {
+                return application.AppLibs.MakeTransaction(type, stockCode, portfolioCode, qty, feePerc, out errorText);
+            }
+            catch (Exception ex)
+            {
+                WriteSysLog(ex);
+            }
+            return null;
         }
         public TradePointInfo[] GetTradePointWithEstimationDetail(DataParams dataParam,string stockCode, string strategyCode, EstimateOptions options,
                                                                   out databases.tmpDS.tradeEstimateDataTable toTbl)
         {
-            string dataKey = LoadAnalysisData(stockCode,dataParam, false);
-            TradePointInfo[] tradePoints = Analysis(dataKey, strategyCode);
-            toTbl = application.Strategy.Libs.EstimateTrading_Details(sysDataCache.Find(dataKey) as application.AnalysisData, tradePoints, options);
-            return tradePoints;
+            toTbl = null;
+            try
+            {
+                string dataKey = LoadAnalysisData(stockCode, dataParam, false);
+                TradePointInfo[] tradePoints = Analysis(dataKey, strategyCode);
+                toTbl = application.Strategy.Libs.EstimateTrading_Details(sysDataCache.Find(dataKey) as application.AnalysisData, tradePoints, options);
+                return tradePoints;
+            }
+            catch (Exception ex)
+            {
+                WriteSysLog(ex);
+            }
+            return null;
         }
 
         public string GetXmlDoc2StringSTRATEGY()
         {
-            XmlDocument xml = commonClass.Configuration.GetLocalXmlDocSTRATEGY();
-            if (xml == null) return null;
-            StringWriter writer = new StringWriter();
-            xml.Save(writer);
-            return writer.ToString();
+            try
+            {
+                XmlDocument xml = commonClass.Configuration.GetLocalXmlDocSTRATEGY();
+                if (xml == null) return null;
+                StringWriter writer = new StringWriter();
+                xml.Save(writer);
+                return writer.ToString();
+            }
+            catch (Exception ex)
+            {
+                WriteSysLog(ex);
+            }
+            return null;
         }
         public string GetXmlDoc2StringINDICATOR()
         {
-            XmlDocument xml = commonClass.Configuration.GetLocalXmlDocINDICATOR();
-            if (xml == null) return null;
-            StringWriter writer = new StringWriter();
-            xml.Save(writer);
-            return writer.ToString();
+            try
+            {
+                XmlDocument xml = commonClass.Configuration.GetLocalXmlDocINDICATOR();
+                if (xml == null) return null;
+                StringWriter writer = new StringWriter();
+                xml.Save(writer);
+                return writer.ToString();
+            }
+            catch (Exception ex)
+            {
+                WriteSysLog(ex);
+            }
+            return null;
         }
 
         public void Load_Global_Settings(ref GlobalSettings settings)
         {
-            application.Configuration.Load_Global_Settings(ref settings);
+            try
+            {
+                application.Configuration.Load_Global_Settings(ref settings);
+            }
+            catch (Exception ex)
+            {
+                WriteSysLog(ex);
+            }
         }
         public void Save_Global_Settings(GlobalSettings settings)
         {
-            application.Configuration.Save_Global_Settings(settings);
+            try
+            {
+                application.Configuration.Save_Global_Settings(settings);
+            }
+            catch (Exception ex)
+            {
+                WriteSysLog(ex);
+            }
         }
 
         #endregion
@@ -617,7 +839,14 @@ namespace wsServices
         #region syslog
         public void WriteSyslog(AppTypes.SyslogTypes logType,string investorCode, string desc, string source, string msg)
         {
-            databases.DbAccess.WriteSyslog(logType,investorCode, desc, source, msg);
+            try
+            {
+                databases.DbAccess.WriteSyslog(logType, investorCode, desc, source, msg);
+            }
+            catch (Exception ex)
+            {
+                WriteSysLog(ex);
+            }
         }
         #endregion syslog
 

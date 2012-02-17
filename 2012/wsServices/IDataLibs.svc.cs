@@ -129,6 +129,8 @@ namespace wsServices
         [OperationContract]
         databases.baseDS.investorDataTable GetInvestor_ByCode(string code);
         [OperationContract]
+        databases.baseDS.investorDataTable GetInvestor_ByEmail(string email);
+        [OperationContract]
         databases.baseDS.investorDataTable GetInvestor_BySQL(string sql);
         
         

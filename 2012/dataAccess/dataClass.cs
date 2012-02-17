@@ -17,5 +17,15 @@ namespace DataAccess
             priceDataTbl.Clear();
             Libs.LoadAnalysisData(this);
         }
+        /// <summary>
+        /// Update data to the most recent from the last update.
+        /// </summary>
+        /// <returns>Number of updated items</returns>
+        public override int UpdateDataFromLastTime()
+        {
+            int numberOfUpdate = DataAccess.Libs.UpdateAnalysisData(this);
+            //if (numberOfUpdate>=0) this.ClearCache();
+            return numberOfUpdate;
+        }
     }
 }

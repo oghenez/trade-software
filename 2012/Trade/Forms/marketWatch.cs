@@ -17,27 +17,18 @@ namespace Trade.Forms
                 InitializeComponent();
                 this.stockCodeList.myGridView.RowHeadersVisible = false;
                 this.stockCodeList.SetColumnVisibility(baseClass.controls.stockCodeSelectByWatchList.gridColumnName.StockExCode,false);
-
-                this.bgWorker.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bgWorker_RunWorkerCompleted);
+                this.stockCodeList.myOnError += new common.myEventHandler(stockCodeList_onError);
             }
             catch (Exception er)
             {
                 this.ShowError(er);
             }
         }
-
-        // See Making Thread-Safe Calls by using BackgroundWorker
-        // http://msdn.microsoft.com/en-us/library/ms171728.aspx
-        private BackgroundWorker bgWorker = new BackgroundWorker();
-
-        public void RefreshData()
+        public void RefreshData(bool force)
         {
-            stockCodeList.RefreshData(true);
+            stockCodeList.RefreshData(force);
         }
-        //public void SetColor()
-        //{
-        //    stockCodeList.SetColor();
-        //}
+        
         public ContextMenuStrip myContextMenuStrip
         {
             get { return stockCodeList.myContextMenuStrip; }
@@ -94,16 +85,10 @@ namespace Trade.Forms
                 this.ShowError(er);
             }
         }
-        private void bgWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        private void stockCodeList_onError(object sender, common.myExceptionEventArgs e)
         {
-            try
-            {
-                stockCodeList.RefreshPrice();
-            }
-            catch (Exception er)
-            {
-                this.ShowError(er);
-            }
+            this.ShowError(e.myException);
         }
+
     }
 }
