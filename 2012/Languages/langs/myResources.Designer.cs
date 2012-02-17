@@ -862,6 +862,15 @@ namespace Languages.langs {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to No days scan for last price.
+        /// </summary>
+        internal static string dayScanForLastPrice {
+            get {
+                return ResourceManager.GetString("dayScanForLastPrice", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Decrease.
         /// </summary>
         internal static string decrease {

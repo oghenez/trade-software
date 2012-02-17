@@ -62,6 +62,7 @@ namespace baseClass.forms
             //Timming
             timerUnitEd.myValue = Settings.sysGlobal.TimerUnitInSecs;
             timerUnitToAutoCheckEd.myValue = Settings.sysGlobal.TimerUnitToAutoCheck;
+            dayScanForLastPriceEd.myValue = Settings.sysGlobal.DayScanForLastPrice;
         }
         private void SaveSettings()
         {
@@ -94,6 +95,7 @@ namespace baseClass.forms
             //Timing
             Settings.sysGlobal.TimerUnitInSecs = (short)timerUnitEd.myValue;
             Settings.sysGlobal.TimerUnitToAutoCheck = (short)timerUnitToAutoCheckEd.myValue;
+            Settings.sysGlobal.DayScanForLastPrice = (short)dayScanForLastPriceEd.myValue;
 
             DataAccess.Libs.Save_Global_Settings();
         }
@@ -105,7 +107,6 @@ namespace baseClass.forms
 
             systemPg.Text = Languages.Libs.GetString("system");
             generalPg.Text = Languages.Libs.GetString("generalInfo");
-            defaLanguageLbl.Text = Languages.Libs.GetString("defaultLanguage");
             pwdMinLenLbl.Text = Languages.Libs.GetString("pwdMinLen");
             pwdCharLbl.Text = Languages.Libs.GetString("character");
             useStrongPassChk.Text = Languages.Libs.GetString("useStrongPass");
@@ -125,6 +126,7 @@ namespace baseClass.forms
 
             defaultPg.Text = Languages.Libs.GetString("defaultStr");
             defaultGb.Text = Languages.Libs.GetString("defaultStr");
+            defaLanguageLbl.Text = Languages.Libs.GetString("language");
             defaTimeRangeLbl.Text = Languages.Libs.GetString("timeRange");
             defaTimeScaleLbl.Text = Languages.Libs.GetString("timeScale");
 
@@ -137,6 +139,9 @@ namespace baseClass.forms
             secondLbl2.Text = Languages.Libs.GetString("seconds");
             timerUnitToAutoCheckLbl.Text = Languages.Libs.GetString("autoCheckAfter");
             noTimerUnitLbl.Text = Languages.Libs.GetString("noTimerUnit");
+
+            dayScanForLastPriceLbl.Text = Languages.Libs.GetString("dayScanForLastPrice");
+            dayLbl.Text = Languages.Libs.GetString("days");
         }
 
         private void closeBtn_Click(object sender, EventArgs e)

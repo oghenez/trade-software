@@ -1155,4 +1155,7 @@
   <data name="timing" xml:space="preserve">
     <value>Timing</value>
   </data>
+  <data name="dayScanForLastPrice" xml:space="preserve">
+    <value>No days scan for last price</value>
+  </data>
 </root>
