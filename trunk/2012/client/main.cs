@@ -424,7 +424,6 @@ namespace client
             SetTimer(true);
         }
         
-
         /// <summary>
         /// Refresh data  : the function will be called after each [sysTimerIntervalInSecs] seconds 
         /// </summary>
@@ -465,11 +464,15 @@ namespace client
         /// </summary>
         private void StartupForms()
         {
+            System.Diagnostics.Stopwatch stopWatch = new System.Diagnostics.Stopwatch();
+            stopWatch.Start();
             using (new DataAccess.PleaseWait())
             {
                 ShowMarketWatchForm();
                 //ShowMarketSummaryForm();
             }
+            stopWatch.Stop();
+            this.ShowMessage(common.dateTimeLibs.TimeSpan2String(stopWatch.Elapsed));
         }
 
         /// <summary>
@@ -716,9 +719,9 @@ namespace client
             Trade.Forms.marketWatch form = GetMarketWatchForm(true);
             form.myContextMenuStrip = CreateContextMenu_MarketWatch();
             form.myGrid.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(NewChartMenuItem_Click);
-            //?? Slow : RefreshData()
             form.RefreshData();
             form.Show(dockPanel, DockState.DockLeft);
+            //form.SetColor();
         }
         private void HideMarketWatchForm()
         {

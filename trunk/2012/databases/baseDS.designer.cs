@@ -10,8 +10,9 @@
 
 #pragma warning disable 1591
 
-namespace databases
-{
+namespace databases {
+    
+    
     /// <summary>
     ///Represents a strongly typed in-memory cache of data.
     ///</summary>
@@ -74,9 +75,9 @@ namespace databases
         
         private portfolioDetailDataTable tableportfolioDetail;
         
-        private lastPriceDataDataTable tablelastPriceData;
-        
         private priceDataStatDataTable tablepriceDataStat;
+        
+        private lastPriceDataDataTable tablelastPriceData;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -179,11 +180,11 @@ namespace databases
                 if ((ds.Tables["portfolioDetail"] != null)) {
                     base.Tables.Add(new portfolioDetailDataTable(ds.Tables["portfolioDetail"]));
                 }
-                if ((ds.Tables["lastPriceData"] != null)) {
-                    base.Tables.Add(new lastPriceDataDataTable(ds.Tables["lastPriceData"]));
-                }
                 if ((ds.Tables["priceDataStat"] != null)) {
                     base.Tables.Add(new priceDataStatDataTable(ds.Tables["priceDataStat"]));
+                }
+                if ((ds.Tables["lastPriceData"] != null)) {
+                    base.Tables.Add(new lastPriceDataDataTable(ds.Tables["lastPriceData"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -431,18 +432,18 @@ namespace databases
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public lastPriceDataDataTable lastPriceData {
+        public priceDataStatDataTable priceDataStat {
             get {
-                return this.tablelastPriceData;
+                return this.tablepriceDataStat;
             }
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public priceDataStatDataTable priceDataStat {
+        public lastPriceDataDataTable lastPriceData {
             get {
-                return this.tablepriceDataStat;
+                return this.tablelastPriceData;
             }
         }
         
@@ -580,11 +581,11 @@ namespace databases
                 if ((ds.Tables["portfolioDetail"] != null)) {
                     base.Tables.Add(new portfolioDetailDataTable(ds.Tables["portfolioDetail"]));
                 }
-                if ((ds.Tables["lastPriceData"] != null)) {
-                    base.Tables.Add(new lastPriceDataDataTable(ds.Tables["lastPriceData"]));
-                }
                 if ((ds.Tables["priceDataStat"] != null)) {
                     base.Tables.Add(new priceDataStatDataTable(ds.Tables["priceDataStat"]));
+                }
+                if ((ds.Tables["lastPriceData"] != null)) {
+                    base.Tables.Add(new lastPriceDataDataTable(ds.Tables["lastPriceData"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -766,16 +767,16 @@ namespace databases
                     this.tableportfolioDetail.InitVars();
                 }
             }
-            this.tablelastPriceData = ((lastPriceDataDataTable)(base.Tables["lastPriceData"]));
-            if ((initTable == true)) {
-                if ((this.tablelastPriceData != null)) {
-                    this.tablelastPriceData.InitVars();
-                }
-            }
             this.tablepriceDataStat = ((priceDataStatDataTable)(base.Tables["priceDataStat"]));
             if ((initTable == true)) {
                 if ((this.tablepriceDataStat != null)) {
                     this.tablepriceDataStat.InitVars();
+                }
+            }
+            this.tablelastPriceData = ((lastPriceDataDataTable)(base.Tables["lastPriceData"]));
+            if ((initTable == true)) {
+                if ((this.tablelastPriceData != null)) {
+                    this.tablelastPriceData.InitVars();
                 }
             }
         }
@@ -837,10 +838,10 @@ namespace databases
             base.Tables.Add(this.tablepriceDataSum);
             this.tableportfolioDetail = new portfolioDetailDataTable();
             base.Tables.Add(this.tableportfolioDetail);
-            this.tablelastPriceData = new lastPriceDataDataTable();
-            base.Tables.Add(this.tablelastPriceData);
             this.tablepriceDataStat = new priceDataStatDataTable();
             base.Tables.Add(this.tablepriceDataStat);
+            this.tablelastPriceData = new lastPriceDataDataTable();
+            base.Tables.Add(this.tablelastPriceData);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -969,12 +970,12 @@ namespace databases
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        private bool ShouldSerializelastPriceData() {
+        private bool ShouldSerializepriceDataStat() {
             return false;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        private bool ShouldSerializepriceDataStat() {
+        private bool ShouldSerializelastPriceData() {
             return false;
         }
         
@@ -1081,9 +1082,9 @@ namespace databases
         
         public delegate void portfolioDetailRowChangeEventHandler(object sender, portfolioDetailRowChangeEvent e);
         
-        public delegate void lastPriceDataRowChangeEventHandler(object sender, lastPriceDataRowChangeEvent e);
-        
         public delegate void priceDataStatRowChangeEventHandler(object sender, priceDataStatRowChangeEvent e);
+        
+        public delegate void lastPriceDataRowChangeEventHandler(object sender, lastPriceDataRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -9496,254 +9497,6 @@ namespace databases
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class lastPriceDataDataTable : global::System.Data.TypedTableBase<lastPriceDataRow> {
-            
-            private global::System.Data.DataColumn columnstockCode;
-            
-            private global::System.Data.DataColumn columnvalue;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public lastPriceDataDataTable() {
-                this.TableName = "lastPriceData";
-                this.BeginInit();
-                this.InitClass();
-                this.EndInit();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            internal lastPriceDataDataTable(global::System.Data.DataTable table) {
-                this.TableName = table.TableName;
-                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
-                    this.CaseSensitive = table.CaseSensitive;
-                }
-                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
-                    this.Locale = table.Locale;
-                }
-                if ((table.Namespace != table.DataSet.Namespace)) {
-                    this.Namespace = table.Namespace;
-                }
-                this.Prefix = table.Prefix;
-                this.MinimumCapacity = table.MinimumCapacity;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            protected lastPriceDataDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
-                    base(info, context) {
-                this.InitVars();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn stockCodeColumn {
-                get {
-                    return this.columnstockCode;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn valueColumn {
-                get {
-                    return this.columnvalue;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.ComponentModel.Browsable(false)]
-            public int Count {
-                get {
-                    return this.Rows.Count;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public lastPriceDataRow this[int index] {
-                get {
-                    return ((lastPriceDataRow)(this.Rows[index]));
-                }
-            }
-            
-            public event lastPriceDataRowChangeEventHandler lastPriceDataRowChanging;
-            
-            public event lastPriceDataRowChangeEventHandler lastPriceDataRowChanged;
-            
-            public event lastPriceDataRowChangeEventHandler lastPriceDataRowDeleting;
-            
-            public event lastPriceDataRowChangeEventHandler lastPriceDataRowDeleted;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public void AddlastPriceDataRow(lastPriceDataRow row) {
-                this.Rows.Add(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public lastPriceDataRow AddlastPriceDataRow(string stockCode, decimal value) {
-                lastPriceDataRow rowlastPriceDataRow = ((lastPriceDataRow)(this.NewRow()));
-                object[] columnValuesArray = new object[] {
-                        stockCode,
-                        value};
-                rowlastPriceDataRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowlastPriceDataRow);
-                return rowlastPriceDataRow;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public lastPriceDataRow FindBystockCode(string stockCode) {
-                return ((lastPriceDataRow)(this.Rows.Find(new object[] {
-                            stockCode})));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public override global::System.Data.DataTable Clone() {
-                lastPriceDataDataTable cln = ((lastPriceDataDataTable)(base.Clone()));
-                cln.InitVars();
-                return cln;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            protected override global::System.Data.DataTable CreateInstance() {
-                return new lastPriceDataDataTable();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            internal void InitVars() {
-                this.columnstockCode = base.Columns["stockCode"];
-                this.columnvalue = base.Columns["value"];
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            private void InitClass() {
-                this.columnstockCode = new global::System.Data.DataColumn("stockCode", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnstockCode);
-                this.columnvalue = new global::System.Data.DataColumn("value", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnvalue);
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnstockCode}, true));
-                this.columnstockCode.AllowDBNull = false;
-                this.columnstockCode.Unique = true;
-                this.columnstockCode.MaxLength = 20;
-                this.columnvalue.AllowDBNull = false;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public lastPriceDataRow NewlastPriceDataRow() {
-                return ((lastPriceDataRow)(this.NewRow()));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new lastPriceDataRow(builder);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            protected override global::System.Type GetRowType() {
-                return typeof(lastPriceDataRow);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanged(e);
-                if ((this.lastPriceDataRowChanged != null)) {
-                    this.lastPriceDataRowChanged(this, new lastPriceDataRowChangeEvent(((lastPriceDataRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanging(e);
-                if ((this.lastPriceDataRowChanging != null)) {
-                    this.lastPriceDataRowChanging(this, new lastPriceDataRowChangeEvent(((lastPriceDataRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleted(e);
-                if ((this.lastPriceDataRowDeleted != null)) {
-                    this.lastPriceDataRowDeleted(this, new lastPriceDataRowChangeEvent(((lastPriceDataRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleting(e);
-                if ((this.lastPriceDataRowDeleting != null)) {
-                    this.lastPriceDataRowDeleting(this, new lastPriceDataRowChangeEvent(((lastPriceDataRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public void RemovelastPriceDataRow(lastPriceDataRow row) {
-                this.Rows.Remove(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
-                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                baseDS ds = new baseDS();
-                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
-                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
-                any1.MinOccurs = new decimal(0);
-                any1.MaxOccurs = decimal.MaxValue;
-                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any1);
-                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
-                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
-                any2.MinOccurs = new decimal(1);
-                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any2);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute1.Name = "namespace";
-                attribute1.FixedValue = ds.Namespace;
-                type.Attributes.Add(attribute1);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "lastPriceDataDataTable";
-                type.Attributes.Add(attribute2);
-                type.Particle = sequence;
-                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
-                if (xs.Contains(dsSchema.TargetNamespace)) {
-                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
-                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
-                    try {
-                        global::System.Xml.Schema.XmlSchema schema = null;
-                        dsSchema.Write(s1);
-                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
-                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
-                            s2.SetLength(0);
-                            schema.Write(s2);
-                            if ((s1.Length == s2.Length)) {
-                                s1.Position = 0;
-                                s2.Position = 0;
-                                for (; ((s1.Position != s1.Length) 
-                                            && (s1.ReadByte() == s2.ReadByte())); ) {
-                                    ;
-                                }
-                                if ((s1.Position == s1.Length)) {
-                                    return type;
-                                }
-                            }
-                        }
-                    }
-                    finally {
-                        if ((s1 != null)) {
-                            s1.Close();
-                        }
-                        if ((s2 != null)) {
-                            s2.Close();
-                        }
-                    }
-                }
-                xs.Add(dsSchema);
-                return type;
-            }
-        }
-        
-        /// <summary>
-        ///Represents the strongly named DataTable class.
-        ///</summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
-        [global::System.Serializable()]
-        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class priceDataStatDataTable : global::System.Data.TypedTableBase<priceDataStatRow> {
             
             private global::System.Data.DataColumn columntype;
@@ -9990,6 +9743,254 @@ namespace databases
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
                 attribute2.FixedValue = "priceDataStatDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class lastPriceDataDataTable : global::System.Data.TypedTableBase<lastPriceDataRow> {
+            
+            private global::System.Data.DataColumn columnstockCode;
+            
+            private global::System.Data.DataColumn columnvalue;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public lastPriceDataDataTable() {
+                this.TableName = "lastPriceData";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            internal lastPriceDataDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected lastPriceDataDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn stockCodeColumn {
+                get {
+                    return this.columnstockCode;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn valueColumn {
+                get {
+                    return this.columnvalue;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public lastPriceDataRow this[int index] {
+                get {
+                    return ((lastPriceDataRow)(this.Rows[index]));
+                }
+            }
+            
+            public event lastPriceDataRowChangeEventHandler lastPriceDataRowChanging;
+            
+            public event lastPriceDataRowChangeEventHandler lastPriceDataRowChanged;
+            
+            public event lastPriceDataRowChangeEventHandler lastPriceDataRowDeleting;
+            
+            public event lastPriceDataRowChangeEventHandler lastPriceDataRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void AddlastPriceDataRow(lastPriceDataRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public lastPriceDataRow AddlastPriceDataRow(string stockCode, decimal value) {
+                lastPriceDataRow rowlastPriceDataRow = ((lastPriceDataRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        stockCode,
+                        value};
+                rowlastPriceDataRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowlastPriceDataRow);
+                return rowlastPriceDataRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public lastPriceDataRow FindBystockCode(string stockCode) {
+                return ((lastPriceDataRow)(this.Rows.Find(new object[] {
+                            stockCode})));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public override global::System.Data.DataTable Clone() {
+                lastPriceDataDataTable cln = ((lastPriceDataDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new lastPriceDataDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            internal void InitVars() {
+                this.columnstockCode = base.Columns["stockCode"];
+                this.columnvalue = base.Columns["value"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            private void InitClass() {
+                this.columnstockCode = new global::System.Data.DataColumn("stockCode", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnstockCode);
+                this.columnvalue = new global::System.Data.DataColumn("value", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnvalue);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnstockCode}, true));
+                this.columnstockCode.AllowDBNull = false;
+                this.columnstockCode.Unique = true;
+                this.columnstockCode.MaxLength = 20;
+                this.columnvalue.AllowDBNull = false;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public lastPriceDataRow NewlastPriceDataRow() {
+                return ((lastPriceDataRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new lastPriceDataRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override global::System.Type GetRowType() {
+                return typeof(lastPriceDataRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.lastPriceDataRowChanged != null)) {
+                    this.lastPriceDataRowChanged(this, new lastPriceDataRowChangeEvent(((lastPriceDataRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.lastPriceDataRowChanging != null)) {
+                    this.lastPriceDataRowChanging(this, new lastPriceDataRowChangeEvent(((lastPriceDataRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.lastPriceDataRowDeleted != null)) {
+                    this.lastPriceDataRowDeleted(this, new lastPriceDataRowChangeEvent(((lastPriceDataRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.lastPriceDataRowDeleting != null)) {
+                    this.lastPriceDataRowDeleting(this, new lastPriceDataRowChangeEvent(((lastPriceDataRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void RemovelastPriceDataRow(lastPriceDataRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                baseDS ds = new baseDS();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "lastPriceDataDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -13034,41 +13035,6 @@ namespace databases
         ///Represents strongly named DataRow class.
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
-        public partial class lastPriceDataRow : global::System.Data.DataRow {
-            
-            private lastPriceDataDataTable tablelastPriceData;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            internal lastPriceDataRow(global::System.Data.DataRowBuilder rb) : 
-                    base(rb) {
-                this.tablelastPriceData = ((lastPriceDataDataTable)(this.Table));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public string stockCode {
-                get {
-                    return ((string)(this[this.tablelastPriceData.stockCodeColumn]));
-                }
-                set {
-                    this[this.tablelastPriceData.stockCodeColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public decimal value {
-                get {
-                    return ((decimal)(this[this.tablelastPriceData.valueColumn]));
-                }
-                set {
-                    this[this.tablelastPriceData.valueColumn] = value;
-                }
-            }
-        }
-        
-        /// <summary>
-        ///Represents strongly named DataRow class.
-        ///</summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
         public partial class priceDataStatRow : global::System.Data.DataRow {
             
             private priceDataStatDataTable tablepriceDataStat;
@@ -13172,6 +13138,41 @@ namespace databases
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public void SettotalCountNull() {
                 this[this.tablepriceDataStat.totalCountColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
+        public partial class lastPriceDataRow : global::System.Data.DataRow {
+            
+            private lastPriceDataDataTable tablelastPriceData;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            internal lastPriceDataRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tablelastPriceData = ((lastPriceDataDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string stockCode {
+                get {
+                    return ((string)(this[this.tablelastPriceData.stockCodeColumn]));
+                }
+                set {
+                    this[this.tablelastPriceData.stockCodeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public decimal value {
+                get {
+                    return ((decimal)(this[this.tablelastPriceData.valueColumn]));
+                }
+                set {
+                    this[this.tablelastPriceData.valueColumn] = value;
+                }
             }
         }
         
@@ -13954,20 +13955,20 @@ namespace databases
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
-        public class lastPriceDataRowChangeEvent : global::System.EventArgs {
+        public class priceDataStatRowChangeEvent : global::System.EventArgs {
             
-            private lastPriceDataRow eventRow;
+            private priceDataStatRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public lastPriceDataRowChangeEvent(lastPriceDataRow row, global::System.Data.DataRowAction action) {
+            public priceDataStatRowChangeEvent(priceDataStatRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public lastPriceDataRow Row {
+            public priceDataStatRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -13985,20 +13986,20 @@ namespace databases
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
-        public class priceDataStatRowChangeEvent : global::System.EventArgs {
+        public class lastPriceDataRowChangeEvent : global::System.EventArgs {
             
-            private priceDataStatRow eventRow;
+            private lastPriceDataRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public priceDataStatRowChangeEvent(priceDataStatRow row, global::System.Data.DataRowAction action) {
+            public lastPriceDataRowChangeEvent(lastPriceDataRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public priceDataStatRow Row {
+            public lastPriceDataRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -14149,7 +14150,7 @@ SELECT id, onDate, type, description, source, message, investorCode FROM sysLog 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = Properties.Settings.Default.dbConnectionString;
+            this._connection.ConnectionString = global::databases.Properties.Settings.Default.dbConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -14507,7 +14508,7 @@ SELECT reportType, stockCode, onDate, reportCode, currency, val0, val1, val2, va
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = Properties.Settings.Default.dbConnectionString;
+            this._connection.ConnectionString = global::databases.Properties.Settings.Default.dbConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -14939,7 +14940,7 @@ SELECT code, type, firstName, lastName, displayName, sex, address1, address2, em
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = Properties.Settings.Default.dbConnectionString;
+            this._connection.ConnectionString = global::databases.Properties.Settings.Default.dbConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -15537,7 +15538,7 @@ SELECT stockCode, portfolio, buyDate, qty, buyAmt FROM investorStock WHERE (buyD
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = Properties.Settings.Default.dbConnectionString;
+            this._connection.ConnectionString = global::databases.Properties.Settings.Default.dbConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -15911,7 +15912,7 @@ SELECT id, onTime, tranType, portfolio, stockCode, qty, amt, feeAmt, status FROM
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = Properties.Settings.Default.dbConnectionString;
+            this._connection.ConnectionString = global::databases.Properties.Settings.Default.dbConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -16174,7 +16175,7 @@ SELECT stockCode, onDate, openPrice, closePrice, lowPrice, highPrice, volume FRO
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = Properties.Settings.Default.dbConnectionString;
+            this._connection.ConnectionString = global::databases.Properties.Settings.Default.dbConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -17015,7 +17016,7 @@ SELECT code, stockExchange, tickerCode, name, nameEn, address1, address2, phone,
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = Properties.Settings.Default.dbConnectionString;
+            this._connection.ConnectionString = global::databases.Properties.Settings.Default.dbConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -17800,7 +17801,7 @@ SELECT code, description, country, workTime, holidays, minBuySellDay, tranFeePer
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = Properties.Settings.Default.dbConnectionString;
+            this._connection.ConnectionString = global::databases.Properties.Settings.Default.dbConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -18180,7 +18181,7 @@ SELECT category, code, inGroup, description1, description2, weight, notes, tag1,
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = Properties.Settings.Default.dbConnectionString;
+            this._connection.ConnectionString = global::databases.Properties.Settings.Default.dbConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -18629,7 +18630,7 @@ SELECT category, description, notes, tag1, tag2, isVisible, isSystem, maxCodeLen
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = Properties.Settings.Default.dbConnectionString;
+            this._connection.ConnectionString = global::databases.Properties.Settings.Default.dbConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -18974,7 +18975,7 @@ SELECT category, description, notes, tag1, tag2, isVisible, isSystem, maxCodeLen
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = Properties.Settings.Default.dbConnectionString;
+            this._connection.ConnectionString = global::databases.Properties.Settings.Default.dbConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -19284,7 +19285,7 @@ SELECT category, description, notes, tag1, tag2, isVisible, isSystem, maxCodeLen
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = Properties.Settings.Default.dbConnectionString;
+            this._connection.ConnectionString = global::databases.Properties.Settings.Default.dbConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -19627,7 +19628,7 @@ SELECT [key], value, timeStamp FROM sysAutoKeyPending WHERE ([key] = @key) AND (
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = Properties.Settings.Default.dbConnectionString;
+            this._connection.ConnectionString = global::databases.Properties.Settings.Default.dbConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -20010,7 +20011,7 @@ SELECT [key], value, timeStamp FROM sysAutoKeyPending WHERE ([key] = @key) AND (
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = Properties.Settings.Default.dbConnectionString;
+            this._connection.ConnectionString = global::databases.Properties.Settings.Default.dbConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -20142,7 +20143,7 @@ SELECT [key], value, timeStamp FROM sysAutoKeyPending WHERE ([key] = @key) AND (
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = Properties.Settings.Default.dbConnectionString;
+            this._connection.ConnectionString = global::databases.Properties.Settings.Default.dbConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -20274,7 +20275,7 @@ SELECT [key], value, timeStamp FROM sysAutoKeyPending WHERE ([key] = @key) AND (
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = Properties.Settings.Default.dbConnectionString;
+            this._connection.ConnectionString = global::databases.Properties.Settings.Default.dbConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -20406,7 +20407,7 @@ SELECT [key], value, timeStamp FROM sysAutoKeyPending WHERE ([key] = @key) AND (
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = Properties.Settings.Default.dbConnectionString;
+            this._connection.ConnectionString = global::databases.Properties.Settings.Default.dbConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -20538,7 +20539,7 @@ SELECT [key], value, timeStamp FROM sysAutoKeyPending WHERE ([key] = @key) AND (
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = Properties.Settings.Default.dbConnectionString;
+            this._connection.ConnectionString = global::databases.Properties.Settings.Default.dbConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -20672,7 +20673,7 @@ SELECT [key], value, timeStamp FROM sysAutoKeyPending WHERE ([key] = @key) AND (
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = Properties.Settings.Default.dbConnectionString;
+            this._connection.ConnectionString = global::databases.Properties.Settings.Default.dbConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -20806,7 +20807,7 @@ SELECT [key], value, timeStamp FROM sysAutoKeyPending WHERE ([key] = @key) AND (
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = Properties.Settings.Default.dbConnectionString;
+            this._connection.ConnectionString = global::databases.Properties.Settings.Default.dbConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -20940,7 +20941,7 @@ SELECT [key], value, timeStamp FROM sysAutoKeyPending WHERE ([key] = @key) AND (
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = Properties.Settings.Default.dbConnectionString;
+            this._connection.ConnectionString = global::databases.Properties.Settings.Default.dbConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -21288,7 +21289,7 @@ SELECT type, code, investorCode, name, description, startCapAmt, usedCapAmt, sto
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = Properties.Settings.Default.dbConnectionString;
+            this._connection.ConnectionString = global::databases.Properties.Settings.Default.dbConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -21834,7 +21835,7 @@ SELECT id, onTime, type, tradeAction, portfolio, stockCode, timeScale, strategy,
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = Properties.Settings.Default.dbConnectionString;
+            this._connection.ConnectionString = global::databases.Properties.Settings.Default.dbConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -22571,7 +22572,7 @@ SELECT type, stockCode, onDate, openPrice, closePrice, lowPrice, highPrice, volu
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = Properties.Settings.Default.dbConnectionString;
+            this._connection.ConnectionString = global::databases.Properties.Settings.Default.dbConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -23073,7 +23074,7 @@ SELECT portfolio, code, subCode, data FROM portfolioDetail WHERE (code = @code) 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = Properties.Settings.Default.dbConnectionString;
+            this._connection.ConnectionString = global::databases.Properties.Settings.Default.dbConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -23404,149 +23405,6 @@ SELECT portfolio, code, subCode, data FROM portfolioDetail WHERE (code = @code) 
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class lastPriceDataTA : global::System.ComponentModel.Component {
-        
-        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
-        
-        private global::System.Data.SqlClient.SqlConnection _connection;
-        
-        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
-        
-        private bool _clearBeforeFill;
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        public lastPriceDataTA() {
-            this.ClearBeforeFill = true;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        private global::System.Data.SqlClient.SqlDataAdapter Adapter {
-            get {
-                if ((this._adapter == null)) {
-                    this.InitAdapter();
-                }
-                return this._adapter;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        internal global::System.Data.SqlClient.SqlConnection Connection {
-            get {
-                if ((this._connection == null)) {
-                    this.InitConnection();
-                }
-                return this._connection;
-            }
-            set {
-                this._connection = value;
-                if ((this.Adapter.InsertCommand != null)) {
-                    this.Adapter.InsertCommand.Connection = value;
-                }
-                if ((this.Adapter.DeleteCommand != null)) {
-                    this.Adapter.DeleteCommand.Connection = value;
-                }
-                if ((this.Adapter.UpdateCommand != null)) {
-                    this.Adapter.UpdateCommand.Connection = value;
-                }
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    if ((this.CommandCollection[i] != null)) {
-                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
-                    }
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
-            get {
-                if ((this._commandCollection == null)) {
-                    this.InitCommandCollection();
-                }
-                return this._commandCollection;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        public bool ClearBeforeFill {
-            get {
-                return this._clearBeforeFill;
-            }
-            set {
-                this._clearBeforeFill = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        private void InitAdapter() {
-            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
-            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
-            tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "lastPriceData";
-            tableMapping.ColumnMappings.Add("stockCode", "stockCode");
-            tableMapping.ColumnMappings.Add("value", "value");
-            this._adapter.TableMappings.Add(tableMapping);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        private void InitConnection() {
-            this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = Properties.Settings.Default.dbConnectionString;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
-            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT     a.stockCode, a.closePrice AS value
-FROM         priceData AS a INNER JOIN
-                          (SELECT     MAX(onDate) AS onDate, stockCode
-                            FROM          priceData
-                            GROUP BY stockCode) AS b ON a.onDate = b.onDate AND a.stockCode = b.stockCode
-ORDER BY a.stockCode";
-            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = @"SELECT     a.stockCode, a.openPrice AS value
-FROM         priceData AS a INNER JOIN
-                          (SELECT     MAX(onDate) AS onDate, stockCode
-                            FROM          priceData
-                            GROUP BY stockCode) AS b ON a.onDate = b.onDate AND a.stockCode = b.stockCode
-ORDER BY a.stockCode";
-            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual baseDS.lastPriceDataDataTable GetClosePrice() {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            baseDS.lastPriceDataDataTable dataTable = new baseDS.lastPriceDataDataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual baseDS.lastPriceDataDataTable GetOpenPrice() {
-            this.Adapter.SelectCommand = this.CommandCollection[1];
-            baseDS.lastPriceDataDataTable dataTable = new baseDS.lastPriceDataDataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
-        }
-    }
-    
-    /// <summary>
-    ///Represents the connection and commands used to retrieve and save data.
-    ///</summary>
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
-    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
-    [global::System.ComponentModel.ToolboxItem(true)]
-    [global::System.ComponentModel.DataObjectAttribute(true)]
-    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
-        ", Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
-    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
     public partial class priceDataStatTA : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
@@ -23636,7 +23494,7 @@ ORDER BY a.stockCode";
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = Properties.Settings.Default.dbConnectionString;
+            this._connection.ConnectionString = global::databases.Properties.Settings.Default.dbConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -23750,6 +23608,153 @@ ORDER BY a.stockCode";
             this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(frDate));
             this.Adapter.SelectCommand.Parameters[2].Value = ((System.DateTime)(toDate));
             baseDS.priceDataStatDataTable dataTable = new baseDS.priceDataStatDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+    }
+    
+    /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class lastPriceDataTA : global::System.ComponentModel.Component {
+        
+        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
+        
+        private global::System.Data.SqlClient.SqlConnection _connection;
+        
+        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public lastPriceDataTA() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        private global::System.Data.SqlClient.SqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        internal global::System.Data.SqlClient.SqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "lastPriceData";
+            tableMapping.ColumnMappings.Add("stockCode", "stockCode");
+            tableMapping.ColumnMappings.Add("value", "value");
+            this._adapter.TableMappings.Add(tableMapping);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        private void InitConnection() {
+            this._connection = new global::System.Data.SqlClient.SqlConnection();
+            this._connection.ConnectionString = global::databases.Properties.Settings.Default.dbConnectionString;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = @"SELECT     a.stockCode, a.closePrice AS value
+FROM         priceData AS a INNER JOIN
+                          (SELECT     MAX(onDate) AS onDate, stockCode
+                            FROM          priceData WHERE onDate>=@onDate
+                            GROUP BY stockCode) AS b ON a.onDate = b.onDate AND a.stockCode = b.stockCode
+ORDER BY a.stockCode";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@onDate", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = @"SELECT     a.stockCode, a.openPrice AS value
+FROM         priceData AS a INNER JOIN
+                          (SELECT     MAX(onDate) AS onDate, stockCode
+                            FROM          priceData WHERE onDate>=@onDate
+                            GROUP BY stockCode) AS b ON a.onDate = b.onDate AND a.stockCode = b.stockCode
+ORDER BY a.stockCode";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@onDate", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual baseDS.lastPriceDataDataTable GetClosePrice(System.DateTime onDate) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((System.DateTime)(onDate));
+            baseDS.lastPriceDataDataTable dataTable = new baseDS.lastPriceDataDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual baseDS.lastPriceDataDataTable GetOpenPrice(System.DateTime onDate) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((System.DateTime)(onDate));
+            baseDS.lastPriceDataDataTable dataTable = new baseDS.lastPriceDataDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }

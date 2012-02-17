@@ -154,7 +154,7 @@ namespace baseClass.controls
                 fProcessing = true;
                 if (force)
                 {
-                    DataAccess.Libs.ClearCache();
+                    //DataAccess.Libs.ClearCache();
                     int saveGroupIndex = codeGroupCb.SelectedIndex;
                     codeGroupCb.LoadData();
                     if (saveGroupIndex >= 0) codeGroupCb.SelectedIndex = saveGroupIndex;
@@ -166,7 +166,6 @@ namespace baseClass.controls
                 base.Refresh();
                 fProcessing = false;
                 RefreshPrice();
-                SetColor();
             }
             catch (Exception er)
             {
@@ -267,27 +266,27 @@ namespace baseClass.controls
                 openPriceTbl = DataAccess.Libs.GetLastPrice(AppTypes.PriceDataType.Open);
                 openPriceDate = DateTime.Today;
             }
+            databases.baseDS.lastPriceDataDataTable closePriceTbl = DataAccess.Libs.GetLastPrice(AppTypes.PriceDataType.Close);
+            if (openPriceTbl==null || closePriceTbl == null) return;
 
-            databases.baseDS.lastPriceDataDataTable priceTbl = DataAccess.Libs.GetLastPrice(AppTypes.PriceDataType.Close);
-            if (priceTbl == null) return;
+            dataTbl.priceColumn.ReadOnly = false;
+            dataTbl.priceVariantColumn.ReadOnly = false;
 
             databases.tmpDS.stockCodeRow stockCodeRow;
             databases.baseDS.lastPriceDataRow openPriceRow, closePriceRow;
-            dataTbl.priceColumn.ReadOnly = false;
-            dataTbl.priceVariantColumn.ReadOnly = false;
             for (int idx = 0; idx < stockGV.RowCount; idx++)
             {
-                stockCodeRow = dataTbl.FindBycode(stockGV.Rows[idx].Cells[codeColumn.Name].Value.ToString() );
+                stockCodeRow = dataTbl.FindBycode(stockGV.Rows[idx].Cells[codeColumn.Name].Value.ToString());
                 if (stockCodeRow == null) continue;
-                closePriceRow = priceTbl.FindBystockCode(stockGV.Rows[idx].Cells[codeColumn.Name].Value.ToString());
-                if (stockCodeRow.price != closePriceRow.value)
-                {
-                    stockCodeRow.price = closePriceRow.value;
-                    openPriceRow = openPriceTbl.FindBystockCode(stockGV.Rows[idx].Cells[codeColumn.Name].Value.ToString());
-                    if (openPriceRow!=null)
-                        stockCodeRow.priceVariant = closePriceRow.value - openPriceRow.value;
-                    else stockCodeRow.priceVariant = 0;
-                }
+                closePriceRow = closePriceTbl.FindBystockCode(stockCodeRow.code);
+                if (closePriceRow == null) continue;
+
+                if (stockCodeRow.price == closePriceRow.value) continue;
+                stockCodeRow.price = closePriceRow.value;
+                openPriceRow = openPriceTbl.FindBystockCode(stockCodeRow.code);
+                if (openPriceRow != null)
+                    stockCodeRow.priceVariant = closePriceRow.value - openPriceRow.value;
+                else stockCodeRow.priceVariant = 0;
             }
         }
         private void SetColor()

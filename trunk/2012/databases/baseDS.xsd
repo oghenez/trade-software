@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <xs:schema id="baseDS" targetNamespace="http://tempuri.org/masterDataSet.xsd" xmlns:mstns="http://tempuri.org/masterDataSet.xsd" xmlns="http://tempuri.org/masterDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
   <xs:annotation>
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
       <DataSource DefaultConnectionIndex="1" FunctionsComponentName="q_invenvtoryAccoutingTA" GeneratorFunctionsComponentClassName="q_invenvtoryAccoutingTA" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" UserFunctionsComponentName="q_invenvtoryAccoutingTA" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
         <Connections>
-          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="dbConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="dbConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.data.Properties.Settings.GlobalReference.Default.dbConnectionString" Provider="System.Data.SqlClient" />
-          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="stockConnectionString" IsAppSettingsProperty="true" Modifier="Assembly" Name="stockConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.data.Properties.Settings.GlobalReference.Default.stockConnectionString" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="dbConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="dbConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.databases.Properties.Settings.GlobalReference.Default.dbConnectionString" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="stockConnectionString" IsAppSettingsProperty="true" Modifier="Assembly" Name="stockConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.databases.Properties.Settings.GlobalReference.Default.stockConnectionString" Provider="System.Data.SqlClient" />
         </Connections>
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="sysLogTA" GeneratorDataComponentClassName="sysLogTA" Name="sysLog" UserDataComponentName="sysLogTA">
@@ -2022,42 +2022,6 @@ SELECT code  FROM portfolio WHERE (type &amp; @typeMask)&gt;0
               </DbSource>
             </Sources>
           </TableAdapter>
-          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="lastPriceDataTA" GeneratorDataComponentClassName="lastPriceDataTA" Name="lastPriceData" UserDataComponentName="lastPriceDataTA">
-            <MainSource>
-              <DbSource ConnectionRef="dbConnectionString (Settings)" DbObjectName="stock.dbo.priceData" DbObjectType="Table" GenerateMethods="Get" GenerateShortCommands="false" GeneratorGetMethodName="GetClosePrice" GetMethodModifier="Public" GetMethodName="GetClosePrice" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetClosePrice" UserSourceName="GetClosePrice">
-                <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT     a.stockCode, a.closePrice AS value
-FROM         priceData AS a INNER JOIN
-                          (SELECT     MAX(onDate) AS onDate, stockCode
-                            FROM          priceData
-                            GROUP BY stockCode) AS b ON a.onDate = b.onDate AND a.stockCode = b.stockCode
-ORDER BY a.stockCode</CommandText>
-                    <Parameters />
-                  </DbCommand>
-                </SelectCommand>
-              </DbSource>
-            </MainSource>
-            <Mappings>
-              <Mapping SourceColumn="stockCode" DataSetColumn="stockCode" />
-              <Mapping SourceColumn="value" DataSetColumn="value" />
-            </Mappings>
-            <Sources>
-              <DbSource ConnectionRef="dbConnectionString (Settings)" DbObjectName="stock.dbo.priceData" DbObjectType="Table" GenerateMethods="Get" GenerateShortCommands="true" GeneratorGetMethodName="GetOpenPrice" GeneratorSourceName="FillBy" GetMethodModifier="Public" GetMethodName="GetOpenPrice" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetOpenPrice" UserSourceName="GetOpenPrice">
-                <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT     a.stockCode, a.openPrice AS value
-FROM         priceData AS a INNER JOIN
-                          (SELECT     MAX(onDate) AS onDate, stockCode
-                            FROM          priceData
-                            GROUP BY stockCode) AS b ON a.onDate = b.onDate AND a.stockCode = b.stockCode
-ORDER BY a.stockCode</CommandText>
-                    <Parameters />
-                  </DbCommand>
-                </SelectCommand>
-              </DbSource>
-            </Sources>
-          </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="priceDataStatTA" GeneratorDataComponentClassName="priceDataStatTA" Name="priceDataStat" UserDataComponentName="priceDataStatTA">
             <MainSource>
               <DbSource ConnectionRef="dbConnectionString (Settings)" DbObjectName="stock.dbo.priceData" DbObjectType="Table" GenerateMethods="Get" GenerateShortCommands="false" GeneratorGetMethodName="GetStat" GetMethodModifier="Public" GetMethodName="GetStat" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetStat" UserSourceName="GetStat">
@@ -2127,6 +2091,46 @@ GROUP BY stockCode</CommandText>
                       <Parameter AllowDbNull="false" AutogeneratedName="code" ColumnName="stockCode" DataSourceName="stock.dbo.priceData" DataTypeServer="nvarchar(20)" DbType="String" Direction="Input" ParameterName="@code" Precision="0" ProviderType="NVarChar" Scale="0" Size="20" SourceColumn="stockCode" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="false" AutogeneratedName="frDate" ColumnName="onDate" DataSourceName="stock.dbo.priceData" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="@frDate" Precision="0" ProviderType="DateTime" Scale="0" Size="8" SourceColumn="onDate" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="false" AutogeneratedName="toDate" ColumnName="onDate" DataSourceName="stock.dbo.priceData" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="@toDate" Precision="0" ProviderType="DateTime" Scale="0" Size="8" SourceColumn="onDate" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="lastPriceDataTA" GeneratorDataComponentClassName="lastPriceDataTA" Name="lastPriceData" UserDataComponentName="lastPriceDataTA">
+            <MainSource>
+              <DbSource ConnectionRef="dbConnectionString (Settings)" DbObjectName="stock.dbo.priceData" DbObjectType="Table" GenerateMethods="Get" GenerateShortCommands="false" GeneratorGetMethodName="GetClosePrice" GetMethodModifier="Public" GetMethodName="GetClosePrice" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetClosePrice" UserSourceName="GetClosePrice">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT     a.stockCode, a.closePrice AS value
+FROM         priceData AS a INNER JOIN
+                          (SELECT     MAX(onDate) AS onDate, stockCode
+                            FROM          priceData WHERE onDate&gt;=@onDate
+                            GROUP BY stockCode) AS b ON a.onDate = b.onDate AND a.stockCode = b.stockCode
+ORDER BY a.stockCode</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="onDate" ColumnName="" DataSourceName="" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="@onDate" Precision="0" Scale="0" Size="8" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="stockCode" DataSetColumn="stockCode" />
+              <Mapping SourceColumn="value" DataSetColumn="value" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="dbConnectionString (Settings)" DbObjectName="stock.dbo.priceData" DbObjectType="Table" GenerateMethods="Get" GenerateShortCommands="true" GeneratorGetMethodName="GetOpenPrice" GetMethodModifier="Public" GetMethodName="GetOpenPrice" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetOpenPrice" UserSourceName="GetOpenPrice">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT     a.stockCode, a.openPrice AS value
+FROM         priceData AS a INNER JOIN
+                          (SELECT     MAX(onDate) AS onDate, stockCode
+                            FROM          priceData WHERE onDate&gt;=@onDate
+                            GROUP BY stockCode) AS b ON a.onDate = b.onDate AND a.stockCode = b.stockCode
+ORDER BY a.stockCode</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="onDate" ColumnName="" DataSourceName="" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="@onDate" Precision="0" Scale="0" Size="8" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
                     </Parameters>
                   </DbCommand>
                 </SelectCommand>
@@ -3143,20 +3147,6 @@ GROUP BY stockCode</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="lastPriceData" msprop:Generator_UserTableName="lastPriceData" msprop:Generator_RowDeletedName="lastPriceDataRowDeleted" msprop:Generator_RowChangedName="lastPriceDataRowChanged" msprop:Generator_RowClassName="lastPriceDataRow" msprop:Generator_RowChangingName="lastPriceDataRowChanging" msprop:Generator_RowEvArgName="lastPriceDataRowChangeEvent" msprop:Generator_RowEvHandlerName="lastPriceDataRowChangeEventHandler" msprop:Generator_TableClassName="lastPriceDataDataTable" msprop:Generator_TableVarName="tablelastPriceData" msprop:Generator_RowDeletingName="lastPriceDataRowDeleting" msprop:Generator_TablePropName="lastPriceData">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element name="stockCode" msprop:Generator_UserColumnName="stockCode" msprop:Generator_ColumnPropNameInRow="stockCode" msprop:Generator_ColumnVarNameInTable="columnstockCode" msprop:Generator_ColumnPropNameInTable="stockCodeColumn">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="20" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="value" msprop:Generator_UserColumnName="value" msprop:Generator_ColumnPropNameInRow="value" msprop:Generator_ColumnVarNameInTable="columnvalue" msprop:Generator_ColumnPropNameInTable="valueColumn" type="xs:decimal" />
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
         <xs:element name="priceDataStat" msprop:Generator_UserTableName="priceDataStat" msprop:Generator_RowDeletedName="priceDataStatRowDeleted" msprop:Generator_RowChangedName="priceDataStatRowChanged" msprop:Generator_RowClassName="priceDataStatRow" msprop:Generator_RowChangingName="priceDataStatRowChanging" msprop:Generator_RowEvArgName="priceDataStatRowChangeEvent" msprop:Generator_RowEvHandlerName="priceDataStatRowChangeEventHandler" msprop:Generator_TableClassName="priceDataStatDataTable" msprop:Generator_TableVarName="tablepriceDataStat" msprop:Generator_RowDeletingName="priceDataStatRowDeleting" msprop:Generator_TablePropName="priceDataStat">
           <xs:complexType>
             <xs:sequence>
@@ -3171,6 +3161,20 @@ GROUP BY stockCode</CommandText>
               <xs:element name="maxDate" msdata:ReadOnly="true" msprop:Generator_UserColumnName="maxDate" msprop:Generator_ColumnVarNameInTable="columnmaxDate" msprop:Generator_ColumnPropNameInRow="maxDate" msprop:Generator_ColumnPropNameInTable="maxDateColumn" type="xs:dateTime" minOccurs="0" />
               <xs:element name="minDate" msdata:ReadOnly="true" msprop:Generator_UserColumnName="minDate" msprop:Generator_ColumnVarNameInTable="columnminDate" msprop:Generator_ColumnPropNameInRow="minDate" msprop:Generator_ColumnPropNameInTable="minDateColumn" type="xs:dateTime" minOccurs="0" />
               <xs:element name="totalCount" msdata:ReadOnly="true" msprop:Generator_UserColumnName="totalCount" msprop:Generator_ColumnVarNameInTable="columntotalCount" msprop:Generator_ColumnPropNameInRow="totalCount" msprop:Generator_ColumnPropNameInTable="totalCountColumn" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="lastPriceData" msprop:Generator_UserTableName="lastPriceData" msprop:Generator_RowDeletedName="lastPriceDataRowDeleted" msprop:Generator_TableClassName="lastPriceDataDataTable" msprop:Generator_RowChangedName="lastPriceDataRowChanged" msprop:Generator_RowClassName="lastPriceDataRow" msprop:Generator_RowChangingName="lastPriceDataRowChanging" msprop:Generator_RowEvArgName="lastPriceDataRowChangeEvent" msprop:Generator_RowEvHandlerName="lastPriceDataRowChangeEventHandler" msprop:Generator_TablePropName="lastPriceData" msprop:Generator_TableVarName="tablelastPriceData" msprop:Generator_RowDeletingName="lastPriceDataRowDeleting">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="stockCode" msprop:Generator_UserColumnName="stockCode" msprop:Generator_ColumnPropNameInRow="stockCode" msprop:Generator_ColumnVarNameInTable="columnstockCode" msprop:Generator_ColumnPropNameInTable="stockCodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="value" msprop:Generator_UserColumnName="value" msprop:Generator_ColumnPropNameInRow="value" msprop:Generator_ColumnVarNameInTable="columnvalue" msprop:Generator_ColumnPropNameInTable="valueColumn" type="xs:decimal" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -3288,13 +3292,13 @@ GROUP BY stockCode</CommandText>
       <xs:field xpath="mstns:code" />
       <xs:field xpath="mstns:subCode" />
     </xs:unique>
-    <xs:unique name="lastPriceData_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
-      <xs:selector xpath=".//mstns:lastPriceData" />
-      <xs:field xpath="mstns:stockCode" />
-    </xs:unique>
     <xs:unique name="priceDataStat_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:priceDataStat" />
       <xs:field xpath="mstns:type" />
+      <xs:field xpath="mstns:stockCode" />
+    </xs:unique>
+    <xs:unique name="lastPriceData_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:lastPriceData" />
       <xs:field xpath="mstns:stockCode" />
     </xs:unique>
   </xs:element>

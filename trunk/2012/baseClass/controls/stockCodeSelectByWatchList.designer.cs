@@ -67,6 +67,7 @@
             // refreshBtn
             // 
             this.refreshBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.refreshBtn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.refreshBtn.Image = global::baseClass.Properties.Resources.refresh;
             this.refreshBtn.isDownState = false;
             this.refreshBtn.Location = new System.Drawing.Point(258, 1);

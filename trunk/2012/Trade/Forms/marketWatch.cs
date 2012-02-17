@@ -34,6 +34,10 @@ namespace Trade.Forms
         {
             stockCodeList.RefreshData(true);
         }
+        //public void SetColor()
+        //{
+        //    stockCodeList.SetColor();
+        //}
         public ContextMenuStrip myContextMenuStrip
         {
             get { return stockCodeList.myContextMenuStrip; }

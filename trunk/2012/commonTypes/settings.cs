@@ -70,6 +70,11 @@ namespace commonTypes
         //How long (seconds) to perform auto checking (connection,...) :  TimerUnitToAutoCheck * sysTimerUnitInSecs
         [DataMember]
         public short TimerUnitToAutoCheck = 10;   //50*5 seconds
+
+        //The number of days to scan for getting the last price. The bigger the numer is, the more time needs for the system to get the last price
+        //The system will look for the last price in date range [today-DayScanForLastPrice,today]
+        [DataMember]
+        public short DayScanForLastPrice = 90;
     }
     public static class Settings
     {

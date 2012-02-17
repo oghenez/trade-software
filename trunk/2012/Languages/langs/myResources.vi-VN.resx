@@ -1159,6 +1159,9 @@
     <value>Đơn vị định thời</value>
   </data>
   <data name="timing" xml:space="preserve">
-    <value>Định thời</value>
+    <value>Thời gian</value>
+  </data>
+  <data name="dayScanForLastPrice" xml:space="preserve">
+    <value>Số ngày quét lấy giá cuối</value>
   </data>
 </root>

@@ -44,6 +44,10 @@ namespace wsServices
             common.configuration.withEncryption = true;
             common.Settings.sysConfigFile = common.fileFuncs.ConcatFileName(commonClass.SysLibs.myExecuteDirectory, commonTypes.Consts.constWebServiceConf);
             databases.SysLibs.dbConnectionString = common.configuration.GetDbConnectionString();
+
+            GlobalSettings globalSetting = Settings.sysGlobal;
+            application.Configuration.Load_Global_Settings(ref globalSetting);
+            Settings.sysGlobal = globalSetting;
         }
 
         private static common.DictionaryList sysDataCache = new common.DictionaryList();
@@ -397,12 +401,13 @@ namespace wsServices
 
         public databases.baseDS.lastPriceDataDataTable GetLastPrice(AppTypes.PriceDataType type)
         {
+            DateTime fromDate = DateTime.Today.AddDays(-Settings.sysGlobal.DayScanForLastPrice); 
             string cacheName = "lastPrice-" + type.ToString();
             databases.baseDS.lastPriceDataDataTable dataTbl = null;
             object obj = sysDataCache.Find(cacheName);
             if (obj == null)
             {
-                dataTbl = databases.DbAccess.GetLastPrice(type);
+                dataTbl = databases.DbAccess.GetLastPrice(type, fromDate);
                 sysDataCache.Add(cacheName, new DataCacheItem(dataTbl));
                 return dataTbl;
             }
@@ -410,7 +415,7 @@ namespace wsServices
             {
                 return (databases.baseDS.lastPriceDataDataTable)(obj as DataCacheItem).data;
             }
-            dataTbl = databases.DbAccess.GetLastPrice(type);
+            dataTbl = databases.DbAccess.GetLastPrice(type, fromDate);
             sysDataCache.Add(cacheName, new DataCacheItem(dataTbl));
             return dataTbl;
         }
