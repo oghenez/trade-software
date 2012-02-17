@@ -120,7 +120,7 @@ namespace baseClass.forms
                     databases.AppLibs.InitData(row);
                     row.type = (byte)this.myWatchListType;
                     row.investorCode = this.myInvestorCode;
-                    row.code = Consts.constNotMarkerNEW;
+                    row.code = Consts.constMarkerNEW;
                     interestedStrategy.Clear();
                     int position = myMasterSource.Position;
                     myMasterSource.Position = -1;

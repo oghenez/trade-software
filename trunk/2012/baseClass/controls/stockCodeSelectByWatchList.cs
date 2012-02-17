@@ -33,7 +33,6 @@ namespace baseClass.controls
                 InitGrid();
                 if (!DesignMode)
                 {
-                    codeGroupCb.LoadData();
                     codeGroupCb.SelectedItem = cbStockSelection.Options.All;
                     common.dialogs.SetFileDialogEXCEL(saveFileDialog);
                 }
@@ -147,45 +146,50 @@ namespace baseClass.controls
             stockGV.Columns[colName.ToString()].Visible = status;
         }
 
+        // To prevent "cross-thread operation not valid" error
+        // See http://helpprogramming.blogspot.com/2011/10/invalid-cross-thread-operation.html
+        private void DoRefreshData_WithThreadSafe(bool force)
+        {
+            if (codeGroupCb.InvokeRequired)
+            {
+                codeGroupCb.Invoke((MethodInvoker)delegate()
+                {
+                    DoRefreshData(force);
+                });
+            }
+            else DoRefreshData(force);
+        }
+        private void DoRefreshData(bool force)
+        {
+            int lastPosition = stockSource.Position;
+            if (stockSource.DataSource == null)
+                stockSource.DataSource = this.myStockTbl;
+            if (force)
+            {
+                int saveGroupIndex = codeGroupCb.SelectedIndex;
+                codeGroupCb.LoadData();
+                if (saveGroupIndex >= 0) codeGroupCb.SelectedIndex = saveGroupIndex;
+                DoFilter();
+            }
+            if (lastPosition >= 0) stockSource.Position = lastPosition;
+            DoRefreshPrice(this.myStockTbl);
+            SetColor();
+        }
+
         public void RefreshData(bool force)
         {
             try
             {
+                if (fProcessing) return;
                 fProcessing = true;
-                if (force)
-                {
-                    //DataAccess.Libs.ClearCache();
-                    int saveGroupIndex = codeGroupCb.SelectedIndex;
-                    codeGroupCb.LoadData();
-                    if (saveGroupIndex >= 0) codeGroupCb.SelectedIndex = saveGroupIndex;
-                }
-                int lastPosition = stockSource.Position;
-                stockSource.DataSource = this.myStockTbl;
-                if (force) DoFilter();
-                if (lastPosition >= 0) stockSource.Position = lastPosition;
-                base.Refresh();
-                fProcessing = false;
-                RefreshPrice();
-            }
-            catch (Exception er)
-            {
-                fProcessing = false;
-                ErrorHandler(this, er);
-            }
-        }
-        public void RefreshPrice()
-        {
-            try
-            {
-                if (fProcessing)  return;
-                fProcessing = true;
-                DoRefreshPrice(this.myStockTbl);
+
+                DoRefreshData_WithThreadSafe(force);
                 fProcessing = false;
             }
             catch (Exception er)
             {
-                fProcessing = false;
                 ErrorHandler(this, er);
+                fProcessing = false;
             }
         }
 
@@ -202,11 +206,10 @@ namespace baseClass.controls
                 return (databases.tmpDS.stockCodeRow)((DataRowView)stockSource.Current).Row;
             }
         }
-
         
         private void DoFilter()
         {
-            common.myKeyValueExt item = (common.myKeyValueExt)codeGroupCb.SelectedItem;
+            common.myKeyValueExt item = (common.myKeyValueExt)common.Threading.GetValue(codeGroupCb,"SelectedItem");
             cbStockSelection.Options watchListType = (cbStockSelection.Options)byte.Parse(item.Attribute1);
             StringCollection stocCodeList = new StringCollection();
             switch (watchListType)
@@ -313,16 +316,7 @@ namespace baseClass.controls
             }
         }
 
-        //private void SetToolTips()
-        //{
-        //    decimal variant = 0;
-        //    DataAccess.Libs.myStockCodeTbl.gets
-        //    for (int idx = 0; idx < stockGV.RowCount; idx++)
-        //    {
-        //        stockGV.Rows[idx].Cells[codeColumn.Name].ToolTipText = application.;
-        //    }
-        //}
-
+        #region event handler
         private void form_Resize(object sender, EventArgs e)
         {
             try
@@ -370,19 +364,9 @@ namespace baseClass.controls
                 ErrorHandler(this, er);
             }
         }
-
         private void stockCodeSelectByWatchList_Load(object sender, EventArgs e)
         {
-            try
-            {
-                //RefreshData(false);
-            }
-            catch (Exception er)
-            {
-                ErrorHandler(this, er);
-            }
         }
-
         private void stockGV_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
             try
@@ -395,5 +379,6 @@ namespace baseClass.controls
                 ErrorHandler(this, er);
             }
         }
+        #endregion
     }
 }

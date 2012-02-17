@@ -566,7 +566,7 @@ namespace DataAccess
                     row = tbl.NewportfolioRow();
                     databases.AppLibs.InitData(row);
                     row.type = (byte)AppTypes.PortfolioTypes.PortfolioDefaultStrategy;
-                    row.code = Consts.constNotMarkerNEW;
+                    row.code = Consts.constMarkerNEW;
                     row.investorCode = commonClass.SysLibs.sysLoginCode;
                     tbl.AddportfolioRow(row);
                     myClient.UpdatePortfolio(ref tbl);

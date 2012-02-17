@@ -31,27 +31,19 @@ namespace application
         public override void LoadData()
         {
             priceDataTbl.Clear();
+            this.ClearCache();
             AppLibs.LoadAnalysisData(this);
         }
-        ///// <summary>
+        /// <summary>
         /// Update data to the most recent from the last update.
         /// </summary>
         /// <returns>Number of updated items</returns>
-        //public override int UpdateDataFromLastTime()
-        //{
-        //    int numberOfUpdate = 0;
-        //    switch (this.AccessMode)
-        //    {
-        //        case AppTypes.DataAccessMode.Local:
-        //            numberOfUpdate = AppLibs.UpdateAnalysisData(this);
-        //            break;
-        //        case AppTypes.DataAccessMode.WebService:
-        //            numberOfUpdate = DataAccess.Libs.UpdateAnalysisData(this); 
-        //            break;
-        //    }
-        //    this.ClearCache();
-        //    return numberOfUpdate;
-        //}
+        public override int UpdateDataFromLastTime()
+        {
+            int numberOfUpdate = AppLibs.UpdateAnalysisData(this);
+            this.ClearCache();
+            return numberOfUpdate;
+        }
     }
 
     /// <summary>

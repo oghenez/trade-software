@@ -146,6 +146,7 @@ namespace client
             base.ProcessSysTimerTick();
             if (RefreshDataProc == null)
             {
+                RefreshDataProc = new common.TimerProcess();
                 RefreshDataProc.WaitingUnit = Settings.sysTimerUnitToRefresh;
                 RefreshDataProc.OnProcess += new common.TimerProcess.OnProcessEvent(RefreshData);
             }
@@ -433,15 +434,15 @@ namespace client
             for (int idx = 0; idx < dockPanel.Contents.Count; idx++)
             {
                 //Update stock charts
-                //if (dockPanel.Contents[idx].GetType() == typeof(Tools.Forms.tradeAnalysis))
-                //{
-                //    (dockPanel.Contents[idx] as Tools.Forms.tradeAnalysis).UpdateDataFromLastTime();
-                //    continue;
-                //}
+                if (dockPanel.Contents[idx].GetType() == typeof(Tools.Forms.tradeAnalysis))
+                {
+                    (dockPanel.Contents[idx] as Tools.Forms.tradeAnalysis).UpdateDataFromLastTime();
+                    continue;
+                }
                 //Market watch
                 if (dockPanel.Contents[idx].GetType() == typeof(Trade.Forms.marketWatch))
                 {
-                    (dockPanel.Contents[idx] as Trade.Forms.marketWatch).RefreshData();
+                    (dockPanel.Contents[idx] as Trade.Forms.marketWatch).RefreshData(false);
                     continue;
                 }
                 //Portfolio watch
@@ -719,7 +720,7 @@ namespace client
             Trade.Forms.marketWatch form = GetMarketWatchForm(true);
             form.myContextMenuStrip = CreateContextMenu_MarketWatch();
             form.myGrid.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(NewChartMenuItem_Click);
-            form.RefreshData();
+            form.RefreshData(true);
             form.Show(dockPanel, DockState.DockLeft);
             //form.SetColor();
         }
@@ -1359,7 +1360,7 @@ namespace client
             {
                 Trade.Forms.marketWatch form = GetMarketWatchForm(false);
                 if (form == null) return;
-                form.RefreshData();
+                form.RefreshData(false);
             }
             catch (Exception er)
             {
@@ -1745,7 +1746,7 @@ namespace client
             {
                 Trade.Forms.marketWatch form = GetMarketWatchForm(false);
                 if (form == null) return;
-                form.RefreshData();
+                form.RefreshData(false);
             }
             catch (Exception er)
             {
