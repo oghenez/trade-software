@@ -1395,12 +1395,26 @@ namespace DataAccess
                         databases.AppLibs.DataConcat(tbl, 1, dataObj.priceDataTbl);
                     }
                     else databases.AppLibs.DataConcat(tbl, 0, dataObj.priceDataTbl);
+
+                    //Update data 
+                    dataObj.DateTime.UpdateLast(DataLibs.GetDataList(tbl, 0, 0, AppTypes.PriceDataType.DateTime));
+                    dataObj.DateTime.Add2Last(DataLibs.GetDataList(tbl, 1, AppTypes.PriceDataType.DateTime));
+
+                    dataObj.Open.UpdateLast(DataLibs.GetDataList(tbl, 0, 0, AppTypes.PriceDataType.Open));
+                    dataObj.Open.Add2Last(DataLibs.GetDataList(tbl, 1, AppTypes.PriceDataType.Open));
+
+                    dataObj.High.UpdateLast(DataLibs.GetDataList(tbl, 0, 0, AppTypes.PriceDataType.High));
+                    dataObj.High.Add2Last(DataLibs.GetDataList(tbl, 1, AppTypes.PriceDataType.High));
+
+                    dataObj.Low.UpdateLast(DataLibs.GetDataList(tbl, 0, 0, AppTypes.PriceDataType.Low));
+                    dataObj.Low.Add2Last(DataLibs.GetDataList(tbl, 1, AppTypes.PriceDataType.Low));
+
+                    dataObj.Close.UpdateLast(DataLibs.GetDataList(tbl, 0, 0, AppTypes.PriceDataType.Close));
+                    dataObj.Close.Add2Last(DataLibs.GetDataList(tbl, 1, AppTypes.PriceDataType.Close));
+
+                    dataObj.Volume.UpdateLast(DataLibs.GetDataList(tbl, 0, 0, AppTypes.PriceDataType.Volume));
+                    dataObj.Volume.Add2Last(DataLibs.GetDataList(tbl, 1, AppTypes.PriceDataType.Volume));
                 }
-                //Update cache
-                AnalysisDataCache data = new AnalysisDataCache();
-                data.dataTbl = (databases.baseDS.priceDataDataTable)dataObj.priceDataTbl.Copy();
-                data.firstData = dataObj.FirstDataStartAt;
-                AddCache(MakeAnalysisDataCacheKey(dataObj), data);
                 return dataObj.priceDataTbl.Count - 1 - lastDataIdx;
             }
             catch (Exception er)
