@@ -1158,4 +1158,16 @@
   <data name="dayScanForLastPrice" xml:space="preserve">
     <value>No days scan for last price</value>
   </data>
+  <data name="bars" xml:space="preserve">
+    <value>bar(s)</value>
+  </data>
+  <data name="chartMaxLoadFIRST" xml:space="preserve">
+    <value>Max bars to load FIRST</value>
+  </data>
+  <data name="chartMaxLoadNEXT" xml:space="preserve">
+    <value>Max bars to load NEXT</value>
+  </data>
+  <data name="sysSetting" xml:space="preserve">
+    <value>Settings</value>
+  </data>
 </root>
