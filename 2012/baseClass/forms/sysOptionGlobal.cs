@@ -59,10 +59,13 @@ namespace baseClass.forms
             screenDataCounEd.Value = Settings.sysGlobal.ScreeningDataCount;
             screenTimeScaleCb.myValue = AppTypes.TimeScaleFromCode(Settings.sysGlobal.ScreeningTimeScaleCode);
 
-            //Timming
+            //sysSettins
             timerUnitEd.myValue = Settings.sysGlobal.TimerUnitInSecs;
             timerUnitToAutoCheckEd.myValue = Settings.sysGlobal.TimerUnitToAutoCheck;
             dayScanForLastPriceEd.myValue = Settings.sysGlobal.DayScanForLastPrice;
+
+            chartMaxLoadFirstEd.myValue = Settings.sysGlobal.ChartMaxLoadCount_FIRST ;
+            chartMaxLoadNextEd.myValue = Settings.sysGlobal.ChartMaxLoadCount_MORE ;
         }
         private void SaveSettings()
         {
@@ -96,6 +99,9 @@ namespace baseClass.forms
             Settings.sysGlobal.TimerUnitInSecs = (short)timerUnitEd.myValue;
             Settings.sysGlobal.TimerUnitToAutoCheck = (short)timerUnitToAutoCheckEd.myValue;
             Settings.sysGlobal.DayScanForLastPrice = (short)dayScanForLastPriceEd.myValue;
+
+            Settings.sysGlobal.ChartMaxLoadCount_FIRST = (short)chartMaxLoadFirstEd.myValue;
+            Settings.sysGlobal.ChartMaxLoadCount_MORE = (short)chartMaxLoadNextEd.myValue;
 
             DataAccess.Libs.Save_Global_Settings();
         }
@@ -134,7 +140,7 @@ namespace baseClass.forms
             screenDataCounLbl.Text = Languages.Libs.GetString("dataCount");
             screenTimeScaleLbl.Text = Languages.Libs.GetString("timeScale");
 
-            timingPg.Text = Languages.Libs.GetString("timing");
+            sysSettingPg.Text = Languages.Libs.GetString("sysSetting");
             timerUnitLbl.Text = Languages.Libs.GetString("timerUnit");
             secondLbl2.Text = Languages.Libs.GetString("seconds");
             timerUnitToAutoCheckLbl.Text = Languages.Libs.GetString("autoCheckAfter");
@@ -142,6 +148,11 @@ namespace baseClass.forms
 
             dayScanForLastPriceLbl.Text = Languages.Libs.GetString("dayScanForLastPrice");
             dayLbl.Text = Languages.Libs.GetString("days");
+
+            chartMaxLoadFirstLbl.Text = Languages.Libs.GetString("chartMaxLoadFIRST");
+            chartMaxLoadNextLbl.Text = Languages.Libs.GetString("chartMaxLoadNEXT");
+            barLbl1.Text = Languages.Libs.GetString("bars");
+            barLbl2.Text = Languages.Libs.GetString("bars");
         }
 
         private void closeBtn_Click(object sender, EventArgs e)

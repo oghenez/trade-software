@@ -331,6 +331,15 @@ namespace Languages.langs {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to bar(s).
+        /// </summary>
+        internal static string bars {
+            get {
+                return ResourceManager.GetString("bars", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Bar Up.
         /// </summary>
         internal static string barUp {
@@ -534,6 +543,24 @@ namespace Languages.langs {
         internal static string chartGrid {
             get {
                 return ResourceManager.GetString("chartGrid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Max bars to load FIRST.
+        /// </summary>
+        internal static string chartMaxLoadFIRST {
+            get {
+                return ResourceManager.GetString("chartMaxLoadFIRST", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Max bars to load NEXT.
+        /// </summary>
+        internal static string chartMaxLoadNEXT {
+            get {
+                return ResourceManager.GetString("chartMaxLoadNEXT", resourceCulture);
             }
         }
         
@@ -2658,6 +2685,15 @@ namespace Languages.langs {
         internal static string sysOptions {
             get {
                 return ResourceManager.GetString("sysOptions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Settings.
+        /// </summary>
+        internal static string sysSetting {
+            get {
+                return ResourceManager.GetString("sysSetting", resourceCulture);
             }
         }
         

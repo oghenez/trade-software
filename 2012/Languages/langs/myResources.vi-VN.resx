@@ -226,10 +226,10 @@
     <value>Năm</value>
   </data>
   <data name="day" xml:space="preserve">
-    <value>Ngày</value>
+    <value>ngày</value>
   </data>
   <data name="days" xml:space="preserve">
-    <value>Ngày</value>
+    <value>ngày</value>
   </data>
   <data name="accumulateAction" xml:space="preserve">
     <value>Tích lũy</value>
@@ -1163,5 +1163,17 @@
   </data>
   <data name="dayScanForLastPrice" xml:space="preserve">
     <value>Số ngày quét lấy giá cuối</value>
+  </data>
+  <data name="bars" xml:space="preserve">
+    <value>thanh</value>
+  </data>
+  <data name="chartMaxLoadFIRST" xml:space="preserve">
+    <value>Số lượng thanh tải ban đầu</value>
+  </data>
+  <data name="chartMaxLoadNEXT" xml:space="preserve">
+    <value>Số lượng thanh tải kế tiếp</value>
+  </data>
+  <data name="sysSetting" xml:space="preserve">
+    <value>Thông số</value>
   </data>
 </root>

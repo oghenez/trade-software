@@ -75,6 +75,12 @@ namespace commonTypes
         //The system will look for the last price in date range [today-DayScanForLastPrice,today]
         [DataMember]
         public short DayScanForLastPrice = 90;
+
+        // Loading long chart can be very slow, the setting limit the maximum number of points to be loaded
+        [DataMember]
+        public short ChartMaxLoadCount_FIRST = 6000; //For the first time
+        [DataMember]
+        public short ChartMaxLoadCount_MORE = 0;   //For each "get more" load
     }
     public static class Settings
     {
@@ -99,7 +105,7 @@ namespace commonTypes
         }
 
         //The max datetime diffences b/w server and client in seconds
-        public static int sysMaxTimeDifferenceInSecs = 600; //10 Mins
+        //public static int sysMaxTimeDifferenceInSecs = 600; //10 Mins
 
         //Whether to keep sell that was blocked by T+4 and issue it when the time come
         public static bool sysKeepInApplicableSell = true;
@@ -220,10 +226,6 @@ namespace commonTypes
         public static bool sysChartShowVolume = true;
         public static bool sysChartShowGrid = true;
         public static bool sysChartShowLegend = true;
-
-        // Loading long chart can be very slow, the setting limit the maximum number of points to be loaded
-        public static int sysDataMaxCount_FIRST = 6000; //For the first time
-        //public static int sysChartMaxLoadCount_MORE = 0;   //For each "get more" load
 
         // Whether to log exception, user access...
         public static AppTypes.SyslogMedia sysWriteLogException = AppTypes.SyslogMedia.File;
