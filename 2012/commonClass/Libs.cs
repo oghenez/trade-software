@@ -10,6 +10,83 @@ using commonTypes;
 
 namespace commonClass
 {
+    public static class DataLibs
+    {
+        public static double[] GetDataList(databases.baseDS.priceDataDataTable dataTbl, int startIdx, AppTypes.PriceDataType type)
+        {
+            return GetDataList(dataTbl, startIdx, dataTbl.Count - 1, type);
+        }
+        public static double[] GetDataList(databases.baseDS.priceDataDataTable dataTbl, int startIdx,int endIdx,AppTypes.PriceDataType type)
+        {
+            double[] data = new double[endIdx - startIdx+1];
+            switch (type)
+            {
+                case AppTypes.PriceDataType.High:
+                    for (int i = startIdx, j = 0; i <= endIdx; i++, j++)
+                    {
+                        if (dataTbl[i].RowState == System.Data.DataRowState.Deleted) continue;
+                        data[j] = (double)dataTbl[i].highPrice;
+                    }
+                    break;
+                case AppTypes.PriceDataType.Low:
+                    for (int i = startIdx, j = 0; i <=endIdx; i++, j++)
+                    {
+                        if (dataTbl[i].RowState == System.Data.DataRowState.Deleted) continue;
+                        data[j] = (double)dataTbl[i].lowPrice;
+                    }
+                    break;
+                case AppTypes.PriceDataType.Open:
+                    for (int i = startIdx, j = 0; i <= endIdx; i++, j++)
+                    {
+                        if (dataTbl[i].RowState == System.Data.DataRowState.Deleted) continue;
+                        data[j] = (double)dataTbl[i].openPrice;
+                    }
+                    break;
+                case AppTypes.PriceDataType.Close:
+                    for (int i = startIdx, j = 0; i <= endIdx; i++, j++)
+                    {
+                        if (dataTbl[i].RowState == System.Data.DataRowState.Deleted) continue;
+                        data[j] = (double)dataTbl[i].closePrice;
+                    }
+                    break;
+                case AppTypes.PriceDataType.Volume:
+                    for (int i = startIdx, j = 0; i <= endIdx; i++, j++)
+                    {
+                        if (dataTbl[i].RowState == System.Data.DataRowState.Deleted) continue;
+                        data[j] = (double)dataTbl[i].volume;
+                    }
+                    break;
+
+                case AppTypes.PriceDataType.DateTime:
+                    for (int i = startIdx, j = 0; i <= endIdx; i++, j++)
+                    {
+                        if (dataTbl[i].RowState == System.Data.DataRowState.Deleted) continue;
+                        data[j] = dataTbl[i].onDate.ToOADate();
+                    }
+                    break;
+                default:
+                    common.system.ThrowException("Invalid dataField in MakeDataList()"); break;
+            }
+            return data;
+        }
+        public static DataSeries GetData(databases.baseDS.priceDataDataTable dataTbl, int startIdx, AppTypes.PriceDataType type)
+        {
+            DataSeries ds = new DataSeries();
+            ds.Values = GetDataList(dataTbl, startIdx, type);
+            return ds;
+        }
+        public static DataBars GetData(databases.baseDS.priceDataDataTable dataTbl, int startIdx)
+        {
+            DataBars bars = new DataBars();
+            for (int idx = startIdx; idx < dataTbl.Count; idx++)
+            {
+                bars.Add((double)dataTbl[idx].openPrice, (double)dataTbl[idx].highPrice,
+                         (double)dataTbl[idx].lowPrice, (double)dataTbl[idx].closePrice,
+                         (double)dataTbl[idx].volume, dataTbl[idx].onDate.ToOADate());
+            }
+            return bars;
+        }
+    }
     public static class SysLibs
     {
         //The folder from where the application run
