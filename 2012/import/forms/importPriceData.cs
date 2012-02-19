@@ -23,7 +23,7 @@ namespace imports.forms
             try
             {
                 InitializeComponent();
-                stockExchangeCb.LoadData();
+                stockExchangeCb.LoadDataDB();
                 actionCb.SelectedIndex = 0;
                 importTypeCb.SelectedIndex = 0;
             }

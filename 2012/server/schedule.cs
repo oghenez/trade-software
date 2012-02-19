@@ -11,8 +11,7 @@ using commonTypes;
 
 namespace server
 {
-    //public partial class scheduleForm : common.forms.baseApplication  
-    public partial class scheduleForm : baseClass.forms.baseApplication  
+    public partial class scheduleForm : baseClass.forms.baseForm   
     {
         private bool fRunning = false;
         private bool fProcessingTraderAlert = false, fProcessingFetchData = false;
@@ -35,13 +34,8 @@ namespace server
             }
         }
 
-        protected override bool ShowLogin() { return true; }
-        protected override bool CheckLicense() { return true; }
-
         private static bool Init()
         {
-            //application.sysLibs.sysProductOwner = application.Consts.constProductOwner;
-            //application.sysLibs.sysProductCode = application.Consts.constProductCode;
             common.configuration.withEncryption = true;
 
             application.Configuration.Load_User_Envir();
@@ -56,10 +50,6 @@ namespace server
             Settings.sysGlobal = globalSetting;
 
             application.Configuration.Load_Local_Settings();
-            return true;
-        }
-        protected override bool CheckValid()
-        {
             return true;
         }
         private void LoadConfig()
