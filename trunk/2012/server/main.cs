@@ -18,8 +18,6 @@ namespace server
             {
                 common.language.myCulture = new System.Globalization.CultureInfo("vi-VN");
                 InitializeComponent();
-                //object obj = Strategy.Data.sysXmlDocument;
-                //test.LoadTestConfig();
             }
             catch (Exception er)
             {
@@ -104,12 +102,14 @@ namespace server
             }
         }
 
+        static scheduleForm scheduleForm = null;
         private void updateDataMenuItem_Click(object sender, EventArgs e)
         {
             try
             {
-                scheduleForm form = new scheduleForm();
-                form.ShowDialog();
+                if (scheduleForm==null) scheduleForm = new scheduleForm();
+                scheduleForm.Show();
+                scheduleForm.Activate();
             }
             catch (Exception er)
             {

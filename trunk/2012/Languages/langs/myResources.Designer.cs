@@ -1537,7 +1537,7 @@ namespace Languages.langs {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Login.
+        ///   Looks up a localized string similar to Log in.
         /// </summary>
         internal static string login {
             get {

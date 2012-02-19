@@ -119,8 +119,6 @@ namespace commonClass
             AppTypes.ReLoadTimeScales();
         }
 
-        public static DateTime GetWorkDayDate(DateTime frDate, int days) { return frDate.AddDays(days); }
-
         public static bool isSupperAdminLogin(string loginName)
         {
             return loginName.Trim().ToLower() == Settings.sysSuperAdminName;
@@ -202,25 +200,5 @@ namespace commonClass
             if (SysLibs.sysLoginCode.Trim() == "") return false;
             return common.configuration.SaveConfiguration(Settings.sysUserConfigFile, SysLibs.sysLoginCode, type, aFields, aValues, false);
         }
-
-        //private const string constRootXMLElementStr = "Configuration";
-        //public const string constXMLElement_Root = "Application";
-        //public const string constXMLElement_Sub_System = "System";
-        //public const string constXMLElement_Sub_Database = "Database";
-        //public static bool withEncryption
-        //{
-        //    get { return common.configuration.withEncryption; }
-        //    set { common.configuration.withEncryption = value; }
-        //}
-
-        //public static string BuidConnectionString(string serverAddr, string dbName, string account, string password)
-        //{
-        //    string configStr = "";
-        //    configStr = "Data Source=" + serverAddr.Trim() +
-        //                ";Initial Catalog=" + dbName.Trim() +
-        //                ";Persist Security Info=True;User ID=" + account.Trim();
-        //    if (password.Trim() != "") configStr += ";password=" + password;
-        //    return configStr;
-        //}
     }
 }

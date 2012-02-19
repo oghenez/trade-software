@@ -38,14 +38,6 @@ namespace wsServices
         //Start-up function. See http://stackoverflow.com/questions/739268/wcf-application-start-event
         public DataLibs()
         {
-            SetConfig();
-        }
-
-        /// <summary>
-        /// Customed config for web services
-        /// </summary>
-        public static void SetConfig()
-        {
             common.configuration.withEncryption = true;
             common.Settings.sysConfigFile = common.fileFuncs.ConcatFileName(commonClass.SysLibs.myExecuteDirectory, commonTypes.Consts.constWebServiceConf);
             databases.SysLibs.dbConnectionString = common.configuration.GetDbConnectionString();
