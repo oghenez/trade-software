@@ -3,7 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Text;
-using System.Windows.Forms; 
+using System.Windows.Forms;
+using System.Diagnostics;
 using System.IO;
 using System.Data;
 using System.Xml;
@@ -722,6 +723,8 @@ namespace application.Strategy
 
         public static List<double[]> Estimate_Matrix_LastBizWeight(commonClass.DataParams dataParm,StringCollection stockCodeList, StringCollection strategyList)
         {
+            //System.Diagnostics.Stopwatch stopWatch = new System.Diagnostics.Stopwatch();
+            //stopWatch.Start();
             List<double[]> retList = new List<double[]>();
             for (int rowId = 0; rowId < stockCodeList.Count; rowId++)
             {
@@ -734,15 +737,17 @@ namespace application.Strategy
                     if (tradePoints != null && tradePoints.Count>0)
                     {
                         rowRetList[colId] = (tradePoints[tradePoints.Count - 1] as TradePointInfo).BusinessInfo.Weight;
-                        if (common.Settings.sysDebugMode && (tradePoints[tradePoints.Count - 1] as TradePointInfo).DataIdx != analysisData.Close.Count - 1)
-                        {
-                            commonClass.SysLibs.WriteSysLog( AppTypes.SyslogTypes.Others,stockCodeList[rowId], strategyList[colId]);
-                        }
+                        //if (common.Settings.sysDebugMode && (tradePoints[tradePoints.Count - 1] as TradePointInfo).DataIdx != analysisData.Close.Count - 1)
+                        //{
+                        //    commonClass.SysLibs.WriteSysLog( AppTypes.SyslogTypes.Others,stockCodeList[rowId], strategyList[colId]);
+                        //}
                     }
                     else rowRetList[colId] = double.NaN;
                 }
                 retList.Add(rowRetList);
             }
+            //stopWatch.Stop();
+            //string tmp = common.dateTimeLibs.TimeSpan2String(stopWatch.Elapsed);
             return retList;
         }
         

@@ -59,6 +59,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Forms\alertFilter.cs">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\alertFilter.designer.cs">
       <DependentUpon>alertFilter.cs</DependentUpon>
@@ -100,11 +101,13 @@
       <DependentUpon>transactionList.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\portfolioWatch.cs">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\portfolioWatch.designer.cs">
       <DependentUpon>portfolioWatch.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\marketWatch.cs">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\marketWatch.Designer.cs">
       <DependentUpon>marketWatch.cs</DependentUpon>

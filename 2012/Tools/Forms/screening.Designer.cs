@@ -298,7 +298,6 @@
             // timeScaleCb
             // 
             this.timeScaleCb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.timeScaleCb.Enabled = false;
             this.timeScaleCb.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.timeScaleCb.FormattingEnabled = true;
             this.timeScaleCb.Location = new System.Drawing.Point(23, 31);
