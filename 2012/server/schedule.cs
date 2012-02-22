@@ -148,7 +148,7 @@ namespace server
         {
             try
             {
-                common.fileFuncs.DisplayFile(common.fileFuncs.myLogFileName);
+                common.fileFuncs.DisplayFile(common.fileFuncs.ConcatFileName(commonClass.SysLibs.myExecuteDirectory, Consts.constFile_SysLog));
             }
             catch (Exception er)
             {

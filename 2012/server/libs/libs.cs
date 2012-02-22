@@ -132,7 +132,7 @@ namespace server
                         common.fileFuncs.WriteLog("Invalid " + marketRow.dataSource.Trim());
                         continue;
                 }
-                common.fileFuncs.WriteLog("Updated from " + parts[1]);
+                commonClass.SysLibs.WriteSysLog("Updated from " + parts[1]);
             }
             return;
         }
