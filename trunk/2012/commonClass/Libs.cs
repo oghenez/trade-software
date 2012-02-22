@@ -153,6 +153,11 @@ namespace commonClass
         {
             WriteSysLog(AppTypes.SyslogTypes.Exception, investorCode,common.system.MakeLogString(er, common.Consts.constTab));
         }
+        public static void WriteSysLog(string text)
+        {
+            common.fileFuncs.WriteLog(DateTime.Now.ToString() + common.Consts.constTab + text,
+                                      common.fileFuncs.ConcatFileName(myExecuteDirectory, Consts.constFile_SysLog));
+        }
 
         #region system environment
         public static bool sysUseTransactionInUpdate = false;

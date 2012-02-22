@@ -72,7 +72,7 @@
             this.printChartBtn = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator12 = new System.Windows.Forms.ToolStripSeparator();
             this.marketWatchBtn = new System.Windows.Forms.ToolStripButton();
-            this.portfolioWatchBtn = new System.Windows.Forms.ToolStripButton();
+            this.myPortfolioBtn = new System.Windows.Forms.ToolStripButton();
             this.tradeAlertBtn = new System.Windows.Forms.ToolStripButton();
             this.transHistoryBtn = new System.Windows.Forms.ToolStripButton();
             this.toolsStrip = new System.Windows.Forms.ToolStrip();
@@ -118,11 +118,11 @@
             this.toolStripSeparator11 = new System.Windows.Forms.ToolStripSeparator();
             this.marketWatchMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tradeAlertMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator17 = new System.Windows.Forms.ToolStripSeparator();
             this.transHistoryMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.myPortfolioMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator26 = new System.Windows.Forms.ToolStripSeparator();
             this.strategyEstimationiMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator17 = new System.Windows.Forms.ToolStripSeparator();
-            this.myPortfolioMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.chartMenuStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.indicatorMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.chartMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -345,7 +345,7 @@
             this.zoomInBtn,
             this.toolStripSeparator19,
             this.chartRefreshBtn});
-            this.chartStrip.Location = new System.Drawing.Point(162, 24);
+            this.chartStrip.Location = new System.Drawing.Point(158, 24);
             this.chartStrip.Name = "chartStrip";
             this.chartStrip.Size = new System.Drawing.Size(212, 25);
             this.chartStrip.TabIndex = 11;
@@ -466,7 +466,7 @@
             this.printChartBtn,
             this.toolStripSeparator12,
             this.marketWatchBtn,
-            this.portfolioWatchBtn,
+            this.myPortfolioBtn,
             this.tradeAlertBtn,
             this.transHistoryBtn});
             this.standartStrip.Location = new System.Drawing.Point(3, 24);
@@ -509,15 +509,15 @@
             this.marketWatchBtn.ToolTipText = "Market Watch";
             this.marketWatchBtn.Click += new System.EventHandler(this.marketWatchBtn_Click);
             // 
-            // portfolioWatchBtn
+            // myPortfolioBtn
             // 
-            this.portfolioWatchBtn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.portfolioWatchBtn.Image = global::client.Properties.Resources.book;
-            this.portfolioWatchBtn.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.portfolioWatchBtn.Name = "portfolioWatchBtn";
-            this.portfolioWatchBtn.Size = new System.Drawing.Size(23, 22);
-            this.portfolioWatchBtn.ToolTipText = "Portfolio Watch";
-            this.portfolioWatchBtn.Click += new System.EventHandler(this.portfolioWatchBtn_Click);
+            this.myPortfolioBtn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.myPortfolioBtn.Image = global::client.Properties.Resources.book;
+            this.myPortfolioBtn.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.myPortfolioBtn.Name = "myPortfolioBtn";
+            this.myPortfolioBtn.Size = new System.Drawing.Size(23, 22);
+            this.myPortfolioBtn.ToolTipText = "Portfolio Watch";
+            this.myPortfolioBtn.Click += new System.EventHandler(this.myPortfolioBtn_Click);
             // 
             // tradeAlertBtn
             // 
@@ -538,7 +538,7 @@
             this.transHistoryBtn.Name = "transHistoryBtn";
             this.transHistoryBtn.Size = new System.Drawing.Size(23, 22);
             this.transHistoryBtn.Text = "toolStripButton1";
-            this.transHistoryBtn.Click += new System.EventHandler(this.transHistoryMenuItem_Click);
+            this.transHistoryBtn.Click += new System.EventHandler(this.transHistoryBtn_Click);
             // 
             // toolsStrip
             // 
@@ -547,7 +547,7 @@
             this.toolRunBtn,
             this.toolFullViewBtn,
             this.exportBtn});
-            this.toolsStrip.Location = new System.Drawing.Point(376, 24);
+            this.toolsStrip.Location = new System.Drawing.Point(372, 24);
             this.toolsStrip.Name = "toolsStrip";
             this.toolsStrip.Size = new System.Drawing.Size(79, 25);
             this.toolsStrip.TabIndex = 2;
@@ -810,11 +810,11 @@
             this.toolStripSeparator11,
             this.marketWatchMenuItem,
             this.tradeAlertMenuItem,
-            this.transHistoryMenuItem,
-            this.toolStripSeparator26,
-            this.strategyEstimationiMenuItem,
             this.toolStripSeparator17,
-            this.myPortfolioMenuItem});
+            this.transHistoryMenuItem,
+            this.myPortfolioMenuItem,
+            this.toolStripSeparator26,
+            this.strategyEstimationiMenuItem});
             this.viewMenuStrip.Name = "viewMenuStrip";
             this.viewMenuStrip.Size = new System.Drawing.Size(48, 20);
             this.viewMenuStrip.Text = "View";
@@ -912,12 +912,24 @@
             this.tradeAlertMenuItem.Text = "Trade Alerts";
             this.tradeAlertMenuItem.Click += new System.EventHandler(this.tradeAlertBtn_Click);
             // 
+            // toolStripSeparator17
+            // 
+            this.toolStripSeparator17.Name = "toolStripSeparator17";
+            this.toolStripSeparator17.Size = new System.Drawing.Size(206, 6);
+            // 
             // transHistoryMenuItem
             // 
             this.transHistoryMenuItem.Name = "transHistoryMenuItem";
             this.transHistoryMenuItem.Size = new System.Drawing.Size(209, 22);
             this.transHistoryMenuItem.Text = "Transactions";
-            this.transHistoryMenuItem.Click += new System.EventHandler(this.transHistoryMenuItem_Click);
+            this.transHistoryMenuItem.Click += new System.EventHandler(this.transHistoryBtn_Click);
+            // 
+            // myPortfolioMenuItem
+            // 
+            this.myPortfolioMenuItem.Name = "myPortfolioMenuItem";
+            this.myPortfolioMenuItem.Size = new System.Drawing.Size(209, 22);
+            this.myPortfolioMenuItem.Text = "My Portfolio";
+            this.myPortfolioMenuItem.Click += new System.EventHandler(this.myPortfolioBtn_Click);
             // 
             // toolStripSeparator26
             // 
@@ -932,18 +944,6 @@
             this.strategyEstimationiMenuItem.Name = "strategyEstimationiMenuItem";
             this.strategyEstimationiMenuItem.Size = new System.Drawing.Size(209, 22);
             this.strategyEstimationiMenuItem.Text = "Strategy Estimation";
-            // 
-            // toolStripSeparator17
-            // 
-            this.toolStripSeparator17.Name = "toolStripSeparator17";
-            this.toolStripSeparator17.Size = new System.Drawing.Size(206, 6);
-            // 
-            // myPortfolioMenuItem
-            // 
-            this.myPortfolioMenuItem.Name = "myPortfolioMenuItem";
-            this.myPortfolioMenuItem.Size = new System.Drawing.Size(209, 22);
-            this.myPortfolioMenuItem.Text = "My Portfolio";
-            this.myPortfolioMenuItem.Click += new System.EventHandler(this.portfolioWatchBtn_Click);
             // 
             // chartMenuStrip
             // 
@@ -1322,7 +1322,7 @@
             this.formatStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.amountBtn,
             this.percentBtn});
-            this.formatStrip.Location = new System.Drawing.Point(455, 24);
+            this.formatStrip.Location = new System.Drawing.Point(451, 24);
             this.formatStrip.Name = "formatStrip";
             this.formatStrip.Size = new System.Drawing.Size(56, 25);
             this.formatStrip.TabIndex = 148;
@@ -1351,7 +1351,7 @@
             this.strategyStrip.Dock = System.Windows.Forms.DockStyle.None;
             this.strategyStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.strategyCbStrip});
-            this.strategyStrip.Location = new System.Drawing.Point(512, 24);
+            this.strategyStrip.Location = new System.Drawing.Point(574, 24);
             this.strategyStrip.Name = "strategyStrip";
             this.strategyStrip.Size = new System.Drawing.Size(312, 25);
             this.strategyStrip.TabIndex = 149;
@@ -1369,7 +1369,7 @@
             this.periodicityStrip.Dock = System.Windows.Forms.DockStyle.None;
             this.periodicityStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.dummyStripBtn});
-            this.periodicityStrip.Location = new System.Drawing.Point(824, 24);
+            this.periodicityStrip.Location = new System.Drawing.Point(886, 24);
             this.periodicityStrip.Name = "periodicityStrip";
             this.periodicityStrip.Size = new System.Drawing.Size(95, 25);
             this.periodicityStrip.TabIndex = 147;
@@ -1453,7 +1453,7 @@
         private System.Windows.Forms.ToolStripButton printChartBtn;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator12;
         private System.Windows.Forms.ToolStripButton marketWatchBtn;
-        private System.Windows.Forms.ToolStripButton portfolioWatchBtn;
+        private System.Windows.Forms.ToolStripButton myPortfolioBtn;
         private System.Windows.Forms.ToolStripButton tradeAlertBtn;
         private System.Windows.Forms.ToolStrip toolsStrip;
         private System.Windows.Forms.ToolStripButton toolRunBtn;

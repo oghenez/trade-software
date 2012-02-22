@@ -257,6 +257,25 @@ namespace client
 
                 strategyCbStrip.Items.Clear();
                 strategyCbStrip.LoadData();
+
+                //Tool tip
+                this.addChartBtn.ToolTipText = this.NewChartMenuItem.Text;
+                this.printChartBtn.ToolTipText = this.printMenuItem.Text;
+
+                this.transHistoryBtn.ToolTipText = this.transHistoryMenuItem.Text;
+                this.marketWatchBtn.ToolTipText = this.marketWatchMenuItem.Text;
+                this.tradeAlertBtn.ToolTipText = this.tradeAlertMenuItem.Text;
+                this.myPortfolioBtn.ToolTipText = this.myPortfolioMenuItem.Text;
+                this.chartPropertiesBtn.ToolTipText = this.chartPropertyMenuItem.Text;
+
+                this.lineChartBtn.ToolTipText = this.lineChartMenuItem.Text;
+                this.barChartBtn.ToolTipText = this.barChartMenuItem.Text;
+                this.candleSticksBtn.ToolTipText = this.candleSticksMenuItem.Text;
+                this.chartVolumeBtn.ToolTipText = this.chartVolumeMenuItem.Text;
+
+                this.zoomInBtn.ToolTipText = this.zoomInMenuItem.Text;
+                this.zoomOutBtn.ToolTipText = this.zoomOutMenuItem.Text;
+                this.chartRefreshBtn.ToolTipText = this.chartPropertyMenuItem.Text;
             }
             catch (Exception er)
             {
@@ -361,15 +380,7 @@ namespace client
                 System.Environment.Exit(1);
                 return false;
             }
-            CloseAllForms(false);
-            for(int idx=0;idx<cachedForms.Values.Length;idx++)  
-            {
-                Form form = (cachedForms.Values[idx] as Form);
-                if (form == null || form.IsDisposed) continue;
-                form.Close();
-            }
-            cachedForms.Clear();
-            common.Data.Clear();
+            CloseAllForms();
             return true;
         }
 
@@ -379,8 +390,40 @@ namespace client
         {
             if (!base.LoadUserConfig()) return false;
             SetCulture(Settings.sysLanguage);
+
+            // Restore the last settings from user config file.
+            marketWatchMenuItem.Checked = application.Configuration.GetDefaultFormState("marketWatch");
+            tradeAlertMenuItem.Checked = application.Configuration.GetDefaultFormState("tradeAlert");
+            myPortfolioMenuItem.Checked = application.Configuration.GetDefaultFormState("portfolio");
+            transHistoryMenuItem.Checked = application.Configuration.GetDefaultFormState("transHistory");
+
+            OpenDefaultForm();
+            common.Data.Clear();
             return true;
         }
+        protected override void SaveUserConfig()
+        {
+            application.Configuration.SetDefaultFormState("marketWatch", marketWatchMenuItem.Checked);
+            application.Configuration.SetDefaultFormState("tradeAlert", tradeAlertMenuItem.Checked);
+            application.Configuration.SetDefaultFormState("portfolio", myPortfolioMenuItem.Checked);
+            application.Configuration.SetDefaultFormState("transHistory", transHistoryMenuItem.Checked);
+        }
+
+        private void OpenDefaultForm()
+        {
+            if (marketWatchMenuItem.Checked) ShowMarketWatchForm();
+            else HideMarketWatchForm();
+
+            if (tradeAlertMenuItem.Checked) ShowTradeAlertForm();
+            else HideTradeAlertForm();
+
+            if (myPortfolioMenuItem.Checked) ShowPortfolioWatchtForm();
+            else HidePortfolioWatchtForm();
+
+            if (transHistoryMenuItem.Checked) ShowTransHistForm();
+            else HideTransHistForm();
+        }
+
 
         private common.DictionaryList cultureCache = new common.DictionaryList();
 
@@ -424,6 +467,31 @@ namespace client
             DataAccess.Libs.Reset();
             SetTimer(true);
         }
+
+        //Map form to checked menu button  : 
+        // Check menu -> Open/Close form 
+        // Close form -> uncheck menu
+        private void MapForm(Form form, ToolStripMenuItem menuBtn)
+        {
+            form.Tag = menuBtn;
+            form.FormClosed += new FormClosedEventHandler(MapFormClosed);
+            form.Activated += new EventHandler(MapFormActivated);
+        }
+        private void MapFormClosed(object sender, FormClosedEventArgs e)
+        {
+            if ((sender as Form).Tag.GetType() == typeof(ToolStripMenuItem))
+            {
+                ((sender as Form).Tag as ToolStripMenuItem).Checked = false;
+            }
+        }
+        private void MapFormActivated(object sender, EventArgs e)
+        {
+            if ((sender as Form).Tag.GetType() == typeof(ToolStripMenuItem))
+            {
+                ((sender as Form).Tag as ToolStripMenuItem).Checked = true;
+            }
+        }
+
         
         /// <summary>
         /// Refresh data  : the function will be called after each [sysTimerIntervalInSecs] seconds 
@@ -469,7 +537,7 @@ namespace client
             stopWatch.Start();
             using (new DataAccess.PleaseWait())
             {
-                ShowMarketWatchForm();
+                OpenDefaultForm();
                 //ShowMarketSummaryForm();
             }
             stopWatch.Stop();
@@ -480,23 +548,25 @@ namespace client
         /// Close All Forms except System form
         /// </summary>
         /// <param name="excludeSysForm"></param>
-        private void CloseAllForms(bool excludeSysForm)
+        private void CloseAllForms()
         {
             FormCollection formList = Application.OpenForms;
             for(int idx=0;idx<formList.Count;idx++) 
             {
                 Type formType = formList[idx].GetType();
                 //Do not close main form
-                if (formType == this.GetType())  continue;
-                if ( (excludeSysForm) &&
-                     (formType == typeof(Trade.Forms.marketWatch) || formType == typeof(Trade.Forms.tradeAlertList)))
-                      continue;
-                if (!formList[idx].IsDisposed)
-                {
-                    formList[idx].Close();
-                    idx--;
-                }
+                if (formType.Name == this.Name)  continue;
+                if (formList[idx].IsDisposed) continue;
+                formList[idx].Close();
+                idx--;
             }
+            for (int idx = 0; idx < cachedForms.Values.Length; idx++)
+            {
+                Form form = (cachedForms.Values[idx] as Form);
+                if (form == null || form.IsDisposed) continue;
+                form.Close();
+            }
+            cachedForms.Clear();
         }
 
         /// <summary>
@@ -711,10 +781,11 @@ namespace client
                 myForm = new Trade.Forms.marketWatch();
                 myForm.Name = formName;
                 cachedForms.Add(formName, myForm);
+
+                MapForm(myForm, marketWatchMenuItem);
             }
             return myForm;
         }
-
         private void ShowMarketWatchForm()
         {
             Trade.Forms.marketWatch form = GetMarketWatchForm(true);
@@ -722,18 +793,11 @@ namespace client
             form.myGrid.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(NewChartMenuItem_Click);
             form.RefreshData(true);
             form.Show(dockPanel, DockState.DockLeft);
-            //form.SetColor();
         }
         private void HideMarketWatchForm()
         {
-            Trade.Forms.marketWatch form = GetMarketWatchForm(true);
-            form.Hide();
-        }
-
-        private void HideMarketSummaryForm()
-        {
-            Tools.Forms.MarketSummary form = GetMarketSummaryForm(true);
-            form.Hide();
+            Trade.Forms.marketWatch form = GetMarketWatchForm(false);
+            if (form!=null) form.Hide();
         }
 
         private Tools.Forms.MarketSummary GetMarketSummaryForm(bool createIfNotFound)
@@ -749,7 +813,6 @@ namespace client
             }
             return myForm;
         }
-
         private void ShowMarketSummaryForm()
         {
             Tools.Forms.MarketSummary form = GetMarketSummaryForm(true);
@@ -757,36 +820,10 @@ namespace client
             //form.myGrid.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(NewChartMenuItem_Click);
             form.Show(dockPanel, DockState.Document);
         }
-
-        private void addToWatchListMenuItem_Click(object sender, EventArgs e)
+        private void HideMarketSummaryForm()
         {
-            try
-            {
-                Trade.Forms.marketWatch form = GetMarketWatchForm(false);
-                if (form == null) return;
-                if (form.CurrentRow == null) return;
-                StringCollection codes = new StringCollection();
-                codes.Add(form.CurrentRow.code);
-                baseClass.AppLibs.AddStockToWatchList(codes);
-            }
-            catch (Exception er)
-            {
-                this.ShowError(er);
-            }
-        }
-
-        private void ShowPortfolioWatchtForm()
-        {
-            string formName = constFormNameWatchList + "Portfolio";
-            Trade.Forms.portfolioWatch myForm = (Trade.Forms.portfolioWatch)cachedForms.Find(formName);
-            if (myForm == null || myForm.IsDisposed)
-            {
-                myForm = new Trade.Forms.portfolioWatch();
-                myForm.Name = formName;
-                myForm.myOnShowChart += new baseClass.forms.basePortfolioWatch.onShowChart(ShowStockChart);
-                cachedForms.Add(formName, myForm);
-            }
-            myForm.Show(dockPanel, DockState.DockBottom);
+            Tools.Forms.MarketSummary form = GetMarketSummaryForm(false);
+            if (form != null) form.Hide();
         }
 
         private Trade.Forms.tradeAlertList GetTradeAlertForm(bool createIfNotExisted)
@@ -809,8 +846,57 @@ namespace client
             Trade.Forms.tradeAlertList myForm = GetTradeAlertForm(true);
             myForm.myContextMenuStrip = CreateContextMenu_TradeAlert();
             myForm.Show(dockPanel, DockState.DockBottom);
+            MapForm(myForm, tradeAlertMenuItem);
+        }
+        private void HideTradeAlertForm()
+        {
+            Trade.Forms.tradeAlertList form = GetTradeAlertForm(false);
+            if (form != null) form.Hide();
         }
 
+        private void ShowPortfolioWatchtForm()
+        {
+            string formName = constFormNameWatchList + "Portfolio";
+            Trade.Forms.portfolioWatch myForm = (Trade.Forms.portfolioWatch)cachedForms.Find(formName);
+            if (myForm == null || myForm.IsDisposed)
+            {
+                myForm = new Trade.Forms.portfolioWatch();
+                myForm.Name = formName;
+                myForm.myOnShowChart += new baseClass.forms.basePortfolioWatch.onShowChart(ShowStockChart);
+                cachedForms.Add(formName, myForm);
+                MapForm(myForm, myPortfolioMenuItem);
+            }
+            myForm.Show(dockPanel, DockState.DockBottom);
+        }
+        private void HidePortfolioWatchtForm()
+        {
+            string formName = constFormNameWatchList + "Portfolio";
+            Trade.Forms.portfolioWatch myForm = (Trade.Forms.portfolioWatch)cachedForms.Find(formName);
+            if (myForm == null || myForm.IsDisposed) return;
+            myForm.Close();
+        }
+
+        private void ShowTransHistForm()
+        {
+            string formName = constFormNameWatchList + "TransactionList";
+            Trade.Forms.transactionList myForm = (Trade.Forms.transactionList)cachedForms.Find(formName);
+            if (myForm == null || myForm.IsDisposed)
+            {
+                myForm = new Trade.Forms.transactionList();
+                myForm.Name = formName;
+                cachedForms.Add(formName, myForm);
+                MapForm(myForm, transHistoryMenuItem);
+            }
+            myForm.Show(dockPanel, DockState.DockBottom);
+        }
+        private void HideTransHistForm()
+        {
+            string formName = constFormNameWatchList + "TransactionList";
+            Trade.Forms.transactionList myForm = (Trade.Forms.transactionList)cachedForms.Find(formName);
+            if (myForm == null || myForm.IsDisposed) return;
+            myForm.Close();
+        }
+                
         private void ShowStockChart(string stockCode)
         {
             string formName = constFormNameStock + stockCode.Trim();
@@ -1115,7 +1201,7 @@ namespace client
         {
             try
             {
-                CloseAllForms(true);
+                CloseAllForms();
             }
             catch (Exception er)
             {
@@ -1202,6 +1288,7 @@ namespace client
             {
                 this.ShowMessage("");
                 this.ShowLogin();
+                LoadUserConfig();
             }
             catch (Exception er)
             {
@@ -1212,6 +1299,7 @@ namespace client
         {
             try
             {
+                SaveUserConfig();
                 commonClass.SysLibs.ClearLogin();
                 if (!this.ShowLogin())
                 {
@@ -1240,29 +1328,35 @@ namespace client
         {
             try
             {
-                if (sender.GetType() != typeof(ToolStripMenuItem)) return;
-                ToolStripMenuItem menu = (ToolStripMenuItem)sender;
-                if (marketWatchMenuItem.Checked == false)
-                {
-                    marketWatchMenuItem.Checked = true;
-                    ShowMarketWatchForm();
-                }
-                else
-                {
-                    marketWatchMenuItem.Checked = false;
-                    HideMarketWatchForm();
-                }
+                marketWatchMenuItem.Checked = !marketWatchMenuItem.Checked;
+                if (marketWatchMenuItem.Checked) ShowMarketWatchForm();
+                else HideMarketWatchForm();
             }
             catch (Exception er)
             {
                 this.ShowError(er);
             }
         }
-        private void portfolioWatchBtn_Click(object sender, EventArgs e)
+        private void myPortfolioBtn_Click(object sender, EventArgs e)
         {
             try
             {
-                ShowPortfolioWatchtForm();
+                myPortfolioMenuItem.Checked = !myPortfolioMenuItem.Checked;
+                if (myPortfolioMenuItem.Checked) ShowPortfolioWatchtForm();
+                else HidePortfolioWatchtForm();
+            }
+            catch (Exception er)
+            {
+                this.ShowError(er);
+            }
+        }
+        private void transHistoryBtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                transHistoryMenuItem.Checked = !transHistoryMenuItem.Checked;
+                if (transHistoryMenuItem.Checked) ShowTransHistForm();
+                else HideTransHistForm();
             }
             catch (Exception er)
             {
@@ -1273,24 +1367,14 @@ namespace client
         {
             try
             {
-                ShowTradeAlertForm();
+                tradeAlertMenuItem.Checked = !tradeAlertMenuItem.Checked;
+                if (tradeAlertMenuItem.Checked)  ShowTradeAlertForm();
+                else HideTradeAlertForm();
             }
             catch (Exception er)
             {
                 this.ShowError(er);
-            }
-        }
-        private void dataTimeRangeCb_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                //Update data for all active stocks
-                UpdateChartData();
-            }
-            catch (Exception er)
-            {
-                this.ShowError(er);
-            }
+            }            
         }
 
         private void chartPropertiesBtn_Click(object sender, EventArgs e)
@@ -1434,19 +1518,6 @@ namespace client
             }
         }
        
-
-        private void transHistoryMenuItem_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                Trade.Forms.transactionList myForm = Trade.Forms.transactionList.GetForm("");
-                myForm.Show(dockPanel, DockState.DockBottom);
-            }
-            catch (Exception er)
-            {
-                this.ShowError(er);
-            }
-        }
 
         private void orderMenuItem_Click(object sender, EventArgs e)
         {
@@ -1624,8 +1695,6 @@ namespace client
             }
         }
 
-       
-
 
         /// <summary>
         /// Configuration Action
@@ -1694,7 +1763,7 @@ namespace client
         {
             try
             {
-                CloseAllForms(false);
+                CloseAllForms();
             }
             catch (Exception er)
             {
@@ -1737,6 +1806,24 @@ namespace client
                 this.ShowError(er);
             }
         }
+
+        private void addToWatchListMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Trade.Forms.marketWatch form = GetMarketWatchForm(false);
+                if (form == null) return;
+                if (form.CurrentRow == null) return;
+                StringCollection codes = new StringCollection();
+                codes.Add(form.CurrentRow.code);
+                baseClass.AppLibs.AddStockToWatchList(codes);
+            }
+            catch (Exception er)
+            {
+                this.ShowError(er);
+            }
+        }
+
 
         #endregion event handler
 
