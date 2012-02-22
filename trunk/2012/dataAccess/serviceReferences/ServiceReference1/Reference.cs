@@ -15,6 +15,9 @@ namespace DataAccess.ServiceReference1 {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.IStockService")]
     public interface IStockService {
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetTransaction_BySQL", ReplyAction="http://tempuri.org/IStockService/GetTransaction_BySQLResponse")]
+        databases.baseDS.transactionsDataTable GetTransaction_BySQL(string transSql);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetPortfolioDetail_ByType", ReplyAction="http://tempuri.org/IStockService/GetPortfolioDetail_ByTypeResponse")]
         databases.baseDS.portfolioDetailDataTable GetPortfolioDetail_ByType(commonTypes.AppTypes.PortfolioTypes[] types);
         
@@ -135,6 +138,9 @@ namespace DataAccess.ServiceReference1 {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetInvestor_ByCode", ReplyAction="http://tempuri.org/IStockService/GetInvestor_ByCodeResponse")]
         databases.baseDS.investorDataTable GetInvestor_ByCode(string code);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetInvestor_ByEmail", ReplyAction="http://tempuri.org/IStockService/GetInvestor_ByEmailResponse")]
+        databases.baseDS.investorDataTable GetInvestor_ByEmail(string email);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetInvestor_BySQL", ReplyAction="http://tempuri.org/IStockService/GetInvestor_BySQLResponse")]
         databases.baseDS.investorDataTable GetInvestor_BySQL(string sql);
         
@@ -167,9 +173,6 @@ namespace DataAccess.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetTradeAlert_BySQL", ReplyAction="http://tempuri.org/IStockService/GetTradeAlert_BySQLResponse")]
         databases.baseDS.tradeAlertDataTable GetTradeAlert_BySQL(string alertSql);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetTransaction_BySQL", ReplyAction="http://tempuri.org/IStockService/GetTransaction_BySQLResponse")]
-        databases.baseDS.transactionsDataTable GetTransaction_BySQL(string transSql);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/Reset", ReplyAction="http://tempuri.org/IStockService/ResetResponse")]
         void Reset();
@@ -281,6 +284,10 @@ namespace DataAccess.ServiceReference1 {
         
         public StockServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
+        }
+        
+        public databases.baseDS.transactionsDataTable GetTransaction_BySQL(string transSql) {
+            return base.Channel.GetTransaction_BySQL(transSql);
         }
         
         public databases.baseDS.portfolioDetailDataTable GetPortfolioDetail_ByType(commonTypes.AppTypes.PortfolioTypes[] types) {
@@ -443,6 +450,10 @@ namespace DataAccess.ServiceReference1 {
             return base.Channel.GetInvestor_ByCode(code);
         }
         
+        public databases.baseDS.investorDataTable GetInvestor_ByEmail(string email) {
+            return base.Channel.GetInvestor_ByEmail(email);
+        }
+        
         public databases.baseDS.investorDataTable GetInvestor_BySQL(string sql) {
             return base.Channel.GetInvestor_BySQL(sql);
         }
@@ -485,10 +496,6 @@ namespace DataAccess.ServiceReference1 {
         
         public databases.baseDS.tradeAlertDataTable GetTradeAlert_BySQL(string alertSql) {
             return base.Channel.GetTradeAlert_BySQL(alertSql);
-        }
-        
-        public databases.baseDS.transactionsDataTable GetTransaction_BySQL(string transSql) {
-            return base.Channel.GetTransaction_BySQL(transSql);
         }
         
         public void Reset() {
