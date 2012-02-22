@@ -68,43 +68,36 @@
       <DependentUpon>tmpDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Forms\backTesting.cs">
-      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\backTesting.Designer.cs">
       <DependentUpon>backTesting.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\baseTesting.cs">
-      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\baseTesting.Designer.cs">
       <DependentUpon>baseTesting.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\MarketSummary.cs">
-      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\MarketSummary.Designer.cs">
       <DependentUpon>MarketSummary.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\strategyRanking.cs">
-      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\strategyRanking.Designer.cs">
       <DependentUpon>strategyRanking.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\profitEstimate.cs">
-      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\profitEstimate.Designer.cs">
       <DependentUpon>profitEstimate.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\screening.cs">
-      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\screening.Designer.cs">
       <DependentUpon>screening.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\tradeAnalysis.cs">
-      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\tradeAnalysis.designer.cs">
       <DependentUpon>tradeAnalysis.cs</DependentUpon>

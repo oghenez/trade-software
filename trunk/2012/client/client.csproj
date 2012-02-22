@@ -81,13 +81,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="forms\companyList.cs">
-      <SubType>Form</SubType>
     </Compile>
     <Compile Include="forms\companyList.Designer.cs">
       <DependentUpon>companyList.cs</DependentUpon>
     </Compile>
     <Compile Include="forms\investorEdit.cs">
-      <SubType>Form</SubType>
     </Compile>
     <Compile Include="forms\investorEdit.Designer.cs">
       <DependentUpon>investorEdit.cs</DependentUpon>
@@ -99,7 +97,6 @@
       <DependentUpon>startSplash.cs</DependentUpon>
     </Compile>
     <Compile Include="main.cs">
-      <SubType>Form</SubType>
     </Compile>
     <Compile Include="main.Designer.cs">
       <DependentUpon>main.cs</DependentUpon>
