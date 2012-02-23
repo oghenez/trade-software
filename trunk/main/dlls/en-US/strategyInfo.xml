@@ -244,6 +244,32 @@
     <AbnormaliesSCR Version="1.0" />
   </STRATEGY>
 
+  <STRATEGY>
+    <RSIOverSold Type="SCREENING" />
+    <RSIOverSold Code="SCR019" />
+    <RSIOverSold Category="TRE" />
+    <RSIOverSold Parameters="Period=14,Oversold=30" />
+    <RSIOverSold ParameterDescriptions="Period defines the input data for the screening" />
+    <RSIOverSold Name="Oversold RSI" />
+    <RSIOverSold Description="Oversold stocks" />
+    <RSIOverSold URL="http://www.quantum.vn" />
+    <RSIOverSold Authors="Quan Nguyen" />
+    <RSIOverSold Version="1.0" />
+  </STRATEGY>
+
+  <STRATEGY>
+    <RSIOverBought Type="SCREENING" />
+    <RSIOverBought Code="SCR020" />
+    <RSIOverBought Category="TRE" />
+    <RSIOverBought Parameters="Period=14,Overbought=70" />
+    <RSIOverBought ParameterDescriptions="Period defines the input data for the screening" />
+    <RSIOverBought Name="Overbought RSI" />
+    <RSIOverBought Description="Overbought stocks" />
+    <RSIOverBought URL="http://www.quantum.vn" />
+    <RSIOverBought Authors="Quan Nguyen" />
+    <RSIOverBought Version="1.0" />
+  </STRATEGY>
+  
   <!--Sell Signal Screening Description-->
   <STRATEGY>
     <TwoSMAMACD_SELL Type="SCREENING" />

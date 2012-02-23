@@ -6675,3 +6675,10 @@ Exception rethrown at [0]:
    at application.Indicators.Data.get_Metas() in C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\HQTrader122011\application\IndicatorLibs.cs:line 102
    at application.Indicators.Libs.CreateIndicatorMenu(ToolStripMenuItem toMenu, EventHandler ShowIndicatorHandler) in C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\HQTrader122011\application\IndicatorLibs.cs:line 561
    at client.main.SetLanguage() in C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\HQTrader122011\client\main.cs:line 227
+2/20/2012 8:23:35 AM main	System.InvalidOperationException: Invoke or BeginInvoke cannot be called on a control until the window handle has been created.
+   at System.Windows.Forms.Control.MarshaledInvoke(Control caller, Delegate method, Object[] args, Boolean synchronous)
+   at System.Windows.Forms.Control.Invoke(Delegate method, Object[] args)
+   at System.Windows.Forms.Control.Invoke(Delegate method)
+   at common.PleaseWait.Dispose()
+   at client.main.StartupForms() in C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\HQTrader122011\client\main.cs:line 432
+   at client.main.main_Load(Object sender, EventArgs e) in C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\HQTrader122011\client\main.cs:line 1386
