@@ -121,7 +121,6 @@ namespace wsServices
             }
             return null;
         }
-        
         public databases.baseDS.priceDataDataTable GetAnalysis_Data_ByKey(string dataKey,out int firstData)
         {
             firstData = 0;
@@ -195,6 +194,32 @@ namespace wsServices
         }
 
         #endregion Tools
+
+        public databases.tmpDS.priceDiagnoseDataTable DiagnosePrice_CloseAndNextOpen(DateTime frDate, DateTime toDate, string timeScaleCode,
+                                                                   string exchangeCode, double variancePerc, double variance)
+        {
+            try
+            {
+                databases.baseDS.priceDataDataTable priceDataTbl = new databases.baseDS.priceDataDataTable();
+                databases.tmpDS.priceDiagnoseDataTable priceDiagnoseTbl = new databases.tmpDS.priceDiagnoseDataTable();
+                databases.tmpDS.stockCodeDataTable codeTbl = new databases.tmpDS.stockCodeDataTable();
+                databases.DbAccess.LoadStockCode_ByStockExchange(codeTbl, exchangeCode, AppTypes.CommonStatus.Enable);
+                for (int idx = 0; idx < codeTbl.Count; idx++)
+                {
+                    priceDataTbl.Clear();
+                    databases.DbAccess.LoadData(priceDataTbl, timeScaleCode, frDate, toDate, codeTbl[idx].code);
+                    application.AppLibs.DiagnosePrice_CloseAndNextOpen(priceDataTbl,variancePerc,variance,priceDiagnoseTbl);
+                }
+                priceDataTbl.Dispose();
+                codeTbl.Dispose();
+                return priceDiagnoseTbl;
+            }
+            catch (Exception ex)
+            {
+                WriteSysLog(ex);
+            }
+            return null;
+        }
 
         #region Load/Get data
         public databases.tmpDS.investorDataTable GetInvestorShortList()
@@ -439,6 +464,21 @@ namespace wsServices
             databases.baseDS.transactionsDataTable tbl = new databases.baseDS.transactionsDataTable();
             databases.DbAccess.LoadFromSQL(tbl, sql);
             return tbl;
+        }
+
+        public databases.baseDS.priceDataDataTable GetPriceData(string stockCode, string timeScaleCode)
+        {
+            try
+            {
+                databases.baseDS.priceDataDataTable priceDataTbl = new databases.baseDS.priceDataDataTable();
+                databases.DbAccess.LoadData(priceDataTbl, timeScaleCode, DateTime.MinValue, DateTime.MaxValue, stockCode);
+                return priceDataTbl;
+            }
+            catch (Exception ex)
+            {
+                WriteSysLog(ex);
+            }
+            return null;
         }
 
         public databases.baseDS.lastPriceDataDataTable GetLastPrice(AppTypes.PriceDataType type)

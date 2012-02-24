@@ -36,10 +36,12 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\dlls\baseClass.dll</HintPath>
     </Reference>
+    <Reference Include="Charts, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="common, Version=1.5.0.0, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="commonClass, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="commonTypes, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="dataAccess, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="databases, Version=2.1.0.0, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="ExpandableGridView, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="imports, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="Languages, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
@@ -61,6 +63,13 @@
     <Reference Include="XPPanel, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="libs\dataClass.cs" />
+    <Compile Include="forms\diagnoseData.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\diagnoseData.Designer.cs">
+      <DependentUpon>diagnoseData.cs</DependentUpon>
+    </Compile>
     <Compile Include="main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -69,6 +78,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="forms\diagnoseData.resx">
+      <DependentUpon>diagnoseData.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="main.resx">
       <DependentUpon>main.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -215,7 +227,7 @@
     <None Include="Resources\services.png" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="forms\" />
+    <None Include="Resources\run.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

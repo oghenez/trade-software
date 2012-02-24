@@ -124,14 +124,14 @@ namespace Tools.Forms
 
                 progressBar.Visible = true;
                 this.myFormMode = formMode.OptionWithData;
-                DateTime startTime = DateTime.Now;
 
+                System.Diagnostics.Stopwatch watch = new System.Diagnostics.Stopwatch();
+                watch.Start();
                 DoBackTesting();
+                watch.Stop();
+
                 FormResize();
-
-                DateTime endTime = DateTime.Now;
-                this.ShowMessage(Languages.Libs.GetString("finished") + " : " + common.dateTimeLibs.TimeSpan2String(endTime.Subtract(startTime)));
-
+                this.ShowMessage(Languages.Libs.GetString("finished") + " : " + common.dateTimeLibs.TimeSpan2String(watch.Elapsed));
                 this.fOnProccessing = false;
             }
             catch (Exception er)

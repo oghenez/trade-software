@@ -30,6 +30,9 @@ namespace DataAccess.ServiceReference1 {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetLastPrice", ReplyAction="http://tempuri.org/IStockService/GetLastPriceResponse")]
         databases.baseDS.lastPriceDataDataTable GetLastPrice(commonTypes.AppTypes.PriceDataType type);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetPriceData", ReplyAction="http://tempuri.org/IStockService/GetPriceDataResponse")]
+        databases.baseDS.priceDataDataTable GetPriceData(string stockCode, string timeScaleCode);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetLastAlertTime", ReplyAction="http://tempuri.org/IStockService/GetLastAlertTimeResponse")]
         System.DateTime GetLastAlertTime(string investorCode);
         
@@ -71,6 +74,9 @@ namespace DataAccess.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetTradePointWithEstimationDetail", ReplyAction="http://tempuri.org/IStockService/GetTradePointWithEstimationDetailResponse")]
         commonClass.TradePointInfo[] GetTradePointWithEstimationDetail(out databases.tmpDS.tradeEstimateDataTable toTbl, commonClass.DataParams dataParam, string stockCode, string strategyCode, commonClass.EstimateOptions options);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/DiagnosePrice_CloseAndNextOpen", ReplyAction="http://tempuri.org/IStockService/DiagnosePrice_CloseAndNextOpenResponse")]
+        databases.tmpDS.priceDiagnoseDataTable DiagnosePrice_CloseAndNextOpen(System.DateTime frDate, System.DateTime toDate, string timeScaleCode, string exchangeCode, double variantPerc, double variance);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetXmlDoc2StringSTRATEGY", ReplyAction="http://tempuri.org/IStockService/GetXmlDoc2StringSTRATEGYResponse")]
         string GetXmlDoc2StringSTRATEGY();
@@ -306,6 +312,10 @@ namespace DataAccess.ServiceReference1 {
             return base.Channel.GetLastPrice(type);
         }
         
+        public databases.baseDS.priceDataDataTable GetPriceData(string stockCode, string timeScaleCode) {
+            return base.Channel.GetPriceData(stockCode, timeScaleCode);
+        }
+        
         public System.DateTime GetLastAlertTime(string investorCode) {
             return base.Channel.GetLastAlertTime(investorCode);
         }
@@ -360,6 +370,10 @@ namespace DataAccess.ServiceReference1 {
         
         public commonClass.TradePointInfo[] GetTradePointWithEstimationDetail(out databases.tmpDS.tradeEstimateDataTable toTbl, commonClass.DataParams dataParam, string stockCode, string strategyCode, commonClass.EstimateOptions options) {
             return base.Channel.GetTradePointWithEstimationDetail(out toTbl, dataParam, stockCode, strategyCode, options);
+        }
+        
+        public databases.tmpDS.priceDiagnoseDataTable DiagnosePrice_CloseAndNextOpen(System.DateTime frDate, System.DateTime toDate, string timeScaleCode, string exchangeCode, double variantPerc, double variance) {
+            return base.Channel.DiagnosePrice_CloseAndNextOpen(frDate, toDate, timeScaleCode, exchangeCode, variantPerc, variance);
         }
         
         public string GetXmlDoc2StringSTRATEGY() {

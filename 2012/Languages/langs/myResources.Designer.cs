@@ -619,11 +619,29 @@ namespace Languages.langs {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Close &amp; Next Open.
+        /// </summary>
+        internal static string closeAndNextOpen {
+            get {
+                return ResourceManager.GetString("closeAndNextOpen", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Close .
         /// </summary>
         internal static string closeChart {
             get {
                 return ResourceManager.GetString("closeChart", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Close.
+        /// </summary>
+        internal static string closeData {
+            get {
+                return ResourceManager.GetString("closeData", resourceCulture);
             }
         }
         
@@ -1251,6 +1269,15 @@ namespace Languages.langs {
         /// <summary>
         ///   Looks up a localized string similar to High.
         /// </summary>
+        internal static string highData {
+            get {
+                return ResourceManager.GetString("highData", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to High.
+        /// </summary>
         internal static string highPrice {
             get {
                 return ResourceManager.GetString("highPrice", resourceCulture);
@@ -1578,6 +1605,15 @@ namespace Languages.langs {
         internal static string lossStockPerc {
             get {
                 return ResourceManager.GetString("lossStockPerc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Low.
+        /// </summary>
+        internal static string lowData {
+            get {
+                return ResourceManager.GetString("lowData", resourceCulture);
             }
         }
         
@@ -1980,6 +2016,15 @@ namespace Languages.langs {
         /// <summary>
         ///   Looks up a localized string similar to Open.
         /// </summary>
+        internal static string openData {
+            get {
+                return ResourceManager.GetString("openData", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Open.
+        /// </summary>
         internal static string openPrice {
             get {
                 return ResourceManager.GetString("openPrice", resourceCulture);
@@ -2361,6 +2406,15 @@ namespace Languages.langs {
         internal static string runSetupToCreateConfigFile {
             get {
                 return ResourceManager.GetString("runSetupToCreateConfigFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Open/Close.
+        /// </summary>
+        internal static string sameOpenClose {
+            get {
+                return ResourceManager.GetString("sameOpenClose", resourceCulture);
             }
         }
         
@@ -3054,6 +3108,15 @@ namespace Languages.langs {
         internal static string volume {
             get {
                 return ResourceManager.GetString("volume", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Volume.
+        /// </summary>
+        internal static string volumeData {
+            get {
+                return ResourceManager.GetString("volumeData", resourceCulture);
             }
         }
         

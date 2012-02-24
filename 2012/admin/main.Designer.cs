@@ -37,8 +37,6 @@
             this.configureMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.configMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
-            this.resetServiceMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
             this.sysCodeCatMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.sysCodeEditMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
@@ -60,6 +58,9 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.myMainTimer = new System.Windows.Forms.Timer(this.components);
             this.dataProcessMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolMenuStrip = new System.Windows.Forms.ToolStripMenuItem();
+            this.dataDiagnoseMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.resetServiceMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.myMainMenu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -74,6 +75,7 @@
             this.myMainMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.systemMenuStrip,
             this.listMenuStrip,
+            this.toolMenuStrip,
             this.infoMenuStrip,
             this.exitMenuStrip});
             this.myMainMenu.Location = new System.Drawing.Point(0, 0);
@@ -90,8 +92,6 @@
             this.configureMenuItem,
             this.configMenuItem,
             this.toolStripSeparator4,
-            this.resetServiceMenuItem,
-            this.toolStripSeparator7,
             this.sysCodeCatMenu,
             this.sysCodeEditMenu,
             this.toolStripSeparator3,
@@ -135,19 +135,6 @@
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
             this.toolStripSeparator4.Size = new System.Drawing.Size(203, 6);
-            // 
-            // resetServiceMenuItem
-            // 
-            this.resetServiceMenuItem.Image = global::admin.Properties.Resources.services;
-            this.resetServiceMenuItem.Name = "resetServiceMenuItem";
-            this.resetServiceMenuItem.Size = new System.Drawing.Size(206, 22);
-            this.resetServiceMenuItem.Text = "Khởi động lại";
-            this.resetServiceMenuItem.Click += new System.EventHandler(this.resetServiceMenuItem_Click);
-            // 
-            // toolStripSeparator7
-            // 
-            this.toolStripSeparator7.Name = "toolStripSeparator7";
-            this.toolStripSeparator7.Size = new System.Drawing.Size(203, 6);
             // 
             // sysCodeCatMenu
             // 
@@ -301,11 +288,35 @@
             this.dataProcessMenuItem.Size = new System.Drawing.Size(116, 20);
             this.dataProcessMenuItem.Text = "Xử lý dữ liệu";
             // 
+            // toolMenuStrip
+            // 
+            this.toolMenuStrip.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.dataDiagnoseMenu,
+            this.resetServiceMenuItem});
+            this.toolMenuStrip.Name = "toolMenuStrip";
+            this.toolMenuStrip.Size = new System.Drawing.Size(71, 22);
+            this.toolMenuStrip.Text = "Công cụ";
+            // 
+            // dataDiagnoseMenu
+            // 
+            this.dataDiagnoseMenu.Image = global::admin.Properties.Resources.glasses;
+            this.dataDiagnoseMenu.Name = "dataDiagnoseMenu";
+            this.dataDiagnoseMenu.Size = new System.Drawing.Size(190, 22);
+            this.dataDiagnoseMenu.Text = "Kiểm tra dữ liệu";
+            this.dataDiagnoseMenu.Click += new System.EventHandler(this.dataDiagnoseMenu_Click);
+            // 
+            // resetServiceMenuItem
+            // 
+            this.resetServiceMenuItem.Image = global::admin.Properties.Resources.services;
+            this.resetServiceMenuItem.Name = "resetServiceMenuItem";
+            this.resetServiceMenuItem.Size = new System.Drawing.Size(190, 22);
+            this.resetServiceMenuItem.Text = "Khởi động lại";
+            this.resetServiceMenuItem.Click += new System.EventHandler(this.resetServiceMenuItem_Click);
+            // 
             // main
             // 
             this.ClientSize = new System.Drawing.Size(720, 406);
             this.Controls.Add(this.myMainMenu);
-            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.myMainMenu;
@@ -352,7 +363,8 @@
         private System.Windows.Forms.ToolStripMenuItem sysWatchListMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sysInterestedStrategyMenuItem;
         private System.Windows.Forms.ToolStripMenuItem configureMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toolMenuStrip;
+        private System.Windows.Forms.ToolStripMenuItem dataDiagnoseMenu;
         private System.Windows.Forms.ToolStripMenuItem resetServiceMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
     }
 }

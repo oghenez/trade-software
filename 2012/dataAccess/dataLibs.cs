@@ -902,6 +902,20 @@ namespace DataAccess
             return null;
         }
 
+
+        public static databases.baseDS.priceDataDataTable GetPriceData(string stockCode,string timeScaleCode)
+        {
+            try
+            {
+                return myClient.GetPriceData(stockCode,timeScaleCode);
+            }
+            catch (Exception er)
+            {
+                if (OnError != null) OnError(er);
+            }
+            return null;
+
+        }
         public static databases.baseDS.lastPriceDataDataTable GetLastPrice(AppTypes.PriceDataType type)
         {
             try
@@ -1480,6 +1494,22 @@ namespace DataAccess
             }
         }
         #endregion
+
+        public static databases.tmpDS.priceDiagnoseDataTable DiagnosePrice_CloseAndNextOpen(DateTime frDate, DateTime toDate, string timeScaleCode,
+                                                                                            string exchangeCode, double variancePerc, double variance)
+        {
+            try
+            {
+                return myClient.DiagnosePrice_CloseAndNextOpen(frDate,toDate,timeScaleCode,exchangeCode,variancePerc,variance);
+            }
+            catch (Exception er)
+            {
+                if (OnError != null) OnError(er);
+            }
+            return null;
+        }
+
+
 
         ///// <summary>
         /// Update data to the most recent from the last update.

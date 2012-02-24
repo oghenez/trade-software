@@ -1176,4 +1176,25 @@
   <data name="sysSetting" xml:space="preserve">
     <value>Thông số</value>
   </data>
+  <data name="closeData" xml:space="preserve">
+    <value>Giá đóng cửa</value>
+  </data>
+  <data name="highData" xml:space="preserve">
+    <value>Giá cao nhất</value>
+  </data>
+  <data name="lowData" xml:space="preserve">
+    <value>Giá thấp nhất</value>
+  </data>
+  <data name="openData" xml:space="preserve">
+    <value>Giá mở cửa</value>
+  </data>
+  <data name="volumeData" xml:space="preserve">
+    <value>Khối lượng</value>
+  </data>
+  <data name="closeAndNextOpen" xml:space="preserve">
+    <value>Giá Đóng cuối/Giá Mở đầu</value>
+  </data>
+  <data name="sameOpenClose" xml:space="preserve">
+    <value>Giá Mở/Đóng</value>
+  </data>
 </root>
