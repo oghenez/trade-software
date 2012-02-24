@@ -125,6 +125,18 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="priceDiagnose">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="code" type="xs:string" />
+              <xs:element name="date1" type="xs:dateTime" />
+              <xs:element name="date2" type="xs:dateTime" />
+              <xs:element minOccurs="0" name="price1" type="xs:double" />
+              <xs:element minOccurs="0" name="price2" type="xs:double" />
+              <xs:element minOccurs="0" name="variance" type="xs:double" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
     <xs:unique msdata:PrimaryKey="true" name="Constraint1">
@@ -138,6 +150,12 @@
     <xs:unique msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true" name="codeList_Constraint1">
       <xs:selector xpath=".//codeList" />
       <xs:field xpath="code" />
+    </xs:unique>
+    <xs:unique msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true" name="priceDiagnose_Constraint1">
+      <xs:selector xpath=".//priceDiagnose" />
+      <xs:field xpath="code" />
+      <xs:field xpath="date1" />
+      <xs:field xpath="date2" />
     </xs:unique>
   </xs:element>
 </xs:schema>

@@ -160,6 +160,9 @@
   <data name="product" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\product1.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="services" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\services.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="import" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\import.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -226,7 +229,7 @@
   <data name="indicator" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\indicator.jpeg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="services" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\services.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="run" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\run.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

@@ -1170,4 +1170,25 @@
   <data name="sysSetting" xml:space="preserve">
     <value>Settings</value>
   </data>
+  <data name="closeData" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="highData" xml:space="preserve">
+    <value>High</value>
+  </data>
+  <data name="lowData" xml:space="preserve">
+    <value>Low</value>
+  </data>
+  <data name="openData" xml:space="preserve">
+    <value>Open</value>
+  </data>
+  <data name="volumeData" xml:space="preserve">
+    <value>Volume</value>
+  </data>
+  <data name="closeAndNextOpen" xml:space="preserve">
+    <value>Close &amp; Next Open</value>
+  </data>
+  <data name="sameOpenClose" xml:space="preserve">
+    <value>Open/Close</value>
+  </data>
 </root>

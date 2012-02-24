@@ -169,6 +169,9 @@ namespace wsServices
 
         [OperationContract]
         databases.baseDS.lastPriceDataDataTable GetLastPrice(AppTypes.PriceDataType type);
+
+        [OperationContract]
+        databases.baseDS.priceDataDataTable GetPriceData(string stockCode, string timeScaleCode);
         
         [OperationContract]
         DateTime GetLastAlertTime(string investorCode);
@@ -216,6 +219,10 @@ namespace wsServices
         [OperationContract]
         TradePointInfo[] GetTradePointWithEstimationDetail(DataParams dataParam,string stockCode, string strategyCode, EstimateOptions options,
                                                            out databases.tmpDS.tradeEstimateDataTable toTbl);
+
+        [OperationContract]
+        databases.tmpDS.priceDiagnoseDataTable DiagnosePrice_CloseAndNextOpen(DateTime frDate, DateTime toDate, string timeScaleCode,
+                                                           string exchangeCode, double variantPerc,double variance);
 
         [OperationContract]
         string GetXmlDoc2StringSTRATEGY();

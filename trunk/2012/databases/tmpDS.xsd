@@ -196,7 +196,7 @@ FROM     investor</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="investor" msprop:Generator_UserTableName="investor" msprop:Generator_RowDeletedName="investorRowDeleted" msprop:Generator_TableClassName="investorDataTable" msprop:Generator_RowChangedName="investorRowChanged" msprop:Generator_RowClassName="investorRow" msprop:Generator_RowChangingName="investorRowChanging" msprop:Generator_RowEvArgName="investorRowChangeEvent" msprop:Generator_RowEvHandlerName="investorRowChangeEventHandler" msprop:Generator_TablePropName="investor" msprop:Generator_TableVarName="tableinvestor" msprop:Generator_RowDeletingName="investorRowDeleting">
+        <xs:element name="investor" msprop:Generator_UserTableName="investor" msprop:Generator_RowDeletedName="investorRowDeleted" msprop:Generator_RowChangedName="investorRowChanged" msprop:Generator_RowClassName="investorRow" msprop:Generator_RowChangingName="investorRowChanging" msprop:Generator_RowEvArgName="investorRowChangeEvent" msprop:Generator_RowEvHandlerName="investorRowChangeEventHandler" msprop:Generator_TableClassName="investorDataTable" msprop:Generator_TableVarName="tableinvestor" msprop:Generator_RowDeletingName="investorRowDeleting" msprop:Generator_TablePropName="investor">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="code" msprop:Generator_UserColumnName="code" msprop:Generator_ColumnPropNameInRow="code" msprop:Generator_ColumnVarNameInTable="columncode" msprop:Generator_ColumnPropNameInTable="codeColumn">
@@ -223,6 +223,18 @@ FROM     investor</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="priceDiagnose" msprop:Generator_UserTableName="priceDiagnose" msprop:Generator_RowDeletedName="priceDiagnoseRowDeleted" msprop:Generator_RowChangedName="priceDiagnoseRowChanged" msprop:Generator_RowClassName="priceDiagnoseRow" msprop:Generator_RowChangingName="priceDiagnoseRowChanging" msprop:Generator_RowEvArgName="priceDiagnoseRowChangeEvent" msprop:Generator_RowEvHandlerName="priceDiagnoseRowChangeEventHandler" msprop:Generator_TableClassName="priceDiagnoseDataTable" msprop:Generator_TableVarName="tablepriceDiagnose" msprop:Generator_RowDeletingName="priceDiagnoseRowDeleting" msprop:Generator_TablePropName="priceDiagnose">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="code" msprop:Generator_UserColumnName="code" msprop:Generator_ColumnVarNameInTable="columncode" msprop:Generator_ColumnPropNameInRow="code" msprop:Generator_ColumnPropNameInTable="codeColumn" type="xs:string" />
+              <xs:element name="date1" msprop:Generator_UserColumnName="date1" msprop:Generator_ColumnVarNameInTable="columndate1" msprop:Generator_ColumnPropNameInRow="date1" msprop:Generator_ColumnPropNameInTable="date1Column" type="xs:dateTime" />
+              <xs:element name="date2" msprop:Generator_UserColumnName="date2" msprop:Generator_ColumnVarNameInTable="columndate2" msprop:Generator_ColumnPropNameInRow="date2" msprop:Generator_ColumnPropNameInTable="date2Column" type="xs:dateTime" />
+              <xs:element name="price1" msprop:Generator_UserColumnName="price1" msprop:Generator_ColumnVarNameInTable="columnprice1" msprop:Generator_ColumnPropNameInRow="price1" msprop:Generator_ColumnPropNameInTable="price1Column" type="xs:double" minOccurs="0" />
+              <xs:element name="price2" msprop:Generator_UserColumnName="price2" msprop:Generator_ColumnVarNameInTable="columnprice2" msprop:Generator_ColumnPropNameInRow="price2" msprop:Generator_ColumnPropNameInTable="price2Column" type="xs:double" minOccurs="0" />
+              <xs:element name="variance" msprop:Generator_UserColumnName="variance" msprop:Generator_ColumnVarNameInTable="columnvariance" msprop:Generator_ColumnPropNameInRow="variance" msprop:Generator_ColumnPropNameInTable="varianceColumn" type="xs:double" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
     <xs:unique name="Constraint1" msdata:PrimaryKey="true">
@@ -236,6 +248,12 @@ FROM     investor</CommandText>
     <xs:unique name="investor_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
       <xs:selector xpath=".//investor" />
       <xs:field xpath="code" />
+    </xs:unique>
+    <xs:unique name="priceDiagnose_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//priceDiagnose" />
+      <xs:field xpath="code" />
+      <xs:field xpath="date1" />
+      <xs:field xpath="date2" />
     </xs:unique>
   </xs:element>
 </xs:schema>

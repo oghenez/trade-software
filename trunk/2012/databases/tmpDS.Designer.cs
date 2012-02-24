@@ -35,6 +35,8 @@ namespace databases {
         
         private marketDataDataTable tablemarketData;
         
+        private priceDiagnoseDataTable tablepriceDiagnose;
+        
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -75,6 +77,9 @@ namespace databases {
                 }
                 if ((ds.Tables["marketData"] != null)) {
                     base.Tables.Add(new marketDataDataTable(ds.Tables["marketData"]));
+                }
+                if ((ds.Tables["priceDiagnose"] != null)) {
+                    base.Tables.Add(new priceDiagnoseDataTable(ds.Tables["priceDiagnose"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -136,6 +141,15 @@ namespace databases {
         public marketDataDataTable marketData {
             get {
                 return this.tablemarketData;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public priceDiagnoseDataTable priceDiagnose {
+            get {
+                return this.tablepriceDiagnose;
             }
         }
         
@@ -213,6 +227,9 @@ namespace databases {
                 if ((ds.Tables["marketData"] != null)) {
                     base.Tables.Add(new marketDataDataTable(ds.Tables["marketData"]));
                 }
+                if ((ds.Tables["priceDiagnose"] != null)) {
+                    base.Tables.Add(new priceDiagnoseDataTable(ds.Tables["priceDiagnose"]));
+                }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
                 this.Namespace = ds.Namespace;
@@ -273,6 +290,12 @@ namespace databases {
                     this.tablemarketData.InitVars();
                 }
             }
+            this.tablepriceDiagnose = ((priceDiagnoseDataTable)(base.Tables["priceDiagnose"]));
+            if ((initTable == true)) {
+                if ((this.tablepriceDiagnose != null)) {
+                    this.tablepriceDiagnose.InitVars();
+                }
+            }
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -291,6 +314,8 @@ namespace databases {
             base.Tables.Add(this.tablecodeList);
             this.tablemarketData = new marketDataDataTable();
             base.Tables.Add(this.tablemarketData);
+            this.tablepriceDiagnose = new priceDiagnoseDataTable();
+            base.Tables.Add(this.tablepriceDiagnose);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -315,6 +340,11 @@ namespace databases {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         private bool ShouldSerializemarketData() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        private bool ShouldSerializepriceDiagnose() {
             return false;
         }
         
@@ -380,6 +410,8 @@ namespace databases {
         public delegate void codeListRowChangeEventHandler(object sender, codeListRowChangeEvent e);
         
         public delegate void marketDataRowChangeEventHandler(object sender, marketDataRowChangeEvent e);
+        
+        public delegate void priceDiagnoseRowChangeEventHandler(object sender, priceDiagnoseRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -1999,6 +2031,309 @@ namespace databases {
         }
         
         /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class priceDiagnoseDataTable : global::System.Data.TypedTableBase<priceDiagnoseRow> {
+            
+            private global::System.Data.DataColumn columncode;
+            
+            private global::System.Data.DataColumn columndate1;
+            
+            private global::System.Data.DataColumn columndate2;
+            
+            private global::System.Data.DataColumn columnprice1;
+            
+            private global::System.Data.DataColumn columnprice2;
+            
+            private global::System.Data.DataColumn columnvariance;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public priceDiagnoseDataTable() {
+                this.TableName = "priceDiagnose";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            internal priceDiagnoseDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected priceDiagnoseDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn codeColumn {
+                get {
+                    return this.columncode;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn date1Column {
+                get {
+                    return this.columndate1;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn date2Column {
+                get {
+                    return this.columndate2;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn price1Column {
+                get {
+                    return this.columnprice1;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn price2Column {
+                get {
+                    return this.columnprice2;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn varianceColumn {
+                get {
+                    return this.columnvariance;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public priceDiagnoseRow this[int index] {
+                get {
+                    return ((priceDiagnoseRow)(this.Rows[index]));
+                }
+            }
+            
+            public event priceDiagnoseRowChangeEventHandler priceDiagnoseRowChanging;
+            
+            public event priceDiagnoseRowChangeEventHandler priceDiagnoseRowChanged;
+            
+            public event priceDiagnoseRowChangeEventHandler priceDiagnoseRowDeleting;
+            
+            public event priceDiagnoseRowChangeEventHandler priceDiagnoseRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void AddpriceDiagnoseRow(priceDiagnoseRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public priceDiagnoseRow AddpriceDiagnoseRow(string code, System.DateTime date1, System.DateTime date2, double price1, double price2, double variance) {
+                priceDiagnoseRow rowpriceDiagnoseRow = ((priceDiagnoseRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        code,
+                        date1,
+                        date2,
+                        price1,
+                        price2,
+                        variance};
+                rowpriceDiagnoseRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowpriceDiagnoseRow);
+                return rowpriceDiagnoseRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public priceDiagnoseRow FindBycodedate1date2(string code, System.DateTime date1, System.DateTime date2) {
+                return ((priceDiagnoseRow)(this.Rows.Find(new object[] {
+                            code,
+                            date1,
+                            date2})));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public override global::System.Data.DataTable Clone() {
+                priceDiagnoseDataTable cln = ((priceDiagnoseDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new priceDiagnoseDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            internal void InitVars() {
+                this.columncode = base.Columns["code"];
+                this.columndate1 = base.Columns["date1"];
+                this.columndate2 = base.Columns["date2"];
+                this.columnprice1 = base.Columns["price1"];
+                this.columnprice2 = base.Columns["price2"];
+                this.columnvariance = base.Columns["variance"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            private void InitClass() {
+                this.columncode = new global::System.Data.DataColumn("code", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncode);
+                this.columndate1 = new global::System.Data.DataColumn("date1", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columndate1);
+                this.columndate2 = new global::System.Data.DataColumn("date2", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columndate2);
+                this.columnprice1 = new global::System.Data.DataColumn("price1", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnprice1);
+                this.columnprice2 = new global::System.Data.DataColumn("price2", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnprice2);
+                this.columnvariance = new global::System.Data.DataColumn("variance", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnvariance);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columncode,
+                                this.columndate1,
+                                this.columndate2}, true));
+                this.columncode.AllowDBNull = false;
+                this.columndate1.AllowDBNull = false;
+                this.columndate2.AllowDBNull = false;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public priceDiagnoseRow NewpriceDiagnoseRow() {
+                return ((priceDiagnoseRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new priceDiagnoseRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override global::System.Type GetRowType() {
+                return typeof(priceDiagnoseRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.priceDiagnoseRowChanged != null)) {
+                    this.priceDiagnoseRowChanged(this, new priceDiagnoseRowChangeEvent(((priceDiagnoseRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.priceDiagnoseRowChanging != null)) {
+                    this.priceDiagnoseRowChanging(this, new priceDiagnoseRowChangeEvent(((priceDiagnoseRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.priceDiagnoseRowDeleted != null)) {
+                    this.priceDiagnoseRowDeleted(this, new priceDiagnoseRowChangeEvent(((priceDiagnoseRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.priceDiagnoseRowDeleting != null)) {
+                    this.priceDiagnoseRowDeleting(this, new priceDiagnoseRowChangeEvent(((priceDiagnoseRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void RemovepriceDiagnoseRow(priceDiagnoseRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                tmpDS ds = new tmpDS();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "priceDiagnoseDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
@@ -2874,6 +3209,126 @@ namespace databases {
         }
         
         /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
+        public partial class priceDiagnoseRow : global::System.Data.DataRow {
+            
+            private priceDiagnoseDataTable tablepriceDiagnose;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            internal priceDiagnoseRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tablepriceDiagnose = ((priceDiagnoseDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string code {
+                get {
+                    return ((string)(this[this.tablepriceDiagnose.codeColumn]));
+                }
+                set {
+                    this[this.tablepriceDiagnose.codeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public System.DateTime date1 {
+                get {
+                    return ((global::System.DateTime)(this[this.tablepriceDiagnose.date1Column]));
+                }
+                set {
+                    this[this.tablepriceDiagnose.date1Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public System.DateTime date2 {
+                get {
+                    return ((global::System.DateTime)(this[this.tablepriceDiagnose.date2Column]));
+                }
+                set {
+                    this[this.tablepriceDiagnose.date2Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public double price1 {
+                get {
+                    try {
+                        return ((double)(this[this.tablepriceDiagnose.price1Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'price1\' in table \'priceDiagnose\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablepriceDiagnose.price1Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public double price2 {
+                get {
+                    try {
+                        return ((double)(this[this.tablepriceDiagnose.price2Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'price2\' in table \'priceDiagnose\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablepriceDiagnose.price2Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public double variance {
+                get {
+                    try {
+                        return ((double)(this[this.tablepriceDiagnose.varianceColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'variance\' in table \'priceDiagnose\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablepriceDiagnose.varianceColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool Isprice1Null() {
+                return this.IsNull(this.tablepriceDiagnose.price1Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void Setprice1Null() {
+                this[this.tablepriceDiagnose.price1Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool Isprice2Null() {
+                return this.IsNull(this.tablepriceDiagnose.price2Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void Setprice2Null() {
+                this[this.tablepriceDiagnose.price2Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsvarianceNull() {
+                return this.IsNull(this.tablepriceDiagnose.varianceColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetvarianceNull() {
+                this[this.tablepriceDiagnose.varianceColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
@@ -3015,6 +3470,37 @@ namespace databases {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public marketDataRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
+        public class priceDiagnoseRowChangeEvent : global::System.EventArgs {
+            
+            private priceDiagnoseRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public priceDiagnoseRowChangeEvent(priceDiagnoseRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public priceDiagnoseRow Row {
                 get {
                     return this.eventRow;
                 }

@@ -168,5 +168,18 @@ namespace admin
                 this.ShowError(er);
             }
         }
+
+        private void dataDiagnoseMenu_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                forms.diagnoseData form = new forms.diagnoseData();
+                form.ShowDialog();
+            }
+            catch (Exception er)
+            {
+                this.ShowError(er);
+            }
+        }
     }
 }
