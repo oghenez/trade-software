@@ -241,6 +241,18 @@ namespace databases
             return null;
         }
 
+        public static databases.baseDS.countryRow FindAndCache_Country(string code)
+        {
+            databases.baseDS.countryRow row = myCachedDS.country.FindBycode(code);
+            if (row != null) return row;
+            databases.baseDSTableAdapters.countryTA dataTA = new databases.baseDSTableAdapters.countryTA();
+            dataTA.ClearBeforeFill = false;
+            dataTA.Fill(myCachedDS.country);
+            row = myCachedDS.country.FindBycode(code);
+            if (row != null) return row;
+            return null;
+        }
+
         public static databases.baseDS.portfolioRow FindAndCache(databases.baseDS.portfolioDataTable tbl, string code)
         {
             databases.baseDS.portfolioRow row = tbl.FindBycode(code);

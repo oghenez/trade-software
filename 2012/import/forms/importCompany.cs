@@ -10,6 +10,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.IO;
 using LumenWorks.Framework.IO.Csv;
+using application;
 using commonTypes;
 using commonClass;
 
@@ -73,10 +74,10 @@ namespace imports.forms
                     this.ShowMessage("Import : " +tbl.Rows[count][0].ToString().Trim());
                     // Stock Exchange
                     stockExchangeCode = tbl.Rows[count][1].ToString().Trim();
-                    stockExchangeRow = libs.AddStockExchange(myDataSet.stockExchange, stockExchangeCode);
+                    stockExchangeRow = ImportLibs.AddStockExchange(myDataSet.stockExchange, stockExchangeCode);
                     //stockCode
                     comCode = tbl.Rows[count][0].ToString().Trim();
-                    stockCodeRow = libs.FindAndCache(myDataSet.stockCode, comCode);
+                    stockCodeRow = application.SysLibs.FindAndCache(myDataSet.stockCode, comCode);
                     if (stockCodeRow == null)
                     {
                         stockCodeRow = myDataSet.stockCode.NewstockCodeRow();

@@ -9,6 +9,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.IO;
 using HtmlAgilityPack;
+using application;
 
 
 namespace imports.forms
@@ -40,9 +41,11 @@ namespace imports.forms
                 progressBar.Visible = true;
                 progressBar.Maximum = common.dateTimeLibs.DateDiffInDays(curDate, endDate)+1;
                 progressBar.Value = 0;
+
+                CultureInfo stockCulture = application.AppLibs.GetStockCulture(codeEd.Text.Trim());
                 while (curDate <= endDate)
                 {
-                    libs.ReImportPricedata(curDate, curDate.AddDays(1).AddMinutes(-1), codeEd.Text);
+                    ImportLibs.ReImportPricedata(curDate, curDate.AddDays(1).AddMinutes(-1), codeEd.Text, stockCulture);
                     curDate = curDate.AddDays(1);
                     if (progressBar.Value<progressBar.Maximum) progressBar.Value++;
                     Application.DoEvents();

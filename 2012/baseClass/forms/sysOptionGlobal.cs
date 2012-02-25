@@ -35,7 +35,7 @@ namespace baseClass.forms
         private void LoadSettings()
         {
             //General
-            defaLanguageCb.myValue = Settings.sysGlobal.DeafautLanguage;
+            defaLanguageCb.myValue = Settings.sysGlobal.DefautLanguage;
             passwordMinLenEd.Value = Settings.sysGlobal.PasswordMinLen;
             useStrongPassChk.Checked = Settings.sysGlobal.UseStrongPassword;
 
@@ -70,7 +70,7 @@ namespace baseClass.forms
         private void SaveSettings()
         {
             //General
-            Settings.sysGlobal.DeafautLanguage = defaLanguageCb.myValue;
+            Settings.sysGlobal.DefautLanguage = defaLanguageCb.myValue;
             Settings.sysGlobal.PasswordMinLen = (byte)passwordMinLenEd.Value;
             Settings.sysGlobal.UseStrongPassword = useStrongPassChk.Checked;
 

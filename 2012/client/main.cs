@@ -309,15 +309,6 @@ namespace client
         private void SetCulture(AppTypes.LanguageCodes code)
         {
             CultureInfo cultureInfo = AppTypes.Code2Culture(code);
-            object obj = cultureCache.Find(cultureInfo.Name);
-            if (obj == null)
-            {
-                cultureCache.Add(cultureInfo.Name, cultureInfo);
-            }
-            else
-            {
-                cultureInfo = (CultureInfo)obj;
-            }
             switch (code)
             {
                 case AppTypes.LanguageCodes.VI: 
@@ -425,7 +416,6 @@ namespace client
         }
 
 
-        private common.DictionaryList cultureCache = new common.DictionaryList();
 
         private void SetFormAppearance()
         {
@@ -460,7 +450,7 @@ namespace client
             dockPanel.ActiveAutoHideContent = null;
 
             //Default language from global settings
-            SetCulture(Settings.sysGlobal.DeafautLanguage);
+            SetCulture(Settings.sysGlobal.DefautLanguage);
         }
         private void Reset()
         {

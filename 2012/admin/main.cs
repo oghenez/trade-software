@@ -173,7 +173,7 @@ namespace admin
         {
             try
             {
-                forms.diagnoseData form = new forms.diagnoseData();
+                forms.dataTools form = new forms.dataTools();
                 form.ShowDialog();
             }
             catch (Exception er)

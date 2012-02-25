@@ -13,7 +13,7 @@ namespace commonTypes
         public byte PasswordMinLen = 0; //Minimum pasword len
 
         [DataMember]
-        public AppTypes.LanguageCodes DeafautLanguage = AppTypes.LanguageCodes.EN;
+        public AppTypes.LanguageCodes DefautLanguage = AppTypes.LanguageCodes.EN;
 
         [DataMember]
         public bool UseStrongPassword = false;

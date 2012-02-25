@@ -225,6 +225,9 @@ namespace wsServices
                                                            string exchangeCode, double variantPerc,double variance);
 
         [OperationContract]
+        void AjustPriceData(string code, DateTime toDate, double weight);
+
+        [OperationContract]
         string GetXmlDoc2StringSTRATEGY();
         [OperationContract]
         string GetXmlDoc2StringINDICATOR();
