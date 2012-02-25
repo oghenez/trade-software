@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.IO;
 using LumenWorks.Framework.IO.Csv;
+using application;
 
 
 namespace imports.forms
@@ -77,7 +78,7 @@ namespace imports.forms
             for (int idx = 0; idx < tbl.Count; idx++)
             {
                 if (tbl[idx].RowState == DataRowState.Deleted) continue;
-                item = libs.SplitKeyValue(tbl[idx][fldName].ToString()," ");
+                item = ImportLibs.SplitKeyValue(tbl[idx][fldName].ToString()," ");
                 if (item == null)
                 {
                     common.fileFuncs.WriteLog(tbl[idx][fldName].ToString() + " not found.");

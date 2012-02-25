@@ -78,6 +78,9 @@ namespace DataAccess.ServiceReference1 {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/DiagnosePrice_CloseAndNextOpen", ReplyAction="http://tempuri.org/IStockService/DiagnosePrice_CloseAndNextOpenResponse")]
         databases.tmpDS.priceDiagnoseDataTable DiagnosePrice_CloseAndNextOpen(System.DateTime frDate, System.DateTime toDate, string timeScaleCode, string exchangeCode, double variantPerc, double variance);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/AjustPriceData", ReplyAction="http://tempuri.org/IStockService/AjustPriceDataResponse")]
+        void AjustPriceData(string code, System.DateTime toDate, double weight);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetXmlDoc2StringSTRATEGY", ReplyAction="http://tempuri.org/IStockService/GetXmlDoc2StringSTRATEGYResponse")]
         string GetXmlDoc2StringSTRATEGY();
         
@@ -374,6 +377,10 @@ namespace DataAccess.ServiceReference1 {
         
         public databases.tmpDS.priceDiagnoseDataTable DiagnosePrice_CloseAndNextOpen(System.DateTime frDate, System.DateTime toDate, string timeScaleCode, string exchangeCode, double variantPerc, double variance) {
             return base.Channel.DiagnosePrice_CloseAndNextOpen(frDate, toDate, timeScaleCode, exchangeCode, variantPerc, variance);
+        }
+        
+        public void AjustPriceData(string code, System.DateTime toDate, double weight) {
+            base.Channel.AjustPriceData(code, toDate, weight);
         }
         
         public string GetXmlDoc2StringSTRATEGY() {

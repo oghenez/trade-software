@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using System.IO;
 using System.Globalization;
 using LumenWorks.Framework.IO.Csv;
+using application;
 using commonTypes;
 using commonClass;
 
@@ -16,6 +17,7 @@ namespace imports.forms
 {
     public partial class importPriceData : common.forms.baseForm
     {
+        private static CultureInfo CultureInfoVN = new CultureInfo("vi-VN");
         const int constNumberOfImportInBatch = 10000;
         private bool fCanceled = false;
         public importPriceData()
@@ -37,7 +39,7 @@ namespace imports.forms
         {
             common.fileFuncs.WriteLog(" - Add company : " + code);
         }
-        private void OnUpdateData(databases.baseDS.priceDataRow row, libs.importStat stat)
+        private void OnUpdateData(databases.baseDS.priceDataRow row, ImportLibs.importStat stat)
         {
             if (fCanceled) stat.cancel =true;
             this.ShowMessage(stat.updateCount.ToString("###,###,##0") + "/" + 
@@ -52,7 +54,7 @@ namespace imports.forms
                 myDataSet.priceData.Clear();
             }
         }
-        private void onAggregateData(libs.agrregateStat stat)
+        private void onAggregateData(ImportLibs.agrregateStat stat)
         {
             if (fCanceled) stat.cancel = true;
             this.ShowMessage(stat.count.ToString("###,###,##0") + "/" + stat.maxCount.ToString("###,###,##0"), "Aggregate " + stat.phase.ToString());
@@ -79,7 +81,7 @@ namespace imports.forms
         }
         private void DoAggregate(databases.baseDS.priceDataDataTable tbl )
         {
-            libs.AggregatePriceData(tbl,libs.CultureInfoVN, onAggregateData);
+            ImportLibs.AggregatePriceData(tbl,CultureInfoVN, onAggregateData);
         }
 
         private void importBtn_Click(object sender, System.EventArgs e)
@@ -124,8 +126,8 @@ namespace imports.forms
                             if (fCanceled) break;
                             this.ShowMessage("Arregate stock : " + myDataSet.stockCode[idx].code);
                             myDataSet.priceData.Clear();
-                            databases.DbAccess.LoadData(myDataSet.priceData, myDataSet.stockCode[idx].code);
-                            libs.AggregatePriceData(myDataSet.priceData,libs.CultureInfoVN, null);
+                            databases.DbAccess.LoadData(myDataSet.priceData,AppTypes.MainDataTimeScale.Code,DateTime.MinValue, DateTime.MaxValue,myDataSet.stockCode[idx].code);
+                            ImportLibs.AggregatePriceData(myDataSet.priceData,CultureInfoVN, null);
                             this.ShowMessage("");
                         }
                         break;
@@ -152,8 +154,7 @@ namespace imports.forms
             try
             {
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
-                {
-                    dataFileNameEd.Text = openFileDialog.FileName.Trim();
+                {                    dataFileNameEd.Text = openFileDialog.FileName.Trim();
                 }
             }
             catch (Exception er)

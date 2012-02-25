@@ -195,32 +195,6 @@ namespace wsServices
 
         #endregion Tools
 
-        public databases.tmpDS.priceDiagnoseDataTable DiagnosePrice_CloseAndNextOpen(DateTime frDate, DateTime toDate, string timeScaleCode,
-                                                                   string exchangeCode, double variancePerc, double variance)
-        {
-            try
-            {
-                databases.baseDS.priceDataDataTable priceDataTbl = new databases.baseDS.priceDataDataTable();
-                databases.tmpDS.priceDiagnoseDataTable priceDiagnoseTbl = new databases.tmpDS.priceDiagnoseDataTable();
-                databases.tmpDS.stockCodeDataTable codeTbl = new databases.tmpDS.stockCodeDataTable();
-                databases.DbAccess.LoadStockCode_ByStockExchange(codeTbl, exchangeCode, AppTypes.CommonStatus.Enable);
-                for (int idx = 0; idx < codeTbl.Count; idx++)
-                {
-                    priceDataTbl.Clear();
-                    databases.DbAccess.LoadData(priceDataTbl, timeScaleCode, frDate, toDate, codeTbl[idx].code);
-                    application.AppLibs.DiagnosePrice_CloseAndNextOpen(priceDataTbl,variancePerc,variance,priceDiagnoseTbl);
-                }
-                priceDataTbl.Dispose();
-                codeTbl.Dispose();
-                return priceDiagnoseTbl;
-            }
-            catch (Exception ex)
-            {
-                WriteSysLog(ex);
-            }
-            return null;
-        }
-
         #region Load/Get data
         public databases.tmpDS.investorDataTable GetInvestorShortList()
         {
@@ -859,6 +833,44 @@ namespace wsServices
             try
             {
                 application.Configuration.Save_Global_Settings(settings);
+            }
+            catch (Exception ex)
+            {
+                WriteSysLog(ex);
+            }
+        }
+
+
+        public databases.tmpDS.priceDiagnoseDataTable DiagnosePrice_CloseAndNextOpen(DateTime frDate, DateTime toDate, string timeScaleCode,
+                                                                   string exchangeCode, double variancePerc, double variance)
+        {
+            try
+            {
+                databases.baseDS.priceDataDataTable priceDataTbl = new databases.baseDS.priceDataDataTable();
+                databases.tmpDS.priceDiagnoseDataTable priceDiagnoseTbl = new databases.tmpDS.priceDiagnoseDataTable();
+                databases.tmpDS.stockCodeDataTable codeTbl = new databases.tmpDS.stockCodeDataTable();
+                databases.DbAccess.LoadStockCode_ByStockExchange(codeTbl, exchangeCode, AppTypes.CommonStatus.Enable);
+                for (int idx = 0; idx < codeTbl.Count; idx++)
+                {
+                    priceDataTbl.Clear();
+                    databases.DbAccess.LoadData(priceDataTbl, timeScaleCode, frDate, toDate, codeTbl[idx].code);
+                    application.AppLibs.DiagnosePrice_CloseAndNextOpen(priceDataTbl, variancePerc, variance, priceDiagnoseTbl);
+                }
+                priceDataTbl.Dispose();
+                codeTbl.Dispose();
+                return priceDiagnoseTbl;
+            }
+            catch (Exception ex)
+            {
+                WriteSysLog(ex);
+            }
+            return null;
+        }
+        public void AjustPriceData(string code, DateTime toDate, double weight)
+        {
+            try
+            {
+                application.AppLibs.AjustPriceData(code, toDate, (decimal)weight);
             }
             catch (Exception ex)
             {

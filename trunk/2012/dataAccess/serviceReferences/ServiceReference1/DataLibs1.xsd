@@ -529,6 +529,20 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="AjustPriceData">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="code" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="toDate" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="weight" type="xs:double" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AjustPriceDataResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
   <xs:element name="GetXmlDoc2StringSTRATEGY">
     <xs:complexType>
       <xs:sequence />

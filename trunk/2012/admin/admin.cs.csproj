@@ -64,11 +64,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="libs\dataClass.cs" />
-    <Compile Include="forms\diagnoseData.cs">
+    <Compile Include="forms\dataTools.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="forms\diagnoseData.Designer.cs">
-      <DependentUpon>diagnoseData.cs</DependentUpon>
+    <Compile Include="forms\dataTools.Designer.cs">
+      <DependentUpon>dataTools.cs</DependentUpon>
     </Compile>
     <Compile Include="main.cs">
       <SubType>Form</SubType>
@@ -78,8 +78,8 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="forms\diagnoseData.resx">
-      <DependentUpon>diagnoseData.cs</DependentUpon>
+    <EmbeddedResource Include="forms\dataTools.resx">
+      <DependentUpon>dataTools.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="main.resx">
       <DependentUpon>main.cs</DependentUpon>
