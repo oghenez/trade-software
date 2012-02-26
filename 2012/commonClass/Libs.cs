@@ -144,19 +144,17 @@ namespace commonClass
 
         public static void WriteSysLog(AppTypes.SyslogTypes type, string investorCode, string text)
         {
-            common.fileFuncs.WriteLog(DateTime.Now.ToString() + common.Consts.constTab + type.ToString() + common.Consts.constTab +
-                                      (investorCode==null || investorCode.Trim() == "" ? common.Consts.constNotAvailable : investorCode.Trim()) + 
-                                      common.Consts.constTab + text, 
-                                      common.fileFuncs.ConcatFileName(myExecuteDirectory, Consts.constFile_SysLog));
+            common.SysLog.WriteLog(DateTime.Now.ToString() + common.Consts.constTab + type.ToString() + common.Consts.constTab +
+                                  (investorCode == null || investorCode.Trim() == "" ? "" : investorCode.Trim()) + common.Consts.constTab + text,
+                                   common.fileFuncs.ConcatFileName(myExecuteDirectory, Consts.constFile_SysLog));
         }
-        public static void WriteSysLog(Exception er, string investorCode)
+        public static void WriteSysLog(string investorCode,Exception er)
         {
-            WriteSysLog(AppTypes.SyslogTypes.Exception, investorCode,common.system.MakeLogString(er, common.Consts.constTab));
+            WriteSysLog(AppTypes.SyslogTypes.Exception, investorCode,common.SysLog.MakeLogString(er, common.Consts.constTab));
         }
         public static void WriteSysLog(string text)
         {
-            common.fileFuncs.WriteLog(DateTime.Now.ToString() + common.Consts.constTab + text,
-                                      common.fileFuncs.ConcatFileName(myExecuteDirectory, Consts.constFile_SysLog));
+            common.SysLog.WriteLog(DateTime.Now.ToString() + common.Consts.constTab + text, common.fileFuncs.ConcatFileName(myExecuteDirectory, Consts.constFile_SysLog));
         }
 
         #region system environment

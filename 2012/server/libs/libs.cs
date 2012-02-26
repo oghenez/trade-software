@@ -80,7 +80,7 @@ namespace server
                 list = common.system.String2List(workTimeRules[idx], ";");
                 if (list.Length != 3)
                 {
-                    common.fileFuncs.WriteLog("Invalid config : " + workTimeRules[idx]);
+                    common.SysLog.WriteLog("Invalid config : " + workTimeRules[idx]);
                     return false;
                 }
                 //Start date
@@ -129,7 +129,7 @@ namespace server
                         imports.gold.ImportPrice_URL(updateTime, parts[1], marketRow.code);
                         break;
                     default:
-                        common.fileFuncs.WriteLog("Invalid " + marketRow.dataSource.Trim());
+                        common.SysLog.WriteLog("Invalid " + marketRow.dataSource.Trim());
                         continue;
                 }
                 commonClass.SysLibs.WriteSysLog("Updated from " + parts[1]);

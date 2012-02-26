@@ -179,7 +179,7 @@ namespace server
                     if (!fProcessingTraderAlert && (alertElapseInSeconds >= tradeAlertEd.Value))
                     {
                         fProcessingTraderAlert = true;
-                        common.fileFuncs.WriteLog("Trade alert start");
+                        common.SysLog.WriteLog("Trade alert start");
                         Trade.AlertLibs.CreateTradeAlert(onTradeAlertProcessStart, onTradeAlertProcessItem, onTradeAlertProcessEnd);
                         alertElapseInSeconds = 0;
                         fProcessingTraderAlert = false;
@@ -191,12 +191,12 @@ namespace server
                 if (fProcessingFetchData)
                 {
                     fProcessingFetchData = false;
-                    common.fileFuncs.WriteLog(" - FetchData error " + er.Message);
+                    common.SysLog.WriteLog(" - FetchData error " + er.Message);
                 }
                 if (fProcessingTraderAlert)
                 {
                     fProcessingTraderAlert = false;
-                    common.fileFuncs.WriteLog(" - Trader Alert error " + er.Message);
+                    common.SysLog.WriteLog(" - Trader Alert error " + er.Message);
                 }
 
                 ShowError(er);

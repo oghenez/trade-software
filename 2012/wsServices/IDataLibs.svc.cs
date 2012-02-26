@@ -35,7 +35,7 @@ namespace wsServices
 
         #region update
         [OperationContract]
-        void UpdatePriceData(databases.baseDS.priceDataDataTable tbl);
+        void UpdatePriceData(ref databases.baseDS.priceDataDataTable tbl);
         [OperationContract]
         void UpdateSysCodeCat(ref databases.baseDS.sysCodeCatDataTable sysCodeCatTbl);
         [OperationContract]
@@ -227,10 +227,13 @@ namespace wsServices
 
         [OperationContract]
         databases.tmpDS.priceDiagnoseDataTable DiagnosePrice_CloseAndNextOpen(DateTime frDate, DateTime toDate, string timeScaleCode,
-                                                           string exchangeCode, double variantPerc,double variance);
+                                                           string exchangeCode,string code, double variantPerc,double variance,byte precision);
 
         [OperationContract]
         void AjustPriceData(string code, DateTime toDate, double weight);
+
+        [OperationContract]
+        void ReAggregatePriceData(string code);
 
         [OperationContract]
         string GetXmlDoc2StringSTRATEGY();
@@ -245,7 +248,9 @@ namespace wsServices
         #endregion
 
         [OperationContract]
-        void WriteSyslog(AppTypes.SyslogTypes logType, string investorCode, string desc, string source, string msg);
+        void WriteLog(byte logType, string investorCode, string desc, string source, string msg);
+        [OperationContract]
+        void WriteExcptionLog(string investorCode, common.SysLog.LogData logData);
         
         [OperationContract]
         DataTable Test(string sql);

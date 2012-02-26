@@ -112,7 +112,7 @@ namespace commonTypes
 
         // Some process such as backtesting need to slit a process into several batches 
         // The setting specifies the number of items put in each batch process.
-        public static int sysNumberOfItemsInBatchProcess = 30;
+        public static int sysNumberOfItemsInBatchProcess = 10;
 
         //How long (seconds) to make update : seconds = sysTimerUnitToRefresh * sysTimerUnitInSecs
         public static short sysTimerUnitToRefresh = 1;
