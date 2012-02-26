@@ -16,11 +16,12 @@ namespace admin.forms
             try
             {
                 InitializeComponent();
-                dateRangeEd.frDate = commonTypes.Settings.sysStartDataDate;
-                dateRangeEd.toDate = DateTime.Today;
+                srcFrDateEd.myDateTime = Settings.sysStartDataDate;
+                srcToDateEd.myDateTime = DateTime.Today;
                 exchangeCb.LoadData();
                 diagTimeScaleCb.LoadData();
                 dataTimeScaleCb.LoadData();
+                dataTimeScaleCb.myValue = AppTypes.MainDataTimeScale;
                 fullMode = false;
                 tabControl.SendToBack();
 
@@ -49,7 +50,7 @@ namespace admin.forms
         {
             bool retVal = true;
             ClearNotifyError();
-            if (!dateRangeEd.GetDateRange()) retVal = false;
+            if (srcFrDateEd.myDateTime == common.Consts.constNullDate || srcToDateEd.myDateTime == common.Consts.constNullDate) retVal = false;
             if (exchangeCb.myValue.Trim() == "")
             {
                 this.NotifyError(exchangeLbl);
@@ -104,7 +105,7 @@ namespace admin.forms
                 common.system.ShowCurrorWait();
                 System.Diagnostics.Stopwatch watch = new System.Diagnostics.Stopwatch();
                 watch.Start();
-                priceDiagnoseSource.DataSource = DataAccess.Libs.DiagnosePrice_CloseAndNextOpen(dateRangeEd.frDate, dateRangeEd.toDate, diagTimeScaleCb.myValue.Code,
+                priceDiagnoseSource.DataSource = DataAccess.Libs.DiagnosePrice_CloseAndNextOpen(srcFrDateEd.myDateTime, srcToDateEd.myDateTime, diagTimeScaleCb.myValue.Code,
                                                                                                 exchangeCb.myValue, (double)checkVariancePercEd.Value, (double)checkVarianceEd.Value);
                 priceDiagnoseSource.Sort = tmpDS.priceDiagnose.codeColumn.ColumnName;
                 watch.Stop();
@@ -268,10 +269,45 @@ namespace admin.forms
             try
             {
                 this.ShowMessage("");
-                if (!DataFixValid()) return;
+                //if (!DataFixValid()) return;
 
                 saveFixDataBtn.Enabled = false;
                 common.system.ShowCurrorWait(); 
+                System.Diagnostics.Stopwatch watch = new System.Diagnostics.Stopwatch();
+                watch.Start();
+
+                //Only update changed data
+                databases.baseDS.priceDataDataTable tbl = new databases.baseDS.priceDataDataTable();
+                databases.baseDS.priceDataDataTable sourceTbl = (databases.baseDS.priceDataDataTable)priceDataSource.DataSource;
+                for (int idx = 0; idx < sourceTbl.Count; idx++)
+                {
+                    if (sourceTbl[idx].RowState != DataRowState.Modified) continue;
+                    tbl.ImportRow(sourceTbl[idx]);
+                }
+                DataAccess.Libs.UpdateData(tbl);
+                watch.Stop();
+                this.ShowMessage(Languages.Libs.GetString("finished") + " : " + tbl.Count.ToString() +" - " + common.dateTimeLibs.TimeSpan2String(watch.Elapsed) );
+            }
+            catch (Exception er)
+            {
+                this.ShowError(er);
+            }
+            finally
+            {
+                common.system.ShowCurrorDefault();
+                saveFixDataBtn.Enabled = true;
+            }
+        }
+
+        private void reAggregateBtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.ShowMessage("");
+                if (!DataFixValid()) return;
+
+                reAggregateBtn.Enabled = false;
+                common.system.ShowCurrorWait();
 
                 System.Diagnostics.Stopwatch watch = new System.Diagnostics.Stopwatch();
                 watch.Start();
@@ -286,7 +322,41 @@ namespace admin.forms
             finally
             {
                 common.system.ShowCurrorDefault();
-                saveFixDataBtn.Enabled = true;
+                reAggregateBtn.Enabled = true;
+            }
+        }
+        private void abnormalDataBtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.ShowMessage("");
+                if (!DataFixValid()) return;
+
+                common.system.ShowCurrorWait();
+                abnormalDataBtn.Enabled = false;
+
+                System.Diagnostics.Stopwatch watch = new System.Diagnostics.Stopwatch();
+                watch.Start();
+                databases.baseDS.priceDataDataTable priceTbl = DataAccess.Libs.GetAbnormalData(adjustCodeEd.Text.Trim(),
+                                                               Settings.sysStartDataDate,adjustToDateEd.myDateTime,
+                                                               dataTimeScaleCb.myValue.Code);
+
+                if (priceTbl == null) return;
+                priceDataSource.DataSource = priceTbl;
+                priceDataSource.Sort = priceTbl.onDateColumn.ColumnName + " DESC";
+                watch.Stop();
+                this.ShowMessage(Languages.Libs.GetString("finished") + " : " + common.dateTimeLibs.TimeSpan2String(watch.Elapsed));
+                this.ShowReccount(priceDataSource.Count);
+                fullMode = true;
+            }
+            catch (Exception er)
+            {
+                this.ShowError(er);
+            }
+            finally
+            {
+                common.system.ShowCurrorDefault();
+                abnormalDataBtn.Enabled = true;
             }
         }
     }

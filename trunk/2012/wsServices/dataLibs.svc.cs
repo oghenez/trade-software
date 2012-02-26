@@ -518,9 +518,27 @@ namespace wsServices
             return databases.DbAccess.GetLastAlertTime(investorCode);
         }
 
+        public databases.baseDS.priceDataDataTable GetAbnormalData(string code,DateTime frDate, DateTime toDate,string timeSacleCode)
+        {
+            databases.baseDS.priceDataDataTable tbl = new databases.baseDS.priceDataDataTable();
+            databases.DbAccess.LoadAbnormalData(tbl,code,frDate, toDate,timeSacleCode);
+            return tbl;
+        }
+
         #endregion
 
         #region Update
+        public void UpdatePriceData(databases.baseDS.priceDataDataTable tbl)
+        {
+            try
+            {
+                databases.DbAccess.UpdateData(tbl);
+            }
+            catch (Exception ex)
+            {
+                WriteSysLog(ex);
+            }
+        }
         public void UpdateSysCodeCat(ref databases.baseDS.sysCodeCatDataTable tbl)
         {
             try
