@@ -35,6 +35,8 @@ namespace wsServices
 
         #region update
         [OperationContract]
+        void UpdatePriceData(databases.baseDS.priceDataDataTable tbl);
+        [OperationContract]
         void UpdateSysCodeCat(ref databases.baseDS.sysCodeCatDataTable sysCodeCatTbl);
         [OperationContract]
         void UpdateSysCode(ref databases.baseDS.sysCodeDataTable sysCodeTbl);
@@ -81,6 +83,9 @@ namespace wsServices
         #region Get/Load
         [OperationContract]
         databases.tmpDS.stockCodeDataTable GetStockByStatus(AppTypes.CommonStatus status);
+
+        [OperationContract]
+        databases.baseDS.priceDataDataTable GetAbnormalData(string code,DateTime frDate, DateTime toDate,string timeSacleCode);
 
         [OperationContract]
         databases.tmpDS.investorDataTable GetInvestorShortList();

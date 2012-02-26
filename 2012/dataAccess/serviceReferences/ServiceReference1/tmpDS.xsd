@@ -1,161 +1,393 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" id="tmpDS" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:element msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msdata:EnforceConstraints="False" name="tmpDS">
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/databases" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/databases" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="baseDS.portfolioDataTable" nillable="true">
     <xs:complexType>
-      <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="stockCode">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element name="code">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="20" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="stockExchange">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="10" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="tickerCode">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="20" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="name">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="255" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element msdata:ReadOnly="true" minOccurs="0" name="price" type="xs:decimal" />
-              <xs:element msdata:ReadOnly="true" minOccurs="0" name="priceVariant" type="xs:decimal" />
-              <xs:element msdata:ReadOnly="true" minOccurs="0" name="qty" type="xs:int" />
-              <xs:element msdata:ReadOnly="true" minOccurs="0" name="boughtPrice" type="xs:decimal" />
-              <xs:element msdata:ReadOnly="true" minOccurs="0" name="amt" type="xs:decimal" />
-              <xs:element msdata:ReadOnly="true" minOccurs="0" name="boughtAmt" type="xs:decimal" />
-              <xs:element msdata:ReadOnly="true" minOccurs="0" name="profitVariantPerc" type="xs:decimal" />
-              <xs:element msdata:ReadOnly="true" minOccurs="0" name="notes">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="1" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element msdata:ReadOnly="true" minOccurs="0" name="volume" type="xs:int" />
-              <xs:element msdata:ReadOnly="true" minOccurs="0" name="profitVariantAmt" type="xs:decimal" />
-              <xs:element minOccurs="0" name="nameEn">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="255" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element msdata:ReadOnly="true" minOccurs="0" name="selected" type="xs:int" />
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
-        <xs:element name="investor">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element name="code">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="10" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="displayName">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="100" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="account">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="20" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
-        <xs:element name="tradeEstimate">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element name="onDate" type="xs:dateTime" />
-              <xs:element minOccurs="0" name="tradeAction" type="xs:string" />
-              <xs:element minOccurs="0" name="price" type="xs:decimal" />
-              <xs:element minOccurs="0" name="qty" type="xs:decimal" />
-              <xs:element minOccurs="0" name="amt" type="xs:decimal" />
-              <xs:element minOccurs="0" name="stockQty" type="xs:decimal" />
-              <xs:element minOccurs="0" name="cashAmt" type="xs:decimal" />
-              <xs:element minOccurs="0" name="stockAmt" type="xs:decimal" />
-              <xs:element minOccurs="0" name="totalAmt" type="xs:decimal" />
-              <xs:element minOccurs="0" name="profit" type="xs:decimal" />
-              <xs:element minOccurs="0" name="feeAmt" type="xs:decimal" />
-              <xs:element minOccurs="0" name="ignored" type="xs:boolean" />
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
-        <xs:element name="codeList">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element name="code" type="xs:string" />
-              <xs:element minOccurs="0" name="description" type="xs:string" />
-              <xs:element minOccurs="0" name="byteValue" type="xs:unsignedByte" />
-              <xs:element minOccurs="0" name="intValue" type="xs:int" />
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
-        <xs:element name="marketData">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element name="onDate" type="xs:dateTime" />
-              <xs:element minOccurs="0" name="val0" type="xs:double" />
-              <xs:element minOccurs="0" name="val1" type="xs:double" />
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
-        <xs:element name="priceDiagnose">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element name="code" type="xs:string" />
-              <xs:element name="date1" type="xs:dateTime" />
-              <xs:element name="date2" type="xs:dateTime" />
-              <xs:element minOccurs="0" name="price1" type="xs:double" />
-              <xs:element minOccurs="0" name="price2" type="xs:double" />
-              <xs:element minOccurs="0" name="variance" type="xs:double" />
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
-      </xs:choice>
+      <xs:annotation>
+        <xs:appinfo>
+          <ActualType Name="baseDS.portfolioDataTable" Namespace="http://schemas.datacontract.org/2004/07/databases" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+        </xs:appinfo>
+      </xs:annotation>
+      <xs:sequence>
+        <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+        <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+      </xs:sequence>
+      <xs:attribute fixed="http://tempuri.org/masterDataSet.xsd" name="namespace" />
+      <xs:attribute fixed="portfolioDataTable" name="tableTypeName" />
     </xs:complexType>
-    <xs:unique msdata:PrimaryKey="true" name="Constraint1">
-      <xs:selector xpath=".//stockCode" />
-      <xs:field xpath="code" />
-    </xs:unique>
-    <xs:unique msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true" name="investor_Constraint1">
-      <xs:selector xpath=".//investor" />
-      <xs:field xpath="code" />
-    </xs:unique>
-    <xs:unique msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true" name="codeList_Constraint1">
-      <xs:selector xpath=".//codeList" />
-      <xs:field xpath="code" />
-    </xs:unique>
-    <xs:unique msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true" name="priceDiagnose_Constraint1">
-      <xs:selector xpath=".//priceDiagnose" />
-      <xs:field xpath="code" />
-      <xs:field xpath="date1" />
-      <xs:field xpath="date2" />
-    </xs:unique>
+  </xs:element>
+  <xs:element name="baseDS.tradeAlertDataTable" nillable="true">
+    <xs:complexType>
+      <xs:annotation>
+        <xs:appinfo>
+          <ActualType Name="baseDS.tradeAlertDataTable" Namespace="http://schemas.datacontract.org/2004/07/databases" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+        </xs:appinfo>
+      </xs:annotation>
+      <xs:sequence>
+        <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+        <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+      </xs:sequence>
+      <xs:attribute fixed="http://tempuri.org/masterDataSet.xsd" name="namespace" />
+      <xs:attribute fixed="tradeAlertDataTable" name="tableTypeName" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="baseDS.transactionsDataTable" nillable="true">
+    <xs:complexType>
+      <xs:annotation>
+        <xs:appinfo>
+          <ActualType Name="baseDS.transactionsDataTable" Namespace="http://schemas.datacontract.org/2004/07/databases" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+        </xs:appinfo>
+      </xs:annotation>
+      <xs:sequence>
+        <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+        <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+      </xs:sequence>
+      <xs:attribute fixed="http://tempuri.org/masterDataSet.xsd" name="namespace" />
+      <xs:attribute fixed="transactionsDataTable" name="tableTypeName" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="baseDS.portfolioDetailDataTable" nillable="true">
+    <xs:complexType>
+      <xs:annotation>
+        <xs:appinfo>
+          <ActualType Name="baseDS.portfolioDetailDataTable" Namespace="http://schemas.datacontract.org/2004/07/databases" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+        </xs:appinfo>
+      </xs:annotation>
+      <xs:sequence>
+        <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+        <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+      </xs:sequence>
+      <xs:attribute fixed="http://tempuri.org/masterDataSet.xsd" name="namespace" />
+      <xs:attribute fixed="portfolioDetailDataTable" name="tableTypeName" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="baseDS.investorStockDataTable" nillable="true">
+    <xs:complexType>
+      <xs:annotation>
+        <xs:appinfo>
+          <ActualType Name="baseDS.investorStockDataTable" Namespace="http://schemas.datacontract.org/2004/07/databases" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+        </xs:appinfo>
+      </xs:annotation>
+      <xs:sequence>
+        <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+        <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+      </xs:sequence>
+      <xs:attribute fixed="http://tempuri.org/masterDataSet.xsd" name="namespace" />
+      <xs:attribute fixed="investorStockDataTable" name="tableTypeName" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="baseDS.lastPriceDataDataTable" nillable="true">
+    <xs:complexType>
+      <xs:annotation>
+        <xs:appinfo>
+          <ActualType Name="baseDS.lastPriceDataDataTable" Namespace="http://schemas.datacontract.org/2004/07/databases" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+        </xs:appinfo>
+      </xs:annotation>
+      <xs:sequence>
+        <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+        <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+      </xs:sequence>
+      <xs:attribute fixed="http://tempuri.org/masterDataSet.xsd" name="namespace" />
+      <xs:attribute fixed="lastPriceDataDataTable" name="tableTypeName" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="baseDS.priceDataDataTable" nillable="true">
+    <xs:complexType>
+      <xs:annotation>
+        <xs:appinfo>
+          <ActualType Name="baseDS.priceDataDataTable" Namespace="http://schemas.datacontract.org/2004/07/databases" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+        </xs:appinfo>
+      </xs:annotation>
+      <xs:sequence>
+        <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+        <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+      </xs:sequence>
+      <xs:attribute fixed="http://tempuri.org/masterDataSet.xsd" name="namespace" />
+      <xs:attribute fixed="priceDataDataTable" name="tableTypeName" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="tmpDS.marketDataDataTable" nillable="true">
+    <xs:complexType>
+      <xs:annotation>
+        <xs:appinfo>
+          <ActualType Name="tmpDS.marketDataDataTable" Namespace="http://schemas.datacontract.org/2004/07/databases" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+        </xs:appinfo>
+      </xs:annotation>
+      <xs:sequence>
+        <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+        <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+      </xs:sequence>
+      <xs:attribute fixed="" name="namespace" />
+      <xs:attribute fixed="marketDataDataTable" name="tableTypeName" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="tmpDS.tradeEstimateDataTable" nillable="true">
+    <xs:complexType>
+      <xs:annotation>
+        <xs:appinfo>
+          <ActualType Name="tmpDS.tradeEstimateDataTable" Namespace="http://schemas.datacontract.org/2004/07/databases" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+        </xs:appinfo>
+      </xs:annotation>
+      <xs:sequence>
+        <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+        <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+      </xs:sequence>
+      <xs:attribute fixed="" name="namespace" />
+      <xs:attribute fixed="tradeEstimateDataTable" name="tableTypeName" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="tmpDS.priceDiagnoseDataTable" nillable="true">
+    <xs:complexType>
+      <xs:annotation>
+        <xs:appinfo>
+          <ActualType Name="tmpDS.priceDiagnoseDataTable" Namespace="http://schemas.datacontract.org/2004/07/databases" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+        </xs:appinfo>
+      </xs:annotation>
+      <xs:sequence>
+        <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+        <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+      </xs:sequence>
+      <xs:attribute fixed="" name="namespace" />
+      <xs:attribute fixed="priceDiagnoseDataTable" name="tableTypeName" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="baseDS.stockExchangeDataTable" nillable="true">
+    <xs:complexType>
+      <xs:annotation>
+        <xs:appinfo>
+          <ActualType Name="baseDS.stockExchangeDataTable" Namespace="http://schemas.datacontract.org/2004/07/databases" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+        </xs:appinfo>
+      </xs:annotation>
+      <xs:sequence>
+        <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+        <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+      </xs:sequence>
+      <xs:attribute fixed="http://tempuri.org/masterDataSet.xsd" name="namespace" />
+      <xs:attribute fixed="stockExchangeDataTable" name="tableTypeName" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="baseDS.employeeRangeDataTable" nillable="true">
+    <xs:complexType>
+      <xs:annotation>
+        <xs:appinfo>
+          <ActualType Name="baseDS.employeeRangeDataTable" Namespace="http://schemas.datacontract.org/2004/07/databases" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+        </xs:appinfo>
+      </xs:annotation>
+      <xs:sequence>
+        <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+        <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+      </xs:sequence>
+      <xs:attribute fixed="http://tempuri.org/masterDataSet.xsd" name="namespace" />
+      <xs:attribute fixed="employeeRangeDataTable" name="tableTypeName" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="baseDS.bizIndustryDataTable" nillable="true">
+    <xs:complexType>
+      <xs:annotation>
+        <xs:appinfo>
+          <ActualType Name="baseDS.bizIndustryDataTable" Namespace="http://schemas.datacontract.org/2004/07/databases" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+        </xs:appinfo>
+      </xs:annotation>
+      <xs:sequence>
+        <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+        <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+      </xs:sequence>
+      <xs:attribute fixed="http://tempuri.org/masterDataSet.xsd" name="namespace" />
+      <xs:attribute fixed="bizIndustryDataTable" name="tableTypeName" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="baseDS.bizSuperSectorDataTable" nillable="true">
+    <xs:complexType>
+      <xs:annotation>
+        <xs:appinfo>
+          <ActualType Name="baseDS.bizSuperSectorDataTable" Namespace="http://schemas.datacontract.org/2004/07/databases" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+        </xs:appinfo>
+      </xs:annotation>
+      <xs:sequence>
+        <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+        <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+      </xs:sequence>
+      <xs:attribute fixed="http://tempuri.org/masterDataSet.xsd" name="namespace" />
+      <xs:attribute fixed="bizSuperSectorDataTable" name="tableTypeName" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="baseDS.bizSectorDataTable" nillable="true">
+    <xs:complexType>
+      <xs:annotation>
+        <xs:appinfo>
+          <ActualType Name="baseDS.bizSectorDataTable" Namespace="http://schemas.datacontract.org/2004/07/databases" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+        </xs:appinfo>
+      </xs:annotation>
+      <xs:sequence>
+        <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+        <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+      </xs:sequence>
+      <xs:attribute fixed="http://tempuri.org/masterDataSet.xsd" name="namespace" />
+      <xs:attribute fixed="bizSectorDataTable" name="tableTypeName" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="baseDS.bizSubSectorDataTable" nillable="true">
+    <xs:complexType>
+      <xs:annotation>
+        <xs:appinfo>
+          <ActualType Name="baseDS.bizSubSectorDataTable" Namespace="http://schemas.datacontract.org/2004/07/databases" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+        </xs:appinfo>
+      </xs:annotation>
+      <xs:sequence>
+        <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+        <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+      </xs:sequence>
+      <xs:attribute fixed="http://tempuri.org/masterDataSet.xsd" name="namespace" />
+      <xs:attribute fixed="bizSubSectorDataTable" name="tableTypeName" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="baseDS.countryDataTable" nillable="true">
+    <xs:complexType>
+      <xs:annotation>
+        <xs:appinfo>
+          <ActualType Name="baseDS.countryDataTable" Namespace="http://schemas.datacontract.org/2004/07/databases" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+        </xs:appinfo>
+      </xs:annotation>
+      <xs:sequence>
+        <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+        <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+      </xs:sequence>
+      <xs:attribute fixed="http://tempuri.org/masterDataSet.xsd" name="namespace" />
+      <xs:attribute fixed="countryDataTable" name="tableTypeName" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="baseDS.currencyDataTable" nillable="true">
+    <xs:complexType>
+      <xs:annotation>
+        <xs:appinfo>
+          <ActualType Name="baseDS.currencyDataTable" Namespace="http://schemas.datacontract.org/2004/07/databases" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+        </xs:appinfo>
+      </xs:annotation>
+      <xs:sequence>
+        <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+        <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+      </xs:sequence>
+      <xs:attribute fixed="http://tempuri.org/masterDataSet.xsd" name="namespace" />
+      <xs:attribute fixed="currencyDataTable" name="tableTypeName" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="baseDS.investorCatDataTable" nillable="true">
+    <xs:complexType>
+      <xs:annotation>
+        <xs:appinfo>
+          <ActualType Name="baseDS.investorCatDataTable" Namespace="http://schemas.datacontract.org/2004/07/databases" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+        </xs:appinfo>
+      </xs:annotation>
+      <xs:sequence>
+        <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+        <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+      </xs:sequence>
+      <xs:attribute fixed="http://tempuri.org/masterDataSet.xsd" name="namespace" />
+      <xs:attribute fixed="investorCatDataTable" name="tableTypeName" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="baseDS.sysCodeDataTable" nillable="true">
+    <xs:complexType>
+      <xs:annotation>
+        <xs:appinfo>
+          <ActualType Name="baseDS.sysCodeDataTable" Namespace="http://schemas.datacontract.org/2004/07/databases" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+        </xs:appinfo>
+      </xs:annotation>
+      <xs:sequence>
+        <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+        <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+      </xs:sequence>
+      <xs:attribute fixed="http://tempuri.org/masterDataSet.xsd" name="namespace" />
+      <xs:attribute fixed="sysCodeDataTable" name="tableTypeName" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="baseDS.sysCodeCatDataTable" nillable="true">
+    <xs:complexType>
+      <xs:annotation>
+        <xs:appinfo>
+          <ActualType Name="baseDS.sysCodeCatDataTable" Namespace="http://schemas.datacontract.org/2004/07/databases" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+        </xs:appinfo>
+      </xs:annotation>
+      <xs:sequence>
+        <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+        <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+      </xs:sequence>
+      <xs:attribute fixed="http://tempuri.org/masterDataSet.xsd" name="namespace" />
+      <xs:attribute fixed="sysCodeCatDataTable" name="tableTypeName" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="baseDS.investorDataTable" nillable="true">
+    <xs:complexType>
+      <xs:annotation>
+        <xs:appinfo>
+          <ActualType Name="baseDS.investorDataTable" Namespace="http://schemas.datacontract.org/2004/07/databases" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+        </xs:appinfo>
+      </xs:annotation>
+      <xs:sequence>
+        <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+        <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+      </xs:sequence>
+      <xs:attribute fixed="http://tempuri.org/masterDataSet.xsd" name="namespace" />
+      <xs:attribute fixed="investorDataTable" name="tableTypeName" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="tmpDS.stockCodeDataTable" nillable="true">
+    <xs:complexType>
+      <xs:annotation>
+        <xs:appinfo>
+          <ActualType Name="tmpDS.stockCodeDataTable" Namespace="http://schemas.datacontract.org/2004/07/databases" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+        </xs:appinfo>
+      </xs:annotation>
+      <xs:sequence>
+        <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+        <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+      </xs:sequence>
+      <xs:attribute fixed="" name="namespace" />
+      <xs:attribute fixed="stockCodeDataTable" name="tableTypeName" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="baseDS.stockCodeDataTable" nillable="true">
+    <xs:complexType>
+      <xs:annotation>
+        <xs:appinfo>
+          <ActualType Name="baseDS.stockCodeDataTable" Namespace="http://schemas.datacontract.org/2004/07/databases" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+        </xs:appinfo>
+      </xs:annotation>
+      <xs:sequence>
+        <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+        <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+      </xs:sequence>
+      <xs:attribute fixed="http://tempuri.org/masterDataSet.xsd" name="namespace" />
+      <xs:attribute fixed="stockCodeDataTable" name="tableTypeName" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="baseDS.sysAutoKeyPendingDataTable" nillable="true">
+    <xs:complexType>
+      <xs:annotation>
+        <xs:appinfo>
+          <ActualType Name="baseDS.sysAutoKeyPendingDataTable" Namespace="http://schemas.datacontract.org/2004/07/databases" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+        </xs:appinfo>
+      </xs:annotation>
+      <xs:sequence>
+        <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+        <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+      </xs:sequence>
+      <xs:attribute fixed="http://tempuri.org/masterDataSet.xsd" name="namespace" />
+      <xs:attribute fixed="sysAutoKeyPendingDataTable" name="tableTypeName" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="tmpDS.investorDataTable" nillable="true">
+    <xs:complexType>
+      <xs:annotation>
+        <xs:appinfo>
+          <ActualType Name="tmpDS.investorDataTable" Namespace="http://schemas.datacontract.org/2004/07/databases" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+        </xs:appinfo>
+      </xs:annotation>
+      <xs:sequence>
+        <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+        <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+      </xs:sequence>
+      <xs:attribute fixed="" name="namespace" />
+      <xs:attribute fixed="investorDataTable" name="tableTypeName" />
+    </xs:complexType>
   </xs:element>
 </xs:schema>

@@ -513,6 +513,19 @@ namespace DataAccess
         #endregion
 
         #region Load/Get
+        public static databases.baseDS.priceDataDataTable GetAbnormalData(string code,DateTime frDate,DateTime toDate,string timeScaleCode)
+        {
+            try
+            {
+                return myClient.GetAbnormalData(code, frDate, toDate, timeScaleCode);
+            }
+            catch (Exception er)
+            {
+                if (OnError != null) OnError(er);
+            }
+            return null;
+        }
+        
 
         public static databases.baseDS.stockCodeDataTable GetStockFull(bool force)
         {
@@ -1089,6 +1102,17 @@ namespace DataAccess
         #endregion
 
         #region Update
+        public static void UpdateData(databases.baseDS.priceDataDataTable data)
+        {
+            try
+            {
+                myClient.UpdatePriceData(data);
+            }
+            catch (Exception er)
+            {
+                if (OnError != null) OnError(er);
+            }
+        }
         public static databases.baseDS.sysCodeCatRow UpdateData(databases.baseDS.sysCodeCatRow row)
         {
             try
