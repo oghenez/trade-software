@@ -43,8 +43,8 @@
     <TwoSMASCR Category="TRE" />
     <TwoSMASCR Parameters="Short Period=5,Long Period=10" />
     <TwoSMASCR ParameterDescriptions="Period defines the parameter for the screening" />
-    <TwoSMASCR Name="Two SMA Strategy Buy Signal" />
-    <TwoSMASCR Description="Two SMA Screening" />
+    <TwoSMASCR Name="Tín hiệu mua hai đường SMA" />
+    <TwoSMASCR Description="Tín hiệu mua hai đường SMA" />
     <TwoSMASCR URL="http://www.quantum.vn" />
     <TwoSMASCR Authors="Quan Nguyen" />
     <TwoSMASCR Version="1.0" />
@@ -55,8 +55,8 @@
     <BasicADXSCR Category="TRE" />
     <BasicADXSCR Parameters="ADX Period=14" />
     <BasicADXSCR ParameterDescriptions="Period defines the parameter for the screening" />
-    <BasicADXSCR Name="Basic ADX Buy Signal" />
-    <BasicADXSCR Description="Screen stock with ADX as parameter" />
+    <BasicADXSCR Name="Cổ phiếu có xu hướng (ADX)" />
+    <BasicADXSCR Description="Cổ phiếu có xu hướng (ADX)" />
     <BasicADXSCR URL="http://www.quantum.vn" />
     <BasicADXSCR Authors="Quan Nguyen" />
     <BasicADXSCR Version="1.0" />
@@ -67,8 +67,8 @@
     <MACD_HistogramSCR Category="TRE" />
     <MACD_HistogramSCR Parameters="MACD Fast=12,MACD Slow=26,MACD Signal=9" />
     <MACD_HistogramSCR ParameterDescriptions="Period defines the parameter relative strength" />
-    <MACD_HistogramSCR Name="MACD Histogram Changed" />
-    <MACD_HistogramSCR Description="MACD Histogram Changed" />
+    <MACD_HistogramSCR Name="Tín hiệu mua theo thay đổi trên MACD Histogram" />
+    <MACD_HistogramSCR Description="Tín hiệu mua theo thay đổi trên MACD Histogram" />
     <MACD_HistogramSCR URL="http://www.quantum.vn" />
     <MACD_HistogramSCR Authors="Quan Nguyen" />
     <MACD_HistogramSCR Version="1.0" />
@@ -80,7 +80,7 @@
     <RelativeStrengthSCR Parameters="Period=180" />
     <RelativeStrengthSCR ParameterDescriptions="Period defines the parameter relative strength" />
     <RelativeStrengthSCR Name="Relative Strength" />
-    <RelativeStrengthSCR Description="Relative Strength" />
+    <RelativeStrengthSCR Description="Sức mạnh tương đối" />
     <RelativeStrengthSCR URL="http://www.quantum.vn" />
     <RelativeStrengthSCR Authors="Quan Nguyen" />
     <RelativeStrengthSCR Version="1.0" />
@@ -101,10 +101,10 @@
     <ResistanceSCR Type="SCREENING" />
     <ResistanceSCR Code="SCR007" />
     <ResistanceSCR Category="TRE" />
-    <ResistanceSCR Parameters="Period=30, Distance (%)=1" />
+    <ResistanceSCR Parameters="Thời gian=30, Khoảng cách (%)=1" />
     <ResistanceSCR ParameterDescriptions="Period defines the parameter for resistance line. Distance is between price and resistance line" />
-    <ResistanceSCR Name="Stocks near resistance" />
-    <ResistanceSCR Description="Screen stock near resistance line" />
+    <ResistanceSCR Name="Cổ phiếu gần đường kháng cự" />
+    <ResistanceSCR Description="Cổ phiếu gần đường kháng cự" />
     <ResistanceSCR URL="http://www.quantum.vn" />
     <ResistanceSCR Authors="Quan Nguyen" />
     <ResistanceSCR Version="1.0" />
@@ -127,8 +127,8 @@
     <BasicMACD_BUYSCR Category="TRE" />
     <BasicMACD_BUYSCR Parameters="MACD Fast=12,MACD Slow=26,MACD Signal=9" />
     <BasicMACD_BUYSCR ParameterDescriptions="Period defines the input data for the strategy" />
-    <BasicMACD_BUYSCR Name="Basic MACD Screening" />
-    <BasicMACD_BUYSCR Description="Screen stock with DI+ above DI-" />
+    <BasicMACD_BUYSCR Name="Tín hiệu mua theo MACD cơ bản" />
+    <BasicMACD_BUYSCR Description="Screen stock with MACD lớn hơn 0" />
     <BasicMACD_BUYSCR URL="http://www.quantum.vn" />
     <BasicMACD_BUYSCR Authors="Quan Nguyen" />
     <BasicMACD_BUYSCR Version="1.0" />
@@ -137,10 +137,10 @@
     <PriceSCR Type="SCREENING" />
     <PriceSCR Code="SCR010" />
     <PriceSCR Category="TRE" />
-    <PriceSCR Parameters="SMA Period=20" />
+    <PriceSCR Parameters="SMA Period=200" />
     <PriceSCR ParameterDescriptions="Period defines the screening line" />
-    <PriceSCR Name="Price Screening" />
-    <PriceSCR Description="Screen stock with price above SMA lines with Period as parameter" />
+    <PriceSCR Name="Tìm cổ phiếu có Giá trên đường SMA" />
+    <PriceSCR Description="Tìm cổ phiếu có Giá trên đường SMA" />
     <PriceSCR URL="http://www.quantum.vn" />
     <PriceSCR Authors="Quan Nguyen" />
     <PriceSCR Version="1.0" />
@@ -818,17 +818,17 @@
     <TwoSMABasicMACD Authors="Quan Nguyen" />
     <TwoSMABasicMACD Version="1.0" />
   </STRATEGY>
-  
+
   <STRATEGY>
-    <Test Code="STR100"/>
-    <Test Category="HFT" />
-    <Test Parameters="Simple moving average=20,MACD Fast=12,MACD Slow=26,MACD Signal=9,Fast K Period=15,Slow K Period=5,Slow D Period=3,Ma Type=4" />
-    <Test ParameterDescriptions="Period defines the input data for the strategy" />
-    <Test Name="Test" />
-    <Test Description="Buy when there are differences in MACD signal and MACD lines, with Stochastic line K above D, and in up trend (defined by SMA condition)" />
-    <Test URL="http://www.quantum.vn" />
-    <Test Authors="Quan Nguyen" />
-    <Test Version="1.0" />
+    <MACD_StochSlow Code="STR100"/>
+    <MACD_StochSlow Category="HFT" />
+    <MACD_StochSlow Parameters="Simple moving average=20,MACD Fast=12,MACD Slow=26,MACD Signal=9,Fast K Period=15,Slow K Period=5,Slow D Period=3,Ma Type=4" />
+    <MACD_StochSlow ParameterDescriptions="Period defines the input data for the strategy" />
+    <MACD_StochSlow Name="MACD and StochSlow" />
+    <MACD_StochSlow Description="Buy when there are differences in MACD signal and MACD lines, with Stochastic line K above D, and in up trend (defined by SMA condition)" />
+    <MACD_StochSlow URL="http://www.quantum.vn" />
+    <MACD_StochSlow Authors="Quan Nguyen" />
+    <MACD_StochSlow Version="1.0" />
   </STRATEGY>
 
 

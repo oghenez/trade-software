@@ -138,7 +138,7 @@
     <PriceSCR Type="SCREENING" />
     <PriceSCR Code="SCR010" />
     <PriceSCR Category="TRE" />
-    <PriceSCR Parameters="SMA Period=20" />
+    <PriceSCR Parameters="SMA Period=200" />
     <PriceSCR ParameterDescriptions="Period defines the screening line" />
     <PriceSCR Name="Price Screening" />
     <PriceSCR Description="Screen stock with price above SMA lines with Period as parameter" />
@@ -796,7 +796,7 @@
     <BasicStochRSI Parameters="RSI=14,Fast K=14,Fast D = 9,Stop Loss Level (%)=5,Trailing Stop (%)=15, Take Profit Level (%)=50" />
     <BasicStochRSI ParameterDescriptions="Period defines the input data for the strategy" />
     <BasicStochRSI Name="Stochastic RSI" />
-    <BasicStochRSI Description="Buy when cut between line K and D" />
+    <BasicStochRSI Description="Buy when cut between line K and D in Stochastic RSI" />
     <BasicStochRSI URL="http://www.quantum.vn" />
     <BasicStochRSI Authors="Quan Nguyen" />
     <BasicStochRSI Version="1.0" />
@@ -816,15 +816,15 @@
   </STRATEGY>
   
   <STRATEGY>
-    <Test Code="STR100"/>
-    <Test Category="HFT" />
-    <Test Parameters="Simple moving average=20,MACD Fast=12,MACD Slow=26,MACD Signal=9,Fast K Period=15,Slow K Period=5,Slow D Period=3,Ma Type=4" />
-    <Test ParameterDescriptions="Period defines the input data for the strategy" />
-    <Test Name="Test" />
-    <Test Description="Buy when there are differences in MACD signal and MACD lines, with Stochastic line K above D, and in up trend (defined by SMA condition)" />
-    <Test URL="http://www.quantum.vn" />
-    <Test Authors="Quan Nguyen" />
-    <Test Version="1.0" />
+    <MACD_StochSlow Code="STR100"/>
+    <MACD_StochSlow Category="HFT" />
+    <MACD_StochSlow Parameters="Simple moving average=20,MACD Fast=12,MACD Slow=26,MACD Signal=9,Fast K Period=15,Slow K Period=5,Slow D Period=3,Ma Type=4" />
+    <MACD_StochSlow ParameterDescriptions="Period defines the input data for the strategy" />
+    <MACD_StochSlow Name="MACD and StochSlow" />
+    <MACD_StochSlow Description="Buy when there are differences in MACD signal and MACD lines, with Stochastic line K above D, and in up trend (defined by SMA condition)" />
+    <MACD_StochSlow URL="http://www.quantum.vn" />
+    <MACD_StochSlow Authors="Quan Nguyen" />
+    <MACD_StochSlow Version="1.0" />
   </STRATEGY>
 
 
