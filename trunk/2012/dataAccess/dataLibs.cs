@@ -1106,7 +1106,7 @@ namespace DataAccess
         {
             try
             {
-                myClient.UpdatePriceData(data);
+                myClient.UpdatePriceData(ref data);
             }
             catch (Exception er)
             {
@@ -1495,22 +1495,33 @@ namespace DataAccess
         #endregion
 
         #region syslog
-        public static void WriteSyslog(AppTypes.SyslogTypes logType, string investorCode, string desc, string source, string msg)
+        public static void WriteLog(AppTypes.SyslogTypes logType, string investorCode, string desc, string source, string msg)
         {
             try
             {
-                myClient.WriteSyslog(logType, investorCode, desc, source, msg);
+                myClient.WriteLog((byte)logType, investorCode, desc, source, msg);
             }
             catch (Exception er)
             {
                 if (OnError != null) OnError(er);
             }
         }
-        public static void WriteSyslog(Exception er, string investorCode)
+        public static void WriteLog(byte logType, string investorCode, string desc, string source, string msg)
         {
             try
             {
-                myClient.WriteSyslog(AppTypes.SyslogTypes.Exception, investorCode, er.TargetSite.ToString(), er.Source, er.Message.Trim() + " " + er.StackTrace.Trim());
+                myClient.WriteLog(logType, investorCode, desc, source, msg);
+            }
+            catch (Exception er)
+            {
+                if (OnError != null) OnError(er);
+            }
+        }
+        public static void WriteLog(string investorCode, Exception er)
+        {
+            try
+            {
+                myClient.WriteExcptionLog(investorCode,common.SysLog.MakeData(er));
             }
             catch (Exception ex)
             {
@@ -1520,11 +1531,13 @@ namespace DataAccess
         #endregion
 
         public static databases.tmpDS.priceDiagnoseDataTable DiagnosePrice_CloseAndNextOpen(DateTime frDate, DateTime toDate, string timeScaleCode,
-                                                                                            string exchangeCode, double variancePerc, double variance)
+                                                                                            string exchangeCode,string code, 
+                                                                                            double variancePerc, 
+                                                                                            double variance,byte precision)
         {
             try
             {
-                return myClient.DiagnosePrice_CloseAndNextOpen(frDate,toDate,timeScaleCode,exchangeCode,variancePerc,variance);
+                return myClient.DiagnosePrice_CloseAndNextOpen(frDate, toDate, timeScaleCode, exchangeCode, code, variancePerc, variance, precision);
             }
             catch (Exception er)
             {
@@ -1538,6 +1551,18 @@ namespace DataAccess
             try
             {
                 myClient.AjustPriceData(code, toDate, weight);
+            }
+            catch (Exception er)
+            {
+                if (OnError != null) OnError(er);
+            }
+        }
+
+        public static void ReAggregatePriceData(string code)
+        {
+            try
+            {
+                myClient.ReAggregatePriceData(code);
             }
             catch (Exception er)
             {

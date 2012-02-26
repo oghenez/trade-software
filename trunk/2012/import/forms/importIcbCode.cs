@@ -81,7 +81,7 @@ namespace imports.forms
                 item = ImportLibs.SplitKeyValue(tbl[idx][fldName].ToString()," ");
                 if (item == null)
                 {
-                    common.fileFuncs.WriteLog(tbl[idx][fldName].ToString() + " not found.");
+                    common.SysLog.WriteLog(tbl[idx][fldName].ToString() + " not found.");
                     continue;
                 }
                 if (sysCodeTbl.FindBycategorycode(category, item.Key) == null)
@@ -170,7 +170,7 @@ namespace imports.forms
         {
             try
             {
-                common.fileFuncs.DisplayFile(common.fileFuncs.myLogFileName);
+                common.fileFuncs.DisplayFile(common.SysLog.myLogFileName);
             }
             catch (Exception er)
             {

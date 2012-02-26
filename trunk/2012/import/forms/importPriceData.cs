@@ -37,7 +37,7 @@ namespace imports.forms
 
         private void onAddCompany(string code)
         {
-            common.fileFuncs.WriteLog(" - Add company : " + code);
+            common.SysLog.WriteLog(" - Add company : " + code);
         }
         private void OnUpdateData(databases.baseDS.priceDataRow row, ImportLibs.importStat stat)
         {
@@ -176,7 +176,7 @@ namespace imports.forms
         {
             try
             {
-                common.fileFuncs.DisplayFile(common.fileFuncs.myLogFileName);
+                common.fileFuncs.DisplayFile(common.SysLog.myLogFileName);
             }
             catch (Exception er)
             {

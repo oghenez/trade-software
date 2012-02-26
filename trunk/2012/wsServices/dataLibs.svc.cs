@@ -29,9 +29,13 @@ namespace wsServices
             public long timeStamp = 0; 
         }
 
-        private void WriteSysLog(Exception er)
+        private void WriteSysLogLocal(Exception er)
         {
-            commonClass.SysLibs.WriteSysLog(er, null);
+            commonClass.SysLibs.WriteSysLog(null,er);
+        }
+        private void WriteSysLogLocal(string msg)
+        {
+            commonClass.SysLibs.WriteSysLog(msg);
         }
 
         #region system
@@ -117,7 +121,7 @@ namespace wsServices
             }
             catch (Exception ex)
             {
-                WriteSysLog(ex);
+                WriteSysLogLocal(ex);
             }
             return null;
         }
@@ -133,7 +137,7 @@ namespace wsServices
             }
             catch (Exception ex)
             {
-                WriteSysLog(ex);
+                WriteSysLogLocal(ex);
             }
             return null;
         }
@@ -157,7 +161,7 @@ namespace wsServices
             }
             catch (Exception ex)
             {
-                WriteSysLog(ex);
+                WriteSysLogLocal(ex);
             }
             return null;
         }
@@ -174,7 +178,7 @@ namespace wsServices
             }
             catch (Exception ex)
             {
-                WriteSysLog(ex);
+                WriteSysLogLocal(ex);
             }
             return null;
         }
@@ -188,7 +192,7 @@ namespace wsServices
             }
             catch (Exception ex)
             {
-                WriteSysLog(ex);
+                WriteSysLogLocal(ex);
             }
             return null;
         }
@@ -450,7 +454,7 @@ namespace wsServices
             }
             catch (Exception ex)
             {
-                WriteSysLog(ex);
+                WriteSysLogLocal(ex);
             }
             return null;
         }
@@ -528,7 +532,7 @@ namespace wsServices
         #endregion
 
         #region Update
-        public void UpdatePriceData(databases.baseDS.priceDataDataTable tbl)
+        public void UpdatePriceData(ref databases.baseDS.priceDataDataTable tbl)
         {
             try
             {
@@ -536,18 +540,20 @@ namespace wsServices
             }
             catch (Exception ex)
             {
-                WriteSysLog(ex);
+                WriteSysLogLocal(ex);
             }
         }
         public void UpdateSysCodeCat(ref databases.baseDS.sysCodeCatDataTable tbl)
         {
             try
             {
+                WriteSysLogLocal("Hello 1" + tbl.Count.ToString());
                 databases.DbAccess.UpdateData(tbl);
+                WriteSysLogLocal("Hello 2" + tbl.Count.ToString());
             }
             catch (Exception ex)
             {
-                WriteSysLog(ex);
+                WriteSysLogLocal(ex);
             }
         }
         public void UpdateSysCode(ref databases.baseDS.sysCodeDataTable tbl)
@@ -558,7 +564,7 @@ namespace wsServices
             }
             catch (Exception ex)
             {
-                WriteSysLog(ex);
+                WriteSysLogLocal(ex);
             }
         }
         public void UpdateStock(ref databases.baseDS.stockCodeDataTable tbl)
@@ -569,7 +575,7 @@ namespace wsServices
             }
             catch (Exception ex)
             {
-                WriteSysLog(ex);
+                WriteSysLogLocal(ex);
             }
         }
         public void UpdateInvestor(ref databases.baseDS.investorDataTable tbl)
@@ -587,7 +593,7 @@ namespace wsServices
             }
             catch (Exception ex)
             {
-                WriteSysLog(ex);
+                WriteSysLogLocal(ex);
             }
         }
         public void UpdatePortfolio(ref databases.baseDS.portfolioDataTable tbl)
@@ -606,7 +612,7 @@ namespace wsServices
             }
             catch (Exception ex)
             {
-                WriteSysLog(ex);
+                WriteSysLogLocal(ex);
             }
         }
         public void UpdatePortfolioDetail(ref databases.baseDS.portfolioDetailDataTable tbl)
@@ -617,7 +623,7 @@ namespace wsServices
             }
             catch (Exception ex)
             {
-                WriteSysLog(ex);
+                WriteSysLogLocal(ex);
             }
         }
         public void UpdateStockExchange(ref databases.baseDS.stockExchangeDataTable tbl)
@@ -628,7 +634,7 @@ namespace wsServices
             }
             catch (Exception ex)
             {
-                WriteSysLog(ex);
+                WriteSysLogLocal(ex);
             }
         }
         public void UpdateTransactions(ref databases.baseDS.transactionsDataTable tbl)
@@ -639,7 +645,7 @@ namespace wsServices
             }
             catch (Exception ex)
             {
-                WriteSysLog(ex);
+                WriteSysLogLocal(ex);
             }
         }
         public void UpdateInvestorStock(ref databases.baseDS.investorStockDataTable tbl)
@@ -650,7 +656,7 @@ namespace wsServices
             }
             catch (Exception ex)
             {
-                WriteSysLog(ex);
+                WriteSysLogLocal(ex);
             }
         }
         public void UpdateTradeAlert(ref databases.baseDS.tradeAlertDataTable tbl)
@@ -661,7 +667,7 @@ namespace wsServices
             }
             catch (Exception ex)
             {
-                WriteSysLog(ex);
+                WriteSysLogLocal(ex);
             }
         }
         public void UpdateSysAutoKeyPending(ref databases.baseDS.sysAutoKeyPendingDataTable tbl)
@@ -672,7 +678,7 @@ namespace wsServices
             }
             catch (Exception ex)
             {
-                WriteSysLog(ex);
+                WriteSysLogLocal(ex);
             }
         }
         #endregion
@@ -686,7 +692,7 @@ namespace wsServices
             }
             catch (Exception ex)
             {
-                WriteSysLog(ex);
+                WriteSysLogLocal(ex);
             }
         }
         public void DeleteStock(string code)
@@ -697,7 +703,7 @@ namespace wsServices
             }
             catch (Exception ex)
             {
-                WriteSysLog(ex);
+                WriteSysLogLocal(ex);
             }
         }
         public void DeleteInvestor(string code)
@@ -708,7 +714,7 @@ namespace wsServices
             }
             catch (Exception ex)
             {
-                WriteSysLog(ex);
+                WriteSysLogLocal(ex);
             }
         }
         public void DeletePortfolio(string code)
@@ -719,7 +725,7 @@ namespace wsServices
             }
             catch (Exception ex)
             {
-                WriteSysLog(ex);
+                WriteSysLogLocal(ex);
             }
         }
         public void DeleteTradeAlert(int rowId)
@@ -730,7 +736,7 @@ namespace wsServices
             }
             catch (Exception ex)
             {
-                WriteSysLog(ex);
+                WriteSysLogLocal(ex);
             }
         }
 
@@ -742,7 +748,7 @@ namespace wsServices
             }
             catch (Exception ex)
             {
-                WriteSysLog(ex);
+                WriteSysLogLocal(ex);
             }
         }
         public void DeleteSysCode(string catCode,string code)
@@ -753,7 +759,7 @@ namespace wsServices
             }
             catch (Exception ex)
             {
-                WriteSysLog(ex);
+                WriteSysLogLocal(ex);
             }
         }
         #endregion
@@ -780,7 +786,7 @@ namespace wsServices
             }
             catch (Exception ex)
             {
-                WriteSysLog(ex);
+                WriteSysLogLocal(ex);
             }
             return null;
         }
@@ -797,7 +803,7 @@ namespace wsServices
             }
             catch (Exception ex)
             {
-                WriteSysLog(ex);
+                WriteSysLogLocal(ex);
             }
             return null;
         }
@@ -814,7 +820,7 @@ namespace wsServices
             }
             catch (Exception ex)
             {
-                WriteSysLog(ex);
+                WriteSysLogLocal(ex);
             }
             return null;
         }
@@ -830,7 +836,7 @@ namespace wsServices
             }
             catch (Exception ex)
             {
-                WriteSysLog(ex);
+                WriteSysLogLocal(ex);
             }
             return null;
         }
@@ -843,7 +849,7 @@ namespace wsServices
             }
             catch (Exception ex)
             {
-                WriteSysLog(ex);
+                WriteSysLogLocal(ex);
             }
         }
         public void Save_Global_Settings(GlobalSettings settings)
@@ -854,33 +860,42 @@ namespace wsServices
             }
             catch (Exception ex)
             {
-                WriteSysLog(ex);
+                WriteSysLogLocal(ex);
             }
         }
 
 
         public databases.tmpDS.priceDiagnoseDataTable DiagnosePrice_CloseAndNextOpen(DateTime frDate, DateTime toDate, string timeScaleCode,
-                                                                   string exchangeCode, double variancePerc, double variance)
+                                                                   string exchangeCode,string code, double variancePerc, double variance,byte precision)
         {
             try
             {
                 databases.baseDS.priceDataDataTable priceDataTbl = new databases.baseDS.priceDataDataTable();
                 databases.tmpDS.priceDiagnoseDataTable priceDiagnoseTbl = new databases.tmpDS.priceDiagnoseDataTable();
-                databases.tmpDS.stockCodeDataTable codeTbl = new databases.tmpDS.stockCodeDataTable();
-                databases.DbAccess.LoadStockCode_ByStockExchange(codeTbl, exchangeCode, AppTypes.CommonStatus.Enable);
-                for (int idx = 0; idx < codeTbl.Count; idx++)
+                if (code != null && code.Trim() != "")
                 {
                     priceDataTbl.Clear();
-                    databases.DbAccess.LoadData(priceDataTbl, timeScaleCode, frDate, toDate, codeTbl[idx].code);
-                    application.AppLibs.DiagnosePrice_CloseAndNextOpen(priceDataTbl, variancePerc, variance, priceDiagnoseTbl);
+                    databases.DbAccess.LoadData(priceDataTbl, timeScaleCode, frDate, toDate, code.Trim());
+                    application.AppLibs.DiagnosePrice_CloseAndNextOpen(priceDataTbl, variancePerc, variance,precision, priceDiagnoseTbl);
+                }
+                else
+                {
+                    databases.tmpDS.stockCodeDataTable codeTbl = new databases.tmpDS.stockCodeDataTable();
+                    databases.DbAccess.LoadStockCode_ByStockExchange(codeTbl, exchangeCode, AppTypes.CommonStatus.Enable);
+                    for (int idx = 0; idx < codeTbl.Count; idx++)
+                    {
+                        priceDataTbl.Clear();
+                        databases.DbAccess.LoadData(priceDataTbl, timeScaleCode, frDate, toDate, codeTbl[idx].code);
+                        application.AppLibs.DiagnosePrice_CloseAndNextOpen(priceDataTbl, variancePerc, variance,precision, priceDiagnoseTbl);
+                    }
+                    codeTbl.Dispose();
                 }
                 priceDataTbl.Dispose();
-                codeTbl.Dispose();
                 return priceDiagnoseTbl;
             }
             catch (Exception ex)
             {
-                WriteSysLog(ex);
+                WriteSysLogLocal(ex);
             }
             return null;
         }
@@ -892,14 +907,25 @@ namespace wsServices
             }
             catch (Exception ex)
             {
-                WriteSysLog(ex);
+                WriteSysLogLocal(ex);
             }
         }
 
+        public void ReAggregatePriceData(string code)
+        {
+            try
+            {
+                application.AppLibs.ReAggregatePriceData(code);
+            }
+            catch (Exception ex)
+            {
+                WriteSysLogLocal(ex);
+            }
+        }
         #endregion
 
         #region syslog
-        public void WriteSyslog(AppTypes.SyslogTypes logType,string investorCode, string desc, string source, string msg)
+        public void WriteLog(byte logType,string investorCode, string desc, string source, string msg)
         {
             try
             {
@@ -907,9 +933,22 @@ namespace wsServices
             }
             catch (Exception ex)
             {
-                WriteSysLog(ex);
+                WriteSysLogLocal(ex);
             }
         }
+        public void WriteExcptionLog(string investorCode, common.SysLog.LogData logData)
+        {
+            try
+            {
+                databases.DbAccess.WriteSyslog( AppTypes.SyslogTypes.Exception, investorCode,logData.description,logData.source,
+                                                logData.message +" "+ logData.info);
+            }
+            catch (Exception ex)
+            {
+                WriteSysLogLocal(ex);
+            }
+        }
+
         #endregion syslog
 
         #region test

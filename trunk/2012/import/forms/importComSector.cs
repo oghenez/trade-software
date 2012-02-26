@@ -52,18 +52,18 @@ namespace imports.forms
             {
                 tbl.Clear();
                 this.ShowMessage(" Import from sheet : " + tmpList[idx].ToString());
-                common.fileFuncs.WriteLog("Import from sheet : " + tmpList[idx].ToString());
+                common.SysLog.WriteLog("Import from sheet : " + tmpList[idx].ToString());
                 common.import.ImportFromExcel(dataFileNameEd.Text, tmpList[idx].ToString(), "*", false, tbl);
                 Import_ValidateData(tbl);
                 //Add to database
                 Import_UpdateSectors(tbl);
                 Application.DoEvents();
             }
-            common.fileFuncs.WriteLog("Companies do not have sectors");
+            common.SysLog.WriteLog("Companies do not have sectors");
             for (int idx = 0; idx < myDataSet.stockCode.Count; idx++)
             {
                 if (myDataSet.stockCode[idx].bizSectors.Trim() != "") continue;
-                common.fileFuncs.WriteLog(" - " + myDataSet.stockCode[idx].code + common.Consts.constTab + myDataSet.stockCode[idx].name);
+                common.SysLog.WriteLog(" - " + myDataSet.stockCode[idx].code + common.Consts.constTab + myDataSet.stockCode[idx].name);
             }
             //common.Export.ExportToExcel(tbl.DefaultView.ToTable(), "d://tmp.xls");
             this.ShowMessage("Hoàn tất");
@@ -113,7 +113,7 @@ namespace imports.forms
                     stockCodeRow.regDate = DateTime.Today;
                     stockCodeRow.stockExchange = tbl.Rows[count][2].ToString().Trim(); ;
                     myDataSet.stockCode.AddstockCodeRow(stockCodeRow);
-                    common.fileFuncs.WriteLog(" - New stockCode " + common.Consts.constTab + comCode + common.Consts.constTab + " at " + comName);
+                    common.SysLog.WriteLog(" - New stockCode " + common.Consts.constTab + comCode + common.Consts.constTab + " at " + comName);
                 }
                 //subSector ->code
                 subSectorDesc = tbl.Rows[count][5].ToString().Trim();
@@ -126,13 +126,13 @@ namespace imports.forms
                     if (mySubSectorView.Count > 0)
                     {
                         foundSectorCode = mySubSectorView[0][myDataSet.bizSubSector.codeColumn.ColumnName].ToString();
-                        common.fileFuncs.WriteLog(" - Match subsector " + common.Consts.constTab + subSectorDesc + common.Consts.constTab + "->" + common.Consts.constTab +
+                        common.SysLog.WriteLog(" - Match subsector " + common.Consts.constTab + subSectorDesc + common.Consts.constTab + "->" + common.Consts.constTab +
                                   mySubSectorView[0][myDataSet.bizSubSector.description1Column.ColumnName].ToString() + common.Consts.constTab + " at " + comCode);
                     }
                     else
                     {
                         foundSectorCode = null;
-                        common.fileFuncs.WriteLog(" - New subsector " + common.Consts.constTab + subSectorDesc + common.Consts.constTab + "at " + comCode);
+                        common.SysLog.WriteLog(" - New subsector " + common.Consts.constTab + subSectorDesc + common.Consts.constTab + "at " + comCode);
                     }
                     mySubSectorView.RowFilter = "";
                 }
@@ -208,7 +208,7 @@ namespace imports.forms
         {
             try
             {
-                common.fileFuncs.DisplayFile(common.fileFuncs.myLogFileName);
+                common.fileFuncs.DisplayFile(common.SysLog.myLogFileName);
             }
             catch (Exception er)
             {

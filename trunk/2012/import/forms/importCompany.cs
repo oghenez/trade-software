@@ -39,7 +39,7 @@ namespace imports.forms
             databases.DbAccess.LoadStockCode_ByStatus(myDataSet.stockCode,AppTypes.CommonStatus.Enable);
 
             this.ShowMessage(" Import from sheet : " + dataFileNameEd.Text);
-            common.fileFuncs.WriteLog("Import from sheet : " + dataFileNameEd.Text);
+            common.SysLog.WriteLog("Import from sheet : " + dataFileNameEd.Text);
             DataTable tbl = new DataTable();
             common.import.ImportFromExcel(dataFileNameEd.Text, (StringCollection)null, "*", true, tbl);
             Import_ValidateData(tbl);
@@ -200,7 +200,7 @@ namespace imports.forms
         {
             try
             {
-                common.fileFuncs.DisplayFile(common.fileFuncs.myLogFileName);
+                common.fileFuncs.DisplayFile(common.SysLog.myLogFileName);
             }
             catch (Exception er)
             {

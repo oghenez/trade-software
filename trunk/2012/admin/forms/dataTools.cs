@@ -11,6 +11,7 @@ namespace admin.forms
 {
     public partial class dataTools : baseClass.forms.baseForm
     {
+        byte constPrecision = 3;
         public dataTools()
         {
             try
@@ -25,8 +26,11 @@ namespace admin.forms
                 fullMode = false;
                 tabControl.SendToBack();
 
-                varianceEd.myPrecision = 3;
-                adjWeightEd.myPrecision = 3;
+                dataVarianceEd.myPrecision = constPrecision;
+                dataWeightEd.myPrecision = constPrecision;
+
+                srcSelectColumn.myImageType = common.controls.imageType.Select;
+                dataSelectColumn.myImageType = common.controls.imageType.Select; 
             }
             catch (Exception er)
             {
@@ -62,17 +66,17 @@ namespace admin.forms
         {
             bool retVal = true;
             ClearNotifyError();
-            if (adjustToDateEd.myDateTime == common.Consts.constNullDate) 
+            if (dataToDateEd.myDateTime == common.Consts.constNullDate) 
             {
                 this.NotifyError(adjustToDateLbl);
                 retVal = false;
             }
-            if (adjustCodeEd.Text.Trim() == "") 
+            if (dataCodeEd.Text.Trim() == "") 
             {
-                this.NotifyError(adjustCodeLbl);
+                this.NotifyError(dataCodeLbl);
                 retVal = false;
             }
-            if (adjWeightEd.Value == 0)
+            if (dataWeightEd.Value == 0)
             {
                 this.NotifyError(adjWeightLbl);
                 retVal = false;
@@ -88,9 +92,19 @@ namespace admin.forms
         {
             return weight - 1;
         }
-        private void SwithTagPage()
+        private void SwithTabControlPage()
         {
             tabControl.SelectedTab = (tabControl.SelectedTab == dataAdjPg ? searchPg : dataAdjPg);
+            if (tabControl.SelectedTab == dataAdjPg)
+            {
+                if (priceDiagnoseSource.Current == null) return;
+                databases.tmpDS.priceDiagnoseRow row = (databases.tmpDS.priceDiagnoseRow)(priceDiagnoseSource.Current as DataRowView).Row;
+                dataCodeEd.Text = row.code;
+                dataToDateEd.myDateTime = row.date2;
+
+                dataVarianceEd.Value = (decimal)row.variance;
+                dataWeightEd.Value = VarianceToWeight((decimal)row.variance);
+            }
         }
 
         private void diagnoseBtn_Click(object sender, EventArgs e)
@@ -105,8 +119,10 @@ namespace admin.forms
                 common.system.ShowCurrorWait();
                 System.Diagnostics.Stopwatch watch = new System.Diagnostics.Stopwatch();
                 watch.Start();
-                priceDiagnoseSource.DataSource = DataAccess.Libs.DiagnosePrice_CloseAndNextOpen(srcFrDateEd.myDateTime, srcToDateEd.myDateTime, diagTimeScaleCb.myValue.Code,
-                                                                                                exchangeCb.myValue, (double)checkVariancePercEd.Value, (double)checkVarianceEd.Value);
+                priceDiagnoseSource.DataSource = 
+                    DataAccess.Libs.DiagnosePrice_CloseAndNextOpen(srcFrDateEd.myDateTime, srcToDateEd.myDateTime, diagTimeScaleCb.myValue.Code,
+                                                                   exchangeCb.myValue,srcCodeEd.Text.Trim(), (double)checkVariancePercEd.Value,
+                                                                   (double)checkVarianceEd.Value, constPrecision);
                 priceDiagnoseSource.Sort = tmpDS.priceDiagnose.codeColumn.ColumnName;
                 watch.Stop();
                 this.ShowMessage(Languages.Libs.GetString("finished") + " : " + common.dateTimeLibs.TimeSpan2String(watch.Elapsed));
@@ -123,39 +139,13 @@ namespace admin.forms
                 diagnoseBtn.Enabled = true;
             }
         }
-        private void DataGrid_DoubleClick(object sender, EventArgs e)
-        {
-            try
-            {
-                if (fProcessing) return;
-                fProcessing = true;
-                SwithTagPage();
-                if (tabControl.SelectedTab == dataAdjPg)
-                {
-                    if (priceDiagnoseSource.Current == null) return;
-                    databases.tmpDS.priceDiagnoseRow row = (databases.tmpDS.priceDiagnoseRow)(priceDiagnoseSource.Current as DataRowView).Row;
-                    adjustCodeEd.Text = row.code;
-                    adjustToDateEd.myDateTime = row.date1;
-
-                    varianceEd.Value = (decimal)row.variance;
-                    adjWeightEd.Value = VarianceToWeight((decimal)row.variance);
-                    //fullMode = false;
-                }
-                fProcessing = false;
-            }
-            catch (Exception er)
-            {
-                fProcessing = false;
-                this.ShowError(er);
-            }
-        }
         private void varianceEd_Validated(object sender, EventArgs e)
         {
             try
             {
                 if (fProcessing) return;
                 fProcessing = true;
-                adjWeightEd.Value = VarianceToWeight(varianceEd.GetValue());
+                dataWeightEd.Value = VarianceToWeight(dataVarianceEd.GetValue());
                 fProcessing = false;
             }
             catch (Exception er)
@@ -170,7 +160,7 @@ namespace admin.forms
             {
                 if (fProcessing) return;
                 fProcessing = true;
-                varianceEd.Value = WeightToVariance(adjWeightEd.GetValue());
+                dataVarianceEd.Value = WeightToVariance(dataWeightEd.GetValue());
                 fProcessing = false;
             }
             catch (Exception er)
@@ -189,11 +179,11 @@ namespace admin.forms
 
                 loadPriceBtn.Enabled = false;
 
-                DateTime toDate = adjustToDateEd.myDateTime;
-                decimal weight = (decimal)adjWeightEd.Value;
+                DateTime toDate = dataToDateEd.myDateTime;
+                decimal weight = (decimal)dataWeightEd.Value;
                 System.Diagnostics.Stopwatch watch = new System.Diagnostics.Stopwatch();
                 watch.Start();
-                databases.baseDS.priceDataDataTable priceTbl = DataAccess.Libs.GetPriceData(adjustCodeEd.Text.Trim(), dataTimeScaleCb.myValue.Code);
+                databases.baseDS.priceDataDataTable priceTbl = DataAccess.Libs.GetPriceData(dataCodeEd.Text.Trim(), dataTimeScaleCb.myValue.Code);
 
                 if (priceTbl == null) return;
                 priceDataSource.DataSource = priceTbl;
@@ -220,19 +210,19 @@ namespace admin.forms
                 testAdjustDataBtn.Enabled = false;
                 common.system.ShowCurrorWait();
 
-                DateTime toDate = adjustToDateEd.myDateTime;
-                decimal weight = (decimal)adjWeightEd.Value;
+                DateTime toDate = dataToDateEd.myDateTime;
+                decimal weight = (decimal)dataWeightEd.Value;
 
                 databases.baseDS.priceDataDataTable priceTbl = (priceDataSource.DataSource as databases.baseDS.priceDataDataTable);
                 if (priceTbl == null) return;
-                //Only adjust before specified date
+                //Only adjust before the specified date
                 if (weight > 0)
                 {
                     //weight = (1+weight)/100;
                     for (int idx = 0; idx < priceTbl.Count; idx++)
                     {
                         if (priceTbl[idx].RowState == DataRowState.Deleted) continue;
-                        if (priceTbl[idx].onDate > toDate) continue;
+                        if (priceTbl[idx].onDate >= toDate) continue;
                         priceTbl[idx].lowPrice *= weight;
                         priceTbl[idx].highPrice *= weight;
                         priceTbl[idx].closePrice *= weight;
@@ -245,7 +235,7 @@ namespace admin.forms
                     for (int idx = 0; idx < priceTbl.Count; idx++)
                     {
                         if (priceTbl[idx].RowState == DataRowState.Deleted) continue;
-                        if (priceTbl[idx].onDate > toDate) continue;
+                        if (priceTbl[idx].onDate >= toDate) continue;
                         priceTbl[idx].lowPrice /= weight;
                         priceTbl[idx].highPrice /= weight;
                         priceTbl[idx].closePrice /= weight;
@@ -275,14 +265,28 @@ namespace admin.forms
                 common.system.ShowCurrorWait(); 
                 System.Diagnostics.Stopwatch watch = new System.Diagnostics.Stopwatch();
                 watch.Start();
-
                 //Only update changed data
                 databases.baseDS.priceDataDataTable tbl = new databases.baseDS.priceDataDataTable();
                 databases.baseDS.priceDataDataTable sourceTbl = (databases.baseDS.priceDataDataTable)priceDataSource.DataSource;
+
+                progressBar.Visible = true;
+                progressBar.Value =0;
+                progressBar.Maximum = sourceTbl.Count;
+                int batchCount = Settings.sysNumberOfItemsInBatchProcess;
                 for (int idx = 0; idx < sourceTbl.Count; idx++)
                 {
-                    if (sourceTbl[idx].RowState != DataRowState.Modified) continue;
+                    progressBar.Value++;
+                    Application.DoEvents();
+
+                    if (sourceTbl[idx].RowState == DataRowState.Unchanged) continue;
                     tbl.ImportRow(sourceTbl[idx]);
+                    batchCount--;
+                    if (batchCount == 0)
+                    {
+                        DataAccess.Libs.UpdateData(tbl);
+                        tbl.Clear();
+                        batchCount = Settings.sysNumberOfItemsInBatchProcess;
+                    }
                 }
                 DataAccess.Libs.UpdateData(tbl);
                 watch.Stop();
@@ -296,6 +300,7 @@ namespace admin.forms
             {
                 common.system.ShowCurrorDefault();
                 saveFixDataBtn.Enabled = true;
+                progressBar.Visible = false;
             }
         }
 
@@ -311,7 +316,8 @@ namespace admin.forms
 
                 System.Diagnostics.Stopwatch watch = new System.Diagnostics.Stopwatch();
                 watch.Start();
-                DataAccess.Libs.AjustPriceData(adjustCodeEd.Text.Trim(), adjustToDateEd.myDateTime, (double)adjWeightEd.Value);
+                DataAccess.Libs.ReAggregatePriceData(dataCodeEd.Text.Trim());
+                
                 watch.Stop();
                 this.ShowMessage(Languages.Libs.GetString("finished") + " : " + common.dateTimeLibs.TimeSpan2String(watch.Elapsed));
             }
@@ -325,39 +331,75 @@ namespace admin.forms
                 reAggregateBtn.Enabled = true;
             }
         }
-        private void abnormalDataBtn_Click(object sender, EventArgs e)
+
+        private void resultGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             try
             {
-                this.ShowMessage("");
-                if (!DataFixValid()) return;
+                if (fProcessing) return;
+                if (resultGrid.Columns[e.ColumnIndex] != srcSelectColumn) return;
 
-                common.system.ShowCurrorWait();
-                abnormalDataBtn.Enabled = false;
-
-                System.Diagnostics.Stopwatch watch = new System.Diagnostics.Stopwatch();
-                watch.Start();
-                databases.baseDS.priceDataDataTable priceTbl = DataAccess.Libs.GetAbnormalData(adjustCodeEd.Text.Trim(),
-                                                               Settings.sysStartDataDate,adjustToDateEd.myDateTime,
-                                                               dataTimeScaleCb.myValue.Code);
-
-                if (priceTbl == null) return;
-                priceDataSource.DataSource = priceTbl;
-                priceDataSource.Sort = priceTbl.onDateColumn.ColumnName + " DESC";
-                watch.Stop();
-                this.ShowMessage(Languages.Libs.GetString("finished") + " : " + common.dateTimeLibs.TimeSpan2String(watch.Elapsed));
-                this.ShowReccount(priceDataSource.Count);
-                fullMode = true;
+                fProcessing = true;
+                SwithTabControlPage();
+                fProcessing = false;
             }
             catch (Exception er)
             {
+                fProcessing = false;
                 this.ShowError(er);
             }
-            finally
+        }
+
+        private void dataAdjGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
             {
-                common.system.ShowCurrorDefault();
-                abnormalDataBtn.Enabled = true;
+                if (fProcessing) return;
+                if (dataAdjGrid.Columns[e.ColumnIndex] != dataSelectColumn) return;
+
+                fProcessing = true;
+                SwithTabControlPage();
+                fProcessing = false;
+            }
+            catch (Exception er)
+            {
+                fProcessing = false;
+                this.ShowError(er);
             }
         }
+        //private void abnormalDataBtn_Click(object sender, EventArgs e)
+        //{
+        //    try
+        //    {
+        //        this.ShowMessage("");
+        //        if (!DataFixValid()) return;
+
+        //        common.system.ShowCurrorWait();
+        //        abnormalDataBtn.Enabled = false;
+
+        //        System.Diagnostics.Stopwatch watch = new System.Diagnostics.Stopwatch();
+        //        watch.Start();
+        //        databases.baseDS.priceDataDataTable priceTbl = DataAccess.Libs.GetAbnormalData(adjustCodeEd.Text.Trim(),
+        //                                                       Settings.sysStartDataDate,adjustToDateEd.myDateTime,
+        //                                                       dataTimeScaleCb.myValue.Code);
+
+        //        if (priceTbl == null) return;
+        //        priceDataSource.DataSource = priceTbl;
+        //        priceDataSource.Sort = priceTbl.onDateColumn.ColumnName + " DESC";
+        //        watch.Stop();
+        //        this.ShowMessage(Languages.Libs.GetString("finished") + " : " + common.dateTimeLibs.TimeSpan2String(watch.Elapsed));
+        //        this.ShowReccount(priceDataSource.Count);
+        //        fullMode = true;
+        //    }
+        //    catch (Exception er)
+        //    {
+        //        this.ShowError(er);
+        //    }
+        //    finally
+        //    {
+        //        common.system.ShowCurrorDefault();
+        //        abnormalDataBtn.Enabled = true;
+        //    }
+        //}
     }
 }

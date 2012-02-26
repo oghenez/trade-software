@@ -15,8 +15,14 @@ namespace DataAccess.ServiceReference1 {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.IStockService")]
     public interface IStockService {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/WriteSyslog", ReplyAction="http://tempuri.org/IStockService/WriteSyslogResponse")]
-        void WriteSyslog(commonTypes.AppTypes.SyslogTypes logType, string investorCode, string desc, string source, string msg);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/Save_Global_Settings", ReplyAction="http://tempuri.org/IStockService/Save_Global_SettingsResponse")]
+        void Save_Global_Settings(commonTypes.GlobalSettings settings);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/WriteLog", ReplyAction="http://tempuri.org/IStockService/WriteLogResponse")]
+        void WriteLog(byte logType, string investorCode, string desc, string source, string msg);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/WriteExcptionLog", ReplyAction="http://tempuri.org/IStockService/WriteExcptionLogResponse")]
+        void WriteExcptionLog(string investorCode, common.SysLog.LogData logData);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/Test", ReplyAction="http://tempuri.org/IStockService/TestResponse")]
         System.Data.DataTable Test(string sql);
@@ -88,10 +94,13 @@ namespace DataAccess.ServiceReference1 {
         commonClass.TradePointInfo[] GetTradePointWithEstimationDetail(out databases.tmpDS.tradeEstimateDataTable toTbl, commonClass.DataParams dataParam, string stockCode, string strategyCode, commonClass.EstimateOptions options);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/DiagnosePrice_CloseAndNextOpen", ReplyAction="http://tempuri.org/IStockService/DiagnosePrice_CloseAndNextOpenResponse")]
-        databases.tmpDS.priceDiagnoseDataTable DiagnosePrice_CloseAndNextOpen(System.DateTime frDate, System.DateTime toDate, string timeScaleCode, string exchangeCode, double variantPerc, double variance);
+        databases.tmpDS.priceDiagnoseDataTable DiagnosePrice_CloseAndNextOpen(System.DateTime frDate, System.DateTime toDate, string timeScaleCode, string exchangeCode, string code, double variantPerc, double variance, byte precision);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/AjustPriceData", ReplyAction="http://tempuri.org/IStockService/AjustPriceDataResponse")]
         void AjustPriceData(string code, System.DateTime toDate, double weight);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/ReAggregatePriceData", ReplyAction="http://tempuri.org/IStockService/ReAggregatePriceDataResponse")]
+        void ReAggregatePriceData(string code);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetXmlDoc2StringSTRATEGY", ReplyAction="http://tempuri.org/IStockService/GetXmlDoc2StringSTRATEGYResponse")]
         string GetXmlDoc2StringSTRATEGY();
@@ -101,9 +110,6 @@ namespace DataAccess.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/Load_Global_Settings", ReplyAction="http://tempuri.org/IStockService/Load_Global_SettingsResponse")]
         void Load_Global_Settings(ref commonTypes.GlobalSettings settings);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/Save_Global_Settings", ReplyAction="http://tempuri.org/IStockService/Save_Global_SettingsResponse")]
-        void Save_Global_Settings(commonTypes.GlobalSettings settings);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetStockList_ByWatchList", ReplyAction="http://tempuri.org/IStockService/GetStockList_ByWatchListResponse")]
         string[] GetStockList_ByWatchList(string[] watchList);
@@ -205,7 +211,7 @@ namespace DataAccess.ServiceReference1 {
         bool IsWorking();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/UpdatePriceData", ReplyAction="http://tempuri.org/IStockService/UpdatePriceDataResponse")]
-        void UpdatePriceData(databases.baseDS.priceDataDataTable tbl);
+        void UpdatePriceData(ref databases.baseDS.priceDataDataTable tbl);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/UpdateSysCodeCat", ReplyAction="http://tempuri.org/IStockService/UpdateSysCodeCatResponse")]
         void UpdateSysCodeCat(ref databases.baseDS.sysCodeCatDataTable sysCodeCatTbl);
@@ -301,8 +307,16 @@ namespace DataAccess.ServiceReference1 {
                 base(binding, remoteAddress) {
         }
         
-        public void WriteSyslog(commonTypes.AppTypes.SyslogTypes logType, string investorCode, string desc, string source, string msg) {
-            base.Channel.WriteSyslog(logType, investorCode, desc, source, msg);
+        public void Save_Global_Settings(commonTypes.GlobalSettings settings) {
+            base.Channel.Save_Global_Settings(settings);
+        }
+        
+        public void WriteLog(byte logType, string investorCode, string desc, string source, string msg) {
+            base.Channel.WriteLog(logType, investorCode, desc, source, msg);
+        }
+        
+        public void WriteExcptionLog(string investorCode, common.SysLog.LogData logData) {
+            base.Channel.WriteExcptionLog(investorCode, logData);
         }
         
         public System.Data.DataTable Test(string sql) {
@@ -397,12 +411,16 @@ namespace DataAccess.ServiceReference1 {
             return base.Channel.GetTradePointWithEstimationDetail(out toTbl, dataParam, stockCode, strategyCode, options);
         }
         
-        public databases.tmpDS.priceDiagnoseDataTable DiagnosePrice_CloseAndNextOpen(System.DateTime frDate, System.DateTime toDate, string timeScaleCode, string exchangeCode, double variantPerc, double variance) {
-            return base.Channel.DiagnosePrice_CloseAndNextOpen(frDate, toDate, timeScaleCode, exchangeCode, variantPerc, variance);
+        public databases.tmpDS.priceDiagnoseDataTable DiagnosePrice_CloseAndNextOpen(System.DateTime frDate, System.DateTime toDate, string timeScaleCode, string exchangeCode, string code, double variantPerc, double variance, byte precision) {
+            return base.Channel.DiagnosePrice_CloseAndNextOpen(frDate, toDate, timeScaleCode, exchangeCode, code, variantPerc, variance, precision);
         }
         
         public void AjustPriceData(string code, System.DateTime toDate, double weight) {
             base.Channel.AjustPriceData(code, toDate, weight);
+        }
+        
+        public void ReAggregatePriceData(string code) {
+            base.Channel.ReAggregatePriceData(code);
         }
         
         public string GetXmlDoc2StringSTRATEGY() {
@@ -415,10 +433,6 @@ namespace DataAccess.ServiceReference1 {
         
         public void Load_Global_Settings(ref commonTypes.GlobalSettings settings) {
             base.Channel.Load_Global_Settings(ref settings);
-        }
-        
-        public void Save_Global_Settings(commonTypes.GlobalSettings settings) {
-            base.Channel.Save_Global_Settings(settings);
         }
         
         public string[] GetStockList_ByWatchList(string[] watchList) {
@@ -553,8 +567,8 @@ namespace DataAccess.ServiceReference1 {
             return base.Channel.IsWorking();
         }
         
-        public void UpdatePriceData(databases.baseDS.priceDataDataTable tbl) {
-            base.Channel.UpdatePriceData(tbl);
+        public void UpdatePriceData(ref databases.baseDS.priceDataDataTable tbl) {
+            base.Channel.UpdatePriceData(ref tbl);
         }
         
         public void UpdateSysCodeCat(ref databases.baseDS.sysCodeCatDataTable sysCodeCatTbl) {

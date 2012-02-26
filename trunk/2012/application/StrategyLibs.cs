@@ -337,7 +337,7 @@ namespace application.Strategy
                 }
                 catch(Exception er)
                 {
-                   commonClass.SysLibs.WriteSysLog(er,commonClass.SysLibs.sysLoginCode);
+                   commonClass.SysLibs.WriteSysLog(commonClass.SysLibs.sysLoginCode,er);
                 }
             }
             return;
