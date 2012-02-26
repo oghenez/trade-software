@@ -1,7 +1,7 @@
 ﻿//Copyright by NHQ, HCM city, 2011 
 using application.Strategy;
-using commonTypes;
 using commonClass;
+using commonTypes;
 
 namespace Strategy
 {
@@ -10,9 +10,9 @@ namespace Strategy
         public MACD_Stochastic_Helper() : base(typeof(MACD_Stochastic)) { }
     }
 
-    public class Test_Helper : baseHelper
+    public class MACD_StochSlow_Helper : baseHelper
     {
-        public Test_Helper() : base(typeof(Test)) { }
+        public MACD_StochSlow_Helper() : base(typeof(MACD_StochSlow)) { }
     }
 
     public class MACD_Stochastic : GenericStrategy
@@ -50,7 +50,7 @@ namespace Strategy
         }
     }
 
-    public class Test : GenericStrategy
+    public class MACD_StochSlow : GenericStrategy
     {
         protected override void StrategyExecute()
         {
