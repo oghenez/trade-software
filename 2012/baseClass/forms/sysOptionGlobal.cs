@@ -17,11 +17,16 @@ namespace baseClass.forms
             try
             {
                 InitializeComponent();
-                defaLanguageCb.LoadData();
+
+                mainTab.SendToBack();
+                systemTab.SendToBack();
+
                 sysDataKeyPrefixEd.maxlen = 2;
                 sysDataKeyPrefixEd.isToUpperCase = true;
                 smtpPortEd.BackColor = common.Settings.sysColorDisableBG;
 
+                defaLanguageCb.LoadData();
+                accessLogMediaCb.LoadData();
                 defaTimeRangeCb.LoadData();
                 defaTimeScaleCb.LoadData();
                 screenTimeRangeCb.LoadData();
@@ -35,7 +40,7 @@ namespace baseClass.forms
         private void LoadSettings()
         {
             //General
-            defaLanguageCb.myValue = Settings.sysGlobal.DefautLanguage;
+            accessLogMediaCb.myValue = Settings.sysGlobal.WriteLogAccess;
             passwordMinLenEd.Value = Settings.sysGlobal.PasswordMinLen;
             useStrongPassChk.Checked = Settings.sysGlobal.UseStrongPassword;
 
@@ -53,6 +58,7 @@ namespace baseClass.forms
             smtpSSLChk.Checked = Settings.sysGlobal.smtpSSL;
 
             //Default
+            defaLanguageCb.myValue = Settings.sysGlobal.DefautLanguage;
             defaTimeRangeCb.myValue = Settings.sysGlobal.DefaultTimeRange;
             defaTimeScaleCb.myValue = AppTypes.TimeScaleFromCode(Settings.sysGlobal.DefaultTimeScaleCode);
 
@@ -70,7 +76,7 @@ namespace baseClass.forms
         private void SaveSettings()
         {
             //General
-            Settings.sysGlobal.DefautLanguage = defaLanguageCb.myValue;
+            Settings.sysGlobal.WriteLogAccess = accessLogMediaCb.myValue;
             Settings.sysGlobal.PasswordMinLen = (byte)passwordMinLenEd.Value;
             Settings.sysGlobal.UseStrongPassword = useStrongPassChk.Checked;
 
@@ -89,6 +95,7 @@ namespace baseClass.forms
             Settings.sysGlobal.smtpSSL = smtpSSLChk.Checked;
 
             //Default
+            Settings.sysGlobal.DefautLanguage = defaLanguageCb.myValue;
             Settings.sysGlobal.DefaultTimeRange = defaTimeRangeCb.myValue;
             Settings.sysGlobal.DefaultTimeScaleCode = defaTimeScaleCb.myValue.Code;
 
@@ -113,6 +120,8 @@ namespace baseClass.forms
 
             systemPg.Text = Languages.Libs.GetString("system");
             generalPg.Text = Languages.Libs.GetString("generalInfo");
+
+            accessLogMediaLbl.Text = Languages.Libs.GetString("logAccessTo");
             pwdMinLenLbl.Text = Languages.Libs.GetString("pwdMinLen");
             pwdCharLbl.Text = Languages.Libs.GetString("character");
             useStrongPassChk.Text = Languages.Libs.GetString("useStrongPass");

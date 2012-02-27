@@ -34,6 +34,7 @@ namespace client
                 using (new common.PleaseWait(new Point(), new forms.startSplash()))
                 {
                     InitializeComponent();
+                    SetTimer(false);
                     SetFormAppearance();
 
                     InitSystem(false);
@@ -516,22 +517,6 @@ namespace client
                 //    continue;
                 //}
             }
-        }
-
-        /// <summary>
-        /// Show main windows : MarketWatchForm and MarketSummary Form
-        /// </summary>
-        private void StartupForms()
-        {
-            System.Diagnostics.Stopwatch stopWatch = new System.Diagnostics.Stopwatch();
-            stopWatch.Start();
-            using (new DataAccess.PleaseWait())
-            {
-                OpenDefaultForm();
-                //ShowMarketSummaryForm();
-            }
-            stopWatch.Stop();
-            this.ShowMessage(common.dateTimeLibs.TimeSpan2String(stopWatch.Elapsed));
         }
 
         /// <summary>
@@ -1419,7 +1404,8 @@ namespace client
                     myForm = new forms.investorEdit();
                     myForm.Name = "investorEdit";
                     myForm.myDockedPane = dockPanel;
-                    myForm.myOnWatchListChanged += new common.forms.baseMasterEditForm.onDataChanged(UpdateWatchList);  
+                    myForm.myOnWatchListChanged += new common.forms.baseMasterEditForm.onDataChanged(UpdateWatchList);
+                    myForm.myOnPortfolioChanged += new common.forms.baseMasterEditForm.onDataChanged(UpdateWatchList);  
                 }
                 myForm.Show(dockPanel);
             }
@@ -1514,8 +1500,10 @@ namespace client
             try
             {
                 Trade.Forms.marketWatch marketWatchForm = GetMarketWatchForm(false);
-                if (marketWatchForm == null) return;
-                Trade.AppLibs.OrderForm(marketWatchForm.CurrentRow.code);
+                if (marketWatchForm != null && marketWatchForm.CurrentRow!=null) 
+                    Trade.AppLibs.OrderForm(marketWatchForm.CurrentRow.code);
+                else
+                    Trade.AppLibs.OrderForm(null);
             }
             catch (Exception er)
             {
@@ -1783,18 +1771,35 @@ namespace client
             }
         }
 
+        /// <summary>
+        /// Show main windows : MarketWatchForm and MarketSummary Form
+        /// </summary>
         private void main_Load(object sender, EventArgs e)
         {
-            try
+            System.Diagnostics.Stopwatch stopWatch = new System.Diagnostics.Stopwatch();
+            stopWatch.Start();
+            DataAccess.PleaseWait waitObj = null;
+            using (waitObj = new DataAccess.PleaseWait())
             {
-                //LoadUserConfig();
-                StartupForms();
-                SetTimer(true);
+                try
+                {
+                    OpenDefaultForm();
+                    //ShowMarketSummaryForm();
+                    SetTimer(true);
+                    this.ShowMessage(common.dateTimeLibs.TimeSpan2String(stopWatch.Elapsed));
+                    SetTimer(true);
+                }
+                catch (Exception er)
+                {
+                    this.ShowError(er);
+                }
+                finally
+                {
+                    if (waitObj != null) waitObj.Dispose();
+                }
             }
-            catch (Exception er)
-            {
-                this.ShowError(er);
-            }
+            stopWatch.Stop();
+            this.ShowMessage(common.dateTimeLibs.TimeSpan2String(stopWatch.Elapsed));
         }
 
         private void addToWatchListMenuItem_Click(object sender, EventArgs e)

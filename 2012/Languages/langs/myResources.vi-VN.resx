@@ -1197,4 +1197,7 @@
   <data name="sameOpenClose" xml:space="preserve">
     <value>Giá Mở/Đóng</value>
   </data>
+  <data name="logAccessTo" xml:space="preserve">
+    <value>Ghi nhật ký sử dụng</value>
+  </data>
 </root>

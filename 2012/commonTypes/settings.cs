@@ -81,6 +81,10 @@ namespace commonTypes
         public short ChartMaxLoadCount_FIRST = 6000; //For the first time
         [DataMember]
         public short ChartMaxLoadCount_MORE = 0;   //For each "get more" load
+
+        // Whether to log user access...
+        [DataMember]
+        public AppTypes.SyslogMedia WriteLogAccess = AppTypes.SyslogMedia.None;
     }
     public static class Settings
     {
@@ -229,6 +233,5 @@ namespace commonTypes
 
         // Whether to log exception, user access...
         public static AppTypes.SyslogMedia sysWriteLogException = AppTypes.SyslogMedia.File;
-        public static AppTypes.SyslogMedia sysWriteLogAccess = AppTypes.SyslogMedia.None;
     }
 }

@@ -1564,6 +1564,15 @@ namespace Languages.langs {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Log access to.
+        /// </summary>
+        internal static string logAccessTo {
+            get {
+                return ResourceManager.GetString("logAccessTo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Log in.
         /// </summary>
         internal static string login {

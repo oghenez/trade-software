@@ -1191,4 +1191,7 @@
   <data name="sameOpenClose" xml:space="preserve">
     <value>Open/Close</value>
   </data>
+  <data name="logAccessTo" xml:space="preserve">
+    <value>Log access to</value>
+  </data>
 </root>
