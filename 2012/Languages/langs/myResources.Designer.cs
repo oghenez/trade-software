@@ -142,6 +142,15 @@ namespace Languages.langs {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Adjust Weight.
+        /// </summary>
+        internal static string adjustWeight {
+            get {
+                return ResourceManager.GetString("adjustWeight", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Alert was closed !.
         /// </summary>
         internal static string alertClosed {
@@ -237,6 +246,15 @@ namespace Languages.langs {
         internal static string askToRestartService {
             get {
                 return ResourceManager.GetString("askToRestartService", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Auto-Adjust.
+        /// </summary>
+        internal static string autoAdjust {
+            get {
+                return ResourceManager.GetString("autoAdjust", resourceCulture);
             }
         }
         
@@ -646,6 +664,15 @@ namespace Languages.langs {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Close Date.
+        /// </summary>
+        internal static string closeDate {
+            get {
+                return ResourceManager.GetString("closeDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Close.
         /// </summary>
         internal static string closePrice {
@@ -858,6 +885,15 @@ namespace Languages.langs {
         internal static string dataTooLong {
             get {
                 return ResourceManager.GetString("dataTooLong", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Data Tools.
+        /// </summary>
+        internal static string dataTools {
+            get {
+                return ResourceManager.GetString("dataTools", resourceCulture);
             }
         }
         
@@ -1213,6 +1249,15 @@ namespace Languages.langs {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to From Date.
+        /// </summary>
+        internal static string fromDate {
+            get {
+                return ResourceManager.GetString("fromDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Full View.
         /// </summary>
         internal static string fullView {
@@ -1546,6 +1591,15 @@ namespace Languages.langs {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Load.
+        /// </summary>
+        internal static string load {
+            get {
+                return ResourceManager.GetString("load", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Failed to load data !.
         /// </summary>
         internal static string loadDataError {
@@ -1605,6 +1659,15 @@ namespace Languages.langs {
         internal static string logout {
             get {
                 return ResourceManager.GetString("logout", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Log type.
+        /// </summary>
+        internal static string logType {
+            get {
+                return ResourceManager.GetString("logType", resourceCulture);
             }
         }
         
@@ -2032,6 +2095,15 @@ namespace Languages.langs {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Open Date.
+        /// </summary>
+        internal static string openDate {
+            get {
+                return ResourceManager.GetString("openDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Open.
         /// </summary>
         internal static string openPrice {
@@ -2334,6 +2406,15 @@ namespace Languages.langs {
         internal static string qtyMask {
             get {
                 return ResourceManager.GetString("qtyMask", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Re-Aggregate.
+        /// </summary>
+        internal static string reAggregate {
+            get {
+                return ResourceManager.GetString("reAggregate", resourceCulture);
             }
         }
         
@@ -2644,6 +2725,15 @@ namespace Languages.langs {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Source.
+        /// </summary>
+        internal static string source {
+            get {
+                return ResourceManager.GetString("source", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Standard.
         /// </summary>
         internal static string standard {
@@ -2779,6 +2869,15 @@ namespace Languages.langs {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to System Log.
+        /// </summary>
+        internal static string systemLog {
+            get {
+                return ResourceManager.GetString("systemLog", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Tag.
         /// </summary>
         internal static string tag {
@@ -2865,6 +2964,15 @@ namespace Languages.langs {
         internal static string timing {
             get {
                 return ResourceManager.GetString("timing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to To Date.
+        /// </summary>
+        internal static string toDate {
+            get {
+                return ResourceManager.GetString("toDate", resourceCulture);
             }
         }
         
@@ -3081,6 +3189,15 @@ namespace Languages.langs {
         internal static string value {
             get {
                 return ResourceManager.GetString("value", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Variance.
+        /// </summary>
+        internal static string variance {
+            get {
+                return ResourceManager.GetString("variance", resourceCulture);
             }
         }
         

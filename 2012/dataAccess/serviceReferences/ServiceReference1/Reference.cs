@@ -61,7 +61,7 @@ namespace DataAccess.ServiceReference1 {
         databases.baseDS.lastPriceDataDataTable GetLastPrice(commonTypes.AppTypes.PriceDataType type);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetPriceData", ReplyAction="http://tempuri.org/IStockService/GetPriceDataResponse")]
-        databases.baseDS.priceDataDataTable GetPriceData(string stockCode, string timeScaleCode);
+        databases.baseDS.priceDataDataTable GetPriceData(string stockCode, string timeScaleCode, System.DateTime frDate, System.DateTime toDate);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetLastAlertTime", ReplyAction="http://tempuri.org/IStockService/GetLastAlertTimeResponse")]
         System.DateTime GetLastAlertTime(string investorCode);
@@ -373,8 +373,8 @@ namespace DataAccess.ServiceReference1 {
             return base.Channel.GetLastPrice(type);
         }
         
-        public databases.baseDS.priceDataDataTable GetPriceData(string stockCode, string timeScaleCode) {
-            return base.Channel.GetPriceData(stockCode, timeScaleCode);
+        public databases.baseDS.priceDataDataTable GetPriceData(string stockCode, string timeScaleCode, System.DateTime frDate, System.DateTime toDate) {
+            return base.Channel.GetPriceData(stockCode, timeScaleCode, frDate, toDate);
         }
         
         public System.DateTime GetLastAlertTime(string investorCode) {

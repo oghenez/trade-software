@@ -1200,4 +1200,43 @@
   <data name="logAccessTo" xml:space="preserve">
     <value>Ghi nhật ký sử dụng</value>
   </data>
+  <data name="logType" xml:space="preserve">
+    <value>Lọai</value>
+  </data>
+  <data name="source" xml:space="preserve">
+    <value>Nguồn</value>
+  </data>
+  <data name="systemLog" xml:space="preserve">
+    <value>Nhật ký hệ thống</value>
+  </data>
+  <data name="adjustWeight" xml:space="preserve">
+    <value>HS điều chỉnh</value>
+  </data>
+  <data name="autoAdjust" xml:space="preserve">
+    <value>Tự điều chỉnh</value>
+  </data>
+  <data name="closeDate" xml:space="preserve">
+    <value>Đóng</value>
+  </data>
+  <data name="dataTools" xml:space="preserve">
+    <value>Công cụ xử lý dữ liệu</value>
+  </data>
+  <data name="fromDate" xml:space="preserve">
+    <value>Từ ngày</value>
+  </data>
+  <data name="openDate" xml:space="preserve">
+    <value>Mở</value>
+  </data>
+  <data name="reAggregate" xml:space="preserve">
+    <value>Tổ hợp lại</value>
+  </data>
+  <data name="toDate" xml:space="preserve">
+    <value>Đến ngày</value>
+  </data>
+  <data name="variance" xml:space="preserve">
+    <value>Chênh lệch</value>
+  </data>
+  <data name="load" xml:space="preserve">
+    <value>Tải</value>
+  </data>
 </root>

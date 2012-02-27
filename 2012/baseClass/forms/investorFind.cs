@@ -35,7 +35,7 @@ namespace baseClass.forms
             findBtn.Text = Languages.Libs.GetString("find");
             selectBtn.Text = Languages.Libs.GetString("select");
             closeBtn.Text = Languages.Libs.GetString("close");
-            newBtn.Text = Languages.Libs.GetString("new");
+            newBtn.Text = Languages.Libs.GetString("addNew");
 
             codeColumn.HeaderText = Languages.Libs.GetString("code") + " 1";
             displayNameColumn.HeaderText = Languages.Libs.GetString("name");
@@ -69,17 +69,17 @@ namespace baseClass.forms
             return Find(code, true);
         }
 
-        public bool Find(string code, bool ShowSelectionIfNotFound)
+        public bool Find(string account, bool ShowSelectionIfNotFound)
         {
             try
             {
                 selectedDataRow = null;
                 investorSource.Filter = "";
 
-                code = code.Trim();
-                if (code != "")
+                account = account.Trim();
+                if (account != "")
                 {
-                    investorSource.DataSource = DataAccess.Libs.GetInvestor_ByCode(code);
+                    investorSource.DataSource = DataAccess.Libs.GetInvestor_ByAccount(account);
                     if (investorSource.Count > 0)
                     {
                         selectedDataRow = (databases.baseDS.investorRow)(((DataRowView)investorSource.Current).Row);

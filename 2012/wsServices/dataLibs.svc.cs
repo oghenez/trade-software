@@ -457,12 +457,12 @@ namespace wsServices
             return tbl;
         }
 
-        public databases.baseDS.priceDataDataTable GetPriceData(string stockCode, string timeScaleCode)
+        public databases.baseDS.priceDataDataTable GetPriceData(string stockCode, string timeScaleCode,DateTime frDate,DateTime toDate)
         {
             try
             {
                 databases.baseDS.priceDataDataTable priceDataTbl = new databases.baseDS.priceDataDataTable();
-                databases.DbAccess.LoadData(priceDataTbl, timeScaleCode, DateTime.MinValue, DateTime.MaxValue, stockCode);
+                databases.DbAccess.LoadData(priceDataTbl, timeScaleCode, frDate, toDate, stockCode);
                 return priceDataTbl;
             }
             catch (Exception ex)
