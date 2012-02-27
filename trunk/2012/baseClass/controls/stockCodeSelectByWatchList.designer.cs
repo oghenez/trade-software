@@ -57,6 +57,7 @@
             this.stockGV.Size = new System.Drawing.Size(278, 348);
             this.stockGV.TabIndex = 10;
             this.stockGV.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.stockGV_CellDoubleClick);
+            this.stockGV.CellToolTipTextNeeded += new System.Windows.Forms.DataGridViewCellToolTipTextNeededEventHandler(this.stockGV_CellToolTipTextNeeded);
             this.stockGV.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.stockGV_DataBindingComplete);
             // 
             // saveFileDialog

@@ -63,21 +63,6 @@ namespace baseClass.forms
             return form;
         }
 
-        private bool isLockEditDetail
-        {
-            get { return !xpPanel_options.Enabled; }
-            set 
-            {
-                bool lockState = true;
-                if (this.portfolioSource != null && this.portfolioSource.Current != null)
-                {
-                    databases.baseDS.portfolioRow row = (databases.baseDS.portfolioRow)((DataRowView)this.portfolioSource.Current).Row;
-                    lockState =  this.isLockEdit || isNewRow(row);
-                }
-                xpPanel_options.Enabled = !lockState;
-            }
-        }
- 
         #region override funcs
         public override void SetLanguage()
         {
@@ -106,7 +91,6 @@ namespace baseClass.forms
 
             this.interestedStockClb.Enabled = !lockState;
             this.interestedStrategy.LockData(lockState);
-            this.isLockEditDetail = this.isLockEditDetail;
         }
         public override void AddNew(string code)
         {
@@ -192,8 +176,7 @@ namespace baseClass.forms
             databases.baseDS.portfolioRow portfolioRow = (databases.baseDS.portfolioRow)row;
             portfolioRow.ItemArray = DataAccess.Libs.UpdateData(portfolioRow).ItemArray;
             portfolioRow.AcceptChanges();
-            isLockEditDetail = false; 
-
+            
             if (this.interestedStrategy.myDataTbl != null)
             {
                 DataAccess.Libs.UpdateData(this.interestedStrategy.myDataTbl);
@@ -234,7 +217,6 @@ namespace baseClass.forms
                 interestedStrategy.myPorfolioCode = row.code;
                 interestedStrategy.myDataTbl = DataAccess.Libs.GetPortfolioDetail_ByCode(row.code);
             }
-            this.isLockEditDetail = this.isLockEditDetail;
             interestedStrategy.myStockCode = null;
             interestedStrategy.Refresh();
             ShowReccount((this.portfolioSource.Position + 1).ToString() + "/" + this.portfolioSource.Count.ToString());
@@ -317,7 +299,6 @@ namespace baseClass.forms
             interestedStrategy.Clear();
             return true; 
         }
-        #endregion event handler
 
         bool fSizing = false;
         private void xpPanel_SizeChanged(object sender, EventArgs e)
@@ -349,5 +330,6 @@ namespace baseClass.forms
                 this.ShowError(er);
             }
         }
+        #endregion event handler
     }
 }

@@ -308,7 +308,8 @@ namespace client
 
         private void SetCulture(AppTypes.LanguageCodes code)
         {
-            CultureInfo cultureInfo = AppTypes.Code2Culture(code);
+            Settings.sysLanguage = code;
+            common.language.myCulture = AppTypes.Code2Culture(code);
             switch (code)
             {
                 case AppTypes.LanguageCodes.VI: 
@@ -320,7 +321,6 @@ namespace client
                     englishMenuItem.Checked = true;
                     break;
             }
-            common.language.myCulture = cultureInfo;
             common.language.SetLanguage();
             commonClass.SysLibs.SetLanguage();
             application.Strategy.Data.Clear();
@@ -1434,7 +1434,7 @@ namespace client
             {
                 Trade.Forms.marketWatch form = GetMarketWatchForm(false);
                 if (form == null) return;
-                form.RefreshData(false);
+                form.RefreshData(baseClass.controls.stockCodeSelectByWatchList.RefreshOptions.CodeGroup);
             }
             catch (Exception er)
             {

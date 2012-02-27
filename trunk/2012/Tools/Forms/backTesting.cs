@@ -680,13 +680,13 @@ namespace Tools.Forms
         {
             try
             {
-                if (resultDataGrid.CurrentRow == null || resultDataGrid.CurrentCell == null) return;
-                if (resultDataGrid.CurrentCell.ColumnIndex <= 0) return;
-
+                
+                if (resultDataGrid.CurrentRow == null) return;
+                int cellId = (resultDataGrid.CurrentCell != null && resultDataGrid.CurrentCell.ColumnIndex >0 ? resultDataGrid.CurrentCell.ColumnIndex-1:0) ;
                 string stockCode = resultDataGrid.CurrentRow.Cells[0].Value.ToString();
                 databases.tmpDS.stockCodeRow stockCodeRow = DataAccess.Libs.myStockCodeTbl.FindBycode(stockCode);
                 if (stockCodeRow == null) return;
-                ShowTradeTransactions(stockCodeRow, strategyClb.myCheckedValues[resultDataGrid.CurrentCell.ColumnIndex-1], this.myDataParam);
+                ShowTradeTransactions(stockCodeRow, strategyClb.myCheckedValues[cellId], this.myDataParam);
             }
             catch (Exception er)
             {

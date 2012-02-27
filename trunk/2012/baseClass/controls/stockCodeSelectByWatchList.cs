@@ -146,36 +146,20 @@ namespace baseClass.controls
             stockGV.Columns[colName.ToString()].Visible = status;
         }
 
+        public enum RefreshOptions : byte { All = 255, CodeGroup = 1, PriceData = 4 }
         // To prevent "cross-thread operation not valid" error
         // See http://helpprogramming.blogspot.com/2011/10/invalid-cross-thread-operation.html
-        private void DoRefreshData_WithThreadSafe(bool force)
+        public void RefreshData(RefreshOptions options)
         {
             if (codeGroupCb.InvokeRequired)
             {
                 codeGroupCb.Invoke((MethodInvoker)delegate()
                 {
-                    DoRefreshData(force);
+                    DoRefreshData(options);
                 });
             }
-            else DoRefreshData(force);
+            else DoRefreshData(options);
         }
-        private void DoRefreshData(bool force)
-        {
-            int lastPosition = stockSource.Position;
-            if (stockSource.DataSource == null)
-                stockSource.DataSource = this.myStockTbl;
-            if (force)
-            {
-                int saveGroupIndex = codeGroupCb.SelectedIndex;
-                codeGroupCb.LoadData();
-                if (saveGroupIndex >= 0) codeGroupCb.SelectedIndex = saveGroupIndex;
-                DoFilter();
-            }
-            if (lastPosition >= 0) stockSource.Position = lastPosition;
-            DoRefreshPrice(this.myStockTbl);
-            SetColor();
-        }
-
         public void RefreshData(bool force)
         {
             try
@@ -183,7 +167,8 @@ namespace baseClass.controls
                 if (fProcessing) return;
                 fProcessing = true;
 
-                DoRefreshData_WithThreadSafe(force);
+                if(force) RefreshData(RefreshOptions.All);
+                else RefreshData(RefreshOptions.PriceData);
                 fProcessing = false;
             }
             catch (Exception er)
@@ -192,7 +177,24 @@ namespace baseClass.controls
                 fProcessing = false;
             }
         }
+        private void DoRefreshData(RefreshOptions option)
+        {
+            int lastPosition = stockSource.Position;
+            if (stockSource.DataSource == null)
+                stockSource.DataSource = this.myStockTbl;
+            if (((byte)option & (byte)RefreshOptions.CodeGroup) > 0)
+            {
+                int saveGroupIndex = codeGroupCb.SelectedIndex;
+                codeGroupCb.LoadData();
+                if (saveGroupIndex >= 0) codeGroupCb.SelectedIndex = saveGroupIndex;
+                DoFilter(true);
+            }
+            if (lastPosition >= 0) stockSource.Position = lastPosition;
 
+            if (((byte)option & (byte)RefreshOptions.PriceData) > 0) DoRefreshPrice(this.myStockTbl);
+            SetColor();
+        }
+        
         public void Export()
         {
             if (saveFileDialog.ShowDialog() == DialogResult.Cancel) return;
@@ -207,7 +209,7 @@ namespace baseClass.controls
             }
         }
         
-        private void DoFilter()
+        private void DoFilter(bool notUseCache)
         {
             common.myKeyValueExt item = (common.myKeyValueExt)common.Threading.GetValue(codeGroupCb,"SelectedItem");
             cbStockSelection.Options watchListType = (cbStockSelection.Options)byte.Parse(item.Attribute1);
@@ -241,6 +243,10 @@ namespace baseClass.controls
                         }
                     }
                     cacheKey = DataAccess.Libs.MakeCacheKey(this, cacheKey);
+                    if (notUseCache)
+                    {
+                        DataAccess.Libs.ClearCache(cacheKey);
+                    }
                     StringCollection selectStockList = null;
                     object obj = DataAccess.Libs.GetCache(cacheKey);
                     if (obj != null) selectStockList = (obj as StringCollection);
@@ -332,7 +338,7 @@ namespace baseClass.controls
         {
             try
             {
-                DoFilter();
+                DoFilter(false);
             }
             catch (Exception er)
             {
@@ -380,5 +386,22 @@ namespace baseClass.controls
             }
         }
         #endregion
+
+        private void stockGV_CellToolTipTextNeeded(object sender, DataGridViewCellToolTipTextNeededEventArgs e)
+        {
+            try
+            {
+                if (e.RowIndex < 0 || e.RowIndex >= stockGV.Rows.Count) return;
+                if (e.ColumnIndex < 0 || e.ColumnIndex >= stockGV.Columns .Count) return;
+                if (stockGV.Columns[e.ColumnIndex] != codeColumn) return;
+                databases.tmpDS.stockCodeRow row = (databases.tmpDS.stockCodeRow)((DataRowView)stockGV.Rows[e.RowIndex - 1].DataBoundItem).Row;
+                if (row == null) return;
+                e.ToolTipText = (commonClass.SysLibs.IsUseVietnamese() ? row.name : row.nameEn);
+            }
+            catch (Exception er)
+            {
+                ErrorHandler(this, er);
+            }
+        }
     }
 }
