@@ -28,6 +28,10 @@ namespace Trade.Forms
         {
             stockCodeList.RefreshData(force);
         }
+        public void RefreshData(baseClass.controls.stockCodeSelectByWatchList.RefreshOptions options)
+        {
+            stockCodeList.RefreshData(options);
+        }
         
         public ContextMenuStrip myContextMenuStrip
         {
