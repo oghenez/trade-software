@@ -50,6 +50,9 @@
             this.toolStripSeparator12 = new System.Windows.Forms.ToolStripSeparator();
             this.sysWatchListMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sysInterestedStrategyMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolMenuStrip = new System.Windows.Forms.ToolStripMenuItem();
+            this.dataDiagnoseMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.resetServiceMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.infoMenuStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.licenseMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutMenu = new System.Windows.Forms.ToolStripMenuItem();
@@ -58,9 +61,9 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.myMainTimer = new System.Windows.Forms.Timer(this.components);
             this.dataProcessMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolMenuStrip = new System.Windows.Forms.ToolStripMenuItem();
-            this.dataDiagnoseMenu = new System.Windows.Forms.ToolStripMenuItem();
-            this.resetServiceMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
+            this.syslogViewerMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.myMainMenu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -239,6 +242,34 @@
             this.sysInterestedStrategyMenuItem.Text = "Interested Strategy";
             this.sysInterestedStrategyMenuItem.Click += new System.EventHandler(this.sysInterestedStrategyMenuItem_Click);
             // 
+            // toolMenuStrip
+            // 
+            this.toolMenuStrip.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.dataDiagnoseMenu,
+            this.toolStripSeparator5,
+            this.resetServiceMenuItem,
+            this.toolStripSeparator7,
+            this.syslogViewerMenuItem});
+            this.toolMenuStrip.Name = "toolMenuStrip";
+            this.toolMenuStrip.Size = new System.Drawing.Size(71, 22);
+            this.toolMenuStrip.Text = "Công cụ";
+            // 
+            // dataDiagnoseMenu
+            // 
+            this.dataDiagnoseMenu.Image = global::admin.Properties.Resources.glasses;
+            this.dataDiagnoseMenu.Name = "dataDiagnoseMenu";
+            this.dataDiagnoseMenu.Size = new System.Drawing.Size(190, 22);
+            this.dataDiagnoseMenu.Text = "Kiểm tra dữ liệu";
+            this.dataDiagnoseMenu.Click += new System.EventHandler(this.dataDiagnoseMenu_Click);
+            // 
+            // resetServiceMenuItem
+            // 
+            this.resetServiceMenuItem.Image = global::admin.Properties.Resources.services;
+            this.resetServiceMenuItem.Name = "resetServiceMenuItem";
+            this.resetServiceMenuItem.Size = new System.Drawing.Size(190, 22);
+            this.resetServiceMenuItem.Text = "Khởi động lại";
+            this.resetServiceMenuItem.Click += new System.EventHandler(this.resetServiceMenuItem_Click);
+            // 
             // infoMenuStrip
             // 
             this.infoMenuStrip.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -288,35 +319,29 @@
             this.dataProcessMenuItem.Size = new System.Drawing.Size(116, 20);
             this.dataProcessMenuItem.Text = "Xử lý dữ liệu";
             // 
-            // toolMenuStrip
+            // toolStripSeparator5
             // 
-            this.toolMenuStrip.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.dataDiagnoseMenu,
-            this.resetServiceMenuItem});
-            this.toolMenuStrip.Name = "toolMenuStrip";
-            this.toolMenuStrip.Size = new System.Drawing.Size(71, 22);
-            this.toolMenuStrip.Text = "Công cụ";
+            this.toolStripSeparator5.Name = "toolStripSeparator5";
+            this.toolStripSeparator5.Size = new System.Drawing.Size(187, 6);
             // 
-            // dataDiagnoseMenu
+            // toolStripSeparator7
             // 
-            this.dataDiagnoseMenu.Image = global::admin.Properties.Resources.glasses;
-            this.dataDiagnoseMenu.Name = "dataDiagnoseMenu";
-            this.dataDiagnoseMenu.Size = new System.Drawing.Size(190, 22);
-            this.dataDiagnoseMenu.Text = "Kiểm tra dữ liệu";
-            this.dataDiagnoseMenu.Click += new System.EventHandler(this.dataDiagnoseMenu_Click);
+            this.toolStripSeparator7.Name = "toolStripSeparator7";
+            this.toolStripSeparator7.Size = new System.Drawing.Size(187, 6);
             // 
-            // resetServiceMenuItem
+            // syslogViewerMenuItem
             // 
-            this.resetServiceMenuItem.Image = global::admin.Properties.Resources.services;
-            this.resetServiceMenuItem.Name = "resetServiceMenuItem";
-            this.resetServiceMenuItem.Size = new System.Drawing.Size(190, 22);
-            this.resetServiceMenuItem.Text = "Khởi động lại";
-            this.resetServiceMenuItem.Click += new System.EventHandler(this.resetServiceMenuItem_Click);
+            this.syslogViewerMenuItem.Image = global::admin.Properties.Resources.history;
+            this.syslogViewerMenuItem.Name = "syslogViewerMenuItem";
+            this.syslogViewerMenuItem.Size = new System.Drawing.Size(190, 22);
+            this.syslogViewerMenuItem.Text = "Xem nhật ký";
+            this.syslogViewerMenuItem.Click += new System.EventHandler(this.syslogViewerMenuItem_Click);
             // 
             // main
             // 
             this.ClientSize = new System.Drawing.Size(720, 406);
             this.Controls.Add(this.myMainMenu);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.myMainMenu;
@@ -366,5 +391,8 @@
         private System.Windows.Forms.ToolStripMenuItem toolMenuStrip;
         private System.Windows.Forms.ToolStripMenuItem dataDiagnoseMenu;
         private System.Windows.Forms.ToolStripMenuItem resetServiceMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
+        private System.Windows.Forms.ToolStripMenuItem syslogViewerMenuItem;
     }
 }

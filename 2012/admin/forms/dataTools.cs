@@ -254,14 +254,14 @@ namespace admin.forms
             }
         }
 
-        private void saveFixDataBtn_Click(object sender, EventArgs e)
+        private void saveDataBtn_Click(object sender, EventArgs e)
         {
             try
             {
                 this.ShowMessage("");
                 //if (!DataFixValid()) return;
 
-                saveFixDataBtn.Enabled = false;
+                saveDataBtn.Enabled = false;
                 common.system.ShowCurrorWait(); 
                 System.Diagnostics.Stopwatch watch = new System.Diagnostics.Stopwatch();
                 watch.Start();
@@ -289,6 +289,7 @@ namespace admin.forms
                     }
                 }
                 DataAccess.Libs.UpdateData(tbl);
+                sourceTbl.AcceptChanges();
                 watch.Stop();
                 this.ShowMessage(Languages.Libs.GetString("finished") + " : " + tbl.Count.ToString() +" - " + common.dateTimeLibs.TimeSpan2String(watch.Elapsed) );
             }
@@ -299,7 +300,7 @@ namespace admin.forms
             finally
             {
                 common.system.ShowCurrorDefault();
-                saveFixDataBtn.Enabled = true;
+                saveDataBtn.Enabled = true;
                 progressBar.Visible = false;
             }
         }

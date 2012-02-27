@@ -20,6 +20,7 @@
       <xs:element minOccurs="0" name="TimerUnitInSecs" type="xs:short" />
       <xs:element minOccurs="0" name="TimerUnitToAutoCheck" type="xs:short" />
       <xs:element minOccurs="0" name="UseStrongPassword" type="xs:boolean" />
+      <xs:element minOccurs="0" name="WriteLogAccess" type="tns:AppTypes.SyslogMedia" />
       <xs:element minOccurs="0" name="smtpAddress" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="smtpAuthAccount" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="smtpAuthPassword" nillable="true" type="xs:string" />
@@ -67,12 +68,19 @@
     </xs:restriction>
   </xs:simpleType>
   <xs:element name="AppTypes.LanguageCodes" nillable="true" type="tns:AppTypes.LanguageCodes" />
-  <xs:complexType name="ArrayOfAppTypes.PortfolioTypes">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="AppTypes.PortfolioTypes" type="tns:AppTypes.PortfolioTypes" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfAppTypes.PortfolioTypes" nillable="true" type="tns:ArrayOfAppTypes.PortfolioTypes" />
+  <xs:simpleType name="AppTypes.SyslogMedia">
+    <xs:annotation>
+      <xs:appinfo>
+        <ActualType Name="unsignedByte" Namespace="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="None" />
+      <xs:enumeration value="File" />
+      <xs:enumeration value="Database" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="AppTypes.SyslogMedia" nillable="true" type="tns:AppTypes.SyslogMedia" />
   <xs:simpleType name="AppTypes.PortfolioTypes">
     <xs:annotation>
       <xs:appinfo>
@@ -111,6 +119,12 @@
     </xs:restriction>
   </xs:simpleType>
   <xs:element name="AppTypes.PortfolioTypes" nillable="true" type="tns:AppTypes.PortfolioTypes" />
+  <xs:complexType name="ArrayOfAppTypes.PortfolioTypes">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AppTypes.PortfolioTypes" type="tns:AppTypes.PortfolioTypes" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAppTypes.PortfolioTypes" nillable="true" type="tns:ArrayOfAppTypes.PortfolioTypes" />
   <xs:simpleType name="AppTypes.PriceDataType">
     <xs:annotation>
       <xs:appinfo>

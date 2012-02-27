@@ -89,6 +89,11 @@ namespace wsServices
 
         [OperationContract]
         databases.tmpDS.investorDataTable GetInvestorShortList();
+
+        [OperationContract]
+        databases.baseDS.sysLogDataTable GetSyslog_ByDate(DateTime frDate, DateTime toDate);
+        [OperationContract]
+        databases.baseDS.sysLogDataTable GetSyslog_BySQL(string sql);
         
         [OperationContract]
         databases.baseDS.stockCodeDataTable GetStockFull();

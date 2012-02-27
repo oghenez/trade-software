@@ -513,6 +513,32 @@ namespace DataAccess
         #endregion
 
         #region Load/Get
+
+        public static databases.baseDS.sysLogDataTable GetSyslog_ByDate(DateTime frDate, DateTime toDate)
+        {
+            try
+            {
+                return myClient.GetSyslog_ByDate(frDate, toDate);
+            }
+            catch (Exception er)
+            {
+                if (OnError != null) OnError(er);
+            }
+            return null;
+        }
+        public static databases.baseDS.sysLogDataTable GetSyslog_BySQL(string sql)
+        {
+            try
+            {
+                return myClient.GetSyslog_BySQL(sql);
+            }
+            catch (Exception er)
+            {
+                if (OnError != null) OnError(er);
+            }
+            return null;
+        }
+
         public static databases.baseDS.priceDataDataTable GetAbnormalData(string code,DateTime frDate,DateTime toDate,string timeScaleCode)
         {
             try
