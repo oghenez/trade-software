@@ -88,7 +88,7 @@
             this.varianceLbl = new common.controls.baseLabel();
             this.dataVarianceEd = new common.controls.numberTextBox();
             this.loadPriceBtn = new baseClass.controls.baseButton();
-            this.saveFixDataBtn = new baseClass.controls.baseButton();
+            this.saveDataBtn = new baseClass.controls.baseButton();
             this.adjustToDateLbl = new common.controls.baseLabel();
             this.adjWeightLbl = new common.controls.baseLabel();
             this.dataToDateEd = new common.controls.baseDate();
@@ -597,7 +597,7 @@
             this.dataAdjGb.Controls.Add(this.varianceLbl);
             this.dataAdjGb.Controls.Add(this.dataVarianceEd);
             this.dataAdjGb.Controls.Add(this.loadPriceBtn);
-            this.dataAdjGb.Controls.Add(this.saveFixDataBtn);
+            this.dataAdjGb.Controls.Add(this.saveDataBtn);
             this.dataAdjGb.Controls.Add(this.adjustToDateLbl);
             this.dataAdjGb.Controls.Add(this.adjWeightLbl);
             this.dataAdjGb.Controls.Add(this.dataToDateEd);
@@ -704,19 +704,19 @@
             this.loadPriceBtn.UseVisualStyleBackColor = true;
             this.loadPriceBtn.Click += new System.EventHandler(this.loadPriceBtn_Click);
             // 
-            // saveFixDataBtn
+            // saveDataBtn
             // 
-            this.saveFixDataBtn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.saveFixDataBtn.Image = global::admin.Properties.Resources.save;
-            this.saveFixDataBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.saveFixDataBtn.isDownState = false;
-            this.saveFixDataBtn.Location = new System.Drawing.Point(346, 61);
-            this.saveFixDataBtn.Name = "saveFixDataBtn";
-            this.saveFixDataBtn.Size = new System.Drawing.Size(107, 34);
-            this.saveFixDataBtn.TabIndex = 22;
-            this.saveFixDataBtn.Text = "Save";
-            this.saveFixDataBtn.UseVisualStyleBackColor = true;
-            this.saveFixDataBtn.Click += new System.EventHandler(this.saveFixDataBtn_Click);
+            this.saveDataBtn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.saveDataBtn.Image = global::admin.Properties.Resources.save;
+            this.saveDataBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.saveDataBtn.isDownState = false;
+            this.saveDataBtn.Location = new System.Drawing.Point(346, 61);
+            this.saveDataBtn.Name = "saveDataBtn";
+            this.saveDataBtn.Size = new System.Drawing.Size(107, 34);
+            this.saveDataBtn.TabIndex = 22;
+            this.saveDataBtn.Text = "Save";
+            this.saveDataBtn.UseVisualStyleBackColor = true;
+            this.saveDataBtn.Click += new System.EventHandler(this.saveDataBtn_Click);
             // 
             // adjustToDateLbl
             // 
@@ -836,7 +836,7 @@
         private System.Windows.Forms.TabPage searchPg;
         protected common.controls.basePanel dataAjustPnl;
         protected System.Windows.Forms.TabPage dataAdjPg;
-        protected baseClass.controls.baseButton saveFixDataBtn;
+        protected baseClass.controls.baseButton saveDataBtn;
         protected common.controls.baseDate dataToDateEd;
         protected common.controls.numberTextBox dataWeightEd;
         protected baseClass.controls.txtStockCode dataCodeEd;

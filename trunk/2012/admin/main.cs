@@ -181,5 +181,23 @@ namespace admin
                 this.ShowError(er);
             }
         }
+
+        private void syslogViewerMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Form myForm = this.FindForm("syslogViewer");
+                if (myForm == null || myForm.IsDisposed)
+                {
+                    myForm = new baseClass.forms.syslogViewer();
+                    myForm.Name = "syslogViewer";
+                }
+                this.ShowForm(myForm);
+            }
+            catch (Exception er)
+            {
+                this.ShowError(er);
+            }
+        }
     }
 }

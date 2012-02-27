@@ -206,6 +206,19 @@ namespace wsServices
             databases.DbAccess.LoadData(tbl);
             return tbl;
         }
+        public databases.baseDS.sysLogDataTable GetSyslog_ByDate(DateTime frDate,DateTime toDate)
+        {
+            databases.baseDS.sysLogDataTable tbl = new databases.baseDS.sysLogDataTable();
+            databases.DbAccess.LoadData(tbl, frDate,toDate);
+            return tbl;
+        }
+        public databases.baseDS.sysLogDataTable GetSyslog_BySQL(string sql)
+        {
+            databases.baseDS.sysLogDataTable tbl = new databases.baseDS.sysLogDataTable();
+            databases.DbAccess.LoadFromSQL(tbl, sql);
+            return tbl;
+        }
+
         public databases.baseDS.investorDataTable GetInvestor_BySQL(string sql)
         {
             databases.baseDS.investorDataTable tbl = new databases.baseDS.investorDataTable();
