@@ -942,11 +942,11 @@ namespace DataAccess
         }
 
 
-        public static databases.baseDS.priceDataDataTable GetPriceData(string stockCode,string timeScaleCode)
+        public static databases.baseDS.priceDataDataTable GetPriceData(string stockCode,string timeScaleCode,DateTime frDate, DateTime toDate)
         {
             try
             {
-                return myClient.GetPriceData(stockCode,timeScaleCode);
+                return myClient.GetPriceData(stockCode,timeScaleCode,frDate, toDate);
             }
             catch (Exception er)
             {
@@ -1635,6 +1635,18 @@ namespace DataAccess
                 if (OnError != null) OnError(er);
             }
             return null;
+        }
+    }
+    
+    public static class AppLibs
+    {
+        public static databases.tmpDS.investorRow GetInvestorByAccount(string account)
+        {
+            DataView myView = new DataView(DataAccess.Libs.myInvestorShortTbl);
+            myView.Sort = DataAccess.Libs.myInvestorShortTbl.accountColumn.ColumnName;
+            DataRowView[] foundRows =  myView.FindRows(account);
+            if (foundRows.Length<=0) return null;
+            return (databases.tmpDS.investorRow)foundRows[0].Row;
         }
     }
 }

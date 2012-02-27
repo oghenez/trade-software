@@ -44,12 +44,10 @@
             this.diagnoseBtn = new baseClass.controls.baseButton();
             this.priceDiagnoseSource = new System.Windows.Forms.BindingSource(this.components);
             this.tmpDS = new databases.tmpDS();
-            this.diagTimeScaleCb = new baseClass.controls.cbTimeScale();
-            this.diagTimeScaleLbl = new baseClass.controls.baseLabel();
+            this.srcTimeScaleCb = new baseClass.controls.cbTimeScale();
+            this.srcTimeScaleLbl = new baseClass.controls.baseLabel();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.searchPg = new System.Windows.Forms.TabPage();
-            this.srcCodeLbl = new common.controls.baseLabel();
-            this.srcCodeEd = new baseClass.controls.txtStockCode();
             this.resultPnl = new common.controls.basePanel();
             this.resultGrid = new common.controls.baseDataGridView();
             this.srcCodeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -59,15 +57,17 @@
             this.srcOpenDateColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.srcVarianceColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.srcSelectColumn = new common.controls.gridViewImageColumn();
+            this.srcCodeLbl = new common.controls.baseLabel();
+            this.srcCodeEd = new baseClass.controls.txtStockCode();
             this.srcFrDateLbl = new common.controls.baseLabel();
             this.srcFrDateEd = new common.controls.baseDate();
             this.srcToDateLbl = new common.controls.baseLabel();
             this.srcToDateEd = new common.controls.baseDate();
             this.varianceParamGb = new System.Windows.Forms.GroupBox();
             this.checkVarianceEd = new common.controls.numberTextBox();
-            this.baseLabel1 = new baseClass.controls.baseLabel();
+            this.variancetLbl = new baseClass.controls.baseLabel();
             this.checkVariancePercEd = new common.controls.numberTextBox();
-            this.variancetLb = new baseClass.controls.baseLabel();
+            this.variancePerctLb = new baseClass.controls.baseLabel();
             this.dataAdjPg = new System.Windows.Forms.TabPage();
             this.dataAjustPnl = new common.controls.basePanel();
             this.dataAdjGrid = new common.controls.baseDataGridView();
@@ -85,15 +85,15 @@
             this.dataTimeScaleLbl = new baseClass.controls.baseLabel();
             this.dataTimeScaleCb = new baseClass.controls.cbTimeScale();
             this.testAdjustDataBtn = new baseClass.controls.baseButton();
-            this.varianceLbl = new common.controls.baseLabel();
+            this.dataVarianceLbl = new common.controls.baseLabel();
             this.dataVarianceEd = new common.controls.numberTextBox();
             this.loadPriceBtn = new baseClass.controls.baseButton();
             this.saveDataBtn = new baseClass.controls.baseButton();
-            this.adjustToDateLbl = new common.controls.baseLabel();
-            this.adjWeightLbl = new common.controls.baseLabel();
+            this.dataToDateLbl = new common.controls.baseLabel();
+            this.adjustWeightLbl = new common.controls.baseLabel();
             this.dataToDateEd = new common.controls.baseDate();
             this.dataCodeLbl = new common.controls.baseLabel();
-            this.dataWeightEd = new common.controls.numberTextBox();
+            this.adjustWeightEd = new common.controls.numberTextBox();
             this.dataCodeEd = new baseClass.controls.txtStockCode();
             ((System.ComponentModel.ISupportInitialize)(this.priceDiagnoseSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tmpDS)).BeginInit();
@@ -161,25 +161,25 @@
             this.tmpDS.EnforceConstraints = false;
             this.tmpDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // diagTimeScaleCb
+            // srcTimeScaleCb
             // 
-            this.diagTimeScaleCb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.diagTimeScaleCb.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.diagTimeScaleCb.FormattingEnabled = true;
-            this.diagTimeScaleCb.Location = new System.Drawing.Point(279, 23);
-            this.diagTimeScaleCb.Name = "diagTimeScaleCb";
-            this.diagTimeScaleCb.SelectedValue = "RT";
-            this.diagTimeScaleCb.Size = new System.Drawing.Size(93, 24);
-            this.diagTimeScaleCb.TabIndex = 3;
+            this.srcTimeScaleCb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.srcTimeScaleCb.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.srcTimeScaleCb.FormattingEnabled = true;
+            this.srcTimeScaleCb.Location = new System.Drawing.Point(279, 23);
+            this.srcTimeScaleCb.Name = "srcTimeScaleCb";
+            this.srcTimeScaleCb.SelectedValue = "RT";
+            this.srcTimeScaleCb.Size = new System.Drawing.Size(93, 24);
+            this.srcTimeScaleCb.TabIndex = 3;
             // 
-            // diagTimeScaleLbl
+            // srcTimeScaleLbl
             // 
-            this.diagTimeScaleLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.diagTimeScaleLbl.Location = new System.Drawing.Point(281, 4);
-            this.diagTimeScaleLbl.Name = "diagTimeScaleLbl";
-            this.diagTimeScaleLbl.Size = new System.Drawing.Size(88, 18);
-            this.diagTimeScaleLbl.TabIndex = 157;
-            this.diagTimeScaleLbl.Text = "Time scale";
+            this.srcTimeScaleLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.srcTimeScaleLbl.Location = new System.Drawing.Point(281, 4);
+            this.srcTimeScaleLbl.Name = "srcTimeScaleLbl";
+            this.srcTimeScaleLbl.Size = new System.Drawing.Size(88, 18);
+            this.srcTimeScaleLbl.TabIndex = 157;
+            this.srcTimeScaleLbl.Text = "Time scale";
             // 
             // tabControl
             // 
@@ -203,8 +203,8 @@
             this.searchPg.Controls.Add(this.srcToDateEd);
             this.searchPg.Controls.Add(this.diagnoseBtn);
             this.searchPg.Controls.Add(this.exchangeLbl);
-            this.searchPg.Controls.Add(this.diagTimeScaleLbl);
-            this.searchPg.Controls.Add(this.diagTimeScaleCb);
+            this.searchPg.Controls.Add(this.srcTimeScaleLbl);
+            this.searchPg.Controls.Add(this.srcTimeScaleCb);
             this.searchPg.Controls.Add(this.exchangeCb);
             this.searchPg.Controls.Add(this.varianceParamGb);
             this.searchPg.Location = new System.Drawing.Point(4, 25);
@@ -214,28 +214,6 @@
             this.searchPg.TabIndex = 0;
             this.searchPg.Text = "Search";
             this.searchPg.UseVisualStyleBackColor = true;
-            // 
-            // srcCodeLbl
-            // 
-            this.srcCodeLbl.AutoSize = true;
-            this.srcCodeLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.srcCodeLbl.Location = new System.Drawing.Point(280, 51);
-            this.srcCodeLbl.Name = "srcCodeLbl";
-            this.srcCodeLbl.Size = new System.Drawing.Size(46, 16);
-            this.srcCodeLbl.TabIndex = 171;
-            this.srcCodeLbl.Text = "Mã số";
-            // 
-            // srcCodeEd
-            // 
-            this.srcCodeEd.BackColor = System.Drawing.Color.White;
-            this.srcCodeEd.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.srcCodeEd.ForeColor = System.Drawing.Color.Black;
-            this.srcCodeEd.isRequired = true;
-            this.srcCodeEd.isToUpperCase = true;
-            this.srcCodeEd.Location = new System.Drawing.Point(279, 69);
-            this.srcCodeEd.Name = "srcCodeEd";
-            this.srcCodeEd.Size = new System.Drawing.Size(93, 24);
-            this.srcCodeEd.TabIndex = 11;
             // 
             // resultPnl
             // 
@@ -350,6 +328,28 @@
             this.srcSelectColumn.ReadOnly = true;
             this.srcSelectColumn.Width = 25;
             // 
+            // srcCodeLbl
+            // 
+            this.srcCodeLbl.AutoSize = true;
+            this.srcCodeLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.srcCodeLbl.Location = new System.Drawing.Point(280, 51);
+            this.srcCodeLbl.Name = "srcCodeLbl";
+            this.srcCodeLbl.Size = new System.Drawing.Size(46, 16);
+            this.srcCodeLbl.TabIndex = 171;
+            this.srcCodeLbl.Text = "Mã số";
+            // 
+            // srcCodeEd
+            // 
+            this.srcCodeEd.BackColor = System.Drawing.Color.White;
+            this.srcCodeEd.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.srcCodeEd.ForeColor = System.Drawing.Color.Black;
+            this.srcCodeEd.isRequired = true;
+            this.srcCodeEd.isToUpperCase = true;
+            this.srcCodeEd.Location = new System.Drawing.Point(279, 69);
+            this.srcCodeEd.Name = "srcCodeEd";
+            this.srcCodeEd.Size = new System.Drawing.Size(93, 24);
+            this.srcCodeEd.TabIndex = 11;
+            // 
             // srcFrDateLbl
             // 
             this.srcFrDateLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -395,9 +395,9 @@
             // varianceParamGb
             // 
             this.varianceParamGb.Controls.Add(this.checkVarianceEd);
-            this.varianceParamGb.Controls.Add(this.baseLabel1);
+            this.varianceParamGb.Controls.Add(this.variancetLbl);
             this.varianceParamGb.Controls.Add(this.checkVariancePercEd);
-            this.varianceParamGb.Controls.Add(this.variancetLb);
+            this.varianceParamGb.Controls.Add(this.variancePerctLb);
             this.varianceParamGb.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.varianceParamGb.Location = new System.Drawing.Point(384, 3);
             this.varianceParamGb.Name = "varianceParamGb";
@@ -424,14 +424,14 @@
             0,
             131072});
             // 
-            // baseLabel1
+            // variancetLbl
             // 
-            this.baseLabel1.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.baseLabel1.Location = new System.Drawing.Point(29, 53);
-            this.baseLabel1.Name = "baseLabel1";
-            this.baseLabel1.Size = new System.Drawing.Size(66, 21);
-            this.baseLabel1.TabIndex = 160;
-            this.baseLabel1.Text = "Value";
+            this.variancetLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.variancetLbl.Location = new System.Drawing.Point(29, 53);
+            this.variancetLbl.Name = "variancetLbl";
+            this.variancetLbl.Size = new System.Drawing.Size(66, 21);
+            this.variancetLbl.TabIndex = 160;
+            this.variancetLbl.Text = "Value";
             // 
             // checkVariancePercEd
             // 
@@ -451,14 +451,14 @@
             0,
             196608});
             // 
-            // variancetLb
+            // variancePerctLb
             // 
-            this.variancetLb.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.variancetLb.Location = new System.Drawing.Point(29, 23);
-            this.variancetLb.Name = "variancetLb";
-            this.variancetLb.Size = new System.Drawing.Size(66, 21);
-            this.variancetLb.TabIndex = 151;
-            this.variancetLb.Text = "Percent";
+            this.variancePerctLb.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.variancePerctLb.Location = new System.Drawing.Point(29, 23);
+            this.variancePerctLb.Name = "variancePerctLb";
+            this.variancePerctLb.Size = new System.Drawing.Size(66, 21);
+            this.variancePerctLb.TabIndex = 151;
+            this.variancePerctLb.Text = "Percent";
             // 
             // dataAdjPg
             // 
@@ -594,15 +594,15 @@
             this.dataAdjGb.Controls.Add(this.dataTimeScaleLbl);
             this.dataAdjGb.Controls.Add(this.dataTimeScaleCb);
             this.dataAdjGb.Controls.Add(this.testAdjustDataBtn);
-            this.dataAdjGb.Controls.Add(this.varianceLbl);
+            this.dataAdjGb.Controls.Add(this.dataVarianceLbl);
             this.dataAdjGb.Controls.Add(this.dataVarianceEd);
             this.dataAdjGb.Controls.Add(this.loadPriceBtn);
             this.dataAdjGb.Controls.Add(this.saveDataBtn);
-            this.dataAdjGb.Controls.Add(this.adjustToDateLbl);
-            this.dataAdjGb.Controls.Add(this.adjWeightLbl);
+            this.dataAdjGb.Controls.Add(this.dataToDateLbl);
+            this.dataAdjGb.Controls.Add(this.adjustWeightLbl);
             this.dataAdjGb.Controls.Add(this.dataToDateEd);
             this.dataAdjGb.Controls.Add(this.dataCodeLbl);
-            this.dataAdjGb.Controls.Add(this.dataWeightEd);
+            this.dataAdjGb.Controls.Add(this.adjustWeightEd);
             this.dataAdjGb.Controls.Add(this.dataCodeEd);
             this.dataAdjGb.Location = new System.Drawing.Point(6, -3);
             this.dataAdjGb.Name = "dataAdjGb";
@@ -616,12 +616,11 @@
             this.reAggregateBtn.Image = global::admin.Properties.Resources.run;
             this.reAggregateBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.reAggregateBtn.isDownState = false;
-            this.reAggregateBtn.Location = new System.Drawing.Point(453, 61);
+            this.reAggregateBtn.Location = new System.Drawing.Point(471, 61);
             this.reAggregateBtn.Name = "reAggregateBtn";
-            this.reAggregateBtn.Size = new System.Drawing.Size(107, 34);
+            this.reAggregateBtn.Size = new System.Drawing.Size(113, 34);
             this.reAggregateBtn.TabIndex = 23;
             this.reAggregateBtn.Text = "Aggregate";
-            this.reAggregateBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.reAggregateBtn.UseVisualStyleBackColor = true;
             this.reAggregateBtn.Click += new System.EventHandler(this.reAggregateBtn_Click);
             // 
@@ -653,23 +652,23 @@
             this.testAdjustDataBtn.Image = global::admin.Properties.Resources.select;
             this.testAdjustDataBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.testAdjustDataBtn.isDownState = false;
-            this.testAdjustDataBtn.Location = new System.Drawing.Point(226, 61);
+            this.testAdjustDataBtn.Location = new System.Drawing.Point(232, 61);
             this.testAdjustDataBtn.Name = "testAdjustDataBtn";
-            this.testAdjustDataBtn.Size = new System.Drawing.Size(120, 34);
+            this.testAdjustDataBtn.Size = new System.Drawing.Size(126, 34);
             this.testAdjustDataBtn.TabIndex = 21;
             this.testAdjustDataBtn.Text = "Auto-adjust";
             this.testAdjustDataBtn.UseVisualStyleBackColor = true;
             this.testAdjustDataBtn.Click += new System.EventHandler(this.testAdjustDataBtn_Click);
             // 
-            // varianceLbl
+            // dataVarianceLbl
             // 
-            this.varianceLbl.AutoSize = true;
-            this.varianceLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.varianceLbl.Location = new System.Drawing.Point(392, 12);
-            this.varianceLbl.Name = "varianceLbl";
-            this.varianceLbl.Size = new System.Drawing.Size(65, 16);
-            this.varianceLbl.TabIndex = 172;
-            this.varianceLbl.Text = "Variance";
+            this.dataVarianceLbl.AutoSize = true;
+            this.dataVarianceLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataVarianceLbl.Location = new System.Drawing.Point(392, 11);
+            this.dataVarianceLbl.Name = "dataVarianceLbl";
+            this.dataVarianceLbl.Size = new System.Drawing.Size(65, 16);
+            this.dataVarianceLbl.TabIndex = 172;
+            this.dataVarianceLbl.Text = "Variance";
             // 
             // dataVarianceEd
             // 
@@ -678,7 +677,7 @@
             this.dataVarianceEd.Location = new System.Drawing.Point(390, 30);
             this.dataVarianceEd.myFormat = "##0.##0";
             this.dataVarianceEd.Name = "dataVarianceEd";
-            this.dataVarianceEd.Size = new System.Drawing.Size(75, 24);
+            this.dataVarianceEd.Size = new System.Drawing.Size(86, 24);
             this.dataVarianceEd.TabIndex = 3;
             this.dataVarianceEd.Text = "0.050";
             this.dataVarianceEd.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -698,7 +697,7 @@
             this.loadPriceBtn.isDownState = false;
             this.loadPriceBtn.Location = new System.Drawing.Point(119, 61);
             this.loadPriceBtn.Name = "loadPriceBtn";
-            this.loadPriceBtn.Size = new System.Drawing.Size(107, 34);
+            this.loadPriceBtn.Size = new System.Drawing.Size(113, 34);
             this.loadPriceBtn.TabIndex = 20;
             this.loadPriceBtn.Text = "Load";
             this.loadPriceBtn.UseVisualStyleBackColor = true;
@@ -710,33 +709,33 @@
             this.saveDataBtn.Image = global::admin.Properties.Resources.save;
             this.saveDataBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.saveDataBtn.isDownState = false;
-            this.saveDataBtn.Location = new System.Drawing.Point(346, 61);
+            this.saveDataBtn.Location = new System.Drawing.Point(358, 61);
             this.saveDataBtn.Name = "saveDataBtn";
-            this.saveDataBtn.Size = new System.Drawing.Size(107, 34);
+            this.saveDataBtn.Size = new System.Drawing.Size(113, 34);
             this.saveDataBtn.TabIndex = 22;
             this.saveDataBtn.Text = "Save";
             this.saveDataBtn.UseVisualStyleBackColor = true;
             this.saveDataBtn.Click += new System.EventHandler(this.saveDataBtn_Click);
             // 
-            // adjustToDateLbl
+            // dataToDateLbl
             // 
-            this.adjustToDateLbl.AutoSize = true;
-            this.adjustToDateLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.adjustToDateLbl.Location = new System.Drawing.Point(118, 11);
-            this.adjustToDateLbl.Name = "adjustToDateLbl";
-            this.adjustToDateLbl.Size = new System.Drawing.Size(70, 16);
-            this.adjustToDateLbl.TabIndex = 164;
-            this.adjustToDateLbl.Text = "Đến ngày";
+            this.dataToDateLbl.AutoSize = true;
+            this.dataToDateLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataToDateLbl.Location = new System.Drawing.Point(118, 11);
+            this.dataToDateLbl.Name = "dataToDateLbl";
+            this.dataToDateLbl.Size = new System.Drawing.Size(70, 16);
+            this.dataToDateLbl.TabIndex = 164;
+            this.dataToDateLbl.Text = "Đến ngày";
             // 
-            // adjWeightLbl
+            // adjustWeightLbl
             // 
-            this.adjWeightLbl.AutoSize = true;
-            this.adjWeightLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.adjWeightLbl.Location = new System.Drawing.Point(464, 12);
-            this.adjWeightLbl.Name = "adjWeightLbl";
-            this.adjWeightLbl.Size = new System.Drawing.Size(94, 16);
-            this.adjWeightLbl.TabIndex = 170;
-            this.adjWeightLbl.Text = "HS điều chỉnh";
+            this.adjustWeightLbl.AutoSize = true;
+            this.adjustWeightLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.adjustWeightLbl.Location = new System.Drawing.Point(478, 11);
+            this.adjustWeightLbl.Name = "adjustWeightLbl";
+            this.adjustWeightLbl.Size = new System.Drawing.Size(94, 16);
+            this.adjustWeightLbl.TabIndex = 170;
+            this.adjustWeightLbl.Text = "HS điều chỉnh";
             // 
             // dataToDateEd
             // 
@@ -754,31 +753,31 @@
             // 
             this.dataCodeLbl.AutoSize = true;
             this.dataCodeLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataCodeLbl.Location = new System.Drawing.Point(213, 12);
+            this.dataCodeLbl.Location = new System.Drawing.Point(213, 11);
             this.dataCodeLbl.Name = "dataCodeLbl";
             this.dataCodeLbl.Size = new System.Drawing.Size(46, 16);
             this.dataCodeLbl.TabIndex = 169;
             this.dataCodeLbl.Text = "Mã số";
             // 
-            // dataWeightEd
+            // adjustWeightEd
             // 
-            this.dataWeightEd.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataWeightEd.InsertKeyMode = System.Windows.Forms.InsertKeyMode.Overwrite;
-            this.dataWeightEd.Location = new System.Drawing.Point(465, 30);
-            this.dataWeightEd.myFormat = " ##0.##0";
-            this.dataWeightEd.Name = "dataWeightEd";
-            this.dataWeightEd.Size = new System.Drawing.Size(94, 24);
-            this.dataWeightEd.TabIndex = 10;
-            this.dataWeightEd.TabStop = false;
-            this.dataWeightEd.Text = "0.050";
-            this.dataWeightEd.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.dataWeightEd.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludePromptAndLiterals;
-            this.dataWeightEd.Value = new decimal(new int[] {
+            this.adjustWeightEd.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.adjustWeightEd.InsertKeyMode = System.Windows.Forms.InsertKeyMode.Overwrite;
+            this.adjustWeightEd.Location = new System.Drawing.Point(476, 30);
+            this.adjustWeightEd.myFormat = " ##0.##0";
+            this.adjustWeightEd.Name = "adjustWeightEd";
+            this.adjustWeightEd.Size = new System.Drawing.Size(107, 24);
+            this.adjustWeightEd.TabIndex = 10;
+            this.adjustWeightEd.TabStop = false;
+            this.adjustWeightEd.Text = "0.050";
+            this.adjustWeightEd.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.adjustWeightEd.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludePromptAndLiterals;
+            this.adjustWeightEd.Value = new decimal(new int[] {
             50,
             0,
             0,
             196608});
-            this.dataWeightEd.Validated += new System.EventHandler(this.adjWeightEd_Validated);
+            this.adjustWeightEd.Validated += new System.EventHandler(this.adjWeightEd_Validated);
             // 
             // dataCodeEd
             // 
@@ -796,6 +795,7 @@
             // 
             this.ClientSize = new System.Drawing.Size(776, 496);
             this.Controls.Add(this.tabControl);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "dataTools";
             this.Text = "Data tools";
             this.Controls.SetChildIndex(this.tabControl, 0);
@@ -828,8 +828,8 @@
         private common.controls.numberTextBox checkVariancePercEd;
         private baseClass.controls.cbStockExchange exchangeCb;
         protected common.controls.basePanel resultPnl;
-        private baseClass.controls.cbTimeScale diagTimeScaleCb;
-        private baseClass.controls.baseLabel diagTimeScaleLbl;
+        private baseClass.controls.cbTimeScale srcTimeScaleCb;
+        private baseClass.controls.baseLabel srcTimeScaleLbl;
         private common.controls.baseDataGridView resultGrid;
         private common.controls.numberTextBox checkVarianceEd;
         private System.Windows.Forms.TabControl tabControl;
@@ -838,10 +838,10 @@
         protected System.Windows.Forms.TabPage dataAdjPg;
         protected baseClass.controls.baseButton saveDataBtn;
         protected common.controls.baseDate dataToDateEd;
-        protected common.controls.numberTextBox dataWeightEd;
+        protected common.controls.numberTextBox adjustWeightEd;
         protected baseClass.controls.txtStockCode dataCodeEd;
         protected common.controls.baseLabel dataCodeLbl;
-        protected common.controls.baseLabel adjWeightLbl;
+        protected common.controls.baseLabel adjustWeightLbl;
         protected System.Windows.Forms.GroupBox dataAdjGb;
         protected baseClass.controls.baseButton loadPriceBtn;
         protected common.controls.baseDataGridView dataAdjGrid;
@@ -849,16 +849,16 @@
         protected System.Windows.Forms.BindingSource priceDataSource;
         protected databases.tmpDS tmpDS;
         protected System.Windows.Forms.BindingSource priceDiagnoseSource;
-        protected common.controls.baseLabel adjustToDateLbl;
-        protected common.controls.baseLabel varianceLbl;
+        protected common.controls.baseLabel dataToDateLbl;
+        protected common.controls.baseLabel dataVarianceLbl;
         protected common.controls.numberTextBox dataVarianceEd;
         protected baseClass.controls.baseButton testAdjustDataBtn;
         protected baseClass.controls.baseButton reAggregateBtn;
         private baseClass.controls.baseLabel dataTimeScaleLbl;
         private baseClass.controls.cbTimeScale dataTimeScaleCb;
         private System.Windows.Forms.GroupBox varianceParamGb;
-        private baseClass.controls.baseLabel baseLabel1;
-        private baseClass.controls.baseLabel variancetLb;
+        private baseClass.controls.baseLabel variancetLbl;
+        private baseClass.controls.baseLabel variancePerctLb;
         protected common.controls.baseLabel srcFrDateLbl;
         protected common.controls.baseDate srcFrDateEd;
         protected common.controls.baseLabel srcToDateLbl;

@@ -20,14 +20,14 @@ namespace admin.forms
                 srcFrDateEd.myDateTime = Settings.sysStartDataDate;
                 srcToDateEd.myDateTime = DateTime.Today;
                 exchangeCb.LoadData();
-                diagTimeScaleCb.LoadData();
+                srcTimeScaleCb.LoadData();
                 dataTimeScaleCb.LoadData();
                 dataTimeScaleCb.myValue = AppTypes.MainDataTimeScale;
                 fullMode = false;
                 tabControl.SendToBack();
 
                 dataVarianceEd.myPrecision = constPrecision;
-                dataWeightEd.myPrecision = constPrecision;
+                adjustWeightEd.myPrecision = constPrecision;
 
                 srcSelectColumn.myImageType = common.controls.imageType.Select;
                 dataSelectColumn.myImageType = common.controls.imageType.Select; 
@@ -50,6 +50,53 @@ namespace admin.forms
                 Application.DoEvents();
             }
         }
+        public override void SetLanguage()
+        {
+            if (!isLoaded) return;
+            base.SetLanguage();
+            this.Text = Languages.Libs.GetString("dataTools");
+
+            searchPg.Text = Languages.Libs.GetString("search");
+            srcFrDateLbl.Text = Languages.Libs.GetString("fromDate");
+            srcToDateLbl.Text = Languages.Libs.GetString("toDate");
+
+            srcTimeScaleLbl.Text = Languages.Libs.GetString("timeScale");
+            exchangeLbl.Text = Languages.Libs.GetString("exchange");
+            srcCodeLbl.Text = Languages.Libs.GetString("code");
+
+            varianceParamGb.Text = Languages.Libs.GetString("variance");
+            variancePerctLb.Text = Languages.Libs.GetString("percent");
+            variancetLbl.Text = Languages.Libs.GetString("value");
+            diagnoseBtn.Text = Languages.Libs.GetString("search");
+
+            srcCodeColumn.HeaderText = Languages.Libs.GetString("code");
+            srcClosePriceColumn.HeaderText = Languages.Libs.GetString("closePrice");
+            srcOpenPriceColumn.HeaderText = Languages.Libs.GetString("openPrice");
+            
+            srcOpenDateColumn.HeaderText = Languages.Libs.GetString("openDate");
+            srcCloseDateColumn.HeaderText = Languages.Libs.GetString("closeDate");
+            
+            ///Tool page
+            dataAdjPg.Text = Languages.Libs.GetString("tools");
+            dataToDateLbl.Text = Languages.Libs.GetString("toDate");
+            dataCodeLbl.Text = Languages.Libs.GetString("code");
+            dataTimeScaleLbl.Text = Languages.Libs.GetString("timeScale");
+            dataVarianceLbl.Text = Languages.Libs.GetString("variance");
+            adjustWeightLbl.Text = Languages.Libs.GetString("adjustWeight");
+
+            loadPriceBtn.Text = Languages.Libs.GetString("load");
+            testAdjustDataBtn.Text = Languages.Libs.GetString("autoAdjust");
+            saveDataBtn.Text = Languages.Libs.GetString("save");
+            reAggregateBtn.Text = Languages.Libs.GetString("reAggregate");
+
+            dataOnDateColumn.HeaderText = Languages.Libs.GetString("dateTime");
+            dataClosePriceColumn.HeaderText = Languages.Libs.GetString("closePrice");
+            dataOpenPriceColumn.HeaderText = Languages.Libs.GetString("openPrice");
+            dataHighPriceColumn.HeaderText = Languages.Libs.GetString("highPrice");
+            dataLowPriceColumn.HeaderText = Languages.Libs.GetString("lowPrice");
+            dataVolumeColumn.HeaderText = Languages.Libs.GetString("volume");
+        }
+
         private bool DiagnoseValid()
         {
             bool retVal = true;
@@ -68,7 +115,7 @@ namespace admin.forms
             ClearNotifyError();
             if (dataToDateEd.myDateTime == common.Consts.constNullDate) 
             {
-                this.NotifyError(adjustToDateLbl);
+                this.NotifyError(dataToDateLbl);
                 retVal = false;
             }
             if (dataCodeEd.Text.Trim() == "") 
@@ -76,9 +123,9 @@ namespace admin.forms
                 this.NotifyError(dataCodeLbl);
                 retVal = false;
             }
-            if (dataWeightEd.Value == 0)
+            if (adjustWeightEd.Value == 0)
             {
-                this.NotifyError(adjWeightLbl);
+                this.NotifyError(adjustWeightLbl);
                 retVal = false;
             }
             return retVal;
@@ -103,7 +150,7 @@ namespace admin.forms
                 dataToDateEd.myDateTime = row.date2;
 
                 dataVarianceEd.Value = (decimal)row.variance;
-                dataWeightEd.Value = VarianceToWeight((decimal)row.variance);
+                adjustWeightEd.Value = VarianceToWeight((decimal)row.variance);
             }
         }
 
@@ -120,7 +167,7 @@ namespace admin.forms
                 System.Diagnostics.Stopwatch watch = new System.Diagnostics.Stopwatch();
                 watch.Start();
                 priceDiagnoseSource.DataSource = 
-                    DataAccess.Libs.DiagnosePrice_CloseAndNextOpen(srcFrDateEd.myDateTime, srcToDateEd.myDateTime, diagTimeScaleCb.myValue.Code,
+                    DataAccess.Libs.DiagnosePrice_CloseAndNextOpen(srcFrDateEd.myDateTime, srcToDateEd.myDateTime, srcTimeScaleCb.myValue.Code,
                                                                    exchangeCb.myValue,srcCodeEd.Text.Trim(), (double)checkVariancePercEd.Value,
                                                                    (double)checkVarianceEd.Value, constPrecision);
                 priceDiagnoseSource.Sort = tmpDS.priceDiagnose.codeColumn.ColumnName;
@@ -145,7 +192,7 @@ namespace admin.forms
             {
                 if (fProcessing) return;
                 fProcessing = true;
-                dataWeightEd.Value = VarianceToWeight(dataVarianceEd.GetValue());
+                adjustWeightEd.Value = VarianceToWeight(dataVarianceEd.GetValue());
                 fProcessing = false;
             }
             catch (Exception er)
@@ -160,7 +207,7 @@ namespace admin.forms
             {
                 if (fProcessing) return;
                 fProcessing = true;
-                dataVarianceEd.Value = WeightToVariance(dataWeightEd.GetValue());
+                dataVarianceEd.Value = WeightToVariance(adjustWeightEd.GetValue());
                 fProcessing = false;
             }
             catch (Exception er)
@@ -180,10 +227,11 @@ namespace admin.forms
                 loadPriceBtn.Enabled = false;
 
                 DateTime toDate = dataToDateEd.myDateTime;
-                decimal weight = (decimal)dataWeightEd.Value;
+                decimal weight = (decimal)adjustWeightEd.Value;
                 System.Diagnostics.Stopwatch watch = new System.Diagnostics.Stopwatch();
                 watch.Start();
-                databases.baseDS.priceDataDataTable priceTbl = DataAccess.Libs.GetPriceData(dataCodeEd.Text.Trim(), dataTimeScaleCb.myValue.Code);
+                databases.baseDS.priceDataDataTable priceTbl = DataAccess.Libs.GetPriceData(dataCodeEd.Text.Trim(),dataTimeScaleCb.myValue.Code,
+                                                                                            Settings.sysStartDataDate,toDate.AddDays(1) );
 
                 if (priceTbl == null) return;
                 priceDataSource.DataSource = priceTbl;
@@ -211,7 +259,7 @@ namespace admin.forms
                 common.system.ShowCurrorWait();
 
                 DateTime toDate = dataToDateEd.myDateTime;
-                decimal weight = (decimal)dataWeightEd.Value;
+                decimal weight = (decimal)adjustWeightEd.Value;
 
                 databases.baseDS.priceDataDataTable priceTbl = (priceDataSource.DataSource as databases.baseDS.priceDataDataTable);
                 if (priceTbl == null) return;

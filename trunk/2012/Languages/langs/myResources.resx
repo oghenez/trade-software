@@ -1194,4 +1194,43 @@
   <data name="logAccessTo" xml:space="preserve">
     <value>Log access to</value>
   </data>
+  <data name="logType" xml:space="preserve">
+    <value>Log type</value>
+  </data>
+  <data name="source" xml:space="preserve">
+    <value>Source</value>
+  </data>
+  <data name="systemLog" xml:space="preserve">
+    <value>System Log</value>
+  </data>
+  <data name="adjustWeight" xml:space="preserve">
+    <value>Adjust Weight</value>
+  </data>
+  <data name="autoAdjust" xml:space="preserve">
+    <value>Auto-Adjust</value>
+  </data>
+  <data name="closeDate" xml:space="preserve">
+    <value>Close Date</value>
+  </data>
+  <data name="dataTools" xml:space="preserve">
+    <value>Data Tools</value>
+  </data>
+  <data name="fromDate" xml:space="preserve">
+    <value>From Date</value>
+  </data>
+  <data name="openDate" xml:space="preserve">
+    <value>Open Date</value>
+  </data>
+  <data name="reAggregate" xml:space="preserve">
+    <value>Re-Aggregate</value>
+  </data>
+  <data name="toDate" xml:space="preserve">
+    <value>To Date</value>
+  </data>
+  <data name="variance" xml:space="preserve">
+    <value>Variance</value>
+  </data>
+  <data name="load" xml:space="preserve">
+    <value>Load</value>
+  </data>
 </root>

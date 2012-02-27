@@ -354,6 +354,8 @@
       <xs:sequence>
         <xs:element minOccurs="0" name="stockCode" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="timeScaleCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="frDate" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="toDate" type="xs:dateTime" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

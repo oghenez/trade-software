@@ -181,7 +181,7 @@ namespace wsServices
         databases.baseDS.lastPriceDataDataTable GetLastPrice(AppTypes.PriceDataType type);
 
         [OperationContract]
-        databases.baseDS.priceDataDataTable GetPriceData(string stockCode, string timeScaleCode);
+        databases.baseDS.priceDataDataTable GetPriceData(string stockCode, string timeScaleCode, DateTime frDate, DateTime toDate);
         
         [OperationContract]
         DateTime GetLastAlertTime(string investorCode);
