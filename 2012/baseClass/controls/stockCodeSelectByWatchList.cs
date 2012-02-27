@@ -435,7 +435,7 @@ namespace baseClass.controls
                 if (e.RowIndex < 0 || e.RowIndex >= stockGV.Rows.Count) return;
                 if (e.ColumnIndex < 0 || e.ColumnIndex >= stockGV.Columns .Count) return;
                 if (stockGV.Columns[e.ColumnIndex] != codeColumn) return;
-                databases.tmpDS.stockCodeRow row = (databases.tmpDS.stockCodeRow)((DataRowView)stockGV.Rows[e.RowIndex - 1].DataBoundItem).Row;
+                databases.tmpDS.stockCodeRow row = (databases.tmpDS.stockCodeRow)((DataRowView)stockGV.Rows[e.RowIndex].DataBoundItem).Row;
                 if (row == null) return;
                 e.ToolTipText = (commonClass.SysLibs.IsUseVietnamese() ? row.name : row.nameEn);
             }
