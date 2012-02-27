@@ -645,6 +645,19 @@ namespace Tools.Forms
                 this.ShowMessage(er.Message);
             }
         }
+
+        private void resultDataGrid_RowEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                if (e.RowIndex<=0) return;
+                this.ShowReccount("["+(e.RowIndex+1).ToString()+"/"+resultDataGrid.Rows.Count.ToString()+"]");
+            }
+            catch (Exception er)
+            {
+                this.ShowMessage(er.Message);
+            }
+        }
         #endregion
     }
 }

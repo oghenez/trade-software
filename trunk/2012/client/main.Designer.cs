@@ -1351,7 +1351,7 @@
             this.strategyStrip.Dock = System.Windows.Forms.DockStyle.None;
             this.strategyStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.strategyCbStrip});
-            this.strategyStrip.Location = new System.Drawing.Point(574, 24);
+            this.strategyStrip.Location = new System.Drawing.Point(512, 24);
             this.strategyStrip.Name = "strategyStrip";
             this.strategyStrip.Size = new System.Drawing.Size(312, 25);
             this.strategyStrip.TabIndex = 149;
@@ -1369,7 +1369,7 @@
             this.periodicityStrip.Dock = System.Windows.Forms.DockStyle.None;
             this.periodicityStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.dummyStripBtn});
-            this.periodicityStrip.Location = new System.Drawing.Point(886, 24);
+            this.periodicityStrip.Location = new System.Drawing.Point(824, 24);
             this.periodicityStrip.Name = "periodicityStrip";
             this.periodicityStrip.Size = new System.Drawing.Size(95, 25);
             this.periodicityStrip.TabIndex = 147;

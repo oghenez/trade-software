@@ -80,6 +80,7 @@
             this.resultDataGrid.Location = new System.Drawing.Point(-1, -1);
             this.resultDataGrid.Name = "resultDataGrid";
             this.resultDataGrid.ReadOnly = true;
+            this.resultDataGrid.RowTemplate.Height = 24;
             this.resultDataGrid.Size = new System.Drawing.Size(408, 342);
             this.resultDataGrid.TabIndex = 309;
             this.resultDataGrid.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGrid_CellContentDoubleClick);
@@ -100,7 +101,7 @@
             // 
             this.periodicityEd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.periodicityEd.Location = new System.Drawing.Point(21, 21);
-            this.periodicityEd.myTimeRange =commonTypes.AppTypes.TimeRanges.Y5;
+            this.periodicityEd.myTimeRange = commonTypes.AppTypes.TimeRanges.Y5;
             this.periodicityEd.Name = "periodicityEd";
             this.periodicityEd.Size = new System.Drawing.Size(378, 24);
             this.periodicityEd.TabIndex = 1;
@@ -151,6 +152,7 @@
             this.strategyEstimationGrid.Location = new System.Drawing.Point(-2, 1);
             this.strategyEstimationGrid.Name = "strategyEstimationGrid";
             this.strategyEstimationGrid.ReadOnly = true;
+            this.strategyEstimationGrid.RowTemplate.Height = 24;
             this.strategyEstimationGrid.Size = new System.Drawing.Size(409, 160);
             this.strategyEstimationGrid.TabIndex = 310;
             // 
@@ -247,78 +249,78 @@
             // runMenuItem
             // 
             this.runMenuItem.Name = "runMenuItem";
-            this.runMenuItem.Size = new System.Drawing.Size(189, 22);
+            this.runMenuItem.Size = new System.Drawing.Size(202, 22);
             this.runMenuItem.Text = "Run";
             this.runMenuItem.Click += new System.EventHandler(this.runMenuItem_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(186, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(199, 6);
             // 
             // openMenuItem
             // 
             this.openMenuItem.Name = "openMenuItem";
-            this.openMenuItem.Size = new System.Drawing.Size(189, 22);
+            this.openMenuItem.Size = new System.Drawing.Size(202, 22);
             this.openMenuItem.Text = "Open";
             this.openMenuItem.Click += new System.EventHandler(this.openMenuItem_Click);
             // 
             // profitDetailMenu
             // 
             this.profitDetailMenu.Name = "profitDetailMenu";
-            this.profitDetailMenu.Size = new System.Drawing.Size(189, 22);
+            this.profitDetailMenu.Size = new System.Drawing.Size(202, 22);
             this.profitDetailMenu.Text = "Profit Details";
             this.profitDetailMenu.Click += new System.EventHandler(this.profitDetailMenu_Click);
             // 
             // allProfitDetailMenu
             // 
             this.allProfitDetailMenu.Name = "allProfitDetailMenu";
-            this.allProfitDetailMenu.Size = new System.Drawing.Size(189, 22);
+            this.allProfitDetailMenu.Size = new System.Drawing.Size(202, 22);
             this.allProfitDetailMenu.Text = "All Profit Details";
             this.allProfitDetailMenu.Click += new System.EventHandler(this.allProfitDetailMenu_Click);
             // 
             // addToWatchListMenuItem
             // 
             this.addToWatchListMenuItem.Name = "addToWatchListMenuItem";
-            this.addToWatchListMenuItem.Size = new System.Drawing.Size(189, 22);
+            this.addToWatchListMenuItem.Size = new System.Drawing.Size(202, 22);
             this.addToWatchListMenuItem.Text = "To Watch List";
             this.addToWatchListMenuItem.Click += new System.EventHandler(this.addToWatchListMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(186, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(199, 6);
             // 
             // fullViewMenuItem
             // 
             this.fullViewMenuItem.Name = "fullViewMenuItem";
-            this.fullViewMenuItem.Size = new System.Drawing.Size(189, 22);
+            this.fullViewMenuItem.Size = new System.Drawing.Size(202, 22);
             this.fullViewMenuItem.Text = "Full View";
             this.fullViewMenuItem.Click += new System.EventHandler(this.fullViewMenuItem_Click);
             // 
             // estimationMenuItem
             // 
             this.estimationMenuItem.Name = "estimationMenuItem";
-            this.estimationMenuItem.Size = new System.Drawing.Size(189, 22);
+            this.estimationMenuItem.Size = new System.Drawing.Size(202, 22);
             this.estimationMenuItem.Text = "Show Estimation";
             this.estimationMenuItem.Click += new System.EventHandler(this.estimationMenuItem_Click);
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(186, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(199, 6);
             // 
             // exportResultMenuItem
             // 
             this.exportResultMenuItem.Name = "exportResultMenuItem";
-            this.exportResultMenuItem.Size = new System.Drawing.Size(189, 22);
+            this.exportResultMenuItem.Size = new System.Drawing.Size(202, 22);
             this.exportResultMenuItem.Text = "Export Results";
             this.exportResultMenuItem.Click += new System.EventHandler(this.exportResultMenuItem_Click);
             // 
             // exportEstimationMenuItem
             // 
             this.exportEstimationMenuItem.Name = "exportEstimationMenuItem";
-            this.exportEstimationMenuItem.Size = new System.Drawing.Size(189, 22);
+            this.exportEstimationMenuItem.Size = new System.Drawing.Size(202, 22);
             this.exportEstimationMenuItem.Text = "Export Estimation";
             this.exportEstimationMenuItem.Click += new System.EventHandler(this.exportEstimationMenuItem_Click);
             // 
@@ -329,7 +331,6 @@
             this.Controls.Add(this.dataPnl);
             this.Controls.Add(this.optionPnl);
             this.Controls.Add(this.menuStrip);
-            
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip;
             this.Name = "backTesting";

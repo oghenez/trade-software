@@ -52,7 +52,7 @@ namespace baseClass.forms
         {
             try
             {
-                switch (Settings.sysWriteLogException)
+                switch (Settings.sysGlobal.WriteLogAccess)
                 {
                     case AppTypes.SyslogMedia.Database:
                         DataAccess.Libs.WriteLog(AppTypes.SyslogTypes.Access, commonClass.SysLibs.sysLoginCode, "Opened : " + this.Name, null, null);
@@ -71,7 +71,7 @@ namespace baseClass.forms
         {
             try
             {
-                switch (Settings.sysWriteLogException)
+                switch (Settings.sysGlobal.WriteLogAccess)
                 {
                     case AppTypes.SyslogMedia.Database:
                         DataAccess.Libs.WriteLog(AppTypes.SyslogTypes.Access, commonClass.SysLibs.sysLoginCode, "Closed : " + this.Name, null, null);

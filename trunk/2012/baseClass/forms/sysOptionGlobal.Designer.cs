@@ -34,6 +34,8 @@
             this.systemTab = new System.Windows.Forms.TabControl();
             this.generalPg = new System.Windows.Forms.TabPage();
             this.generalGb = new System.Windows.Forms.GroupBox();
+            this.accessLogMediaLbl = new common.controls.baseLabel();
+            this.accessLogMediaCb = new baseClass.controls.cbSyslogMedia();
             this.useStrongPassChk = new common.controls.baseCheckBox();
             this.pwdMinLenLbl = new common.controls.baseLabel();
             this.pwdCharLbl = new common.controls.baseLabel();
@@ -139,11 +141,11 @@
             // 
             this.mainTab.Controls.Add(this.systemPg);
             this.mainTab.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
-            this.mainTab.Location = new System.Drawing.Point(-1, 1);
+            this.mainTab.Location = new System.Drawing.Point(13, 10);
             this.mainTab.Multiline = true;
             this.mainTab.Name = "mainTab";
             this.mainTab.SelectedIndex = 0;
-            this.mainTab.Size = new System.Drawing.Size(423, 273);
+            this.mainTab.Size = new System.Drawing.Size(427, 273);
             this.mainTab.TabIndex = 1;
             // 
             // systemPg
@@ -152,7 +154,7 @@
             this.systemPg.Location = new System.Drawing.Point(4, 25);
             this.systemPg.Name = "systemPg";
             this.systemPg.Padding = new System.Windows.Forms.Padding(3);
-            this.systemPg.Size = new System.Drawing.Size(415, 244);
+            this.systemPg.Size = new System.Drawing.Size(419, 244);
             this.systemPg.TabIndex = 0;
             this.systemPg.Text = "Hệ thống";
             this.systemPg.UseVisualStyleBackColor = true;
@@ -164,11 +166,11 @@
             this.systemTab.Controls.Add(this.emailPg);
             this.systemTab.Controls.Add(this.defaultPg);
             this.systemTab.Controls.Add(this.sysSettingPg);
-            this.systemTab.Location = new System.Drawing.Point(-3, 0);
+            this.systemTab.Location = new System.Drawing.Point(-2, 1);
             this.systemTab.Multiline = true;
             this.systemTab.Name = "systemTab";
             this.systemTab.SelectedIndex = 0;
-            this.systemTab.Size = new System.Drawing.Size(424, 268);
+            this.systemTab.Size = new System.Drawing.Size(426, 252);
             this.systemTab.TabIndex = 146;
             // 
             // generalPg
@@ -177,28 +179,51 @@
             this.generalPg.Location = new System.Drawing.Point(4, 25);
             this.generalPg.Name = "generalPg";
             this.generalPg.Padding = new System.Windows.Forms.Padding(3);
-            this.generalPg.Size = new System.Drawing.Size(416, 239);
+            this.generalPg.Size = new System.Drawing.Size(418, 223);
             this.generalPg.TabIndex = 1;
             this.generalPg.Text = "Chung";
             this.generalPg.UseVisualStyleBackColor = true;
             // 
             // generalGb
             // 
+            this.generalGb.Controls.Add(this.accessLogMediaLbl);
+            this.generalGb.Controls.Add(this.accessLogMediaCb);
             this.generalGb.Controls.Add(this.useStrongPassChk);
             this.generalGb.Controls.Add(this.pwdMinLenLbl);
             this.generalGb.Controls.Add(this.pwdCharLbl);
             this.generalGb.Controls.Add(this.passwordMinLenEd);
-            this.generalGb.Location = new System.Drawing.Point(15, 15);
+            this.generalGb.Location = new System.Drawing.Point(15, 14);
             this.generalGb.Name = "generalGb";
-            this.generalGb.Size = new System.Drawing.Size(389, 160);
+            this.generalGb.Size = new System.Drawing.Size(390, 155);
             this.generalGb.TabIndex = 154;
             this.generalGb.TabStop = false;
+            // 
+            // accessLogMediaLbl
+            // 
+            this.accessLogMediaLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.accessLogMediaLbl.Location = new System.Drawing.Point(54, 35);
+            this.accessLogMediaLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.accessLogMediaLbl.Name = "accessLogMediaLbl";
+            this.accessLogMediaLbl.Size = new System.Drawing.Size(147, 16);
+            this.accessLogMediaLbl.TabIndex = 215;
+            this.accessLogMediaLbl.Text = "Ghi nhật ký truy cập";
+            // 
+            // accessLogMediaCb
+            // 
+            this.accessLogMediaCb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.accessLogMediaCb.FormattingEnabled = true;
+            this.accessLogMediaCb.Location = new System.Drawing.Point(201, 31);
+            this.accessLogMediaCb.myValue = commonTypes.AppTypes.SyslogMedia.None;
+            this.accessLogMediaCb.Name = "accessLogMediaCb";
+            this.accessLogMediaCb.SelectedValue = commonTypes.AppTypes.SyslogMedia.None;
+            this.accessLogMediaCb.Size = new System.Drawing.Size(121, 24);
+            this.accessLogMediaCb.TabIndex = 1;
             // 
             // useStrongPassChk
             // 
             this.useStrongPassChk.AutoSize = true;
             this.useStrongPassChk.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.useStrongPassChk.Location = new System.Drawing.Point(65, 87);
+            this.useStrongPassChk.Location = new System.Drawing.Point(50, 90);
             this.useStrongPassChk.Name = "useStrongPassChk";
             this.useStrongPassChk.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.useStrongPassChk.Size = new System.Drawing.Size(163, 20);
@@ -209,10 +234,10 @@
             // pwdMinLenLbl
             // 
             this.pwdMinLenLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pwdMinLenLbl.Location = new System.Drawing.Point(65, 59);
+            this.pwdMinLenLbl.Location = new System.Drawing.Point(54, 64);
             this.pwdMinLenLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.pwdMinLenLbl.Name = "pwdMinLenLbl";
-            this.pwdMinLenLbl.Size = new System.Drawing.Size(133, 16);
+            this.pwdMinLenLbl.Size = new System.Drawing.Size(147, 16);
             this.pwdMinLenLbl.TabIndex = 212;
             this.pwdMinLenLbl.Text = "Độ dài mật khẩu";
             // 
@@ -220,7 +245,7 @@
             // 
             this.pwdCharLbl.AutoSize = true;
             this.pwdCharLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pwdCharLbl.Location = new System.Drawing.Point(253, 59);
+            this.pwdCharLbl.Location = new System.Drawing.Point(253, 64);
             this.pwdCharLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.pwdCharLbl.Name = "pwdCharLbl";
             this.pwdCharLbl.Size = new System.Drawing.Size(46, 16);
@@ -229,7 +254,7 @@
             // 
             // passwordMinLenEd
             // 
-            this.passwordMinLenEd.Location = new System.Drawing.Point(201, 56);
+            this.passwordMinLenEd.Location = new System.Drawing.Point(201, 61);
             this.passwordMinLenEd.Maximum = new decimal(new int[] {
             20,
             0,
@@ -256,7 +281,7 @@
             this.autoKeyPg.Location = new System.Drawing.Point(4, 22);
             this.autoKeyPg.Name = "autoKeyPg";
             this.autoKeyPg.Padding = new System.Windows.Forms.Padding(3);
-            this.autoKeyPg.Size = new System.Drawing.Size(416, 242);
+            this.autoKeyPg.Size = new System.Drawing.Size(418, 226);
             this.autoKeyPg.TabIndex = 0;
             this.autoKeyPg.Text = "Số tự động";
             this.autoKeyPg.UseVisualStyleBackColor = true;
@@ -272,9 +297,9 @@
             this.autoKeyGb.Controls.Add(this.secondLbl);
             this.autoKeyGb.Controls.Add(this.sysAutoDataKeySizeEd);
             this.autoKeyGb.Controls.Add(this.timeOutAutoKeyEd);
-            this.autoKeyGb.Location = new System.Drawing.Point(18, 12);
+            this.autoKeyGb.Location = new System.Drawing.Point(15, 14);
             this.autoKeyGb.Name = "autoKeyGb";
-            this.autoKeyGb.Size = new System.Drawing.Size(389, 160);
+            this.autoKeyGb.Size = new System.Drawing.Size(390, 155);
             this.autoKeyGb.TabIndex = 156;
             this.autoKeyGb.TabStop = false;
             // 
@@ -433,7 +458,7 @@
             this.emailPg.Location = new System.Drawing.Point(4, 22);
             this.emailPg.Name = "emailPg";
             this.emailPg.Padding = new System.Windows.Forms.Padding(3);
-            this.emailPg.Size = new System.Drawing.Size(416, 242);
+            this.emailPg.Size = new System.Drawing.Size(418, 226);
             this.emailPg.TabIndex = 5;
             this.emailPg.Text = "E-mail";
             this.emailPg.UseVisualStyleBackColor = true;
@@ -449,9 +474,9 @@
             this.emailGb.Controls.Add(this.smtpAuthPasswordLbl);
             this.emailGb.Controls.Add(this.smtpPortEd);
             this.emailGb.Controls.Add(this.smtpAuthAccountEd);
-            this.emailGb.Location = new System.Drawing.Point(18, 13);
+            this.emailGb.Location = new System.Drawing.Point(15, 14);
             this.emailGb.Name = "emailGb";
-            this.emailGb.Size = new System.Drawing.Size(389, 160);
+            this.emailGb.Size = new System.Drawing.Size(390, 155);
             this.emailGb.TabIndex = 155;
             this.emailGb.TabStop = false;
             // 
@@ -558,7 +583,7 @@
             this.defaultPg.Location = new System.Drawing.Point(4, 22);
             this.defaultPg.Name = "defaultPg";
             this.defaultPg.Padding = new System.Windows.Forms.Padding(3);
-            this.defaultPg.Size = new System.Drawing.Size(416, 242);
+            this.defaultPg.Size = new System.Drawing.Size(418, 226);
             this.defaultPg.TabIndex = 6;
             this.defaultPg.Text = "Mặc định";
             this.defaultPg.UseVisualStyleBackColor = true;
@@ -570,7 +595,7 @@
             this.screeningGb.Controls.Add(this.screenDataCounLbl);
             this.screeningGb.Controls.Add(this.screenTimeScaleCb);
             this.screeningGb.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.screeningGb.Location = new System.Drawing.Point(18, 104);
+            this.screeningGb.Location = new System.Drawing.Point(18, 101);
             this.screeningGb.Name = "screeningGb";
             this.screeningGb.Size = new System.Drawing.Size(375, 76);
             this.screeningGb.TabIndex = 221;
@@ -634,7 +659,7 @@
             this.defaultGb.Controls.Add(this.defaTimeRangeLbl);
             this.defaultGb.Controls.Add(this.defaTimeScaleLbl);
             this.defaultGb.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.defaultGb.Location = new System.Drawing.Point(17, 6);
+            this.defaultGb.Location = new System.Drawing.Point(17, 4);
             this.defaultGb.Name = "defaultGb";
             this.defaultGb.Size = new System.Drawing.Size(377, 97);
             this.defaultGb.TabIndex = 220;
@@ -709,10 +734,10 @@
             // sysSettingPg
             // 
             this.sysSettingPg.Controls.Add(this.sysSettingGb);
-            this.sysSettingPg.Location = new System.Drawing.Point(4, 25);
+            this.sysSettingPg.Location = new System.Drawing.Point(4, 22);
             this.sysSettingPg.Name = "sysSettingPg";
             this.sysSettingPg.Padding = new System.Windows.Forms.Padding(3);
-            this.sysSettingPg.Size = new System.Drawing.Size(416, 239);
+            this.sysSettingPg.Size = new System.Drawing.Size(418, 226);
             this.sysSettingPg.TabIndex = 7;
             this.sysSettingPg.Text = "Tham số";
             this.sysSettingPg.UseVisualStyleBackColor = true;
@@ -734,9 +759,9 @@
             this.sysSettingGb.Controls.Add(this.timerUnitLbl);
             this.sysSettingGb.Controls.Add(this.timerUnitEd);
             this.sysSettingGb.Controls.Add(this.secondLbl2);
-            this.sysSettingGb.Location = new System.Drawing.Point(15, 9);
+            this.sysSettingGb.Location = new System.Drawing.Point(15, 14);
             this.sysSettingGb.Name = "sysSettingGb";
-            this.sysSettingGb.Size = new System.Drawing.Size(381, 163);
+            this.sysSettingGb.Size = new System.Drawing.Size(390, 155);
             this.sysSettingGb.TabIndex = 153;
             this.sysSettingGb.TabStop = false;
             // 
@@ -970,7 +995,7 @@
             // 
             this.closeBtn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.closeBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.closeBtn.Location = new System.Drawing.Point(315, 235);
+            this.closeBtn.Location = new System.Drawing.Point(315, 240);
             this.closeBtn.Margin = new System.Windows.Forms.Padding(0, 4, 0, 4);
             this.closeBtn.Name = "closeBtn";
             this.closeBtn.Size = new System.Drawing.Size(84, 29);
@@ -984,7 +1009,7 @@
             this.saveBtn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.saveBtn.Image = global::baseClass.Properties.Resources.save;
             this.saveBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.saveBtn.Location = new System.Drawing.Point(231, 235);
+            this.saveBtn.Location = new System.Drawing.Point(231, 240);
             this.saveBtn.Margin = new System.Windows.Forms.Padding(4);
             this.saveBtn.Name = "saveBtn";
             this.saveBtn.Size = new System.Drawing.Size(84, 29);
@@ -1105,10 +1130,11 @@
             // 
             // sysOptionGlobal
             // 
-            this.ClientSize = new System.Drawing.Size(421, 298);
+            this.ClientSize = new System.Drawing.Size(451, 315);
             this.Controls.Add(this.closeBtn);
             this.Controls.Add(this.saveBtn);
             this.Controls.Add(this.mainTab);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimizeBox = false;
             this.Name = "sysOptionGlobal";
@@ -1226,5 +1252,7 @@
         protected common.controls.baseNumericUpDown chartMaxLoadNextEd;
         protected common.controls.baseLabel chartMaxLoadNextLbl;
         protected common.controls.baseLabel barLbl2;
+        protected common.controls.baseLabel accessLogMediaLbl;
+        private baseClass.controls.cbSyslogMedia accessLogMediaCb;
     }
 }

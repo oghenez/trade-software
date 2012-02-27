@@ -124,6 +124,7 @@
             this.resultDataGrid.RowTemplate.Height = 24;
             this.resultDataGrid.Size = new System.Drawing.Size(628, 662);
             this.resultDataGrid.TabIndex = 309;
+            this.resultDataGrid.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.resultDataGrid_RowEnter);
             this.resultDataGrid.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGrid_CellContentDoubleClick);
             this.resultDataGrid.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.grid_DataError);
             // 
@@ -582,7 +583,7 @@
             this.codeColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.codeColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.codeColumn.ValueMember = "code";
-            this.codeColumn.Width = 175;
+            this.codeColumn.Width = 235;
             // 
             // minColumn
             // 
@@ -593,6 +594,7 @@
             this.minColumn.DefaultCellStyle = dataGridViewCellStyle2;
             this.minColumn.HeaderText = "Min";
             this.minColumn.Name = "minColumn";
+            this.minColumn.Width = 70;
             // 
             // maxColumn
             // 
@@ -603,6 +605,7 @@
             this.maxColumn.DefaultCellStyle = dataGridViewCellStyle3;
             this.maxColumn.HeaderText = "Max";
             this.maxColumn.Name = "maxColumn";
+            this.maxColumn.Width = 70;
             // 
             // editColumn
             // 
@@ -687,15 +690,15 @@
         protected System.Windows.Forms.HScrollBar minScrollBar;
         protected System.Windows.Forms.Button editBtn;
         protected baseClass.controls.baseLabel criteriaGridLbl;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn selectedColumn;
-        private System.Windows.Forms.DataGridViewComboBoxColumn codeColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn minColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn maxColumn;
-        private common.controls.gridViewImageColumn editColumn;
         private common.controls.baseCheckBox selectAllChk;
         protected baseClass.controls.baseLabel timeScaleLbl;
         private baseClass.controls.cbTimeScale timeScaleCb;
         protected baseClass.controls.baseLabel maxDataCountLbl;
         private common.controls.numberTextBox dataCounEd;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn selectedColumn;
+        private System.Windows.Forms.DataGridViewComboBoxColumn codeColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn minColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn maxColumn;
+        private common.controls.gridViewImageColumn editColumn;
     }
 }

@@ -186,7 +186,8 @@ namespace baseClass.controls
             {
                 int saveGroupIndex = codeGroupCb.SelectedIndex;
                 codeGroupCb.LoadData();
-                if (saveGroupIndex >= 0) codeGroupCb.SelectedIndex = saveGroupIndex;
+                if (saveGroupIndex >= 0 && saveGroupIndex < codeGroupCb.Items.Count) 
+                    codeGroupCb.SelectedIndex = saveGroupIndex;
                 DoFilter(true);
             }
             if (lastPosition >= 0) stockSource.Position = lastPosition;
@@ -211,9 +212,11 @@ namespace baseClass.controls
         
         private void DoFilter(bool notUseCache)
         {
+            string cacheKey;
             common.myKeyValueExt item = (common.myKeyValueExt)common.Threading.GetValue(codeGroupCb,"SelectedItem");
             cbStockSelection.Options watchListType = (cbStockSelection.Options)byte.Parse(item.Attribute1);
             StringCollection stocCodeList = new StringCollection();
+            myStockTbl.Columns[myStockTbl.selectedColumn.ColumnName].ReadOnly = false;
             switch (watchListType)
             {
                 case cbStockSelection.Options.All:
@@ -225,7 +228,7 @@ namespace baseClass.controls
                 case cbStockSelection.Options.SysWatchList:
                 case cbStockSelection.Options.WatchList:
 
-                    string cacheKey = watchListType.ToString(); ;
+                    cacheKey = watchListType.ToString(); ;
                     StringCollection watchList = new StringCollection();
                     //All stock codes of  specified type ??
                     if (item.Value != "")
@@ -255,12 +258,50 @@ namespace baseClass.controls
                         selectStockList = common.system.List2Collection(DataAccess.Libs.GetStockList_ByWatchList(watchList));
                         DataAccess.Libs.AddCache(cacheKey, selectStockList);
                     }
-                    myStockTbl.Columns[myStockTbl.selectedColumn.ColumnName].ReadOnly = false;
                     for (int idx = 0; idx <  this.myStockTbl.Count; idx++)
                     {
                         this.myStockTbl[idx].selected = (selectStockList.Contains(this.myStockTbl[idx].code)?1:0);
                     }
                     stockSource.Filter = this.myStockTbl.selectedColumn+"=1";
+                    break;
+
+                
+                case cbStockSelection.Options.UserPorfolio:
+                    cacheKey = watchListType.ToString(); ;
+                    StringCollection porfolioList = new StringCollection();
+                    //All stock codes of the specified type ??
+                    if (item.Value != "")
+                    {
+                        cacheKey += "-" + item.Value;
+                        porfolioList.Add(item.Value);
+                    }
+                    else
+                    {
+                        for (int idx = 0; idx < codeGroupCb.Items.Count; idx++)
+                        {
+                            common.myKeyValueExt tmpItem = (common.myKeyValueExt)codeGroupCb.Items[idx];
+                            if (watchListType != (cbStockSelection.Options)byte.Parse(tmpItem.Attribute1) || (tmpItem.Value == "")) continue;
+                            porfolioList.Add(tmpItem.Value);
+                        }
+                    }
+                    cacheKey = DataAccess.Libs.MakeCacheKey(this, cacheKey);
+                    if (notUseCache)
+                    {
+                        DataAccess.Libs.ClearCache(cacheKey);
+                    }
+                    databases.tmpDS.stockCodeDataTable codeTbl = null;
+                    obj = DataAccess.Libs.GetCache(cacheKey);
+                    if (obj != null) codeTbl = (obj as databases.tmpDS.stockCodeDataTable);
+                    else
+                    {
+                        codeTbl =  DataAccess.Libs.GetStock_InPortfolio(porfolioList);
+                        DataAccess.Libs.AddCache(cacheKey, codeTbl);
+                    }
+                    for (int idx = 0; idx < this.myStockTbl.Count; idx++)
+                    {
+                        this.myStockTbl[idx].selected = (codeTbl.FindBycode(this.myStockTbl[idx].code)!=null ? 1 : 0);
+                    }
+                    stockSource.Filter = this.myStockTbl.selectedColumn + "=1";
                     break;
             }
         }
