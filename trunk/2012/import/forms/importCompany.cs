@@ -15,7 +15,7 @@ using commonTypes;
 using commonClass;
 
 
-namespace imports.forms
+namespace Imports.Forms
 {
     public partial class importCompany : common.forms.baseForm
     {
@@ -74,7 +74,7 @@ namespace imports.forms
                     this.ShowMessage("Import : " +tbl.Rows[count][0].ToString().Trim());
                     // Stock Exchange
                     stockExchangeCode = tbl.Rows[count][1].ToString().Trim();
-                    stockExchangeRow = ImportLibs.AddStockExchange(myDataSet.stockExchange, stockExchangeCode);
+                    stockExchangeRow = Libs.AddStockExchange(myDataSet.stockExchange, stockExchangeCode);
                     //stockCode
                     comCode = tbl.Rows[count][0].ToString().Trim();
                     stockCodeRow = application.SysLibs.FindAndCache(myDataSet.stockCode, comCode);

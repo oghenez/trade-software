@@ -124,7 +124,7 @@ namespace server
                 fProcessingFetchData = false;
                 fProcessingTraderAlert = false;
 
-                imports.gold.ResetGetPrice();
+                Imports.Gold.ResetGetPrice();
             }
             catch (Exception er)
             {

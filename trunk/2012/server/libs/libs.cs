@@ -101,11 +101,34 @@ namespace server
             return false;
         }
 
+
+        public static bool GetMarketParams(databases.baseDS.stockExchangeRow marketRow, Imports.ImportParams param)
+        {
+            string[] parts = marketRow.dataSource.Trim().Split(new char[] { '|' }, StringSplitOptions.RemoveEmptyEntries);
+            if (parts.Length < 1) return false;
+            parts[0] = parts[0].Trim().ToUpper();
+            foreach (Imports.ImportCodes item in Enum.GetValues(typeof(Imports.ImportCodes)))
+            {
+                if (item.ToString().Trim().ToUpper() == parts[0]) 
+                {
+                    param.code = item;
+                    param.market = marketRow.code;
+                    param.dataLocation = parts[1].Trim();
+                    if (param.dataLocation == "") return false;
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        static Imports.Stock.hoseImport hoseImport = new Imports.Stock.hoseImport();
+        static Imports.Stock.htastcImport htastcImport = new Imports.Stock.htastcImport();
+        static Imports.Gold.forexImport forexImport = new Imports.Gold.forexImport();
         public static void FetchRealTimeData(DateTime updateTime)
         {
             string[] parts;
             databases.baseDS.stockExchangeRow marketRow;
-            for (int idx1 = 0; idx1 < application.SysLibs.myStockExchangeTbl.Rows.Count; idx1++)
+            for (int idx1 = 0; idx1 < application.SysLibs.myStockExchangeTbl.Count; idx1++)
             {
                 marketRow = application.SysLibs.myStockExchangeTbl[idx1];
                 if (marketRow.IsdataSourceNull()) continue;
@@ -117,22 +140,24 @@ namespace server
                 for(int idx2=0;idx2<parts.Length;idx2++) confWorkTimes.Add(parts[idx2]);
                 if (!IsWorktime(updateTime, confWorkTimes)) continue;
 
-                parts = marketRow.dataSource.Trim().Split(new char[] { '|' }, StringSplitOptions.RemoveEmptyEntries);
-                if (parts.Length < 1) continue;
-                parts[0] = parts[0].Trim().ToUpper();
-                switch (parts[0])
+                Imports.ImportParams param = new Imports.ImportParams();
+                if (!GetMarketParams(marketRow, param)) return;
+                
+                switch(param.code)
                 {
-                    case "VNSTOCK":
-                        imports.stock.ImportPrice_URL(updateTime, parts[1], marketRow.code);
-                        break;
-                    case "GOLD":
-                        imports.gold.ImportPrice_URL(updateTime, parts[1], marketRow.code);
-                        break;
-                    default:
-                        common.SysLog.WriteLog("Invalid " + marketRow.dataSource.Trim());
-                        continue;
+                    case Imports.ImportCodes.HOSE :
+
+                         hoseImport.ImportFromWeb(updateTime,param);
+                         break;
+                    case Imports.ImportCodes.HASTC:
+                         htastcImport.ImportFromWeb(updateTime, param);
+                         break;
+                    case Imports.ImportCodes.GOLD:
+                         forexImport.ImportFromWeb(updateTime, param);
+                         break;
+                    default: return;
                 }
-                commonClass.SysLibs.WriteSysLog("Updated from " + parts[1]);
+                commonClass.SysLibs.WriteSysLog("Updated from " + param.dataLocation);
             }
             return;
         }

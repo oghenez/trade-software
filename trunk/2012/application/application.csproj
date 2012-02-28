@@ -122,7 +122,6 @@
     <Compile Include="forms\sampleMACD.designer.cs">
       <DependentUpon>sampleMACD.cs</DependentUpon>
     </Compile>
-    <Compile Include="ImportLibs.cs" />
     <Compile Include="IndicatorLibs.cs" />
     <Compile Include="StrategyLibs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

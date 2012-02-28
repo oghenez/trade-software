@@ -8,7 +8,7 @@
     <ProjectGuid>{350FB15F-1944-47A5-9B00-4E5F05438050}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>imports</RootNamespace>
+    <RootNamespace>Imports</RootNamespace>
     <AssemblyName>imports</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -86,8 +86,12 @@
     <Compile Include="forms\reUpdatePrice.Designer.cs">
       <DependentUpon>reUpdatePrice.cs</DependentUpon>
     </Compile>
+    <Compile Include="libs\dataClass.cs" />
+    <Compile Include="libs\gold.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="libs\Libs.cs" />
     <Compile Include="libs\stock.cs" />
-    <Compile Include="libs\gold.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>

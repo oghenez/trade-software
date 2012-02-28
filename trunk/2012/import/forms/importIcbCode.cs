@@ -11,7 +11,7 @@ using LumenWorks.Framework.IO.Csv;
 using application;
 
 
-namespace imports.forms
+namespace Imports.Forms
 {
     public partial class importIcbCode : common.forms.baseForm
     {
@@ -78,7 +78,7 @@ namespace imports.forms
             for (int idx = 0; idx < tbl.Count; idx++)
             {
                 if (tbl[idx].RowState == DataRowState.Deleted) continue;
-                item = ImportLibs.SplitKeyValue(tbl[idx][fldName].ToString()," ");
+                item = Imports.Libs.SplitKeyValue(tbl[idx][fldName].ToString(), " ");
                 if (item == null)
                 {
                     common.SysLog.WriteLog(tbl[idx][fldName].ToString() + " not found.");

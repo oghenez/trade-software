@@ -12,7 +12,7 @@ using HtmlAgilityPack;
 using application;
 
 
-namespace imports.forms
+namespace Imports.Forms
 {
     public partial class reUpdatePrice : common.forms.baseForm
     {
@@ -45,7 +45,7 @@ namespace imports.forms
                 CultureInfo stockCulture = application.AppLibs.GetStockCulture(codeEd.Text.Trim());
                 while (curDate <= endDate)
                 {
-                    ImportLibs.ReImportPricedata(curDate, curDate.AddDays(1).AddMinutes(-1), codeEd.Text, stockCulture);
+                    Imports.Libs.ReImportPricedata(curDate, curDate.AddDays(1).AddMinutes(-1), codeEd.Text, stockCulture);
                     curDate = curDate.AddDays(1);
                     if (progressBar.Value<progressBar.Maximum) progressBar.Value++;
                     Application.DoEvents();

@@ -1,4 +1,4 @@
-﻿namespace imports.forms
+﻿namespace Imports.Forms
 {
     partial class importIcbCode
     {
@@ -72,7 +72,7 @@
             // closeBtn
             // 
             this.closeBtn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.closeBtn.Image = global::imports.Properties.Resources.close;
+            this.closeBtn.Image = global::Imports.Properties.Resources.close;
             this.closeBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.closeBtn.isDownState = false;
             this.closeBtn.Location = new System.Drawing.Point(307, 106);
@@ -87,7 +87,7 @@
             // importBtn
             // 
             this.importBtn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.importBtn.Image = global::imports.Properties.Resources.select;
+            this.importBtn.Image = global::Imports.Properties.Resources.select;
             this.importBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.importBtn.isDownState = false;
             this.importBtn.Location = new System.Drawing.Point(139, 106);
@@ -102,7 +102,7 @@
             // selectFileBtn
             // 
             this.selectFileBtn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.selectFileBtn.Image = global::imports.Properties.Resources.open;
+            this.selectFileBtn.Image = global::Imports.Properties.Resources.open;
             this.selectFileBtn.isDownState = false;
             this.selectFileBtn.Location = new System.Drawing.Point(376, 32);
             this.selectFileBtn.Name = "selectFileBtn";
@@ -161,7 +161,7 @@
             // 
             this.viewLogBtn.Enabled = false;
             this.viewLogBtn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.viewLogBtn.Image = global::imports.Properties.Resources.report;
+            this.viewLogBtn.Image = global::Imports.Properties.Resources.report;
             this.viewLogBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.viewLogBtn.isDownState = false;
             this.viewLogBtn.Location = new System.Drawing.Point(230, 106);

@@ -1,4 +1,4 @@
-﻿namespace imports.forms
+﻿namespace Imports.Forms
 {
     partial class importPriceData
     {
@@ -37,7 +37,7 @@
             this.importBtn = new common.controls.baseButton();
             this.selectFileBtn = new common.controls.baseButton();
             this.myDataSet = new databases.baseDS();
-            this.stockExchangeCb = new baseClass.controls.cbStockExchange();
+            this.marketCb = new baseClass.controls.cbStockExchange();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.viewLogBtn = new common.controls.baseButton();
             this.noteGb = new System.Windows.Forms.GroupBox();
@@ -67,10 +67,11 @@
             // 
             // dataFileNameEd
             // 
+            this.dataFileNameEd.isRequired = true;
             this.dataFileNameEd.isToUpperCase = false;
             this.dataFileNameEd.Location = new System.Drawing.Point(18, 27);
             this.dataFileNameEd.Name = "dataFileNameEd";
-            this.dataFileNameEd.Size = new System.Drawing.Size(361, 23);
+            this.dataFileNameEd.Size = new System.Drawing.Size(361, 20);
             this.dataFileNameEd.TabIndex = 1;
             // 
             // stockExchangeLbl
@@ -79,15 +80,15 @@
             this.stockExchangeLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.stockExchangeLbl.Location = new System.Drawing.Point(20, 102);
             this.stockExchangeLbl.Name = "stockExchangeLbl";
-            this.stockExchangeLbl.Size = new System.Drawing.Size(243, 16);
+            this.stockExchangeLbl.Size = new System.Drawing.Size(93, 16);
             this.stockExchangeLbl.TabIndex = 149;
-            this.stockExchangeLbl.Text = "Sàn giao dịch (dành cho các mã mới)";
+            this.stockExchangeLbl.Text = "Sàn giao dịch";
             // 
             // cancelBtn
             // 
             this.cancelBtn.Enabled = false;
             this.cancelBtn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cancelBtn.Image = global::imports.Properties.Resources.remove;
+            this.cancelBtn.Image = global::Imports.Properties.Resources.remove;
             this.cancelBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.cancelBtn.isDownState = false;
             this.cancelBtn.Location = new System.Drawing.Point(111, 152);
@@ -101,7 +102,7 @@
             // closeBtn
             // 
             this.closeBtn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.closeBtn.Image = global::imports.Properties.Resources.close;
+            this.closeBtn.Image = global::Imports.Properties.Resources.close;
             this.closeBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.closeBtn.isDownState = false;
             this.closeBtn.Location = new System.Drawing.Point(291, 152);
@@ -115,7 +116,7 @@
             // importBtn
             // 
             this.importBtn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.importBtn.Image = global::imports.Properties.Resources.select;
+            this.importBtn.Image = global::Imports.Properties.Resources.select;
             this.importBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.importBtn.isDownState = false;
             this.importBtn.Location = new System.Drawing.Point(21, 152);
@@ -130,7 +131,7 @@
             // selectFileBtn
             // 
             this.selectFileBtn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.selectFileBtn.Image = global::imports.Properties.Resources.open;
+            this.selectFileBtn.Image = global::Imports.Properties.Resources.open;
             this.selectFileBtn.isDownState = false;
             this.selectFileBtn.Location = new System.Drawing.Point(381, 27);
             this.selectFileBtn.Name = "selectFileBtn";
@@ -145,15 +146,15 @@
             this.myDataSet.EnforceConstraints = false;
             this.myDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // stockExchangeCb
+            // marketCb
             // 
-            this.stockExchangeCb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.stockExchangeCb.FormattingEnabled = true;
-            this.stockExchangeCb.Location = new System.Drawing.Point(20, 121);
-            this.stockExchangeCb.myValue = "";
-            this.stockExchangeCb.Name = "stockExchangeCb";
-            this.stockExchangeCb.Size = new System.Drawing.Size(361, 24);
-            this.stockExchangeCb.TabIndex = 20;
+            this.marketCb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.marketCb.FormattingEnabled = true;
+            this.marketCb.Location = new System.Drawing.Point(20, 121);
+            this.marketCb.myValue = "";
+            this.marketCb.Name = "marketCb";
+            this.marketCb.Size = new System.Drawing.Size(361, 21);
+            this.marketCb.TabIndex = 20;
             // 
             // openFileDialog
             // 
@@ -162,7 +163,7 @@
             // viewLogBtn
             // 
             this.viewLogBtn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.viewLogBtn.Image = global::imports.Properties.Resources.report;
+            this.viewLogBtn.Image = global::Imports.Properties.Resources.report;
             this.viewLogBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.viewLogBtn.isDownState = false;
             this.viewLogBtn.Location = new System.Drawing.Point(201, 152);
@@ -205,7 +206,7 @@
             this.actionCb.Location = new System.Drawing.Point(18, 75);
             this.actionCb.myValue = "";
             this.actionCb.Name = "actionCb";
-            this.actionCb.Size = new System.Drawing.Size(160, 24);
+            this.actionCb.Size = new System.Drawing.Size(160, 21);
             this.actionCb.TabIndex = 3;
             this.actionCb.SelectionChangeCommitted += new System.EventHandler(this.actionCb_SelectionChangeCommitted);
             // 
@@ -239,7 +240,7 @@
             this.importTypeCb.Location = new System.Drawing.Point(177, 75);
             this.importTypeCb.myValue = "";
             this.importTypeCb.Name = "importTypeCb";
-            this.importTypeCb.Size = new System.Drawing.Size(202, 24);
+            this.importTypeCb.Size = new System.Drawing.Size(202, 21);
             this.importTypeCb.TabIndex = 4;
             // 
             // importPriceData
@@ -254,17 +255,18 @@
             this.Controls.Add(this.closeBtn);
             this.Controls.Add(this.importBtn);
             this.Controls.Add(this.stockExchangeLbl);
-            this.Controls.Add(this.stockExchangeCb);
+            this.Controls.Add(this.marketCb);
             this.Controls.Add(this.dataFileNameEd);
             this.Controls.Add(this.dataFileLbl);
             this.Controls.Add(this.selectFileBtn);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "importPriceData";
             this.Text = "Nhap du lieu/Import";
             this.Controls.SetChildIndex(this.selectFileBtn, 0);
             this.Controls.SetChildIndex(this.dataFileLbl, 0);
             this.Controls.SetChildIndex(this.dataFileNameEd, 0);
-            this.Controls.SetChildIndex(this.stockExchangeCb, 0);
+            this.Controls.SetChildIndex(this.marketCb, 0);
             this.Controls.SetChildIndex(this.stockExchangeLbl, 0);
             this.Controls.SetChildIndex(this.importBtn, 0);
             this.Controls.SetChildIndex(this.closeBtn, 0);
@@ -287,7 +289,7 @@
         protected common.controls.baseButton selectFileBtn;
         protected common.controls.baseLabel dataFileLbl;
         protected common.controls.baseTextBox dataFileNameEd;
-        protected baseClass.controls.cbStockExchange stockExchangeCb;
+        protected baseClass.controls.cbStockExchange marketCb;
         protected common.controls.baseLabel stockExchangeLbl;
         protected common.controls.baseButton importBtn;
         protected common.controls.baseButton closeBtn;

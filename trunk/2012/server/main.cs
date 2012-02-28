@@ -40,7 +40,7 @@ namespace server
             Form myForm = this.FindForm("importPriceData");
             if (myForm == null || myForm.IsDisposed)
             {
-                myForm = new imports.forms.importPriceData();
+                myForm = new Imports.Forms.importPriceData();
                 myForm.Name = "importPriceData";
             }
             this.ShowForm(myForm, false);
@@ -61,7 +61,7 @@ namespace server
             Form myForm = this.FindForm("importIcbCode");
             if (myForm == null || myForm.IsDisposed)
             {
-                myForm = new imports.forms.importIcbCode();
+                myForm = new Imports.Forms.importIcbCode();
                 myForm.Name = "importIcbCode";
             }
             this.ShowForm(myForm, false);
@@ -72,7 +72,7 @@ namespace server
             Form myForm = this.FindForm("importCompany");
             if (myForm == null || myForm.IsDisposed)
             {
-                myForm = new imports.forms.importCompany();
+                myForm = new Imports.Forms.importCompany();
                 myForm.Name = "importCompany";
             }
             this.ShowForm(myForm, false);
@@ -83,7 +83,7 @@ namespace server
             Form myForm = this.FindForm("importComSector");
             if (myForm == null || myForm.IsDisposed)
             {
-                myForm = new imports.forms.importComSector();
+                myForm = new Imports.Forms.importComSector();
                 myForm.Name = "importComSector";
             }
             this.ShowForm(myForm, false);
@@ -93,7 +93,7 @@ namespace server
         {
             try
             {
-                imports.forms.reUpdatePrice form = new imports.forms.reUpdatePrice();
+                Imports.Forms.reUpdatePrice form = new Imports.Forms.reUpdatePrice();
                 form.ShowDialog();
             }
             catch (Exception er)

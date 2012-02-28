@@ -13,7 +13,7 @@ using LumenWorks.Framework.IO.Csv;
 using commonTypes;
 using commonClass;
 
-namespace imports.forms
+namespace Imports.Forms
 {
     public partial class importComSector : common.forms.baseForm
     {
