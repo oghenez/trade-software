@@ -6157,7 +6157,7 @@ namespace databases {
             
             private global::System.Data.DataColumn columnweight;
             
-            private global::System.Data.DataColumn columncultureCode;
+            private global::System.Data.DataColumn columnculture;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public countryDataTable() {
@@ -6211,9 +6211,9 @@ namespace databases {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn cultureCodeColumn {
+            public global::System.Data.DataColumn cultureColumn {
                 get {
-                    return this.columncultureCode;
+                    return this.columnculture;
                 }
             }
             
@@ -6246,13 +6246,13 @@ namespace databases {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public countryRow AddcountryRow(string code, string description, int weight, string cultureCode) {
+            public countryRow AddcountryRow(string code, string description, int weight, string culture) {
                 countryRow rowcountryRow = ((countryRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         code,
                         description,
                         weight,
-                        cultureCode};
+                        culture};
                 rowcountryRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowcountryRow);
                 return rowcountryRow;
@@ -6281,7 +6281,7 @@ namespace databases {
                 this.columncode = base.Columns["code"];
                 this.columndescription = base.Columns["description"];
                 this.columnweight = base.Columns["weight"];
-                this.columncultureCode = base.Columns["cultureCode"];
+                this.columnculture = base.Columns["culture"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6292,17 +6292,16 @@ namespace databases {
                 base.Columns.Add(this.columndescription);
                 this.columnweight = new global::System.Data.DataColumn("weight", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnweight);
-                this.columncultureCode = new global::System.Data.DataColumn("cultureCode", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columncultureCode);
+                this.columnculture = new global::System.Data.DataColumn("culture", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnculture);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columncode}, true));
                 this.columncode.AllowDBNull = false;
-                this.columncode.ReadOnly = true;
                 this.columncode.Unique = true;
-                this.columncode.MaxLength = 2;
+                this.columncode.MaxLength = 3;
                 this.columndescription.AllowDBNull = false;
                 this.columndescription.MaxLength = 255;
-                this.columncultureCode.MaxLength = 10;
+                this.columnculture.MaxLength = 10;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -12095,17 +12094,17 @@ namespace databases {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public string cultureCode {
+            public string culture {
                 get {
                     try {
-                        return ((string)(this[this.tablecountry.cultureCodeColumn]));
+                        return ((string)(this[this.tablecountry.cultureColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'cultureCode\' in table \'country\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'culture\' in table \'country\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablecountry.cultureCodeColumn] = value;
+                    this[this.tablecountry.cultureColumn] = value;
                 }
             }
             
@@ -12120,13 +12119,13 @@ namespace databases {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public bool IscultureCodeNull() {
-                return this.IsNull(this.tablecountry.cultureCodeColumn);
+            public bool IscultureNull() {
+                return this.IsNull(this.tablecountry.cultureColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public void SetcultureCodeNull() {
-                this[this.tablecountry.cultureCodeColumn] = global::System.Convert.DBNull;
+            public void SetcultureNull() {
+                this[this.tablecountry.cultureColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -20275,7 +20274,7 @@ SELECT [key], value, timeStamp FROM sysAutoKeyPending WHERE ([key] = @key) AND (
             tableMapping.ColumnMappings.Add("code", "code");
             tableMapping.ColumnMappings.Add("description", "description");
             tableMapping.ColumnMappings.Add("weight", "weight");
-            tableMapping.ColumnMappings.Add("cultureCode", "cultureCode");
+            tableMapping.ColumnMappings.Add("culture", "culture");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -20290,7 +20289,7 @@ SELECT [key], value, timeStamp FROM sysAutoKeyPending WHERE ([key] = @key) AND (
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT *  FROM dbo.country ORDER BY weight ";
+            this._commandCollection[0].CommandText = "SELECT *  FROM country ORDER BY weight";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         

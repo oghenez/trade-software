@@ -13,11 +13,11 @@ using application;
 using commonTypes;
 using commonClass;
 
-namespace imports.forms
+namespace Imports.Forms
 {
     public partial class importPriceData : common.forms.baseForm
     {
-        private static CultureInfo CultureInfoVN = new CultureInfo("vi-VN");
+        private static CultureInfo marketCultureInfo = null;
         const int constNumberOfImportInBatch = 10000;
         private bool fCanceled = false;
         public importPriceData()
@@ -25,7 +25,7 @@ namespace imports.forms
             try
             {
                 InitializeComponent();
-                stockExchangeCb.LoadDataDB();
+                marketCb.LoadDataDB();
                 actionCb.SelectedIndex = 0;
                 importTypeCb.SelectedIndex = 0;
             }
@@ -39,7 +39,7 @@ namespace imports.forms
         {
             common.SysLog.WriteLog(" - Add company : " + code);
         }
-        private void OnUpdateData(databases.baseDS.priceDataRow row, ImportLibs.importStat stat)
+        private void OnUpdateData(databases.baseDS.priceDataRow row, importStat stat)
         {
             if (fCanceled) stat.cancel =true;
             this.ShowMessage(stat.updateCount.ToString("###,###,##0") + "/" + 
@@ -50,11 +50,11 @@ namespace imports.forms
             if (myDataSet.priceData.Count > constNumberOfImportInBatch)
             {
                 databases.DbAccess.UpdateData(myDataSet.priceData);
-                DoAggregate(myDataSet.priceData);
+                DoAggregate(myDataSet.priceData, marketCultureInfo);
                 myDataSet.priceData.Clear();
             }
         }
-        private void onAggregateData(ImportLibs.agrregateStat stat)
+        private void onAggregateData(agrregateStat stat)
         {
             if (fCanceled) stat.cancel = true;
             this.ShowMessage(stat.count.ToString("###,###,##0") + "/" + stat.maxCount.ToString("###,###,##0"), "Aggregate " + stat.phase.ToString());
@@ -66,27 +66,26 @@ namespace imports.forms
             switch (importTypeCb.SelectedIndex)
             {
                 case 0: //Data from copheu 68
-                    stock.ImportOHLCV_CSV(dataFileNameEd.Text,stockExchangeCb.myValue,
-                                          myDataSet.priceData, OnUpdateData);
+                    Imports.Stock.Libs.ImportFromCVS(dataFileNameEd.Text, marketCb.myValue, myDataSet.priceData, OnUpdateData);
                     databases.DbAccess.UpdateData(myDataSet.priceData);
-                    DoAggregate(myDataSet.priceData);
+                    DoAggregate(myDataSet.priceData,marketCultureInfo);
                     break;
                 case 1:
-                    gold.ImportOHLCV_CSV(dataFileNameEd.Text,stockExchangeCb.myValue,
-                                         myDataSet.priceData, OnUpdateData);
+                    Imports.Gold.ImportFromCVS(dataFileNameEd.Text, marketCb.myValue, myDataSet.priceData, OnUpdateData);
                     databases.DbAccess.UpdateData(myDataSet.priceData);
-                    DoAggregate(myDataSet.priceData);
+                    DoAggregate(myDataSet.priceData, marketCultureInfo);
                     break;
             }
         }
-        private void DoAggregate(databases.baseDS.priceDataDataTable tbl )
+        private void DoAggregate(databases.baseDS.priceDataDataTable tbl, CultureInfo CultureInfo)
         {
-            ImportLibs.AggregatePriceData(tbl,CultureInfoVN, onAggregateData);
+            Imports.Libs.AggregatePriceData(tbl, CultureInfo, onAggregateData);
         }
 
         private void importBtn_Click(object sender, System.EventArgs e)
         {
             DateTime startTime = DateTime.Now;
+            marketCultureInfo = application.AppLibs.GetExchangeCulture(marketCb.myValue);
             try
             {
                 bool retVal = true;
@@ -97,7 +96,7 @@ namespace imports.forms
                     NotifyError(dataFileLbl);
                     retVal = false;
                 }
-                if (stockExchangeCb.Enabled && stockExchangeCb.myValue.Trim() == "")
+                if (marketCb.Enabled && marketCb.myValue.Trim() == "")
                 {
                     NotifyError(stockExchangeLbl);
                     retVal = false;
@@ -127,7 +126,7 @@ namespace imports.forms
                             this.ShowMessage("Arregate stock : " + myDataSet.stockCode[idx].code);
                             myDataSet.priceData.Clear();
                             databases.DbAccess.LoadData(myDataSet.priceData,AppTypes.MainDataTimeScale.Code,DateTime.MinValue, DateTime.MaxValue,myDataSet.stockCode[idx].code);
-                            ImportLibs.AggregatePriceData(myDataSet.priceData,CultureInfoVN, null);
+                            Imports.Libs.AggregatePriceData(myDataSet.priceData,marketCultureInfo, null);
                             this.ShowMessage("");
                         }
                         break;
@@ -188,7 +187,7 @@ namespace imports.forms
         {
             dataFileNameEd.Enabled = actionCb.SelectedIndex != 2;
             selectFileBtn.Enabled = dataFileNameEd.Enabled;
-            stockExchangeCb.Enabled = dataFileNameEd.Enabled;
+            marketCb.Enabled = dataFileNameEd.Enabled;
         }
     }
 }

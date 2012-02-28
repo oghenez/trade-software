@@ -1,4 +1,4 @@
-﻿namespace imports.forms
+﻿namespace Imports.Forms
 {
     partial class reUpdatePrice
     {
@@ -51,7 +51,7 @@
             // closeBtn
             // 
             this.closeBtn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.closeBtn.Image = global::imports.Properties.Resources.close;
+            this.closeBtn.Image = global::Imports.Properties.Resources.close;
             this.closeBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.closeBtn.isDownState = false;
             this.closeBtn.Location = new System.Drawing.Point(250, 79);
@@ -65,7 +65,7 @@
             // importBtn
             // 
             this.importBtn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.importBtn.Image = global::imports.Properties.Resources.select;
+            this.importBtn.Image = global::Imports.Properties.Resources.select;
             this.importBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.importBtn.isDownState = false;
             this.importBtn.Location = new System.Drawing.Point(250, 49);
