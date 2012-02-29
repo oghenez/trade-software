@@ -234,8 +234,8 @@ namespace wsServices
         databases.tmpDS.priceDiagnoseDataTable DiagnosePrice_CloseAndNextOpen(DateTime frDate, DateTime toDate, string timeScaleCode,
                                                            string exchangeCode,string code, double variantPerc,double variance,byte precision);
 
-        [OperationContract]
-        void AjustPriceData(string code, DateTime toDate, double weight);
+        //[OperationContract]
+        //void AdjustPriceData(string code, DateTime toDate, double weight);
 
         [OperationContract]
         void ReAggregatePriceData(string code);

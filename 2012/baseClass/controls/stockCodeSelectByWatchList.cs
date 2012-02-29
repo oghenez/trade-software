@@ -9,6 +9,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.IO;
 using System.Collections;
+using System.Threading; 
 using application;
 using commonTypes;
 using commonClass;
@@ -25,11 +26,14 @@ namespace baseClass.controls
     /// </summary>
     public partial class stockCodeSelectByWatchList : common.controls.baseUserControl
     {
+        //BackgroundWorker backgroundWorker = new BackgroundWorker();
         public stockCodeSelectByWatchList()
         {
             try
             {
                 InitializeComponent();
+                //backgroundWorker.DoWork += backgroundWorker_DoRefreshData;
+                //backgroundWorker.WorkerSupportsCancellation = true;
                 InitGrid();
                 if (!DesignMode)
                 {
@@ -40,6 +44,20 @@ namespace baseClass.controls
             catch (Exception er)
             {
                 ErrorHandler(this, er);
+            }
+        }
+        private void backgroundWorker_DoRefreshData(object sender, DoWorkEventArgs e)
+        {
+            if (codeGroupCb.InvokeRequired)
+            {
+                codeGroupCb.Invoke((MethodInvoker)delegate()
+                {
+                    DoRefreshData((RefreshOptions)e.Argument);
+                });
+            }
+            else
+            {
+                DoRefreshData((RefreshOptions)e.Argument);
             }
         }
 
@@ -146,29 +164,39 @@ namespace baseClass.controls
             stockGV.Columns[colName.ToString()].Visible = status;
         }
 
-        public enum RefreshOptions : byte { All = 255, CodeGroup = 1, PriceData = 4 }
+        public enum RefreshOptions : byte { CodeGroup = 1, PriceData = 4 , All = 255}
         // To prevent "cross-thread operation not valid" error
         // See http://helpprogramming.blogspot.com/2011/10/invalid-cross-thread-operation.html
-        public void RefreshData(RefreshOptions options)
-        {
-            if (codeGroupCb.InvokeRequired)
-            {
-                codeGroupCb.Invoke((MethodInvoker)delegate()
-                {
-                    DoRefreshData(options);
-                });
-            }
-            else DoRefreshData(options);
-        }
+        //public void RefreshData(RefreshOptions options)
+        //{
+        //    //if (backgroundWorker.IsBusy)
+        //    {
+        //        //backgroundWorker.CancelAsync();
+        //        //return;
+        //    }
+        //    myRefreshOptions = options;
+        //    backgroundWorker.RunWorkerAsync();
+        //}
         public void RefreshData(bool force)
         {
             try
             {
                 if (fProcessing) return;
                 fProcessing = true;
-
-                if(force) RefreshData(RefreshOptions.All);
-                else RefreshData(RefreshOptions.PriceData);
+                if (force)
+                {
+                    DoRefreshData(RefreshOptions.All);
+                }
+                else
+                {
+                    DoRefreshData(RefreshOptions.PriceData);
+                    //if (backgroundWorker.IsBusy) 
+                    //    backgroundWorker.CancelAsync();
+                    //else
+                    //{
+                    //    backgroundWorker.RunWorkerAsync(RefreshOptions.PriceData);
+                    //}
+                }
                 fProcessing = false;
             }
             catch (Exception er)
@@ -186,14 +214,13 @@ namespace baseClass.controls
             {
                 int saveGroupIndex = codeGroupCb.SelectedIndex;
                 codeGroupCb.LoadData();
-                if (saveGroupIndex >= 0 && saveGroupIndex < codeGroupCb.Items.Count) 
+                if (saveGroupIndex >= 0 && saveGroupIndex < codeGroupCb.Items.Count)
                     codeGroupCb.SelectedIndex = saveGroupIndex;
                 DoFilter(true);
             }
             if (lastPosition >= 0) stockSource.Position = lastPosition;
 
             if (((byte)option & (byte)RefreshOptions.PriceData) > 0) DoRefreshPrice(this.myStockTbl);
-            SetColor();
         }
         
         public void Export()
@@ -337,30 +364,31 @@ namespace baseClass.controls
                 if (openPriceRow != null)
                     stockCodeRow.priceVariant = closePriceRow.value - openPriceRow.value;
                 else stockCodeRow.priceVariant = 0;
+                SetColor(idx);
             }
+        }
+
+        private void SetColor(int idx)
+        {
+            decimal variant = (decimal)stockGV.Rows[idx].Cells[priceVariantColumn.Name].Value;
+            if (variant < 0)
+            {
+                stockGV.Rows[idx].Cells[priceVariantColumn.Name].Style.BackColor = Settings.sysPriceColor_Decrease_BG;
+                stockGV.Rows[idx].Cells[priceVariantColumn.Name].Style.ForeColor = Settings.sysPriceColor_Decrease_FG;
+                return; 
+            }
+            if (variant > 0)
+            {
+                stockGV.Rows[idx].Cells[priceVariantColumn.Name].Style.BackColor = Settings.sysPriceColor_Increase_BG;
+                stockGV.Rows[idx].Cells[priceVariantColumn.Name].Style.ForeColor = Settings.sysPriceColor_Increase_FG;
+                return;
+            }
+            stockGV.Rows[idx].Cells[priceVariantColumn.Name].Style.BackColor = Settings.sysPriceColor_NotChange_BG;
+            stockGV.Rows[idx].Cells[priceVariantColumn.Name].Style.ForeColor = Settings.sysPriceColor_NotChange_FG;
         }
         private void SetColor()
         {
-            decimal variant = 0;
-            for (int idx = 0; idx < stockGV.RowCount; idx++)
-            {
-                //Set color
-                variant = (decimal)stockGV.Rows[idx].Cells[priceVariantColumn.Name].Value;
-                if (variant < 0)
-                {
-                    stockGV.Rows[idx].Cells[priceVariantColumn.Name].Style.BackColor = Settings.sysPriceColor_Decrease_BG;
-                    stockGV.Rows[idx].Cells[priceVariantColumn.Name].Style.ForeColor = Settings.sysPriceColor_Decrease_FG;
-                    continue;
-                }
-                if (variant > 0)
-                {
-                    stockGV.Rows[idx].Cells[priceVariantColumn.Name].Style.BackColor = Settings.sysPriceColor_Increase_BG;
-                    stockGV.Rows[idx].Cells[priceVariantColumn.Name].Style.ForeColor = Settings.sysPriceColor_Increase_FG;
-                    continue;
-                }
-                stockGV.Rows[idx].Cells[priceVariantColumn.Name].Style.BackColor = Settings.sysPriceColor_NotChange_BG;
-                stockGV.Rows[idx].Cells[priceVariantColumn.Name].Style.ForeColor = Settings.sysPriceColor_NotChange_FG;
-            }
+            for (int idx = 0; idx < stockGV.RowCount; idx++) SetColor(idx);
         }
 
         #region event handler
@@ -418,16 +446,13 @@ namespace baseClass.controls
         {
             try
             {
-                if (fProcessing) return;
-                SetColor();
+                if (!fProcessing) SetColor();
             }
             catch (Exception er)
             {
                 ErrorHandler(this, er);
             }
         }
-        #endregion
-
         private void stockGV_CellToolTipTextNeeded(object sender, DataGridViewCellToolTipTextNeededEventArgs e)
         {
             try
@@ -444,5 +469,6 @@ namespace baseClass.controls
                 ErrorHandler(this, er);
             }
         }
+        #endregion
     }
 }

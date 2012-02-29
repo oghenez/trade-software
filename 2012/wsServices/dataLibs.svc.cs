@@ -913,17 +913,17 @@ namespace wsServices
             }
             return null;
         }
-        public void AjustPriceData(string code, DateTime toDate, double weight)
-        {
-            try
-            {
-                application.AppLibs.AjustPriceData(code, toDate, (decimal)weight);
-            }
-            catch (Exception ex)
-            {
-                WriteSysLogLocal(ex);
-            }
-        }
+        //public void AdjustPriceData(string code, DateTime toDate, double weight)
+        //{
+        //    try
+        //    {
+        //        application.AppLibs.AjustPriceData(code, toDate, (decimal)weight);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        WriteSysLogLocal(ex);
+        //    }
+        //}
 
         public void ReAggregatePriceData(string code)
         {
