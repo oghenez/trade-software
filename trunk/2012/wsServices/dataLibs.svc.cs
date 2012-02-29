@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections;
 using System.Collections.Specialized;
+using System.Globalization;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
@@ -928,7 +929,8 @@ namespace wsServices
         {
             try
             {
-                application.AppLibs.ReAggregatePriceData(code);
+                CultureInfo stockCulture = application.AppLibs.GetStockCulture(code);
+                Imports.Libs.ReAggregatePriceData(code, stockCulture);
             }
             catch (Exception ex)
             {

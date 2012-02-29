@@ -157,6 +157,7 @@ namespace databases
             row.priceRatio = 1;
             row.volumeRatio = 1;
             row.weight = 0;
+            row.priceAmplitude = 0;
         }
         public static void InitData(databases.baseDS.priceDataRow row)
         {

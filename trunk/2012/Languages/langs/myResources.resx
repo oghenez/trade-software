@@ -574,7 +574,7 @@
     <value>Listed Qty</value>
   </data>
   <data name="logo" xml:space="preserve">
-    <value>logo</value>
+    <value>Logo</value>
   </data>
   <data name="maxAccumulatePercent" xml:space="preserve">
     <value>Accumulation</value>
@@ -1232,5 +1232,8 @@
   </data>
   <data name="load" xml:space="preserve">
     <value>Load</value>
+  </data>
+  <data name="generalAmtMask" xml:space="preserve">
+    <value>General Mask</value>
   </data>
 </root>
