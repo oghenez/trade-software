@@ -107,7 +107,7 @@ namespace server
         {
             try
             {
-                if (scheduleForm==null) scheduleForm = new scheduleForm();
+                if (scheduleForm == null || scheduleForm.IsDisposed) scheduleForm = new scheduleForm();
                 scheduleForm.Show();
                 scheduleForm.Activate();
             }

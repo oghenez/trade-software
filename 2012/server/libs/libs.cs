@@ -146,7 +146,6 @@ namespace server
                 switch(param.code)
                 {
                     case Imports.ImportCodes.HOSE :
-
                          hoseImport.ImportFromWeb(updateTime,param);
                          break;
                     case Imports.ImportCodes.HASTC:
