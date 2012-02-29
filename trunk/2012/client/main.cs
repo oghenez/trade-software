@@ -389,8 +389,7 @@ namespace client
             myPortfolioMenuItem.Checked = application.Configuration.GetDefaultFormState("portfolio");
             transHistoryMenuItem.Checked = application.Configuration.GetDefaultFormState("transHistory");
 
-            OpenDefaultForm();
-            common.Data.Clear();
+            //common.Data.Clear();
             return true;
         }
         protected override void SaveUserConfig()
