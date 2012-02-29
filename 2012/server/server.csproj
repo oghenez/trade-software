@@ -70,10 +70,10 @@
     <Compile Include="main.Designer.cs">
       <DependentUpon>main.cs</DependentUpon>
     </Compile>
-    <Compile Include="schedule.cs">
+    <Compile Include="forms\schedule.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="schedule.Designer.cs">
+    <Compile Include="forms\schedule.Designer.cs">
       <DependentUpon>schedule.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -82,7 +82,7 @@
       <DependentUpon>main.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="schedule.resx">
+    <EmbeddedResource Include="forms\schedule.resx">
       <DependentUpon>schedule.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
