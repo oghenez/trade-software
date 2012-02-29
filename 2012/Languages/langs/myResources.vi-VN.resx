@@ -1239,4 +1239,7 @@
   <data name="load" xml:space="preserve">
     <value>Tải</value>
   </data>
+  <data name="generalAmtMask" xml:space="preserve">
+    <value>Định dạng chung</value>
+  </data>
 </root>

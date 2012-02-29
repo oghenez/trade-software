@@ -29,16 +29,16 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             this.exchangeLbl = new baseClass.controls.baseLabel();
             this.exchangeCb = new baseClass.controls.cbStockExchange();
             this.diagnoseBtn = new baseClass.controls.baseButton();
@@ -135,6 +135,7 @@
             this.exchangeCb.Name = "exchangeCb";
             this.exchangeCb.Size = new System.Drawing.Size(187, 24);
             this.exchangeCb.TabIndex = 10;
+            this.exchangeCb.SelectionChangeCommitted += new System.EventHandler(this.exchangeCb_SelectionChangeCommitted);
             // 
             // diagnoseBtn
             // 
@@ -265,10 +266,10 @@
             // srcCloseDateColumn
             // 
             this.srcCloseDateColumn.DataPropertyName = "date1";
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle11.Format = "g";
-            dataGridViewCellStyle11.NullValue = null;
-            this.srcCloseDateColumn.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.Format = "g";
+            dataGridViewCellStyle1.NullValue = null;
+            this.srcCloseDateColumn.DefaultCellStyle = dataGridViewCellStyle1;
             this.srcCloseDateColumn.HeaderText = "Date";
             this.srcCloseDateColumn.Name = "srcCloseDateColumn";
             this.srcCloseDateColumn.ReadOnly = true;
@@ -277,10 +278,10 @@
             // srcClosePriceColumn
             // 
             this.srcClosePriceColumn.DataPropertyName = "price1";
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle12.Format = "N2";
-            dataGridViewCellStyle12.NullValue = null;
-            this.srcClosePriceColumn.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.Format = "N2";
+            dataGridViewCellStyle2.NullValue = null;
+            this.srcClosePriceColumn.DefaultCellStyle = dataGridViewCellStyle2;
             this.srcClosePriceColumn.HeaderText = "Close";
             this.srcClosePriceColumn.Name = "srcClosePriceColumn";
             this.srcClosePriceColumn.ReadOnly = true;
@@ -288,10 +289,10 @@
             // srcOpenPriceColumn
             // 
             this.srcOpenPriceColumn.DataPropertyName = "price2";
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle13.Format = "N2";
-            dataGridViewCellStyle13.NullValue = null;
-            this.srcOpenPriceColumn.DefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.Format = "N2";
+            dataGridViewCellStyle3.NullValue = null;
+            this.srcOpenPriceColumn.DefaultCellStyle = dataGridViewCellStyle3;
             this.srcOpenPriceColumn.HeaderText = "Open";
             this.srcOpenPriceColumn.Name = "srcOpenPriceColumn";
             this.srcOpenPriceColumn.ReadOnly = true;
@@ -299,9 +300,9 @@
             // srcOpenDateColumn
             // 
             this.srcOpenDateColumn.DataPropertyName = "date2";
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle14.Format = "g";
-            this.srcOpenDateColumn.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.Format = "g";
+            this.srcOpenDateColumn.DefaultCellStyle = dataGridViewCellStyle4;
             this.srcOpenDateColumn.HeaderText = "Date ";
             this.srcOpenDateColumn.Name = "srcOpenDateColumn";
             this.srcOpenDateColumn.ReadOnly = true;
@@ -310,10 +311,10 @@
             // srcVarianceColumn
             // 
             this.srcVarianceColumn.DataPropertyName = "variance";
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle15.Format = "N3";
-            dataGridViewCellStyle15.NullValue = null;
-            this.srcVarianceColumn.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.Format = "N3";
+            dataGridViewCellStyle5.NullValue = null;
+            this.srcVarianceColumn.DefaultCellStyle = dataGridViewCellStyle5;
             this.srcVarianceColumn.HeaderText = "+/-";
             this.srcVarianceColumn.Name = "srcVarianceColumn";
             this.srcVarianceColumn.ReadOnly = true;
@@ -520,50 +521,50 @@
             // dataHighPriceColumn
             // 
             this.dataHighPriceColumn.DataPropertyName = "highPrice";
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle16.Format = "N2";
-            dataGridViewCellStyle16.NullValue = null;
-            this.dataHighPriceColumn.DefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle6.Format = "N2";
+            dataGridViewCellStyle6.NullValue = null;
+            this.dataHighPriceColumn.DefaultCellStyle = dataGridViewCellStyle6;
             this.dataHighPriceColumn.HeaderText = "High";
             this.dataHighPriceColumn.Name = "dataHighPriceColumn";
             // 
             // dataLowPriceColumn
             // 
             this.dataLowPriceColumn.DataPropertyName = "lowPrice";
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle17.Format = "N2";
-            dataGridViewCellStyle17.NullValue = null;
-            this.dataLowPriceColumn.DefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle7.Format = "N2";
+            dataGridViewCellStyle7.NullValue = null;
+            this.dataLowPriceColumn.DefaultCellStyle = dataGridViewCellStyle7;
             this.dataLowPriceColumn.HeaderText = "Low";
             this.dataLowPriceColumn.Name = "dataLowPriceColumn";
             // 
             // dataOpenPriceColumn
             // 
             this.dataOpenPriceColumn.DataPropertyName = "openPrice";
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle18.Format = "N2";
-            dataGridViewCellStyle18.NullValue = null;
-            this.dataOpenPriceColumn.DefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle8.Format = "N2";
+            dataGridViewCellStyle8.NullValue = null;
+            this.dataOpenPriceColumn.DefaultCellStyle = dataGridViewCellStyle8;
             this.dataOpenPriceColumn.HeaderText = "Open";
             this.dataOpenPriceColumn.Name = "dataOpenPriceColumn";
             // 
             // dataClosePriceColumn
             // 
             this.dataClosePriceColumn.DataPropertyName = "closePrice";
-            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle19.Format = "N2";
-            dataGridViewCellStyle19.NullValue = null;
-            this.dataClosePriceColumn.DefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle9.Format = "N2";
+            dataGridViewCellStyle9.NullValue = null;
+            this.dataClosePriceColumn.DefaultCellStyle = dataGridViewCellStyle9;
             this.dataClosePriceColumn.HeaderText = "Close";
             this.dataClosePriceColumn.Name = "dataClosePriceColumn";
             // 
             // dataVolumeColumn
             // 
             this.dataVolumeColumn.DataPropertyName = "volume";
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle20.Format = "N0";
-            dataGridViewCellStyle20.NullValue = null;
-            this.dataVolumeColumn.DefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle10.Format = "N0";
+            dataGridViewCellStyle10.NullValue = null;
+            this.dataVolumeColumn.DefaultCellStyle = dataGridViewCellStyle10;
             this.dataVolumeColumn.HeaderText = "Volume";
             this.dataVolumeColumn.Name = "dataVolumeColumn";
             this.dataVolumeColumn.Width = 120;

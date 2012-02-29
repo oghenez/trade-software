@@ -302,8 +302,10 @@ namespace admin.forms
             }
         }
 
+
         private void saveDataBtn_Click(object sender, EventArgs e)
         {
+            const short constNumberOfRowInBatchToSave = 500;
             try
             {
                 this.ShowMessage("");
@@ -333,7 +335,7 @@ namespace admin.forms
                     {
                         DataAccess.Libs.UpdateData(tbl);
                         tbl.Clear();
-                        batchCount = Settings.sysNumberOfItemsInBatchProcess;
+                        batchCount = constNumberOfRowInBatchToSave;
                     }
                 }
                 DataAccess.Libs.UpdateData(tbl);
@@ -413,6 +415,19 @@ namespace admin.forms
             catch (Exception er)
             {
                 fProcessing = false;
+                this.ShowError(er);
+            }
+        }
+
+        private void exchangeCb_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            try
+            {
+                databases.baseDS.stockExchangeRow row = exchangeCb.GetInfo(exchangeCb.myValue);
+                checkVariancePercEd.Value = (row==null?0:row.priceAmplitude); 
+            }
+            catch (Exception er)
+            {
                 this.ShowError(er);
             }
         }

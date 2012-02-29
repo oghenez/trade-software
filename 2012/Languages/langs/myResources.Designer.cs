@@ -1276,6 +1276,15 @@ namespace Languages.langs {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to General Mask.
+        /// </summary>
+        internal static string generalAmtMask {
+            get {
+                return ResourceManager.GetString("generalAmtMask", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to General information.
         /// </summary>
         internal static string generalInfo {
@@ -1645,7 +1654,7 @@ namespace Languages.langs {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to logo.
+        ///   Looks up a localized string similar to Logo.
         /// </summary>
         internal static string logo {
             get {
