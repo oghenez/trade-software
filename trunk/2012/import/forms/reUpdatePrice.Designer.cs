@@ -93,7 +93,7 @@
             this.noteGb.Controls.Add(this.noteLbl);
             this.noteGb.Location = new System.Drawing.Point(2, 137);
             this.noteGb.Name = "noteGb";
-            this.noteGb.Size = new System.Drawing.Size(357, 38);
+            this.noteGb.Size = new System.Drawing.Size(357, 43);
             this.noteGb.TabIndex = 151;
             this.noteGb.TabStop = false;
             // 
@@ -105,7 +105,7 @@
             this.noteLbl.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.noteLbl.Location = new System.Drawing.Point(56, 11);
             this.noteLbl.Name = "noteLbl";
-            this.noteLbl.Size = new System.Drawing.Size(255, 23);
+            this.noteLbl.Size = new System.Drawing.Size(255, 28);
             this.noteLbl.TabIndex = 147;
             this.noteLbl.Text = "Cập nhật lại dữ liệu giá trực tuyến";
             this.noteLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -123,6 +123,7 @@
             // 
             // codeEd
             // 
+            this.codeEd.isRequired = true;
             this.codeEd.isToUpperCase = true;
             this.codeEd.Location = new System.Drawing.Point(68, 91);
             this.codeEd.Name = "codeEd";

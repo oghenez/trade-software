@@ -63,9 +63,11 @@
             // 
             // dataFileNameEd
             // 
+            this.dataFileNameEd.isRequired = true;
+            this.dataFileNameEd.isToUpperCase = false;
             this.dataFileNameEd.Location = new System.Drawing.Point(42, 31);
             this.dataFileNameEd.Name = "dataFileNameEd";
-            this.dataFileNameEd.Size = new System.Drawing.Size(333, 22);
+            this.dataFileNameEd.Size = new System.Drawing.Size(333, 23);
             this.dataFileNameEd.TabIndex = 1;
             // 
             // myDataSet
@@ -85,12 +87,11 @@
             this.viewLogBtn.Image = global::Imports.Properties.Resources.report;
             this.viewLogBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.viewLogBtn.isDownState = false;
-            this.viewLogBtn.Location = new System.Drawing.Point(230, 59);
+            this.viewLogBtn.Location = new System.Drawing.Point(153, 59);
             this.viewLogBtn.Name = "viewLogBtn";
-            this.viewLogBtn.Size = new System.Drawing.Size(77, 30);
+            this.viewLogBtn.Size = new System.Drawing.Size(110, 30);
             this.viewLogBtn.TabIndex = 21;
             this.viewLogBtn.Text = "Nhật ký";
-            this.viewLogBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.viewLogBtn.UseVisualStyleBackColor = true;
             this.viewLogBtn.Click += new System.EventHandler(this.viewLogBtn_Click);
             // 
@@ -100,12 +101,11 @@
             this.closeBtn.Image = global::Imports.Properties.Resources.close;
             this.closeBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.closeBtn.isDownState = false;
-            this.closeBtn.Location = new System.Drawing.Point(307, 59);
+            this.closeBtn.Location = new System.Drawing.Point(263, 59);
             this.closeBtn.Name = "closeBtn";
-            this.closeBtn.Size = new System.Drawing.Size(68, 30);
+            this.closeBtn.Size = new System.Drawing.Size(110, 30);
             this.closeBtn.TabIndex = 22;
             this.closeBtn.Text = "Đóng";
-            this.closeBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.closeBtn.UseVisualStyleBackColor = true;
             this.closeBtn.Click += new System.EventHandler(this.closeBtn_Click);
             // 
@@ -115,12 +115,11 @@
             this.importBtn.Image = global::Imports.Properties.Resources.select;
             this.importBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.importBtn.isDownState = false;
-            this.importBtn.Location = new System.Drawing.Point(139, 59);
+            this.importBtn.Location = new System.Drawing.Point(43, 59);
             this.importBtn.Name = "importBtn";
-            this.importBtn.Size = new System.Drawing.Size(91, 30);
+            this.importBtn.Size = new System.Drawing.Size(110, 30);
             this.importBtn.TabIndex = 20;
             this.importBtn.Text = "Thực hiện";
-            this.importBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.importBtn.UseVisualStyleBackColor = true;
             this.importBtn.Click += new System.EventHandler(this.importBtn_Click);
             // 
@@ -147,7 +146,7 @@
             this.noteLbl.Size = new System.Drawing.Size(349, 41);
             this.noteLbl.TabIndex = 147;
             this.noteLbl.Text = "Cập nhật dữ liệu danh sánh các công ty niêm yết từ tệp Excel vào hệ thống";
-            this.noteLbl.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.noteLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // noteGb
             // 
@@ -160,9 +159,7 @@
             // 
             // importCompany
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            
-            this.ClientSize = new System.Drawing.Size(409, 172);
+            this.ClientSize = new System.Drawing.Size(416, 172);
             this.Controls.Add(this.noteGb);
             this.Controls.Add(this.viewLogBtn);
             this.Controls.Add(this.dataFileNameEd);
@@ -170,7 +167,6 @@
             this.Controls.Add(this.dataFileLbl);
             this.Controls.Add(this.importBtn);
             this.Controls.Add(this.selectFileBtn);
-
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "importCompany";
             this.Text = "Nhap danh sach cong ty";

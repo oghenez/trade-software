@@ -26,22 +26,23 @@ namespace databases.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=localhost;Initial Catalog=stock-import;Integrated Security=True")]
-        public string importConnectionString {
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=localhost;Initial Catalog=stock;Integrated Security=True")]
+        public string dbConnectionString {
             get {
-                return databases.SysLibs.importConnectionString;
-                return ((string)(this["importConnectionString"]));
+                return databases.SysLibs.dbConnectionString; 
+                return ((string)(this["dbConnectionString"]));
             }
         }
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=localhost;Initial Catalog=stock;Integrated Security=True")]
-        public string dbConnectionString {
-            get {
-                return databases.SysLibs.dbConnectionString; 
-                return ((string)(this["dbConnectionString"]));
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=localhost;Initial Catalog=stock-import;Integrated Security=True")]
+        public string importConnectionString {
+            get 
+            {
+                return databases.SysLibs.importConnectionString;
+                return ((string)(this["importConnectionString"]));
             }
         }
     }

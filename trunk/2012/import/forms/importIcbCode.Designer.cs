@@ -64,9 +64,11 @@
             // 
             // dataFileNameEd
             // 
+            this.dataFileNameEd.isRequired = true;
+            this.dataFileNameEd.isToUpperCase = false;
             this.dataFileNameEd.Location = new System.Drawing.Point(42, 31);
             this.dataFileNameEd.Name = "dataFileNameEd";
-            this.dataFileNameEd.Size = new System.Drawing.Size(333, 22);
+            this.dataFileNameEd.Size = new System.Drawing.Size(333, 23);
             this.dataFileNameEd.TabIndex = 1;
             // 
             // closeBtn
@@ -75,12 +77,11 @@
             this.closeBtn.Image = global::Imports.Properties.Resources.close;
             this.closeBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.closeBtn.isDownState = false;
-            this.closeBtn.Location = new System.Drawing.Point(307, 106);
+            this.closeBtn.Location = new System.Drawing.Point(265, 106);
             this.closeBtn.Name = "closeBtn";
-            this.closeBtn.Size = new System.Drawing.Size(68, 30);
+            this.closeBtn.Size = new System.Drawing.Size(110, 30);
             this.closeBtn.TabIndex = 22;
             this.closeBtn.Text = "Đóng";
-            this.closeBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.closeBtn.UseVisualStyleBackColor = true;
             this.closeBtn.Click += new System.EventHandler(this.closeBtn_Click);
             // 
@@ -90,12 +91,11 @@
             this.importBtn.Image = global::Imports.Properties.Resources.select;
             this.importBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.importBtn.isDownState = false;
-            this.importBtn.Location = new System.Drawing.Point(139, 106);
+            this.importBtn.Location = new System.Drawing.Point(45, 106);
             this.importBtn.Name = "importBtn";
-            this.importBtn.Size = new System.Drawing.Size(91, 30);
+            this.importBtn.Size = new System.Drawing.Size(110, 30);
             this.importBtn.TabIndex = 20;
             this.importBtn.Text = "Thực hiện";
-            this.importBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.importBtn.UseVisualStyleBackColor = true;
             this.importBtn.Click += new System.EventHandler(this.importBtn_Click);
             // 
@@ -123,9 +123,11 @@
             // 
             // sheetNameEd
             // 
+            this.sheetNameEd.isRequired = true;
+            this.sheetNameEd.isToUpperCase = false;
             this.sheetNameEd.Location = new System.Drawing.Point(43, 76);
             this.sheetNameEd.Name = "sheetNameEd";
-            this.sheetNameEd.Size = new System.Drawing.Size(166, 22);
+            this.sheetNameEd.Size = new System.Drawing.Size(166, 23);
             this.sheetNameEd.TabIndex = 2;
             this.sheetNameEd.Text = "list";
             // 
@@ -141,9 +143,11 @@
             // 
             // sysCodeCatEd
             // 
+            this.sysCodeCatEd.isRequired = true;
+            this.sysCodeCatEd.isToUpperCase = false;
             this.sysCodeCatEd.Location = new System.Drawing.Point(209, 76);
             this.sysCodeCatEd.Name = "sysCodeCatEd";
-            this.sysCodeCatEd.Size = new System.Drawing.Size(166, 22);
+            this.sysCodeCatEd.Size = new System.Drawing.Size(166, 23);
             this.sysCodeCatEd.TabIndex = 10;
             this.sysCodeCatEd.Text = "BIZCODE_ICB";
             // 
@@ -164,12 +168,11 @@
             this.viewLogBtn.Image = global::Imports.Properties.Resources.report;
             this.viewLogBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.viewLogBtn.isDownState = false;
-            this.viewLogBtn.Location = new System.Drawing.Point(230, 106);
+            this.viewLogBtn.Location = new System.Drawing.Point(155, 106);
             this.viewLogBtn.Name = "viewLogBtn";
-            this.viewLogBtn.Size = new System.Drawing.Size(77, 30);
+            this.viewLogBtn.Size = new System.Drawing.Size(110, 30);
             this.viewLogBtn.TabIndex = 21;
             this.viewLogBtn.Text = "Nhật ký";
-            this.viewLogBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.viewLogBtn.UseVisualStyleBackColor = true;
             this.viewLogBtn.Click += new System.EventHandler(this.viewLogBtn_Click);
             // 
@@ -197,8 +200,6 @@
             // 
             // importIcbCode
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            
             this.ClientSize = new System.Drawing.Size(421, 214);
             this.Controls.Add(this.noteGb);
             this.Controls.Add(this.viewLogBtn);
@@ -211,7 +212,6 @@
             this.Controls.Add(this.dataFileNameEd);
             this.Controls.Add(this.dataFileLbl);
             this.Controls.Add(this.selectFileBtn);
-
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "importIcbCode";
             this.Text = "Nhap bo ma ICB / Import ICB";

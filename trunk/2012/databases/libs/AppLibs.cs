@@ -13,6 +13,18 @@ namespace databases
     public static class AppLibs
     {
         #region Init data
+        public static void InitData(databases.importDS.importPriceRow row)
+        {
+            row.onDate = common.Consts.constNullDate;
+            row.stockCode = "";
+            row.closePrice = 0;
+            row.openPrice = 0;
+            row.highPrice = 0;
+            row.lowPrice = 0;
+            row.volume = 0;
+            row.isTotalVolume = false;
+        }
+
         public static void InitData(databases.baseDS.sysLogRow row)
         {
             row.type = 0;
