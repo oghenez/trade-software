@@ -1236,4 +1236,22 @@
   <data name="generalAmtMask" xml:space="preserve">
     <value>General Mask</value>
   </data>
+  <data name="buy" xml:space="preserve">
+    <value>Buy</value>
+  </data>
+  <data name="current" xml:space="preserve">
+    <value>Current</value>
+  </data>
+  <data name="decision" xml:space="preserve">
+    <value>Decision</value>
+  </data>
+  <data name="revennue" xml:space="preserve">
+    <value>Revennue</value>
+  </data>
+  <data name="sell" xml:space="preserve">
+    <value>Sell</value>
+  </data>
+  <data name="totalQty" xml:space="preserve">
+    <value>Total Qty</value>
+  </data>
 </root>

@@ -15,6 +15,12 @@ namespace baseClass.forms
         {
             InitializeComponent();
         }
+        private bool _logAccess = true;
+        public bool LogAccess
+        {
+            get { return _logAccess; }
+            set { _logAccess=value; }
+        }
         public override int GetFormPermission()
         {
             return application.CommonLibs.GetFormPermission(this.myFormCode);
@@ -52,6 +58,7 @@ namespace baseClass.forms
         {
             try
             {
+                if (!LogAccess) return;
                 switch (Settings.sysGlobal.WriteLogAccess)
                 {
                     case AppTypes.SyslogMedia.Database:
@@ -71,6 +78,7 @@ namespace baseClass.forms
         {
             try
             {
+                if (!LogAccess) return;
                 switch (Settings.sysGlobal.WriteLogAccess)
                 {
                     case AppTypes.SyslogMedia.Database:

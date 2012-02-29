@@ -18,6 +18,7 @@ namespace admin
             {
                  common.language.myCulture = new System.Globalization.CultureInfo("vi-VN");
                 InitializeComponent();
+                LogAccess = false;
                 //test.LoadTestConfig();
             }
             catch (Exception er)

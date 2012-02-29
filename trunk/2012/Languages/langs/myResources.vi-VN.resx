@@ -1242,4 +1242,22 @@
   <data name="generalAmtMask" xml:space="preserve">
     <value>Định dạng chung</value>
   </data>
+  <data name="buy" xml:space="preserve">
+    <value>Mua</value>
+  </data>
+  <data name="current" xml:space="preserve">
+    <value>Hiên tại</value>
+  </data>
+  <data name="decision" xml:space="preserve">
+    <value>Quyết định</value>
+  </data>
+  <data name="revennue" xml:space="preserve">
+    <value>Lãi lỗ</value>
+  </data>
+  <data name="sell" xml:space="preserve">
+    <value>Bán</value>
+  </data>
+  <data name="totalQty" xml:space="preserve">
+    <value>Tổng K/L</value>
+  </data>
 </root>
