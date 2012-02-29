@@ -18,6 +18,7 @@ namespace Trade.Forms
                 this.stockCodeList.myGridView.RowHeadersVisible = false;
                 this.stockCodeList.SetColumnVisibility(baseClass.controls.stockCodeSelectByWatchList.gridColumnName.StockExCode,false);
                 this.stockCodeList.myOnError += new common.myEventHandler(stockCodeList_onError);
+                LogAccess = false;
             }
             catch (Exception er)
             {

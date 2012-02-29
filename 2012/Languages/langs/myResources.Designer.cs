@@ -430,6 +430,15 @@ namespace Languages.langs {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Buy.
+        /// </summary>
+        internal static string buy {
+            get {
+                return ResourceManager.GetString("buy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Only sell after.
         /// </summary>
         internal static string buy2SellInterval {
@@ -817,6 +826,15 @@ namespace Languages.langs {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Current.
+        /// </summary>
+        internal static string current {
+            get {
+                return ResourceManager.GetString("current", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Current Cash.
         /// </summary>
         internal static string currentCash {
@@ -948,6 +966,15 @@ namespace Languages.langs {
         internal static string dayScanForLastPrice {
             get {
                 return ResourceManager.GetString("dayScanForLastPrice", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Decision.
+        /// </summary>
+        internal static string decision {
+            get {
+                return ResourceManager.GetString("decision", resourceCulture);
             }
         }
         
@@ -2482,6 +2509,15 @@ namespace Languages.langs {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Revennue.
+        /// </summary>
+        internal static string revennue {
+            get {
+                return ResourceManager.GetString("revennue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Right.
         /// </summary>
         internal static string right {
@@ -2622,6 +2658,15 @@ namespace Languages.langs {
         internal static string selectAll {
             get {
                 return ResourceManager.GetString("selectAll", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sell.
+        /// </summary>
+        internal static string sell {
+            get {
+                return ResourceManager.GetString("sell", resourceCulture);
             }
         }
         
@@ -3045,6 +3090,15 @@ namespace Languages.langs {
         internal static string totalCapital {
             get {
                 return ResourceManager.GetString("totalCapital", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Total Qty.
+        /// </summary>
+        internal static string totalQty {
+            get {
+                return ResourceManager.GetString("totalQty", resourceCulture);
             }
         }
         

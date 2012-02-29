@@ -205,6 +205,10 @@ namespace baseClass.controls
                 fProcessing = false;
             }
         }
+        public void RefreshData(baseClass.controls.stockCodeSelectByWatchList.RefreshOptions options)
+        {
+            DoRefreshData(options);
+        }
         private void DoRefreshData(RefreshOptions option)
         {
             int lastPosition = stockSource.Position;
