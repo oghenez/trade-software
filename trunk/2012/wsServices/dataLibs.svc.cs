@@ -913,6 +913,19 @@ namespace wsServices
             }
             return null;
         }
+<<<<<<< .mine
+        public void AjustPriceData(string code, DateTime toDate, double weight)
+        {
+            try
+            {
+                //application.AppLibs.AjustPriceData(code, toDate, (decimal)weight);
+            }
+            catch (Exception ex)
+            {
+                WriteSysLogLocal(ex);
+            }
+        }
+=======
         //public void AdjustPriceData(string code, DateTime toDate, double weight)
         //{
         //    try
@@ -924,6 +937,7 @@ namespace wsServices
         //        WriteSysLogLocal(ex);
         //    }
         //}
+>>>>>>> .r458
 
         public void ReAggregatePriceData(string code)
         {
