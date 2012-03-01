@@ -38,6 +38,7 @@ namespace client
                     SetFormAppearance();
 
                     InitSystem(false);
+                    this.LogAccess = false;
                 }
                 testMenuItem.Visible = false;
             }
