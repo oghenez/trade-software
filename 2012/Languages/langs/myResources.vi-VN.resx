@@ -1066,7 +1066,7 @@
     <value>Ký tự</value>
   </data>
   <data name="dataCount" xml:space="preserve">
-    <value>Số lương dữ liệu</value>
+    <value>Số lượng dữ liệu</value>
   </data>
   <data name="dataKeyPrefix" xml:space="preserve">
     <value>Tiền tố khóa</value>
