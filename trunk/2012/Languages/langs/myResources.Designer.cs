@@ -160,6 +160,15 @@ namespace Languages.langs {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to No data for alerts.
+        /// </summary>
+        internal static string alertDataCount {
+            get {
+                return ResourceManager.GetString("alertDataCount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to {0,g} alert(s) were deteled !.
         /// </summary>
         internal static string alertDeleted {

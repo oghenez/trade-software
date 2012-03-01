@@ -1254,4 +1254,7 @@
   <data name="totalQty" xml:space="preserve">
     <value>Total Qty</value>
   </data>
+  <data name="alertDataCount" xml:space="preserve">
+    <value>No data for alerts</value>
+  </data>
 </root>

@@ -1260,4 +1260,7 @@
   <data name="totalQty" xml:space="preserve">
     <value>Tổng K/L</value>
   </data>
+  <data name="alertDataCount" xml:space="preserve">
+    <value>Số lượng dữ liệu cảnh báo</value>
+  </data>
 </root>

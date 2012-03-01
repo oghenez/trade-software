@@ -80,7 +80,7 @@ namespace server
                 list = common.system.String2List(workTimeRules[idx], ";");
                 if (list.Length != 3)
                 {
-                    common.SysLog.WriteLog("Invalid config : " + workTimeRules[idx]);
+                    commonClass.SysLibs.WriteSysLog("Invalid config : " + workTimeRules[idx]);
                     return false;
                 }
                 //Start date

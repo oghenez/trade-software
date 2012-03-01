@@ -50,10 +50,10 @@ namespace commonTypes
         public bool smtpSSL = false;
 
         [DataMember]
-        public int AlertDataCount = 50;
+        public short AlertDataCount = 50;
 
         [DataMember]
-        public int ScreeningDataCount = 50;
+        public short ScreeningDataCount = 50;
 
         [DataMember]
         public AppTypes.TimeRanges DefaultTimeRange = AppTypes.TimeRanges.Y5;
