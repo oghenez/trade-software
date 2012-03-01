@@ -26,8 +26,27 @@ namespace server
         }
         protected override bool CheckValid()
         {
+            return Init();
+        }
+
+        private static bool Init()
+        {
+            common.configuration.withEncryption = true;
+            application.Configuration.Load_User_Envir();
+            //Check data connection after db-setting were loaded
+            if (!databases.SysLibs.CheckAllDbConnection())
+            {
+                common.system.ShowMessage("Không thể kết nối đến nguồn dữ liệu.Xin vui lòng chạy lại chương trình [Setup].");
+                return false;
+            }
+            GlobalSettings globalSetting = Settings.sysGlobal;
+            application.Configuration.Load_Global_Settings(ref globalSetting);
+            Settings.sysGlobal = globalSetting;
+
+            application.Configuration.Load_Local_Settings();
             return true;
         }
+
      
         private void exitMenu_Click(object sender, EventArgs e)
         {

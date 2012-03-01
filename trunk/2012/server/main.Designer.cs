@@ -83,6 +83,7 @@
             // 
             // loginMenu
             // 
+            this.loginMenu.Enabled = false;
             this.loginMenu.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.loginMenu.Image = ((System.Drawing.Image)(resources.GetObject("loginMenu.Image")));
             this.loginMenu.Name = "loginMenu";

@@ -289,7 +289,6 @@
             this.Margin = new System.Windows.Forms.Padding(3);
             this.Name = "scheduleForm";
             this.Text = "Tool";
-            this.WindowState = System.Windows.Forms.FormWindowState.Normal;
             this.Controls.SetChildIndex(this.scheduleGb, 0);
             this.Controls.SetChildIndex(this.TitleLbl, 0);
             this.Controls.SetChildIndex(this.pauseBtn, 0);

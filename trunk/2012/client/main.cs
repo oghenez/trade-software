@@ -505,17 +505,17 @@ namespace client
                     continue;
                 }
                 //Portfolio watch
-                //if (dockPanel.Contents[idx].GetType() == typeof(Trade.Forms.portfolioWatch))
-                //{
-                //    (dockPanel.Contents[idx] as Trade.Forms.portfolioWatch).RefreshData();
-                //    continue;
-                //}
+                if (dockPanel.Contents[idx].GetType() == typeof(Trade.Forms.transactionList))
+                {
+                    (dockPanel.Contents[idx] as Trade.Forms.transactionList).Refresh();
+                    continue;
+                }
                 //Trade Alert
-                //if (dockPanel.Contents[idx].GetType() == typeof(Trade.Forms.tradeAlertList))
-                //{
-                //    (dockPanel.Contents[idx] as Trade.Forms.tradeAlertList).Refresh();
-                //    continue;
-                //}
+                if (dockPanel.Contents[idx].GetType() == typeof(Trade.Forms.tradeAlertList))
+                {
+                    (dockPanel.Contents[idx] as Trade.Forms.tradeAlertList).Refresh();
+                    continue;
+                }
             }
         }
 
@@ -998,6 +998,7 @@ namespace client
             myForm.PlotProfitChart();
             myForm.IsShowAllTransactions = false;
             myForm.Show(dockPanel, DockState.DockBottom);
+            myForm.BringToFront();
         }
         private void tradeAnalysisActivatedHandler(object sender, EventArgs e)
         {
@@ -1217,24 +1218,28 @@ namespace client
         {
             try
             {
+                //Hiển thị form Back Test
+                Tools.Forms.backTesting backTestingForm = Tools.Forms.backTesting.GetForm("");
+
                 //Kiếm các list selected từ trong watchlist
                 Trade.Forms.marketWatch marketWatch=GetMarketWatchForm(false);
                 //marketWatch
-                common.controls.baseDataGridView mW_Grid = marketWatch.myGrid;
-                DataGridViewSelectedRowCollection rowCollection = mW_Grid.SelectedRows;
-                List<string> list=new List<string>();
-                for (int i=0;i<rowCollection.Count;i++)
-                    list.Add((rowCollection[i].Cells[1]).Value.ToString());
+                if (marketWatch != null)
+                {
+                    common.controls.baseDataGridView mW_Grid = marketWatch.myGrid;
+                    DataGridViewSelectedRowCollection rowCollection = mW_Grid.SelectedRows;
+                    List<string> list = new List<string>();
+                    for (int i = 0; i < rowCollection.Count; i++)
+                        list.Add((rowCollection[i].Cells[1]).Value.ToString());
 
-                //Hiển thị form Back Test
-                Tools.Forms.backTesting form = Tools.Forms.backTesting.GetForm("");
-                form.SetSelectedStocks(mW_Grid.SelectedRows);
+                    backTestingForm.SetSelectedStocks(mW_Grid.SelectedRows);
+                }
 
-                form.myDockedPane = dockPanel;
-                form.myShowStock += new Tools.Forms.backTesting.ShowStockFunc(ShowStockHandler);
+                backTestingForm.myDockedPane = dockPanel;
+                backTestingForm.myShowStock += new Tools.Forms.backTesting.ShowStockFunc(ShowStockHandler);
 
-                form.Name = "backTesting";
-                form.Show(dockPanel);
+                backTestingForm.Name = "backTesting";
+                backTestingForm.Show(dockPanel);
             }
             catch (Exception er)
             {

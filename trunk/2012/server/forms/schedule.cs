@@ -24,7 +24,6 @@ namespace server
             try
             {
                 InitializeComponent();
-                if (!Init()) common.system.ExitApplication();
                 LoadConfig();
                 myTimer.Interval = timerIntervalInSecs * 1000;
             }
@@ -34,24 +33,6 @@ namespace server
             }
         }
 
-        private static bool Init()
-        {
-            common.configuration.withEncryption = true;
-
-            application.Configuration.Load_User_Envir();
-            //Check data connection after db-setting were loaded
-            if (!databases.SysLibs.CheckAllDbConnection())
-            {
-                common.system.ShowMessage("Không thể kết nối đến nguồn dữ liệu.Xin vui lòng chạy lại chương trình [Setup].");
-                return false;
-            }
-            GlobalSettings globalSetting = Settings.sysGlobal;
-            application.Configuration.Load_Global_Settings(ref globalSetting);
-            Settings.sysGlobal = globalSetting;
-
-            application.Configuration.Load_Local_Settings();
-            return true;
-        }
         private void LoadConfig()
         {
             StringCollection aFields = new StringCollection();
@@ -179,8 +160,9 @@ namespace server
                     if (!fProcessingTraderAlert && (alertElapseInSeconds >= tradeAlertEd.Value))
                     {
                         fProcessingTraderAlert = true;
-                        commonClass.SysLibs.WriteSysLog("Trade alert start");
+                        commonClass.SysLibs.WriteSysLog("Trade alert started.");
                         Trade.AlertLibs.CreateTradeAlert(onTradeAlertProcessStart, onTradeAlertProcessItem, onTradeAlertProcessEnd);
+                        commonClass.SysLibs.WriteSysLog("Trade alert ended.");
                         alertElapseInSeconds = 0;
                         fProcessingTraderAlert = false;
                     }
