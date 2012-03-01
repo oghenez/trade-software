@@ -65,8 +65,8 @@
             this.defaultPg = new System.Windows.Forms.TabPage();
             this.screeningGb = new System.Windows.Forms.GroupBox();
             this.screenTimeScaleLbl = new baseClass.controls.baseLabel();
-            this.screenDataCounEd = new common.controls.numberTextBox();
-            this.screenDataCounLbl = new baseClass.controls.baseLabel();
+            this.screenDataCountEd = new common.controls.numberTextBox();
+            this.screenDataCountLbl = new baseClass.controls.baseLabel();
             this.screenTimeScaleCb = new baseClass.controls.cbTimeScale();
             this.defaultGb = new System.Windows.Forms.GroupBox();
             this.defaLanguageLbl = new baseClass.controls.baseLabel();
@@ -103,6 +103,9 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.cbTimeRange2 = new baseClass.controls.cbTimeRange();
             this.cbTimeScale2 = new baseClass.controls.cbTimeScale();
+            this.alertDataCountEd = new common.controls.baseNumericUpDown();
+            this.alertDataCountLbl = new common.controls.baseLabel();
+            this.alertDataCountLbl2 = new common.controls.baseLabel();
             this.mainTab.SuspendLayout();
             this.systemPg.SuspendLayout();
             this.systemTab.SuspendLayout();
@@ -128,6 +131,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.timerUnitEd)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.alertDataCountEd)).BeginInit();
             this.SuspendLayout();
             // 
             // TitleLbl
@@ -145,7 +149,7 @@
             this.mainTab.Multiline = true;
             this.mainTab.Name = "mainTab";
             this.mainTab.SelectedIndex = 0;
-            this.mainTab.Size = new System.Drawing.Size(427, 273);
+            this.mainTab.Size = new System.Drawing.Size(428, 337);
             this.mainTab.TabIndex = 1;
             // 
             // systemPg
@@ -154,7 +158,7 @@
             this.systemPg.Location = new System.Drawing.Point(4, 25);
             this.systemPg.Name = "systemPg";
             this.systemPg.Padding = new System.Windows.Forms.Padding(3);
-            this.systemPg.Size = new System.Drawing.Size(419, 244);
+            this.systemPg.Size = new System.Drawing.Size(420, 308);
             this.systemPg.TabIndex = 0;
             this.systemPg.Text = "Hệ thống";
             this.systemPg.UseVisualStyleBackColor = true;
@@ -170,7 +174,7 @@
             this.systemTab.Multiline = true;
             this.systemTab.Name = "systemTab";
             this.systemTab.SelectedIndex = 0;
-            this.systemTab.Size = new System.Drawing.Size(426, 252);
+            this.systemTab.Size = new System.Drawing.Size(426, 311);
             this.systemTab.TabIndex = 146;
             // 
             // generalPg
@@ -278,10 +282,10 @@
             // autoKeyPg
             // 
             this.autoKeyPg.Controls.Add(this.autoKeyGb);
-            this.autoKeyPg.Location = new System.Drawing.Point(4, 22);
+            this.autoKeyPg.Location = new System.Drawing.Point(4, 25);
             this.autoKeyPg.Name = "autoKeyPg";
             this.autoKeyPg.Padding = new System.Windows.Forms.Padding(3);
-            this.autoKeyPg.Size = new System.Drawing.Size(418, 226);
+            this.autoKeyPg.Size = new System.Drawing.Size(418, 282);
             this.autoKeyPg.TabIndex = 0;
             this.autoKeyPg.Text = "Số tự động";
             this.autoKeyPg.UseVisualStyleBackColor = true;
@@ -455,10 +459,10 @@
             // emailPg
             // 
             this.emailPg.Controls.Add(this.emailGb);
-            this.emailPg.Location = new System.Drawing.Point(4, 22);
+            this.emailPg.Location = new System.Drawing.Point(4, 25);
             this.emailPg.Name = "emailPg";
             this.emailPg.Padding = new System.Windows.Forms.Padding(3);
-            this.emailPg.Size = new System.Drawing.Size(418, 226);
+            this.emailPg.Size = new System.Drawing.Size(418, 282);
             this.emailPg.TabIndex = 5;
             this.emailPg.Text = "E-mail";
             this.emailPg.UseVisualStyleBackColor = true;
@@ -580,10 +584,10 @@
             // 
             this.defaultPg.Controls.Add(this.screeningGb);
             this.defaultPg.Controls.Add(this.defaultGb);
-            this.defaultPg.Location = new System.Drawing.Point(4, 22);
+            this.defaultPg.Location = new System.Drawing.Point(4, 25);
             this.defaultPg.Name = "defaultPg";
             this.defaultPg.Padding = new System.Windows.Forms.Padding(3);
-            this.defaultPg.Size = new System.Drawing.Size(418, 226);
+            this.defaultPg.Size = new System.Drawing.Size(418, 282);
             this.defaultPg.TabIndex = 6;
             this.defaultPg.Text = "Mặc định";
             this.defaultPg.UseVisualStyleBackColor = true;
@@ -591,8 +595,8 @@
             // screeningGb
             // 
             this.screeningGb.Controls.Add(this.screenTimeScaleLbl);
-            this.screeningGb.Controls.Add(this.screenDataCounEd);
-            this.screeningGb.Controls.Add(this.screenDataCounLbl);
+            this.screeningGb.Controls.Add(this.screenDataCountEd);
+            this.screeningGb.Controls.Add(this.screenDataCountLbl);
             this.screeningGb.Controls.Add(this.screenTimeScaleCb);
             this.screeningGb.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.screeningGb.Location = new System.Drawing.Point(18, 101);
@@ -612,32 +616,32 @@
             this.screenTimeScaleLbl.Text = "Time scale";
             this.screenTimeScaleLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // screenDataCounEd
+            // screenDataCountEd
             // 
-            this.screenDataCounEd.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.screenDataCounEd.InsertKeyMode = System.Windows.Forms.InsertKeyMode.Overwrite;
-            this.screenDataCounEd.Location = new System.Drawing.Point(125, 18);
-            this.screenDataCounEd.myFormat = "###,###,###,###,##0";
-            this.screenDataCounEd.Name = "screenDataCounEd";
-            this.screenDataCounEd.Size = new System.Drawing.Size(78, 24);
-            this.screenDataCounEd.TabIndex = 380;
-            this.screenDataCounEd.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.screenDataCounEd.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludePromptAndLiterals;
-            this.screenDataCounEd.Value = new decimal(new int[] {
+            this.screenDataCountEd.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.screenDataCountEd.InsertKeyMode = System.Windows.Forms.InsertKeyMode.Overwrite;
+            this.screenDataCountEd.Location = new System.Drawing.Point(125, 18);
+            this.screenDataCountEd.myFormat = "###,###,###,###,##0";
+            this.screenDataCountEd.Name = "screenDataCountEd";
+            this.screenDataCountEd.Size = new System.Drawing.Size(78, 24);
+            this.screenDataCountEd.TabIndex = 380;
+            this.screenDataCountEd.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.screenDataCountEd.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludePromptAndLiterals;
+            this.screenDataCountEd.Value = new decimal(new int[] {
             0,
             0,
             0,
             0});
             // 
-            // screenDataCounLbl
+            // screenDataCountLbl
             // 
-            this.screenDataCounLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.screenDataCounLbl.Location = new System.Drawing.Point(6, 21);
-            this.screenDataCounLbl.Name = "screenDataCounLbl";
-            this.screenDataCounLbl.Size = new System.Drawing.Size(115, 20);
-            this.screenDataCounLbl.TabIndex = 381;
-            this.screenDataCounLbl.Text = "No of bars";
-            this.screenDataCounLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.screenDataCountLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.screenDataCountLbl.Location = new System.Drawing.Point(6, 21);
+            this.screenDataCountLbl.Name = "screenDataCountLbl";
+            this.screenDataCountLbl.Size = new System.Drawing.Size(115, 20);
+            this.screenDataCountLbl.TabIndex = 381;
+            this.screenDataCountLbl.Text = "No of bars";
+            this.screenDataCountLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // screenTimeScaleCb
             // 
@@ -734,16 +738,19 @@
             // sysSettingPg
             // 
             this.sysSettingPg.Controls.Add(this.sysSettingGb);
-            this.sysSettingPg.Location = new System.Drawing.Point(4, 22);
+            this.sysSettingPg.Location = new System.Drawing.Point(4, 25);
             this.sysSettingPg.Name = "sysSettingPg";
             this.sysSettingPg.Padding = new System.Windows.Forms.Padding(3);
-            this.sysSettingPg.Size = new System.Drawing.Size(418, 226);
+            this.sysSettingPg.Size = new System.Drawing.Size(418, 282);
             this.sysSettingPg.TabIndex = 7;
             this.sysSettingPg.Text = "Tham số";
             this.sysSettingPg.UseVisualStyleBackColor = true;
             // 
             // sysSettingGb
             // 
+            this.sysSettingGb.Controls.Add(this.alertDataCountEd);
+            this.sysSettingGb.Controls.Add(this.alertDataCountLbl);
+            this.sysSettingGb.Controls.Add(this.alertDataCountLbl2);
             this.sysSettingGb.Controls.Add(this.chartMaxLoadNextEd);
             this.sysSettingGb.Controls.Add(this.chartMaxLoadNextLbl);
             this.sysSettingGb.Controls.Add(this.barLbl2);
@@ -759,16 +766,16 @@
             this.sysSettingGb.Controls.Add(this.timerUnitLbl);
             this.sysSettingGb.Controls.Add(this.timerUnitEd);
             this.sysSettingGb.Controls.Add(this.secondLbl2);
-            this.sysSettingGb.Location = new System.Drawing.Point(15, 14);
+            this.sysSettingGb.Location = new System.Drawing.Point(15, 15);
             this.sysSettingGb.Name = "sysSettingGb";
-            this.sysSettingGb.Size = new System.Drawing.Size(390, 155);
+            this.sysSettingGb.Size = new System.Drawing.Size(390, 202);
             this.sysSettingGb.TabIndex = 153;
             this.sysSettingGb.TabStop = false;
             // 
             // chartMaxLoadNextEd
             // 
             this.chartMaxLoadNextEd.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chartMaxLoadNextEd.Location = new System.Drawing.Point(197, 124);
+            this.chartMaxLoadNextEd.Location = new System.Drawing.Point(197, 154);
             this.chartMaxLoadNextEd.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -781,7 +788,7 @@
             0});
             this.chartMaxLoadNextEd.Name = "chartMaxLoadNextEd";
             this.chartMaxLoadNextEd.Size = new System.Drawing.Size(71, 26);
-            this.chartMaxLoadNextEd.TabIndex = 22;
+            this.chartMaxLoadNextEd.TabIndex = 6;
             this.chartMaxLoadNextEd.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.chartMaxLoadNextEd.Value = new decimal(new int[] {
             100,
@@ -792,7 +799,7 @@
             // chartMaxLoadNextLbl
             // 
             this.chartMaxLoadNextLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chartMaxLoadNextLbl.Location = new System.Drawing.Point(5, 128);
+            this.chartMaxLoadNextLbl.Location = new System.Drawing.Point(5, 158);
             this.chartMaxLoadNextLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.chartMaxLoadNextLbl.Name = "chartMaxLoadNextLbl";
             this.chartMaxLoadNextLbl.Size = new System.Drawing.Size(187, 20);
@@ -803,7 +810,7 @@
             // barLbl2
             // 
             this.barLbl2.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.barLbl2.Location = new System.Drawing.Point(271, 129);
+            this.barLbl2.Location = new System.Drawing.Point(272, 159);
             this.barLbl2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.barLbl2.Name = "barLbl2";
             this.barLbl2.Size = new System.Drawing.Size(100, 21);
@@ -813,7 +820,7 @@
             // chartMaxLoadFirstEd
             // 
             this.chartMaxLoadFirstEd.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chartMaxLoadFirstEd.Location = new System.Drawing.Point(197, 97);
+            this.chartMaxLoadFirstEd.Location = new System.Drawing.Point(197, 127);
             this.chartMaxLoadFirstEd.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -831,7 +838,7 @@
             0});
             this.chartMaxLoadFirstEd.Name = "chartMaxLoadFirstEd";
             this.chartMaxLoadFirstEd.Size = new System.Drawing.Size(71, 26);
-            this.chartMaxLoadFirstEd.TabIndex = 21;
+            this.chartMaxLoadFirstEd.TabIndex = 5;
             this.chartMaxLoadFirstEd.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.chartMaxLoadFirstEd.Value = new decimal(new int[] {
             6000,
@@ -842,7 +849,7 @@
             // chartMaxLoadFirstLbl
             // 
             this.chartMaxLoadFirstLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chartMaxLoadFirstLbl.Location = new System.Drawing.Point(5, 101);
+            this.chartMaxLoadFirstLbl.Location = new System.Drawing.Point(5, 131);
             this.chartMaxLoadFirstLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.chartMaxLoadFirstLbl.Name = "chartMaxLoadFirstLbl";
             this.chartMaxLoadFirstLbl.Size = new System.Drawing.Size(187, 20);
@@ -853,7 +860,7 @@
             // barLbl1
             // 
             this.barLbl1.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.barLbl1.Location = new System.Drawing.Point(271, 102);
+            this.barLbl1.Location = new System.Drawing.Point(272, 132);
             this.barLbl1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.barLbl1.Name = "barLbl1";
             this.barLbl1.Size = new System.Drawing.Size(100, 21);
@@ -863,7 +870,7 @@
             // dayScanForLastPriceEd
             // 
             this.dayScanForLastPriceEd.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dayScanForLastPriceEd.Location = new System.Drawing.Point(197, 70);
+            this.dayScanForLastPriceEd.Location = new System.Drawing.Point(197, 73);
             this.dayScanForLastPriceEd.Maximum = new decimal(new int[] {
             365,
             0,
@@ -881,7 +888,7 @@
             0});
             this.dayScanForLastPriceEd.Name = "dayScanForLastPriceEd";
             this.dayScanForLastPriceEd.Size = new System.Drawing.Size(71, 26);
-            this.dayScanForLastPriceEd.TabIndex = 20;
+            this.dayScanForLastPriceEd.TabIndex = 3;
             this.dayScanForLastPriceEd.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.dayScanForLastPriceEd.Value = new decimal(new int[] {
             30,
@@ -892,7 +899,7 @@
             // dayScanForLastPriceLbl
             // 
             this.dayScanForLastPriceLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dayScanForLastPriceLbl.Location = new System.Drawing.Point(5, 74);
+            this.dayScanForLastPriceLbl.Location = new System.Drawing.Point(5, 77);
             this.dayScanForLastPriceLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.dayScanForLastPriceLbl.Name = "dayScanForLastPriceLbl";
             this.dayScanForLastPriceLbl.Size = new System.Drawing.Size(187, 20);
@@ -903,7 +910,7 @@
             // dayLbl
             // 
             this.dayLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dayLbl.Location = new System.Drawing.Point(271, 75);
+            this.dayLbl.Location = new System.Drawing.Point(272, 78);
             this.dayLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.dayLbl.Name = "dayLbl";
             this.dayLbl.Size = new System.Drawing.Size(100, 21);
@@ -913,7 +920,7 @@
             // noTimerUnitLbl
             // 
             this.noTimerUnitLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.noTimerUnitLbl.Location = new System.Drawing.Point(271, 46);
+            this.noTimerUnitLbl.Location = new System.Drawing.Point(272, 50);
             this.noTimerUnitLbl.Name = "noTimerUnitLbl";
             this.noTimerUnitLbl.Size = new System.Drawing.Size(100, 21);
             this.noTimerUnitLbl.TabIndex = 19;
@@ -922,7 +929,7 @@
             // timerUnitToAutoCheckLbl
             // 
             this.timerUnitToAutoCheckLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.timerUnitToAutoCheckLbl.Location = new System.Drawing.Point(5, 46);
+            this.timerUnitToAutoCheckLbl.Location = new System.Drawing.Point(5, 50);
             this.timerUnitToAutoCheckLbl.Name = "timerUnitToAutoCheckLbl";
             this.timerUnitToAutoCheckLbl.Size = new System.Drawing.Size(187, 20);
             this.timerUnitToAutoCheckLbl.TabIndex = 18;
@@ -932,7 +939,7 @@
             // timerUnitToAutoCheckEd
             // 
             this.timerUnitToAutoCheckEd.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.timerUnitToAutoCheckEd.Location = new System.Drawing.Point(197, 42);
+            this.timerUnitToAutoCheckEd.Location = new System.Drawing.Point(197, 46);
             this.timerUnitToAutoCheckEd.Maximum = new decimal(new int[] {
             255,
             0,
@@ -956,7 +963,7 @@
             // timerUnitLbl
             // 
             this.timerUnitLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.timerUnitLbl.Location = new System.Drawing.Point(5, 18);
+            this.timerUnitLbl.Location = new System.Drawing.Point(5, 23);
             this.timerUnitLbl.Name = "timerUnitLbl";
             this.timerUnitLbl.Size = new System.Drawing.Size(187, 20);
             this.timerUnitLbl.TabIndex = 15;
@@ -966,7 +973,7 @@
             // timerUnitEd
             // 
             this.timerUnitEd.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.timerUnitEd.Location = new System.Drawing.Point(197, 14);
+            this.timerUnitEd.Location = new System.Drawing.Point(197, 19);
             this.timerUnitEd.myValue = new decimal(new int[] {
             10,
             0,
@@ -985,7 +992,7 @@
             // secondLbl2
             // 
             this.secondLbl2.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.secondLbl2.Location = new System.Drawing.Point(271, 19);
+            this.secondLbl2.Location = new System.Drawing.Point(272, 24);
             this.secondLbl2.Name = "secondLbl2";
             this.secondLbl2.Size = new System.Drawing.Size(100, 21);
             this.secondLbl2.TabIndex = 16;
@@ -995,7 +1002,7 @@
             // 
             this.closeBtn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.closeBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.closeBtn.Location = new System.Drawing.Point(315, 240);
+            this.closeBtn.Location = new System.Drawing.Point(315, 295);
             this.closeBtn.Margin = new System.Windows.Forms.Padding(0, 4, 0, 4);
             this.closeBtn.Name = "closeBtn";
             this.closeBtn.Size = new System.Drawing.Size(84, 29);
@@ -1009,7 +1016,7 @@
             this.saveBtn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.saveBtn.Image = global::baseClass.Properties.Resources.save;
             this.saveBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.saveBtn.Location = new System.Drawing.Point(231, 240);
+            this.saveBtn.Location = new System.Drawing.Point(231, 295);
             this.saveBtn.Margin = new System.Windows.Forms.Padding(4);
             this.saveBtn.Name = "saveBtn";
             this.saveBtn.Size = new System.Drawing.Size(84, 29);
@@ -1128,9 +1135,59 @@
             this.cbTimeScale2.Size = new System.Drawing.Size(196, 24);
             this.cbTimeScale2.TabIndex = 2;
             // 
+            // alertDataCountEd
+            // 
+            this.alertDataCountEd.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.alertDataCountEd.Location = new System.Drawing.Point(197, 100);
+            this.alertDataCountEd.Maximum = new decimal(new int[] {
+            365,
+            0,
+            0,
+            0});
+            this.alertDataCountEd.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.alertDataCountEd.myValue = new decimal(new int[] {
+            30,
+            0,
+            0,
+            0});
+            this.alertDataCountEd.Name = "alertDataCountEd";
+            this.alertDataCountEd.Size = new System.Drawing.Size(71, 26);
+            this.alertDataCountEd.TabIndex = 4;
+            this.alertDataCountEd.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.alertDataCountEd.Value = new decimal(new int[] {
+            30,
+            0,
+            0,
+            0});
+            // 
+            // alertDataCountLbl
+            // 
+            this.alertDataCountLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.alertDataCountLbl.Location = new System.Drawing.Point(5, 104);
+            this.alertDataCountLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.alertDataCountLbl.Name = "alertDataCountLbl";
+            this.alertDataCountLbl.Size = new System.Drawing.Size(187, 20);
+            this.alertDataCountLbl.TabIndex = 227;
+            this.alertDataCountLbl.Text = "No. bars  for alerting";
+            this.alertDataCountLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // alertDataCountLbl2
+            // 
+            this.alertDataCountLbl2.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.alertDataCountLbl2.Location = new System.Drawing.Point(272, 105);
+            this.alertDataCountLbl2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.alertDataCountLbl2.Name = "alertDataCountLbl2";
+            this.alertDataCountLbl2.Size = new System.Drawing.Size(100, 21);
+            this.alertDataCountLbl2.TabIndex = 228;
+            this.alertDataCountLbl2.Text = "bar(s)";
+            // 
             // sysOptionGlobal
             // 
-            this.ClientSize = new System.Drawing.Size(451, 315);
+            this.ClientSize = new System.Drawing.Size(453, 377);
             this.Controls.Add(this.closeBtn);
             this.Controls.Add(this.saveBtn);
             this.Controls.Add(this.mainTab);
@@ -1173,6 +1230,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.timerUnitEd)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.alertDataCountEd)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1222,8 +1280,8 @@
         private System.Windows.Forms.TabPage defaultPg;
         private System.Windows.Forms.GroupBox screeningGb;
         protected baseClass.controls.baseLabel screenTimeScaleLbl;
-        private common.controls.numberTextBox screenDataCounEd;
-        protected baseClass.controls.baseLabel screenDataCounLbl;
+        private common.controls.numberTextBox screenDataCountEd;
+        protected baseClass.controls.baseLabel screenDataCountLbl;
         private baseClass.controls.cbTimeScale screenTimeScaleCb;
         private System.Windows.Forms.GroupBox defaultGb;
         private baseClass.controls.cbTimeScale defaTimeScaleCb;
@@ -1254,5 +1312,8 @@
         protected common.controls.baseLabel barLbl2;
         protected common.controls.baseLabel accessLogMediaLbl;
         private baseClass.controls.cbSyslogMedia accessLogMediaCb;
+        protected common.controls.baseNumericUpDown alertDataCountEd;
+        protected common.controls.baseLabel alertDataCountLbl;
+        protected common.controls.baseLabel alertDataCountLbl2;
     }
 }

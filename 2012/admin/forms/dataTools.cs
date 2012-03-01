@@ -29,8 +29,8 @@ namespace admin.forms
                 dataVarianceEd.myPrecision = constPrecision;
                 adjustWeightEd.myPrecision = constPrecision;
 
-                srcSelectColumn.myImageType = common.controls.imageType.Select;
-                dataSelectColumn.myImageType = common.controls.imageType.Select; 
+                srcSelectColumn.myImageType = common.controls.imageType.Edit;
+                dataSelectColumn.myImageType = common.controls.imageType.Search; 
             }
             catch (Exception er)
             {

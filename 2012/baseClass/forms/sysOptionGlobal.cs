@@ -62,13 +62,15 @@ namespace baseClass.forms
             defaTimeRangeCb.myValue = Settings.sysGlobal.DefaultTimeRange;
             defaTimeScaleCb.myValue = AppTypes.TimeScaleFromCode(Settings.sysGlobal.DefaultTimeScaleCode);
 
-            screenDataCounEd.Value = Settings.sysGlobal.ScreeningDataCount;
+            screenDataCountEd.Value = Settings.sysGlobal.ScreeningDataCount;
             screenTimeScaleCb.myValue = AppTypes.TimeScaleFromCode(Settings.sysGlobal.ScreeningTimeScaleCode);
 
-            //sysSettins
+            //sysSettings
             timerUnitEd.myValue = Settings.sysGlobal.TimerUnitInSecs;
             timerUnitToAutoCheckEd.myValue = Settings.sysGlobal.TimerUnitToAutoCheck;
             dayScanForLastPriceEd.myValue = Settings.sysGlobal.DayScanForLastPrice;
+
+            alertDataCountEd.myValue = Settings.sysGlobal.AlertDataCount;
 
             chartMaxLoadFirstEd.myValue = Settings.sysGlobal.ChartMaxLoadCount_FIRST ;
             chartMaxLoadNextEd.myValue = Settings.sysGlobal.ChartMaxLoadCount_MORE ;
@@ -99,13 +101,15 @@ namespace baseClass.forms
             Settings.sysGlobal.DefaultTimeRange = defaTimeRangeCb.myValue;
             Settings.sysGlobal.DefaultTimeScaleCode = defaTimeScaleCb.myValue.Code;
 
-            Settings.sysGlobal.ScreeningDataCount = (int)screenDataCounEd.Value;
+            Settings.sysGlobal.ScreeningDataCount = (short)screenDataCountEd.Value;
             Settings.sysGlobal.ScreeningTimeScaleCode = screenTimeScaleCb.myValue.Code;
 
             //Timing
             Settings.sysGlobal.TimerUnitInSecs = (short)timerUnitEd.myValue;
             Settings.sysGlobal.TimerUnitToAutoCheck = (short)timerUnitToAutoCheckEd.myValue;
             Settings.sysGlobal.DayScanForLastPrice = (short)dayScanForLastPriceEd.myValue;
+
+            Settings.sysGlobal.AlertDataCount = (short)alertDataCountEd.Value;
 
             Settings.sysGlobal.ChartMaxLoadCount_FIRST = (short)chartMaxLoadFirstEd.myValue;
             Settings.sysGlobal.ChartMaxLoadCount_MORE = (short)chartMaxLoadNextEd.myValue;
@@ -146,7 +150,7 @@ namespace baseClass.forms
             defaTimeScaleLbl.Text = Languages.Libs.GetString("timeScale");
 
             screeningGb.Text = Languages.Libs.GetString("screening");
-            screenDataCounLbl.Text = Languages.Libs.GetString("dataCount");
+            screenDataCountLbl.Text = Languages.Libs.GetString("dataCount");
             screenTimeScaleLbl.Text = Languages.Libs.GetString("timeScale");
 
             sysSettingPg.Text = Languages.Libs.GetString("sysSetting");
@@ -157,6 +161,9 @@ namespace baseClass.forms
 
             dayScanForLastPriceLbl.Text = Languages.Libs.GetString("dayScanForLastPrice");
             dayLbl.Text = Languages.Libs.GetString("days");
+
+            alertDataCountLbl.Text = Languages.Libs.GetString("alertDataCount");
+            alertDataCountLbl2.Text = Languages.Libs.GetString("bars");
 
             chartMaxLoadFirstLbl.Text = Languages.Libs.GetString("chartMaxLoadFIRST");
             chartMaxLoadNextLbl.Text = Languages.Libs.GetString("chartMaxLoadNEXT");
