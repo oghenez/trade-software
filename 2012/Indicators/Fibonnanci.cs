@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using application;
+using application.Indicators;
+using commonTypes;
+using commonClass;
 
 namespace Indicators
 {
@@ -10,7 +12,7 @@ namespace Indicators
     {
         public FibonnanciHelper()
         {
-            Init(typeof(Fibonnanci), typeof(forms.commonForm), typeof(DataBars));
+            Init(typeof(Fibonnanci), typeof(application.forms.commonIndicatorForm), typeof(DataBars));
         }
     }
 
