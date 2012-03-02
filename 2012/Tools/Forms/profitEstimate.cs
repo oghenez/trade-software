@@ -158,9 +158,7 @@ namespace Tools.Forms
         }
         private void FormResize()
         {
-            this.Visible = true; //This form must set visible for the mainContainer.Refresh() works corretlly
             mainContainer.Size = new Size(this.ClientRectangle.Width, this.ClientSize.Height);
-            dataPnl.Visible = true;
             mainContainer.Refresh();
             dataGrid.Size = new Size(this.dataPnl.Width, this.dataPnl.Height - 10);
             dataGrid.AutoFitGridColumn();

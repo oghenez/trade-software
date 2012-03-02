@@ -39,6 +39,16 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(profitEstimate));
             this.dataGrid = new common.controls.baseDataGridView();
+            this.ignoredColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.tradeActionColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.onDateColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.priceDataColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.qtyColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.amountColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cashAmtColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.totalAmtColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.feeAmtColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.profitColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tradeEstimateSource = new System.Windows.Forms.BindingSource(this.components);
             this.myTmpDS = new databases.tmpDS();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
@@ -52,18 +62,8 @@
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.exportMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mainContainer = new common.controls.baseContainer();
-            this.dataPnl = new common.controls.basePanel();
             this.chartPnl = new Charts.Controls.baseGraphPanel();
-            this.ignoredColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.tradeActionColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.onDateColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.priceDataColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.qtyColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.amountColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cashAmtColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.totalAmtColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.feeAmtColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.profitColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataPnl = new common.controls.basePanel();
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tradeEstimateSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.myTmpDS)).BeginInit();
@@ -121,131 +121,6 @@
             this.dataGrid.Size = new System.Drawing.Size(541, 250);
             this.dataGrid.TabIndex = 20;
             this.dataGrid.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.grid_DataError);
-            // 
-            // tradeEstimateSource
-            // 
-            this.tradeEstimateSource.DataMember = "tradeEstimate";
-            this.tradeEstimateSource.DataSource = this.myTmpDS;
-            // 
-            // myTmpDS
-            // 
-            this.myTmpDS.DataSetName = "tmpDS";
-            this.myTmpDS.EnforceConstraints = false;
-            this.myTmpDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // saveFileDialog
-            // 
-            this.saveFileDialog.DefaultExt = "*.xls";
-            this.saveFileDialog.Filter = "(*.xls)|*.xls|All files (*.*)|*.*";
-            // 
-            // menuStrip
-            // 
-            this.menuStrip.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.estimationToolStripMenuItem});
-            this.menuStrip.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(1031, 24);
-            this.menuStrip.TabIndex = 299;
-            // 
-            // estimationToolStripMenuItem
-            // 
-            this.estimationToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.allTransactionMenuItem,
-            this.toolStripSeparator1,
-            this.showChartMenuItem,
-            this.toolStripSeparator2,
-            this.reloadMenuItem,
-            this.toolStripSeparator3,
-            this.exportMenuItem});
-            this.estimationToolStripMenuItem.Name = "estimationToolStripMenuItem";
-            this.estimationToolStripMenuItem.Size = new System.Drawing.Size(123, 20);
-            this.estimationToolStripMenuItem.Text = "Profit Estimation";
-            // 
-            // allTransactionMenuItem
-            // 
-            this.allTransactionMenuItem.CheckOnClick = true;
-            this.allTransactionMenuItem.Name = "allTransactionMenuItem";
-            this.allTransactionMenuItem.Size = new System.Drawing.Size(182, 22);
-            this.allTransactionMenuItem.Text = "All Transactions";
-            this.allTransactionMenuItem.Click += new System.EventHandler(this.allTransactionMenuItem_Click);
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(179, 6);
-            // 
-            // showChartMenuItem
-            // 
-            this.showChartMenuItem.Name = "showChartMenuItem";
-            this.showChartMenuItem.Size = new System.Drawing.Size(182, 22);
-            this.showChartMenuItem.Text = "Show Chart";
-            this.showChartMenuItem.Click += new System.EventHandler(this.showChartMenuItem_Click);
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(179, 6);
-            // 
-            // reloadMenuItem
-            // 
-            this.reloadMenuItem.Name = "reloadMenuItem";
-            this.reloadMenuItem.Size = new System.Drawing.Size(182, 22);
-            this.reloadMenuItem.Text = "Reload";
-            this.reloadMenuItem.Click += new System.EventHandler(this.reloadMenuItem_Click);
-            // 
-            // toolStripSeparator3
-            // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(179, 6);
-            // 
-            // exportMenuItem
-            // 
-            this.exportMenuItem.Name = "exportMenuItem";
-            this.exportMenuItem.Size = new System.Drawing.Size(182, 22);
-            this.exportMenuItem.Text = "Export";
-            this.exportMenuItem.Click += new System.EventHandler(this.exportMenuItem_Click);
-            // 
-            // mainContainer
-            // 
-            this.mainContainer.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.mainContainer.Controls.Add(this.chartPnl);
-            this.mainContainer.Controls.Add(this.dataPnl);
-            this.mainContainer.Location = new System.Drawing.Point(2, 52);
-            this.mainContainer.myArrangeOptions = common.controls.childArrangeOptions.Casscade;
-            this.mainContainer.myPaneDimensionSpecs = null;
-            this.mainContainer.Name = "mainContainer";
-            this.mainContainer.Size = new System.Drawing.Size(1025, 448);
-            this.mainContainer.TabIndex = 300;
-            // 
-            // dataPnl
-            // 
-            this.dataPnl.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.dataPnl.Controls.Add(this.dataGrid);
-            this.dataPnl.haveCloseButton = false;
-            this.dataPnl.isExpanded = true;
-            this.dataPnl.Location = new System.Drawing.Point(0, 0);
-            this.dataPnl.myIconLocations = common.controls.basePanel.IconLocations.None;
-            this.dataPnl.mySizingOptions = common.controls.basePanel.SizingOptions.Right;
-            this.dataPnl.myWeight = 100;
-            this.dataPnl.Name = "dataPnl";
-            this.dataPnl.Size = new System.Drawing.Size(611, 300);
-            this.dataPnl.TabIndex = 0;
-            // 
-            // chartPnl
-            // 
-            this.chartPnl.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.chartPnl.haveCloseButton = true;
-            this.chartPnl.HaveRangeBarX = false;
-            this.chartPnl.isExpanded = true;
-            this.chartPnl.Location = new System.Drawing.Point(640, 0);
-            this.chartPnl.myIconLocations = common.controls.basePanel.IconLocations.None;
-            this.chartPnl.mySizingOptions = common.controls.basePanel.SizingOptions.Left;
-            this.chartPnl.myWeight = 70;
-            this.chartPnl.Name = "chartPnl";
-            this.chartPnl.Size = new System.Drawing.Size(366, 446);
-            this.chartPnl.TabIndex = 298;
-            this.chartPnl.myOnClosing += new common.controls.basePanel.OnClosing(this.chartPnl_myOnClosing);
             // 
             // ignoredColumn
             // 
@@ -354,6 +229,131 @@
             this.profitColumn.Name = "profitColumn";
             this.profitColumn.ReadOnly = true;
             this.profitColumn.Width = 90;
+            // 
+            // tradeEstimateSource
+            // 
+            this.tradeEstimateSource.DataMember = "tradeEstimate";
+            this.tradeEstimateSource.DataSource = this.myTmpDS;
+            // 
+            // myTmpDS
+            // 
+            this.myTmpDS.DataSetName = "tmpDS";
+            this.myTmpDS.EnforceConstraints = false;
+            this.myTmpDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // saveFileDialog
+            // 
+            this.saveFileDialog.DefaultExt = "*.xls";
+            this.saveFileDialog.Filter = "(*.xls)|*.xls|All files (*.*)|*.*";
+            // 
+            // menuStrip
+            // 
+            this.menuStrip.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.estimationToolStripMenuItem});
+            this.menuStrip.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip.Name = "menuStrip";
+            this.menuStrip.Size = new System.Drawing.Size(1031, 24);
+            this.menuStrip.TabIndex = 299;
+            // 
+            // estimationToolStripMenuItem
+            // 
+            this.estimationToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.allTransactionMenuItem,
+            this.toolStripSeparator1,
+            this.showChartMenuItem,
+            this.toolStripSeparator2,
+            this.reloadMenuItem,
+            this.toolStripSeparator3,
+            this.exportMenuItem});
+            this.estimationToolStripMenuItem.Name = "estimationToolStripMenuItem";
+            this.estimationToolStripMenuItem.Size = new System.Drawing.Size(123, 20);
+            this.estimationToolStripMenuItem.Text = "Profit Estimation";
+            // 
+            // allTransactionMenuItem
+            // 
+            this.allTransactionMenuItem.CheckOnClick = true;
+            this.allTransactionMenuItem.Name = "allTransactionMenuItem";
+            this.allTransactionMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.allTransactionMenuItem.Text = "All Transactions";
+            this.allTransactionMenuItem.Click += new System.EventHandler(this.allTransactionMenuItem_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(179, 6);
+            // 
+            // showChartMenuItem
+            // 
+            this.showChartMenuItem.Name = "showChartMenuItem";
+            this.showChartMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.showChartMenuItem.Text = "Show Chart";
+            this.showChartMenuItem.Click += new System.EventHandler(this.showChartMenuItem_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(179, 6);
+            // 
+            // reloadMenuItem
+            // 
+            this.reloadMenuItem.Name = "reloadMenuItem";
+            this.reloadMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.reloadMenuItem.Text = "Reload";
+            this.reloadMenuItem.Click += new System.EventHandler(this.reloadMenuItem_Click);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(179, 6);
+            // 
+            // exportMenuItem
+            // 
+            this.exportMenuItem.Name = "exportMenuItem";
+            this.exportMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.exportMenuItem.Text = "Export";
+            this.exportMenuItem.Click += new System.EventHandler(this.exportMenuItem_Click);
+            // 
+            // mainContainer
+            // 
+            this.mainContainer.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.mainContainer.Controls.Add(this.dataPnl);
+            this.mainContainer.Controls.Add(this.chartPnl);
+            this.mainContainer.Location = new System.Drawing.Point(2, 52);
+            this.mainContainer.myArrangeOptions = common.controls.childArrangeOptions.Casscade;
+            this.mainContainer.myPaneDimensionSpecs = null;
+            this.mainContainer.Name = "mainContainer";
+            this.mainContainer.Size = new System.Drawing.Size(1025, 448);
+            this.mainContainer.TabIndex = 300;
+            // 
+            // chartPnl
+            // 
+            this.chartPnl.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.chartPnl.haveCloseButton = true;
+            this.chartPnl.HaveRangeBarX = false;
+            this.chartPnl.isExpanded = true;
+            this.chartPnl.Location = new System.Drawing.Point(640, 0);
+            this.chartPnl.myIconLocations = common.controls.basePanel.IconLocations.None;
+            this.chartPnl.mySizingOptions = common.controls.basePanel.SizingOptions.Left;
+            this.chartPnl.myWeight = 70;
+            this.chartPnl.Name = "chartPnl";
+            this.chartPnl.Size = new System.Drawing.Size(366, 446);
+            this.chartPnl.TabIndex = 298;
+            this.chartPnl.myOnClosing += new common.controls.basePanel.OnClosing(this.chartPnl_myOnClosing);
+            // 
+            // dataPnl
+            // 
+            this.dataPnl.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dataPnl.Controls.Add(this.dataGrid);
+            this.dataPnl.haveCloseButton = false;
+            this.dataPnl.isExpanded = true;
+            this.dataPnl.Location = new System.Drawing.Point(0, 0);
+            this.dataPnl.myIconLocations = common.controls.basePanel.IconLocations.None;
+            this.dataPnl.mySizingOptions = common.controls.basePanel.SizingOptions.Right;
+            this.dataPnl.myWeight = 100;
+            this.dataPnl.Name = "dataPnl";
+            this.dataPnl.Size = new System.Drawing.Size(611, 300);
+            this.dataPnl.TabIndex = 0;
             // 
             // profitEstimate
             // 
