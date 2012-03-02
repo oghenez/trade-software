@@ -63,8 +63,8 @@ namespace Tools.Forms
             profitEstimate myForm = profitEstimate.GetForm(formName);
             myForm.myDataParam = dataParam;
             myForm.myStockCode = stockCodeRow.code;
-            myForm.myOptions = new EstimateOptions();
             myForm.myStrategyCode = strategyCode;
+            myForm.myOptions = new EstimateOptions();
             myForm.ReLoad();
             myForm.Text = "(" + formName + ")";
             if (this.myDockedPane != null) myForm.Show(this.myDockedPane);
