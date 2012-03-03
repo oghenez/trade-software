@@ -1003,7 +1003,7 @@
     <value>Độ dài mật khẩu</value>
   </data>
   <data name="refreshRate" xml:space="preserve">
-    <value>Cập nhật mỗi</value>
+    <value>Tự cập nhật dữ liệu</value>
   </data>
   <data name="seconds" xml:space="preserve">
     <value>giây</value>
@@ -1150,7 +1150,7 @@
     <value>Tệp cấu hình {0} hỏng hoặc không có trong hệ thống !</value>
   </data>
   <data name="autoCheckAfter" xml:space="preserve">
-    <value>Tự kiểm tra sau</value>
+    <value>Tự kiểm tra</value>
   </data>
   <data name="noTimerUnit" xml:space="preserve">
     <value>lần</value>
@@ -1262,5 +1262,17 @@
   </data>
   <data name="alertDataCount" xml:space="preserve">
     <value>Số lượng dữ liệu cảnh báo</value>
+  </data>
+  <data name="tradeAlertCreation" xml:space="preserve">
+    <value>Tạo cảnh báo</value>
+  </data>
+  <data name="autoRefresh" xml:space="preserve">
+    <value>Tự động cập nhật</value>
+  </data>
+  <data name="timerInterval" xml:space="preserve">
+    <value>Nhịp phát sinh sự kiện </value>
+  </data>
+  <data name="alertSummary" xml:space="preserve">
+    <value>Tổng hợp cảnh báo</value>
   </data>
 </root>

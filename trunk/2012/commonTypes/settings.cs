@@ -65,11 +65,19 @@ namespace commonTypes
 
         //Interval in seconds at which  system time events occur.
         [DataMember]
-        public short TimerUnitInSecs = 5;   // 5 Possitive number to enable system timer
+        public short TimerIntervalInSecs = 2;   //  Possitive number to enable system timer
 
-        //How long (seconds) to perform auto checking (connection,...) :  TimerUnitToAutoCheck * sysTimerUnitInSecs
+        //How many seconds to check for new data , should be multiple of TimerIntervalInSecs
         [DataMember]
-        public short TimerUnitToAutoCheck = 10;   //50*5 seconds
+        public short RefreshDataInSecs = 10;
+
+        //How many second to check for alerts, should be multiple of TimerIntervalInSecs
+        [DataMember]
+        public short CheckAlertInSeconds = 300;
+
+        //How long (seconds) to perform auto checking (connection,...) , should be multiple of TimerIntervalInSecs
+        [DataMember]
+        public short AutoCheckInSeconds = 60;
 
         //The number of days to scan for getting the last price. The bigger the numer is, the more time needs for the system to get the last price
         //The system will look for the last price in date range [today-DayScanForLastPrice,today]
@@ -108,6 +116,8 @@ namespace commonTypes
             }
         }
 
+        public static bool sysAutoRefreshData = true;
+
         //The max datetime diffences b/w server and client in seconds
         //public static int sysMaxTimeDifferenceInSecs = 600; //10 Mins
 
@@ -117,9 +127,6 @@ namespace commonTypes
         // Some process such as backtesting need to slit a process into several batches 
         // The setting specifies the number of items put in each batch process.
         public static int sysNumberOfItemsInBatchProcess = 5;
-
-        //How long (seconds) to make update : seconds = sysTimerUnitToRefresh * sysTimerUnitInSecs
-        public static short sysTimerUnitToRefresh = 1;
 
         // Price can be querried from SQL continouously and cause some bottleneck. 
         // The setting specified the time (in seconds) that data cached in the application server

@@ -64,6 +64,12 @@
     <Compile Include="Forms\alertFilter.designer.cs">
       <DependentUpon>alertFilter.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\tradeAlertList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\tradeAlertList.designer.cs">
+      <DependentUpon>tradeAlertList.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\transactionBase.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -112,17 +118,21 @@
     <Compile Include="Forms\marketWatch.Designer.cs">
       <DependentUpon>marketWatch.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\tradeAlertList.cs">
+    <Compile Include="Forms\_tradeAlertList.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\tradeAlertList.designer.cs">
-      <DependentUpon>tradeAlertList.cs</DependentUpon>
+    <Compile Include="Forms\_tradeAlertList.designer.cs">
+      <DependentUpon>_tradeAlertList.cs</DependentUpon>
     </Compile>
     <Compile Include="libs\libs.cs" />
     <Compile Include="libs\tradeAlertLibs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Forms\alertFilter.resx">
       <DependentUpon>alertFilter.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\tradeAlertList.resx">
+      <DependentUpon>tradeAlertList.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\tradeAlertEdit.resx">
@@ -153,8 +163,8 @@
       <DependentUpon>marketWatch.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\tradeAlertList.resx">
-      <DependentUpon>tradeAlertList.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\_tradeAlertList.resx">
+      <DependentUpon>_tradeAlertList.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\transactionView.resx">

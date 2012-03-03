@@ -187,6 +187,15 @@ namespace Languages.langs {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Alert Summary.
+        /// </summary>
+        internal static string alertSummary {
+            get {
+                return ResourceManager.GetString("alertSummary", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to All.
         /// </summary>
         internal static string all {
@@ -282,6 +291,15 @@ namespace Languages.langs {
         internal static string autoKey {
             get {
                 return ResourceManager.GetString("autoKey", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Auto refresh.
+        /// </summary>
+        internal static string autoRefresh {
+            get {
+                return ResourceManager.GetString("autoRefresh", resourceCulture);
             }
         }
         
@@ -3004,6 +3022,15 @@ namespace Languages.langs {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to System timer interval.
+        /// </summary>
+        internal static string timerInterval {
+            get {
+                return ResourceManager.GetString("timerInterval", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Timer unit.
         /// </summary>
         internal static string timerUnit {
@@ -3126,6 +3153,15 @@ namespace Languages.langs {
         internal static string tradeAlert {
             get {
                 return ResourceManager.GetString("tradeAlert", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Trade alert creation.
+        /// </summary>
+        internal static string tradeAlertCreation {
+            get {
+                return ResourceManager.GetString("tradeAlertCreation", resourceCulture);
             }
         }
         

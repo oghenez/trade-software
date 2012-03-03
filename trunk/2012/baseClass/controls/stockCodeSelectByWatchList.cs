@@ -26,7 +26,6 @@ namespace baseClass.controls
     /// </summary>
     public partial class stockCodeSelectByWatchList : common.controls.baseUserControl
     {
-        //BackgroundWorker backgroundWorker = new BackgroundWorker();
         public stockCodeSelectByWatchList()
         {
             try
@@ -44,20 +43,6 @@ namespace baseClass.controls
             catch (Exception er)
             {
                 ErrorHandler(this, er);
-            }
-        }
-        private void backgroundWorker_DoRefreshData(object sender, DoWorkEventArgs e)
-        {
-            if (codeGroupCb.InvokeRequired)
-            {
-                codeGroupCb.Invoke((MethodInvoker)delegate()
-                {
-                    DoRefreshData((RefreshOptions)e.Argument);
-                });
-            }
-            else
-            {
-                DoRefreshData((RefreshOptions)e.Argument);
             }
         }
 
@@ -165,18 +150,6 @@ namespace baseClass.controls
         }
 
         public enum RefreshOptions : byte { CodeGroup = 1, PriceData = 4 , All = 255}
-        // To prevent "cross-thread operation not valid" error
-        // See http://helpprogramming.blogspot.com/2011/10/invalid-cross-thread-operation.html
-        //public void RefreshData(RefreshOptions options)
-        //{
-        //    //if (backgroundWorker.IsBusy)
-        //    {
-        //        //backgroundWorker.CancelAsync();
-        //        //return;
-        //    }
-        //    myRefreshOptions = options;
-        //    backgroundWorker.RunWorkerAsync();
-        //}
         public void RefreshData(bool force)
         {
             try
@@ -190,12 +163,6 @@ namespace baseClass.controls
                 else
                 {
                     DoRefreshData(RefreshOptions.PriceData);
-                    //if (backgroundWorker.IsBusy) 
-                    //    backgroundWorker.CancelAsync();
-                    //else
-                    //{
-                    //    backgroundWorker.RunWorkerAsync(RefreshOptions.PriceData);
-                    //}
                 }
                 fProcessing = false;
             }

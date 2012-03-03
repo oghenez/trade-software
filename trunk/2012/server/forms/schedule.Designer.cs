@@ -30,22 +30,17 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(scheduleForm));
-            this.fetchInSecsEd = new System.Windows.Forms.NumericUpDown();
-            this.fetchStockLbl2 = new common.controls.baseLabel();
-            this.tradeAlertLbl2 = new common.controls.baseLabel();
-            this.tradeAlertEd = new System.Windows.Forms.NumericUpDown();
+            this.fetchStockLbl = new common.controls.baseLabel();
+            this.tradeAlertLbl = new common.controls.baseLabel();
             this.scheduleGb = new System.Windows.Forms.GroupBox();
             this.tradeAlertChk = new common.controls.baseCheckBox();
             this.fetchDataChk = new common.controls.baseCheckBox();
             this.basePanel1 = new common.controls.basePanel();
             this.viewLogBtn = new common.controls.baseButton();
-            this.saveBtn = new common.controls.baseButton();
             this.runBtn = new common.controls.baseButton();
             this.myTimer = new System.Windows.Forms.Timer(this.components);
             this.startBtn = new common.controls.baseButton();
             this.pauseBtn = new common.controls.baseButton();
-            ((System.ComponentModel.ISupportInitialize)(this.fetchInSecsEd)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tradeAlertEd)).BeginInit();
             this.scheduleGb.SuspendLayout();
             this.basePanel1.SuspendLayout();
             this.SuspendLayout();
@@ -56,96 +51,32 @@
             this.TitleLbl.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
             this.TitleLbl.Size = new System.Drawing.Size(154, 33);
             // 
-            // fetchInSecsEd
+            // fetchStockLbl
             // 
-            this.fetchInSecsEd.Enabled = false;
-            this.fetchInSecsEd.Increment = new decimal(new int[] {
-            10,
-            0,
-            0,
-            0});
-            this.fetchInSecsEd.Location = new System.Drawing.Point(155, 24);
-            this.fetchInSecsEd.Margin = new System.Windows.Forms.Padding(2);
-            this.fetchInSecsEd.Maximum = new decimal(new int[] {
-            600,
-            0,
-            0,
-            0});
-            this.fetchInSecsEd.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.fetchInSecsEd.Name = "fetchInSecsEd";
-            this.fetchInSecsEd.Size = new System.Drawing.Size(58, 23);
-            this.fetchInSecsEd.TabIndex = 2;
-            this.fetchInSecsEd.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.fetchInSecsEd.Value = new decimal(new int[] {
-            30,
-            0,
-            0,
-            0});
+            this.fetchStockLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fetchStockLbl.Location = new System.Drawing.Point(147, 24);
+            this.fetchStockLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.fetchStockLbl.Name = "fetchStockLbl";
+            this.fetchStockLbl.Size = new System.Drawing.Size(158, 20);
+            this.fetchStockLbl.TabIndex = 3;
+            this.fetchStockLbl.Text = "secs";
             // 
-            // fetchStockLbl2
+            // tradeAlertLbl
             // 
-            this.fetchStockLbl2.AutoSize = true;
-            this.fetchStockLbl2.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fetchStockLbl2.Location = new System.Drawing.Point(214, 27);
-            this.fetchStockLbl2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.fetchStockLbl2.Name = "fetchStockLbl2";
-            this.fetchStockLbl2.Size = new System.Drawing.Size(37, 16);
-            this.fetchStockLbl2.TabIndex = 3;
-            this.fetchStockLbl2.Text = "secs";
-            // 
-            // tradeAlertLbl2
-            // 
-            this.tradeAlertLbl2.AutoSize = true;
-            this.tradeAlertLbl2.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tradeAlertLbl2.Location = new System.Drawing.Point(213, 49);
-            this.tradeAlertLbl2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.tradeAlertLbl2.Name = "tradeAlertLbl2";
-            this.tradeAlertLbl2.Size = new System.Drawing.Size(37, 16);
-            this.tradeAlertLbl2.TabIndex = 6;
-            this.tradeAlertLbl2.Text = "secs";
-            // 
-            // tradeAlertEd
-            // 
-            this.tradeAlertEd.Enabled = false;
-            this.tradeAlertEd.Increment = new decimal(new int[] {
-            10,
-            0,
-            0,
-            0});
-            this.tradeAlertEd.Location = new System.Drawing.Point(155, 46);
-            this.tradeAlertEd.Margin = new System.Windows.Forms.Padding(2);
-            this.tradeAlertEd.Maximum = new decimal(new int[] {
-            600,
-            0,
-            0,
-            0});
-            this.tradeAlertEd.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.tradeAlertEd.Name = "tradeAlertEd";
-            this.tradeAlertEd.Size = new System.Drawing.Size(58, 23);
-            this.tradeAlertEd.TabIndex = 11;
-            this.tradeAlertEd.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.tradeAlertEd.Value = new decimal(new int[] {
-            30,
-            0,
-            0,
-            0});
+            this.tradeAlertLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tradeAlertLbl.Location = new System.Drawing.Point(146, 46);
+            this.tradeAlertLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.tradeAlertLbl.Name = "tradeAlertLbl";
+            this.tradeAlertLbl.Size = new System.Drawing.Size(158, 20);
+            this.tradeAlertLbl.TabIndex = 6;
+            this.tradeAlertLbl.Text = "secs";
             // 
             // scheduleGb
             // 
             this.scheduleGb.Controls.Add(this.tradeAlertChk);
             this.scheduleGb.Controls.Add(this.fetchDataChk);
-            this.scheduleGb.Controls.Add(this.tradeAlertLbl2);
-            this.scheduleGb.Controls.Add(this.tradeAlertEd);
-            this.scheduleGb.Controls.Add(this.fetchInSecsEd);
-            this.scheduleGb.Controls.Add(this.fetchStockLbl2);
+            this.scheduleGb.Controls.Add(this.tradeAlertLbl);
+            this.scheduleGb.Controls.Add(this.fetchStockLbl);
             this.scheduleGb.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.scheduleGb.Location = new System.Drawing.Point(1, 32);
             this.scheduleGb.Margin = new System.Windows.Forms.Padding(2);
@@ -159,8 +90,10 @@
             // tradeAlertChk
             // 
             this.tradeAlertChk.AutoSize = true;
+            this.tradeAlertChk.Checked = true;
+            this.tradeAlertChk.CheckState = System.Windows.Forms.CheckState.Checked;
             this.tradeAlertChk.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tradeAlertChk.Location = new System.Drawing.Point(41, 46);
+            this.tradeAlertChk.Location = new System.Drawing.Point(36, 46);
             this.tradeAlertChk.Margin = new System.Windows.Forms.Padding(2);
             this.tradeAlertChk.Name = "tradeAlertChk";
             this.tradeAlertChk.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -168,13 +101,14 @@
             this.tradeAlertChk.TabIndex = 10;
             this.tradeAlertChk.Text = "Create alert";
             this.tradeAlertChk.UseVisualStyleBackColor = true;
-            this.tradeAlertChk.CheckedChanged += new System.EventHandler(this.tradeAlertChk_CheckedChanged);
             // 
             // fetchDataChk
             // 
             this.fetchDataChk.AutoSize = true;
+            this.fetchDataChk.Checked = true;
+            this.fetchDataChk.CheckState = System.Windows.Forms.CheckState.Checked;
             this.fetchDataChk.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fetchDataChk.Location = new System.Drawing.Point(43, 25);
+            this.fetchDataChk.Location = new System.Drawing.Point(38, 25);
             this.fetchDataChk.Margin = new System.Windows.Forms.Padding(2);
             this.fetchDataChk.Name = "fetchDataChk";
             this.fetchDataChk.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -182,13 +116,11 @@
             this.fetchDataChk.TabIndex = 1;
             this.fetchDataChk.Text = "Fetch  data ";
             this.fetchDataChk.UseVisualStyleBackColor = true;
-            this.fetchDataChk.CheckedChanged += new System.EventHandler(this.fetchStockChk_CheckedChanged);
             // 
             // basePanel1
             // 
             this.basePanel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.basePanel1.Controls.Add(this.viewLogBtn);
-            this.basePanel1.Controls.Add(this.saveBtn);
             this.basePanel1.Controls.Add(this.runBtn);
             this.basePanel1.haveCloseButton = false;
             this.basePanel1.isExpanded = true;
@@ -206,7 +138,7 @@
             this.viewLogBtn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.viewLogBtn.Image = global::server.Properties.Resources.schedule;
             this.viewLogBtn.isDownState = false;
-            this.viewLogBtn.Location = new System.Drawing.Point(58, 2);
+            this.viewLogBtn.Location = new System.Drawing.Point(35, 2);
             this.viewLogBtn.Margin = new System.Windows.Forms.Padding(2);
             this.viewLogBtn.Name = "viewLogBtn";
             this.viewLogBtn.Size = new System.Drawing.Size(24, 24);
@@ -214,20 +146,6 @@
             this.myToolTip.SetToolTip(this.viewLogBtn, "View log");
             this.viewLogBtn.UseVisualStyleBackColor = true;
             this.viewLogBtn.Click += new System.EventHandler(this.viewLogBtn_Click);
-            // 
-            // saveBtn
-            // 
-            this.saveBtn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.saveBtn.Image = global::server.Properties.Resources.save;
-            this.saveBtn.isDownState = false;
-            this.saveBtn.Location = new System.Drawing.Point(34, 2);
-            this.saveBtn.Margin = new System.Windows.Forms.Padding(2);
-            this.saveBtn.Name = "saveBtn";
-            this.saveBtn.Size = new System.Drawing.Size(24, 24);
-            this.saveBtn.TabIndex = 1;
-            this.myToolTip.SetToolTip(this.saveBtn, "Save settings");
-            this.saveBtn.UseVisualStyleBackColor = true;
-            this.saveBtn.Click += new System.EventHandler(this.saveBtn_Click);
             // 
             // runBtn
             // 
@@ -285,6 +203,7 @@
             this.Controls.Add(this.startBtn);
             this.Controls.Add(this.pauseBtn);
             this.Controls.Add(this.scheduleGb);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3);
             this.Name = "scheduleForm";
@@ -294,8 +213,6 @@
             this.Controls.SetChildIndex(this.pauseBtn, 0);
             this.Controls.SetChildIndex(this.startBtn, 0);
             this.Controls.SetChildIndex(this.basePanel1, 0);
-            ((System.ComponentModel.ISupportInitialize)(this.fetchInSecsEd)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tradeAlertEd)).EndInit();
             this.scheduleGb.ResumeLayout(false);
             this.scheduleGb.PerformLayout();
             this.basePanel1.ResumeLayout(false);
@@ -307,11 +224,8 @@
         #endregion
 
         private common.controls.baseButton runBtn;
-        private System.Windows.Forms.NumericUpDown fetchInSecsEd;
-        private common.controls.baseLabel fetchStockLbl2;
-        private common.controls.baseLabel tradeAlertLbl2;
-        private System.Windows.Forms.NumericUpDown tradeAlertEd;
-        private common.controls.baseButton saveBtn;
+        private common.controls.baseLabel fetchStockLbl;
+        private common.controls.baseLabel tradeAlertLbl;
         private common.controls.baseButton viewLogBtn;
         protected common.controls.baseButton pauseBtn;
         protected System.Windows.Forms.GroupBox scheduleGb;

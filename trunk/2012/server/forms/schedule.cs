@@ -14,81 +14,130 @@ namespace server
     public partial class scheduleForm : baseClass.forms.baseForm   
     {
         private bool fRunning = false;
-        private bool fProcessingTraderAlert = false, fProcessingFetchData = false;
-
-        private int timerIntervalInSecs = 5;        //Tick event occurs each 5 second
-        private int fetchDataElapseInSeconds = 0;   //Time elapsed since the last fetch data event
-        private int alertElapseInSeconds = 0;       //Time elapsed since the last trade alert event
+        common.TimerProcess fetchDataTimer = new common.TimerProcess();
+        common.TimerProcess createTradeAlertTimer = new common.TimerProcess();
         public scheduleForm()
         {
             try
             {
                 InitializeComponent();
-                LoadConfig();
-                myTimer.Interval = timerIntervalInSecs * 1000;
+                Init();
             }
             catch (Exception er)
             {
                 ShowError(er);
             }
         }
-
-        private void LoadConfig()
+        public void Init()
         {
-            StringCollection aFields = new StringCollection();
-            aFields.Add(this.Name + ".fetchStockInterval");
-            aFields.Add(this.Name + ".tradeAlertInterval");
-            application.Configuration.GetConfig(ref aFields);
-            int val = 0;
-            int.TryParse(aFields[0], out val);
-            if (val != int.MaxValue)
-            {
-                fetchInSecsEd.Value = val;
-                fetchDataChk.Checked = true;
-            }
-            else fetchDataChk.Checked = false;
+            Imports.Gold.ResetGetPrice();
+            myTimer.Interval = Settings.sysGlobal.TimerIntervalInSecs * 1000;
+            myTimer.Enabled = false;
 
-            int.TryParse(aFields[1], out val);
-            if (val != int.MaxValue)
-            {
-                tradeAlertEd.Value = val;
-                tradeAlertChk.Checked = true;
-            }
-            else tradeAlertChk.Checked = false;
-        }
-        private void SaveConfig()
-        {
-            StringCollection aFields = new StringCollection();
-            StringCollection aValues = new StringCollection();
-            aFields.Add(this.Name + ".fetchStockInterval");
-            aFields.Add(this.Name + ".tradeAlertInterval");
+            tradeAlertLbl.Text = Settings.sysGlobal.CheckAlertInSeconds.ToString() + " " + Languages.Libs.GetString("seconds");
+            fetchStockLbl.Text = Settings.sysGlobal.RefreshDataInSecs.ToString() + " " + Languages.Libs.GetString("seconds");
 
-            int val = 0;
-            val = (int)(fetchDataChk.Checked ? fetchInSecsEd.Value : int.MaxValue);
-            aValues.Add(val.ToString());
-            val = (int)(tradeAlertChk.Checked ? tradeAlertEd.Value : int.MaxValue);
-            aValues.Add(val.ToString());
+            fetchDataTimer.WaitInSeconds = Settings.sysGlobal.RefreshDataInSecs;
+            createTradeAlertTimer.WaitInSeconds = Settings.sysGlobal.CheckAlertInSeconds;
 
-            application.Configuration.SaveConfig(aFields, aValues);
+            fetchDataTimer.OnProcess += new common.TimerProcess.OnProcessEvent(FetchData);
+            createTradeAlertTimer.OnProcess += new common.TimerProcess.OnProcessEvent(CreateTradeAlert);
         }
 
         private void onTradeAlertProcessStart(int count)
         {
+            if (myStatusStrip.InvokeRequired)
+            {
+                this.Invoke((MethodInvoker)delegate()
+                {
+                    DoOnTradeAlertProcessStart(count);
+                });
+            }
+            else
+            {
+                DoOnTradeAlertProcessStart(count);
+            }
+        }
+        private bool onTradeAlertProcessItem(string code)
+        {
+            if (myStatusStrip.InvokeRequired)
+            {
+                this.Invoke((MethodInvoker)delegate()
+                {
+                    DoOnTradeAlertProcessItem(code);
+                });
+            }
+            else
+            {
+                DoOnTradeAlertProcessItem(code);
+            }
+            return fRunning;
+        }
+        private void onTradeAlertProcessEnd()
+        {
+            if (myStatusStrip.InvokeRequired)
+            {
+                this.Invoke((MethodInvoker)delegate()
+                {
+                    DoOnTradeAlertProcessEnd();
+                });
+            }
+            else
+            {
+                DoOnTradeAlertProcessEnd();
+            }
+        }
+
+        private void DoOnTradeAlertProcessStart(int count)
+        {
             progressBar.Visible = true;
             progressBar.Value = 0;
+            progressBar.Minimum = 0;
             progressBar.Maximum = count;
         }
-        private bool onTradeAlertProcessItem(string stockcode)
+        private bool DoOnTradeAlertProcessItem(string stockcode)
         {
             Application.DoEvents();
             progressBar.Value++;
             this.ShowMessage(stockcode);
             return fRunning;
         }
-        private void onTradeAlertProcessEnd()
+        private void DoOnTradeAlertProcessEnd()
         {
             progressBar.Visible = false;
             this.ShowMessage("");
+        }
+
+        private void FetchData()
+        {
+            try
+            {
+                if (!fetchDataChk.Checked) return;
+                libs.FetchRealTimeData(DateTime.Now);
+            }
+            catch (Exception er)
+            {
+                commonClass.SysLibs.WriteSysLog(" - Fetch Data error " + er.Message);
+                ShowError(er);
+            }
+            
+        }
+        private void CreateTradeAlert()
+        {
+            try
+            {
+                if (!tradeAlertChk.Checked) return;
+
+                commonClass.SysLibs.WriteSysLog("Trade alert started.");
+                Trade.AlertLibs.CreateTradeAlert(onTradeAlertProcessStart, onTradeAlertProcessItem, onTradeAlertProcessEnd);
+                //Trade.AlertLibs.CreateTradeAlert(null,null,null);
+                commonClass.SysLibs.WriteSysLog("Trade alert ended.");
+            }
+            catch (Exception er)
+            {
+                commonClass.SysLibs.WriteSysLog(" - Trader Alert error " + er.Message);
+                ShowError(er);
+            }
         }
 
         #region event handler
@@ -96,35 +145,19 @@ namespace server
         {
             try
             {
+                Init();
                 fRunning = !fRunning;
                 this.ShowMessage("");
                 runBtn.Image = (fRunning ? pauseBtn.Image : startBtn.Image);
-                alertElapseInSeconds = 0;
-                fetchDataElapseInSeconds = 0;
                 scheduleGb.Enabled = !fRunning;
-                fProcessingFetchData = false;
-                fProcessingTraderAlert = false;
-
-                Imports.Gold.ResetGetPrice();
+                myTimer.Enabled = fRunning;
             }
             catch (Exception er)
             {
                 ShowError(er);
             }
         }
-        private void saveBtn_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                this.ShowMessage("");
-                SaveConfig();
-                this.ShowMessage("Settings were saved.");
-            }
-            catch (Exception er)
-            {
-                ShowError(er);
-            }
-        }
+        
         private void viewLogBtn_Click(object sender, EventArgs e)
         {
             try
@@ -139,68 +172,10 @@ namespace server
 
         private void myTimer_Tick(object sender, EventArgs e)
         {
-            if (!fRunning) return;
             try
             {
-                if (fetchDataChk.Checked)
-                {
-                    fetchDataElapseInSeconds += timerIntervalInSecs;
-                    if (!fProcessingFetchData && (fetchDataElapseInSeconds >= fetchInSecsEd.Value))
-                    {
-                        fProcessingFetchData = true;
-                        this.Text = DateTime.Now.ToString();
-                        libs.FetchRealTimeData(DateTime.Now);
-                        fetchDataElapseInSeconds = 0;
-                        fProcessingFetchData = false;
-                    }
-                }
-                if (tradeAlertChk.Checked)
-                {
-                    alertElapseInSeconds += timerIntervalInSecs;
-                    if (!fProcessingTraderAlert && (alertElapseInSeconds >= tradeAlertEd.Value))
-                    {
-                        fProcessingTraderAlert = true;
-                        commonClass.SysLibs.WriteSysLog("Trade alert started.");
-                        Trade.AlertLibs.CreateTradeAlert(onTradeAlertProcessStart, onTradeAlertProcessItem, onTradeAlertProcessEnd);
-                        commonClass.SysLibs.WriteSysLog("Trade alert ended.");
-                        alertElapseInSeconds = 0;
-                        fProcessingTraderAlert = false;
-                    }
-                }
-            }
-            catch (Exception er)
-            {
-                if (fProcessingFetchData)
-                {
-                    fProcessingFetchData = false;
-                    commonClass.SysLibs.WriteSysLog(" - FetchData error " + er.Message);
-                }
-                if (fProcessingTraderAlert)
-                {
-                    fProcessingTraderAlert = false;
-                    commonClass.SysLibs.WriteSysLog(" - Trader Alert error " + er.Message);
-                }
-
-                ShowError(er);
-            }
-        }
-        private void fetchStockChk_CheckedChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                fetchInSecsEd.Enabled = fetchDataChk.Checked;
-            }
-            catch (Exception er)
-            {
-                ShowError(er);
-            }
-        }
-
-        private void tradeAlertChk_CheckedChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                tradeAlertEd.Enabled = tradeAlertChk.Checked;
+                fetchDataTimer.Execute();
+                createTradeAlertTimer.Execute();
             }
             catch (Exception er)
             {
