@@ -1005,9 +1005,7 @@ namespace client
                                  (curContent.GetType() == typeof(Tools.Forms.screening)) ||
                                  (curContent.GetType() == typeof(Tools.Forms.strategyRanking));
             formatStrip.Enabled = toolsStrip.Enabled;
-            backTestingMenuItem.Enabled = toolsStrip.Enabled;
-            screeningMenuItem.Enabled = toolsStrip.Enabled;
-            strategyRankingMenuItem.Enabled = toolsStrip.Enabled;
+            
         }
 
         #region event handler
