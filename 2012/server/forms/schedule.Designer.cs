@@ -54,7 +54,7 @@
             // fetchStockLbl
             // 
             this.fetchStockLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fetchStockLbl.Location = new System.Drawing.Point(147, 24);
+            this.fetchStockLbl.Location = new System.Drawing.Point(147, 26);
             this.fetchStockLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.fetchStockLbl.Name = "fetchStockLbl";
             this.fetchStockLbl.Size = new System.Drawing.Size(158, 20);
@@ -64,7 +64,7 @@
             // tradeAlertLbl
             // 
             this.tradeAlertLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tradeAlertLbl.Location = new System.Drawing.Point(146, 46);
+            this.tradeAlertLbl.Location = new System.Drawing.Point(146, 48);
             this.tradeAlertLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.tradeAlertLbl.Name = "tradeAlertLbl";
             this.tradeAlertLbl.Size = new System.Drawing.Size(158, 20);

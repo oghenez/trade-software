@@ -3,10 +3,12 @@
   <xs:import schemaLocation="http://dungvq/DataLibs.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
   <xs:complexType name="GlobalSettings">
     <xs:sequence>
-      <xs:element minOccurs="0" name="AlertDataCount" type="xs:int" />
+      <xs:element minOccurs="0" name="AlertDataCount" type="xs:short" />
+      <xs:element minOccurs="0" name="AutoCheckInSeconds" type="xs:short" />
       <xs:element minOccurs="0" name="AutoEditKeySize" type="xs:int" />
       <xs:element minOccurs="0" name="ChartMaxLoadCount_FIRST" type="xs:short" />
       <xs:element minOccurs="0" name="ChartMaxLoadCount_MORE" type="xs:short" />
+      <xs:element minOccurs="0" name="CheckAlertInSeconds" type="xs:short" />
       <xs:element minOccurs="0" name="DataKeyPrefix" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="DataKeySize" type="xs:int" />
       <xs:element minOccurs="0" name="DayScanForLastPrice" type="xs:short" />
@@ -14,11 +16,11 @@
       <xs:element minOccurs="0" name="DefaultTimeScaleCode" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="DefautLanguage" type="tns:AppTypes.LanguageCodes" />
       <xs:element minOccurs="0" name="PasswordMinLen" type="xs:unsignedByte" />
-      <xs:element minOccurs="0" name="ScreeningDataCount" type="xs:int" />
+      <xs:element minOccurs="0" name="RefreshDataInSecs" type="xs:short" />
+      <xs:element minOccurs="0" name="ScreeningDataCount" type="xs:short" />
       <xs:element minOccurs="0" name="ScreeningTimeScaleCode" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="TimeOut_AutoKey" type="xs:int" />
-      <xs:element minOccurs="0" name="TimerUnitInSecs" type="xs:short" />
-      <xs:element minOccurs="0" name="TimerUnitToAutoCheck" type="xs:short" />
+      <xs:element minOccurs="0" name="TimerIntervalInSecs" type="xs:short" />
       <xs:element minOccurs="0" name="UseStrongPassword" type="xs:boolean" />
       <xs:element minOccurs="0" name="WriteLogAccess" type="tns:AppTypes.SyslogMedia" />
       <xs:element minOccurs="0" name="smtpAddress" nillable="true" type="xs:string" />

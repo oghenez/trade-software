@@ -329,10 +329,12 @@
             dockPanelSkin1.DockPaneStripSkin = dockPaneStripSkin1;
             this.dockPanel.Skin = dockPanelSkin1;
             this.dockPanel.TabIndex = 147;
+            this.dockPanel.ActiveContentChanged += new System.EventHandler(this.dockPanel_ActiveContentChanged);
             // 
             // chartStrip
             // 
             this.chartStrip.Dock = System.Windows.Forms.DockStyle.None;
+            this.chartStrip.Enabled = false;
             this.chartStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.chartPropertiesBtn,
             this.toolStripSeparator18,
@@ -543,6 +545,7 @@
             // toolsStrip
             // 
             this.toolsStrip.Dock = System.Windows.Forms.DockStyle.None;
+            this.toolsStrip.Enabled = false;
             this.toolsStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolRunBtn,
             this.toolFullViewBtn,
@@ -1349,6 +1352,7 @@
             // strategyStrip
             // 
             this.strategyStrip.Dock = System.Windows.Forms.DockStyle.None;
+            this.strategyStrip.Enabled = false;
             this.strategyStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.strategyCbStrip});
             this.strategyStrip.Location = new System.Drawing.Point(512, 24);
@@ -1367,11 +1371,12 @@
             // periodicityStrip
             // 
             this.periodicityStrip.Dock = System.Windows.Forms.DockStyle.None;
+            this.periodicityStrip.Enabled = false;
             this.periodicityStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.dummyStripBtn});
             this.periodicityStrip.Location = new System.Drawing.Point(824, 24);
             this.periodicityStrip.Name = "periodicityStrip";
-            this.periodicityStrip.Size = new System.Drawing.Size(126, 25);
+            this.periodicityStrip.Size = new System.Drawing.Size(95, 25);
             this.periodicityStrip.TabIndex = 147;
             // 
             // dummyStripBtn
