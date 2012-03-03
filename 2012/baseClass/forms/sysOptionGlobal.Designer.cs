@@ -33,6 +33,19 @@
             this.systemPg = new System.Windows.Forms.TabPage();
             this.systemTab = new System.Windows.Forms.TabControl();
             this.generalPg = new System.Windows.Forms.TabPage();
+            this.sysSettingGb = new System.Windows.Forms.GroupBox();
+            this.alertDataCountEd = new common.controls.baseNumericUpDown();
+            this.alertDataCountLbl = new common.controls.baseLabel();
+            this.alertDataCountLbl2 = new common.controls.baseLabel();
+            this.chartMaxLoadNextEd = new common.controls.baseNumericUpDown();
+            this.chartMaxLoadNextLbl = new common.controls.baseLabel();
+            this.barLbl2 = new common.controls.baseLabel();
+            this.chartMaxLoadFirstEd = new common.controls.baseNumericUpDown();
+            this.chartMaxLoadFirstLbl = new common.controls.baseLabel();
+            this.barLbl1 = new common.controls.baseLabel();
+            this.dayScanForLastPriceEd = new common.controls.baseNumericUpDown();
+            this.dayScanForLastPriceLbl = new common.controls.baseLabel();
+            this.dayLbl = new common.controls.baseLabel();
             this.generalGb = new System.Windows.Forms.GroupBox();
             this.accessLogMediaLbl = new common.controls.baseLabel();
             this.accessLogMediaCb = new baseClass.controls.cbSyslogMedia();
@@ -75,23 +88,20 @@
             this.defaLanguageCb = new baseClass.controls.cbLanguages();
             this.defaTimeRangeLbl = new baseClass.controls.baseLabel();
             this.defaTimeScaleLbl = new baseClass.controls.baseLabel();
-            this.sysSettingPg = new System.Windows.Forms.TabPage();
-            this.sysSettingGb = new System.Windows.Forms.GroupBox();
-            this.chartMaxLoadNextEd = new common.controls.baseNumericUpDown();
-            this.chartMaxLoadNextLbl = new common.controls.baseLabel();
-            this.barLbl2 = new common.controls.baseLabel();
-            this.chartMaxLoadFirstEd = new common.controls.baseNumericUpDown();
-            this.chartMaxLoadFirstLbl = new common.controls.baseLabel();
-            this.barLbl1 = new common.controls.baseLabel();
-            this.dayScanForLastPriceEd = new common.controls.baseNumericUpDown();
-            this.dayScanForLastPriceLbl = new common.controls.baseLabel();
-            this.dayLbl = new common.controls.baseLabel();
-            this.noTimerUnitLbl = new baseClass.controls.baseLabel();
-            this.timerUnitToAutoCheckLbl = new baseClass.controls.baseLabel();
-            this.timerUnitToAutoCheckEd = new common.controls.baseNumericUpDown();
-            this.timerUnitLbl = new baseClass.controls.baseLabel();
-            this.timerUnitEd = new common.controls.baseNumericUpDown();
+            this.timingPg = new System.Windows.Forms.TabPage();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.secondLbl4 = new baseClass.controls.baseLabel();
+            this.secondLbl3 = new baseClass.controls.baseLabel();
             this.secondLbl2 = new baseClass.controls.baseLabel();
+            this.tradeAlertCreationLbl = new baseClass.controls.baseLabel();
+            this.tradeAlertCreationEd = new common.controls.baseNumericUpDown();
+            this.refreshDataLbl = new baseClass.controls.baseLabel();
+            this.refreshDataEd = new common.controls.baseNumericUpDown();
+            this.autoCheckLbl = new baseClass.controls.baseLabel();
+            this.timerIntervalLbl = new baseClass.controls.baseLabel();
+            this.timerIntervalEd = new common.controls.baseNumericUpDown();
+            this.secondLbl1 = new baseClass.controls.baseLabel();
+            this.autoCheckEd = new common.controls.baseNumericUpDown();
             this.closeBtn = new System.Windows.Forms.Button();
             this.saveBtn = new System.Windows.Forms.Button();
             this.screenTimeRangeCb = new baseClass.controls.cbTimeRange();
@@ -103,13 +113,15 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.cbTimeRange2 = new baseClass.controls.cbTimeRange();
             this.cbTimeScale2 = new baseClass.controls.cbTimeScale();
-            this.alertDataCountEd = new common.controls.baseNumericUpDown();
-            this.alertDataCountLbl = new common.controls.baseLabel();
-            this.alertDataCountLbl2 = new common.controls.baseLabel();
             this.mainTab.SuspendLayout();
             this.systemPg.SuspendLayout();
             this.systemTab.SuspendLayout();
             this.generalPg.SuspendLayout();
+            this.sysSettingGb.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.alertDataCountEd)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartMaxLoadNextEd)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartMaxLoadFirstEd)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dayScanForLastPriceEd)).BeginInit();
             this.generalGb.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.passwordMinLenEd)).BeginInit();
             this.autoKeyPg.SuspendLayout();
@@ -122,16 +134,14 @@
             this.defaultPg.SuspendLayout();
             this.screeningGb.SuspendLayout();
             this.defaultGb.SuspendLayout();
-            this.sysSettingPg.SuspendLayout();
-            this.sysSettingGb.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chartMaxLoadNextEd)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chartMaxLoadFirstEd)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dayScanForLastPriceEd)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.timerUnitToAutoCheckEd)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.timerUnitEd)).BeginInit();
+            this.timingPg.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tradeAlertCreationEd)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.refreshDataEd)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.timerIntervalEd)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.autoCheckEd)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.alertDataCountEd)).BeginInit();
             this.SuspendLayout();
             // 
             // TitleLbl
@@ -169,7 +179,7 @@
             this.systemTab.Controls.Add(this.autoKeyPg);
             this.systemTab.Controls.Add(this.emailPg);
             this.systemTab.Controls.Add(this.defaultPg);
-            this.systemTab.Controls.Add(this.sysSettingPg);
+            this.systemTab.Controls.Add(this.timingPg);
             this.systemTab.Location = new System.Drawing.Point(-2, 1);
             this.systemTab.Multiline = true;
             this.systemTab.Name = "systemTab";
@@ -179,14 +189,230 @@
             // 
             // generalPg
             // 
+            this.generalPg.Controls.Add(this.sysSettingGb);
             this.generalPg.Controls.Add(this.generalGb);
             this.generalPg.Location = new System.Drawing.Point(4, 25);
             this.generalPg.Name = "generalPg";
             this.generalPg.Padding = new System.Windows.Forms.Padding(3);
-            this.generalPg.Size = new System.Drawing.Size(418, 223);
+            this.generalPg.Size = new System.Drawing.Size(418, 282);
             this.generalPg.TabIndex = 1;
             this.generalPg.Text = "Chung";
             this.generalPg.UseVisualStyleBackColor = true;
+            // 
+            // sysSettingGb
+            // 
+            this.sysSettingGb.Controls.Add(this.alertDataCountEd);
+            this.sysSettingGb.Controls.Add(this.alertDataCountLbl);
+            this.sysSettingGb.Controls.Add(this.alertDataCountLbl2);
+            this.sysSettingGb.Controls.Add(this.chartMaxLoadNextEd);
+            this.sysSettingGb.Controls.Add(this.chartMaxLoadNextLbl);
+            this.sysSettingGb.Controls.Add(this.barLbl2);
+            this.sysSettingGb.Controls.Add(this.chartMaxLoadFirstEd);
+            this.sysSettingGb.Controls.Add(this.chartMaxLoadFirstLbl);
+            this.sysSettingGb.Controls.Add(this.barLbl1);
+            this.sysSettingGb.Controls.Add(this.dayScanForLastPriceEd);
+            this.sysSettingGb.Controls.Add(this.dayScanForLastPriceLbl);
+            this.sysSettingGb.Controls.Add(this.dayLbl);
+            this.sysSettingGb.Location = new System.Drawing.Point(15, 98);
+            this.sysSettingGb.Name = "sysSettingGb";
+            this.sysSettingGb.Size = new System.Drawing.Size(390, 130);
+            this.sysSettingGb.TabIndex = 2;
+            this.sysSettingGb.TabStop = false;
+            // 
+            // alertDataCountEd
+            // 
+            this.alertDataCountEd.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.alertDataCountEd.Location = new System.Drawing.Point(199, 42);
+            this.alertDataCountEd.Maximum = new decimal(new int[] {
+            365,
+            0,
+            0,
+            0});
+            this.alertDataCountEd.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.alertDataCountEd.myValue = new decimal(new int[] {
+            30,
+            0,
+            0,
+            0});
+            this.alertDataCountEd.Name = "alertDataCountEd";
+            this.alertDataCountEd.Size = new System.Drawing.Size(71, 26);
+            this.alertDataCountEd.TabIndex = 4;
+            this.alertDataCountEd.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.alertDataCountEd.Value = new decimal(new int[] {
+            30,
+            0,
+            0,
+            0});
+            // 
+            // alertDataCountLbl
+            // 
+            this.alertDataCountLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.alertDataCountLbl.Location = new System.Drawing.Point(7, 46);
+            this.alertDataCountLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.alertDataCountLbl.Name = "alertDataCountLbl";
+            this.alertDataCountLbl.Size = new System.Drawing.Size(187, 20);
+            this.alertDataCountLbl.TabIndex = 227;
+            this.alertDataCountLbl.Text = "No. bars  for alerting";
+            this.alertDataCountLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // alertDataCountLbl2
+            // 
+            this.alertDataCountLbl2.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.alertDataCountLbl2.Location = new System.Drawing.Point(274, 48);
+            this.alertDataCountLbl2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.alertDataCountLbl2.Name = "alertDataCountLbl2";
+            this.alertDataCountLbl2.Size = new System.Drawing.Size(100, 21);
+            this.alertDataCountLbl2.TabIndex = 228;
+            this.alertDataCountLbl2.Text = "bar(s)";
+            // 
+            // chartMaxLoadNextEd
+            // 
+            this.chartMaxLoadNextEd.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chartMaxLoadNextEd.Location = new System.Drawing.Point(199, 96);
+            this.chartMaxLoadNextEd.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.chartMaxLoadNextEd.myValue = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
+            this.chartMaxLoadNextEd.Name = "chartMaxLoadNextEd";
+            this.chartMaxLoadNextEd.Size = new System.Drawing.Size(71, 26);
+            this.chartMaxLoadNextEd.TabIndex = 6;
+            this.chartMaxLoadNextEd.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.chartMaxLoadNextEd.Value = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
+            // 
+            // chartMaxLoadNextLbl
+            // 
+            this.chartMaxLoadNextLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chartMaxLoadNextLbl.Location = new System.Drawing.Point(7, 100);
+            this.chartMaxLoadNextLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.chartMaxLoadNextLbl.Name = "chartMaxLoadNextLbl";
+            this.chartMaxLoadNextLbl.Size = new System.Drawing.Size(187, 20);
+            this.chartMaxLoadNextLbl.TabIndex = 224;
+            this.chartMaxLoadNextLbl.Text = "Max bars load in chart next";
+            this.chartMaxLoadNextLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // barLbl2
+            // 
+            this.barLbl2.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.barLbl2.Location = new System.Drawing.Point(274, 101);
+            this.barLbl2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.barLbl2.Name = "barLbl2";
+            this.barLbl2.Size = new System.Drawing.Size(100, 21);
+            this.barLbl2.TabIndex = 225;
+            this.barLbl2.Text = "bar(s)";
+            // 
+            // chartMaxLoadFirstEd
+            // 
+            this.chartMaxLoadFirstEd.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chartMaxLoadFirstEd.Location = new System.Drawing.Point(199, 69);
+            this.chartMaxLoadFirstEd.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.chartMaxLoadFirstEd.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.chartMaxLoadFirstEd.myValue = new decimal(new int[] {
+            6000,
+            0,
+            0,
+            0});
+            this.chartMaxLoadFirstEd.Name = "chartMaxLoadFirstEd";
+            this.chartMaxLoadFirstEd.Size = new System.Drawing.Size(71, 26);
+            this.chartMaxLoadFirstEd.TabIndex = 5;
+            this.chartMaxLoadFirstEd.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.chartMaxLoadFirstEd.Value = new decimal(new int[] {
+            6000,
+            0,
+            0,
+            0});
+            // 
+            // chartMaxLoadFirstLbl
+            // 
+            this.chartMaxLoadFirstLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chartMaxLoadFirstLbl.Location = new System.Drawing.Point(7, 73);
+            this.chartMaxLoadFirstLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.chartMaxLoadFirstLbl.Name = "chartMaxLoadFirstLbl";
+            this.chartMaxLoadFirstLbl.Size = new System.Drawing.Size(187, 20);
+            this.chartMaxLoadFirstLbl.TabIndex = 221;
+            this.chartMaxLoadFirstLbl.Text = "Max bars load in chart first";
+            this.chartMaxLoadFirstLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // barLbl1
+            // 
+            this.barLbl1.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.barLbl1.Location = new System.Drawing.Point(274, 74);
+            this.barLbl1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.barLbl1.Name = "barLbl1";
+            this.barLbl1.Size = new System.Drawing.Size(100, 21);
+            this.barLbl1.TabIndex = 222;
+            this.barLbl1.Text = "bar(s)";
+            // 
+            // dayScanForLastPriceEd
+            // 
+            this.dayScanForLastPriceEd.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dayScanForLastPriceEd.Location = new System.Drawing.Point(199, 15);
+            this.dayScanForLastPriceEd.Maximum = new decimal(new int[] {
+            365,
+            0,
+            0,
+            0});
+            this.dayScanForLastPriceEd.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.dayScanForLastPriceEd.myValue = new decimal(new int[] {
+            30,
+            0,
+            0,
+            0});
+            this.dayScanForLastPriceEd.Name = "dayScanForLastPriceEd";
+            this.dayScanForLastPriceEd.Size = new System.Drawing.Size(71, 26);
+            this.dayScanForLastPriceEd.TabIndex = 3;
+            this.dayScanForLastPriceEd.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.dayScanForLastPriceEd.Value = new decimal(new int[] {
+            30,
+            0,
+            0,
+            0});
+            // 
+            // dayScanForLastPriceLbl
+            // 
+            this.dayScanForLastPriceLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dayScanForLastPriceLbl.Location = new System.Drawing.Point(7, 19);
+            this.dayScanForLastPriceLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.dayScanForLastPriceLbl.Name = "dayScanForLastPriceLbl";
+            this.dayScanForLastPriceLbl.Size = new System.Drawing.Size(187, 20);
+            this.dayScanForLastPriceLbl.TabIndex = 218;
+            this.dayScanForLastPriceLbl.Text = "No. days scan for last price";
+            this.dayScanForLastPriceLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // dayLbl
+            // 
+            this.dayLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dayLbl.Location = new System.Drawing.Point(274, 21);
+            this.dayLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.dayLbl.Name = "dayLbl";
+            this.dayLbl.Size = new System.Drawing.Size(100, 21);
+            this.dayLbl.TabIndex = 219;
+            this.dayLbl.Text = "day(s)";
             // 
             // generalGb
             // 
@@ -196,16 +422,16 @@
             this.generalGb.Controls.Add(this.pwdMinLenLbl);
             this.generalGb.Controls.Add(this.pwdCharLbl);
             this.generalGb.Controls.Add(this.passwordMinLenEd);
-            this.generalGb.Location = new System.Drawing.Point(15, 14);
+            this.generalGb.Location = new System.Drawing.Point(15, 2);
             this.generalGb.Name = "generalGb";
-            this.generalGb.Size = new System.Drawing.Size(390, 155);
-            this.generalGb.TabIndex = 154;
+            this.generalGb.Size = new System.Drawing.Size(390, 97);
+            this.generalGb.TabIndex = 1;
             this.generalGb.TabStop = false;
             // 
             // accessLogMediaLbl
             // 
             this.accessLogMediaLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.accessLogMediaLbl.Location = new System.Drawing.Point(54, 35);
+            this.accessLogMediaLbl.Location = new System.Drawing.Point(54, 19);
             this.accessLogMediaLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.accessLogMediaLbl.Name = "accessLogMediaLbl";
             this.accessLogMediaLbl.Size = new System.Drawing.Size(147, 16);
@@ -216,7 +442,7 @@
             // 
             this.accessLogMediaCb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.accessLogMediaCb.FormattingEnabled = true;
-            this.accessLogMediaCb.Location = new System.Drawing.Point(201, 31);
+            this.accessLogMediaCb.Location = new System.Drawing.Point(201, 15);
             this.accessLogMediaCb.myValue = commonTypes.AppTypes.SyslogMedia.None;
             this.accessLogMediaCb.Name = "accessLogMediaCb";
             this.accessLogMediaCb.SelectedValue = commonTypes.AppTypes.SyslogMedia.None;
@@ -227,7 +453,7 @@
             // 
             this.useStrongPassChk.AutoSize = true;
             this.useStrongPassChk.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.useStrongPassChk.Location = new System.Drawing.Point(50, 90);
+            this.useStrongPassChk.Location = new System.Drawing.Point(50, 74);
             this.useStrongPassChk.Name = "useStrongPassChk";
             this.useStrongPassChk.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.useStrongPassChk.Size = new System.Drawing.Size(163, 20);
@@ -238,7 +464,7 @@
             // pwdMinLenLbl
             // 
             this.pwdMinLenLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pwdMinLenLbl.Location = new System.Drawing.Point(54, 64);
+            this.pwdMinLenLbl.Location = new System.Drawing.Point(54, 48);
             this.pwdMinLenLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.pwdMinLenLbl.Name = "pwdMinLenLbl";
             this.pwdMinLenLbl.Size = new System.Drawing.Size(147, 16);
@@ -249,7 +475,7 @@
             // 
             this.pwdCharLbl.AutoSize = true;
             this.pwdCharLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pwdCharLbl.Location = new System.Drawing.Point(253, 64);
+            this.pwdCharLbl.Location = new System.Drawing.Point(253, 48);
             this.pwdCharLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.pwdCharLbl.Name = "pwdCharLbl";
             this.pwdCharLbl.Size = new System.Drawing.Size(46, 16);
@@ -258,7 +484,8 @@
             // 
             // passwordMinLenEd
             // 
-            this.passwordMinLenEd.Location = new System.Drawing.Point(201, 61);
+            this.passwordMinLenEd.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.passwordMinLenEd.Location = new System.Drawing.Point(201, 45);
             this.passwordMinLenEd.Maximum = new decimal(new int[] {
             20,
             0,
@@ -270,7 +497,7 @@
             0,
             0});
             this.passwordMinLenEd.Name = "passwordMinLenEd";
-            this.passwordMinLenEd.Size = new System.Drawing.Size(45, 23);
+            this.passwordMinLenEd.Size = new System.Drawing.Size(45, 26);
             this.passwordMinLenEd.TabIndex = 2;
             this.passwordMinLenEd.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.passwordMinLenEd.Value = new decimal(new int[] {
@@ -735,268 +962,203 @@
             this.defaTimeScaleLbl.Text = "Time scale";
             this.defaTimeScaleLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // sysSettingPg
+            // timingPg
             // 
-            this.sysSettingPg.Controls.Add(this.sysSettingGb);
-            this.sysSettingPg.Location = new System.Drawing.Point(4, 25);
-            this.sysSettingPg.Name = "sysSettingPg";
-            this.sysSettingPg.Padding = new System.Windows.Forms.Padding(3);
-            this.sysSettingPg.Size = new System.Drawing.Size(418, 282);
-            this.sysSettingPg.TabIndex = 7;
-            this.sysSettingPg.Text = "Tham số";
-            this.sysSettingPg.UseVisualStyleBackColor = true;
+            this.timingPg.Controls.Add(this.groupBox3);
+            this.timingPg.Location = new System.Drawing.Point(4, 25);
+            this.timingPg.Name = "timingPg";
+            this.timingPg.Padding = new System.Windows.Forms.Padding(3);
+            this.timingPg.Size = new System.Drawing.Size(418, 282);
+            this.timingPg.TabIndex = 7;
+            this.timingPg.Text = "Định thời";
+            this.timingPg.UseVisualStyleBackColor = true;
             // 
-            // sysSettingGb
+            // groupBox3
             // 
-            this.sysSettingGb.Controls.Add(this.alertDataCountEd);
-            this.sysSettingGb.Controls.Add(this.alertDataCountLbl);
-            this.sysSettingGb.Controls.Add(this.alertDataCountLbl2);
-            this.sysSettingGb.Controls.Add(this.chartMaxLoadNextEd);
-            this.sysSettingGb.Controls.Add(this.chartMaxLoadNextLbl);
-            this.sysSettingGb.Controls.Add(this.barLbl2);
-            this.sysSettingGb.Controls.Add(this.chartMaxLoadFirstEd);
-            this.sysSettingGb.Controls.Add(this.chartMaxLoadFirstLbl);
-            this.sysSettingGb.Controls.Add(this.barLbl1);
-            this.sysSettingGb.Controls.Add(this.dayScanForLastPriceEd);
-            this.sysSettingGb.Controls.Add(this.dayScanForLastPriceLbl);
-            this.sysSettingGb.Controls.Add(this.dayLbl);
-            this.sysSettingGb.Controls.Add(this.noTimerUnitLbl);
-            this.sysSettingGb.Controls.Add(this.timerUnitToAutoCheckLbl);
-            this.sysSettingGb.Controls.Add(this.timerUnitToAutoCheckEd);
-            this.sysSettingGb.Controls.Add(this.timerUnitLbl);
-            this.sysSettingGb.Controls.Add(this.timerUnitEd);
-            this.sysSettingGb.Controls.Add(this.secondLbl2);
-            this.sysSettingGb.Location = new System.Drawing.Point(15, 15);
-            this.sysSettingGb.Name = "sysSettingGb";
-            this.sysSettingGb.Size = new System.Drawing.Size(390, 202);
-            this.sysSettingGb.TabIndex = 153;
-            this.sysSettingGb.TabStop = false;
+            this.groupBox3.Controls.Add(this.secondLbl4);
+            this.groupBox3.Controls.Add(this.secondLbl3);
+            this.groupBox3.Controls.Add(this.secondLbl2);
+            this.groupBox3.Controls.Add(this.tradeAlertCreationLbl);
+            this.groupBox3.Controls.Add(this.tradeAlertCreationEd);
+            this.groupBox3.Controls.Add(this.refreshDataLbl);
+            this.groupBox3.Controls.Add(this.refreshDataEd);
+            this.groupBox3.Controls.Add(this.autoCheckLbl);
+            this.groupBox3.Controls.Add(this.timerIntervalLbl);
+            this.groupBox3.Controls.Add(this.timerIntervalEd);
+            this.groupBox3.Controls.Add(this.secondLbl1);
+            this.groupBox3.Controls.Add(this.autoCheckEd);
+            this.groupBox3.Location = new System.Drawing.Point(15, 4);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(390, 148);
+            this.groupBox3.TabIndex = 155;
+            this.groupBox3.TabStop = false;
             // 
-            // chartMaxLoadNextEd
+            // secondLbl4
             // 
-            this.chartMaxLoadNextEd.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chartMaxLoadNextEd.Location = new System.Drawing.Point(197, 154);
-            this.chartMaxLoadNextEd.Maximum = new decimal(new int[] {
-            1000,
-            0,
-            0,
-            0});
-            this.chartMaxLoadNextEd.myValue = new decimal(new int[] {
-            100,
-            0,
-            0,
-            0});
-            this.chartMaxLoadNextEd.Name = "chartMaxLoadNextEd";
-            this.chartMaxLoadNextEd.Size = new System.Drawing.Size(71, 26);
-            this.chartMaxLoadNextEd.TabIndex = 6;
-            this.chartMaxLoadNextEd.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.chartMaxLoadNextEd.Value = new decimal(new int[] {
-            100,
-            0,
-            0,
-            0});
+            this.secondLbl4.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.secondLbl4.Location = new System.Drawing.Point(280, 100);
+            this.secondLbl4.Name = "secondLbl4";
+            this.secondLbl4.Size = new System.Drawing.Size(100, 21);
+            this.secondLbl4.TabIndex = 27;
+            this.secondLbl4.Text = "seconds";
             // 
-            // chartMaxLoadNextLbl
+            // secondLbl3
             // 
-            this.chartMaxLoadNextLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chartMaxLoadNextLbl.Location = new System.Drawing.Point(5, 158);
-            this.chartMaxLoadNextLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.chartMaxLoadNextLbl.Name = "chartMaxLoadNextLbl";
-            this.chartMaxLoadNextLbl.Size = new System.Drawing.Size(187, 20);
-            this.chartMaxLoadNextLbl.TabIndex = 224;
-            this.chartMaxLoadNextLbl.Text = "Max bars load in chart next";
-            this.chartMaxLoadNextLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // barLbl2
-            // 
-            this.barLbl2.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.barLbl2.Location = new System.Drawing.Point(272, 159);
-            this.barLbl2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.barLbl2.Name = "barLbl2";
-            this.barLbl2.Size = new System.Drawing.Size(100, 21);
-            this.barLbl2.TabIndex = 225;
-            this.barLbl2.Text = "bar(s)";
-            // 
-            // chartMaxLoadFirstEd
-            // 
-            this.chartMaxLoadFirstEd.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chartMaxLoadFirstEd.Location = new System.Drawing.Point(197, 127);
-            this.chartMaxLoadFirstEd.Maximum = new decimal(new int[] {
-            10000,
-            0,
-            0,
-            0});
-            this.chartMaxLoadFirstEd.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.chartMaxLoadFirstEd.myValue = new decimal(new int[] {
-            6000,
-            0,
-            0,
-            0});
-            this.chartMaxLoadFirstEd.Name = "chartMaxLoadFirstEd";
-            this.chartMaxLoadFirstEd.Size = new System.Drawing.Size(71, 26);
-            this.chartMaxLoadFirstEd.TabIndex = 5;
-            this.chartMaxLoadFirstEd.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.chartMaxLoadFirstEd.Value = new decimal(new int[] {
-            6000,
-            0,
-            0,
-            0});
-            // 
-            // chartMaxLoadFirstLbl
-            // 
-            this.chartMaxLoadFirstLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chartMaxLoadFirstLbl.Location = new System.Drawing.Point(5, 131);
-            this.chartMaxLoadFirstLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.chartMaxLoadFirstLbl.Name = "chartMaxLoadFirstLbl";
-            this.chartMaxLoadFirstLbl.Size = new System.Drawing.Size(187, 20);
-            this.chartMaxLoadFirstLbl.TabIndex = 221;
-            this.chartMaxLoadFirstLbl.Text = "Max bars load in chart first";
-            this.chartMaxLoadFirstLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // barLbl1
-            // 
-            this.barLbl1.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.barLbl1.Location = new System.Drawing.Point(272, 132);
-            this.barLbl1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.barLbl1.Name = "barLbl1";
-            this.barLbl1.Size = new System.Drawing.Size(100, 21);
-            this.barLbl1.TabIndex = 222;
-            this.barLbl1.Text = "bar(s)";
-            // 
-            // dayScanForLastPriceEd
-            // 
-            this.dayScanForLastPriceEd.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dayScanForLastPriceEd.Location = new System.Drawing.Point(197, 73);
-            this.dayScanForLastPriceEd.Maximum = new decimal(new int[] {
-            365,
-            0,
-            0,
-            0});
-            this.dayScanForLastPriceEd.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.dayScanForLastPriceEd.myValue = new decimal(new int[] {
-            30,
-            0,
-            0,
-            0});
-            this.dayScanForLastPriceEd.Name = "dayScanForLastPriceEd";
-            this.dayScanForLastPriceEd.Size = new System.Drawing.Size(71, 26);
-            this.dayScanForLastPriceEd.TabIndex = 3;
-            this.dayScanForLastPriceEd.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.dayScanForLastPriceEd.Value = new decimal(new int[] {
-            30,
-            0,
-            0,
-            0});
-            // 
-            // dayScanForLastPriceLbl
-            // 
-            this.dayScanForLastPriceLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dayScanForLastPriceLbl.Location = new System.Drawing.Point(5, 77);
-            this.dayScanForLastPriceLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.dayScanForLastPriceLbl.Name = "dayScanForLastPriceLbl";
-            this.dayScanForLastPriceLbl.Size = new System.Drawing.Size(187, 20);
-            this.dayScanForLastPriceLbl.TabIndex = 218;
-            this.dayScanForLastPriceLbl.Text = "No. days scan for last price";
-            this.dayScanForLastPriceLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // dayLbl
-            // 
-            this.dayLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dayLbl.Location = new System.Drawing.Point(272, 78);
-            this.dayLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.dayLbl.Name = "dayLbl";
-            this.dayLbl.Size = new System.Drawing.Size(100, 21);
-            this.dayLbl.TabIndex = 219;
-            this.dayLbl.Text = "day(s)";
-            // 
-            // noTimerUnitLbl
-            // 
-            this.noTimerUnitLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.noTimerUnitLbl.Location = new System.Drawing.Point(272, 50);
-            this.noTimerUnitLbl.Name = "noTimerUnitLbl";
-            this.noTimerUnitLbl.Size = new System.Drawing.Size(100, 21);
-            this.noTimerUnitLbl.TabIndex = 19;
-            this.noTimerUnitLbl.Text = "times";
-            // 
-            // timerUnitToAutoCheckLbl
-            // 
-            this.timerUnitToAutoCheckLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.timerUnitToAutoCheckLbl.Location = new System.Drawing.Point(5, 50);
-            this.timerUnitToAutoCheckLbl.Name = "timerUnitToAutoCheckLbl";
-            this.timerUnitToAutoCheckLbl.Size = new System.Drawing.Size(187, 20);
-            this.timerUnitToAutoCheckLbl.TabIndex = 18;
-            this.timerUnitToAutoCheckLbl.Text = "Auto check rate";
-            this.timerUnitToAutoCheckLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // timerUnitToAutoCheckEd
-            // 
-            this.timerUnitToAutoCheckEd.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.timerUnitToAutoCheckEd.Location = new System.Drawing.Point(197, 46);
-            this.timerUnitToAutoCheckEd.Maximum = new decimal(new int[] {
-            255,
-            0,
-            0,
-            0});
-            this.timerUnitToAutoCheckEd.myValue = new decimal(new int[] {
-            10,
-            0,
-            0,
-            0});
-            this.timerUnitToAutoCheckEd.Name = "timerUnitToAutoCheckEd";
-            this.timerUnitToAutoCheckEd.Size = new System.Drawing.Size(71, 26);
-            this.timerUnitToAutoCheckEd.TabIndex = 2;
-            this.timerUnitToAutoCheckEd.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.timerUnitToAutoCheckEd.Value = new decimal(new int[] {
-            10,
-            0,
-            0,
-            0});
-            // 
-            // timerUnitLbl
-            // 
-            this.timerUnitLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.timerUnitLbl.Location = new System.Drawing.Point(5, 23);
-            this.timerUnitLbl.Name = "timerUnitLbl";
-            this.timerUnitLbl.Size = new System.Drawing.Size(187, 20);
-            this.timerUnitLbl.TabIndex = 15;
-            this.timerUnitLbl.Text = "Timer unit";
-            this.timerUnitLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // timerUnitEd
-            // 
-            this.timerUnitEd.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.timerUnitEd.Location = new System.Drawing.Point(197, 19);
-            this.timerUnitEd.myValue = new decimal(new int[] {
-            10,
-            0,
-            0,
-            0});
-            this.timerUnitEd.Name = "timerUnitEd";
-            this.timerUnitEd.Size = new System.Drawing.Size(71, 26);
-            this.timerUnitEd.TabIndex = 1;
-            this.timerUnitEd.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.timerUnitEd.Value = new decimal(new int[] {
-            10,
-            0,
-            0,
-            0});
+            this.secondLbl3.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.secondLbl3.Location = new System.Drawing.Point(280, 74);
+            this.secondLbl3.Name = "secondLbl3";
+            this.secondLbl3.Size = new System.Drawing.Size(100, 21);
+            this.secondLbl3.TabIndex = 26;
+            this.secondLbl3.Text = "seconds";
             // 
             // secondLbl2
             // 
             this.secondLbl2.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.secondLbl2.Location = new System.Drawing.Point(272, 24);
+            this.secondLbl2.Location = new System.Drawing.Point(280, 47);
             this.secondLbl2.Name = "secondLbl2";
             this.secondLbl2.Size = new System.Drawing.Size(100, 21);
-            this.secondLbl2.TabIndex = 16;
+            this.secondLbl2.TabIndex = 25;
             this.secondLbl2.Text = "seconds";
+            // 
+            // tradeAlertCreationLbl
+            // 
+            this.tradeAlertCreationLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tradeAlertCreationLbl.Location = new System.Drawing.Point(10, 73);
+            this.tradeAlertCreationLbl.Name = "tradeAlertCreationLbl";
+            this.tradeAlertCreationLbl.Size = new System.Drawing.Size(187, 20);
+            this.tradeAlertCreationLbl.TabIndex = 24;
+            this.tradeAlertCreationLbl.Text = "Trade alert creation";
+            this.tradeAlertCreationLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // tradeAlertCreationEd
+            // 
+            this.tradeAlertCreationEd.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tradeAlertCreationEd.Location = new System.Drawing.Point(203, 70);
+            this.tradeAlertCreationEd.Maximum = new decimal(new int[] {
+            6000,
+            0,
+            0,
+            0});
+            this.tradeAlertCreationEd.myValue = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.tradeAlertCreationEd.Name = "tradeAlertCreationEd";
+            this.tradeAlertCreationEd.Size = new System.Drawing.Size(71, 26);
+            this.tradeAlertCreationEd.TabIndex = 3;
+            this.tradeAlertCreationEd.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tradeAlertCreationEd.Value = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            // 
+            // refreshDataLbl
+            // 
+            this.refreshDataLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.refreshDataLbl.Location = new System.Drawing.Point(10, 46);
+            this.refreshDataLbl.Name = "refreshDataLbl";
+            this.refreshDataLbl.Size = new System.Drawing.Size(187, 20);
+            this.refreshDataLbl.TabIndex = 21;
+            this.refreshDataLbl.Text = "Auto refresh rate";
+            this.refreshDataLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // refreshDataEd
+            // 
+            this.refreshDataEd.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.refreshDataEd.Location = new System.Drawing.Point(203, 43);
+            this.refreshDataEd.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
+            this.refreshDataEd.myValue = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.refreshDataEd.Name = "refreshDataEd";
+            this.refreshDataEd.Size = new System.Drawing.Size(71, 26);
+            this.refreshDataEd.TabIndex = 2;
+            this.refreshDataEd.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.refreshDataEd.Value = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            // 
+            // autoCheckLbl
+            // 
+            this.autoCheckLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.autoCheckLbl.Location = new System.Drawing.Point(10, 100);
+            this.autoCheckLbl.Name = "autoCheckLbl";
+            this.autoCheckLbl.Size = new System.Drawing.Size(187, 20);
+            this.autoCheckLbl.TabIndex = 18;
+            this.autoCheckLbl.Text = "Auto check rate";
+            this.autoCheckLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // timerIntervalLbl
+            // 
+            this.timerIntervalLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.timerIntervalLbl.Location = new System.Drawing.Point(10, 19);
+            this.timerIntervalLbl.Name = "timerIntervalLbl";
+            this.timerIntervalLbl.Size = new System.Drawing.Size(187, 20);
+            this.timerIntervalLbl.TabIndex = 15;
+            this.timerIntervalLbl.Text = "System timer interval";
+            this.timerIntervalLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // timerIntervalEd
+            // 
+            this.timerIntervalEd.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.timerIntervalEd.Location = new System.Drawing.Point(203, 16);
+            this.timerIntervalEd.myValue = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.timerIntervalEd.Name = "timerIntervalEd";
+            this.timerIntervalEd.Size = new System.Drawing.Size(71, 26);
+            this.timerIntervalEd.TabIndex = 1;
+            this.timerIntervalEd.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.timerIntervalEd.Value = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            // 
+            // secondLbl1
+            // 
+            this.secondLbl1.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.secondLbl1.Location = new System.Drawing.Point(280, 20);
+            this.secondLbl1.Name = "secondLbl1";
+            this.secondLbl1.Size = new System.Drawing.Size(100, 21);
+            this.secondLbl1.TabIndex = 16;
+            this.secondLbl1.Text = "seconds";
+            // 
+            // autoCheckEd
+            // 
+            this.autoCheckEd.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.autoCheckEd.Location = new System.Drawing.Point(203, 97);
+            this.autoCheckEd.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
+            this.autoCheckEd.myValue = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.autoCheckEd.Name = "autoCheckEd";
+            this.autoCheckEd.Size = new System.Drawing.Size(71, 26);
+            this.autoCheckEd.TabIndex = 4;
+            this.autoCheckEd.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.autoCheckEd.Value = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
             // 
             // closeBtn
             // 
@@ -1014,7 +1176,7 @@
             // saveBtn
             // 
             this.saveBtn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.saveBtn.Image = global::baseClass.Properties.Resources.save;
+            this.saveBtn.Image = ((System.Drawing.Image)(resources.GetObject("saveBtn.Image")));
             this.saveBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.saveBtn.Location = new System.Drawing.Point(231, 295);
             this.saveBtn.Margin = new System.Windows.Forms.Padding(4);
@@ -1135,63 +1297,12 @@
             this.cbTimeScale2.Size = new System.Drawing.Size(196, 24);
             this.cbTimeScale2.TabIndex = 2;
             // 
-            // alertDataCountEd
-            // 
-            this.alertDataCountEd.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.alertDataCountEd.Location = new System.Drawing.Point(197, 100);
-            this.alertDataCountEd.Maximum = new decimal(new int[] {
-            365,
-            0,
-            0,
-            0});
-            this.alertDataCountEd.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.alertDataCountEd.myValue = new decimal(new int[] {
-            30,
-            0,
-            0,
-            0});
-            this.alertDataCountEd.Name = "alertDataCountEd";
-            this.alertDataCountEd.Size = new System.Drawing.Size(71, 26);
-            this.alertDataCountEd.TabIndex = 4;
-            this.alertDataCountEd.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.alertDataCountEd.Value = new decimal(new int[] {
-            30,
-            0,
-            0,
-            0});
-            // 
-            // alertDataCountLbl
-            // 
-            this.alertDataCountLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.alertDataCountLbl.Location = new System.Drawing.Point(5, 104);
-            this.alertDataCountLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.alertDataCountLbl.Name = "alertDataCountLbl";
-            this.alertDataCountLbl.Size = new System.Drawing.Size(187, 20);
-            this.alertDataCountLbl.TabIndex = 227;
-            this.alertDataCountLbl.Text = "No. bars  for alerting";
-            this.alertDataCountLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // alertDataCountLbl2
-            // 
-            this.alertDataCountLbl2.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.alertDataCountLbl2.Location = new System.Drawing.Point(272, 105);
-            this.alertDataCountLbl2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.alertDataCountLbl2.Name = "alertDataCountLbl2";
-            this.alertDataCountLbl2.Size = new System.Drawing.Size(100, 21);
-            this.alertDataCountLbl2.TabIndex = 228;
-            this.alertDataCountLbl2.Text = "bar(s)";
-            // 
             // sysOptionGlobal
             // 
-            this.ClientSize = new System.Drawing.Size(453, 377);
+            this.ClientSize = new System.Drawing.Size(451, 364);
             this.Controls.Add(this.closeBtn);
             this.Controls.Add(this.saveBtn);
             this.Controls.Add(this.mainTab);
-            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimizeBox = false;
             this.Name = "sysOptionGlobal";
@@ -1205,6 +1316,11 @@
             this.systemPg.ResumeLayout(false);
             this.systemTab.ResumeLayout(false);
             this.generalPg.ResumeLayout(false);
+            this.sysSettingGb.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.alertDataCountEd)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartMaxLoadNextEd)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartMaxLoadFirstEd)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dayScanForLastPriceEd)).EndInit();
             this.generalGb.ResumeLayout(false);
             this.generalGb.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.passwordMinLenEd)).EndInit();
@@ -1221,16 +1337,14 @@
             this.screeningGb.ResumeLayout(false);
             this.screeningGb.PerformLayout();
             this.defaultGb.ResumeLayout(false);
-            this.sysSettingPg.ResumeLayout(false);
-            this.sysSettingGb.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.chartMaxLoadNextEd)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chartMaxLoadFirstEd)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dayScanForLastPriceEd)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.timerUnitToAutoCheckEd)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.timerUnitEd)).EndInit();
+            this.timingPg.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.tradeAlertCreationEd)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.refreshDataEd)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.timerIntervalEd)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.autoCheckEd)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.alertDataCountEd)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1288,14 +1402,8 @@
         private baseClass.controls.cbTimeRange defaTimeRangeCb;
         private baseClass.controls.baseLabel defaTimeRangeLbl;
         private baseClass.controls.baseLabel defaTimeScaleLbl;
-        private System.Windows.Forms.TabPage sysSettingPg;
+        private System.Windows.Forms.TabPage timingPg;
         protected System.Windows.Forms.GroupBox sysSettingGb;
-        protected baseClass.controls.baseLabel timerUnitToAutoCheckLbl;
-        protected common.controls.baseNumericUpDown timerUnitToAutoCheckEd;
-        protected baseClass.controls.baseLabel timerUnitLbl;
-        protected common.controls.baseNumericUpDown timerUnitEd;
-        protected baseClass.controls.baseLabel secondLbl2;
-        protected baseClass.controls.baseLabel noTimerUnitLbl;
         protected System.Windows.Forms.GroupBox generalGb;
         protected System.Windows.Forms.GroupBox autoKeyGb;
         protected System.Windows.Forms.GroupBox emailGb;
@@ -1315,5 +1423,18 @@
         protected common.controls.baseNumericUpDown alertDataCountEd;
         protected common.controls.baseLabel alertDataCountLbl;
         protected common.controls.baseLabel alertDataCountLbl2;
+        protected System.Windows.Forms.GroupBox groupBox3;
+        protected baseClass.controls.baseLabel autoCheckLbl;
+        protected baseClass.controls.baseLabel timerIntervalLbl;
+        protected common.controls.baseNumericUpDown timerIntervalEd;
+        protected baseClass.controls.baseLabel secondLbl1;
+        protected common.controls.baseNumericUpDown autoCheckEd;
+        protected baseClass.controls.baseLabel tradeAlertCreationLbl;
+        protected common.controls.baseNumericUpDown tradeAlertCreationEd;
+        protected baseClass.controls.baseLabel refreshDataLbl;
+        protected common.controls.baseNumericUpDown refreshDataEd;
+        protected baseClass.controls.baseLabel secondLbl4;
+        protected baseClass.controls.baseLabel secondLbl3;
+        protected baseClass.controls.baseLabel secondLbl2;
     }
 }

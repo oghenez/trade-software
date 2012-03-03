@@ -141,7 +141,7 @@ namespace server
                 if (!IsWorktime(updateTime, confWorkTimes)) continue;
 
                 Imports.ImportParams param = new Imports.ImportParams();
-                if (!GetMarketParams(marketRow, param)) return;
+                if (!GetMarketParams(marketRow, param)) continue;
                 
                 switch(param.code)
                 {
@@ -154,7 +154,7 @@ namespace server
                     case Imports.ImportCodes.GOLD:
                          forexImport.ImportFromWeb(updateTime, param);
                          break;
-                    default: return;
+                    default: continue;
                 }
                 commonClass.SysLibs.WriteSysLog("Updated from " + param.dataLocation);
             }

@@ -1257,4 +1257,16 @@
   <data name="alertDataCount" xml:space="preserve">
     <value>No data for alerts</value>
   </data>
+  <data name="tradeAlertCreation" xml:space="preserve">
+    <value>Trade alert creation</value>
+  </data>
+  <data name="autoRefresh" xml:space="preserve">
+    <value>Auto refresh</value>
+  </data>
+  <data name="timerInterval" xml:space="preserve">
+    <value>System timer interval</value>
+  </data>
+  <data name="alertSummary" xml:space="preserve">
+    <value>Alert Summary</value>
+  </data>
 </root>

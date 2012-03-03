@@ -44,6 +44,12 @@ namespace baseClass.forms
             passwordMinLenEd.Value = Settings.sysGlobal.PasswordMinLen;
             useStrongPassChk.Checked = Settings.sysGlobal.UseStrongPassword;
 
+            dayScanForLastPriceEd.myValue = Settings.sysGlobal.DayScanForLastPrice;
+            alertDataCountEd.myValue = Settings.sysGlobal.AlertDataCount;
+
+            chartMaxLoadFirstEd.myValue = Settings.sysGlobal.ChartMaxLoadCount_FIRST;
+            chartMaxLoadNextEd.myValue = Settings.sysGlobal.ChartMaxLoadCount_MORE;
+
             //Auto number
             sysDataKeyPrefixEd.Text = Settings.sysGlobal.DataKeyPrefix;
             sysAutoDataKeySizeEd.myValue = Settings.sysGlobal.DataKeySize;
@@ -65,15 +71,12 @@ namespace baseClass.forms
             screenDataCountEd.Value = Settings.sysGlobal.ScreeningDataCount;
             screenTimeScaleCb.myValue = AppTypes.TimeScaleFromCode(Settings.sysGlobal.ScreeningTimeScaleCode);
 
-            //sysSettings
-            timerUnitEd.myValue = Settings.sysGlobal.TimerUnitInSecs;
-            timerUnitToAutoCheckEd.myValue = Settings.sysGlobal.TimerUnitToAutoCheck;
-            dayScanForLastPriceEd.myValue = Settings.sysGlobal.DayScanForLastPrice;
+            //Timming
+            timerIntervalEd.myValue = Settings.sysGlobal.TimerIntervalInSecs;
+            refreshDataEd.myValue = Settings.sysGlobal.RefreshDataInSecs;
+            tradeAlertCreationEd.myValue = Settings.sysGlobal.CheckAlertInSeconds;
+            autoCheckEd.myValue = Settings.sysGlobal.AutoCheckInSeconds;
 
-            alertDataCountEd.myValue = Settings.sysGlobal.AlertDataCount;
-
-            chartMaxLoadFirstEd.myValue = Settings.sysGlobal.ChartMaxLoadCount_FIRST ;
-            chartMaxLoadNextEd.myValue = Settings.sysGlobal.ChartMaxLoadCount_MORE ;
         }
         private void SaveSettings()
         {
@@ -81,6 +84,12 @@ namespace baseClass.forms
             Settings.sysGlobal.WriteLogAccess = accessLogMediaCb.myValue;
             Settings.sysGlobal.PasswordMinLen = (byte)passwordMinLenEd.Value;
             Settings.sysGlobal.UseStrongPassword = useStrongPassChk.Checked;
+
+            Settings.sysGlobal.DayScanForLastPrice = (short)dayScanForLastPriceEd.myValue;
+            Settings.sysGlobal.AlertDataCount = (short)alertDataCountEd.Value;
+
+            Settings.sysGlobal.ChartMaxLoadCount_FIRST = (short)chartMaxLoadFirstEd.myValue;
+            Settings.sysGlobal.ChartMaxLoadCount_MORE = (short)chartMaxLoadNextEd.myValue;
 
             //Auto number
             Settings.sysGlobal.DataKeyPrefix = sysDataKeyPrefixEd.Text;
@@ -105,14 +114,10 @@ namespace baseClass.forms
             Settings.sysGlobal.ScreeningTimeScaleCode = screenTimeScaleCb.myValue.Code;
 
             //Timing
-            Settings.sysGlobal.TimerUnitInSecs = (short)timerUnitEd.myValue;
-            Settings.sysGlobal.TimerUnitToAutoCheck = (short)timerUnitToAutoCheckEd.myValue;
-            Settings.sysGlobal.DayScanForLastPrice = (short)dayScanForLastPriceEd.myValue;
-
-            Settings.sysGlobal.AlertDataCount = (short)alertDataCountEd.Value;
-
-            Settings.sysGlobal.ChartMaxLoadCount_FIRST = (short)chartMaxLoadFirstEd.myValue;
-            Settings.sysGlobal.ChartMaxLoadCount_MORE = (short)chartMaxLoadNextEd.myValue;
+            Settings.sysGlobal.TimerIntervalInSecs = (short)timerIntervalEd.myValue;
+            Settings.sysGlobal.RefreshDataInSecs = (short)refreshDataEd.myValue;
+            Settings.sysGlobal.CheckAlertInSeconds = (short)tradeAlertCreationEd.myValue;
+            Settings.sysGlobal.AutoCheckInSeconds = (short)autoCheckEd.myValue;
 
             DataAccess.Libs.Save_Global_Settings();
         }
@@ -123,12 +128,24 @@ namespace baseClass.forms
             this.Text = Languages.Libs.GetString("sysOptions");
 
             systemPg.Text = Languages.Libs.GetString("system");
-            generalPg.Text = Languages.Libs.GetString("generalInfo");
 
+            generalPg.Text = Languages.Libs.GetString("generalInfo");
             accessLogMediaLbl.Text = Languages.Libs.GetString("logAccessTo");
             pwdMinLenLbl.Text = Languages.Libs.GetString("pwdMinLen");
             pwdCharLbl.Text = Languages.Libs.GetString("character");
             useStrongPassChk.Text = Languages.Libs.GetString("useStrongPass");
+
+            dayScanForLastPriceLbl.Text = Languages.Libs.GetString("dayScanForLastPrice");
+            dayLbl.Text = Languages.Libs.GetString("days");
+
+            alertDataCountLbl.Text = Languages.Libs.GetString("alertDataCount");
+            alertDataCountLbl2.Text = Languages.Libs.GetString("bars");
+
+            chartMaxLoadFirstLbl.Text = Languages.Libs.GetString("chartMaxLoadFIRST");
+            chartMaxLoadNextLbl.Text = Languages.Libs.GetString("chartMaxLoadNEXT");
+            barLbl1.Text = Languages.Libs.GetString("bars");
+            barLbl2.Text = Languages.Libs.GetString("bars");
+
 
             autoKeyPg.Text = Languages.Libs.GetString("autoKey");
             dataKeyPrefixLbl.Text = Languages.Libs.GetString("dataKeyPrefix");
@@ -153,22 +170,16 @@ namespace baseClass.forms
             screenDataCountLbl.Text = Languages.Libs.GetString("dataCount");
             screenTimeScaleLbl.Text = Languages.Libs.GetString("timeScale");
 
-            sysSettingPg.Text = Languages.Libs.GetString("sysSetting");
-            timerUnitLbl.Text = Languages.Libs.GetString("timerUnit");
+            timingPg.Text = Languages.Libs.GetString("timing");
+            timerIntervalLbl.Text = Languages.Libs.GetString("timerInterval");
+            secondLbl1.Text = Languages.Libs.GetString("seconds");
+
+            refreshDataLbl.Text = Languages.Libs.GetString("refreshRate");
             secondLbl2.Text = Languages.Libs.GetString("seconds");
-            timerUnitToAutoCheckLbl.Text = Languages.Libs.GetString("autoCheckAfter");
-            noTimerUnitLbl.Text = Languages.Libs.GetString("noTimerUnit");
-
-            dayScanForLastPriceLbl.Text = Languages.Libs.GetString("dayScanForLastPrice");
-            dayLbl.Text = Languages.Libs.GetString("days");
-
-            alertDataCountLbl.Text = Languages.Libs.GetString("alertDataCount");
-            alertDataCountLbl2.Text = Languages.Libs.GetString("bars");
-
-            chartMaxLoadFirstLbl.Text = Languages.Libs.GetString("chartMaxLoadFIRST");
-            chartMaxLoadNextLbl.Text = Languages.Libs.GetString("chartMaxLoadNEXT");
-            barLbl1.Text = Languages.Libs.GetString("bars");
-            barLbl2.Text = Languages.Libs.GetString("bars");
+            tradeAlertCreationLbl.Text = Languages.Libs.GetString("tradeAlertCreation");
+            secondLbl3.Text = Languages.Libs.GetString("seconds");
+            autoCheckLbl.Text = Languages.Libs.GetString("autoCheckAfter");
+            secondLbl4.Text = Languages.Libs.GetString("seconds");
         }
 
         private void closeBtn_Click(object sender, EventArgs e)
@@ -199,5 +210,6 @@ namespace baseClass.forms
                 this.ShowError(er);
             }
         }
+
     }
 }

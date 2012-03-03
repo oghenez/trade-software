@@ -143,16 +143,27 @@ namespace client
         #endregion
 
         static common.TimerProcess RefreshDataProc = null;
+        static common.TimerProcess RefreshAlertProc = null;
         protected override void ProcessSysTimerTick()
         {
             base.ProcessSysTimerTick();
+            if (!Settings.sysAutoRefreshData) return;
+
             if (RefreshDataProc == null)
             {
                 RefreshDataProc = new common.TimerProcess();
-                RefreshDataProc.WaitingUnit = Settings.sysTimerUnitToRefresh;
+                RefreshDataProc.WaitInSeconds = Settings.sysGlobal.RefreshDataInSecs;
                 RefreshDataProc.OnProcess += new common.TimerProcess.OnProcessEvent(RefreshData);
             }
             RefreshDataProc.Execute();
+
+            if (RefreshAlertProc == null)
+            {
+                RefreshAlertProc = new common.TimerProcess();
+                RefreshAlertProc.WaitInSeconds = Settings.sysGlobal.CheckAlertInSeconds;
+                RefreshAlertProc.OnProcess += new common.TimerProcess.OnProcessEvent(RefreshAlert);
+            }
+            RefreshAlertProc.Execute();
         }
         /// <summary>
         /// Set language for controls's main form
@@ -416,8 +427,6 @@ namespace client
             else HideTransHistForm();
         }
 
-
-
         private void SetFormAppearance()
         {
             standartStrip.BringToFront();
@@ -485,7 +494,7 @@ namespace client
 
         
         /// <summary>
-        /// Refresh data  : the function will be called after each [sysTimerIntervalInSecs] seconds 
+        /// Refresh data : market watch, stock analysis and porfolio  
         /// </summary>
         private void RefreshData()
         {
@@ -510,13 +519,13 @@ namespace client
                     (dockPanel.Contents[idx] as Trade.Forms.transactionList).Refresh();
                     continue;
                 }
-                //Trade Alert
-                if (dockPanel.Contents[idx].GetType() == typeof(Trade.Forms.tradeAlertList))
-                {
-                    (dockPanel.Contents[idx] as Trade.Forms.tradeAlertList).Refresh();
-                    continue;
-                }
             }
+        }
+        private void RefreshAlert()
+        {
+            Trade.Forms.tradeAlertList form = GetTradeAlertForm(false);
+            if(form!=null && !form.IsDisposed && form.Visible)
+                form.Refresh();
         }
 
         /// <summary>
