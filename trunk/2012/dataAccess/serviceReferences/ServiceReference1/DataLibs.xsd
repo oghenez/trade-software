@@ -438,6 +438,7 @@
                 </xs:simpleType>
               </xs:element>
               <xs:element minOccurs="0" name="weight" type="xs:unsignedByte" />
+              <xs:element name="priceAmplitude" type="xs:decimal" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -644,10 +645,10 @@
         <xs:element name="country">
           <xs:complexType>
             <xs:sequence>
-              <xs:element msdata:ReadOnly="true" name="code">
+              <xs:element name="code">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
-                    <xs:maxLength value="2" />
+                    <xs:maxLength value="3" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
@@ -659,7 +660,7 @@
                 </xs:simpleType>
               </xs:element>
               <xs:element minOccurs="0" name="weight" type="xs:int" />
-              <xs:element minOccurs="0" name="cultureCode">
+              <xs:element minOccurs="0" name="culture">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="10" />

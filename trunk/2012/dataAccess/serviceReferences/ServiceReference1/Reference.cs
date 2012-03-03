@@ -15,9 +15,6 @@ namespace DataAccess.ServiceReference1 {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.IStockService")]
     public interface IStockService {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetXmlDoc2StringINDICATOR", ReplyAction="http://tempuri.org/IStockService/GetXmlDoc2StringINDICATORResponse")]
-        string GetXmlDoc2StringINDICATOR();
-        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/Load_Global_Settings", ReplyAction="http://tempuri.org/IStockService/Load_Global_SettingsResponse")]
         void Load_Global_Settings(ref commonTypes.GlobalSettings settings);
         
@@ -108,14 +105,14 @@ namespace DataAccess.ServiceReference1 {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/DiagnosePrice_CloseAndNextOpen", ReplyAction="http://tempuri.org/IStockService/DiagnosePrice_CloseAndNextOpenResponse")]
         databases.tmpDS.priceDiagnoseDataTable DiagnosePrice_CloseAndNextOpen(System.DateTime frDate, System.DateTime toDate, string timeScaleCode, string exchangeCode, string code, double variantPerc, double variance, byte precision);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/AjustPriceData", ReplyAction="http://tempuri.org/IStockService/AjustPriceDataResponse")]
-        void AjustPriceData(string code, System.DateTime toDate, double weight);
-        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/ReAggregatePriceData", ReplyAction="http://tempuri.org/IStockService/ReAggregatePriceDataResponse")]
         void ReAggregatePriceData(string code);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetXmlDoc2StringSTRATEGY", ReplyAction="http://tempuri.org/IStockService/GetXmlDoc2StringSTRATEGYResponse")]
         string GetXmlDoc2StringSTRATEGY();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetXmlDoc2StringINDICATOR", ReplyAction="http://tempuri.org/IStockService/GetXmlDoc2StringINDICATORResponse")]
+        string GetXmlDoc2StringINDICATOR();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetSyslog_BySQL", ReplyAction="http://tempuri.org/IStockService/GetSyslog_BySQLResponse")]
         databases.baseDS.sysLogDataTable GetSyslog_BySQL(string sql);
@@ -313,10 +310,6 @@ namespace DataAccess.ServiceReference1 {
                 base(binding, remoteAddress) {
         }
         
-        public string GetXmlDoc2StringINDICATOR() {
-            return base.Channel.GetXmlDoc2StringINDICATOR();
-        }
-        
         public void Load_Global_Settings(ref commonTypes.GlobalSettings settings) {
             base.Channel.Load_Global_Settings(ref settings);
         }
@@ -437,16 +430,16 @@ namespace DataAccess.ServiceReference1 {
             return base.Channel.DiagnosePrice_CloseAndNextOpen(frDate, toDate, timeScaleCode, exchangeCode, code, variantPerc, variance, precision);
         }
         
-        public void AjustPriceData(string code, System.DateTime toDate, double weight) {
-            base.Channel.AjustPriceData(code, toDate, weight);
-        }
-        
         public void ReAggregatePriceData(string code) {
             base.Channel.ReAggregatePriceData(code);
         }
         
         public string GetXmlDoc2StringSTRATEGY() {
             return base.Channel.GetXmlDoc2StringSTRATEGY();
+        }
+        
+        public string GetXmlDoc2StringINDICATOR() {
+            return base.Channel.GetXmlDoc2StringINDICATOR();
         }
         
         public databases.baseDS.sysLogDataTable GetSyslog_BySQL(string sql) {

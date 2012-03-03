@@ -119,7 +119,6 @@
       <DependentUpon>marketWatch.cs</DependentUpon>
     </Compile>
     <Compile Include="libs\libs.cs" />
-    <Compile Include="libs\tradeAlertLibs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Forms\alertFilter.resx">
       <DependentUpon>alertFilter.cs</DependentUpon>

@@ -58,7 +58,6 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
-    <Reference Include="Trade, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="WeifenLuo.WinFormsUI.Docking, Version=2.5.0.18386, Culture=neutral, processorArchitecture=MSIL" />
   </ItemGroup>
   <ItemGroup>
@@ -70,6 +69,7 @@
     </Compile>
     <Compile Include="libs\libs.cs">
     </Compile>
+    <Compile Include="libs\tradeAlertLibs.cs" />
     <Compile Include="main.cs">
       <SubType>Form</SubType>
     </Compile>

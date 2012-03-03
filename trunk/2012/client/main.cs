@@ -88,14 +88,14 @@ namespace client
             ContextMenuStrip contextMenuStrip = new ContextMenuStrip();
             ToolStripItem menuItem;
 
-            contextMenuStrip.Items.Add(new ToolStripSeparator());
+            
             menuItem = contextMenuStrip.Items.Add(zoomInMenuItem.Text);
             menuItem.Click += new System.EventHandler(zoomInMenuItem_Click);
-
             menuItem = contextMenuStrip.Items.Add(zoomOutMenuItem.Text);
             menuItem.Click += new System.EventHandler(zoomOutMenuItem_Click);
 
             //menu for Strategy
+            contextMenuStrip.Items.Add(new ToolStripSeparator());
             System.Windows.Forms.ToolStripMenuItem strategyMenuItem = new ToolStripMenuItem();
             strategyMenuItem.Text = Languages.Libs.GetString("strategy");
             application.Strategy.Libs.CreateMenu(AppTypes.StrategyTypes.Strategy, strategyMenuItem, PlotTradepointHandler);
@@ -971,16 +971,39 @@ namespace client
             return null;
         }
 
+        private IDockContent[] GetCurrentForms()
+        {
+            return GetCurrentForms(null);
+        }
         private IDockContent[] GetCurrentForms(Type type)
         {
             IDockContent[] fomrs = new IDockContent[0];
             for (int idx = 0; idx < dockPanel.Contents.Count; idx++)
             {
-                if (dockPanel.Contents[idx].GetType() != type) continue;
+                if (type !=null && dockPanel.Contents[idx].GetType() != type) continue;
                 Array.Resize(ref fomrs, fomrs.Length + 1);
                 fomrs[fomrs.Length - 1] = dockPanel.Contents[idx];
             }
             return fomrs;
+        }
+
+        private void MainMenuItemVisiblity()
+        {
+            if (dockPanel.ActiveContent == null) return;
+            IDockContent curContent  = dockPanel.ActiveContent;
+
+            chartStrip.Enabled = (curContent.GetType() == typeof(Tools.Forms.tradeAnalysis));
+            strategyStrip.Enabled = chartStrip.Enabled;
+            periodicityStrip.Enabled = chartStrip.Enabled;
+            chartMenuStrip.Visible = chartStrip.Enabled;
+
+            toolsStrip.Enabled = (curContent.GetType() == typeof(Tools.Forms.backTesting)) ||
+                                 (curContent.GetType() == typeof(Tools.Forms.screening)) ||
+                                 (curContent.GetType() == typeof(Tools.Forms.strategyRanking));
+            formatStrip.Enabled = toolsStrip.Enabled;
+            backTestingMenuItem.Enabled = toolsStrip.Enabled;
+            screeningMenuItem.Enabled = toolsStrip.Enabled;
+            strategyRankingMenuItem.Enabled = toolsStrip.Enabled;
         }
 
         #region event handler
@@ -1833,7 +1856,17 @@ namespace client
             }
         }
 
-
+        private void dockPanel_ActiveContentChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                MainMenuItemVisiblity();
+            }
+            catch (Exception er)
+            {
+                this.ShowError(er);
+            }
+        }
         #endregion event handler
 
         private void testMenuItem_Click(object sender, EventArgs e)

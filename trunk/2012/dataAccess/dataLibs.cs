@@ -1572,17 +1572,6 @@ namespace DataAccess
             return null;
         }
 
-        public static void AjustPriceData(string code,DateTime toDate, double weight)
-        {
-            try
-            {
-                myClient.AjustPriceData(code, toDate, weight);
-            }
-            catch (Exception er)
-            {
-                if (OnError != null) OnError(er);
-            }
-        }
 
         public static void ReAggregatePriceData(string code)
         {

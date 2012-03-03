@@ -4,18 +4,6 @@
   <xs:import schemaLocation="http://dungvq/DataLibs.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/common" />
   <xs:import schemaLocation="http://dungvq/DataLibs.svc?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/commonClass" />
   <xs:import schemaLocation="http://dungvq/DataLibs.svc?xsd=xsd9" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
-  <xs:element name="GetXmlDoc2StringINDICATOR">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetXmlDoc2StringINDICATORResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="GetXmlDoc2StringINDICATORResult" nillable="true" type="xs:string" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
   <xs:element name="Load_Global_Settings">
     <xs:complexType>
       <xs:sequence>
@@ -739,20 +727,6 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="AjustPriceData">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="code" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="toDate" type="xs:dateTime" />
-        <xs:element minOccurs="0" name="weight" type="xs:double" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="AjustPriceDataResponse">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
   <xs:element name="ReAggregatePriceData">
     <xs:complexType>
       <xs:sequence>
@@ -774,6 +748,18 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="GetXmlDoc2StringSTRATEGYResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetXmlDoc2StringINDICATOR">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetXmlDoc2StringINDICATORResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetXmlDoc2StringINDICATORResult" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

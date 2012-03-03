@@ -129,7 +129,7 @@ namespace server
                 if (!tradeAlertChk.Checked) return;
 
                 commonClass.SysLibs.WriteSysLog("Trade alert started.");
-                Trade.AlertLibs.CreateTradeAlert(onTradeAlertProcessStart, onTradeAlertProcessItem, onTradeAlertProcessEnd);
+                AlertLibs.CreateTradeAlert(onTradeAlertProcessStart, onTradeAlertProcessItem, onTradeAlertProcessEnd);
                 //Trade.AlertLibs.CreateTradeAlert(null,null,null);
                 commonClass.SysLibs.WriteSysLog("Trade alert ended.");
             }
