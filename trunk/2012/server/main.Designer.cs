@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(main));
             this.myMainMenu = new System.Windows.Forms.MenuStrip();
             this.systemMenuStrip = new System.Windows.Forms.ToolStripMenuItem();
@@ -47,7 +46,6 @@
             this.exitMenuStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.myMainTimer = new System.Windows.Forms.Timer(this.components);
             this.dataProcessMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.myMainMenu.SuspendLayout();
             this.SuspendLayout();
@@ -232,7 +230,6 @@
         private System.Windows.Forms.ToolStripMenuItem dataProcessMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
-        protected System.Windows.Forms.Timer myMainTimer;
         private System.Windows.Forms.ToolStripMenuItem toolMenuItem;
         private System.Windows.Forms.ToolStripMenuItem importPriceDataMenu;
         private System.Windows.Forms.ToolStripMenuItem importIcbMenu;

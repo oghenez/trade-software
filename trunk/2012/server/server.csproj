@@ -37,10 +37,7 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\dlls\baseClass.dll</HintPath>
     </Reference>
-    <Reference Include="common, Version=1.5.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\dlls\common.dll</HintPath>
-    </Reference>
+    <Reference Include="common, Version=1.5.0.0, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="commonClass, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="commonTypes, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="databases, Version=2.1.0.0, Culture=neutral, processorArchitecture=MSIL" />

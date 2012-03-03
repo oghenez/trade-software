@@ -492,40 +492,65 @@ namespace client
             }
         }
 
-        
+
+        bool fRefreshingData = false;
         /// <summary>
         /// Refresh data : market watch, stock analysis and porfolio  
         /// </summary>
         private void RefreshData()
         {
-            IDockContent[] fomrs = new IDockContent[0];
-            for (int idx = 0; idx < dockPanel.Contents.Count; idx++)
+            try
             {
-                //Update stock charts
-                if (dockPanel.Contents[idx].GetType() == typeof(Tools.Forms.tradeAnalysis))
+                if (fRefreshingData) return;
+                fRefreshingData = true;
+                IDockContent[] fomrs = new IDockContent[0];
+                for (int idx = 0; idx < dockPanel.Contents.Count; idx++)
                 {
-                    (dockPanel.Contents[idx] as Tools.Forms.tradeAnalysis).UpdateDataFromLastTime();
-                    continue;
-                }
-                //Market watch
-                if (dockPanel.Contents[idx].GetType() == typeof(Trade.Forms.marketWatch))
-                {
-                    (dockPanel.Contents[idx] as Trade.Forms.marketWatch).RefreshData(false);
-                    continue;
-                }
-                //Portfolio watch
-                if (dockPanel.Contents[idx].GetType() == typeof(Trade.Forms.transactionList))
-                {
-                    (dockPanel.Contents[idx] as Trade.Forms.transactionList).Refresh();
-                    continue;
+                    //Update stock charts
+                    if (dockPanel.Contents[idx].GetType() == typeof(Tools.Forms.tradeAnalysis))
+                    {
+                        (dockPanel.Contents[idx] as Tools.Forms.tradeAnalysis).UpdateDataFromLastTime();
+                        continue;
+                    }
+                    //Market watch
+                    if (dockPanel.Contents[idx].GetType() == typeof(Trade.Forms.marketWatch))
+                    {
+                        (dockPanel.Contents[idx] as Trade.Forms.marketWatch).RefreshData(false);
+                        continue;
+                    }
+                    //Portfolio watch
+                    if (dockPanel.Contents[idx].GetType() == typeof(Trade.Forms.transactionList))
+                    {
+                        (dockPanel.Contents[idx] as Trade.Forms.transactionList).Refresh();
+                        continue;
+                    }
+                    fRefreshingData = false;
                 }
             }
+            catch(Exception er)
+            {
+                fRefreshingData = false;
+                ShowError(er);
+            }
         }
+
+        bool fRefreshingAlert = false;
         private void RefreshAlert()
         {
-            Trade.Forms.tradeAlertList form = GetTradeAlertForm(false);
-            if(form!=null && !form.IsDisposed && form.Visible)
-                form.Refresh();
+            try
+            {
+                if (fRefreshingAlert) return;
+                fRefreshingAlert = true;
+                Trade.Forms.tradeAlertList form = GetTradeAlertForm(false);
+                if (form != null && !form.IsDisposed && form.Visible)
+                    form.Refresh();
+                fRefreshingAlert = false;
+            }
+            catch (Exception er)
+            {
+                fRefreshingAlert = false;
+                ShowError(er);
+            }
         }
 
         /// <summary>

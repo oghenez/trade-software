@@ -31,15 +31,9 @@ namespace server
         public void Init()
         {
             Imports.Gold.ResetGetPrice();
-            myTimer.Interval = Settings.sysGlobal.TimerIntervalInSecs * 1000;
-            myTimer.Enabled = false;
 
             tradeAlertLbl.Text = Settings.sysGlobal.CheckAlertInSeconds.ToString() + " " + Languages.Libs.GetString("seconds");
             fetchStockLbl.Text = Settings.sysGlobal.RefreshDataInSecs.ToString() + " " + Languages.Libs.GetString("seconds");
-
-            fetchDataTimer.WaitInSeconds = Settings.sysGlobal.RefreshDataInSecs;
-            createTradeAlertTimer.WaitInSeconds = Settings.sysGlobal.CheckAlertInSeconds;
-
             fetchDataTimer.OnProcess += new common.TimerProcess.OnProcessEvent(FetchData);
             createTradeAlertTimer.OnProcess += new common.TimerProcess.OnProcessEvent(CreateTradeAlert);
         }
@@ -108,17 +102,27 @@ namespace server
             this.ShowMessage("");
         }
 
+
+        Boolean fFetchDataRunning = false;
+        Boolean fCreateAlertRunning = false;
         private void FetchData()
         {
             try
             {
-                if (!fetchDataChk.Checked) return;
+                if (fFetchDataRunning)
+                {
+                    commonClass.SysLibs.WriteSysLog("Ignore fetch Data ");
+                    return;
+                }
+                fFetchDataRunning = true;
+                commonClass.SysLibs.WriteSysLog(" - Start fetch Data ");
                 libs.FetchRealTimeData(DateTime.Now);
+                fFetchDataRunning = false;
             }
             catch (Exception er)
             {
+                fFetchDataRunning = false;
                 commonClass.SysLibs.WriteSysLog(" - Fetch Data error " + er.Message);
-                ShowError(er);
             }
             
         }
@@ -126,15 +130,19 @@ namespace server
         {
             try
             {
-                if (!tradeAlertChk.Checked) return;
-
-                commonClass.SysLibs.WriteSysLog("Trade alert started.");
+                if (fCreateAlertRunning)
+                {
+                    commonClass.SysLibs.WriteSysLog("Ignore Trade alert");
+                    return;
+                }
+                fCreateAlertRunning = true;
+                commonClass.SysLibs.WriteSysLog("-Trade alert started.");
                 AlertLibs.CreateTradeAlert(onTradeAlertProcessStart, onTradeAlertProcessItem, onTradeAlertProcessEnd);
-                //Trade.AlertLibs.CreateTradeAlert(null,null,null);
-                commonClass.SysLibs.WriteSysLog("Trade alert ended.");
+                fCreateAlertRunning = false;
             }
             catch (Exception er)
             {
+                fCreateAlertRunning = false;
                 commonClass.SysLibs.WriteSysLog(" - Trader Alert error " + er.Message);
                 ShowError(er);
             }
@@ -143,14 +151,20 @@ namespace server
         #region event handler
         private void runBtn_Click(object sender, EventArgs e)
         {
+            fFetchDataRunning = false;
+            fCreateAlertRunning = false;
             try
             {
-                Init();
                 fRunning = !fRunning;
                 this.ShowMessage("");
                 runBtn.Image = (fRunning ? pauseBtn.Image : startBtn.Image);
                 scheduleGb.Enabled = !fRunning;
-                myTimer.Enabled = fRunning;
+
+                fetchDataTimer.WaitInSeconds = (short)(fetchDataChk.Checked?Settings.sysGlobal.RefreshDataInSecs:0);
+                createTradeAlertTimer.WaitInSeconds = (short)(tradeAlertChk.Checked ? Settings.sysGlobal.CheckAlertInSeconds : 0);
+                
+                if (fRunning) myTimer.Start();
+                else myTimer.Stop();
             }
             catch (Exception er)
             {
