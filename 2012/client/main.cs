@@ -991,11 +991,15 @@ namespace client
         {
             if (dockPanel.ActiveContent == null) return;
             IDockContent curContent  = dockPanel.ActiveContent;
+            IDockContent curDocument = (dockPanel.ActiveDocument==null?null:dockPanel.ActiveDocument);
 
             chartStrip.Enabled = (curContent.GetType() == typeof(Tools.Forms.tradeAnalysis));
-            strategyStrip.Enabled = chartStrip.Enabled;
             periodicityStrip.Enabled = chartStrip.Enabled;
             chartMenuStrip.Visible = chartStrip.Enabled;
+
+            strategyStrip.Enabled = chartStrip.Enabled ||
+                                 (curContent.GetType() == typeof(Tools.Forms.profitEstimate));
+
 
             toolsStrip.Enabled = (curContent.GetType() == typeof(Tools.Forms.backTesting)) ||
                                  (curContent.GetType() == typeof(Tools.Forms.screening)) ||
