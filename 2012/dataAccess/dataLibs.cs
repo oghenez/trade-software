@@ -241,30 +241,7 @@ namespace DataAccess
             GetSystemWatchList();
         }
 
-        public static databases.tmpDS.investorDataTable  myInvestorShortTbl
-        {
-            get
-            {
-                try
-                {
-                    string cacheKey = MakeCacheKey("Investor", "Short");
-                    object obj = GetCache(cacheKey);
-                    if (obj != null) return (databases.tmpDS.investorDataTable)obj;
-                    databases.tmpDS.investorDataTable tbl = myClient.GetInvestorShortList();
-                    AddCache(cacheKey, tbl);
-                    return tbl;
-                }
-                catch (Exception er)
-                {
-                    if (OnError != null) OnError(er);
-                }
-                return null;
-            }
-            set
-            {
-                ClearCache(MakeCacheKey("Investor", "Short"));
-            }
-        }
+        
         public static databases.tmpDS.stockCodeDataTable myStockCodeTbl
         {
             get
@@ -514,12 +491,12 @@ namespace DataAccess
 
         #region Load/Get
 
-        public static databases.baseDS.feedbackCatDataTable GetFeedbackCat()
+        public static databases.baseDS.feedbackCatDataTable GetFeedbackCat(string cultureCode)
         {
             try
             {
-                string cacheKey = MakeCacheKey("feedbackCat", "");
-                databases.baseDS.feedbackCatDataTable tbl = myClient.GetFeedbackCat();
+                string cacheKey = MakeCacheKey("feedbackCat", cultureCode);
+                databases.baseDS.feedbackCatDataTable tbl = myClient.GetFeedbackCat(cultureCode);
                 AddCache(cacheKey, tbl);
                 return tbl;
             }
@@ -553,6 +530,32 @@ namespace DataAccess
             }
             return null;
         }
+
+        public static databases.baseDS.messagesDataTable GetMesssage_ByDate(DateTime frDate, DateTime toDate)
+        {
+            try
+            {
+                return myClient.GetMesssage_ByDate(frDate, toDate);
+            }
+            catch (Exception er)
+            {
+                if (OnError != null) OnError(er);
+            }
+            return null;
+        }
+        public static databases.baseDS.messagesDataTable GetMesssage_BySql(string sql)
+        {
+            try
+            {
+                return myClient.GetMesssage_BySql(sql);
+            }
+            catch (Exception er)
+            {
+                if (OnError != null) OnError(er);
+            }
+            return null;
+        }
+
 
         public static databases.baseDS.priceDataDataTable GetAbnormalData(string code,DateTime frDate,DateTime toDate,string timeScaleCode)
         {
@@ -931,6 +934,20 @@ namespace DataAccess
             return null;
         }
 
+        public static databases.tmpDS.investorDataTable GetInvestorShortList()
+        {
+            try
+            {
+                return myClient.GetInvestorShortList();
+            }
+            catch (Exception er)
+            {
+                if (OnError != null) OnError(er);
+            }
+            return null;
+        }
+
+
         public static databases.baseDS.sysCodeCatDataTable GetSysCodeCat()
         {
             try
@@ -1027,18 +1044,6 @@ namespace DataAccess
             try
             {
                 return myClient.GetData_ByTimeScale_Code_DateRange(timeScaleCode, stockCode, frDate, toDate);
-            }
-            catch (Exception er)
-            {
-                if (OnError != null) OnError(er);
-            }
-            return null;
-        }
-        public static databases.tmpDS.marketDataDataTable GetMarketData_BySQL(string sqlCmd)
-        {
-            try
-            {
-                return myClient.GetMarketData_BySQL(sqlCmd);
             }
             catch (Exception er)
             {
@@ -1487,9 +1492,9 @@ namespace DataAccess
                     if (lastDataIdx >= 0)
                     {
                         dataObj.priceDataTbl[lastDataIdx].ItemArray = tbl[0].ItemArray;
-                        databases.AppLibs.DataConcat(tbl, 1, dataObj.priceDataTbl);
+                        common.system.Concat(tbl, 1, dataObj.priceDataTbl);
                     }
-                    else databases.AppLibs.DataConcat(tbl, 0, dataObj.priceDataTbl);
+                    else common.system.Concat(tbl, 0, dataObj.priceDataTbl);
 
                     //Update data 
                     dataObj.DateTime.UpdateLast(DataLibs.GetDataList(tbl, 0, 0, AppTypes.PriceDataType.DateTime));
@@ -1655,18 +1660,6 @@ namespace DataAccess
                 if (OnError != null) OnError(er);
             }
             return null;
-        }
-    }
-    
-    public static class AppLibs
-    {
-        public static databases.tmpDS.investorRow GetInvestorByAccount(string account)
-        {
-            DataView myView = new DataView(DataAccess.Libs.myInvestorShortTbl);
-            myView.Sort = DataAccess.Libs.myInvestorShortTbl.accountColumn.ColumnName;
-            DataRowView[] foundRows =  myView.FindRows(account);
-            if (foundRows.Length<=0) return null;
-            return (databases.tmpDS.investorRow)foundRows[0].Row;
         }
     }
 }

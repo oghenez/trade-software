@@ -15,6 +15,9 @@ namespace DataAccess.ServiceReference1 {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.IStockService")]
     public interface IStockService {
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/DiagnosePrice_CloseAndNextOpen", ReplyAction="http://tempuri.org/IStockService/DiagnosePrice_CloseAndNextOpenResponse")]
+        databases.tmpDS.priceDiagnoseDataTable DiagnosePrice_CloseAndNextOpen(System.DateTime frDate, System.DateTime toDate, string timeScaleCode, string exchangeCode, string code, double variantPerc, double variance, byte precision);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/ReAggregatePriceData", ReplyAction="http://tempuri.org/IStockService/ReAggregatePriceDataResponse")]
         void ReAggregatePriceData(string code);
         
@@ -85,7 +88,7 @@ namespace DataAccess.ServiceReference1 {
         databases.baseDS.priceDataDataTable GetData_ByTimeScale_Code_DateRange(string timeScaleCode, string stockCode, System.DateTime frDate, System.DateTime toDate);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetMarketData_BySQL", ReplyAction="http://tempuri.org/IStockService/GetMarketData_BySQLResponse")]
-        databases.tmpDS.marketDataDataTable GetMarketData_BySQL(string sqlCmd);
+        databases.tmpDS.marketDataDataTable GetMarketData_BySQL(string sqlCmd1);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetData_TotalRow", ReplyAction="http://tempuri.org/IStockService/GetData_TotalRowResponse")]
         int GetData_TotalRow(string timeScaleCode, string stockCode, System.DateTime frDate, System.DateTime toDate);
@@ -95,6 +98,9 @@ namespace DataAccess.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetMesssage_ByDate", ReplyAction="http://tempuri.org/IStockService/GetMesssage_ByDateResponse")]
         databases.baseDS.messagesDataTable GetMesssage_ByDate(System.DateTime frDate, System.DateTime toDate);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetMesssage_BySql", ReplyAction="http://tempuri.org/IStockService/GetMesssage_BySqlResponse")]
+        databases.baseDS.messagesDataTable GetMesssage_BySql(string sqlCmd2);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/LoadAnalysisData", ReplyAction="http://tempuri.org/IStockService/LoadAnalysisDataResponse")]
         string LoadAnalysisData(string code, commonClass.DataParams dataParam, bool forceReadNew);
@@ -119,9 +125,6 @@ namespace DataAccess.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetTradePointWithEstimationDetail", ReplyAction="http://tempuri.org/IStockService/GetTradePointWithEstimationDetailResponse")]
         commonClass.TradePointInfo[] GetTradePointWithEstimationDetail(out databases.tmpDS.tradeEstimateDataTable toTbl, commonClass.DataParams dataParam, string stockCode, string strategyCode, commonClass.EstimateOptions options);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/DiagnosePrice_CloseAndNextOpen", ReplyAction="http://tempuri.org/IStockService/DiagnosePrice_CloseAndNextOpenResponse")]
-        databases.tmpDS.priceDiagnoseDataTable DiagnosePrice_CloseAndNextOpen(System.DateTime frDate, System.DateTime toDate, string timeScaleCode, string exchangeCode, string code, double variantPerc, double variance, byte precision);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetSyslog_ByDate", ReplyAction="http://tempuri.org/IStockService/GetSyslog_ByDateResponse")]
         databases.baseDS.sysLogDataTable GetSyslog_ByDate(System.DateTime frDate, System.DateTime toDate);
@@ -166,7 +169,7 @@ namespace DataAccess.ServiceReference1 {
         databases.baseDS.bizSubSectorDataTable GetBizSubSectorBySector(string sectorCode);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetFeedbackCat", ReplyAction="http://tempuri.org/IStockService/GetFeedbackCatResponse")]
-        databases.baseDS.feedbackCatDataTable GetFeedbackCat();
+        databases.baseDS.feedbackCatDataTable GetFeedbackCat(string cultureCode);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetCountry", ReplyAction="http://tempuri.org/IStockService/GetCountryResponse")]
         databases.baseDS.countryDataTable GetCountry();
@@ -319,6 +322,10 @@ namespace DataAccess.ServiceReference1 {
                 base(binding, remoteAddress) {
         }
         
+        public databases.tmpDS.priceDiagnoseDataTable DiagnosePrice_CloseAndNextOpen(System.DateTime frDate, System.DateTime toDate, string timeScaleCode, string exchangeCode, string code, double variantPerc, double variance, byte precision) {
+            return base.Channel.DiagnosePrice_CloseAndNextOpen(frDate, toDate, timeScaleCode, exchangeCode, code, variantPerc, variance, precision);
+        }
+        
         public void ReAggregatePriceData(string code) {
             base.Channel.ReAggregatePriceData(code);
         }
@@ -411,8 +418,8 @@ namespace DataAccess.ServiceReference1 {
             return base.Channel.GetData_ByTimeScale_Code_DateRange(timeScaleCode, stockCode, frDate, toDate);
         }
         
-        public databases.tmpDS.marketDataDataTable GetMarketData_BySQL(string sqlCmd) {
-            return base.Channel.GetMarketData_BySQL(sqlCmd);
+        public databases.tmpDS.marketDataDataTable GetMarketData_BySQL(string sqlCmd1) {
+            return base.Channel.GetMarketData_BySQL(sqlCmd1);
         }
         
         public int GetData_TotalRow(string timeScaleCode, string stockCode, System.DateTime frDate, System.DateTime toDate) {
@@ -425,6 +432,10 @@ namespace DataAccess.ServiceReference1 {
         
         public databases.baseDS.messagesDataTable GetMesssage_ByDate(System.DateTime frDate, System.DateTime toDate) {
             return base.Channel.GetMesssage_ByDate(frDate, toDate);
+        }
+        
+        public databases.baseDS.messagesDataTable GetMesssage_BySql(string sqlCmd2) {
+            return base.Channel.GetMesssage_BySql(sqlCmd2);
         }
         
         public string LoadAnalysisData(string code, commonClass.DataParams dataParam, bool forceReadNew) {
@@ -457,10 +468,6 @@ namespace DataAccess.ServiceReference1 {
         
         public commonClass.TradePointInfo[] GetTradePointWithEstimationDetail(out databases.tmpDS.tradeEstimateDataTable toTbl, commonClass.DataParams dataParam, string stockCode, string strategyCode, commonClass.EstimateOptions options) {
             return base.Channel.GetTradePointWithEstimationDetail(out toTbl, dataParam, stockCode, strategyCode, options);
-        }
-        
-        public databases.tmpDS.priceDiagnoseDataTable DiagnosePrice_CloseAndNextOpen(System.DateTime frDate, System.DateTime toDate, string timeScaleCode, string exchangeCode, string code, double variantPerc, double variance, byte precision) {
-            return base.Channel.DiagnosePrice_CloseAndNextOpen(frDate, toDate, timeScaleCode, exchangeCode, code, variantPerc, variance, precision);
         }
         
         public databases.baseDS.sysLogDataTable GetSyslog_ByDate(System.DateTime frDate, System.DateTime toDate) {
@@ -519,8 +526,8 @@ namespace DataAccess.ServiceReference1 {
             return base.Channel.GetBizSubSectorBySector(sectorCode);
         }
         
-        public databases.baseDS.feedbackCatDataTable GetFeedbackCat() {
-            return base.Channel.GetFeedbackCat();
+        public databases.baseDS.feedbackCatDataTable GetFeedbackCat(string cultureCode) {
+            return base.Channel.GetFeedbackCat(cultureCode);
         }
         
         public databases.baseDS.countryDataTable GetCountry() {

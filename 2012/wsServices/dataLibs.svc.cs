@@ -315,10 +315,10 @@ namespace wsServices
             return tbl;
         }
 
-        public databases.baseDS.feedbackCatDataTable GetFeedbackCat()
+        public databases.baseDS.feedbackCatDataTable GetFeedbackCat(string cultureCode)
         {
             databases.baseDS.feedbackCatDataTable tbl = new databases.baseDS.feedbackCatDataTable();
-            databases.DbAccess.LoadData(tbl);
+            databases.DbAccess.LoadData(tbl, cultureCode);
             return tbl;
         }
         public databases.baseDS.countryDataTable GetCountry()
@@ -551,10 +551,33 @@ namespace wsServices
 
         public databases.baseDS.messagesDataTable GetMesssage_ByDate(DateTime frDate,DateTime toDate)
         {
-            databases.baseDS.messagesDataTable tbl = new databases.baseDS.messagesDataTable();
-            databases.DbAccess.LoadData(tbl, frDate,toDate);
-            return tbl;
+            try
+            {
+                databases.baseDS.messagesDataTable tbl = new databases.baseDS.messagesDataTable();
+                databases.DbAccess.LoadData(tbl, frDate, toDate);
+                return tbl;
+            }
+            catch (Exception ex)
+            {
+                WriteSysLogLocal(ex);
+            }
+            return null;
         }
+        public databases.baseDS.messagesDataTable GetMesssage_BySql(string sql)
+        {
+            try
+            {
+                databases.baseDS.messagesDataTable tbl = new databases.baseDS.messagesDataTable();
+                databases.DbAccess.LoadFromSQL(tbl, sql);
+                return tbl;
+            }
+            catch (Exception ex)
+            {
+                WriteSysLogLocal(ex);
+            }
+            return null;
+        }
+
 
         #endregion
 

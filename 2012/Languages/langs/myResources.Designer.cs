@@ -484,6 +484,15 @@ namespace Languages.langs {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Buy alert(s).
+        /// </summary>
+        internal static string buyAlert {
+            get {
+                return ResourceManager.GetString("buyAlert", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to By Sectors.
         /// </summary>
         internal static string bySectors {
@@ -813,15 +822,6 @@ namespace Languages.langs {
         internal static string connectionOk {
             get {
                 return ResourceManager.GetString("connectionOk", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Contents.
-        /// </summary>
-        internal static string content {
-            get {
-                return ResourceManager.GetString("content", resourceCulture);
             }
         }
         
@@ -2734,11 +2734,29 @@ namespace Languages.langs {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Sell alert(s).
+        /// </summary>
+        internal static string sellAlert {
+            get {
+                return ResourceManager.GetString("sellAlert", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Send.
         /// </summary>
         internal static string send {
             get {
                 return ResourceManager.GetString("send", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sender.
+        /// </summary>
+        internal static string sender {
+            get {
+                return ResourceManager.GetString("sender", resourceCulture);
             }
         }
         

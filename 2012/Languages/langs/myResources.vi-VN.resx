@@ -1275,9 +1275,6 @@
   <data name="alertSummary" xml:space="preserve">
     <value>Tổng hợp cảnh báo</value>
   </data>
-  <data name="content" xml:space="preserve">
-    <value>Nồi dung</value>
-  </data>
   <data name="feedback" xml:space="preserve">
     <value>Phản hồi</value>
   </data>
@@ -1285,6 +1282,15 @@
     <value>Phản hồi đã được gời đến hệ thống. Xin cám ơn !</value>
   </data>
   <data name="send" xml:space="preserve">
-    <value>Gởi</value>
+    <value>Gửi</value>
+  </data>
+  <data name="sender" xml:space="preserve">
+    <value>Người gửi</value>
+  </data>
+  <data name="buyAlert" xml:space="preserve">
+    <value>Cảnh báo mua</value>
+  </data>
+  <data name="sellAlert" xml:space="preserve">
+    <value>Cảnh báo bán</value>
   </data>
 </root>

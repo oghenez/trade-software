@@ -64,6 +64,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="appLibs.cs" />
     <Compile Include="dataClass.cs" />
     <Compile Include="dataLibs.cs" />
     <Compile Include="forms\splashForm.cs">

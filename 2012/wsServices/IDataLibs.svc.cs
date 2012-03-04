@@ -129,7 +129,7 @@ namespace wsServices
         databases.baseDS.bizSubSectorDataTable GetBizSubSectorBySector(string sectorCode);
 
         [OperationContract]
-        databases.baseDS.feedbackCatDataTable GetFeedbackCat();
+        databases.baseDS.feedbackCatDataTable GetFeedbackCat(string cultureCode);
 
         [OperationContract]
         databases.baseDS.countryDataTable GetCountry();
@@ -199,7 +199,7 @@ namespace wsServices
         [OperationContract]
         databases.baseDS.priceDataDataTable GetData_ByTimeScale_Code_DateRange(string timeScaleCode, string stockCode, DateTime frDate, DateTime toDate);
         [OperationContract]
-        databases.tmpDS.marketDataDataTable GetMarketData_BySQL(string sqlCmd);
+        databases.tmpDS.marketDataDataTable GetMarketData_BySQL(string sqlCmd1);
         [OperationContract]
         int GetData_TotalRow(string timeScaleCode, string stockCode, DateTime frDate, DateTime toDate);
         [OperationContract]
@@ -207,6 +207,9 @@ namespace wsServices
 
         [OperationContract]
         databases.baseDS.messagesDataTable GetMesssage_ByDate(DateTime frDate, DateTime toDate);
+        [OperationContract]
+        databases.baseDS.messagesDataTable GetMesssage_BySql(string sqlCmd2);
+
 
         //[OperationContract]
         //object[] GetPriceByCode(string stockCode);

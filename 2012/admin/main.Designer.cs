@@ -52,7 +52,10 @@
             this.sysInterestedStrategyMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolMenuStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.dataDiagnoseMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.resetServiceMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
+            this.syslogViewerMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.infoMenuStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.licenseMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutMenu = new System.Windows.Forms.ToolStripMenuItem();
@@ -61,9 +64,7 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.myMainTimer = new System.Windows.Forms.Timer(this.components);
             this.dataProcessMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
-            this.syslogViewerMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.feesbackViewerMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.myMainMenu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -246,10 +247,11 @@
             // 
             this.toolMenuStrip.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.dataDiagnoseMenu,
-            this.toolStripSeparator5,
-            this.resetServiceMenuItem,
             this.toolStripSeparator7,
-            this.syslogViewerMenuItem});
+            this.syslogViewerMenuItem,
+            this.feesbackViewerMenuItem,
+            this.toolStripSeparator5,
+            this.resetServiceMenuItem});
             this.toolMenuStrip.Name = "toolMenuStrip";
             this.toolMenuStrip.Size = new System.Drawing.Size(71, 22);
             this.toolMenuStrip.Text = "Công cụ";
@@ -262,6 +264,11 @@
             this.dataDiagnoseMenu.Text = "Kiểm tra dữ liệu";
             this.dataDiagnoseMenu.Click += new System.EventHandler(this.dataDiagnoseMenu_Click);
             // 
+            // toolStripSeparator5
+            // 
+            this.toolStripSeparator5.Name = "toolStripSeparator5";
+            this.toolStripSeparator5.Size = new System.Drawing.Size(187, 6);
+            // 
             // resetServiceMenuItem
             // 
             this.resetServiceMenuItem.Image = global::admin.Properties.Resources.services;
@@ -269,6 +276,19 @@
             this.resetServiceMenuItem.Size = new System.Drawing.Size(190, 22);
             this.resetServiceMenuItem.Text = "Khởi động lại";
             this.resetServiceMenuItem.Click += new System.EventHandler(this.resetServiceMenuItem_Click);
+            // 
+            // toolStripSeparator7
+            // 
+            this.toolStripSeparator7.Name = "toolStripSeparator7";
+            this.toolStripSeparator7.Size = new System.Drawing.Size(187, 6);
+            // 
+            // syslogViewerMenuItem
+            // 
+            this.syslogViewerMenuItem.Image = global::admin.Properties.Resources.history;
+            this.syslogViewerMenuItem.Name = "syslogViewerMenuItem";
+            this.syslogViewerMenuItem.Size = new System.Drawing.Size(190, 22);
+            this.syslogViewerMenuItem.Text = "Xem nhật ký";
+            this.syslogViewerMenuItem.Click += new System.EventHandler(this.syslogViewerMenuItem_Click);
             // 
             // infoMenuStrip
             // 
@@ -319,23 +339,13 @@
             this.dataProcessMenuItem.Size = new System.Drawing.Size(116, 20);
             this.dataProcessMenuItem.Text = "Xử lý dữ liệu";
             // 
-            // toolStripSeparator5
+            // feesbackViewerMenuItem
             // 
-            this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(187, 6);
-            // 
-            // toolStripSeparator7
-            // 
-            this.toolStripSeparator7.Name = "toolStripSeparator7";
-            this.toolStripSeparator7.Size = new System.Drawing.Size(187, 6);
-            // 
-            // syslogViewerMenuItem
-            // 
-            this.syslogViewerMenuItem.Image = global::admin.Properties.Resources.history;
-            this.syslogViewerMenuItem.Name = "syslogViewerMenuItem";
-            this.syslogViewerMenuItem.Size = new System.Drawing.Size(190, 22);
-            this.syslogViewerMenuItem.Text = "Xem nhật ký";
-            this.syslogViewerMenuItem.Click += new System.EventHandler(this.syslogViewerMenuItem_Click);
+            this.feesbackViewerMenuItem.Image = global::admin.Properties.Resources.employee;
+            this.feesbackViewerMenuItem.Name = "feesbackViewerMenuItem";
+            this.feesbackViewerMenuItem.Size = new System.Drawing.Size(190, 22);
+            this.feesbackViewerMenuItem.Text = "Xem phản hồi";
+            this.feesbackViewerMenuItem.Click += new System.EventHandler(this.feesbackViewerMenuItem_Click);
             // 
             // main
             // 
@@ -394,5 +404,6 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
         private System.Windows.Forms.ToolStripMenuItem syslogViewerMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem feesbackViewerMenuItem;
     }
 }
