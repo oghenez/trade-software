@@ -422,19 +422,19 @@ namespace databases
             return tbl;
         }
 
-        /// <summary>
-        /// Concatenate 2 table
-        /// </summary>
-        /// <param name="frTbl">Source table</param>
-        /// <param name="fromId">The index in source where the copy begins</param>
-        /// <param name="toTbl">Destination table</param>
-        public static void DataConcat(databases.baseDS.priceDataDataTable frTbl, int fromIdx, databases.baseDS.priceDataDataTable toTbl)
-        {
-            for (int idx = fromIdx; idx < frTbl.Count; idx++)
-            {
-                toTbl.ImportRow(frTbl[idx]);
-            }
-        }
+        ///// <summary>
+        ///// Concatenate 2 table
+        ///// </summary>
+        ///// <param name="frTbl">Source table</param>
+        ///// <param name="fromId">The index in source where the copy begins</param>
+        ///// <param name="toTbl">Destination table</param>
+        //public static void DataConcat(databases.baseDS.priceDataDataTable frTbl, int fromIdx, databases.baseDS.priceDataDataTable toTbl)
+        //{
+        //    for (int idx = fromIdx; idx < frTbl.Count; idx++)
+        //    {
+        //        toTbl.ImportRow(frTbl[idx]);
+        //    }
+        //}
 
         public static bool IsUseVietnamese()
         {

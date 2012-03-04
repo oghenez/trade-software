@@ -1269,9 +1269,6 @@
   <data name="alertSummary" xml:space="preserve">
     <value>Alert Summary</value>
   </data>
-  <data name="content" xml:space="preserve">
-    <value>Contents</value>
-  </data>
   <data name="feedback" xml:space="preserve">
     <value>Feedback</value>
   </data>
@@ -1280,5 +1277,14 @@
   </data>
   <data name="send" xml:space="preserve">
     <value>Send</value>
+  </data>
+  <data name="sender" xml:space="preserve">
+    <value>Sender</value>
+  </data>
+  <data name="buyAlert" xml:space="preserve">
+    <value>Buy alert(s)</value>
+  </data>
+  <data name="sellAlert" xml:space="preserve">
+    <value>Sell alert(s)</value>
   </data>
 </root>

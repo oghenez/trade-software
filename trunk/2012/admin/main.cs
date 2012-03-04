@@ -16,7 +16,7 @@ namespace admin
         {
             try
             {
-                 common.language.myCulture = new System.Globalization.CultureInfo("vi-VN");
+                common.language.myCulture = new System.Globalization.CultureInfo("vi-VN");
                 InitializeComponent();
                 LogAccess = false;
                 //test.LoadTestConfig();
@@ -192,6 +192,24 @@ namespace admin
                 {
                     myForm = new baseClass.forms.syslogViewer();
                     myForm.Name = "syslogViewer";
+                }
+                this.ShowForm(myForm);
+            }
+            catch (Exception er)
+            {
+                this.ShowError(er);
+            }
+        }
+
+        private void feesbackViewerMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Form myForm = this.FindForm("feedbackViewer");
+                if (myForm == null || myForm.IsDisposed)
+                {
+                    myForm = new baseClass.forms.feedbackViewer();
+                    myForm.Name = "feedbackViewer";
                 }
                 this.ShowForm(myForm);
             }

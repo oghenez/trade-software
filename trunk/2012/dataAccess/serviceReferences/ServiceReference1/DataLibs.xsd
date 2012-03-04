@@ -1,9 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://dungvq/DataLibs.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/commonTypes" />
-  <xs:import schemaLocation="http://dungvq/DataLibs.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/common" />
+  <xs:import schemaLocation="http://dungvq/DataLibs.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/commonTypes" />
+  <xs:import schemaLocation="http://dungvq/DataLibs.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/common" />
   <xs:import schemaLocation="http://dungvq/DataLibs.svc?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/commonClass" />
   <xs:import schemaLocation="http://dungvq/DataLibs.svc?xsd=xsd9" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:element name="DiagnosePrice_CloseAndNextOpen">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="frDate" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="toDate" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="timeScaleCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="exchangeCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="code" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="variantPerc" type="xs:double" />
+        <xs:element minOccurs="0" name="variance" type="xs:double" />
+        <xs:element minOccurs="0" name="precision" type="xs:unsignedByte" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DiagnosePrice_CloseAndNextOpenResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DiagnosePrice_CloseAndNextOpenResult" nillable="true">
+          <xs:complexType>
+            <xs:annotation>
+              <xs:appinfo>
+                <ActualType Name="tmpDS.priceDiagnoseDataTable" Namespace="http://schemas.datacontract.org/2004/07/databases" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+              </xs:appinfo>
+            </xs:annotation>
+            <xs:sequence>
+              <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+              <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+            </xs:sequence>
+            <xs:attribute fixed="" name="namespace" />
+            <xs:attribute fixed="priceDiagnoseDataTable" name="tableTypeName" />
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="ReAggregatePriceData">
     <xs:complexType>
       <xs:sequence>
@@ -539,7 +574,7 @@
   <xs:element name="GetMarketData_BySQL">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="sqlCmd" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="sqlCmd1" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -608,6 +643,34 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="GetMesssage_ByDateResult" nillable="true">
+          <xs:complexType>
+            <xs:annotation>
+              <xs:appinfo>
+                <ActualType Name="baseDS.messagesDataTable" Namespace="http://schemas.datacontract.org/2004/07/databases" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+              </xs:appinfo>
+            </xs:annotation>
+            <xs:sequence>
+              <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+              <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+            </xs:sequence>
+            <xs:attribute fixed="http://tempuri.org/masterDataSet.xsd" name="namespace" />
+            <xs:attribute fixed="messagesDataTable" name="tableTypeName" />
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMesssage_BySql">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sqlCmd2" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMesssage_BySqlResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetMesssage_BySqlResult" nillable="true">
           <xs:complexType>
             <xs:annotation>
               <xs:appinfo>
@@ -809,41 +872,6 @@
             </xs:sequence>
             <xs:attribute fixed="" name="namespace" />
             <xs:attribute fixed="tradeEstimateDataTable" name="tableTypeName" />
-          </xs:complexType>
-        </xs:element>
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="DiagnosePrice_CloseAndNextOpen">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="frDate" type="xs:dateTime" />
-        <xs:element minOccurs="0" name="toDate" type="xs:dateTime" />
-        <xs:element minOccurs="0" name="timeScaleCode" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="exchangeCode" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="code" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="variantPerc" type="xs:double" />
-        <xs:element minOccurs="0" name="variance" type="xs:double" />
-        <xs:element minOccurs="0" name="precision" type="xs:unsignedByte" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="DiagnosePrice_CloseAndNextOpenResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="DiagnosePrice_CloseAndNextOpenResult" nillable="true">
-          <xs:complexType>
-            <xs:annotation>
-              <xs:appinfo>
-                <ActualType Name="tmpDS.priceDiagnoseDataTable" Namespace="http://schemas.datacontract.org/2004/07/databases" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
-              </xs:appinfo>
-            </xs:annotation>
-            <xs:sequence>
-              <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
-              <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
-            </xs:sequence>
-            <xs:attribute fixed="" name="namespace" />
-            <xs:attribute fixed="priceDiagnoseDataTable" name="tableTypeName" />
           </xs:complexType>
         </xs:element>
       </xs:sequence>
@@ -1202,7 +1230,9 @@
   </xs:element>
   <xs:element name="GetFeedbackCat">
     <xs:complexType>
-      <xs:sequence />
+      <xs:sequence>
+        <xs:element minOccurs="0" name="cultureCode" nillable="true" type="xs:string" />
+      </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetFeedbackCatResponse">

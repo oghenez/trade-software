@@ -10635,7 +10635,7 @@ namespace databases {
                 this.columndescription.AllowDBNull = false;
                 this.columndescription.MaxLength = 255;
                 this.columnlanguage.ReadOnly = true;
-                this.columnlanguage.MaxLength = 2;
+                this.columnlanguage.MaxLength = 10;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -25355,15 +25355,22 @@ SELECT MsgId, type, OnDate, SenderId, ReceiverId, Category, Subject, MsgBody, st
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT  *\r\nFROM     feedbackCat";
+            this._commandCollection[0].CommandText = "SELECT * FROM feedbackCat WHERE language=@language";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@language", global::System.Data.SqlDbType.NVarChar, 10, global::System.Data.ParameterDirection.Input, 0, 0, "language", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(baseDS.feedbackCatDataTable dataTable) {
+        public virtual int Fill(baseDS.feedbackCatDataTable dataTable, string language) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((language == null)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(language));
+            }
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
             }
@@ -25374,8 +25381,14 @@ SELECT MsgId, type, OnDate, SenderId, ReceiverId, Category, Subject, MsgBody, st
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual baseDS.feedbackCatDataTable GetData() {
+        public virtual baseDS.feedbackCatDataTable GetData(string language) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((language == null)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(language));
+            }
             baseDS.feedbackCatDataTable dataTable = new baseDS.feedbackCatDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;

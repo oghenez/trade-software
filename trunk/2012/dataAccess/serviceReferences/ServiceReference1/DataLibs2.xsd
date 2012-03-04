@@ -1,217 +1,161 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/commonTypes" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/commonTypes" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://dungvq/DataLibs.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-  <xs:complexType name="GlobalSettings">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="AlertDataCount" type="xs:short" />
-      <xs:element minOccurs="0" name="AutoCheckInSeconds" type="xs:short" />
-      <xs:element minOccurs="0" name="AutoEditKeySize" type="xs:int" />
-      <xs:element minOccurs="0" name="ChartMaxLoadCount_FIRST" type="xs:short" />
-      <xs:element minOccurs="0" name="ChartMaxLoadCount_MORE" type="xs:short" />
-      <xs:element minOccurs="0" name="CheckAlertInSeconds" type="xs:short" />
-      <xs:element minOccurs="0" name="DataKeyPrefix" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="DataKeySize" type="xs:int" />
-      <xs:element minOccurs="0" name="DayScanForLastPrice" type="xs:short" />
-      <xs:element minOccurs="0" name="DefaultTimeRange" type="tns:AppTypes.TimeRanges" />
-      <xs:element minOccurs="0" name="DefaultTimeScaleCode" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="DefautLanguage" type="tns:AppTypes.LanguageCodes" />
-      <xs:element minOccurs="0" name="PasswordMinLen" type="xs:unsignedByte" />
-      <xs:element minOccurs="0" name="RefreshDataInSecs" type="xs:short" />
-      <xs:element minOccurs="0" name="ScreeningDataCount" type="xs:short" />
-      <xs:element minOccurs="0" name="ScreeningTimeScaleCode" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="TimeOut_AutoKey" type="xs:int" />
-      <xs:element minOccurs="0" name="TimerIntervalInSecs" type="xs:short" />
-      <xs:element minOccurs="0" name="UseStrongPassword" type="xs:boolean" />
-      <xs:element minOccurs="0" name="WriteLogAccess" type="tns:AppTypes.SyslogMedia" />
-      <xs:element minOccurs="0" name="smtpAddress" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="smtpAuthAccount" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="smtpAuthPassword" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="smtpPort" type="xs:int" />
-      <xs:element minOccurs="0" name="smtpSSL" type="xs:boolean" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="GlobalSettings" nillable="true" type="tns:GlobalSettings" />
-  <xs:simpleType name="AppTypes.TimeRanges">
-    <xs:annotation>
-      <xs:appinfo>
-        <ActualType Name="unsignedByte" Namespace="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
-      </xs:appinfo>
-    </xs:annotation>
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="None" />
-      <xs:enumeration value="W1" />
-      <xs:enumeration value="W2" />
-      <xs:enumeration value="W3" />
-      <xs:enumeration value="M1" />
-      <xs:enumeration value="M2" />
-      <xs:enumeration value="M3" />
-      <xs:enumeration value="M4" />
-      <xs:enumeration value="M5" />
-      <xs:enumeration value="M6" />
-      <xs:enumeration value="YTD" />
-      <xs:enumeration value="Y1" />
-      <xs:enumeration value="Y2" />
-      <xs:enumeration value="Y3" />
-      <xs:enumeration value="Y4" />
-      <xs:enumeration value="Y5" />
-      <xs:enumeration value="All" />
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:element name="AppTypes.TimeRanges" nillable="true" type="tns:AppTypes.TimeRanges" />
-  <xs:simpleType name="AppTypes.LanguageCodes">
-    <xs:annotation>
-      <xs:appinfo>
-        <ActualType Name="unsignedByte" Namespace="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
-      </xs:appinfo>
-    </xs:annotation>
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="VI" />
-      <xs:enumeration value="EN" />
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:element name="AppTypes.LanguageCodes" nillable="true" type="tns:AppTypes.LanguageCodes" />
-  <xs:simpleType name="AppTypes.SyslogMedia">
-    <xs:annotation>
-      <xs:appinfo>
-        <ActualType Name="unsignedByte" Namespace="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
-      </xs:appinfo>
-    </xs:annotation>
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="None" />
-      <xs:enumeration value="File" />
-      <xs:enumeration value="Database" />
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:element name="AppTypes.SyslogMedia" nillable="true" type="tns:AppTypes.SyslogMedia" />
-  <xs:simpleType name="AppTypes.PortfolioTypes">
-    <xs:annotation>
-      <xs:appinfo>
-        <ActualType Name="unsignedByte" Namespace="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
-      </xs:appinfo>
-    </xs:annotation>
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="Portfolio">
-        <xs:annotation>
-          <xs:appinfo>
-            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
-          </xs:appinfo>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="WatchList">
-        <xs:annotation>
-          <xs:appinfo>
-            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
-          </xs:appinfo>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="SysWatchList">
-        <xs:annotation>
-          <xs:appinfo>
-            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">4</EnumerationValue>
-          </xs:appinfo>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="PortfolioDefaultStrategy">
-        <xs:annotation>
-          <xs:appinfo>
-            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">8</EnumerationValue>
-          </xs:appinfo>
-        </xs:annotation>
-      </xs:enumeration>
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:element name="AppTypes.PortfolioTypes" nillable="true" type="tns:AppTypes.PortfolioTypes" />
-  <xs:complexType name="ArrayOfAppTypes.PortfolioTypes">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="AppTypes.PortfolioTypes" type="tns:AppTypes.PortfolioTypes" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfAppTypes.PortfolioTypes" nillable="true" type="tns:ArrayOfAppTypes.PortfolioTypes" />
-  <xs:simpleType name="AppTypes.PriceDataType">
-    <xs:annotation>
-      <xs:appinfo>
-        <ActualType Name="unsignedByte" Namespace="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
-      </xs:appinfo>
-    </xs:annotation>
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="High" />
-      <xs:enumeration value="Low" />
-      <xs:enumeration value="Open" />
-      <xs:enumeration value="Close" />
-      <xs:enumeration value="Volume" />
-      <xs:enumeration value="DateTime" />
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:element name="AppTypes.PriceDataType" nillable="true" type="tns:AppTypes.PriceDataType" />
-  <xs:simpleType name="AppTypes.MarketTrend">
-    <xs:annotation>
-      <xs:appinfo>
-        <ActualType Name="unsignedByte" Namespace="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
-      </xs:appinfo>
-    </xs:annotation>
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="Unspecified" />
-      <xs:enumeration value="Sidebar" />
-      <xs:enumeration value="Upward" />
-      <xs:enumeration value="Downward" />
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:element name="AppTypes.MarketTrend" nillable="true" type="tns:AppTypes.MarketTrend" />
-  <xs:simpleType name="AppTypes.TradeActions">
-    <xs:annotation>
-      <xs:appinfo>
-        <ActualType Name="unsignedByte" Namespace="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
-      </xs:appinfo>
-    </xs:annotation>
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="None" />
-      <xs:enumeration value="Buy" />
-      <xs:enumeration value="Sell" />
-      <xs:enumeration value="Accumulate" />
-      <xs:enumeration value="ClearAll" />
-      <xs:enumeration value="Select" />
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:element name="AppTypes.TradeActions" nillable="true" type="tns:AppTypes.TradeActions" />
-  <xs:simpleType name="AppTypes.CommonStatus">
-    <xs:annotation>
-      <xs:appinfo>
-        <ActualType Name="unsignedByte" Namespace="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
-      </xs:appinfo>
-    </xs:annotation>
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="None" />
-      <xs:enumeration value="New" />
-      <xs:enumeration value="Enable" />
-      <xs:enumeration value="Disable">
-        <xs:annotation>
-          <xs:appinfo>
-            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">4</EnumerationValue>
-          </xs:appinfo>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Close">
-        <xs:annotation>
-          <xs:appinfo>
-            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">8</EnumerationValue>
-          </xs:appinfo>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Ignore">
-        <xs:annotation>
-          <xs:appinfo>
-            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">16</EnumerationValue>
-          </xs:appinfo>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="All">
-        <xs:annotation>
-          <xs:appinfo>
-            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">255</EnumerationValue>
-          </xs:appinfo>
-        </xs:annotation>
-      </xs:enumeration>
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:element name="AppTypes.CommonStatus" nillable="true" type="tns:AppTypes.CommonStatus" />
+<xs:schema xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" id="tmpDS" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msdata:EnforceConstraints="False" name="tmpDS">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="stockCode">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="code">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="stockExchange">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="tickerCode">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="name">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element msdata:ReadOnly="true" minOccurs="0" name="price" type="xs:decimal" />
+              <xs:element msdata:ReadOnly="true" minOccurs="0" name="priceVariant" type="xs:decimal" />
+              <xs:element msdata:ReadOnly="true" minOccurs="0" name="qty" type="xs:int" />
+              <xs:element msdata:ReadOnly="true" minOccurs="0" name="boughtPrice" type="xs:decimal" />
+              <xs:element msdata:ReadOnly="true" minOccurs="0" name="amt" type="xs:decimal" />
+              <xs:element msdata:ReadOnly="true" minOccurs="0" name="boughtAmt" type="xs:decimal" />
+              <xs:element msdata:ReadOnly="true" minOccurs="0" name="profitVariantPerc" type="xs:decimal" />
+              <xs:element msdata:ReadOnly="true" minOccurs="0" name="notes">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element msdata:ReadOnly="true" minOccurs="0" name="volume" type="xs:int" />
+              <xs:element msdata:ReadOnly="true" minOccurs="0" name="profitVariantAmt" type="xs:decimal" />
+              <xs:element minOccurs="0" name="nameEn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element msdata:ReadOnly="true" minOccurs="0" name="selected" type="xs:int" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="investor">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="code">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="displayName">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="account">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tradeEstimate">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="onDate" type="xs:dateTime" />
+              <xs:element minOccurs="0" name="tradeAction" type="xs:string" />
+              <xs:element minOccurs="0" name="price" type="xs:decimal" />
+              <xs:element minOccurs="0" name="qty" type="xs:decimal" />
+              <xs:element minOccurs="0" name="amt" type="xs:decimal" />
+              <xs:element minOccurs="0" name="stockQty" type="xs:decimal" />
+              <xs:element minOccurs="0" name="cashAmt" type="xs:decimal" />
+              <xs:element minOccurs="0" name="stockAmt" type="xs:decimal" />
+              <xs:element minOccurs="0" name="totalAmt" type="xs:decimal" />
+              <xs:element minOccurs="0" name="profit" type="xs:decimal" />
+              <xs:element minOccurs="0" name="feeAmt" type="xs:decimal" />
+              <xs:element minOccurs="0" name="ignored" type="xs:boolean" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="codeList">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="code" type="xs:string" />
+              <xs:element minOccurs="0" name="description" type="xs:string" />
+              <xs:element minOccurs="0" name="byteValue" type="xs:unsignedByte" />
+              <xs:element minOccurs="0" name="intValue" type="xs:int" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="marketData">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="onDate" type="xs:dateTime" />
+              <xs:element minOccurs="0" name="val0" type="xs:double" />
+              <xs:element minOccurs="0" name="val1" type="xs:double" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="priceDiagnose">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="code" type="xs:string" />
+              <xs:element name="date1" type="xs:dateTime" />
+              <xs:element name="date2" type="xs:dateTime" />
+              <xs:element minOccurs="0" name="price1" type="xs:double" />
+              <xs:element minOccurs="0" name="price2" type="xs:double" />
+              <xs:element minOccurs="0" name="variance" type="xs:double" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique msdata:PrimaryKey="true" name="Constraint1">
+      <xs:selector xpath=".//stockCode" />
+      <xs:field xpath="code" />
+    </xs:unique>
+    <xs:unique msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true" name="investor_Constraint1">
+      <xs:selector xpath=".//investor" />
+      <xs:field xpath="code" />
+    </xs:unique>
+    <xs:unique msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true" name="codeList_Constraint1">
+      <xs:selector xpath=".//codeList" />
+      <xs:field xpath="code" />
+    </xs:unique>
+    <xs:unique msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true" name="priceDiagnose_Constraint1">
+      <xs:selector xpath=".//priceDiagnose" />
+      <xs:field xpath="code" />
+      <xs:field xpath="date1" />
+      <xs:field xpath="date2" />
+    </xs:unique>
+  </xs:element>
 </xs:schema>

@@ -283,11 +283,11 @@
             this.dockPanel.Location = new System.Drawing.Point(0, 49);
             this.dockPanel.Margin = new System.Windows.Forms.Padding(4);
             this.dockPanel.Name = "dockPanel";
-<<<<<<< .mine
+
             this.dockPanel.Size = new System.Drawing.Size(1276, 623);
-=======
+
             this.dockPanel.Size = new System.Drawing.Size(1284, 601);
->>>>>>> .r474
+
             dockPanelGradient1.EndColor = System.Drawing.SystemColors.ControlLight;
             dockPanelGradient1.StartColor = System.Drawing.SystemColors.ControlLight;
             autoHideStripSkin1.DockStripGradient = dockPanelGradient1;
@@ -353,11 +353,11 @@
             this.zoomInBtn,
             this.toolStripSeparator19,
             this.chartRefreshBtn});
-<<<<<<< .mine
+
             this.chartStrip.Location = new System.Drawing.Point(159, 24);
-=======
+
             this.chartStrip.Location = new System.Drawing.Point(158, 24);
->>>>>>> .r474
+
             this.chartStrip.Name = "chartStrip";
             this.chartStrip.Size = new System.Drawing.Size(212, 25);
             this.chartStrip.TabIndex = 11;
@@ -470,8 +470,6 @@
             this.toolStripSeparator29.Name = "toolStripSeparator29";
             this.toolStripSeparator29.Size = new System.Drawing.Size(6, 25);
             // 
-<<<<<<< .mine
-=======
             // standartStrip
             // 
             this.standartStrip.Dock = System.Windows.Forms.DockStyle.None;
@@ -554,7 +552,6 @@
             this.transHistoryBtn.Text = "toolStripButton1";
             this.transHistoryBtn.Click += new System.EventHandler(this.transHistoryBtn_Click);
             // 
->>>>>>> .r474
             // toolsStrip
             // 
             this.toolsStrip.Dock = System.Windows.Forms.DockStyle.None;
@@ -563,17 +560,11 @@
             this.toolRunBtn,
             this.toolFullViewBtn,
             this.exportBtn});
-<<<<<<< .mine
             this.toolsStrip.Location = new System.Drawing.Point(431, 24);
-=======
             this.toolsStrip.Location = new System.Drawing.Point(372, 24);
->>>>>>> .r474
             this.toolsStrip.Name = "toolsStrip";
-<<<<<<< .mine
             this.toolsStrip.Size = new System.Drawing.Size(81, 25);
-=======
             this.toolsStrip.Size = new System.Drawing.Size(79, 25);
->>>>>>> .r474
             this.toolsStrip.TabIndex = 2;
             // 
             // toolRunBtn
@@ -1333,18 +1324,12 @@
             this.toolStripPanel.Controls.Add(this.chartStrip);
             this.toolStripPanel.Controls.Add(this.toolsStrip);
             this.toolStripPanel.Controls.Add(this.formatStrip);
-<<<<<<< .mine
             this.toolStripPanel.Controls.Add(this.standartStrip);
-=======
             this.toolStripPanel.Controls.Add(this.strategyStrip);
->>>>>>> .r474
             this.toolStripPanel.Controls.Add(this.periodicityStrip);
-<<<<<<< .mine
             this.toolStripPanel.Controls.Add(this.strategyStrip);
             this.toolStripPanel.Controls.Add(this.toolsStrip);
             this.toolStripPanel.Controls.Add(this.chartStrip);
-=======
->>>>>>> .r474
             this.toolStripPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.toolStripPanel.Location = new System.Drawing.Point(0, 0);
             this.toolStripPanel.Name = "toolStripPanel";
@@ -1358,11 +1343,8 @@
             this.formatStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.amountBtn,
             this.percentBtn});
-<<<<<<< .mine
             this.formatStrip.Location = new System.Drawing.Point(373, 24);
-=======
             this.formatStrip.Location = new System.Drawing.Point(451, 24);
->>>>>>> .r474
             this.formatStrip.Name = "formatStrip";
             this.formatStrip.Size = new System.Drawing.Size(56, 25);
             this.formatStrip.TabIndex = 148;
@@ -1411,11 +1393,8 @@
             this.strategyStrip.Enabled = false;
             this.strategyStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.strategyCbStrip});
-<<<<<<< .mine
             this.strategyStrip.Location = new System.Drawing.Point(606, 24);
-=======
             this.strategyStrip.Location = new System.Drawing.Point(512, 24);
->>>>>>> .r474
             this.strategyStrip.Name = "strategyStrip";
             this.strategyStrip.Size = new System.Drawing.Size(312, 25);
             this.strategyStrip.TabIndex = 149;
@@ -1430,14 +1409,12 @@
             // 
             // addChartBtn
             // 
-<<<<<<< .mine
             this.addChartBtn.Image = global::client.Properties.Resources.addAll;
             this.addChartBtn.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.addChartBtn.Name = "addChartBtn";
             this.addChartBtn.Size = new System.Drawing.Size(23, 22);
             this.addChartBtn.ToolTipText = "New Chart";
             this.addChartBtn.Click += new System.EventHandler(this.NewChartMenuItem_Click);
-=======
             this.periodicityStrip.Dock = System.Windows.Forms.DockStyle.None;
             this.periodicityStrip.Enabled = false;
             this.periodicityStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -1446,11 +1423,9 @@
             this.periodicityStrip.Name = "periodicityStrip";
             this.periodicityStrip.Size = new System.Drawing.Size(95, 25);
             this.periodicityStrip.TabIndex = 147;
->>>>>>> .r474
             // 
             // printChartBtn
             // 
-<<<<<<< .mine
             this.printChartBtn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.printChartBtn.Image = global::client.Properties.Resources.print;
             this.printChartBtn.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
@@ -1458,16 +1433,13 @@
             this.printChartBtn.Name = "printChartBtn";
             this.printChartBtn.Size = new System.Drawing.Size(23, 22);
             this.printChartBtn.ToolTipText = "Print";
-=======
             this.dummyStripBtn.CheckOnClick = true;
             this.dummyStripBtn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.dummyStripBtn.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.dummyStripBtn.Name = "dummyStripBtn";
             this.dummyStripBtn.Size = new System.Drawing.Size(85, 22);
             this.dummyStripBtn.Text = "Auto created";
->>>>>>> .r474
             // 
-<<<<<<< .mine
             // toolStripSeparator12
             // 
             this.toolStripSeparator12.Name = "toolStripSeparator12";
@@ -1531,7 +1503,6 @@
             this.standartStrip.Size = new System.Drawing.Size(156, 25);
             this.standartStrip.TabIndex = 10;
             // 
-=======
             // feedbackMenuItem
             // 
             this.feedbackMenuItem.Name = "feedbackMenuItem";
@@ -1544,7 +1515,6 @@
             this.toolStripSeparator30.Name = "toolStripSeparator30";
             this.toolStripSeparator30.Size = new System.Drawing.Size(149, 6);
             // 
->>>>>>> .r474
             // main
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -1716,7 +1686,7 @@
         private System.Windows.Forms.ToolStripMenuItem changePassMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator28;
         private System.Windows.Forms.ToolStripMenuItem testMenuItem;
-<<<<<<< .mine
+
         private System.Windows.Forms.ToolStrip standartStrip;
         private System.Windows.Forms.ToolStripButton addChartBtn;
         private System.Windows.Forms.ToolStripButton printChartBtn;
@@ -1725,10 +1695,10 @@
         private System.Windows.Forms.ToolStripButton myPortfolioBtn;
         private System.Windows.Forms.ToolStripButton tradeAlertBtn;
         private System.Windows.Forms.ToolStripButton transHistoryBtn;
-=======
+
         private System.Windows.Forms.ToolStripMenuItem feedbackMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator30;
->>>>>>> .r474
+
     }
 }
 

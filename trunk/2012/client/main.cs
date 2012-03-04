@@ -242,6 +242,7 @@ namespace client
                 this.windowsMenuItem.Text = Languages.Libs.GetString("windows");
                 this.closeAllMenuItem.Text = Languages.Libs.GetString("closeAll");
 
+                this.feedbackMenuItem.Text = Languages.Libs.GetString("feedback");
                 this.helpMenuItem.Text = Languages.Libs.GetString("help");
                 this.contentsMenuItem.Text = Languages.Libs.GetString("contents");
                 this.indexMenuItem.Text = Languages.Libs.GetString("index");
@@ -1774,8 +1775,8 @@ namespace client
             {
                 Trade.Forms.tradeAlertList myForm = GetTradeAlertForm(false);
                 if (myForm == null) return;
-                if (myForm.CurrentRow == null) return;
-                ShowStockChart(myForm.CurrentRow.stockCode);
+                if (myForm.CurrentSummaryRow == null) return;
+                ShowStockChart(myForm.CurrentSummaryRow.stockCode);
             }
             catch (Exception er)
             {
@@ -1895,13 +1896,13 @@ namespace client
             }
         }
 
-        static baseClass.forms.feedback feedbackForm = new baseClass.forms.feedback(); 
+        static baseClass.forms.feedbackEdit feedbackForm = null;
         private void feedbackMenuItem_Click(object sender, EventArgs e)
         {
             try
             {
                 if (feedbackForm == null || feedbackForm.IsDisposed)
-                    feedbackForm = new baseClass.forms.feedback();
+                    feedbackForm = new baseClass.forms.feedbackEdit();
                 feedbackForm.ShowForm();
             }
             catch (Exception er)
