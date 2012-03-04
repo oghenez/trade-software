@@ -965,6 +965,22 @@ namespace wsServices
             }
             return null;
         }
+<<<<<<< .mine
+
+        public void AjustPriceData(string code, DateTime toDate, double weight)
+        {
+            try
+            {
+                //application.AppLibs.AjustPriceData(code, toDate, (decimal)weight);
+            }
+            catch (Exception ex)
+            {
+                WriteSysLogLocal(ex);
+            }
+        }
+       
+=======
+>>>>>>> .r474
         //public void AdjustPriceData(string code, DateTime toDate, double weight)
         //{
         //    try
