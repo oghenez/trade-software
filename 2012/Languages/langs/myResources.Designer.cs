@@ -819,6 +819,15 @@ namespace Languages.langs {
         /// <summary>
         ///   Looks up a localized string similar to Contents.
         /// </summary>
+        internal static string content {
+            get {
+                return ResourceManager.GetString("content", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Contents.
+        /// </summary>
         internal static string contents {
             get {
                 return ResourceManager.GetString("contents", resourceCulture);
@@ -1209,6 +1218,24 @@ namespace Languages.langs {
         internal static string feeAmt {
             get {
                 return ResourceManager.GetString("feeAmt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Feedback.
+        /// </summary>
+        internal static string feedback {
+            get {
+                return ResourceManager.GetString("feedback", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Feedback was sent. Thank you for your feedback !.
+        /// </summary>
+        internal static string feedbackSent {
+            get {
+                return ResourceManager.GetString("feedbackSent", resourceCulture);
             }
         }
         
@@ -2703,6 +2730,15 @@ namespace Languages.langs {
         internal static string sellAction {
             get {
                 return ResourceManager.GetString("sellAction", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Send.
+        /// </summary>
+        internal static string send {
+            get {
+                return ResourceManager.GetString("send", resourceCulture);
             }
         }
         

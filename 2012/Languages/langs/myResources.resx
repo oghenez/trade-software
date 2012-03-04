@@ -1269,4 +1269,16 @@
   <data name="alertSummary" xml:space="preserve">
     <value>Alert Summary</value>
   </data>
+  <data name="content" xml:space="preserve">
+    <value>Contents</value>
+  </data>
+  <data name="feedback" xml:space="preserve">
+    <value>Feedback</value>
+  </data>
+  <data name="feedbackSent" xml:space="preserve">
+    <value>Feedback was sent. Thank you for your feedback !</value>
+  </data>
+  <data name="send" xml:space="preserve">
+    <value>Send</value>
+  </data>
 </root>

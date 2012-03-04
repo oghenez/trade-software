@@ -315,6 +315,12 @@ namespace wsServices
             return tbl;
         }
 
+        public databases.baseDS.feedbackCatDataTable GetFeedbackCat()
+        {
+            databases.baseDS.feedbackCatDataTable tbl = new databases.baseDS.feedbackCatDataTable();
+            databases.DbAccess.LoadData(tbl);
+            return tbl;
+        }
         public databases.baseDS.countryDataTable GetCountry()
         {
             databases.baseDS.countryDataTable tbl = new databases.baseDS.countryDataTable();
@@ -543,56 +549,83 @@ namespace wsServices
             return tbl;
         }
 
+        public databases.baseDS.messagesDataTable GetMesssage_ByDate(DateTime frDate,DateTime toDate)
+        {
+            databases.baseDS.messagesDataTable tbl = new databases.baseDS.messagesDataTable();
+            databases.DbAccess.LoadData(tbl, frDate,toDate);
+            return tbl;
+        }
+
         #endregion
 
         #region Update
-        public void UpdatePriceData(ref databases.baseDS.priceDataDataTable tbl)
+        public bool UpdateMessage(ref databases.baseDS.messagesDataTable dataTbl)
         {
             try
             {
-                databases.DbAccess.UpdateData(tbl);
+                databases.DbAccess.UpdateData(dataTbl);
+                return true;
             }
             catch (Exception ex)
             {
                 WriteSysLogLocal(ex);
             }
+            return false;
         }
-        public void UpdateSysCodeCat(ref databases.baseDS.sysCodeCatDataTable tbl)
+
+        public bool UpdatePriceData(ref databases.baseDS.priceDataDataTable tbl)
         {
             try
             {
-                WriteSysLogLocal("Hello 1" + tbl.Count.ToString());
                 databases.DbAccess.UpdateData(tbl);
-                WriteSysLogLocal("Hello 2" + tbl.Count.ToString());
+                return true;
             }
             catch (Exception ex)
             {
                 WriteSysLogLocal(ex);
             }
+            return false;
         }
-        public void UpdateSysCode(ref databases.baseDS.sysCodeDataTable tbl)
+        public bool UpdateSysCodeCat(ref databases.baseDS.sysCodeCatDataTable tbl)
         {
             try
             {
                 databases.DbAccess.UpdateData(tbl);
+                return true;
             }
             catch (Exception ex)
             {
                 WriteSysLogLocal(ex);
             }
+            return false;
         }
-        public void UpdateStock(ref databases.baseDS.stockCodeDataTable tbl)
+        public bool UpdateSysCode(ref databases.baseDS.sysCodeDataTable tbl)
         {
             try
             {
                 databases.DbAccess.UpdateData(tbl);
+                return true;
             }
             catch (Exception ex)
             {
                 WriteSysLogLocal(ex);
             }
+            return false;
         }
-        public void UpdateInvestor(ref databases.baseDS.investorDataTable tbl)
+        public bool UpdateStock(ref databases.baseDS.stockCodeDataTable tbl)
+        {
+            try
+            {
+                databases.DbAccess.UpdateData(tbl);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                WriteSysLogLocal(ex);
+            }
+            return false;
+        }
+        public bool UpdateInvestor(ref databases.baseDS.investorDataTable tbl)
         {
             try
             {
@@ -604,13 +637,15 @@ namespace wsServices
                     }
                 }
                 databases.DbAccess.UpdateData(tbl);
+                return true;
             }
             catch (Exception ex)
             {
                 WriteSysLogLocal(ex);
             }
+            return false;
         }
-        public void UpdatePortfolio(ref databases.baseDS.portfolioDataTable tbl)
+        public bool UpdatePortfolio(ref databases.baseDS.portfolioDataTable tbl)
         {
             try
             {
@@ -623,78 +658,95 @@ namespace wsServices
                     }
                 }
                 databases.DbAccess.UpdateData(tbl);
+                return true;
             }
             catch (Exception ex)
             {
                 WriteSysLogLocal(ex);
             }
+            return false;
         }
-        public void UpdatePortfolioDetail(ref databases.baseDS.portfolioDetailDataTable tbl)
+        public bool UpdatePortfolioDetail(ref databases.baseDS.portfolioDetailDataTable tbl)
         {
             try
             {
                 databases.DbAccess.UpdateData(tbl);
+                return true;
             }
             catch (Exception ex)
             {
                 WriteSysLogLocal(ex);
             }
+            return false;
         }
-        public void UpdateStockExchange(ref databases.baseDS.stockExchangeDataTable tbl)
+        public bool UpdateStockExchange(ref databases.baseDS.stockExchangeDataTable tbl)
         {
             try
             {
                 databases.DbAccess.UpdateData(tbl);
+                return true;
             }
             catch (Exception ex)
             {
                 WriteSysLogLocal(ex);
             }
+            return false;
         }
-        public void UpdateTransactions(ref databases.baseDS.transactionsDataTable tbl)
+        public bool UpdateTransactions(ref databases.baseDS.transactionsDataTable tbl)
         {
             try
             {
                 databases.DbAccess.UpdateData(tbl);
+                return true;
             }
             catch (Exception ex)
             {
                 WriteSysLogLocal(ex);
             }
+            return false;
         }
-        public void UpdateInvestorStock(ref databases.baseDS.investorStockDataTable tbl)
+        public bool UpdateInvestorStock(ref databases.baseDS.investorStockDataTable tbl)
         {
             try
             {
                 databases.DbAccess.UpdateData(tbl);
+                return true;
             }
             catch (Exception ex)
             {
                 WriteSysLogLocal(ex);
             }
+            return false;
         }
-        public void UpdateTradeAlert(ref databases.baseDS.tradeAlertDataTable tbl)
+        public bool UpdateTradeAlert(ref databases.baseDS.tradeAlertDataTable tbl)
         {
             try
             {
                 databases.DbAccess.UpdateData(tbl);
+                return true;
             }
             catch (Exception ex)
             {
                 WriteSysLogLocal(ex);
             }
+            return false;
         }
-        public void UpdateSysAutoKeyPending(ref databases.baseDS.sysAutoKeyPendingDataTable tbl)
+        public bool UpdateSysAutoKeyPending(ref databases.baseDS.sysAutoKeyPendingDataTable tbl)
         {
             try
             {
                 databases.DbAccess.UpdateData(tbl);
+                return true;
             }
             catch (Exception ex)
             {
                 WriteSysLogLocal(ex);
             }
+            return false;
         }
+
+        
+
         #endregion
 
         #region Delete
@@ -930,7 +982,7 @@ namespace wsServices
             try
             {
                 CultureInfo stockCulture = application.AppLibs.GetStockCulture(code);
-                Imports.Libs.ReAggregatePriceData(code, stockCulture);
+                databases.AppLibs.ReAggregatePriceData(code, stockCulture);
             }
             catch (Exception ex)
             {

@@ -1,62 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/commonClass" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/commonClass" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://dungvq/DataLibs.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/commonTypes" />
-  <xs:complexType name="TransactionInfo">
+<xs:schema xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/Arrays" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ArrayOfstring">
     <xs:sequence>
-      <xs:element minOccurs="0" name="availableCash" type="xs:decimal" />
-      <xs:element minOccurs="0" name="portfolio" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="price" type="xs:decimal" />
-      <xs:element minOccurs="0" name="priceDate" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="priceRatio" type="xs:decimal" />
-      <xs:element minOccurs="0" name="stockCode" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="transFeePerc" type="xs:decimal" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="TransactionInfo" nillable="true" type="tns:TransactionInfo" />
-  <xs:complexType name="DataParams">
+  <xs:element name="ArrayOfstring" nillable="true" type="tns:ArrayOfstring" />
+  <xs:complexType name="ArrayOfArrayOfdecimal">
     <xs:sequence>
-      <xs:element minOccurs="0" name="MaxDataCount" type="xs:int" />
-      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/commonTypes" minOccurs="0" name="TimeRange" type="q1:AppTypes.TimeRanges" />
-      <xs:element minOccurs="0" name="TimeScale" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ArrayOfdecimal" nillable="true" type="tns:ArrayOfdecimal" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="DataParams" nillable="true" type="tns:DataParams" />
-  <xs:complexType name="EstimateOptions">
+  <xs:element name="ArrayOfArrayOfdecimal" nillable="true" type="tns:ArrayOfArrayOfdecimal" />
+  <xs:complexType name="ArrayOfdecimal">
     <xs:sequence>
-      <xs:element minOccurs="0" name="MaxBuyAmtPerc" type="xs:decimal" />
-      <xs:element minOccurs="0" name="MaxBuyQtyPerc" type="xs:decimal" />
-      <xs:element minOccurs="0" name="QtyAccumulatePerc" type="xs:decimal" />
-      <xs:element minOccurs="0" name="QtyReducePerc" type="xs:decimal" />
-      <xs:element minOccurs="0" name="TotalCapAmt" type="xs:decimal" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="decimal" type="xs:decimal" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="EstimateOptions" nillable="true" type="tns:EstimateOptions" />
-  <xs:complexType name="ArrayOfTradePointInfo">
+  <xs:element name="ArrayOfdecimal" nillable="true" type="tns:ArrayOfdecimal" />
+  <xs:complexType name="ArrayOfArrayOfdouble">
     <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="TradePointInfo" nillable="true" type="tns:TradePointInfo" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ArrayOfdouble" nillable="true" type="tns:ArrayOfdouble" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="ArrayOfTradePointInfo" nillable="true" type="tns:ArrayOfTradePointInfo" />
-  <xs:complexType name="TradePointInfo">
+  <xs:element name="ArrayOfArrayOfdouble" nillable="true" type="tns:ArrayOfArrayOfdouble" />
+  <xs:complexType name="ArrayOfdouble">
     <xs:sequence>
-      <xs:element minOccurs="0" name="BusinessInfo" nillable="true" type="tns:BusinessInfo" />
-      <xs:element minOccurs="0" name="DataIdx" type="xs:int" />
-      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/commonTypes" minOccurs="0" name="TradeAction" type="q2:AppTypes.TradeActions" />
-      <xs:element minOccurs="0" name="isValid" type="xs:boolean" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="double" type="xs:double" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="TradePointInfo" nillable="true" type="tns:TradePointInfo" />
-  <xs:complexType name="BusinessInfo">
-    <xs:sequence>
-      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/commonTypes" minOccurs="0" name="LongTermTrend" type="q3:AppTypes.MarketTrend" />
-      <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/commonTypes" minOccurs="0" name="MediumTermTrend" type="q4:AppTypes.MarketTrend" />
-      <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/commonTypes" minOccurs="0" name="ShortTermTrend" type="q5:AppTypes.MarketTrend" />
-      <xs:element minOccurs="0" name="Short_Resistance" type="xs:double" />
-      <xs:element minOccurs="0" name="Short_Support" type="xs:double" />
-      <xs:element minOccurs="0" name="Short_Target" type="xs:double" />
-      <xs:element minOccurs="0" name="Stop_Loss" type="xs:double" />
-      <xs:element minOccurs="0" name="Weight" type="xs:double" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="BusinessInfo" nillable="true" type="tns:BusinessInfo" />
+  <xs:element name="ArrayOfdouble" nillable="true" type="tns:ArrayOfdouble" />
 </xs:schema>

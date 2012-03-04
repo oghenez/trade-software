@@ -46,6 +46,9 @@
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
     <Reference Include="System.Runtime.Serialization">
       <RequiredTargetFramework>3.0</RequiredTargetFramework>
     </Reference>
@@ -55,18 +58,10 @@
     <Reference Include="System.Xml.Linq">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
-    <Reference Include="System.Data.DataSetExtensions">
-      <RequiredTargetFramework>3.5</RequiredTargetFramework>
-    </Reference>
     <Reference Include="System.Data" />
-    <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
-    <Reference Include="WeifenLuo.WinFormsUI.Docking, Version=2.5.0.18386, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\dlls\WeifenLuo.WinFormsUI.Docking.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="dataClass.cs" />
@@ -137,14 +132,8 @@
     <None Include="serviceReferences\ServiceReference1\baseDS.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="serviceReferences\ServiceReference1\DataLibs.wsdl" />
     <None Include="serviceReferences\ServiceReference1\DataLibs.xsd" />
     <None Include="serviceReferences\ServiceReference1\DataLibs1.xsd" />
-    <None Include="serviceReferences\ServiceReference1\DataLibs2.xsd" />
-    <None Include="serviceReferences\ServiceReference1\DataLibs3.xsd" />
-    <None Include="serviceReferences\ServiceReference1\DataLibs4.xsd" />
-    <None Include="serviceReferences\ServiceReference1\DataLibs5.xsd" />
-    <None Include="serviceReferences\ServiceReference1\DataLibs6.xsd" />
     <None Include="serviceReferences\ServiceReference1\tmpDS.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -153,13 +142,22 @@
     <WCFMetadataStorage Include="serviceReferences\ServiceReference1\" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="serviceReferences\ServiceReference1\DataLibs.disco" />
+    <None Include="serviceReferences\ServiceReference1\DataLibs.wsdl" />
+    <None Include="serviceReferences\ServiceReference1\DataLibs2.xsd" />
+    <None Include="serviceReferences\ServiceReference1\DataLibs3.xsd" />
+    <None Include="serviceReferences\ServiceReference1\DataLibs4.xsd" />
+    <None Include="serviceReferences\ServiceReference1\DataLibs5.xsd" />
+    <None Include="serviceReferences\ServiceReference1\DataLibs6.xsd" />
+    <None Include="serviceReferences\ServiceReference1\DataLibs7.xsd" />
+  </ItemGroup>
+  <ItemGroup>
     <None Include="serviceReferences\ServiceReference1\configuration91.svcinfo" />
   </ItemGroup>
   <ItemGroup>
     <None Include="serviceReferences\ServiceReference1\configuration.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="serviceReferences\ServiceReference1\DataLibs7.xsd" />
     <None Include="serviceReferences\ServiceReference1\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>

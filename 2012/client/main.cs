@@ -1894,6 +1894,21 @@ namespace client
                 this.ShowError(er);
             }
         }
+
+        static baseClass.forms.feedback feedbackForm = new baseClass.forms.feedback(); 
+        private void feedbackMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (feedbackForm == null || feedbackForm.IsDisposed)
+                    feedbackForm = new baseClass.forms.feedback();
+                feedbackForm.ShowForm();
+            }
+            catch (Exception er)
+            {
+                this.ShowError(er);
+            }
+        }
         #endregion event handler
 
         private void testMenuItem_Click(object sender, EventArgs e)
@@ -1909,5 +1924,7 @@ namespace client
                 this.ShowError(er);
             }
         }
+
+      
     }
 }

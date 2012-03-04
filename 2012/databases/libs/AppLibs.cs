@@ -196,6 +196,16 @@ namespace databases
             row.subject = common.Settings.sysNewDataText;
             row.msg = "";
         }
+        public static void InitData(databases.baseDS.messagesRow row)
+        {
+            row.type = (byte)AppTypes.MessageTypes.Feedback;
+            row.OnDate = common.Consts.constNullDate;
+            row.Subject = "";
+            row.MsgBody = "";
+            row.SenderId = Consts.constMarkerNEW;
+            row.ReceiverId = Consts.constMarkerNEW;;
+            row.status = (short)AppTypes.CommonStatus.None;
+        }
 
         public static void InitData(databases.tmpDS.stockCodeRow row)
         {
@@ -219,6 +229,19 @@ namespace databases
             myCachedDS.Clear();
             myCachedTmpDS.Clear();
         }
+
+        public static databases.baseDS.priceDataSumRow FindAndCache(databases.baseDS.priceDataSumDataTable tbl, string stockCode, string timeScale, DateTime onDate)
+        {
+            databases.baseDS.priceDataSumRow row = tbl.FindBytypestockCodeonDate(timeScale, stockCode, onDate);
+            if (row != null) return row;
+            databases.baseDSTableAdapters.priceDataSumTA dataTA = new databases.baseDSTableAdapters.priceDataSumTA();
+            dataTA.ClearBeforeFill = false;
+            dataTA.Fill(tbl, stockCode, timeScale, onDate, onDate);
+            row = tbl.FindBytypestockCodeonDate(timeScale, stockCode, onDate);
+            if (row != null) return row;
+            return null;
+        }
+
 
         public static databases.baseDS.stockExchangeDataTable myStockExchangeTbl
         {
@@ -417,5 +440,164 @@ namespace databases
         {
             return (common.language.myCulture.Name == "vi-VN");
         }
+
+        #region imports
+        public class AgrregateInfo
+        {
+            public byte phase = 0;
+            public bool cancel = false;
+            public int count = 0, maxCount = 0;
+            public void Reset()
+            {
+                cancel = false;
+                count = 0;
+                maxCount = 0;
+            }
+        }
+        public delegate void OnAggregateData(AgrregateInfo param);
+        public static void ReAggregatePriceData(string code, CultureInfo stockCulture)
+        {
+            //Load main  pricedata
+            databases.baseDS.priceDataDataTable priceTbl = new databases.baseDS.priceDataDataTable();
+            databases.DbAccess.LoadData(priceTbl, AppTypes.MainDataTimeScale.Code, DateTime.MinValue, DateTime.MaxValue, code);
+            if (priceTbl == null) return;
+            //Delete all summ pricedata
+            databases.DbAccess.DeletePriceSumData(code);
+            AggregatePriceData(priceTbl, stockCulture, null);
+        }
+
+        /// <summary>
+        /// Get aggregation date/time from a date/time
+        /// </summary>
+        /// <param name="type"></param>
+        /// <param name="onDateTime"></param>
+        /// <param name="ci"></param>
+        /// <returns></returns>
+        public static DateTime AggregateDateTime(AppTypes.TimeScale timeScale, DateTime onDateTime, CultureInfo ci)
+        {
+            if (timeScale.Type == AppTypes.TimeScaleTypes.RealTime) return onDateTime;
+            switch (timeScale.Type)
+            {
+                case AppTypes.TimeScaleTypes.Minnute:
+                    int newMin = ((int)(onDateTime.Minute / timeScale.AggregationValue)) * timeScale.AggregationValue;
+                    return onDateTime.Date.AddHours(newMin);
+                case AppTypes.TimeScaleTypes.Hour:
+                    int newHour = ((int)(onDateTime.Hour / timeScale.AggregationValue)) * timeScale.AggregationValue;
+                    return onDateTime.Date.AddHours(newHour);
+                case AppTypes.TimeScaleTypes.Day:
+                    int newDay = ((int)((onDateTime.Day - 1) / timeScale.AggregationValue)) * timeScale.AggregationValue + 1;
+                    return common.dateTimeLibs.MakeDate(newDay, onDateTime.Month, onDateTime.Year);
+                case AppTypes.TimeScaleTypes.Week:
+                    int weekNo = onDateTime.DayOfYear / 7;
+                    int newWeek = ((int)(weekNo / timeScale.AggregationValue)) * timeScale.AggregationValue;
+                    DateTime newDate = common.dateTimeLibs.MakeDate(1, 1, onDateTime.Year).AddDays(newWeek * 7);
+                    return common.dateTimeLibs.StartOfWeek(newDate, ci);
+                case AppTypes.TimeScaleTypes.Month:
+                    int newMonth = ((int)((onDateTime.Month - 1) / timeScale.AggregationValue)) * timeScale.AggregationValue + 1;
+                    return common.dateTimeLibs.MakeDate(1, newMonth, onDateTime.Year);
+                case AppTypes.TimeScaleTypes.Year:
+                    int newYear = ((int)((onDateTime.Year - 1) / timeScale.AggregationValue)) * timeScale.AggregationValue + 1;
+                    return common.dateTimeLibs.MakeDate(1, 1, newYear);
+                default:
+                    common.system.ThrowException("Invalid argument in AggregateDateTime()");
+                    break;
+            }
+            return onDateTime;
+        }
+
+        /// <summary>
+        /// Agrregate a data row to hourly,daily data...
+        /// </summary>
+        /// <param name="priceRow"> source data arregated to [toSumTbl] </param>
+        /// <param name="changeVolume"> volume qty changed and is cumulated to total volume </param>
+        /// <param name="timeScale"> aggregate to hour,day,week... data </param>
+        /// <param name="cultureInfo"> culture info that need to caculate the start of the week param>
+        /// <param name="toSumTbl"> destination table</param>
+        public static void AggregatePriceData(databases.baseDS.priceDataRow priceRow, decimal changeVolume, AppTypes.TimeScale timeScale,
+                                              CultureInfo cultureInfo, databases.baseDS.priceDataSumDataTable toSumTbl)
+        {
+            DateTime dataDate = AggregateDateTime(timeScale, priceRow.onDate, cultureInfo);
+            int dataTimeOffset = common.dateTimeLibs.DateDiffInMilliseconds(dataDate, priceRow.onDate);
+
+            databases.baseDS.priceDataSumRow priceDataSumRow;
+            priceDataSumRow = AppLibs.FindAndCache(toSumTbl, priceRow.stockCode, timeScale.Code, dataDate);
+            if (priceDataSumRow == null)
+            {
+                priceDataSumRow = toSumTbl.NewpriceDataSumRow();
+                databases.AppLibs.InitData(priceDataSumRow);
+                priceDataSumRow.type = timeScale.Code;
+                priceDataSumRow.stockCode = priceRow.stockCode;
+                priceDataSumRow.onDate = dataDate;
+                priceDataSumRow.openPrice = priceRow.openPrice;
+                priceDataSumRow.closePrice = priceRow.closePrice;
+                toSumTbl.AddpriceDataSumRow(priceDataSumRow);
+            }
+            if (priceDataSumRow.openTimeOffset > dataTimeOffset)
+            {
+                priceDataSumRow.openPrice = priceRow.openPrice;
+                priceDataSumRow.openTimeOffset = dataTimeOffset;
+            }
+            if (priceDataSumRow.closeTimeOffset <= dataTimeOffset)
+            {
+                priceDataSumRow.closePrice = priceRow.closePrice;
+                priceDataSumRow.closeTimeOffset = dataTimeOffset;
+            }
+            if (priceDataSumRow.highPrice < priceRow.highPrice) priceDataSumRow.highPrice = priceRow.highPrice;
+            if (priceDataSumRow.lowPrice > priceRow.lowPrice) priceDataSumRow.lowPrice = priceRow.lowPrice;
+            priceDataSumRow.volume += changeVolume;
+        }
+
+        /// <summary>
+        /// Agrregate a data table to hourly,daily data...
+        /// </summary>
+        /// <param name="priceTbl">source data to be aggregated </param>
+        /// <param name="cultureCode"></param>
+        /// <param name="isDailyPrice">
+        ///  Volume can be accumulated real-time or at the end of the day. 
+        ///  - If data is collected in realtime, 
+        ///  updateVolume table is used to culmulated the volume for each day and that will need some more resources.
+        ///  - If data is collected at the end of the day, the voulume alredy is the total volume and updateVolume table 
+        ///  should not be used to save resources.
+        /// </param>
+        /// <param name="onAggregateDataFunc">function that was triggered after each agrregation</param>
+        public static void AggregatePriceData(databases.baseDS.priceDataDataTable priceTbl, CultureInfo cultureInfo,
+                                                  OnAggregateData onAggregateDataFunc)
+            {
+                databases.baseDS.priceDataSumDataTable priceSumDataTbl = new databases.baseDS.priceDataSumDataTable();
+                AgrregateInfo myAgrregateStat = new AgrregateInfo();
+                myAgrregateStat.maxCount = priceTbl.Count;
+                priceTbl.DefaultView.Sort = priceTbl.onDateColumn.ColumnName + "," + priceTbl.stockCodeColumn.ColumnName;
+                databases.baseDS.priceDataRow priceDataRow;
+
+                decimal changeVolume;
+                int lastYear = int.MinValue;
+                for (int idx = 0; idx < priceTbl.DefaultView.Count; idx++)
+                {
+                    priceDataRow = (databases.baseDS.priceDataRow)priceTbl.DefaultView[idx].Row;
+                    myAgrregateStat.count = idx;
+                    if (onAggregateDataFunc != null) onAggregateDataFunc(myAgrregateStat);
+                    if (myAgrregateStat.cancel)
+                    {
+                        priceSumDataTbl.Clear();
+                        break;
+                    }
+                    changeVolume = priceDataRow.volume;
+                    foreach (AppTypes.TimeScale timeScale in AppTypes.myTimeScales)
+                    {
+                        if (timeScale.Type == AppTypes.TimeScaleTypes.RealTime) continue;
+                        AggregatePriceData(priceDataRow, changeVolume, timeScale, cultureInfo, priceSumDataTbl);
+                        Application.DoEvents();
+                    }
+                    //Update and clear cache to speed up the performance
+                    if (lastYear != priceDataRow.onDate.Year)
+                    {
+                        databases.DbAccess.UpdateData(priceSumDataTbl);
+                        priceSumDataTbl.Clear();
+                        lastYear = priceDataRow.onDate.Year;
+                    }
+                }
+                databases.DbAccess.UpdateData(priceSumDataTbl);
+            }
+        #endregion
     }
 }
