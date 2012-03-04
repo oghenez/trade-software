@@ -337,7 +337,7 @@ namespace DataAccess
                 return null;
             }
         }
-
+        
         /// <summary>
         /// Currency table
         /// </summary>
@@ -514,6 +514,21 @@ namespace DataAccess
 
         #region Load/Get
 
+        public static databases.baseDS.feedbackCatDataTable GetFeedbackCat()
+        {
+            try
+            {
+                string cacheKey = MakeCacheKey("feedbackCat", "");
+                databases.baseDS.feedbackCatDataTable tbl = myClient.GetFeedbackCat();
+                AddCache(cacheKey, tbl);
+                return tbl;
+            }
+            catch (Exception er)
+            {
+                if (OnError != null) OnError(er);
+            }
+            return null;
+        }
         public static databases.baseDS.sysLogDataTable GetSyslog_ByDate(DateTime frDate, DateTime toDate)
         {
             try
@@ -1298,6 +1313,22 @@ namespace DataAccess
             return null;
         }
 
+        public static databases.baseDS.messagesRow UpdateData(databases.baseDS.messagesRow row)
+        {
+            try
+            {
+                databases.baseDS.messagesDataTable tbl = new databases.baseDS.messagesDataTable();
+                tbl.ImportRow(row);
+                myClient.UpdateMessage(ref tbl);
+                row.AcceptChanges();
+                return tbl[0];
+            }
+            catch (Exception er)
+            {
+                if (OnError != null) OnError(er);
+            }
+            return null;
+        }
         public static databases.baseDS.sysAutoKeyPendingRow UpdateData(databases.baseDS.sysAutoKeyPendingRow row)
         {
             try

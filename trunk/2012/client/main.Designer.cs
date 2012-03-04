@@ -180,6 +180,8 @@
             this.strategyCbStrip = new baseClass.controls.ToolStripCbStrategy();
             this.periodicityStrip = new System.Windows.Forms.ToolStrip();
             this.dummyStripBtn = new System.Windows.Forms.ToolStripButton();
+            this.feedbackMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator30 = new System.Windows.Forms.ToolStripSeparator();
             this.chartStrip.SuspendLayout();
             this.standartStrip.SuspendLayout();
             this.toolsStrip.SuspendLayout();
@@ -1257,6 +1259,8 @@
             // helpMenuItem
             // 
             this.helpMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.feedbackMenuItem,
+            this.toolStripSeparator30,
             this.contentsMenuItem,
             this.indexMenuItem,
             this.searchMenuItem,
@@ -1269,30 +1273,30 @@
             // contentsMenuItem
             // 
             this.contentsMenuItem.Name = "contentsMenuItem";
-            this.contentsMenuItem.Size = new System.Drawing.Size(143, 22);
+            this.contentsMenuItem.Size = new System.Drawing.Size(152, 22);
             this.contentsMenuItem.Text = "&Contents";
             // 
             // indexMenuItem
             // 
             this.indexMenuItem.Name = "indexMenuItem";
-            this.indexMenuItem.Size = new System.Drawing.Size(143, 22);
+            this.indexMenuItem.Size = new System.Drawing.Size(152, 22);
             this.indexMenuItem.Text = "&Index";
             // 
             // searchMenuItem
             // 
             this.searchMenuItem.Name = "searchMenuItem";
-            this.searchMenuItem.Size = new System.Drawing.Size(143, 22);
+            this.searchMenuItem.Size = new System.Drawing.Size(152, 22);
             this.searchMenuItem.Text = "&Search";
             // 
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(140, 6);
+            this.toolStripSeparator5.Size = new System.Drawing.Size(149, 6);
             // 
             // aboutMenuItem
             // 
             this.aboutMenuItem.Name = "aboutMenuItem";
-            this.aboutMenuItem.Size = new System.Drawing.Size(143, 22);
+            this.aboutMenuItem.Size = new System.Drawing.Size(152, 22);
             this.aboutMenuItem.Text = "&About...";
             this.aboutMenuItem.Click += new System.EventHandler(this.aboutMenuItem_Click);
             // 
@@ -1387,6 +1391,18 @@
             this.dummyStripBtn.Name = "dummyStripBtn";
             this.dummyStripBtn.Size = new System.Drawing.Size(85, 22);
             this.dummyStripBtn.Text = "Auto created";
+            // 
+            // feedbackMenuItem
+            // 
+            this.feedbackMenuItem.Name = "feedbackMenuItem";
+            this.feedbackMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.feedbackMenuItem.Text = "Feedback";
+            this.feedbackMenuItem.Click += new System.EventHandler(this.feedbackMenuItem_Click);
+            // 
+            // toolStripSeparator30
+            // 
+            this.toolStripSeparator30.Name = "toolStripSeparator30";
+            this.toolStripSeparator30.Size = new System.Drawing.Size(149, 6);
             // 
             // main
             // 
@@ -1567,6 +1583,8 @@
         private System.Windows.Forms.ToolStripMenuItem changePassMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator28;
         private System.Windows.Forms.ToolStripMenuItem testMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem feedbackMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator30;
     }
 }
 

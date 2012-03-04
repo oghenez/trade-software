@@ -240,5 +240,7 @@ namespace commonTypes
 
         // Whether to log exception, user access...
         public static AppTypes.SyslogMedia sysWriteLogException = AppTypes.SyslogMedia.File;
+
+        public static string sysAdminCode = "A00000004"; 
     }
 }

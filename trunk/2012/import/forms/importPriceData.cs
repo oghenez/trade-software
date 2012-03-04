@@ -54,7 +54,7 @@ namespace Imports.Forms
                 myDataSet.priceData.Clear();
             }
         }
-        private void onAggregateData(agrregateStat stat)
+        private void onAggregateData(databases.AppLibs.AgrregateInfo stat)
         {
             if (fCanceled) stat.cancel = true;
             this.ShowMessage(stat.count.ToString("###,###,##0") + "/" + stat.maxCount.ToString("###,###,##0"), "Aggregate " + stat.phase.ToString());
@@ -79,7 +79,7 @@ namespace Imports.Forms
         }
         private void DoAggregate(databases.baseDS.priceDataDataTable tbl, CultureInfo CultureInfo)
         {
-            Imports.Libs.AggregatePriceData(tbl, CultureInfo, onAggregateData);
+            databases.AppLibs.AggregatePriceData(tbl, CultureInfo, onAggregateData);
         }
 
         private void importBtn_Click(object sender, System.EventArgs e)
@@ -126,7 +126,7 @@ namespace Imports.Forms
                             this.ShowMessage("Arregate stock : " + myDataSet.stockCode[idx].code);
                             myDataSet.priceData.Clear();
                             databases.DbAccess.LoadData(myDataSet.priceData,AppTypes.MainDataTimeScale.Code,DateTime.MinValue, DateTime.MaxValue,myDataSet.stockCode[idx].code);
-                            Imports.Libs.AggregatePriceData(myDataSet.priceData,marketCultureInfo, null);
+                            databases.AppLibs.AggregatePriceData(myDataSet.priceData, marketCultureInfo, null);
                             this.ShowMessage("");
                         }
                         break;

@@ -35,30 +35,35 @@ namespace wsServices
 
         #region update
         [OperationContract]
-        void UpdatePriceData(ref databases.baseDS.priceDataDataTable tbl);
-        [OperationContract]
-        void UpdateSysCodeCat(ref databases.baseDS.sysCodeCatDataTable sysCodeCatTbl);
-        [OperationContract]
-        void UpdateSysCode(ref databases.baseDS.sysCodeDataTable sysCodeTbl);
+        bool UpdateMessage(ref databases.baseDS.messagesDataTable messageTbl);
 
         [OperationContract]
-        void UpdateStock(ref databases.baseDS.stockCodeDataTable stockCodeTbl);
+        bool UpdatePriceData(ref databases.baseDS.priceDataDataTable priceDataTbl);
+
         [OperationContract]
-        void UpdateInvestor(ref databases.baseDS.investorDataTable investorTbl);
+        bool UpdateSysCodeCat(ref databases.baseDS.sysCodeCatDataTable sysCodeCatTbl);
         [OperationContract]
-        void UpdatePortfolio(ref databases.baseDS.portfolioDataTable portfolioTbl);
+        bool UpdateSysCode(ref databases.baseDS.sysCodeDataTable sysCodeTbl);
+
         [OperationContract]
-        void UpdatePortfolioDetail(ref databases.baseDS.portfolioDetailDataTable portfolioDetailTbl);
+        bool UpdateStock(ref databases.baseDS.stockCodeDataTable stockCodeTbl);
         [OperationContract]
-        void UpdateStockExchange(ref databases.baseDS.stockExchangeDataTable stockExchangeTbl);
+        bool UpdateInvestor(ref databases.baseDS.investorDataTable investorTbl);
         [OperationContract]
-        void UpdateTransactions(ref databases.baseDS.transactionsDataTable transactionsTbl);
+        bool UpdatePortfolio(ref databases.baseDS.portfolioDataTable portfolioTbl);
         [OperationContract]
-        void UpdateInvestorStock(ref databases.baseDS.investorStockDataTable investorStockTbl);
+        bool UpdatePortfolioDetail(ref databases.baseDS.portfolioDetailDataTable portfolioDetailTbl);
         [OperationContract]
-        void UpdateTradeAlert(ref databases.baseDS.tradeAlertDataTable tradeAlertTbl);
+        bool UpdateStockExchange(ref databases.baseDS.stockExchangeDataTable stockExchangeTbl);
         [OperationContract]
-        void UpdateSysAutoKeyPending(ref databases.baseDS.sysAutoKeyPendingDataTable sysAutoKeyPendingTbl);
+        bool UpdateTransactions(ref databases.baseDS.transactionsDataTable transactionsTbl);
+        [OperationContract]
+        bool UpdateInvestorStock(ref databases.baseDS.investorStockDataTable investorStockTbl);
+        [OperationContract]
+        bool UpdateTradeAlert(ref databases.baseDS.tradeAlertDataTable tradeAlertTbl);
+
+        [OperationContract]
+        bool UpdateSysAutoKeyPending(ref databases.baseDS.sysAutoKeyPendingDataTable sysAutoKeyPendingTbl);
 
         #endregion
 
@@ -122,6 +127,9 @@ namespace wsServices
         databases.baseDS.bizSubSectorDataTable GetBizSubSectorBySuperSector(string superSectorCode);
         [OperationContract]
         databases.baseDS.bizSubSectorDataTable GetBizSubSectorBySector(string sectorCode);
+
+        [OperationContract]
+        databases.baseDS.feedbackCatDataTable GetFeedbackCat();
 
         [OperationContract]
         databases.baseDS.countryDataTable GetCountry();
@@ -196,6 +204,9 @@ namespace wsServices
         int GetData_TotalRow(string timeScaleCode, string stockCode, DateTime frDate, DateTime toDate);
         [OperationContract]
         bool GetTransactionInfo(ref TransactionInfo transInfo);
+
+        [OperationContract]
+        databases.baseDS.messagesDataTable GetMesssage_ByDate(DateTime frDate, DateTime toDate);
 
         //[OperationContract]
         //object[] GetPriceByCode(string stockCode);

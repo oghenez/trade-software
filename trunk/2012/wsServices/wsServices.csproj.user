@@ -17,7 +17,7 @@
         <WcfProjectProperties>
           <PublishCopyOption>RunFiles</PublishCopyOption>
           <PublishTargetLocation>http://localhost</PublishTargetLocation>
-          <PublishDeleteAllFiles>False</PublishDeleteAllFiles>
+          <PublishDeleteAllFiles>True</PublishDeleteAllFiles>
         </WcfProjectProperties>
       </FlavorProperties>
     </VisualStudio>
