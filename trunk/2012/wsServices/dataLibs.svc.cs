@@ -965,7 +965,6 @@ namespace wsServices
             }
             return null;
         }
-<<<<<<< .mine
 
         public void AjustPriceData(string code, DateTime toDate, double weight)
         {
@@ -979,8 +978,6 @@ namespace wsServices
             }
         }
        
-=======
->>>>>>> .r474
         //public void AdjustPriceData(string code, DateTime toDate, double weight)
         //{
         //    try
