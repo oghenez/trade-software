@@ -169,6 +169,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "databases", "databases\data
 		{AE392C66-BEBF-4507-ADD9-F17D9E51FC42} = {AE392C66-BEBF-4507-ADD9-F17D9E51FC42}
 	EndProjectSection
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "QuantumSetup", "QInvestSetup\QInvestSetup.vdproj", "{E64EA683-7BA7-4ABD-AA5D-7E211249B234}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -255,6 +257,10 @@ Global
 		{B698A85B-1837-49DF-B2E5-221DFB0D02CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B698A85B-1837-49DF-B2E5-221DFB0D02CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B698A85B-1837-49DF-B2E5-221DFB0D02CA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E64EA683-7BA7-4ABD-AA5D-7E211249B234}.Debug|Any CPU.ActiveCfg = Debug
+		{E64EA683-7BA7-4ABD-AA5D-7E211249B234}.Debug|Any CPU.Build.0 = Debug
+		{E64EA683-7BA7-4ABD-AA5D-7E211249B234}.Release|Any CPU.ActiveCfg = Release
+		{E64EA683-7BA7-4ABD-AA5D-7E211249B234}.Release|Any CPU.Build.0 = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
