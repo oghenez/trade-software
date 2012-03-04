@@ -67,14 +67,6 @@
             this.toolStripSeparator19 = new System.Windows.Forms.ToolStripSeparator();
             this.chartRefreshBtn = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator29 = new System.Windows.Forms.ToolStripSeparator();
-            this.standartStrip = new System.Windows.Forms.ToolStrip();
-            this.addChartBtn = new System.Windows.Forms.ToolStripButton();
-            this.printChartBtn = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator12 = new System.Windows.Forms.ToolStripSeparator();
-            this.marketWatchBtn = new System.Windows.Forms.ToolStripButton();
-            this.myPortfolioBtn = new System.Windows.Forms.ToolStripButton();
-            this.tradeAlertBtn = new System.Windows.Forms.ToolStripButton();
-            this.transHistoryBtn = new System.Windows.Forms.ToolStripButton();
             this.toolsStrip = new System.Windows.Forms.ToolStrip();
             this.toolRunBtn = new System.Windows.Forms.ToolStripButton();
             this.toolFullViewBtn = new System.Windows.Forms.ToolStripButton();
@@ -176,20 +168,28 @@
             this.formatStrip = new System.Windows.Forms.ToolStrip();
             this.amountBtn = new System.Windows.Forms.ToolStripButton();
             this.percentBtn = new System.Windows.Forms.ToolStripButton();
-            this.strategyStrip = new System.Windows.Forms.ToolStrip();
-            this.strategyCbStrip = new baseClass.controls.ToolStripCbStrategy();
             this.periodicityStrip = new System.Windows.Forms.ToolStrip();
             this.dummyStripBtn = new System.Windows.Forms.ToolStripButton();
+            this.strategyStrip = new System.Windows.Forms.ToolStrip();
+            this.strategyCbStrip = new baseClass.controls.ToolStripCbStrategy();
+            this.addChartBtn = new System.Windows.Forms.ToolStripButton();
+            this.printChartBtn = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator12 = new System.Windows.Forms.ToolStripSeparator();
+            this.marketWatchBtn = new System.Windows.Forms.ToolStripButton();
+            this.myPortfolioBtn = new System.Windows.Forms.ToolStripButton();
+            this.tradeAlertBtn = new System.Windows.Forms.ToolStripButton();
+            this.transHistoryBtn = new System.Windows.Forms.ToolStripButton();
+            this.standartStrip = new System.Windows.Forms.ToolStrip();
             this.feedbackMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator30 = new System.Windows.Forms.ToolStripSeparator();
             this.chartStrip.SuspendLayout();
-            this.standartStrip.SuspendLayout();
             this.toolsStrip.SuspendLayout();
             this.mainMenu.SuspendLayout();
             this.toolStripPanel.SuspendLayout();
             this.formatStrip.SuspendLayout();
-            this.strategyStrip.SuspendLayout();
             this.periodicityStrip.SuspendLayout();
+            this.strategyStrip.SuspendLayout();
+            this.standartStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // TitleLbl
@@ -283,7 +283,11 @@
             this.dockPanel.Location = new System.Drawing.Point(0, 49);
             this.dockPanel.Margin = new System.Windows.Forms.Padding(4);
             this.dockPanel.Name = "dockPanel";
+<<<<<<< .mine
+            this.dockPanel.Size = new System.Drawing.Size(1276, 623);
+=======
             this.dockPanel.Size = new System.Drawing.Size(1284, 601);
+>>>>>>> .r474
             dockPanelGradient1.EndColor = System.Drawing.SystemColors.ControlLight;
             dockPanelGradient1.StartColor = System.Drawing.SystemColors.ControlLight;
             autoHideStripSkin1.DockStripGradient = dockPanelGradient1;
@@ -349,7 +353,11 @@
             this.zoomInBtn,
             this.toolStripSeparator19,
             this.chartRefreshBtn});
+<<<<<<< .mine
+            this.chartStrip.Location = new System.Drawing.Point(159, 24);
+=======
             this.chartStrip.Location = new System.Drawing.Point(158, 24);
+>>>>>>> .r474
             this.chartStrip.Name = "chartStrip";
             this.chartStrip.Size = new System.Drawing.Size(212, 25);
             this.chartStrip.TabIndex = 11;
@@ -462,6 +470,8 @@
             this.toolStripSeparator29.Name = "toolStripSeparator29";
             this.toolStripSeparator29.Size = new System.Drawing.Size(6, 25);
             // 
+<<<<<<< .mine
+=======
             // standartStrip
             // 
             this.standartStrip.Dock = System.Windows.Forms.DockStyle.None;
@@ -544,6 +554,7 @@
             this.transHistoryBtn.Text = "toolStripButton1";
             this.transHistoryBtn.Click += new System.EventHandler(this.transHistoryBtn_Click);
             // 
+>>>>>>> .r474
             // toolsStrip
             // 
             this.toolsStrip.Dock = System.Windows.Forms.DockStyle.None;
@@ -552,9 +563,17 @@
             this.toolRunBtn,
             this.toolFullViewBtn,
             this.exportBtn});
+<<<<<<< .mine
+            this.toolsStrip.Location = new System.Drawing.Point(431, 24);
+=======
             this.toolsStrip.Location = new System.Drawing.Point(372, 24);
+>>>>>>> .r474
             this.toolsStrip.Name = "toolsStrip";
+<<<<<<< .mine
+            this.toolsStrip.Size = new System.Drawing.Size(81, 25);
+=======
             this.toolsStrip.Size = new System.Drawing.Size(79, 25);
+>>>>>>> .r474
             this.toolsStrip.TabIndex = 2;
             // 
             // toolRunBtn
@@ -1314,8 +1333,18 @@
             this.toolStripPanel.Controls.Add(this.chartStrip);
             this.toolStripPanel.Controls.Add(this.toolsStrip);
             this.toolStripPanel.Controls.Add(this.formatStrip);
+<<<<<<< .mine
+            this.toolStripPanel.Controls.Add(this.standartStrip);
+=======
             this.toolStripPanel.Controls.Add(this.strategyStrip);
+>>>>>>> .r474
             this.toolStripPanel.Controls.Add(this.periodicityStrip);
+<<<<<<< .mine
+            this.toolStripPanel.Controls.Add(this.strategyStrip);
+            this.toolStripPanel.Controls.Add(this.toolsStrip);
+            this.toolStripPanel.Controls.Add(this.chartStrip);
+=======
+>>>>>>> .r474
             this.toolStripPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.toolStripPanel.Location = new System.Drawing.Point(0, 0);
             this.toolStripPanel.Name = "toolStripPanel";
@@ -1329,7 +1358,11 @@
             this.formatStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.amountBtn,
             this.percentBtn});
+<<<<<<< .mine
+            this.formatStrip.Location = new System.Drawing.Point(373, 24);
+=======
             this.formatStrip.Location = new System.Drawing.Point(451, 24);
+>>>>>>> .r474
             this.formatStrip.Name = "formatStrip";
             this.formatStrip.Size = new System.Drawing.Size(56, 25);
             this.formatStrip.TabIndex = 148;
@@ -1353,13 +1386,36 @@
             this.percentBtn.Size = new System.Drawing.Size(23, 22);
             this.percentBtn.Click += new System.EventHandler(this.percentBtn_Click);
             // 
+            // periodicityStrip
+            // 
+            this.periodicityStrip.Dock = System.Windows.Forms.DockStyle.None;
+            this.periodicityStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.dummyStripBtn});
+            this.periodicityStrip.Location = new System.Drawing.Point(512, 24);
+            this.periodicityStrip.Name = "periodicityStrip";
+            this.periodicityStrip.Size = new System.Drawing.Size(91, 25);
+            this.periodicityStrip.TabIndex = 147;
+            // 
+            // dummyStripBtn
+            // 
+            this.dummyStripBtn.CheckOnClick = true;
+            this.dummyStripBtn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.dummyStripBtn.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.dummyStripBtn.Name = "dummyStripBtn";
+            this.dummyStripBtn.Size = new System.Drawing.Size(79, 22);
+            this.dummyStripBtn.Text = "Auto created";
+            // 
             // strategyStrip
             // 
             this.strategyStrip.Dock = System.Windows.Forms.DockStyle.None;
             this.strategyStrip.Enabled = false;
             this.strategyStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.strategyCbStrip});
+<<<<<<< .mine
+            this.strategyStrip.Location = new System.Drawing.Point(606, 24);
+=======
             this.strategyStrip.Location = new System.Drawing.Point(512, 24);
+>>>>>>> .r474
             this.strategyStrip.Name = "strategyStrip";
             this.strategyStrip.Size = new System.Drawing.Size(312, 25);
             this.strategyStrip.TabIndex = 149;
@@ -1372,8 +1428,16 @@
             this.strategyCbStrip.SelectedValue = "";
             this.strategyCbStrip.Size = new System.Drawing.Size(300, 25);
             // 
-            // periodicityStrip
+            // addChartBtn
             // 
+<<<<<<< .mine
+            this.addChartBtn.Image = global::client.Properties.Resources.addAll;
+            this.addChartBtn.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.addChartBtn.Name = "addChartBtn";
+            this.addChartBtn.Size = new System.Drawing.Size(23, 22);
+            this.addChartBtn.ToolTipText = "New Chart";
+            this.addChartBtn.Click += new System.EventHandler(this.NewChartMenuItem_Click);
+=======
             this.periodicityStrip.Dock = System.Windows.Forms.DockStyle.None;
             this.periodicityStrip.Enabled = false;
             this.periodicityStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -1382,16 +1446,92 @@
             this.periodicityStrip.Name = "periodicityStrip";
             this.periodicityStrip.Size = new System.Drawing.Size(95, 25);
             this.periodicityStrip.TabIndex = 147;
+>>>>>>> .r474
             // 
-            // dummyStripBtn
+            // printChartBtn
             // 
+<<<<<<< .mine
+            this.printChartBtn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.printChartBtn.Image = global::client.Properties.Resources.print;
+            this.printChartBtn.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.printChartBtn.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.printChartBtn.Name = "printChartBtn";
+            this.printChartBtn.Size = new System.Drawing.Size(23, 22);
+            this.printChartBtn.ToolTipText = "Print";
+=======
             this.dummyStripBtn.CheckOnClick = true;
             this.dummyStripBtn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.dummyStripBtn.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.dummyStripBtn.Name = "dummyStripBtn";
             this.dummyStripBtn.Size = new System.Drawing.Size(85, 22);
             this.dummyStripBtn.Text = "Auto created";
+>>>>>>> .r474
             // 
+<<<<<<< .mine
+            // toolStripSeparator12
+            // 
+            this.toolStripSeparator12.Name = "toolStripSeparator12";
+            this.toolStripSeparator12.Size = new System.Drawing.Size(6, 25);
+            // 
+            // marketWatchBtn
+            // 
+            this.marketWatchBtn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.marketWatchBtn.Image = global::client.Properties.Resources.glasses;
+            this.marketWatchBtn.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.marketWatchBtn.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.marketWatchBtn.Name = "marketWatchBtn";
+            this.marketWatchBtn.Size = new System.Drawing.Size(23, 22);
+            this.marketWatchBtn.ToolTipText = "Market Watch";
+            this.marketWatchBtn.Click += new System.EventHandler(this.marketWatchBtn_Click);
+            // 
+            // myPortfolioBtn
+            // 
+            this.myPortfolioBtn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.myPortfolioBtn.Image = global::client.Properties.Resources.book;
+            this.myPortfolioBtn.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.myPortfolioBtn.Name = "myPortfolioBtn";
+            this.myPortfolioBtn.Size = new System.Drawing.Size(23, 22);
+            this.myPortfolioBtn.ToolTipText = "Portfolio Watch";
+            this.myPortfolioBtn.Click += new System.EventHandler(this.myPortfolioBtn_Click);
+            // 
+            // tradeAlertBtn
+            // 
+            this.tradeAlertBtn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tradeAlertBtn.Image = global::client.Properties.Resources.flag;
+            this.tradeAlertBtn.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tradeAlertBtn.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tradeAlertBtn.Name = "tradeAlertBtn";
+            this.tradeAlertBtn.Size = new System.Drawing.Size(23, 22);
+            this.tradeAlertBtn.ToolTipText = "Trade Alerts";
+            this.tradeAlertBtn.Click += new System.EventHandler(this.tradeAlertBtn_Click);
+            // 
+            // transHistoryBtn
+            // 
+            this.transHistoryBtn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.transHistoryBtn.Image = global::client.Properties.Resources.documents;
+            this.transHistoryBtn.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.transHistoryBtn.Name = "transHistoryBtn";
+            this.transHistoryBtn.Size = new System.Drawing.Size(23, 22);
+            this.transHistoryBtn.Text = "toolStripButton1";
+            this.transHistoryBtn.Click += new System.EventHandler(this.transHistoryBtn_Click);
+            // 
+            // standartStrip
+            // 
+            this.standartStrip.Dock = System.Windows.Forms.DockStyle.None;
+            this.standartStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addChartBtn,
+            this.printChartBtn,
+            this.toolStripSeparator12,
+            this.marketWatchBtn,
+            this.myPortfolioBtn,
+            this.tradeAlertBtn,
+            this.transHistoryBtn});
+            this.standartStrip.Location = new System.Drawing.Point(3, 24);
+            this.standartStrip.Name = "standartStrip";
+            this.standartStrip.Size = new System.Drawing.Size(156, 25);
+            this.standartStrip.TabIndex = 10;
+            // 
+=======
             // feedbackMenuItem
             // 
             this.feedbackMenuItem.Name = "feedbackMenuItem";
@@ -1404,6 +1544,7 @@
             this.toolStripSeparator30.Name = "toolStripSeparator30";
             this.toolStripSeparator30.Size = new System.Drawing.Size(149, 6);
             // 
+>>>>>>> .r474
             // main
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -1425,8 +1566,6 @@
             this.Controls.SetChildIndex(this.TitleLbl, 0);
             this.chartStrip.ResumeLayout(false);
             this.chartStrip.PerformLayout();
-            this.standartStrip.ResumeLayout(false);
-            this.standartStrip.PerformLayout();
             this.toolsStrip.ResumeLayout(false);
             this.toolsStrip.PerformLayout();
             this.mainMenu.ResumeLayout(false);
@@ -1435,10 +1574,12 @@
             this.toolStripPanel.PerformLayout();
             this.formatStrip.ResumeLayout(false);
             this.formatStrip.PerformLayout();
-            this.strategyStrip.ResumeLayout(false);
-            this.strategyStrip.PerformLayout();
             this.periodicityStrip.ResumeLayout(false);
             this.periodicityStrip.PerformLayout();
+            this.strategyStrip.ResumeLayout(false);
+            this.strategyStrip.PerformLayout();
+            this.standartStrip.ResumeLayout(false);
+            this.standartStrip.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1469,13 +1610,6 @@
         private System.Windows.Forms.ToolStripButton zoomOutBtn;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator29;
         private System.Windows.Forms.ToolStripButton chartRefreshBtn;
-        private System.Windows.Forms.ToolStrip standartStrip;
-        private System.Windows.Forms.ToolStripButton addChartBtn;
-        private System.Windows.Forms.ToolStripButton printChartBtn;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator12;
-        private System.Windows.Forms.ToolStripButton marketWatchBtn;
-        private System.Windows.Forms.ToolStripButton myPortfolioBtn;
-        private System.Windows.Forms.ToolStripButton tradeAlertBtn;
         private System.Windows.Forms.ToolStrip toolsStrip;
         private System.Windows.Forms.ToolStripButton toolRunBtn;
         private System.Windows.Forms.ToolStripButton toolFullViewBtn;
@@ -1558,7 +1692,6 @@
         private System.Windows.Forms.ToolStrip periodicityStrip;
         private System.Windows.Forms.ToolStripButton dummyStripBtn;
         private System.Windows.Forms.ToolStripMenuItem screeningMenuItem;
-        private System.Windows.Forms.ToolStripButton transHistoryBtn;
         private System.Windows.Forms.ToolStripMenuItem orderMenuItem;
         private System.Windows.Forms.ToolStripButton exportBtn;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator19;
@@ -1583,8 +1716,19 @@
         private System.Windows.Forms.ToolStripMenuItem changePassMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator28;
         private System.Windows.Forms.ToolStripMenuItem testMenuItem;
+<<<<<<< .mine
+        private System.Windows.Forms.ToolStrip standartStrip;
+        private System.Windows.Forms.ToolStripButton addChartBtn;
+        private System.Windows.Forms.ToolStripButton printChartBtn;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator12;
+        private System.Windows.Forms.ToolStripButton marketWatchBtn;
+        private System.Windows.Forms.ToolStripButton myPortfolioBtn;
+        private System.Windows.Forms.ToolStripButton tradeAlertBtn;
+        private System.Windows.Forms.ToolStripButton transHistoryBtn;
+=======
         private System.Windows.Forms.ToolStripMenuItem feedbackMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator30;
+>>>>>>> .r474
     }
 }
 
