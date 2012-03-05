@@ -433,7 +433,7 @@ namespace baseClass.controls
                 if (stockGV.Columns[e.ColumnIndex] != codeColumn) return;
                 databases.tmpDS.stockCodeRow row = (databases.tmpDS.stockCodeRow)((DataRowView)stockGV.Rows[e.RowIndex].DataBoundItem).Row;
                 if (row == null) return;
-                e.ToolTipText = (commonClass.SysLibs.IsUseVietnamese() ? row.name : row.nameEn);
+                e.ToolTipText = (commonClass.SysLibs.IsUseVietnamese() ? row.name : (row.IsnameEnNull()?"":row.nameEn));
             }
             catch (Exception er)
             {
