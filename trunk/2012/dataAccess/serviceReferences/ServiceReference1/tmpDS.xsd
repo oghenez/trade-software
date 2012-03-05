@@ -1110,10 +1110,11 @@
               <xs:element msdata:ReadOnly="true" minOccurs="0" name="language">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
-                    <xs:maxLength value="2" />
+                    <xs:maxLength value="10" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
+              <xs:element minOccurs="0" name="weight" type="xs:int" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

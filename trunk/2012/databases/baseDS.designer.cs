@@ -10502,6 +10502,8 @@ namespace databases {
             
             private global::System.Data.DataColumn columnlanguage;
             
+            private global::System.Data.DataColumn columnweight;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public feedbackCatDataTable() {
                 this.TableName = "feedbackCat";
@@ -10554,6 +10556,13 @@ namespace databases {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn weightColumn {
+                get {
+                    return this.columnweight;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -10582,12 +10591,13 @@ namespace databases {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public feedbackCatRow AddfeedbackCatRow(string code, string description, string language) {
+            public feedbackCatRow AddfeedbackCatRow(string code, string description, string language, int weight) {
                 feedbackCatRow rowfeedbackCatRow = ((feedbackCatRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         code,
                         description,
-                        language};
+                        language,
+                        weight};
                 rowfeedbackCatRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowfeedbackCatRow);
                 return rowfeedbackCatRow;
@@ -10616,6 +10626,7 @@ namespace databases {
                 this.columncode = base.Columns["code"];
                 this.columndescription = base.Columns["description"];
                 this.columnlanguage = base.Columns["language"];
+                this.columnweight = base.Columns["weight"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -10626,6 +10637,8 @@ namespace databases {
                 base.Columns.Add(this.columndescription);
                 this.columnlanguage = new global::System.Data.DataColumn("language", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnlanguage);
+                this.columnweight = new global::System.Data.DataColumn("weight", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnweight);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columncode}, true));
                 this.columncode.AllowDBNull = false;
@@ -14113,6 +14126,21 @@ namespace databases {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public int weight {
+                get {
+                    try {
+                        return ((int)(this[this.tablefeedbackCat.weightColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'weight\' in table \'feedbackCat\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablefeedbackCat.weightColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public bool IslanguageNull() {
                 return this.IsNull(this.tablefeedbackCat.languageColumn);
             }
@@ -14120,6 +14148,16 @@ namespace databases {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public void SetlanguageNull() {
                 this[this.tablefeedbackCat.languageColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsweightNull() {
+                return this.IsNull(this.tablefeedbackCat.weightColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetweightNull() {
+                this[this.tablefeedbackCat.weightColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -25341,6 +25379,7 @@ SELECT MsgId, type, OnDate, SenderId, ReceiverId, Category, Subject, MsgBody, st
             tableMapping.ColumnMappings.Add("code", "code");
             tableMapping.ColumnMappings.Add("description", "description");
             tableMapping.ColumnMappings.Add("language", "language");
+            tableMapping.ColumnMappings.Add("weight", "weight");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -25355,7 +25394,7 @@ SELECT MsgId, type, OnDate, SenderId, ReceiverId, Category, Subject, MsgBody, st
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT * FROM feedbackCat WHERE language=@language";
+            this._commandCollection[0].CommandText = "SELECT * FROM feedbackCat WHERE language=@language ORDER BY weight DESC";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@language", global::System.Data.SqlDbType.NVarChar, 10, global::System.Data.ParameterDirection.Input, 0, 0, "language", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }

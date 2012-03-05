@@ -135,5 +135,18 @@ namespace server
                 this.ShowError(er);
             }
         }
+
+        private void reAggregateMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Imports.Forms.reAggregatePrice form = new Imports.Forms.reAggregatePrice();
+                form.ShowDialog();
+            }
+            catch (Exception er)
+            {
+                this.ShowError(er);
+            }
+        }
     }
 }

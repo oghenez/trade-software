@@ -525,8 +525,8 @@ namespace client
                         (dockPanel.Contents[idx] as Trade.Forms.transactionList).Refresh();
                         continue;
                     }
-                    fRefreshingData = false;
                 }
+                fRefreshingData = false;
             }
             catch(Exception er)
             {
