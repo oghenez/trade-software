@@ -522,7 +522,7 @@ namespace Charts.Controls
         public virtual void CalcGraphSize()
         {
             this.myGraphPane.Chart.Rect = new RectangleF(this.ChartMarginLEFT, this.ChartMarginTOP,
-                                                         this.Width - this.ChartMarginRIGHT,
+                                                         this.Width - this.ChartMarginRIGHT-10,
                                                          this.Height - this.ChartMarginBOTTOM);
 
             this.myGraphPane.Margin.Left = this.ChartMarginLEFT;
