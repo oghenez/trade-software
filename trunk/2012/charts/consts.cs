@@ -30,16 +30,16 @@ namespace Charts
         public static int sysChartMarginLEFT = 50;
         public static int sysChartMarginRIGHT = 0;
         public static int sysChartMarginTOP = 0;
-        public static int sysChartMarginBOT = 3;
+        public static int sysChartMarginBOT = 0;
 
         //Viewport need some space arround to give the feeling of full display 
         public static int sysViewSpaceAtLEFT = 0;  //In percentage
-        public static int sysViewSpaceAtRIGHT = 10; //10%
+        public static int sysViewSpaceAtRIGHT = 1; //1%
 
-        public static int sysViewMinBarAtLEFT  = 5;  //In bars
-        public static int sysViewMinBarAtRIGHT = 5; 
+        public static int sysViewMinBarAtLEFT  = 5; //5 In bars
+        public static int sysViewMinBarAtRIGHT = 5; //5 In bars
 
-        public static double sysViewSpaceAtTOP = 0.2;  //In value
-        public static double sysViewSpaceAtBOT = 0.2;
+        public static double sysViewSpaceAtTOP = 0; //0.2 In value
+        public static double sysViewSpaceAtBOT = 0; //0.2 In value
     }
 }

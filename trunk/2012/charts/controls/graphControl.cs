@@ -522,13 +522,13 @@ namespace Charts.Controls
         public virtual void CalcGraphSize()
         {
             this.myGraphPane.Chart.Rect = new RectangleF(this.ChartMarginLEFT, this.ChartMarginTOP,
-                                                         this.Width - this.ChartMarginRIGHT-10,
+                                                         this.Width - this.ChartMarginRIGHT-50,
                                                          this.Height - this.ChartMarginBOTTOM);
 
-            this.myGraphPane.Margin.Left = this.ChartMarginLEFT;
-            this.myGraphPane.Margin.Top = this.ChartMarginTOP;
-            this.myGraphPane.Margin.Right = this.ChartMarginRIGHT;
-            this.myGraphPane.Margin.Bottom = this.ChartMarginBOTTOM;
+            //this.myGraphPane.Margin.Left = this.ChartMarginLEFT;
+            //this.myGraphPane.Margin.Top = this.ChartMarginTOP;
+            //this.myGraphPane.Margin.Right = this.ChartMarginRIGHT;
+            //this.myGraphPane.Margin.Bottom = this.ChartMarginBOTTOM;
         }
 
         public MouseButtons myPanButton = MouseButtons.Left;
