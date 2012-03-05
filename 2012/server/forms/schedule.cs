@@ -111,18 +111,18 @@ namespace server
             {
                 if (fFetchDataRunning)
                 {
-                    commonClass.SysLibs.WriteSysLog("Ignore fetch Data ");
+                    //commonClass.SysLibs.WriteSysLog("Ignore fetch Data ");
                     return;
                 }
                 fFetchDataRunning = true;
-                commonClass.SysLibs.WriteSysLog(" - Start fetch Data ");
+                //commonClass.SysLibs.WriteSysLog("Start fetch Data ");
                 libs.FetchRealTimeData(DateTime.Now);
                 fFetchDataRunning = false;
             }
             catch (Exception er)
             {
                 fFetchDataRunning = false;
-                commonClass.SysLibs.WriteSysLog(" - Fetch Data error " + er.Message);
+                commonClass.SysLibs.WriteSysLog("Error " + er.Message);
             }
             
         }

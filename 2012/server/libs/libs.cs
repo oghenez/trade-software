@@ -76,7 +76,7 @@ namespace server
 
             for (int idx = 0; idx < workTimeRules.Count; idx++)
             {
-                //"Start time"  "End Time"  "Dow,,Dow"
+                //"Start time" ;  "End Time" ; "Dow,,Dow"
                 list = common.system.String2List(workTimeRules[idx], ";");
                 if (list.Length != 3)
                 {
@@ -156,7 +156,7 @@ namespace server
                          break;
                     default: continue;
                 }
-                commonClass.SysLibs.WriteSysLog("Updated from " + param.dataLocation);
+                commonClass.SysLibs.WriteSysLog(" - Updated from " + param.dataLocation);
             }
             return;
         }

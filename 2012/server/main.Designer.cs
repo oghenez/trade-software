@@ -47,6 +47,8 @@
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.dataProcessMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
+            this.reAggregateMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.myMainMenu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -112,7 +114,9 @@
             this.toolStripSeparator5,
             this.updateDataMenuItem,
             this.toolStripSeparator4,
-            this.reUpdatePriceMenuItem});
+            this.reUpdatePriceMenuItem,
+            this.toolStripSeparator6,
+            this.reAggregateMenuItem});
             this.toolMenuItem.Name = "toolMenuItem";
             this.toolMenuItem.Size = new System.Drawing.Size(71, 22);
             this.toolMenuItem.Text = "Công cụ";
@@ -198,6 +202,19 @@
             this.dataProcessMenuItem.Size = new System.Drawing.Size(116, 20);
             this.dataProcessMenuItem.Text = "Xử lý dữ liệu";
             // 
+            // toolStripSeparator6
+            // 
+            this.toolStripSeparator6.Name = "toolStripSeparator6";
+            this.toolStripSeparator6.Size = new System.Drawing.Size(259, 6);
+            // 
+            // reAggregateMenuItem
+            // 
+            this.reAggregateMenuItem.Image = global::server.Properties.Resources.exrate;
+            this.reAggregateMenuItem.Name = "reAggregateMenuItem";
+            this.reAggregateMenuItem.Size = new System.Drawing.Size(262, 22);
+            this.reAggregateMenuItem.Text = "Tổ hợp lại giá";
+            this.reAggregateMenuItem.Click += new System.EventHandler(this.reAggregateMenuItem_Click);
+            // 
             // main
             // 
             this.ClientSize = new System.Drawing.Size(720, 406);
@@ -239,5 +256,7 @@
         private System.Windows.Forms.ToolStripMenuItem reUpdatePriceMenuItem;
         private System.Windows.Forms.ToolStripMenuItem updateDataMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
+        private System.Windows.Forms.ToolStripMenuItem reAggregateMenuItem;
     }
 }

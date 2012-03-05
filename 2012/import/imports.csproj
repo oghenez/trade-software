@@ -56,6 +56,12 @@
     <Reference Include="WeifenLuo.WinFormsUI.Docking, Version=2.5.0.18386, Culture=neutral, processorArchitecture=MSIL" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="forms\reAggregatePrice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\reAggregatePrice.Designer.cs">
+      <DependentUpon>reAggregatePrice.cs</DependentUpon>
+    </Compile>
     <Compile Include="forms\importCompany.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -100,6 +106,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="forms\reAggregatePrice.resx">
+      <DependentUpon>reAggregatePrice.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="forms\importCompany.resx">
       <DependentUpon>importCompany.cs</DependentUpon>
       <SubType>Designer</SubType>
