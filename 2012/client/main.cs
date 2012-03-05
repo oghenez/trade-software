@@ -404,6 +404,9 @@ namespace client
             myPortfolioMenuItem.Checked = application.Configuration.GetDefaultFormState("portfolio");
             transHistoryMenuItem.Checked = application.Configuration.GetDefaultFormState("transHistory");
 
+            OpenDefaultForm();
+            //ShowMarketSummaryForm();
+
             //common.Data.Clear();
             return true;
         }
@@ -1850,8 +1853,6 @@ namespace client
             {
                 try
                 {
-                    OpenDefaultForm();
-                    //ShowMarketSummaryForm();
                     SetTimer(true);
                     this.ShowMessage(common.dateTimeLibs.TimeSpan2String(stopWatch.Elapsed));
                     SetTimer(true);
