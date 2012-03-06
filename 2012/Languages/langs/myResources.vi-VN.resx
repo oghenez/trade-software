@@ -1041,8 +1041,8 @@
   <data name="left" xml:space="preserve">
     <value>Trái</value>
   </data>
-  <data name="marginAndSpace" xml:space="preserve">
-    <value>Lề  &amp; khỏang trống</value>
+  <data name="margin" xml:space="preserve">
+    <value>Canh lề </value>
   </data>
   <data name="right" xml:space="preserve">
     <value>Phài</value>
@@ -1292,5 +1292,8 @@
   </data>
   <data name="sellAlert" xml:space="preserve">
     <value>Cảnh báo bán</value>
+  </data>
+  <data name="space" xml:space="preserve">
+    <value>Chung quanh</value>
   </data>
 </root>
