@@ -1035,8 +1035,8 @@
   <data name="left" xml:space="preserve">
     <value>Left</value>
   </data>
-  <data name="marginAndSpace" xml:space="preserve">
-    <value>Margin &amp; Space</value>
+  <data name="margin" xml:space="preserve">
+    <value>Margin</value>
   </data>
   <data name="right" xml:space="preserve">
     <value>Right</value>
@@ -1286,5 +1286,8 @@
   </data>
   <data name="sellAlert" xml:space="preserve">
     <value>Sell alert(s)</value>
+  </data>
+  <data name="space" xml:space="preserve">
+    <value>Space</value>
   </data>
 </root>

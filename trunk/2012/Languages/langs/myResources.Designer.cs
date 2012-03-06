@@ -1798,11 +1798,11 @@ namespace Languages.langs {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Margin &amp; Space.
+        ///   Looks up a localized string similar to Margin.
         /// </summary>
-        internal static string marginAndSpace {
+        internal static string margin {
             get {
-                return ResourceManager.GetString("marginAndSpace", resourceCulture);
+                return ResourceManager.GetString("margin", resourceCulture);
             }
         }
         
@@ -2865,6 +2865,15 @@ namespace Languages.langs {
         internal static string source {
             get {
                 return ResourceManager.GetString("source", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Space.
+        /// </summary>
+        internal static string space {
+            get {
+                return ResourceManager.GetString("space", resourceCulture);
             }
         }
         

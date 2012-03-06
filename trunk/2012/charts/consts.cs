@@ -33,13 +33,13 @@ namespace Charts
         public static int sysChartMarginBOT = 0;
 
         //Viewport need some space arround to give the feeling of full display 
-        public static int sysViewSpaceAtLEFT = 0;  //In percentage
-        public static int sysViewSpaceAtRIGHT = 1; //1%
-
         public static int sysViewMinBarAtLEFT  = 5; //5 In bars
         public static int sysViewMinBarAtRIGHT = 5; //5 In bars
 
-        public static double sysViewSpaceAtTOP = 0; //0.2 In value
-        public static double sysViewSpaceAtBOT = 0; //0.2 In value
+        public static int sysViewSpaceAtLEFT = 0;  //In percentage
+        public static int sysViewSpaceAtRIGHT = 1; //1%
+
+        public static decimal sysViewSpaceAtTOP = 2; //1% percent
+        public static decimal sysViewSpaceAtBOT = 2; //1%
     }
 }
