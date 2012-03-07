@@ -1293,7 +1293,7 @@
   <data name="sellAlert" xml:space="preserve">
     <value>Cảnh báo bán</value>
   </data>
-  <data name="space" xml:space="preserve">
+  <data name="padding" xml:space="preserve">
     <value>Chung quanh</value>
   </data>
 </root>
