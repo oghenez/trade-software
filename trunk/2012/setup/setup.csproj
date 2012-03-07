@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.30729</ProductVersion>
+    <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{6914F1B1-F5EE-41FB-B9DD-D5031F1212D1}</ProjectGuid>
     <OutputType>WinExe</OutputType>
@@ -108,6 +108,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="forms\configure.resx">
       <DependentUpon>configure.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\selectConfigFile.resx">
       <DependentUpon>selectConfigFile.cs</DependentUpon>
