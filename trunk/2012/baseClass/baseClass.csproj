@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.30729</ProductVersion>
+    <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{D14859F5-0C41-4D7E-91AD-ED1C9195234D}</ProjectGuid>
     <OutputType>Library</OutputType>
@@ -501,6 +501,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="forms\changePassword.resx">
       <DependentUpon>changePassword.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\companyEdit.resx">
       <DependentUpon>companyEdit.cs</DependentUpon>
@@ -526,9 +527,12 @@
       <DependentUpon>configure.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+<<<<<<< .mine
+=======
     <EmbeddedResource Include="forms\feedbackEdit.resx">
       <DependentUpon>feedbackEdit.cs</DependentUpon>
     </EmbeddedResource>
+>>>>>>> .r491
     <EmbeddedResource Include="forms\feedbackViewer.resx">
       <DependentUpon>feedbackViewer.cs</DependentUpon>
     </EmbeddedResource>
@@ -538,6 +542,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="forms\syslogViewer.resx">
       <DependentUpon>syslogViewer.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\sysOptionLocal.resx">
       <DependentUpon>sysOptionLocal.cs</DependentUpon>
@@ -545,6 +550,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="forms\sysOptionGlobal.resx">
       <DependentUpon>sysOptionGlobal.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\sysWatchList.resx">
       <DependentUpon>sysWatchList.cs</DependentUpon>
