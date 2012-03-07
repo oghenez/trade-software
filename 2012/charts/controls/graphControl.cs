@@ -129,9 +129,12 @@ namespace Charts.Controls
             {
                 Libs.GetRangeY(this.myGraphPane.CurveList[idx], this.myViewportX.Min, this.myViewportX.Max, ref range);
             }
-            decimal diff = (decimal)(range.Max - range.Min);
-            range.Max += (double)(diff * Settings.sysViewSpaceAtTOP/100);
-            range.Min -= (double)(diff * Settings.sysViewSpaceAtBOT / 100);
+            if (this.myGraphPane.CurveList.Count > 0)
+            {
+                decimal diff = (decimal)(range.Max - range.Min);
+                range.Max += (double)(diff * Settings.sysViewSpaceAtTOP / 100);
+                range.Min -= (double)(diff * Settings.sysViewSpaceAtBOT / 100);
+            }
             return range;
         }
 
