@@ -184,6 +184,7 @@ FROM     investor</CommandText>
               <xs:element name="description" msprop:Generator_UserColumnName="description" msprop:Generator_ColumnVarNameInTable="columndescription" msprop:Generator_ColumnPropNameInRow="description" msprop:Generator_ColumnPropNameInTable="descriptionColumn" type="xs:string" minOccurs="0" />
               <xs:element name="byteValue" msprop:Generator_UserColumnName="byteValue" msprop:Generator_ColumnVarNameInTable="columnbyteValue" msprop:Generator_ColumnPropNameInRow="byteValue" msprop:Generator_ColumnPropNameInTable="byteValueColumn" type="xs:unsignedByte" minOccurs="0" />
               <xs:element name="intValue" msprop:Generator_UserColumnName="intValue" msprop:Generator_ColumnVarNameInTable="columnintValue" msprop:Generator_ColumnPropNameInRow="intValue" msprop:Generator_ColumnPropNameInTable="intValueColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="shortValue" msprop:Generator_UserColumnName="shortValue" msprop:Generator_ColumnVarNameInTable="columnshortValue" msprop:Generator_ColumnPropNameInRow="shortValue" msprop:Generator_ColumnPropNameInTable="shortValueColumn" type="xs:short" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

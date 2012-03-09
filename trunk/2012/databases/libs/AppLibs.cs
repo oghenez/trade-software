@@ -145,6 +145,15 @@ namespace databases
             row.subCode = "";
             row.data = "";
         }
+        public static void InitData(databases.baseDS.exchangeDetailRow row)
+        {
+            row.marketCode = "";
+            row.address = "";
+            row.sourceCode = 0;
+            row.orderId = 0;
+            row.goTrue = -1;
+            row.goFalse = -1;
+        }
         public static void InitData(databases.baseDS.stockExchangeRow row)
         {
             row.code = "";

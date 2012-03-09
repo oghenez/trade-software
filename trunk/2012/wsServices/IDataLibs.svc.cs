@@ -56,6 +56,9 @@ namespace wsServices
         [OperationContract]
         bool UpdateStockExchange(ref databases.baseDS.stockExchangeDataTable stockExchangeTbl);
         [OperationContract]
+        bool UpdateExchangeDetail(ref databases.baseDS.exchangeDetailDataTable exchangeDetailTbl);
+
+        [OperationContract]
         bool UpdateTransactions(ref databases.baseDS.transactionsDataTable transactionsTbl);
         [OperationContract]
         bool UpdateInvestorStock(ref databases.baseDS.investorStockDataTable investorStockTbl);
@@ -110,6 +113,10 @@ namespace wsServices
 
         [OperationContract]
         databases.baseDS.stockExchangeDataTable GetStockExchange();
+
+        [OperationContract]
+        databases.baseDS.exchangeDetailDataTable GetExchangeDetail(string marketCode);
+
         [OperationContract]
         databases.baseDS.employeeRangeDataTable GetEmployeeRange();
         [OperationContract]

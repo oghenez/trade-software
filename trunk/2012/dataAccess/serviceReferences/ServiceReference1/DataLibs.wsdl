@@ -96,6 +96,82 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IStockService_MakeTransaction_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IStockService_MakeTransaction_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IStockService_GetTradePointWithEstimationDetail_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IStockService_GetTradePointWithEstimationDetail_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
   <wsp:Policy wsu:Id="WSHttpBinding_IStockService_DiagnosePrice_CloseAndNextOpen_Input_policy">
     <wsp:ExactlyOne>
       <wsp:All>
@@ -420,6 +496,82 @@
     </wsp:ExactlyOne>
   </wsp:Policy>
   <wsp:Policy wsu:Id="WSHttpBinding_IStockService_Test_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IStockService_GetBizSubSector_ByIndustry_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IStockService_GetBizSubSector_ByIndustry_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IStockService_GetBizSubSector_BySuperSector_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IStockService_GetBizSubSector_BySuperSector_output_policy">
     <wsp:ExactlyOne>
       <wsp:All>
         <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
@@ -1426,7 +1578,7 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
-  <wsp:Policy wsu:Id="WSHttpBinding_IStockService_MakeTransaction_Input_policy">
+  <wsp:Policy wsu:Id="WSHttpBinding_IStockService_GetInvestorShortList_Input_policy">
     <wsp:ExactlyOne>
       <wsp:All>
         <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
@@ -1445,45 +1597,7 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
-  <wsp:Policy wsu:Id="WSHttpBinding_IStockService_MakeTransaction_output_policy">
-    <wsp:ExactlyOne>
-      <wsp:All>
-        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
-          <sp:Body />
-          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
-        </sp:SignedParts>
-        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
-          <sp:Body />
-        </sp:EncryptedParts>
-      </wsp:All>
-    </wsp:ExactlyOne>
-  </wsp:Policy>
-  <wsp:Policy wsu:Id="WSHttpBinding_IStockService_GetTradePointWithEstimationDetail_Input_policy">
-    <wsp:ExactlyOne>
-      <wsp:All>
-        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
-          <sp:Body />
-          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
-        </sp:SignedParts>
-        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
-          <sp:Body />
-        </sp:EncryptedParts>
-      </wsp:All>
-    </wsp:ExactlyOne>
-  </wsp:Policy>
-  <wsp:Policy wsu:Id="WSHttpBinding_IStockService_GetTradePointWithEstimationDetail_output_policy">
+  <wsp:Policy wsu:Id="WSHttpBinding_IStockService_GetInvestorShortList_output_policy">
     <wsp:ExactlyOne>
       <wsp:All>
         <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
@@ -1712,6 +1826,44 @@
     </wsp:ExactlyOne>
   </wsp:Policy>
   <wsp:Policy wsu:Id="WSHttpBinding_IStockService_GetStockExchange_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IStockService_GetExchangeDetail_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IStockService_GetExchangeDetail_output_policy">
     <wsp:ExactlyOne>
       <wsp:All>
         <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
@@ -2490,82 +2642,6 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
-  <wsp:Policy wsu:Id="WSHttpBinding_IStockService_GetBizSubSector_ByIndustry_Input_policy">
-    <wsp:ExactlyOne>
-      <wsp:All>
-        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
-          <sp:Body />
-          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
-        </sp:SignedParts>
-        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
-          <sp:Body />
-        </sp:EncryptedParts>
-      </wsp:All>
-    </wsp:ExactlyOne>
-  </wsp:Policy>
-  <wsp:Policy wsu:Id="WSHttpBinding_IStockService_GetBizSubSector_ByIndustry_output_policy">
-    <wsp:ExactlyOne>
-      <wsp:All>
-        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
-          <sp:Body />
-          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
-        </sp:SignedParts>
-        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
-          <sp:Body />
-        </sp:EncryptedParts>
-      </wsp:All>
-    </wsp:ExactlyOne>
-  </wsp:Policy>
-  <wsp:Policy wsu:Id="WSHttpBinding_IStockService_GetBizSubSector_BySuperSector_Input_policy">
-    <wsp:ExactlyOne>
-      <wsp:All>
-        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
-          <sp:Body />
-          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
-        </sp:SignedParts>
-        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
-          <sp:Body />
-        </sp:EncryptedParts>
-      </wsp:All>
-    </wsp:ExactlyOne>
-  </wsp:Policy>
-  <wsp:Policy wsu:Id="WSHttpBinding_IStockService_GetBizSubSector_BySuperSector_output_policy">
-    <wsp:ExactlyOne>
-      <wsp:All>
-        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
-          <sp:Body />
-          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
-        </sp:SignedParts>
-        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
-          <sp:Body />
-        </sp:EncryptedParts>
-      </wsp:All>
-    </wsp:ExactlyOne>
-  </wsp:Policy>
   <wsp:Policy wsu:Id="WSHttpBinding_IStockService_Reset_Input_policy">
     <wsp:ExactlyOne>
       <wsp:All>
@@ -3098,6 +3174,44 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IStockService_UpdateExchangeDetail_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IStockService_UpdateExchangeDetail_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
   <wsp:Policy wsu:Id="WSHttpBinding_IStockService_UpdateTransactions_Input_policy">
     <wsp:ExactlyOne>
       <wsp:All>
@@ -3592,58 +3706,32 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
-  <wsp:Policy wsu:Id="WSHttpBinding_IStockService_GetInvestorShortList_Input_policy">
-    <wsp:ExactlyOne>
-      <wsp:All>
-        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
-          <sp:Body />
-          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
-        </sp:SignedParts>
-        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
-          <sp:Body />
-        </sp:EncryptedParts>
-      </wsp:All>
-    </wsp:ExactlyOne>
-  </wsp:Policy>
-  <wsp:Policy wsu:Id="WSHttpBinding_IStockService_GetInvestorShortList_output_policy">
-    <wsp:ExactlyOne>
-      <wsp:All>
-        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
-          <sp:Body />
-          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
-        </sp:SignedParts>
-        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
-          <sp:Body />
-        </sp:EncryptedParts>
-      </wsp:All>
-    </wsp:ExactlyOne>
-  </wsp:Policy>
   <wsdl:types>
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
       <xsd:import schemaLocation="http://dungvq/DataLibs.svc?xsd=xsd0" namespace="http://tempuri.org/" />
       <xsd:import schemaLocation="http://dungvq/DataLibs.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-      <xsd:import schemaLocation="http://dungvq/DataLibs.svc?xsd=xsd2" />
-      <xsd:import schemaLocation="http://dungvq/DataLibs.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/databases" />
-      <xsd:import schemaLocation="http://dungvq/DataLibs.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/commonTypes" />
-      <xsd:import schemaLocation="http://dungvq/DataLibs.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/common" />
-      <xsd:import schemaLocation="http://dungvq/DataLibs.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/System.Data" />
-      <xsd:import schemaLocation="http://dungvq/DataLibs.svc?xsd=xsd7" namespace="http://tempuri.org/masterDataSet.xsd" />
-      <xsd:import schemaLocation="http://dungvq/DataLibs.svc?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/commonClass" />
+      <xsd:import schemaLocation="http://dungvq/DataLibs.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/commonTypes" />
+      <xsd:import schemaLocation="http://dungvq/DataLibs.svc?xsd=xsd3" namespace="http://tempuri.org/masterDataSet.xsd" />
+      <xsd:import schemaLocation="http://dungvq/DataLibs.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/databases" />
+      <xsd:import schemaLocation="http://dungvq/DataLibs.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/commonClass" />
+      <xsd:import schemaLocation="http://dungvq/DataLibs.svc?xsd=xsd6" />
+      <xsd:import schemaLocation="http://dungvq/DataLibs.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/common" />
+      <xsd:import schemaLocation="http://dungvq/DataLibs.svc?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/System.Data" />
       <xsd:import schemaLocation="http://dungvq/DataLibs.svc?xsd=xsd9" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
     </xsd:schema>
   </wsdl:types>
+  <wsdl:message name="IStockService_MakeTransaction_InputMessage">
+    <wsdl:part name="parameters" element="tns:MakeTransaction" />
+  </wsdl:message>
+  <wsdl:message name="IStockService_MakeTransaction_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MakeTransactionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IStockService_GetTradePointWithEstimationDetail_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTradePointWithEstimationDetail" />
+  </wsdl:message>
+  <wsdl:message name="IStockService_GetTradePointWithEstimationDetail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTradePointWithEstimationDetailResponse" />
+  </wsdl:message>
   <wsdl:message name="IStockService_DiagnosePrice_CloseAndNextOpen_InputMessage">
     <wsdl:part name="parameters" element="tns:DiagnosePrice_CloseAndNextOpen" />
   </wsdl:message>
@@ -3697,6 +3785,18 @@
   </wsdl:message>
   <wsdl:message name="IStockService_Test_OutputMessage">
     <wsdl:part name="parameters" element="tns:TestResponse" />
+  </wsdl:message>
+  <wsdl:message name="IStockService_GetBizSubSector_ByIndustry_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBizSubSector_ByIndustry" />
+  </wsdl:message>
+  <wsdl:message name="IStockService_GetBizSubSector_ByIndustry_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBizSubSector_ByIndustryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IStockService_GetBizSubSector_BySuperSector_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBizSubSector_BySuperSector" />
+  </wsdl:message>
+  <wsdl:message name="IStockService_GetBizSubSector_BySuperSector_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBizSubSector_BySuperSectorResponse" />
   </wsdl:message>
   <wsdl:message name="IStockService_GetBizSubSector_BySector_InputMessage">
     <wsdl:part name="parameters" element="tns:GetBizSubSector_BySector" />
@@ -3854,17 +3954,11 @@
   <wsdl:message name="IStockService_Analysis_OutputMessage">
     <wsdl:part name="parameters" element="tns:AnalysisResponse" />
   </wsdl:message>
-  <wsdl:message name="IStockService_MakeTransaction_InputMessage">
-    <wsdl:part name="parameters" element="tns:MakeTransaction" />
+  <wsdl:message name="IStockService_GetInvestorShortList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetInvestorShortList" />
   </wsdl:message>
-  <wsdl:message name="IStockService_MakeTransaction_OutputMessage">
-    <wsdl:part name="parameters" element="tns:MakeTransactionResponse" />
-  </wsdl:message>
-  <wsdl:message name="IStockService_GetTradePointWithEstimationDetail_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetTradePointWithEstimationDetail" />
-  </wsdl:message>
-  <wsdl:message name="IStockService_GetTradePointWithEstimationDetail_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetTradePointWithEstimationDetailResponse" />
+  <wsdl:message name="IStockService_GetInvestorShortList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetInvestorShortListResponse" />
   </wsdl:message>
   <wsdl:message name="IStockService_GetSyslog_ByDate_InputMessage">
     <wsdl:part name="parameters" element="tns:GetSyslog_ByDate" />
@@ -3901,6 +3995,12 @@
   </wsdl:message>
   <wsdl:message name="IStockService_GetStockExchange_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetStockExchangeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IStockService_GetExchangeDetail_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetExchangeDetail" />
+  </wsdl:message>
+  <wsdl:message name="IStockService_GetExchangeDetail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetExchangeDetailResponse" />
   </wsdl:message>
   <wsdl:message name="IStockService_GetEmployeeRange_InputMessage">
     <wsdl:part name="parameters" element="tns:GetEmployeeRange" />
@@ -4022,18 +4122,6 @@
   <wsdl:message name="IStockService_GetStock_ByBizSector_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetStock_ByBizSectorResponse" />
   </wsdl:message>
-  <wsdl:message name="IStockService_GetBizSubSector_ByIndustry_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetBizSubSector_ByIndustry" />
-  </wsdl:message>
-  <wsdl:message name="IStockService_GetBizSubSector_ByIndustry_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetBizSubSector_ByIndustryResponse" />
-  </wsdl:message>
-  <wsdl:message name="IStockService_GetBizSubSector_BySuperSector_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetBizSubSector_BySuperSector" />
-  </wsdl:message>
-  <wsdl:message name="IStockService_GetBizSubSector_BySuperSector_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetBizSubSector_BySuperSectorResponse" />
-  </wsdl:message>
   <wsdl:message name="IStockService_Reset_InputMessage">
     <wsdl:part name="parameters" element="tns:Reset" />
   </wsdl:message>
@@ -4118,6 +4206,12 @@
   <wsdl:message name="IStockService_UpdateStockExchange_OutputMessage">
     <wsdl:part name="parameters" element="tns:UpdateStockExchangeResponse" />
   </wsdl:message>
+  <wsdl:message name="IStockService_UpdateExchangeDetail_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateExchangeDetail" />
+  </wsdl:message>
+  <wsdl:message name="IStockService_UpdateExchangeDetail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateExchangeDetailResponse" />
+  </wsdl:message>
   <wsdl:message name="IStockService_UpdateTransactions_InputMessage">
     <wsdl:part name="parameters" element="tns:UpdateTransactions" />
   </wsdl:message>
@@ -4196,13 +4290,15 @@
   <wsdl:message name="IStockService_GetAbnormalData_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetAbnormalDataResponse" />
   </wsdl:message>
-  <wsdl:message name="IStockService_GetInvestorShortList_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetInvestorShortList" />
-  </wsdl:message>
-  <wsdl:message name="IStockService_GetInvestorShortList_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetInvestorShortListResponse" />
-  </wsdl:message>
   <wsdl:portType name="IStockService">
+    <wsdl:operation name="MakeTransaction">
+      <wsdl:input wsaw:Action="http://tempuri.org/IStockService/MakeTransaction" message="tns:IStockService_MakeTransaction_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IStockService/MakeTransactionResponse" message="tns:IStockService_MakeTransaction_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTradePointWithEstimationDetail">
+      <wsdl:input wsaw:Action="http://tempuri.org/IStockService/GetTradePointWithEstimationDetail" message="tns:IStockService_GetTradePointWithEstimationDetail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IStockService/GetTradePointWithEstimationDetailResponse" message="tns:IStockService_GetTradePointWithEstimationDetail_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="DiagnosePrice_CloseAndNextOpen">
       <wsdl:input wsaw:Action="http://tempuri.org/IStockService/DiagnosePrice_CloseAndNextOpen" message="tns:IStockService_DiagnosePrice_CloseAndNextOpen_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IStockService/DiagnosePrice_CloseAndNextOpenResponse" message="tns:IStockService_DiagnosePrice_CloseAndNextOpen_OutputMessage" />
@@ -4238,6 +4334,14 @@
     <wsdl:operation name="Test">
       <wsdl:input wsaw:Action="http://tempuri.org/IStockService/Test" message="tns:IStockService_Test_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IStockService/TestResponse" message="tns:IStockService_Test_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBizSubSector_ByIndustry">
+      <wsdl:input wsaw:Action="http://tempuri.org/IStockService/GetBizSubSector_ByIndustry" message="tns:IStockService_GetBizSubSector_ByIndustry_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IStockService/GetBizSubSector_ByIndustryResponse" message="tns:IStockService_GetBizSubSector_ByIndustry_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBizSubSector_BySuperSector">
+      <wsdl:input wsaw:Action="http://tempuri.org/IStockService/GetBizSubSector_BySuperSector" message="tns:IStockService_GetBizSubSector_BySuperSector_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IStockService/GetBizSubSector_BySuperSectorResponse" message="tns:IStockService_GetBizSubSector_BySuperSector_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetBizSubSector_BySector">
       <wsdl:input wsaw:Action="http://tempuri.org/IStockService/GetBizSubSector_BySector" message="tns:IStockService_GetBizSubSector_BySector_InputMessage" />
@@ -4343,13 +4447,9 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IStockService/Analysis" message="tns:IStockService_Analysis_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IStockService/AnalysisResponse" message="tns:IStockService_Analysis_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="MakeTransaction">
-      <wsdl:input wsaw:Action="http://tempuri.org/IStockService/MakeTransaction" message="tns:IStockService_MakeTransaction_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IStockService/MakeTransactionResponse" message="tns:IStockService_MakeTransaction_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GetTradePointWithEstimationDetail">
-      <wsdl:input wsaw:Action="http://tempuri.org/IStockService/GetTradePointWithEstimationDetail" message="tns:IStockService_GetTradePointWithEstimationDetail_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IStockService/GetTradePointWithEstimationDetailResponse" message="tns:IStockService_GetTradePointWithEstimationDetail_OutputMessage" />
+    <wsdl:operation name="GetInvestorShortList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IStockService/GetInvestorShortList" message="tns:IStockService_GetInvestorShortList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IStockService/GetInvestorShortListResponse" message="tns:IStockService_GetInvestorShortList_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetSyslog_ByDate">
       <wsdl:input wsaw:Action="http://tempuri.org/IStockService/GetSyslog_ByDate" message="tns:IStockService_GetSyslog_ByDate_InputMessage" />
@@ -4374,6 +4474,10 @@
     <wsdl:operation name="GetStockExchange">
       <wsdl:input wsaw:Action="http://tempuri.org/IStockService/GetStockExchange" message="tns:IStockService_GetStockExchange_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IStockService/GetStockExchangeResponse" message="tns:IStockService_GetStockExchange_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetExchangeDetail">
+      <wsdl:input wsaw:Action="http://tempuri.org/IStockService/GetExchangeDetail" message="tns:IStockService_GetExchangeDetail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IStockService/GetExchangeDetailResponse" message="tns:IStockService_GetExchangeDetail_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetEmployeeRange">
       <wsdl:input wsaw:Action="http://tempuri.org/IStockService/GetEmployeeRange" message="tns:IStockService_GetEmployeeRange_InputMessage" />
@@ -4455,14 +4559,6 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IStockService/GetStock_ByBizSector" message="tns:IStockService_GetStock_ByBizSector_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IStockService/GetStock_ByBizSectorResponse" message="tns:IStockService_GetStock_ByBizSector_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="GetBizSubSector_ByIndustry">
-      <wsdl:input wsaw:Action="http://tempuri.org/IStockService/GetBizSubSector_ByIndustry" message="tns:IStockService_GetBizSubSector_ByIndustry_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IStockService/GetBizSubSector_ByIndustryResponse" message="tns:IStockService_GetBizSubSector_ByIndustry_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GetBizSubSector_BySuperSector">
-      <wsdl:input wsaw:Action="http://tempuri.org/IStockService/GetBizSubSector_BySuperSector" message="tns:IStockService_GetBizSubSector_BySuperSector_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IStockService/GetBizSubSector_BySuperSectorResponse" message="tns:IStockService_GetBizSubSector_BySuperSector_OutputMessage" />
-    </wsdl:operation>
     <wsdl:operation name="Reset">
       <wsdl:input wsaw:Action="http://tempuri.org/IStockService/Reset" message="tns:IStockService_Reset_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IStockService/ResetResponse" message="tns:IStockService_Reset_OutputMessage" />
@@ -4519,6 +4615,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IStockService/UpdateStockExchange" message="tns:IStockService_UpdateStockExchange_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IStockService/UpdateStockExchangeResponse" message="tns:IStockService_UpdateStockExchange_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="UpdateExchangeDetail">
+      <wsdl:input wsaw:Action="http://tempuri.org/IStockService/UpdateExchangeDetail" message="tns:IStockService_UpdateExchangeDetail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IStockService/UpdateExchangeDetailResponse" message="tns:IStockService_UpdateExchangeDetail_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="UpdateTransactions">
       <wsdl:input wsaw:Action="http://tempuri.org/IStockService/UpdateTransactions" message="tns:IStockService_UpdateTransactions_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IStockService/UpdateTransactionsResponse" message="tns:IStockService_UpdateTransactions_OutputMessage" />
@@ -4571,14 +4671,32 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IStockService/GetAbnormalData" message="tns:IStockService_GetAbnormalData_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IStockService/GetAbnormalDataResponse" message="tns:IStockService_GetAbnormalData_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="GetInvestorShortList">
-      <wsdl:input wsaw:Action="http://tempuri.org/IStockService/GetInvestorShortList" message="tns:IStockService_GetInvestorShortList_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IStockService/GetInvestorShortListResponse" message="tns:IStockService_GetInvestorShortList_OutputMessage" />
-    </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="WSHttpBinding_IStockService" type="tns:IStockService">
     <wsp:PolicyReference URI="#WSHttpBinding_IStockService_policy" />
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="MakeTransaction">
+      <soap12:operation soapAction="http://tempuri.org/IStockService/MakeTransaction" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#WSHttpBinding_IStockService_MakeTransaction_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#WSHttpBinding_IStockService_MakeTransaction_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTradePointWithEstimationDetail">
+      <soap12:operation soapAction="http://tempuri.org/IStockService/GetTradePointWithEstimationDetail" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#WSHttpBinding_IStockService_GetTradePointWithEstimationDetail_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#WSHttpBinding_IStockService_GetTradePointWithEstimationDetail_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="DiagnosePrice_CloseAndNextOpen">
       <soap12:operation soapAction="http://tempuri.org/IStockService/DiagnosePrice_CloseAndNextOpen" style="document" />
       <wsdl:input>
@@ -4675,6 +4793,28 @@
       </wsdl:input>
       <wsdl:output>
         <wsp:PolicyReference URI="#WSHttpBinding_IStockService_Test_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBizSubSector_ByIndustry">
+      <soap12:operation soapAction="http://tempuri.org/IStockService/GetBizSubSector_ByIndustry" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#WSHttpBinding_IStockService_GetBizSubSector_ByIndustry_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#WSHttpBinding_IStockService_GetBizSubSector_ByIndustry_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBizSubSector_BySuperSector">
+      <soap12:operation soapAction="http://tempuri.org/IStockService/GetBizSubSector_BySuperSector" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#WSHttpBinding_IStockService_GetBizSubSector_BySuperSector_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#WSHttpBinding_IStockService_GetBizSubSector_BySuperSector_output_policy" />
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
@@ -4964,25 +5104,14 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="MakeTransaction">
-      <soap12:operation soapAction="http://tempuri.org/IStockService/MakeTransaction" style="document" />
+    <wsdl:operation name="GetInvestorShortList">
+      <soap12:operation soapAction="http://tempuri.org/IStockService/GetInvestorShortList" style="document" />
       <wsdl:input>
-        <wsp:PolicyReference URI="#WSHttpBinding_IStockService_MakeTransaction_Input_policy" />
+        <wsp:PolicyReference URI="#WSHttpBinding_IStockService_GetInvestorShortList_Input_policy" />
         <soap12:body use="literal" />
       </wsdl:input>
       <wsdl:output>
-        <wsp:PolicyReference URI="#WSHttpBinding_IStockService_MakeTransaction_output_policy" />
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetTradePointWithEstimationDetail">
-      <soap12:operation soapAction="http://tempuri.org/IStockService/GetTradePointWithEstimationDetail" style="document" />
-      <wsdl:input>
-        <wsp:PolicyReference URI="#WSHttpBinding_IStockService_GetTradePointWithEstimationDetail_Input_policy" />
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <wsp:PolicyReference URI="#WSHttpBinding_IStockService_GetTradePointWithEstimationDetail_output_policy" />
+        <wsp:PolicyReference URI="#WSHttpBinding_IStockService_GetInvestorShortList_output_policy" />
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
@@ -5049,6 +5178,17 @@
       </wsdl:input>
       <wsdl:output>
         <wsp:PolicyReference URI="#WSHttpBinding_IStockService_GetStockExchange_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetExchangeDetail">
+      <soap12:operation soapAction="http://tempuri.org/IStockService/GetExchangeDetail" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#WSHttpBinding_IStockService_GetExchangeDetail_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#WSHttpBinding_IStockService_GetExchangeDetail_output_policy" />
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
@@ -5272,28 +5412,6 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetBizSubSector_ByIndustry">
-      <soap12:operation soapAction="http://tempuri.org/IStockService/GetBizSubSector_ByIndustry" style="document" />
-      <wsdl:input>
-        <wsp:PolicyReference URI="#WSHttpBinding_IStockService_GetBizSubSector_ByIndustry_Input_policy" />
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <wsp:PolicyReference URI="#WSHttpBinding_IStockService_GetBizSubSector_ByIndustry_output_policy" />
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetBizSubSector_BySuperSector">
-      <soap12:operation soapAction="http://tempuri.org/IStockService/GetBizSubSector_BySuperSector" style="document" />
-      <wsdl:input>
-        <wsp:PolicyReference URI="#WSHttpBinding_IStockService_GetBizSubSector_BySuperSector_Input_policy" />
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <wsp:PolicyReference URI="#WSHttpBinding_IStockService_GetBizSubSector_BySuperSector_output_policy" />
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
     <wsdl:operation name="Reset">
       <soap12:operation soapAction="http://tempuri.org/IStockService/Reset" style="document" />
       <wsdl:input>
@@ -5448,6 +5566,17 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="UpdateExchangeDetail">
+      <soap12:operation soapAction="http://tempuri.org/IStockService/UpdateExchangeDetail" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#WSHttpBinding_IStockService_UpdateExchangeDetail_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#WSHttpBinding_IStockService_UpdateExchangeDetail_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="UpdateTransactions">
       <soap12:operation soapAction="http://tempuri.org/IStockService/UpdateTransactions" style="document" />
       <wsdl:input>
@@ -5588,17 +5717,6 @@
       </wsdl:input>
       <wsdl:output>
         <wsp:PolicyReference URI="#WSHttpBinding_IStockService_GetAbnormalData_output_policy" />
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetInvestorShortList">
-      <soap12:operation soapAction="http://tempuri.org/IStockService/GetInvestorShortList" style="document" />
-      <wsdl:input>
-        <wsp:PolicyReference URI="#WSHttpBinding_IStockService_GetInvestorShortList_Input_policy" />
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <wsp:PolicyReference URI="#WSHttpBinding_IStockService_GetInvestorShortList_output_policy" />
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>

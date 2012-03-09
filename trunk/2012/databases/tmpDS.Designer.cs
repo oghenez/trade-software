@@ -1524,6 +1524,8 @@ namespace databases {
             
             private global::System.Data.DataColumn columnintValue;
             
+            private global::System.Data.DataColumn columnshortValue;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public codeListDataTable() {
                 this.TableName = "codeList";
@@ -1583,6 +1585,13 @@ namespace databases {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn shortValueColumn {
+                get {
+                    return this.columnshortValue;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1611,13 +1620,14 @@ namespace databases {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public codeListRow AddcodeListRow(string code, string description, byte byteValue, int intValue) {
+            public codeListRow AddcodeListRow(string code, string description, byte byteValue, int intValue, short shortValue) {
                 codeListRow rowcodeListRow = ((codeListRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         code,
                         description,
                         byteValue,
-                        intValue};
+                        intValue,
+                        shortValue};
                 rowcodeListRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowcodeListRow);
                 return rowcodeListRow;
@@ -1647,6 +1657,7 @@ namespace databases {
                 this.columndescription = base.Columns["description"];
                 this.columnbyteValue = base.Columns["byteValue"];
                 this.columnintValue = base.Columns["intValue"];
+                this.columnshortValue = base.Columns["shortValue"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1659,6 +1670,8 @@ namespace databases {
                 base.Columns.Add(this.columnbyteValue);
                 this.columnintValue = new global::System.Data.DataColumn("intValue", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnintValue);
+                this.columnshortValue = new global::System.Data.DataColumn("shortValue", typeof(short), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnshortValue);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columncode}, true));
                 this.columncode.AllowDBNull = false;
@@ -3103,6 +3116,21 @@ namespace databases {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public short shortValue {
+                get {
+                    try {
+                        return ((short)(this[this.tablecodeList.shortValueColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'shortValue\' in table \'codeList\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablecodeList.shortValueColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public bool IsdescriptionNull() {
                 return this.IsNull(this.tablecodeList.descriptionColumn);
             }
@@ -3130,6 +3158,16 @@ namespace databases {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public void SetintValueNull() {
                 this[this.tablecodeList.intValueColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsshortValueNull() {
+                return this.IsNull(this.tablecodeList.shortValueColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetshortValueNull() {
+                this[this.tablecodeList.shortValueColumn] = global::System.Convert.DBNull;
             }
         }
         
