@@ -1,47 +1,28 @@
-<Configuration>
-  <DBCONNECTION>
-    <dbConInfo0 dbServerName="treiaY4S2N4lX65Yx+r4Ir/bPWKBxi+xYgw0F4WLwDs=" />
-  </DBCONNECTION>
-  <DBCONNECTION>
-    <dbConInfo0 dbName="lHcrymcHrCjyJllbDTtavQ==" />
-  </DBCONNECTION>
-  <DBCONNECTION>
-    <dbConInfo0 dbAccount="0myaXxZ8eBQHt+bP4urQ5w==" />
-  </DBCONNECTION>
-  <DBCONNECTION>
-    <dbConInfo0 dbPassword="dwq5JN/iCOx5d+o5t7cObg==" />
-  </DBCONNECTION>
-  <DBCONNECTION>
-    <dbConInfo0 dbTimeout="RkLVbHhukqmG8DqFrUVKzw==" />
-  </DBCONNECTION>
-  <DBCONNECTION>
-    <dbConInfo0 dbUseTransaction="EpAxoobbG0tPxhyMIVa+4Q==" />
-  </DBCONNECTION>
-  <WSCONNECTION>
-    <Main wsURI="afwOHXxDvq0w5lO8f7L0TH86OpaHT5DC1xQ5YkhobeZ1LjphbYT7ZXykCgrkqAHXZgcMLSlpEItiDDQXhYvAOw==" />
-  </WSCONNECTION>
-  <WSCONNECTION>
-    <Main wsAccount="KyfIBVMmkxxwVTSmToEeiw==" />
-  </WSCONNECTION>
-  <WSCONNECTION>
-    <Main wsPassword="AsULALTQODioRsx1v+oBlQ==" />
-  </WSCONNECTION>
-  <WSCONNECTION>
-    <Main wsWindowAuthentication="MVsoctThcobSC9M10quTJg==" />
-  </WSCONNECTION>
-  <WSCONNECTION>
-    <Main wsTimeout="25UeTJNKHSN59WNRjBbF6w==" />
-  </WSCONNECTION>
-  <WSCONNECTION>
-    <Main wsUseProxy="EpAxoobbG0tPxhyMIVa+4Q==" />
-  </WSCONNECTION>
-  <WSCONNECTION>
-    <Main wsUseDefaultProxy="EpAxoobbG0tPxhyMIVa+4Q==" />
-  </WSCONNECTION>
-  <WSCONNECTION>
-    <Main wsProxyAddress="cr+BsZtc1VaYm7T/XSx9KuU1LFbPCww7vXtOWJKiSvFiDDQXhYvAOw==" />
-  </WSCONNECTION>
-  <WSCONNECTION>
-    <Main wsProxyPort="1T98DCtC2u43v+nG6Qt9ng==" />
-  </WSCONNECTION>
-</Configuration>
+<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+    <system.serviceModel>
+        <bindings>
+            <basicHttpBinding>
+                <binding name="HoSTC_ServiceSoap" closeTimeout="00:01:00" openTimeout="00:01:00"
+                    receiveTimeout="00:10:00" sendTimeout="00:01:00" allowCookies="false"
+                    bypassProxyOnLocal="false" hostNameComparisonMode="StrongWildcard"
+                    maxBufferSize="65536" maxBufferPoolSize="524288" maxReceivedMessageSize="65536"
+                    messageEncoding="Text" textEncoding="utf-8" transferMode="Buffered"
+                    useDefaultWebProxy="true">
+                    <readerQuotas maxDepth="32" maxStringContentLength="8192" maxArrayLength="16384"
+                        maxBytesPerRead="4096" maxNameTableCharCount="16384" />
+                    <security mode="None">
+                        <transport clientCredentialType="None" proxyCredentialType="None"
+                            realm="" />
+                        <message clientCredentialType="UserName" algorithmSuite="Default" />
+                    </security>
+                </binding>
+            </basicHttpBinding>
+        </bindings>
+        <client>
+            <endpoint address="http://www.vse.org.vn/LS/HoSTC_Service.asmx"
+                binding="basicHttpBinding" bindingConfiguration="HoSTC_ServiceSoap"
+                contract="clientHOSE.HoSTC_ServiceSoap" name="HoSTC_ServiceSoap" />
+        </client>
+    </system.serviceModel>
+</configuration>

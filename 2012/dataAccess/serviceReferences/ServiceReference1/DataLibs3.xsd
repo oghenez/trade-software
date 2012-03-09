@@ -1,9 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://dungvq/DataLibs.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/commonTypes" />
-  <xs:import schemaLocation="http://dungvq/DataLibs.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/common" />
-  <xs:import schemaLocation="http://dungvq/DataLibs.svc?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/commonClass" />
+  <xs:import schemaLocation="http://dungvq/DataLibs.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/commonTypes" />
+  <xs:import schemaLocation="http://dungvq/DataLibs.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/commonClass" />
+  <xs:import schemaLocation="http://dungvq/DataLibs.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/common" />
   <xs:import schemaLocation="http://dungvq/DataLibs.svc?xsd=xsd9" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:element name="MakeTransaction">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/commonTypes" minOccurs="0" name="type" type="q1:AppTypes.TradeActions" />
+        <xs:element minOccurs="0" name="stockCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="portfolioCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="qty" type="xs:int" />
+        <xs:element minOccurs="0" name="feePerc" type="xs:decimal" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MakeTransactionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="MakeTransactionResult" nillable="true">
+          <xs:complexType>
+            <xs:annotation>
+              <xs:appinfo>
+                <ActualType Name="baseDS.transactionsDataTable" Namespace="http://schemas.datacontract.org/2004/07/databases" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+              </xs:appinfo>
+            </xs:annotation>
+            <xs:sequence>
+              <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+              <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+            </xs:sequence>
+            <xs:attribute fixed="http://tempuri.org/masterDataSet.xsd" name="namespace" />
+            <xs:attribute fixed="transactionsDataTable" name="tableTypeName" />
+          </xs:complexType>
+        </xs:element>
+        <xs:element minOccurs="0" name="errorText" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTradePointWithEstimationDetail">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/commonClass" minOccurs="0" name="dataParam" nillable="true" type="q2:DataParams" />
+        <xs:element minOccurs="0" name="stockCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strategyCode" nillable="true" type="xs:string" />
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/commonClass" minOccurs="0" name="options" nillable="true" type="q3:EstimateOptions" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTradePointWithEstimationDetailResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/commonClass" minOccurs="0" name="GetTradePointWithEstimationDetailResult" nillable="true" type="q4:ArrayOfTradePointInfo" />
+        <xs:element minOccurs="0" name="toTbl" nillable="true">
+          <xs:complexType>
+            <xs:annotation>
+              <xs:appinfo>
+                <ActualType Name="tmpDS.tradeEstimateDataTable" Namespace="http://schemas.datacontract.org/2004/07/databases" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+              </xs:appinfo>
+            </xs:annotation>
+            <xs:sequence>
+              <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+              <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+            </xs:sequence>
+            <xs:attribute fixed="" name="namespace" />
+            <xs:attribute fixed="tradeEstimateDataTable" name="tableTypeName" />
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="DiagnosePrice_CloseAndNextOpen">
     <xs:complexType>
       <xs:sequence>
@@ -78,21 +143,21 @@
   <xs:element name="Load_Global_Settings">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/commonTypes" minOccurs="0" name="settings" nillable="true" type="q1:GlobalSettings" />
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/commonTypes" minOccurs="0" name="settings" nillable="true" type="q5:GlobalSettings" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="Load_Global_SettingsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/commonTypes" minOccurs="0" name="settings" nillable="true" type="q2:GlobalSettings" />
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/commonTypes" minOccurs="0" name="settings" nillable="true" type="q6:GlobalSettings" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="Save_Global_Settings">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/commonTypes" minOccurs="0" name="settings" nillable="true" type="q3:GlobalSettings" />
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/commonTypes" minOccurs="0" name="settings" nillable="true" type="q7:GlobalSettings" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -121,7 +186,7 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="investorCode" nillable="true" type="xs:string" />
-        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/common" minOccurs="0" name="logData" nillable="true" type="q4:SysLog.LogData" />
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/common" minOccurs="0" name="logData" nillable="true" type="q8:SysLog.LogData" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -151,6 +216,62 @@
               <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
               <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
             </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBizSubSector_ByIndustry">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="code" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBizSubSector_ByIndustryResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetBizSubSector_ByIndustryResult" nillable="true">
+          <xs:complexType>
+            <xs:annotation>
+              <xs:appinfo>
+                <ActualType Name="baseDS.bizSubSectorDataTable" Namespace="http://schemas.datacontract.org/2004/07/databases" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+              </xs:appinfo>
+            </xs:annotation>
+            <xs:sequence>
+              <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+              <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+            </xs:sequence>
+            <xs:attribute fixed="http://tempuri.org/masterDataSet.xsd" name="namespace" />
+            <xs:attribute fixed="bizSubSectorDataTable" name="tableTypeName" />
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBizSubSector_BySuperSector">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="code" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBizSubSector_BySuperSectorResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetBizSubSector_BySuperSectorResult" nillable="true">
+          <xs:complexType>
+            <xs:annotation>
+              <xs:appinfo>
+                <ActualType Name="baseDS.bizSubSectorDataTable" Namespace="http://schemas.datacontract.org/2004/07/databases" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+              </xs:appinfo>
+            </xs:annotation>
+            <xs:sequence>
+              <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+              <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+            </xs:sequence>
+            <xs:attribute fixed="http://tempuri.org/masterDataSet.xsd" name="namespace" />
+            <xs:attribute fixed="bizSubSectorDataTable" name="tableTypeName" />
           </xs:complexType>
         </xs:element>
       </xs:sequence>
@@ -188,7 +309,7 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="investorCode" nillable="true" type="xs:string" />
-        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/commonTypes" minOccurs="0" name="type" type="q5:AppTypes.PortfolioTypes" />
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/commonTypes" minOccurs="0" name="type" type="q9:AppTypes.PortfolioTypes" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -216,7 +337,7 @@
   <xs:element name="GetPortfolio_ByType">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/commonTypes" minOccurs="0" name="type" type="q6:AppTypes.PortfolioTypes" />
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/commonTypes" minOccurs="0" name="type" type="q10:AppTypes.PortfolioTypes" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -356,7 +477,7 @@
   <xs:element name="GetPortfolioDetail_ByType">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/commonTypes" minOccurs="0" name="types" nillable="true" type="q7:ArrayOfAppTypes.PortfolioTypes" />
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/commonTypes" minOccurs="0" name="types" nillable="true" type="q11:ArrayOfAppTypes.PortfolioTypes" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -440,7 +561,7 @@
   <xs:element name="GetLastPrice">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/commonTypes" minOccurs="0" name="type" type="q8:AppTypes.PriceDataType" />
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/commonTypes" minOccurs="0" name="type" type="q12:AppTypes.PriceDataType" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -619,7 +740,7 @@
   <xs:element name="GetTransactionInfo">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/commonClass" minOccurs="0" name="transInfo" nillable="true" type="q9:TransactionInfo" />
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/commonClass" minOccurs="0" name="transInfo" nillable="true" type="q13:TransactionInfo" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -627,7 +748,7 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="GetTransactionInfoResult" type="xs:boolean" />
-        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/commonClass" minOccurs="0" name="transInfo" nillable="true" type="q10:TransactionInfo" />
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/commonClass" minOccurs="0" name="transInfo" nillable="true" type="q14:TransactionInfo" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -692,7 +813,7 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="code" nillable="true" type="xs:string" />
-        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/commonClass" minOccurs="0" name="dataParam" nillable="true" type="q11:DataParams" />
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/commonClass" minOccurs="0" name="dataParam" nillable="true" type="q15:DataParams" />
         <xs:element minOccurs="0" name="forceReadNew" type="xs:boolean" />
       </xs:sequence>
     </xs:complexType>
@@ -737,7 +858,7 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="stockCode" nillable="true" type="xs:string" />
-        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/commonClass" minOccurs="0" name="dataParam" nillable="true" type="q12:DataParams" />
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/commonClass" minOccurs="0" name="dataParam" nillable="true" type="q16:DataParams" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -766,34 +887,34 @@
   <xs:element name="Estimate_Matrix_Profit">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/commonTypes" minOccurs="0" name="timeRange" type="q13:AppTypes.TimeRanges" />
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/commonTypes" minOccurs="0" name="timeRange" type="q17:AppTypes.TimeRanges" />
         <xs:element minOccurs="0" name="timeScaleCode" nillable="true" type="xs:string" />
-        <xs:element xmlns:q14="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="stockCodeList" nillable="true" type="q14:ArrayOfstring" />
-        <xs:element xmlns:q15="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="strategyList" nillable="true" type="q15:ArrayOfstring" />
-        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/commonClass" minOccurs="0" name="option" nillable="true" type="q16:EstimateOptions" />
+        <xs:element xmlns:q18="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="stockCodeList" nillable="true" type="q18:ArrayOfstring" />
+        <xs:element xmlns:q19="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="strategyList" nillable="true" type="q19:ArrayOfstring" />
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/commonClass" minOccurs="0" name="option" nillable="true" type="q20:EstimateOptions" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="Estimate_Matrix_ProfitResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q17="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Estimate_Matrix_ProfitResult" nillable="true" type="q17:ArrayOfArrayOfdecimal" />
+        <xs:element xmlns:q21="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Estimate_Matrix_ProfitResult" nillable="true" type="q21:ArrayOfArrayOfdecimal" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="Estimate_Matrix_LastBizWeight">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/commonClass" minOccurs="0" name="dataParams" nillable="true" type="q18:DataParams" />
-        <xs:element xmlns:q19="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="stockCodeList" nillable="true" type="q19:ArrayOfstring" />
-        <xs:element xmlns:q20="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="strategyList" nillable="true" type="q20:ArrayOfstring" />
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/commonClass" minOccurs="0" name="dataParams" nillable="true" type="q22:DataParams" />
+        <xs:element xmlns:q23="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="stockCodeList" nillable="true" type="q23:ArrayOfstring" />
+        <xs:element xmlns:q24="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="strategyList" nillable="true" type="q24:ArrayOfstring" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="Estimate_Matrix_LastBizWeightResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q21="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Estimate_Matrix_LastBizWeightResult" nillable="true" type="q21:ArrayOfArrayOfdouble" />
+        <xs:element xmlns:q25="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Estimate_Matrix_LastBizWeightResult" nillable="true" type="q25:ArrayOfArrayOfdouble" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -808,62 +929,23 @@
   <xs:element name="AnalysisResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/commonClass" minOccurs="0" name="AnalysisResult" nillable="true" type="q22:ArrayOfTradePointInfo" />
+        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/commonClass" minOccurs="0" name="AnalysisResult" nillable="true" type="q26:ArrayOfTradePointInfo" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="MakeTransaction">
+  <xs:element name="GetInvestorShortList">
     <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/commonTypes" minOccurs="0" name="type" type="q23:AppTypes.TradeActions" />
-        <xs:element minOccurs="0" name="stockCode" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="portfolioCode" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="qty" type="xs:int" />
-        <xs:element minOccurs="0" name="feePerc" type="xs:decimal" />
-      </xs:sequence>
+      <xs:sequence />
     </xs:complexType>
   </xs:element>
-  <xs:element name="MakeTransactionResponse">
+  <xs:element name="GetInvestorShortListResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="MakeTransactionResult" nillable="true">
+        <xs:element minOccurs="0" name="GetInvestorShortListResult" nillable="true">
           <xs:complexType>
             <xs:annotation>
               <xs:appinfo>
-                <ActualType Name="baseDS.transactionsDataTable" Namespace="http://schemas.datacontract.org/2004/07/databases" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
-              </xs:appinfo>
-            </xs:annotation>
-            <xs:sequence>
-              <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
-              <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
-            </xs:sequence>
-            <xs:attribute fixed="http://tempuri.org/masterDataSet.xsd" name="namespace" />
-            <xs:attribute fixed="transactionsDataTable" name="tableTypeName" />
-          </xs:complexType>
-        </xs:element>
-        <xs:element minOccurs="0" name="errorText" nillable="true" type="xs:string" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetTradePointWithEstimationDetail">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/commonClass" minOccurs="0" name="dataParam" nillable="true" type="q24:DataParams" />
-        <xs:element minOccurs="0" name="stockCode" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="strategyCode" nillable="true" type="xs:string" />
-        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/commonClass" minOccurs="0" name="options" nillable="true" type="q25:EstimateOptions" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetTradePointWithEstimationDetailResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/commonClass" minOccurs="0" name="GetTradePointWithEstimationDetailResult" nillable="true" type="q26:ArrayOfTradePointInfo" />
-        <xs:element minOccurs="0" name="toTbl" nillable="true">
-          <xs:complexType>
-            <xs:annotation>
-              <xs:appinfo>
-                <ActualType Name="tmpDS.tradeEstimateDataTable" Namespace="http://schemas.datacontract.org/2004/07/databases" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+                <ActualType Name="tmpDS.investorDataTable" Namespace="http://schemas.datacontract.org/2004/07/databases" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
               </xs:appinfo>
             </xs:annotation>
             <xs:sequence>
@@ -871,7 +953,7 @@
               <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
             </xs:sequence>
             <xs:attribute fixed="" name="namespace" />
-            <xs:attribute fixed="tradeEstimateDataTable" name="tableTypeName" />
+            <xs:attribute fixed="investorDataTable" name="tableTypeName" />
           </xs:complexType>
         </xs:element>
       </xs:sequence>
@@ -1009,6 +1091,34 @@
             </xs:sequence>
             <xs:attribute fixed="http://tempuri.org/masterDataSet.xsd" name="namespace" />
             <xs:attribute fixed="stockExchangeDataTable" name="tableTypeName" />
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetExchangeDetail">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="marketCode" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetExchangeDetailResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetExchangeDetailResult" nillable="true">
+          <xs:complexType>
+            <xs:annotation>
+              <xs:appinfo>
+                <ActualType Name="baseDS.exchangeDetailDataTable" Namespace="http://schemas.datacontract.org/2004/07/databases" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+              </xs:appinfo>
+            </xs:annotation>
+            <xs:sequence>
+              <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+              <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+            </xs:sequence>
+            <xs:attribute fixed="http://tempuri.org/masterDataSet.xsd" name="namespace" />
+            <xs:attribute fixed="exchangeDetailDataTable" name="tableTypeName" />
           </xs:complexType>
         </xs:element>
       </xs:sequence>
@@ -1556,62 +1666,6 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="GetBizSubSector_ByIndustry">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="code" nillable="true" type="xs:string" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetBizSubSector_ByIndustryResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="GetBizSubSector_ByIndustryResult" nillable="true">
-          <xs:complexType>
-            <xs:annotation>
-              <xs:appinfo>
-                <ActualType Name="baseDS.bizSubSectorDataTable" Namespace="http://schemas.datacontract.org/2004/07/databases" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
-              </xs:appinfo>
-            </xs:annotation>
-            <xs:sequence>
-              <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
-              <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
-            </xs:sequence>
-            <xs:attribute fixed="http://tempuri.org/masterDataSet.xsd" name="namespace" />
-            <xs:attribute fixed="bizSubSectorDataTable" name="tableTypeName" />
-          </xs:complexType>
-        </xs:element>
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetBizSubSector_BySuperSector">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="code" nillable="true" type="xs:string" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetBizSubSector_BySuperSectorResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="GetBizSubSector_BySuperSectorResult" nillable="true">
-          <xs:complexType>
-            <xs:annotation>
-              <xs:appinfo>
-                <ActualType Name="baseDS.bizSubSectorDataTable" Namespace="http://schemas.datacontract.org/2004/07/databases" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
-              </xs:appinfo>
-            </xs:annotation>
-            <xs:sequence>
-              <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
-              <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
-            </xs:sequence>
-            <xs:attribute fixed="http://tempuri.org/masterDataSet.xsd" name="namespace" />
-            <xs:attribute fixed="bizSubSectorDataTable" name="tableTypeName" />
-          </xs:complexType>
-        </xs:element>
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
   <xs:element name="Reset">
     <xs:complexType>
       <xs:sequence />
@@ -2055,6 +2109,49 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="UpdateExchangeDetail">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="exchangeDetailTbl" nillable="true">
+          <xs:complexType>
+            <xs:annotation>
+              <xs:appinfo>
+                <ActualType Name="baseDS.exchangeDetailDataTable" Namespace="http://schemas.datacontract.org/2004/07/databases" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+              </xs:appinfo>
+            </xs:annotation>
+            <xs:sequence>
+              <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+              <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+            </xs:sequence>
+            <xs:attribute fixed="http://tempuri.org/masterDataSet.xsd" name="namespace" />
+            <xs:attribute fixed="exchangeDetailDataTable" name="tableTypeName" />
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateExchangeDetailResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateExchangeDetailResult" type="xs:boolean" />
+        <xs:element minOccurs="0" name="exchangeDetailTbl" nillable="true">
+          <xs:complexType>
+            <xs:annotation>
+              <xs:appinfo>
+                <ActualType Name="baseDS.exchangeDetailDataTable" Namespace="http://schemas.datacontract.org/2004/07/databases" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+              </xs:appinfo>
+            </xs:annotation>
+            <xs:sequence>
+              <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+              <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+            </xs:sequence>
+            <xs:attribute fixed="http://tempuri.org/masterDataSet.xsd" name="namespace" />
+            <xs:attribute fixed="exchangeDetailDataTable" name="tableTypeName" />
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="UpdateTransactions">
     <xs:complexType>
       <xs:sequence>
@@ -2366,32 +2463,6 @@
             </xs:sequence>
             <xs:attribute fixed="http://tempuri.org/masterDataSet.xsd" name="namespace" />
             <xs:attribute fixed="priceDataDataTable" name="tableTypeName" />
-          </xs:complexType>
-        </xs:element>
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetInvestorShortList">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetInvestorShortListResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="GetInvestorShortListResult" nillable="true">
-          <xs:complexType>
-            <xs:annotation>
-              <xs:appinfo>
-                <ActualType Name="tmpDS.investorDataTable" Namespace="http://schemas.datacontract.org/2004/07/databases" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
-              </xs:appinfo>
-            </xs:annotation>
-            <xs:sequence>
-              <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
-              <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
-            </xs:sequence>
-            <xs:attribute fixed="" name="namespace" />
-            <xs:attribute fixed="investorDataTable" name="tableTypeName" />
           </xs:complexType>
         </xs:element>
       </xs:sequence>

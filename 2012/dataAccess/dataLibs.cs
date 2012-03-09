@@ -569,7 +569,21 @@ namespace DataAccess
             }
             return null;
         }
-        
+
+        public static bool LoadData(databases.baseDS.exchangeDetailDataTable tbl,string code)
+        {
+            try
+            {
+                databases.baseDS.exchangeDetailDataTable tmpTbl = myClient.GetExchangeDetail(code);
+                if (tmpTbl == null) return false;
+                common.system.Concat(tmpTbl,0, tbl);
+            }
+            catch (Exception er)
+            {
+                if (OnError != null) OnError(er);
+            }
+            return true;
+        }
 
         public static databases.baseDS.stockCodeDataTable GetStockFull(bool force)
         {
@@ -1268,6 +1282,23 @@ namespace DataAccess
                 if (OnError != null) OnError(er);
             }
             return null;
+        }
+
+        public static bool UpdateData(databases.baseDS.exchangeDetailDataTable data)
+        {
+            try
+            {
+                databases.baseDS.exchangeDetailDataTable tbl = new databases.baseDS.exchangeDetailDataTable();
+                common.system.Concat(data,0, tbl);
+                myClient.UpdateExchangeDetail(ref tbl);
+                data.AcceptChanges();
+                return true;
+            }
+            catch (Exception er)
+            {
+                if (OnError != null) OnError(er);
+            }
+            return false;
         }
         public static databases.baseDS.transactionsRow UpdateData(databases.baseDS.transactionsRow row)
         {

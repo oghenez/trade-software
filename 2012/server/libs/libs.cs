@@ -8,6 +8,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using commonTypes;
 
 namespace server
 {
@@ -102,36 +103,24 @@ namespace server
         }
 
 
-        public static bool GetMarketParams(databases.baseDS.stockExchangeRow marketRow, Imports.ImportParams param)
-        {
-            string[] parts = marketRow.dataSource.Trim().Split(new char[] { '|' }, StringSplitOptions.RemoveEmptyEntries);
-            if (parts.Length < 1) return false;
-            parts[0] = parts[0].Trim().ToUpper();
-            foreach (Imports.ImportCodes item in Enum.GetValues(typeof(Imports.ImportCodes)))
-            {
-                if (item.ToString().Trim().ToUpper() == parts[0]) 
-                {
-                    param.code = item;
-                    param.market = marketRow.code;
-                    param.dataLocation = parts[1].Trim();
-                    if (param.dataLocation == "") return false;
-                    return true;
-                }
-            }
-            return false;
-        }
-
         static Imports.Stock.hoseImport hoseImport = new Imports.Stock.hoseImport();
         static Imports.Stock.htastcImport htastcImport = new Imports.Stock.htastcImport();
+
+        static Imports.Stock.vnIdxImport vnIdxImport = new Imports.Stock.vnIdxImport();
+        static Imports.Stock.hnIdxImport hnIdxImport = new Imports.Stock.hnIdxImport();
+
         static Imports.Gold.forexImport forexImport = new Imports.Gold.forexImport();
         public static void FetchRealTimeData(DateTime updateTime)
         {
+            DataView myDataView = new DataView(application.SysLibs.myExchangeDetailTbl);
+            myDataView.Sort =  application.SysLibs.myExchangeDetailTbl.orderIdColumn.ColumnName;
             string[] parts;
+            DataRowView[] foundRows;
             databases.baseDS.stockExchangeRow marketRow;
+            databases.baseDS.exchangeDetailRow exchangeDetailRow;
             for (int idx1 = 0; idx1 < application.SysLibs.myStockExchangeTbl.Count; idx1++)
             {
                 marketRow = application.SysLibs.myStockExchangeTbl[idx1];
-                if (marketRow.IsdataSourceNull()) continue;
                 if (IsHolidays(updateTime, marketRow.holidays)) continue;
 
                 // WorkTimes can have multipe parts separated by charater |
@@ -140,23 +129,52 @@ namespace server
                 for(int idx2=0;idx2<parts.Length;idx2++) confWorkTimes.Add(parts[idx2]);
                 if (!IsWorktime(updateTime, confWorkTimes)) continue;
 
-                Imports.ImportParams param = new Imports.ImportParams();
-                if (!GetMarketParams(marketRow, param)) continue;
+                myDataView.RowFilter = application.SysLibs.myExchangeDetailTbl.marketCodeColumn.ColumnName + "='" + marketRow.code + "'";
+                if (myDataView.Count == 0) continue;
+
                 
-                switch(param.code)
+                bool retVal = true;
+                exchangeDetailRow = (databases.baseDS.exchangeDetailRow)myDataView[0].Row;
+                while (true)
                 {
-                    case Imports.ImportCodes.HOSE :
-                         hoseImport.ImportFromWeb(updateTime,param);
-                         break;
-                    case Imports.ImportCodes.HASTC:
-                         htastcImport.ImportFromWeb(updateTime, param);
-                         break;
-                    case Imports.ImportCodes.GOLD:
-                         forexImport.ImportFromWeb(updateTime, param);
-                         break;
-                    default: continue;
+                    switch ((AppTypes.DataSourceCodes)exchangeDetailRow.sourceCode)
+                    {
+                        case AppTypes.DataSourceCodes.HOSE1:
+                            retVal = hoseImport.ImportFromWeb(updateTime, exchangeDetailRow);
+                            break;
+                        case AppTypes.DataSourceCodes.HASTC1:
+                            retVal = htastcImport.ImportFromWeb(updateTime, exchangeDetailRow);
+                            break;
+                        case AppTypes.DataSourceCodes.GOLD1:
+                            retVal = forexImport.ImportFromWeb(updateTime, exchangeDetailRow);
+                            break;
+
+                        case AppTypes.DataSourceCodes.VNVN30_IDX1:
+                            retVal = vnIdxImport.ImportFromWeb(updateTime, exchangeDetailRow);
+                            break;
+                        case AppTypes.DataSourceCodes.HN_IDX1:
+                            retVal = hnIdxImport.ImportFromWeb(updateTime, exchangeDetailRow);
+                            break;
+
+                        default: continue;
+                    }
+
+                    int nextRunId = 0;
+                    if (retVal)
+                    {
+                        commonClass.SysLibs.WriteSysLog(" - Updated from " + exchangeDetailRow.address +" successful");
+                        nextRunId = exchangeDetailRow.goFalse;
+                    }
+                    else
+                    {
+                        commonClass.SysLibs.WriteSysLog(" - Updated from " + exchangeDetailRow.address + " failed");
+                        nextRunId = exchangeDetailRow.goTrue;
+                    }
+                    //Find next line to run
+                    foundRows = myDataView.FindRows(new object[]{nextRunId});
+                    if (foundRows.Length <= 0) break;
+                    exchangeDetailRow = (databases.baseDS.exchangeDetailRow)foundRows[0].Row;
                 }
-                commonClass.SysLibs.WriteSysLog(" - Updated from " + param.dataLocation);
             }
             return;
         }

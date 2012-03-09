@@ -26,8 +26,8 @@ namespace admin.forms
                 fullMode = false;
                 tabControl.SendToBack();
 
-                dataVarianceEd.myPrecision = constPrecision;
-                adjustWeightEd.myPrecision = constPrecision;
+                dataVarianceEd.myFormat = "##0.000";
+                adjustWeightEd.myFormat = "###,##0.000";
 
                 srcSelectColumn.myImageType = common.controls.imageType.Edit;
                 dataSelectColumn.myImageType = common.controls.imageType.Search; 

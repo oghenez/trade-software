@@ -263,6 +263,12 @@ namespace wsServices
             databases.DbAccess.LoadData(tbl);
             return tbl;
         }
+        public databases.baseDS.exchangeDetailDataTable GetExchangeDetail(string code)
+        {
+            databases.baseDS.exchangeDetailDataTable tbl = new databases.baseDS.exchangeDetailDataTable();
+            databases.DbAccess.LoadData(tbl,code);
+            return tbl;
+        }
 
         public databases.baseDS.employeeRangeDataTable GetEmployeeRange()
         {
@@ -715,6 +721,19 @@ namespace wsServices
             }
             return false;
         }
+        public bool UpdateExchangeDetail(ref databases.baseDS.exchangeDetailDataTable tbl)
+        {
+            try
+            {
+                databases.DbAccess.UpdateData(tbl);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                WriteSysLogLocal(ex);
+            }
+            return false;
+        }
         public bool UpdateTransactions(ref databases.baseDS.transactionsDataTable tbl)
         {
             try
@@ -767,8 +786,6 @@ namespace wsServices
             }
             return false;
         }
-
-        
 
         #endregion
 
