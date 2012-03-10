@@ -17,6 +17,7 @@ namespace Imports.Forms
 {
     public partial class importPriceData : common.forms.baseForm
     {
+        private static CultureInfo dataCultureInfo = null;
         private static CultureInfo marketCultureInfo = null;
         const int constNumberOfImportInBatch = 10000;
         private bool fCanceled = false;
@@ -27,7 +28,8 @@ namespace Imports.Forms
                 InitializeComponent();
                 marketCb.LoadDataDB();
                 actionCb.SelectedIndex = 0;
-                importTypeCb.SelectedIndex = 0;
+                dataSourceCb.SelectedIndex = 0;
+                dataCultureCb.SelectedIndex = 0;
             }
             catch (Exception er)
             {
@@ -63,15 +65,15 @@ namespace Imports.Forms
         private void DoImport()
         {
             myDataSet.priceData.Clear();
-            switch (importTypeCb.SelectedIndex)
+            switch (dataSourceCb.SelectedIndex)
             {
                 case 0: //Data from copheu 68
-                    Imports.Stock.Libs.ImportFromCVS(dataFileNameEd.Text, marketCb.myValue, myDataSet.priceData, OnUpdateData);
+                    Imports.Stock.Libs.ImportFromCVS(dataFileNameEd.Text, marketCb.myValue, dataCultureInfo, myDataSet.priceData, OnUpdateData);
                     databases.DbAccess.UpdateData(myDataSet.priceData);
                     DoAggregate(myDataSet.priceData,marketCultureInfo);
                     break;
                 case 1:
-                    Imports.Gold.ImportFromCVS(dataFileNameEd.Text, marketCb.myValue, myDataSet.priceData, OnUpdateData);
+                    Imports.Gold.Libs.ImportFromCVS(dataFileNameEd.Text, marketCb.myValue, dataCultureInfo, myDataSet.priceData, OnUpdateData);
                     databases.DbAccess.UpdateData(myDataSet.priceData);
                     DoAggregate(myDataSet.priceData, marketCultureInfo);
                     break;
@@ -85,9 +87,12 @@ namespace Imports.Forms
         private void importBtn_Click(object sender, System.EventArgs e)
         {
             DateTime startTime = DateTime.Now;
-            marketCultureInfo = application.AppLibs.GetExchangeCulture(marketCb.myValue);
+            
             try
             {
+                marketCultureInfo = application.AppLibs.GetExchangeCulture(marketCb.myValue);
+                dataCultureInfo = common.language.GetCulture(dataCultureCb.Text);
+
                 bool retVal = true;
                 ClearNotifyError();
                 this.ShowMessage("");
@@ -188,6 +193,11 @@ namespace Imports.Forms
             dataFileNameEd.Enabled = actionCb.SelectedIndex != 2;
             selectFileBtn.Enabled = dataFileNameEd.Enabled;
             marketCb.Enabled = dataFileNameEd.Enabled;
+        }
+
+        private void dataSourceCb_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            dataCultureCb.SelectedIndex = 0;
         }
     }
 }
