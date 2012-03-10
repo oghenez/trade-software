@@ -30,8 +30,6 @@ namespace server
         }
         public void Init()
         {
-            Imports.Gold.ResetGetPrice();
-
             tradeAlertLbl.Text = Settings.sysGlobal.CheckAlertInSeconds.ToString() + " " + Languages.Libs.GetString("seconds");
             fetchStockLbl.Text = Settings.sysGlobal.RefreshDataInSecs.ToString() + " " + Languages.Libs.GetString("seconds");
             fetchDataTimer.OnProcess += new common.TimerProcess.OnProcessEvent(FetchData);
