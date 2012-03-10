@@ -153,7 +153,7 @@ namespace server
                             retVal = vnIdxImport.ImportFromWeb(updateTime, exchangeDetailRow);
                             break;
                         case AppTypes.DataSourceCodes.HN_IDX1:
-                            //retVal = hnIdxImport.ImportFromWeb(updateTime, exchangeDetailRow);
+                            retVal = hnIdxImport.ImportFromWeb(updateTime, exchangeDetailRow);
                             break;
 
                         default: return; //To avoid loop
