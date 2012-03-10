@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.21022</ProductVersion>
+    <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{8E1D845B-5FAF-4CBF-9A99-342BB6A223EE}</ProjectGuid>
     <OutputType>WinExe</OutputType>
@@ -66,7 +66,6 @@
     </Compile>
     <Compile Include="libs\libs.cs">
     </Compile>
-    <Compile Include="libs\tradeAlertLibs.cs" />
     <Compile Include="main.cs">
       <SubType>Form</SubType>
     </Compile>
