@@ -165,6 +165,7 @@
     <Compile Include="SysLibs.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="TradeAlertLibs.cs" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
