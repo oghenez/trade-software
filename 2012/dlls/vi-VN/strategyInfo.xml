@@ -79,7 +79,7 @@
     <RelativeStrengthSCR Category="TRE" />
     <RelativeStrengthSCR Parameters="Period=180" />
     <RelativeStrengthSCR ParameterDescriptions="Period defines the parameter relative strength" />
-    <RelativeStrengthSCR Name="Relative Strength" />
+    <RelativeStrengthSCR Name="Sức mạnh tương đối" />
     <RelativeStrengthSCR Description="Sức mạnh tương đối" />
     <RelativeStrengthSCR URL="http://www.quantum.vn" />
     <RelativeStrengthSCR Authors="Quan Nguyen" />
@@ -115,7 +115,7 @@
     <StochFastSCR Category="TRE" />
     <StochFastSCR Parameters="Fast K=14,Fast D=3" />
     <StochFastSCR ParameterDescriptions="" />
-    <StochFastSCR Name="Stochastic Fast" />
+    <StochFastSCR Name="Tín hiệu mua (Stochastic Fast)" />
     <StochFastSCR Description="Screen stock fast K line above fast D line" />
     <StochFastSCR URL="http://www.quantum.vn" />
     <StochFastSCR Authors="Quan Nguyen" />
@@ -139,8 +139,8 @@
     <PriceSCR Category="TRE" />
     <PriceSCR Parameters="SMA Period=200" />
     <PriceSCR ParameterDescriptions="Period defines the screening line" />
-    <PriceSCR Name="Tìm cổ phiếu có Giá trên đường SMA" />
-    <PriceSCR Description="Tìm cổ phiếu có Giá trên đường SMA" />
+    <PriceSCR Name="Cổ phiếu có giá trên đường SMA" />
+    <PriceSCR Description="Tìm cổ phiếu có giá trên đường SMA" />
     <PriceSCR URL="http://www.quantum.vn" />
     <PriceSCR Authors="Quan Nguyen" />
     <PriceSCR Version="1.0" />
@@ -151,8 +151,8 @@
     <BasicPriceSCR Category="TRE" />
     <BasicPriceSCR Parameters="" />
     <BasicPriceSCR ParameterDescriptions="" />
-    <BasicPriceSCR Name="Basic Price Screening" />
-    <BasicPriceSCR Description="Screen stock with target price" />
+    <BasicPriceSCR Name="Giá" />
+    <BasicPriceSCR Description="Hiển thị giá" />
     <BasicPriceSCR URL="http://www.quantum.vn" />
     <BasicPriceSCR Authors="Quan Nguyen" />
     <BasicPriceSCR Version="1.0" />
@@ -163,8 +163,8 @@
     <BasicVolumeSCR Category="TRE" />
     <BasicVolumeSCR Parameters="" />
     <BasicVolumeSCR ParameterDescriptions="" />
-    <BasicVolumeSCR Name="Volume of the last day in a range" />
-    <BasicVolumeSCR Description="Volume of the last day in a range" />
+    <BasicVolumeSCR Name="Khối lượng" />
+    <BasicVolumeSCR Description="Khối lượng" />
     <BasicVolumeSCR URL="http://www.quantum.vn" />
     <BasicVolumeSCR Authors="Quan Nguyen" />
     <BasicVolumeSCR Version="1.0" />
@@ -175,7 +175,7 @@
     <VolumeSCR Category="TRE" />
     <VolumeSCR Parameters="" />
     <VolumeSCR ParameterDescriptions="" />
-    <VolumeSCR Name="Volume Screening" />
+    <VolumeSCR Name="Khối lượng tăng hơn hôm trước" />
     <VolumeSCR Description="Volume of the last day above volume of the previous day" />
     <VolumeSCR URL="http://www.quantum.vn" />
     <VolumeSCR Authors="Quan Nguyen" />
@@ -187,7 +187,7 @@
     <BasicDMISCR Category="TRE" />
     <BasicDMISCR Parameters="Plus Period=14,Minus Period=14" />
     <BasicDMISCR ParameterDescriptions="Period defines the input data for the strategy" />
-    <BasicDMISCR Name="Basic DMI Screening" />
+    <BasicDMISCR Name="Tín hiệu mua DMI" />
     <BasicDMISCR Description="Screen stock with DI+ above DI-" />
     <BasicDMISCR URL="http://www.quantum.vn" />
     <BasicDMISCR Authors="Quan Nguyen" />
@@ -201,8 +201,8 @@
     <BasicSARSCR Parameters="AF=0.02,Step=0.2" />
     <BasicSARSCR ParameterPrecision="2"/>
     <BasicSARSCR ParameterDescriptions="The Acceleration Factor (AF), which is also referred to as the Step, dictates SAR sensitivity.Step gradually increases as the trend extends until it hits a maximum. SAR sensitivity can be decreased by decreasing the Step. A lower step moves SAR further from price, which makes a reversal less likely." />
-    <BasicSARSCR Name="SAR Screening" />
-    <BasicSARSCR Description="Screen stock with SAR signal for buy" />
+    <BasicSARSCR Name="Tín hiệu mua SAR" />
+    <BasicSARSCR Description="Tín hiệu mua SAR" />
     <BasicSARSCR URL="http://www.quantum.vn" />
     <BasicSARSCR Authors="Quan Nguyen" />
     <BasicSARSCR Version="1.0" />
@@ -214,8 +214,8 @@
     <PriceChangeSCR Category="TRE" />
     <PriceChangeSCR Parameters="Period=30" />
     <PriceChangeSCR ParameterDescriptions="Period defines the input data for the screening" />
-    <PriceChangeSCR Name="Price change (%)" />
-    <PriceChangeSCR Description="Price change (%)" />
+    <PriceChangeSCR Name="Thay đổi về giá (%)" />
+    <PriceChangeSCR Description="Thay đổi về giá (%)" />
     <PriceChangeSCR URL="http://www.quantum.vn" />
     <PriceChangeSCR Authors="Quan Nguyen" />
     <PriceChangeSCR Version="1.0" />
@@ -227,8 +227,8 @@
     <BasicATRSCR Category="TRE" />
     <BasicATRSCR Parameters="Period=14" />
     <BasicATRSCR ParameterDescriptions="Period defines the input data for the screening" />
-    <BasicATRSCR Name="Price volatility - ATR" />
-    <BasicATRSCR Description="Price volatility - ATR" />
+    <BasicATRSCR Name="Giao động giá - ATR" />
+    <BasicATRSCR Description="Giao động giá - ATR" />
     <BasicATRSCR URL="http://www.quantum.vn" />
     <BasicATRSCR Authors="Quan Nguyen" />
     <BasicATRSCR Version="1.0" />
@@ -240,8 +240,8 @@
     <AbnormaliesSCR Category="TRE" />
     <AbnormaliesSCR Parameters="Period=30,Multi=2" />
     <AbnormaliesSCR ParameterDescriptions="Period defines the input data for the screening" />
-    <AbnormaliesSCR Name="Abnormalies Screening" />
-    <AbnormaliesSCR Description="Finding stocks which have abnormaly behaviour" />
+    <AbnormaliesSCR Name="Cổ phiếu bất thường" />
+    <AbnormaliesSCR Description="Tìm cổ phiếu bất thường" />
     <AbnormaliesSCR URL="http://www.quantum.vn" />
     <AbnormaliesSCR Authors="Quan Nguyen" />
     <AbnormaliesSCR Version="1.0" />
@@ -253,8 +253,8 @@
     <RSIOverSold Category="TRE" />
     <RSIOverSold Parameters="Period=14,Oversold=30" />
     <RSIOverSold ParameterDescriptions="Period defines the input data for the screening" />
-    <RSIOverSold Name="Quá bán" />
-    <RSIOverSold Description="Quá bán" />
+    <RSIOverSold Name="Quá bán RSI" />
+    <RSIOverSold Description="Quá bán RSI" />
     <RSIOverSold URL="http://www.quantum.vn" />
     <RSIOverSold Authors="Quan Nguyen" />
     <RSIOverSold Version="1.0" />
@@ -266,13 +266,26 @@
     <RSIOverBought Category="TRE" />
     <RSIOverBought Parameters="Period=14,Overbought=70" />
     <RSIOverBought ParameterDescriptions="Period defines the input data for the screening" />
-    <RSIOverBought Name="Overbought RSI" />
+    <RSIOverBought Name="Quá mua RSI" />
     <RSIOverBought Description="Overbought stocks" />
     <RSIOverBought URL="http://www.quantum.vn" />
     <RSIOverBought Authors="Quan Nguyen" />
     <RSIOverBought Version="1.0" />
   </STRATEGY>
 
+  <STRATEGY>
+    <HybridTestBUY Type="SCREENING" />
+    <HybridTestBUY Code="SCR021"/>
+    <HybridTestBUY Category="TRE" />
+    <HybridTestBUY Parameters="ATR Period=14,SMA Short Period=5,SMA Long Period=10,Stop Loss Level (%)=5,Trailing Stop (%)=15, Take Profit Level (%)=200" />
+    <HybridTestBUY ParameterDescriptions="Period is the period for the short term moving average line." />
+    <HybridTestBUY Name="Kiểm tra Hybrid ATR-SMA" />
+    <HybridTestBUY Description="Kiểm tra Hybrid ATR-SMA" />
+    <HybridTest URL="http://www.quantum.vn" />
+    <HybridTestBUY Authors="Quan Nguyen" />
+    <HybridTestBUY Version="1.0" />
+  </STRATEGY>
+  
   <!--Sell Signal Screening Description-->
   <STRATEGY>
     <TwoSMAMACD_SELL Type="SCREENING" />
@@ -624,7 +637,7 @@
 
   <STRATEGY>
     <TwoSMA_SAR Code="STR029"/>
-    <TwoSMA_SAR Category="HYB" />
+    <TwoSMA_SAR Category="HFT" />
     <TwoSMA_SAR Parameters="AF=0.02,Step=0.2,Short Period=5,Long Period=10,Stop Loss Level (%)=5,Take Profit Level (%)=200" />
     <TwoSMA_SAR ParameterPrecision="2"/>
     <TwoSMA_SAR ParameterDescriptions="" />
@@ -649,7 +662,7 @@
 
   <STRATEGY>
     <TSFLIN Code="STR031"/>
-    <TSFLIN Category="HYB" />
+    <TSFLIN Category="HFT" />
     <TSFLIN Parameters=">Time Series Period=25,Linear Regression Period=25,Stop Loss Level (%)=5,Take Profit Level (%)=200" />
     <TSFLIN ParameterDescriptions="" />
     <TSFLIN Name="Time Series and Linear Regression" />
@@ -697,7 +710,7 @@
 
   <STRATEGY>
     <EMASAR Code="STR035"/>
-    <EMASAR Category="HYB" />
+    <EMASAR Category="HFT" />
     <EMASAR Parameters="AF=0.02,Step=0.2,Short Period=5,Long Period=10,Stop Loss Level (%)=5,Take Profit Level (%)=200" />
     <TwoSMA_SAR ParameterPrecision="2"/>
     <EMASAR ParameterDescriptions="" />
@@ -722,7 +735,7 @@
 
   <STRATEGY>
     <HybridEMAATR Code="STR037"/>
-    <HybridEMAATR Category="HYB" />
+    <HybridEMAATR Category="HFT" />
     <HybridEMAATR Parameters="ATR Period=14,EMA Short Period=5,EMA Long Period=10,Stop Loss Level (%)=5,Trailing Stop (%)=15, Take Profit Level (%)=200" />
     <HybridEMAATR ParameterDescriptions="Period is the period for the short term moving average line." />
     <HybridEMAATR Name="Hybrid ATR-EMA" />
@@ -734,7 +747,7 @@
 
   <STRATEGY>
     <HybridSMAATR Code="STR038"/>
-    <HybridSMAATR Category="HYB" />
+    <HybridSMAATR Category="HFT" />
     <HybridSMAATR Parameters="ATR Period=14,SMA Short Period=5,SMA Long Period=10,Stop Loss Level (%)=5,Trailing Stop (%)=15, Take Profit Level (%)=200" />
     <HybridSMAATR ParameterDescriptions="Period is the period for the short term moving average line." />
     <HybridSMAATR Name="Hybrid ATR-SMA" />
@@ -746,7 +759,7 @@
 
   <STRATEGY>
     <HybridMACDHistATR Code="STR039"/>
-    <HybridMACDHistATR Category="HYB" />
+    <HybridMACDHistATR Category="HFT" />
     <HybridMACDHistATR Parameters="ATR Period=14,MACD Fast=12,MACD Slow=26,MACD Signal=9,ADX Period=14,Stop Loss Level (%)=5,Trailing Stop (%)=15, Take Profit Level (%)=200" />
     <HybridMACDHistATR ParameterDescriptions="Period is the period for the short term moving average line." />
     <HybridMACDHistATR Name="Hybrid ATR-MACD Histogram" />
@@ -758,7 +771,7 @@
 
   <STRATEGY>
     <HybridKeltnerEMA Code="STR040"/>
-    <HybridKeltnerEMA Category="HYB" />
+    <HybridKeltnerEMA Category="HFT" />
     <HybridKeltnerEMA Parameters="Bolliger Period=20,k Up = 2,k Down = 2,EMA Period=20,ATR Multiplier=2.0, ATR Period=10,EMA Short Period=5,EMA Long Period=10,Stop Loss Level (%)=5,Trailing Stop (%)=15, Take Profit Level (%)=200" />
     <HybridKeltnerEMA ParameterDescriptions="Period is the period for the short term moving average line." />
     <HybridKeltnerEMA Name="Keltner-Bollinger-EMA" />
@@ -770,7 +783,7 @@
 
   <STRATEGY>
     <HybridSARATR Code="STR041"/>
-    <HybridSARATR Category="HYB" />
+    <HybridSARATR Category="HFT" />
     <HybridSARATR Parameters="ATR Period=14,AF=0.02,Step=0.2,Stop Loss Level (%)=5,Trailing Stop (%)=15, Take Profit Level (%)=200" />
     <HybridSARATR ParameterPrecision="2"/>
     <HybridSARATR ParameterDescriptions="Period is the period for the short term moving average line." />
@@ -783,7 +796,7 @@
 
   <STRATEGY>
     <HybridSarAtrAdx Code="STR042"/>
-    <HybridSarAtrAdx Category="HYB" />
+    <HybridSarAtrAdx Category="HFT" />
     <HybridSarAtrAdx Parameters="ATR Period=14,AF=0.02,Step=0.2,ADX Period=14,Stop Loss Level (%)=5,Trailing Stop (%)=15, Take Profit Level (%)=200" />
     <HybridSarAtrAdx ParameterPrecision="2"/>
     <HybridSarAtrAdx ParameterDescriptions="Period is the period for the short term moving average line." />
@@ -831,5 +844,16 @@
     <MACD_StochSlow Version="1.0" />
   </STRATEGY>
 
-
+  <STRATEGY>
+    <HybridTest Code="STR101"/>
+    <HybridTest Category="HFT" />
+    <HybridTest Parameters="ATR Period=14,SMA Short Period=5,SMA Long Period=10,Stop Loss Level (%)=5,Trailing Stop (%)=15, Take Profit Level (%)=200" />
+    <HybridTest ParameterDescriptions="Period is the period for the short term moving average line." />
+    <HybridTest Name="Kiểm tra Hybrid ATR-SMA" />
+    <HybridTest Description="Kiểm tra Hybrid ATR-SMA" />
+    <HybridTest URL="http://www.quantum.vn" />
+    <HybridTest Authors="Quan Nguyen" />
+    <HybridTest Version="1.0" />
+  </STRATEGY>
+  
 </Configuration>

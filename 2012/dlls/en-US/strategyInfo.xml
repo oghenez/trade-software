@@ -1,7 +1,7 @@
 <Configuration>
 <CATEGORY>
       <CAT0 Code="HFT" />
-      <CAT0 Description="HFT"/>
+      <CAT0 Description="High Frequency Trading"/>
   </CATEGORY>
 
   <CATEGORY>
@@ -268,6 +268,19 @@
     <RSIOverBought URL="http://www.quantum.vn" />
     <RSIOverBought Authors="Quan Nguyen" />
     <RSIOverBought Version="1.0" />
+  </STRATEGY>
+
+  <STRATEGY>
+    <HybridTestBUY Type="SCREENING" />
+    <HybridTestBUY Code="SCR021"/>
+    <HybridTestBUY Category="TRE" />
+    <HybridTestBUY Parameters="ATR Period=14,SMA Short Period=5,SMA Long Period=10,Stop Loss Level (%)=5,Trailing Stop (%)=15, Take Profit Level (%)=200" />
+    <HybridTestBUY ParameterDescriptions="Period is the period for the short term moving average line." />
+    <HybridTestBUY Name="Testing Hybrid ATR-SMA" />
+    <HybridTestBUY Description="Testing Hybrid ATR-SMA" />
+    <HybridTest URL="http://www.quantum.vn" />
+    <HybridTestBUY Authors="Quan Nguyen" />
+    <HybridTestBUY Version="1.0" />
   </STRATEGY>
   
   <!--Sell Signal Screening Description-->
@@ -620,7 +633,7 @@
 
   <STRATEGY>
     <TwoSMA_SAR Code="STR029"/>
-    <TwoSMA_SAR Category="HYB" />
+    <TwoSMA_SAR Category="HFT" />
     <TwoSMA_SAR Parameters="AF=0.02,Step=0.2,Short Period=5,Long Period=10,Stop Loss Level (%)=5,Take Profit Level (%)=200" />
     <TwoSMA_SAR ParameterPrecision="2"/>
     <TwoSMA_SAR ParameterDescriptions="" />
@@ -645,7 +658,7 @@
 
   <STRATEGY>
     <TSFLIN Code="STR031"/>
-    <TSFLIN Category="HYB" />
+    <TSFLIN Category="HFT" />
     <TSFLIN Parameters=">Time Series Period=25,Linear Regression Period=25,Stop Loss Level (%)=5,Take Profit Level (%)=200" />
     <TSFLIN ParameterDescriptions="" />
     <TSFLIN Name="Time Series and Linear Regression" />
@@ -693,7 +706,7 @@
 
   <STRATEGY>
     <EMASAR Code="STR035"/>
-    <EMASAR Category="HYB" />
+    <EMASAR Category="HFT" />
     <EMASAR Parameters="AF=0.02,Step=0.2,Short Period=5,Long Period=10,Stop Loss Level (%)=5,Take Profit Level (%)=200" />
     <TwoSMA_SAR ParameterPrecision="2"/>
     <EMASAR ParameterDescriptions="" />
@@ -718,7 +731,7 @@
 
   <STRATEGY>
     <HybridEMAATR Code="STR037"/>
-    <HybridEMAATR Category="HYB" />
+    <HybridEMAATR Category="HFT" />
     <HybridEMAATR Parameters="ATR Period=14,EMA Short Period=5,EMA Long Period=10,Stop Loss Level (%)=5,Trailing Stop (%)=15, Take Profit Level (%)=200" />
     <HybridEMAATR ParameterDescriptions="Period is the period for the short term moving average line." />
     <HybridEMAATR Name="Hybrid ATR-EMA" />
@@ -730,7 +743,7 @@
 
   <STRATEGY>
     <HybridSMAATR Code="STR038"/>
-    <HybridSMAATR Category="HYB" />
+    <HybridSMAATR Category="HFT" />
     <HybridSMAATR Parameters="ATR Period=14,SMA Short Period=5,SMA Long Period=10,Stop Loss Level (%)=5,Trailing Stop (%)=15, Take Profit Level (%)=200" />
     <HybridSMAATR ParameterDescriptions="Period is the period for the short term moving average line." />
     <HybridSMAATR Name="Hybrid ATR-SMA" />
@@ -742,7 +755,7 @@
 
   <STRATEGY>
     <HybridMACDHistATR Code="STR039"/>
-    <HybridMACDHistATR Category="HYB" />
+    <HybridMACDHistATR Category="HFT" />
     <HybridMACDHistATR Parameters="ATR Period=14,MACD Fast=12,MACD Slow=26,MACD Signal=9,ADX Period=14,Stop Loss Level (%)=5,Trailing Stop (%)=15, Take Profit Level (%)=200" />
     <HybridMACDHistATR ParameterDescriptions="Period is the period for the short term moving average line." />
     <HybridMACDHistATR Name="Hybrid ATR-MACD Histogram" />
@@ -754,7 +767,7 @@
 
   <STRATEGY>
     <HybridKeltnerEMA Code="STR040"/>
-    <HybridKeltnerEMA Category="HYB" />
+    <HybridKeltnerEMA Category="HFT" />
     <HybridKeltnerEMA Parameters="Bolliger Period=20,k Up = 2,k Down = 2,EMA Period=20,ATR Multiplier=2.0, ATR Period=10,EMA Short Period=5,EMA Long Period=10,Stop Loss Level (%)=5,Trailing Stop (%)=15, Take Profit Level (%)=200" />
     <HybridKeltnerEMA ParameterDescriptions="Period is the period for the short term moving average line." />
     <HybridKeltnerEMA Name="Keltner-Bollinger-EMA" />
@@ -766,7 +779,7 @@
 
   <STRATEGY>
     <HybridSARATR Code="STR041"/>
-    <HybridSARATR Category="HYB" />
+    <HybridSARATR Category="HFT" />
     <HybridSARATR Parameters="ATR Period=14,AF=0.02,Step=0.2,Stop Loss Level (%)=5,Trailing Stop (%)=15, Take Profit Level (%)=200" />
     <HybridSARATR ParameterPrecision="2"/>
     <HybridSARATR ParameterDescriptions="Period is the period for the short term moving average line." />
@@ -779,7 +792,7 @@
 
   <STRATEGY>
     <HybridSarAtrAdx Code="STR042"/>
-    <HybridSarAtrAdx Category="HYB" />
+    <HybridSarAtrAdx Category="HFT" />
     <HybridSarAtrAdx Parameters="ATR Period=14,AF=0.02,Step=0.2,ADX Period=14,Stop Loss Level (%)=5,Trailing Stop (%)=15, Take Profit Level (%)=200" />
     <HybridSarAtrAdx ParameterPrecision="2"/>
     <HybridSarAtrAdx ParameterDescriptions="Period is the period for the short term moving average line." />
@@ -827,5 +840,16 @@
     <MACD_StochSlow Version="1.0" />
   </STRATEGY>
 
-
+  <STRATEGY>
+    <HybridTest Code="STR101"/>
+    <HybridTest Category="HFT" />
+    <HybridTest Parameters="ATR Period=14,SMA Short Period=5,SMA Long Period=10,Stop Loss Level (%)=5,Trailing Stop (%)=15, Take Profit Level (%)=200" />
+    <HybridTest ParameterDescriptions="Period is the period for the short term moving average line." />
+    <HybridTest Name="Testing Hybrid ATR-SMA" />
+    <HybridTest Description="Testing Hybrid ATR-SMA" />
+    <HybridTest URL="http://www.quantum.vn" />
+    <HybridTest Authors="Quan Nguyen" />
+    <HybridTest Version="1.0" />
+  </STRATEGY>
+  
 </Configuration>
