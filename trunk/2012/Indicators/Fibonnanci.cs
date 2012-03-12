@@ -40,17 +40,21 @@ namespace Indicators
             this.Name = name;
             int begin = 0, length = 0;
 
+            //138.2%, 161.8%, 200% and 261.8%
+
             DataSeries min = Indicators.MIN.Series(ds.Low, period, "min");
             DataSeries fibo100 = Indicators.MAX.Series(ds.High, period, "max");
             DataSeries fibo23pc = new DataSeries(min, "fibo 23pc");
             DataSeries fibo38pc = new DataSeries(min, "fibo 38pc");
             DataSeries fibo50pc = new DataSeries(min, "fibo 50pc");
             DataSeries fibo62pc = new DataSeries(min, "fibo 62pc");
+            DataSeries fibo138pc = new DataSeries(min, "fibo 138pc");
 
             fibo23pc.Name = name + "-fibo 23pc";
             fibo38pc.Name = name + "-fibo 38pc";
             fibo50pc.Name = name + "-fibo 50pc";
             fibo62pc.Name = name + "-fibo 62pc";
+            fibo138pc.Name = name + "-fibo 138pc";
 
             fibo100.Name = name + "-fibo100";
 
@@ -60,6 +64,7 @@ namespace Indicators
             fibo38pc.FirstValidValue=FirstValidValue;
             fibo50pc.FirstValidValue = FirstValidValue;
             fibo62pc.FirstValidValue = FirstValidValue;
+            fibo138pc.FirstValidValue = FirstValidValue;
 
             this.Name = name;
 
@@ -71,12 +76,14 @@ namespace Indicators
                 fibo38pc[i] = min[min.Count - 1] + (fibo100[fibo100.Count - 1] - min[min.Count - 1])*38.2/100;
                 fibo50pc[i] = min[min.Count - 1] + (fibo100[fibo100.Count - 1] - min[min.Count - 1]) * 50 / 100;
                 fibo62pc[i] = min[min.Count - 1] + (fibo100[fibo100.Count - 1] - min[min.Count - 1]) * 61.8 / 100;
+                fibo138pc[i] = min[min.Count - 1] + (fibo100[fibo100.Count - 1] - min[min.Count - 1]) * 138.2 / 100;
             }
             this.Cache.Add(fibo100.Name, fibo100);
             this.Cache.Add(fibo23pc.Name, fibo38pc);
             this.Cache.Add(fibo38pc.Name, fibo38pc);
             this.Cache.Add(fibo50pc.Name, fibo50pc);
             this.Cache.Add(fibo62pc.Name, fibo62pc);
+            this.Cache.Add(fibo138pc.Name, fibo138pc);
         }
 
         public DataSeries Fibo100
@@ -119,11 +126,19 @@ namespace Indicators
             }
         }
 
+        public DataSeries Fibo138pc
+        {
+            get
+            {
+                return (DataSeries)this.Cache.Find(this.Name + "-fibo 138pc");
+            }
+        }
+
         public DataSeries[] ExtraSeries
         {
             get
             {
-                return new DataSeries[] { this.Fibo23pc,this.Fibo38pc, this.Fibo50pc, this.Fibo62pc, this.Fibo100 };
+                return new DataSeries[] { this.Fibo23pc,this.Fibo38pc, this.Fibo50pc, this.Fibo62pc, this.Fibo100,this.Fibo138pc };
             }
         }
     }
