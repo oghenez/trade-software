@@ -169,7 +169,7 @@ namespace Tools.Forms
 
             DataGridViewCellStyle amountCellStyle = new System.Windows.Forms.DataGridViewCellStyle();
             amountCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            amountCellStyle.Format = "N" + Settings.sysPrecisionLocal.ToString();
+            amountCellStyle.Format = "N" + common.system.GetPrecisionFromMask(Settings.sysMaskLocalAmt);
             amountCellStyle.NullValue = null;
 
             grid.Columns.Clear();

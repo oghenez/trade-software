@@ -2419,6 +2419,15 @@ namespace Languages.langs {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Unit price.
+        /// </summary>
+        internal static string priceMask {
+            get {
+                return ResourceManager.GetString("priceMask", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Price ratio.
         /// </summary>
         internal static string priceWeight {
@@ -2572,7 +2581,7 @@ namespace Languages.langs {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Revennue.
+        ///   Looks up a localized string similar to Revenue.
         /// </summary>
         internal static string revennue {
             get {

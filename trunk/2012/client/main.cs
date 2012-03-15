@@ -23,6 +23,7 @@ namespace client
         const string constFormNameIndicator = "indicator-";
         const string constFormNameStock = "stock-";
         const string constFormNameWatchList = "WatchList-";
+        const string constFormNamePorfolioWatch = "PorfolioWatch-";
         const string constFormNameTradeAlert = "TradeAlert";
         const string constFormNameMarketSummary = "MarketSummary";
         const string constFormNameEstimateTrade = "EstimateTrade-";
@@ -138,6 +139,18 @@ namespace client
             menuItem = contextMenuStrip.Items.Add(screeningMenuItem.Text);
             menuItem.Click += new System.EventHandler(screeningMenuItem_Click);
 
+            return contextMenuStrip;
+        }
+
+        private ContextMenuStrip CreateContextMenu_PorfolioWatch()
+        {
+            ContextMenuStrip contextMenuStrip = new ContextMenuStrip();
+            ToolStripItem menuItem;
+            menuItem = contextMenuStrip.Items.Add(NewChartMenuItem.Text);
+            menuItem.Click += new System.EventHandler(PorfolioWatch_OpenChartMenuItem_Click);
+
+            menuItem = contextMenuStrip.Items.Add(orderMenuItem.Text);
+            menuItem.Click += new System.EventHandler(PorfolioWatch_MakeOrderMenuItem_Click);
             return contextMenuStrip;
         }
         #endregion
@@ -524,10 +537,16 @@ namespace client
                         (dockPanel.Contents[idx] as Trade.Forms.marketWatch).RefreshData(false);
                         continue;
                     }
-                    //Portfolio watch
+                    //TransactionList watch
                     if (dockPanel.Contents[idx].GetType() == typeof(Trade.Forms.transactionList))
                     {
-                        (dockPanel.Contents[idx] as Trade.Forms.transactionList).Refresh();
+                        (dockPanel.Contents[idx] as Trade.Forms.transactionList).RefreshData(false);
+                        continue;
+                    }
+                    //Portfolio watch
+                    if (dockPanel.Contents[idx].GetType() == typeof(Trade.Forms.portfolioWatch))
+                    {
+                        (dockPanel.Contents[idx] as Trade.Forms.portfolioWatch).RefreshData(false);
                         continue;
                     }
                 }
@@ -651,7 +670,7 @@ namespace client
         }
 
         /// <summary>
-        /// Update waht part in the active form
+        /// Update what part in the active form
         /// </summary>
         private enum FormOptions : byte
         {
@@ -865,30 +884,37 @@ namespace client
         }
         private void HideTradeAlertForm()
         {
-            Trade.Forms.tradeAlertList form = GetTradeAlertForm(false);
-            if (form != null) form.Hide();
+            Trade.Forms.tradeAlertList myForm = GetTradeAlertForm(false);
+            if (myForm == null || myForm.IsDisposed) return;
+            myForm.Close();
         }
 
-        private void ShowPortfolioWatchtForm()
+        private Trade.Forms.portfolioWatch GetPorfolioWatchForm(bool createIfNotExisted)
         {
-            string formName = constFormNameWatchList + "Portfolio";
+            string formName = constFormNamePorfolioWatch;
             Trade.Forms.portfolioWatch myForm = (Trade.Forms.portfolioWatch)cachedForms.Find(formName);
             if (myForm == null || myForm.IsDisposed)
             {
+                if (!createIfNotExisted) return null;
                 myForm = new Trade.Forms.portfolioWatch();
                 myForm.Name = formName;
-                myForm.myOnShowChart += new Trade.Forms.portfolioWatch.onShowChart(ShowStockChart);
+                myForm.Init();
                 cachedForms.Add(formName, myForm);
-                MapForm(myForm, myPortfolioMenuItem);
             }
+            return myForm;
+        }
+        private void ShowPortfolioWatchtForm()
+        {
+            Trade.Forms.portfolioWatch myForm = GetPorfolioWatchForm(true);
+            myForm.myContextMenuStrip = CreateContextMenu_PorfolioWatch();
             myForm.Show(dockPanel, DockState.DockBottom);
+            MapForm(myForm, myPortfolioMenuItem);
         }
         private void HidePortfolioWatchtForm()
         {
-            string formName = constFormNameWatchList + "Portfolio";
-            Trade.Forms.portfolioWatch myForm = (Trade.Forms.portfolioWatch)cachedForms.Find(formName);
-            if (myForm == null || myForm.IsDisposed) return;
-            myForm.Close();
+            Trade.Forms.portfolioWatch form = GetPorfolioWatchForm(false);
+            if (form == null || form.IsDisposed) return;
+            form.Close();
         }
 
         private void ShowTransHistForm()
@@ -902,7 +928,7 @@ namespace client
                 cachedForms.Add(formName, myForm);
                 MapForm(myForm, transHistoryMenuItem);
             }
-            myForm.Show(dockPanel, DockState.DockBottom);
+            myForm.Show(dockPanel, DockState.Document);
         }
         private void HideTransHistForm()
         {
@@ -1563,7 +1589,7 @@ namespace client
                 this.ShowError(er);
             }
         }
-       
+
 
         private void orderMenuItem_Click(object sender, EventArgs e)
         {
@@ -1802,6 +1828,37 @@ namespace client
             }
         }
 
+
+        private void PorfolioWatch_OpenChartMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Trade.Forms.portfolioWatch myForm = GetPorfolioWatchForm(false);
+                if (myForm == null) return;
+                if (myForm.myCurrentRow == null) return;
+                ShowStockChart(myForm.myCurrentRow.code);
+            }
+            catch (Exception er)
+            {
+                this.ShowError(er);
+            }
+        }
+        private void PorfolioWatch_MakeOrderMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Trade.Forms.portfolioWatch myForm = GetPorfolioWatchForm(false);
+                if (myForm != null && myForm.myCurrentRow != null)
+                    Trade.AppLibs.OrderForm(myForm.myCurrentRow.code);
+                else
+                    Trade.AppLibs.OrderForm(null);
+            }
+            catch (Exception er)
+            {
+                this.ShowError(er);
+            }
+        }
+
         private void marketSummaryMenuItem_Click(object sender, EventArgs e)
         {
             ShowMarketSummaryForm();
@@ -1928,7 +1985,5 @@ namespace client
                 this.ShowError(er);
             }
         }
-
-      
     }
 }

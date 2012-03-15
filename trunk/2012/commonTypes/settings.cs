@@ -201,13 +201,8 @@ namespace commonTypes
         public static string sysMainCurrencyName = "Viet nam dong";
 
         //Customed format
-        public static int sysPrecisionPercentage = 1;
-        public static int sysPrecisionPrice = 1;
-        public static int sysPrecisionQty = 0;
-        public static int sysPrecisionLocal = 0;
-        public static int sysPrecisionForeign = 2;
 
-        public static string sysMaskGeneralValue = "###,###,###,##0.000";
+        public static string sysMaskGeneralValue = "###,###,###,##0";
         public static string sysMaskLocalAmt = "###,###,###,###,##0";
         public static string sysMaskForeignAmt = "###,###,###,##0.00";
         public static string sysMaskPercent = "#0";
