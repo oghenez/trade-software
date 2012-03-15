@@ -304,17 +304,11 @@ namespace baseClass.controls
             }
         }
 
-        static databases.baseDS.lastPriceDataDataTable openPriceTbl = null;
-        static DateTime openPriceDate = DateTime.Now.Date;
+        
         private void DoRefreshPrice(databases.tmpDS.stockCodeDataTable dataTbl)
         {
-            //Open price is the same all day.
-            if (openPriceTbl == null || openPriceDate != DateTime.Today)
-            {
-                openPriceTbl = DataAccess.Libs.GetLastPrice(AppTypes.PriceDataType.Open);
-                openPriceDate = DateTime.Today;
-            }
-            databases.baseDS.lastPriceDataDataTable closePriceTbl = DataAccess.Libs.GetLastPrice(AppTypes.PriceDataType.Close);
+            databases.baseDS.lastPriceDataDataTable openPriceTbl = DataAccess.Libs.myLastDataOpenPrice; 
+            databases.baseDS.lastPriceDataDataTable closePriceTbl = DataAccess.Libs.myLastDataClosePrice;
             if (openPriceTbl==null || closePriceTbl == null) return;
 
             dataTbl.priceColumn.ReadOnly = false;

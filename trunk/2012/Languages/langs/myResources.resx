@@ -1290,4 +1290,7 @@
   <data name="padding" xml:space="preserve">
     <value>Padding</value>
   </data>
+  <data name="transVolume" xml:space="preserve">
+    <value>Trans Volume</value>
+  </data>
 </root>

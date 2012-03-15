@@ -117,20 +117,8 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="myDataSet.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>363, 17</value>
-  </metadata>
-  <metadata name="myTmpDS.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>469, 17</value>
-  </metadata>
-  <metadata name="portfolioListSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>572, 17</value>
-  </metadata>
-  <metadata name="saveFileDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
   <metadata name="myToolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>139, 17</value>
+    <value>151, 17</value>
   </metadata>
   <metadata name="subjectColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -144,30 +132,48 @@
   <metadata name="idColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
+  <metadata name="nameColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="transVolumeColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="portfolioWatchSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>380, 17</value>
+  </metadata>
+  <metadata name="myTmpDS.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>694, 17</value>
+  </metadata>
+  <metadata name="saveFileDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>558, 17</value>
+  </metadata>
+  <metadata name="myDataSet.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>264, 17</value>
+  </metadata>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>44</value>
+    <value>81</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         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
-        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
+        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
         AAAAAAAA//////////////////////////////////////////8=
 </value>
   </data>

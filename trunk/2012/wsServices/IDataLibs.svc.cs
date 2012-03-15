@@ -188,10 +188,13 @@ namespace wsServices
         databases.baseDS.portfolioDetailDataTable GetPortfolioDetail_ByType(AppTypes.PortfolioTypes[] types);
         [OperationContract]
         databases.baseDS.portfolioDetailDataTable GetPortfolioDetail_ByCode(string portfolioCode);
+
+        [OperationContract]
+        databases.tmpDS.investorStockDataTable GetOwnedStockSum_ByInvestor(string investorCode);
         
         [OperationContract]
-        databases.baseDS.investorStockDataTable GetOwnedStock(string portfolioCode);
-
+        databases.baseDS.investorStockDataTable GetOwnedStock_ByPortfolio(string portfolioCode);
+        
         [OperationContract]
         databases.baseDS.lastPriceDataDataTable GetLastPrice(AppTypes.PriceDataType type);
 

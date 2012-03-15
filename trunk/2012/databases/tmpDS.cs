@@ -7,3 +7,11 @@
         }
     }
 }
+
+namespace databases.tmpDSTableAdapters
+{
+    
+    
+    public partial class stockCodeTA {
+    }
+}

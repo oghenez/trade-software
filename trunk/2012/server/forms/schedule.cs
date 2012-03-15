@@ -107,13 +107,8 @@ namespace server
         {
             try
             {
-                if (fFetchDataRunning)
-                {
-                    //commonClass.SysLibs.WriteSysLog("Ignore fetch Data ");
-                    return;
-                }
+                if (fFetchDataRunning)  return;
                 fFetchDataRunning = true;
-                //commonClass.SysLibs.WriteSysLog("Start fetch Data ");
                 libs.FetchRealTimeData(DateTime.Now);
                 fFetchDataRunning = false;
             }
@@ -160,7 +155,8 @@ namespace server
 
                 fetchDataTimer.WaitInSeconds = (short)(fetchDataChk.Checked?Settings.sysGlobal.RefreshDataInSecs:0);
                 createTradeAlertTimer.WaitInSeconds = (short)(tradeAlertChk.Checked ? Settings.sysGlobal.CheckAlertInSeconds : 0);
-                
+                //createTradeAlertTimer.WaitInSeconds = 10;
+               
                 if (fRunning) myTimer.Start();
                 else myTimer.Stop();
             }

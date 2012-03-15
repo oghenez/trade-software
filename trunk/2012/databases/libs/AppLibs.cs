@@ -216,13 +216,13 @@ namespace databases
             row.status = (short)AppTypes.CommonStatus.None;
         }
 
-        public static void InitData(databases.tmpDS.stockCodeRow row)
+        public static void InitData(databases.tmpDS.porfolioWatchRow  row)
         {
             row.qty = 0; row.boughtAmt = 0;
             row.boughtPrice = 0;
             row.price = 0;
             row.priceVariant = 0;
-            row.volume = 0;
+            row.transVolume = 0;
             row.amt = 0;
             row.profitVariantAmt = 0;
             row.profitVariantPerc = 0;

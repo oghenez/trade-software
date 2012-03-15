@@ -877,7 +877,7 @@ namespace client
             {
                 myForm = new Trade.Forms.portfolioWatch();
                 myForm.Name = formName;
-                myForm.myOnShowChart += new baseClass.forms.basePortfolioWatch.onShowChart(ShowStockChart);
+                myForm.myOnShowChart += new Trade.Forms.portfolioWatch.onShowChart(ShowStockChart);
                 cachedForms.Add(formName, myForm);
                 MapForm(myForm, myPortfolioMenuItem);
             }
