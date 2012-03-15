@@ -3301,6 +3301,15 @@ namespace Languages.langs {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Trans Volume.
+        /// </summary>
+        internal static string transVolume {
+            get {
+                return ResourceManager.GetString("transVolume", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Treasury.
         /// </summary>
         internal static string treasuryQty {

@@ -17093,7 +17093,7 @@ SELECT stockCode, portfolio, buyDate, qty, buyAmt FROM investorStock WHERE (buyD
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[4];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[5];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT * FROM investorStock WHERE (portfolio = @portfolio)";
@@ -17101,25 +17101,29 @@ SELECT stockCode, portfolio, buyDate, qty, buyAmt FROM investorStock WHERE (buyD
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@portfolio", global::System.Data.SqlDbType.NVarChar, 10, global::System.Data.ParameterDirection.Input, 0, 0, "portfolio", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT *  FROM investorStock WHERE (portfolio IN (SELECT code FROM portfolio WHER" +
-                "E (investorCode = @investor)))";
+            this._commandCollection[1].CommandText = "SELECT * FROM investorStock ";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@investor", global::System.Data.SqlDbType.NVarChar, 10, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = "SELECT *  FROM investorStock WHERE (portfolio = @portfolio) AND (stockCode = @sto" +
-                "ckCode)";
+            this._commandCollection[2].CommandText = "SELECT *  FROM investorStock WHERE (portfolio IN (SELECT code FROM portfolio WHER" +
+                "E (investorCode = @investor)))";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@portfolio", global::System.Data.SqlDbType.NVarChar, 10, global::System.Data.ParameterDirection.Input, 0, 0, "portfolio", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@stockCode", global::System.Data.SqlDbType.NVarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "stockCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@investor", global::System.Data.SqlDbType.NVarChar, 10, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[3].Connection = this.Connection;
             this._commandCollection[3].CommandText = "SELECT *  FROM investorStock WHERE (portfolio = @portfolio) AND (stockCode = @sto" +
-                "ckCode) AND (buyDate = @buyDate)";
+                "ckCode)";
             this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@portfolio", global::System.Data.SqlDbType.NVarChar, 10, global::System.Data.ParameterDirection.Input, 0, 0, "portfolio", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@stockCode", global::System.Data.SqlDbType.NVarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "stockCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@buyDate", global::System.Data.SqlDbType.SmallDateTime, 4, global::System.Data.ParameterDirection.Input, 0, 0, "buyDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[4].Connection = this.Connection;
+            this._commandCollection[4].CommandText = "SELECT *  FROM investorStock WHERE (portfolio = @portfolio) AND (stockCode = @sto" +
+                "ckCode) AND (buyDate = @buyDate)";
+            this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@portfolio", global::System.Data.SqlDbType.NVarChar, 10, global::System.Data.ParameterDirection.Input, 0, 0, "portfolio", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@stockCode", global::System.Data.SqlDbType.NVarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "stockCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@buyDate", global::System.Data.SqlDbType.SmallDateTime, 4, global::System.Data.ParameterDirection.Input, 0, 0, "buyDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -17159,8 +17163,30 @@ SELECT stockCode, portfolio, buyDate, qty, buyAmt FROM investorStock WHERE (buyD
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillByInvestor(baseDS.investorStockDataTable dataTable, string investor) {
+        public virtual int FillByAll(baseDS.investorStockDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual baseDS.investorStockDataTable GetByAll() {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            baseDS.investorStockDataTable dataTable = new baseDS.investorStockDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByInvestor(baseDS.investorStockDataTable dataTable, string investor) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
             if ((investor == null)) {
                 throw new global::System.ArgumentNullException("investor");
             }
@@ -17178,7 +17204,7 @@ SELECT stockCode, portfolio, buyDate, qty, buyAmt FROM investorStock WHERE (buyD
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual baseDS.investorStockDataTable GetByInvestor(string investor) {
-            this.Adapter.SelectCommand = this.CommandCollection[1];
+            this.Adapter.SelectCommand = this.CommandCollection[2];
             if ((investor == null)) {
                 throw new global::System.ArgumentNullException("investor");
             }
@@ -17194,7 +17220,7 @@ SELECT stockCode, portfolio, buyDate, qty, buyAmt FROM investorStock WHERE (buyD
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
         public virtual int FillByPortfolioStock(baseDS.investorStockDataTable dataTable, string portfolio, string stockCode) {
-            this.Adapter.SelectCommand = this.CommandCollection[2];
+            this.Adapter.SelectCommand = this.CommandCollection[3];
             if ((portfolio == null)) {
                 throw new global::System.ArgumentNullException("portfolio");
             }
@@ -17218,7 +17244,7 @@ SELECT stockCode, portfolio, buyDate, qty, buyAmt FROM investorStock WHERE (buyD
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual baseDS.investorStockDataTable GetByPortfolioStock(string portfolio, string stockCode) {
-            this.Adapter.SelectCommand = this.CommandCollection[2];
+            this.Adapter.SelectCommand = this.CommandCollection[3];
             if ((portfolio == null)) {
                 throw new global::System.ArgumentNullException("portfolio");
             }
@@ -17240,7 +17266,7 @@ SELECT stockCode, portfolio, buyDate, qty, buyAmt FROM investorStock WHERE (buyD
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
         public virtual int FillByPortfolioStockBuyDate(baseDS.investorStockDataTable dataTable, string portfolio, string stockCode, System.DateTime buyDate) {
-            this.Adapter.SelectCommand = this.CommandCollection[3];
+            this.Adapter.SelectCommand = this.CommandCollection[4];
             if ((portfolio == null)) {
                 throw new global::System.ArgumentNullException("portfolio");
             }
@@ -17265,7 +17291,7 @@ SELECT stockCode, portfolio, buyDate, qty, buyAmt FROM investorStock WHERE (buyD
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual baseDS.investorStockDataTable GetByPortfolioStockBuyDate(string portfolio, string stockCode, System.DateTime buyDate) {
-            this.Adapter.SelectCommand = this.CommandCollection[3];
+            this.Adapter.SelectCommand = this.CommandCollection[4];
             if ((portfolio == null)) {
                 throw new global::System.ArgumentNullException("portfolio");
             }
@@ -25308,7 +25334,7 @@ SELECT portfolio, code, subCode, data FROM portfolioDetail WHERE (code = @code) 
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[5];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = @"SELECT     a.stockCode, a.closePrice AS value
@@ -25321,7 +25347,7 @@ ORDER BY a.stockCode";
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@onDate", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = @"SELECT     a.stockCode, a.openPrice AS value
+            this._commandCollection[1].CommandText = @"SELECT     a.stockCode, a.highPrice AS value
 FROM         priceData AS a INNER JOIN
                           (SELECT     MAX(onDate) AS onDate, stockCode
                             FROM          priceData WHERE onDate>=@onDate
@@ -25329,6 +25355,36 @@ FROM         priceData AS a INNER JOIN
 ORDER BY a.stockCode";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@onDate", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = @"SELECT     a.stockCode, a.lowPrice AS value
+FROM         priceData AS a INNER JOIN
+                          (SELECT     MAX(onDate) AS onDate, stockCode
+                            FROM          priceData WHERE onDate>=@onDate
+                            GROUP BY stockCode) AS b ON a.onDate = b.onDate AND a.stockCode = b.stockCode
+ORDER BY a.stockCode";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@onDate", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[3].Connection = this.Connection;
+            this._commandCollection[3].CommandText = @"SELECT     a.stockCode, a.openPrice AS value
+FROM         priceData AS a INNER JOIN
+                          (SELECT     MAX(onDate) AS onDate, stockCode
+                            FROM          priceData WHERE onDate>=@onDate
+                            GROUP BY stockCode) AS b ON a.onDate = b.onDate AND a.stockCode = b.stockCode
+ORDER BY a.stockCode";
+            this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@onDate", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[4].Connection = this.Connection;
+            this._commandCollection[4].CommandText = @"SELECT     a.stockCode, a.volume AS value
+FROM         priceData AS a INNER JOIN
+                          (SELECT     MAX(onDate) AS onDate, stockCode
+                            FROM          priceData WHERE onDate>=@onDate
+                            GROUP BY stockCode) AS b ON a.onDate = b.onDate AND a.stockCode = b.stockCode
+ORDER BY a.stockCode";
+            this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@onDate", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -25345,8 +25401,41 @@ ORDER BY a.stockCode";
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual baseDS.lastPriceDataDataTable GetOpenPrice(System.DateTime onDate) {
+        public virtual baseDS.lastPriceDataDataTable GetHigh(System.DateTime onDate) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((System.DateTime)(onDate));
+            baseDS.lastPriceDataDataTable dataTable = new baseDS.lastPriceDataDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual baseDS.lastPriceDataDataTable GetLow(System.DateTime onDate) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((System.DateTime)(onDate));
+            baseDS.lastPriceDataDataTable dataTable = new baseDS.lastPriceDataDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual baseDS.lastPriceDataDataTable GetOpenPrice(System.DateTime onDate) {
+            this.Adapter.SelectCommand = this.CommandCollection[3];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((System.DateTime)(onDate));
+            baseDS.lastPriceDataDataTable dataTable = new baseDS.lastPriceDataDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual baseDS.lastPriceDataDataTable GetVolume(System.DateTime onDate) {
+            this.Adapter.SelectCommand = this.CommandCollection[4];
             this.Adapter.SelectCommand.Parameters[0].Value = ((System.DateTime)(onDate));
             baseDS.lastPriceDataDataTable dataTable = new baseDS.lastPriceDataDataTable();
             this.Adapter.Fill(dataTable);

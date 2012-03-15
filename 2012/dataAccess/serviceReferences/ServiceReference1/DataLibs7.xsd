@@ -34,22 +34,6 @@
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element msdata:ReadOnly="true" minOccurs="0" name="price" type="xs:decimal" />
-              <xs:element msdata:ReadOnly="true" minOccurs="0" name="priceVariant" type="xs:decimal" />
-              <xs:element msdata:ReadOnly="true" minOccurs="0" name="qty" type="xs:int" />
-              <xs:element msdata:ReadOnly="true" minOccurs="0" name="boughtPrice" type="xs:decimal" />
-              <xs:element msdata:ReadOnly="true" minOccurs="0" name="amt" type="xs:decimal" />
-              <xs:element msdata:ReadOnly="true" minOccurs="0" name="boughtAmt" type="xs:decimal" />
-              <xs:element msdata:ReadOnly="true" minOccurs="0" name="profitVariantPerc" type="xs:decimal" />
-              <xs:element msdata:ReadOnly="true" minOccurs="0" name="notes">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="1" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element msdata:ReadOnly="true" minOccurs="0" name="volume" type="xs:int" />
-              <xs:element msdata:ReadOnly="true" minOccurs="0" name="profitVariantAmt" type="xs:decimal" />
               <xs:element minOccurs="0" name="nameEn">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
@@ -88,6 +72,21 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="investorStock">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="stockCode">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element msdata:ReadOnly="true" minOccurs="0" name="qty" type="xs:decimal" />
+              <xs:element msdata:ReadOnly="true" minOccurs="0" name="buyAmt" type="xs:decimal" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
         <xs:element name="tradeEstimate">
           <xs:complexType>
             <xs:sequence>
@@ -113,6 +112,7 @@
               <xs:element minOccurs="0" name="description" type="xs:string" />
               <xs:element minOccurs="0" name="byteValue" type="xs:unsignedByte" />
               <xs:element minOccurs="0" name="intValue" type="xs:int" />
+              <xs:element minOccurs="0" name="shortValue" type="xs:short" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -137,6 +137,64 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="porfolioWatch">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="code">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="stockExchange">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="tickerCode">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="name">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element msdata:ReadOnly="true" minOccurs="0" name="price" type="xs:decimal" />
+              <xs:element msdata:ReadOnly="true" minOccurs="0" name="priceVariant" type="xs:decimal" />
+              <xs:element msdata:ReadOnly="true" minOccurs="0" name="qty" type="xs:int" />
+              <xs:element msdata:ReadOnly="true" minOccurs="0" name="boughtPrice" type="xs:decimal" />
+              <xs:element msdata:ReadOnly="true" minOccurs="0" name="amt" type="xs:decimal" />
+              <xs:element msdata:ReadOnly="true" minOccurs="0" name="boughtAmt" type="xs:decimal" />
+              <xs:element msdata:ReadOnly="true" minOccurs="0" name="profitVariantPerc" type="xs:decimal" />
+              <xs:element msdata:ReadOnly="true" minOccurs="0" name="notes">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element msdata:ReadOnly="true" minOccurs="0" name="volume" type="xs:int" />
+              <xs:element msdata:ReadOnly="true" minOccurs="0" name="profitVariantAmt" type="xs:decimal" />
+              <xs:element minOccurs="0" name="nameEn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element msdata:ReadOnly="true" minOccurs="0" name="selected" type="xs:int" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
     <xs:unique msdata:PrimaryKey="true" name="Constraint1">
@@ -147,6 +205,10 @@
       <xs:selector xpath=".//investor" />
       <xs:field xpath="code" />
     </xs:unique>
+    <xs:unique msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true" name="investorStock_Constraint1">
+      <xs:selector xpath=".//investorStock" />
+      <xs:field xpath="stockCode" />
+    </xs:unique>
     <xs:unique msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true" name="codeList_Constraint1">
       <xs:selector xpath=".//codeList" />
       <xs:field xpath="code" />
@@ -156,6 +218,10 @@
       <xs:field xpath="code" />
       <xs:field xpath="date1" />
       <xs:field xpath="date2" />
+    </xs:unique>
+    <xs:unique msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true" name="porfolioWatch_Constraint1">
+      <xs:selector xpath=".//porfolioWatch" />
+      <xs:field xpath="code" />
     </xs:unique>
   </xs:element>
 </xs:schema>

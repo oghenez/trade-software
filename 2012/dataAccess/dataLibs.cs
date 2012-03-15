@@ -754,11 +754,24 @@ namespace DataAccess
             return null;
         }
 
-        public static databases.baseDS.investorStockDataTable GetOwnedStock(string portfolio)
+        public static databases.baseDS.investorStockDataTable GetOwnedStock_ByPortfolio(string portfolio)
         {
             try
             {
-                return myClient.GetOwnedStock(portfolio);
+                return myClient.GetOwnedStock_ByPortfolio(portfolio);
+            }
+            catch (Exception er)
+            {
+                if (OnError != null) OnError(er);
+            }
+            return null;
+        }
+
+        public static databases.tmpDS.investorStockDataTable GetOwnedStockSum_ByInvestor(string investorCode)
+        {
+            try
+            {
+                return myClient.GetOwnedStockSum_ByInvestor(investorCode);
             }
             catch (Exception er)
             {
@@ -1001,18 +1014,85 @@ namespace DataAccess
             return null;
 
         }
-        public static databases.baseDS.lastPriceDataDataTable GetLastPrice(AppTypes.PriceDataType type)
-        {
-            try
-            {
-                return myClient.GetLastPrice(type);
-            }
-            catch (Exception er)
-            {
-                if (OnError != null) OnError(er);
-            }
-            return null;
 
+
+        private class LastPriceCache
+        {
+            public DateTime CacheTime = common.Consts.constNullDate;
+            public databases.baseDS.lastPriceDataDataTable DataTbl = null;
+        }
+        public static databases.baseDS.lastPriceDataDataTable myLastDataClosePrice
+        {
+            get
+            {
+                try
+                {
+                    string cacheKey = MakeCacheKey("LastPrice", "Close");
+                    LastPriceCache lastPriceCache = (LastPriceCache)GetCache(cacheKey);
+                    if (lastPriceCache != null && 
+                        common.dateTimeLibs.DateDiffInSecs(lastPriceCache.CacheTime, DateTime.Now) < commonTypes.Settings.sysGlobal.RefreshDataInSecs)
+                        return lastPriceCache.DataTbl;
+
+                    if (lastPriceCache == null) lastPriceCache = new LastPriceCache();
+                    lastPriceCache.DataTbl = myClient.GetLastPrice(AppTypes.PriceDataType.Close);
+                    lastPriceCache.CacheTime = DateTime.Now;
+                    AddCache(cacheKey, lastPriceCache);
+                    return lastPriceCache.DataTbl;
+                }
+                catch (Exception er)
+                {
+                    if (OnError != null) OnError(er);
+                }
+                return null;
+            }
+        }
+        public static databases.baseDS.lastPriceDataDataTable myLastDataOpenPrice
+        {
+            get
+            {
+                try
+                {
+                    string cacheKey = MakeCacheKey("LastPrice", "Open");
+                    LastPriceCache lastPriceCache = (LastPriceCache)GetCache(cacheKey);
+                    if (lastPriceCache != null && lastPriceCache.CacheTime!= DateTime.Today)
+                        return lastPriceCache.DataTbl;
+                    if (lastPriceCache == null) lastPriceCache = new LastPriceCache();
+                    lastPriceCache.DataTbl = myClient.GetLastPrice(AppTypes.PriceDataType.Open);
+                    lastPriceCache.CacheTime = DateTime.Today;
+                    AddCache(cacheKey, lastPriceCache);
+                    return lastPriceCache.DataTbl;
+                }
+                catch (Exception er)
+                {
+                    if (OnError != null) OnError(er);
+                }
+                return null;
+            }
+        }
+        public static databases.baseDS.lastPriceDataDataTable myLastDataVolume
+        {
+            get
+            {
+                try
+                {
+                    string cacheKey = MakeCacheKey("LastPrice", "Volume");
+                    LastPriceCache lastPriceCache = (LastPriceCache)GetCache(cacheKey);
+                    if (lastPriceCache != null &&
+                        common.dateTimeLibs.DateDiffInSecs(lastPriceCache.CacheTime, DateTime.Now) < commonTypes.Settings.sysGlobal.RefreshDataInSecs)
+                        return lastPriceCache.DataTbl;
+
+                    if (lastPriceCache == null) lastPriceCache = new LastPriceCache();
+                    lastPriceCache.DataTbl = myClient.GetLastPrice(AppTypes.PriceDataType.Volume);
+                    lastPriceCache.CacheTime = DateTime.Now;
+                    AddCache(cacheKey, lastPriceCache);
+                    return lastPriceCache.DataTbl;
+                }
+                catch (Exception er)
+                {
+                    if (OnError != null) OnError(er);
+                }
+                return null;
+            }
         }
 
         public static bool GetTransactionInfo(ref TransactionInfo transInfo)

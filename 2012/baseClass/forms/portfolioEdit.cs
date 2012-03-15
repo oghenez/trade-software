@@ -109,7 +109,7 @@ namespace baseClass.forms
             //Investor stock
             if (row.IsNull(myDataSet.portfolio.codeColumn.ColumnName))
                  investorStockSource.DataSource = null;
-            else investorStockSource.DataSource = DataAccess.Libs.GetOwnedStock(row.code);
+            else investorStockSource.DataSource = DataAccess.Libs.GetOwnedStock_ByPortfolio(row.code);
 
         }
 

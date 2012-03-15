@@ -1296,4 +1296,7 @@
   <data name="padding" xml:space="preserve">
     <value>Chung quanh</value>
   </data>
+  <data name="transVolume" xml:space="preserve">
+    <value>Tổng K/L giao dịch</value>
+  </data>
 </root>

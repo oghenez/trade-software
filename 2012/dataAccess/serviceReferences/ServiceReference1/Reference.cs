@@ -15,6 +15,9 @@ namespace DataAccess.ServiceReference1 {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.IStockService")]
     public interface IStockService {
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/Analysis", ReplyAction="http://tempuri.org/IStockService/AnalysisResponse")]
+        commonClass.TradePointInfo[] Analysis(string dataKey, string strategyCode);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/MakeTransaction", ReplyAction="http://tempuri.org/IStockService/MakeTransactionResponse")]
         databases.baseDS.transactionsDataTable MakeTransaction(out string errorText, commonTypes.AppTypes.TradeActions type, string stockCode, string portfolioCode, int qty, decimal feePerc);
         
@@ -81,8 +84,11 @@ namespace DataAccess.ServiceReference1 {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetPortfolioDetail_ByCode", ReplyAction="http://tempuri.org/IStockService/GetPortfolioDetail_ByCodeResponse")]
         databases.baseDS.portfolioDetailDataTable GetPortfolioDetail_ByCode(string portfolioCode);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetOwnedStock", ReplyAction="http://tempuri.org/IStockService/GetOwnedStockResponse")]
-        databases.baseDS.investorStockDataTable GetOwnedStock(string portfolioCode);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetOwnedStockSum_ByInvestor", ReplyAction="http://tempuri.org/IStockService/GetOwnedStockSum_ByInvestorResponse")]
+        databases.tmpDS.investorStockDataTable GetOwnedStockSum_ByInvestor(string investorCode);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetOwnedStock_ByPortfolio", ReplyAction="http://tempuri.org/IStockService/GetOwnedStock_ByPortfolioResponse")]
+        databases.baseDS.investorStockDataTable GetOwnedStock_ByPortfolio(string portfolioCode);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetLastPrice", ReplyAction="http://tempuri.org/IStockService/GetLastPriceResponse")]
         databases.baseDS.lastPriceDataDataTable GetLastPrice(commonTypes.AppTypes.PriceDataType type);
@@ -128,9 +134,6 @@ namespace DataAccess.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/Estimate_Matrix_LastBizWeight", ReplyAction="http://tempuri.org/IStockService/Estimate_Matrix_LastBizWeightResponse")]
         double[][] Estimate_Matrix_LastBizWeight(commonClass.DataParams dataParams, string[] stockCodeList, string[] strategyList);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/Analysis", ReplyAction="http://tempuri.org/IStockService/AnalysisResponse")]
-        commonClass.TradePointInfo[] Analysis(string dataKey, string strategyCode);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetInvestorShortList", ReplyAction="http://tempuri.org/IStockService/GetInvestorShortListResponse")]
         databases.tmpDS.investorDataTable GetInvestorShortList();
@@ -328,6 +331,10 @@ namespace DataAccess.ServiceReference1 {
                 base(binding, remoteAddress) {
         }
         
+        public commonClass.TradePointInfo[] Analysis(string dataKey, string strategyCode) {
+            return base.Channel.Analysis(dataKey, strategyCode);
+        }
+        
         public databases.baseDS.transactionsDataTable MakeTransaction(out string errorText, commonTypes.AppTypes.TradeActions type, string stockCode, string portfolioCode, int qty, decimal feePerc) {
             return base.Channel.MakeTransaction(out errorText, type, stockCode, portfolioCode, qty, feePerc);
         }
@@ -416,8 +423,12 @@ namespace DataAccess.ServiceReference1 {
             return base.Channel.GetPortfolioDetail_ByCode(portfolioCode);
         }
         
-        public databases.baseDS.investorStockDataTable GetOwnedStock(string portfolioCode) {
-            return base.Channel.GetOwnedStock(portfolioCode);
+        public databases.tmpDS.investorStockDataTable GetOwnedStockSum_ByInvestor(string investorCode) {
+            return base.Channel.GetOwnedStockSum_ByInvestor(investorCode);
+        }
+        
+        public databases.baseDS.investorStockDataTable GetOwnedStock_ByPortfolio(string portfolioCode) {
+            return base.Channel.GetOwnedStock_ByPortfolio(portfolioCode);
         }
         
         public databases.baseDS.lastPriceDataDataTable GetLastPrice(commonTypes.AppTypes.PriceDataType type) {
@@ -478,10 +489,6 @@ namespace DataAccess.ServiceReference1 {
         
         public double[][] Estimate_Matrix_LastBizWeight(commonClass.DataParams dataParams, string[] stockCodeList, string[] strategyList) {
             return base.Channel.Estimate_Matrix_LastBizWeight(dataParams, stockCodeList, strategyList);
-        }
-        
-        public commonClass.TradePointInfo[] Analysis(string dataKey, string strategyCode) {
-            return base.Channel.Analysis(dataKey, strategyCode);
         }
         
         public databases.tmpDS.investorDataTable GetInvestorShortList() {

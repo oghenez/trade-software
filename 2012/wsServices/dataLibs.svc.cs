@@ -360,7 +360,14 @@ namespace wsServices
             return tbl;
         }
 
-        public databases.baseDS.investorStockDataTable GetOwnedStock(string portfolioCode)
+        public databases.tmpDS.investorStockDataTable GetOwnedStockSum_ByInvestor(string investorCode)
+        {
+            databases.tmpDS.investorStockDataTable tbl = new databases.tmpDS.investorStockDataTable();
+            databases.DbAccess.LoadData(tbl, investorCode);
+            return tbl;
+        }
+
+        public databases.baseDS.investorStockDataTable GetOwnedStock_ByPortfolio(string portfolioCode)
         {
             databases.baseDS.investorStockDataTable tbl = new databases.baseDS.investorStockDataTable();
             databases.DbAccess.LoadData(tbl, portfolioCode);
