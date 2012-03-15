@@ -1246,7 +1246,7 @@
     <value>Decision</value>
   </data>
   <data name="revennue" xml:space="preserve">
-    <value>Revennue</value>
+    <value>Revenue</value>
   </data>
   <data name="sell" xml:space="preserve">
     <value>Sell</value>
@@ -1292,5 +1292,8 @@
   </data>
   <data name="transVolume" xml:space="preserve">
     <value>Trans Volume</value>
+  </data>
+  <data name="priceMask" xml:space="preserve">
+    <value>Unit price</value>
   </data>
 </root>

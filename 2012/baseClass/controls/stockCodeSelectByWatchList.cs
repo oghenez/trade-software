@@ -54,6 +54,8 @@ namespace baseClass.controls
         private DataGridViewTextBoxColumn stockNameColumn = new DataGridViewTextBoxColumn();
         private void InitGrid()
         {
+            byte precisionPrice = common.system.GetPrecisionFromMask(Settings.sysMaskPrice);
+            byte precisionPercent = common.system.GetPrecisionFromMask(Settings.sysMaskPercent);
             // 
             // stockGV
             // 
@@ -87,7 +89,7 @@ namespace baseClass.controls
             DataGridViewCellStyle priceCellType = new DataGridViewCellStyle();
             this.priceColumn.DataPropertyName = this.myStockTbl.priceColumn.ColumnName;
             priceCellType.Alignment = DataGridViewContentAlignment.MiddleRight;
-            priceCellType.Format = "N" + Settings.sysPrecisionPrice.ToString();
+            priceCellType.Format = "N" +  precisionPrice;
             priceCellType.NullValue = null;
             this.priceColumn.DefaultCellStyle = priceCellType;
             this.priceColumn.HeaderText = "Price";
@@ -99,7 +101,7 @@ namespace baseClass.controls
             DataGridViewCellStyle priceVariantCellType = new DataGridViewCellStyle();
             this.priceVariantColumn.DataPropertyName = this.myStockTbl.priceVariantColumn.ColumnName;
             priceVariantCellType.Alignment = DataGridViewContentAlignment.MiddleRight;
-            priceVariantCellType.Format = "N" + Settings.sysPrecisionPercentage.ToString();
+            priceVariantCellType.Format = "N" + precisionPercent;
             priceVariantCellType.NullValue = null;
             this.priceVariantColumn.DefaultCellStyle = priceVariantCellType;
             this.priceVariantColumn.HeaderText = "+/-";

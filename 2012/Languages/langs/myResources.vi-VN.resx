@@ -1075,16 +1075,16 @@
     <value>Email</value>
   </data>
   <data name="foreignAmtMask" xml:space="preserve">
-    <value>Định dạng ngọai tệ</value>
+    <value>Ngoại tệ</value>
   </data>
   <data name="localAmtMask" xml:space="preserve">
-    <value>Định dạng giá trị</value>
+    <value>Tịền</value>
   </data>
   <data name="percentMask" xml:space="preserve">
-    <value>Định dạng tỉ lệ</value>
+    <value>Tỉ lệ</value>
   </data>
   <data name="qtyMask" xml:space="preserve">
-    <value>Định dạng số lượng</value>
+    <value>Số lượng</value>
   </data>
   <data name="second" xml:space="preserve">
     <value>Giây</value>
@@ -1240,7 +1240,7 @@
     <value>Tải</value>
   </data>
   <data name="generalAmtMask" xml:space="preserve">
-    <value>Định dạng chung</value>
+    <value>Giá trị </value>
   </data>
   <data name="buy" xml:space="preserve">
     <value>Mua</value>
@@ -1298,5 +1298,8 @@
   </data>
   <data name="transVolume" xml:space="preserve">
     <value>Tổng K/L giao dịch</value>
+  </data>
+  <data name="priceMask" xml:space="preserve">
+    <value>Đơn giá</value>
   </data>
 </root>

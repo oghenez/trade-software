@@ -1086,6 +1086,8 @@ namespace databases {
             
             private global::System.Data.DataColumn columnstockCode;
             
+            private global::System.Data.DataColumn columnportfolio;
+            
             private global::System.Data.DataColumn columnqty;
             
             private global::System.Data.DataColumn columnbuyAmt;
@@ -1124,6 +1126,13 @@ namespace databases {
             public global::System.Data.DataColumn stockCodeColumn {
                 get {
                     return this.columnstockCode;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn portfolioColumn {
+                get {
+                    return this.columnportfolio;
                 }
             }
             
@@ -1170,10 +1179,11 @@ namespace databases {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public investorStockRow AddinvestorStockRow(string stockCode, decimal qty, decimal buyAmt) {
+            public investorStockRow AddinvestorStockRow(string stockCode, string portfolio, decimal qty, decimal buyAmt) {
                 investorStockRow rowinvestorStockRow = ((investorStockRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         stockCode,
+                        portfolio,
                         qty,
                         buyAmt};
                 rowinvestorStockRow.ItemArray = columnValuesArray;
@@ -1182,9 +1192,10 @@ namespace databases {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public investorStockRow FindBystockCode(string stockCode) {
+            public investorStockRow FindBystockCodeportfolio(string stockCode, string portfolio) {
                 return ((investorStockRow)(this.Rows.Find(new object[] {
-                            stockCode})));
+                            stockCode,
+                            portfolio})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1202,6 +1213,7 @@ namespace databases {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             internal void InitVars() {
                 this.columnstockCode = base.Columns["stockCode"];
+                this.columnportfolio = base.Columns["portfolio"];
                 this.columnqty = base.Columns["qty"];
                 this.columnbuyAmt = base.Columns["buyAmt"];
             }
@@ -1210,15 +1222,19 @@ namespace databases {
             private void InitClass() {
                 this.columnstockCode = new global::System.Data.DataColumn("stockCode", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnstockCode);
+                this.columnportfolio = new global::System.Data.DataColumn("portfolio", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnportfolio);
                 this.columnqty = new global::System.Data.DataColumn("qty", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnqty);
                 this.columnbuyAmt = new global::System.Data.DataColumn("buyAmt", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnbuyAmt);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnstockCode}, true));
+                                this.columnstockCode,
+                                this.columnportfolio}, true));
                 this.columnstockCode.AllowDBNull = false;
-                this.columnstockCode.Unique = true;
                 this.columnstockCode.MaxLength = 20;
+                this.columnportfolio.AllowDBNull = false;
+                this.columnportfolio.MaxLength = 10;
                 this.columnqty.ReadOnly = true;
                 this.columnbuyAmt.ReadOnly = true;
             }
@@ -3217,6 +3233,16 @@ namespace databases {
                 }
                 set {
                     this[this.tableinvestorStock.stockCodeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string portfolio {
+                get {
+                    return ((string)(this[this.tableinvestorStock.portfolioColumn]));
+                }
+                set {
+                    this[this.tableinvestorStock.portfolioColumn] = value;
                 }
             }
             
@@ -5230,6 +5256,7 @@ SELECT code, stockExchange, tickerCode, name, nameEn, 0 AS selected, 0 AS price,
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "investorStock";
             tableMapping.ColumnMappings.Add("stockCode", "stockCode");
+            tableMapping.ColumnMappings.Add("portfolio", "portfolio");
             tableMapping.ColumnMappings.Add("qty", "qty");
             tableMapping.ColumnMappings.Add("buyAmt", "buyAmt");
             this._adapter.TableMappings.Add(tableMapping);
@@ -5246,14 +5273,14 @@ SELECT code, stockExchange, tickerCode, name, nameEn, 0 AS selected, 0 AS price,
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT  stockCode, SUM(qty) AS qty, SUM(buyAmt) AS buyAmt\r\nFROM     investorStock" +
-                "\r\nGROUP BY stockCode";
+            this._commandCollection[0].CommandText = "SELECT  stockCode, portfolio, SUM(qty) AS qty, SUM(buyAmt) AS buyAmt\r\nFROM     in" +
+                "vestorStock\r\nGROUP BY stockCode, portfolio";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT  stockCode, SUM(qty) AS qty, SUM(buyAmt) AS buyAmt\r\nFROM     investorStock" +
-                "\r\nWHERE  portfolio IN\r\n(\r\nSELECT DISTINCT code   FROM     portfolio  WHERE  (inv" +
-                "estorCode = @investorCode) \r\n)\r\nGROUP BY stockCode";
+            this._commandCollection[1].CommandText = "SELECT  stockCode, portfolio, SUM(qty) AS qty, SUM(buyAmt) AS buyAmt\r\nFROM     in" +
+                "vestorStock\r\nWHERE  portfolio IN\r\n(\r\nSELECT DISTINCT code   FROM     portfolio  " +
+                "WHERE  (investorCode = @investorCode) \r\n)\r\nGROUP BY stockCode, portfolio";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@investorCode", global::System.Data.SqlDbType.NVarChar, 10, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
