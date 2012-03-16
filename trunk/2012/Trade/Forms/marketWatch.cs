@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
@@ -38,6 +39,14 @@ namespace Trade.Forms
         {
             get { return stockCodeList.myContextMenuStrip; }
             set { this.stockCodeList.myContextMenuStrip = value;}
+        }
+
+        public StringCollection mySelectedCodes
+        {
+            get
+            {
+                return stockCodeList.mySelectedCodes;
+            }
         }
 
         //bo xung de lam viec tren grid

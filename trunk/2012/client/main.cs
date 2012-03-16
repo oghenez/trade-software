@@ -1323,28 +1323,18 @@ namespace client
         {
             try
             {
-                //Hiển thị form Back Test
                 Tools.Forms.backTesting backTestingForm = Tools.Forms.backTesting.GetForm("");
-
-                //Kiếm các list selected từ trong watchlist
-                Trade.Forms.marketWatch marketWatch=GetMarketWatchForm(false);
-                //marketWatch
-                if (marketWatch != null)
-                {
-                    common.controls.baseDataGridView mW_Grid = marketWatch.myGrid;
-                    DataGridViewSelectedRowCollection rowCollection = mW_Grid.SelectedRows;
-                    List<string> list = new List<string>();
-                    for (int i = 0; i < rowCollection.Count; i++)
-                        list.Add((rowCollection[i].Cells[1]).Value.ToString());
-
-                    backTestingForm.SetSelectedStocks(mW_Grid.SelectedRows);
-                }
-
                 backTestingForm.myDockedPane = dockPanel;
                 backTestingForm.myShowStock += new Tools.Forms.backTesting.ShowStockFunc(ShowStockHandler);
 
                 backTestingForm.Name = "backTesting";
                 backTestingForm.Show(dockPanel);
+                
+                Trade.Forms.marketWatch marketWatch = GetMarketWatchForm(false);
+                if (marketWatch != null)
+                {
+                    backTestingForm.SetSelectedCode(marketWatch.mySelectedCodes);
+                }
             }
             catch (Exception er)
             {
@@ -1360,6 +1350,12 @@ namespace client
                 myForm.myShowStock += new Tools.Forms.backTesting.ShowStockFunc(ShowStockHandler);
                 myForm.Name = "screening";
                 myForm.Show(dockPanel);
+
+                Trade.Forms.marketWatch marketWatch = GetMarketWatchForm(false);
+                if (marketWatch != null)
+                {
+                    myForm.SetSelectedCode(marketWatch.mySelectedCodes);
+                }
             }
             catch (Exception er)
             {
@@ -1642,10 +1638,16 @@ namespace client
         {
             try
             {
-                Tools.Forms.strategyRanking form = Tools.Forms.strategyRanking.GetForm("");
-                form.myShowStock += new Tools.Forms.backTesting.ShowStockFunc(ShowStockHandler);
-                form.myDockedPane = dockPanel;
-                form.Show(dockPanel);
+                Tools.Forms.strategyRanking myForm = Tools.Forms.strategyRanking.GetForm("");
+                myForm.myShowStock += new Tools.Forms.backTesting.ShowStockFunc(ShowStockHandler);
+                myForm.myDockedPane = dockPanel;
+                myForm.Show(dockPanel);
+
+                Trade.Forms.marketWatch marketWatch = GetMarketWatchForm(false);
+                if (marketWatch != null)
+                {
+                    myForm.SetSelectedCode(marketWatch.mySelectedCodes);
+                }
             }
             catch (Exception er)
             {
@@ -1924,10 +1926,7 @@ namespace client
             {
                 Trade.Forms.marketWatch form = GetMarketWatchForm(false);
                 if (form == null) return;
-                if (form.CurrentRow == null) return;
-                StringCollection codes = new StringCollection();
-                codes.Add(form.CurrentRow.code);
-                baseClass.AppLibs.AddStockToWatchList(codes);
+                baseClass.AppLibs.AddStockToWatchList(form.mySelectedCodes);
             }
             catch (Exception er)
             {

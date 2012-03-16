@@ -112,7 +112,6 @@ namespace baseClass.controls
             }
         }
 
-
         private void onlySeletedChk_CheckedChanged(object sender, EventArgs e)
         {
             try

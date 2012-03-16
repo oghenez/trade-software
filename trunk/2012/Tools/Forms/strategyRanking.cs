@@ -71,6 +71,13 @@ namespace Tools.Forms
             return form;
         }
 
+        public void SetSelectedCode(StringCollection codes)
+        {
+            codeListLb.ShowCheckedOnly = false;
+            codeListLb.myValues = codes;
+            codeListLb.ShowCheckedOnly = (codes.Count > 0);
+        }
+
         public bool IsFullScreen
         {
             get{ return this.myFormMode ==formMode.DataOnly;}

@@ -122,15 +122,17 @@
             this.timeScaleCb.FormattingEnabled = true;
             this.timeScaleCb.Location = new System.Drawing.Point(346, 4);
             this.timeScaleCb.Name = "timeScaleCb";
+            this.timeScaleCb.SelectedValue = "RT";
             this.timeScaleCb.Size = new System.Drawing.Size(102, 24);
             this.timeScaleCb.TabIndex = 2;
             // 
             // allTimeRangeChk
             // 
             this.allTimeRangeChk.AutoSize = true;
+            this.allTimeRangeChk.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.allTimeRangeChk.Location = new System.Drawing.Point(25, 4);
             this.allTimeRangeChk.Name = "allTimeRangeChk";
-            this.allTimeRangeChk.Size = new System.Drawing.Size(92, 21);
+            this.allTimeRangeChk.Size = new System.Drawing.Size(95, 20);
             this.allTimeRangeChk.TabIndex = 1;
             this.allTimeRangeChk.Text = "Periodicity";
             this.allTimeRangeChk.UseVisualStyleBackColor = true;

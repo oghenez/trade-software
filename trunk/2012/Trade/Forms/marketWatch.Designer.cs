@@ -45,6 +45,7 @@
             this.stockCodeList.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.stockCodeList.Location = new System.Drawing.Point(0, 0);
             this.stockCodeList.Margin = new System.Windows.Forms.Padding(2);
+            this.stockCodeList.myContextMenuStrip = null;
             this.stockCodeList.Name = "stockCodeList";
             this.stockCodeList.Size = new System.Drawing.Size(255, 909);
             this.stockCodeList.TabIndex = 145;
@@ -53,13 +54,13 @@
             // 
             this.ClientSize = new System.Drawing.Size(253, 933);
             this.Controls.Add(this.stockCodeList);
-            
             this.Name = "marketWatch";
             this.Resize += new System.EventHandler(this.marketWatch_Resize);
             this.Controls.SetChildIndex(this.TitleLbl, 0);
             this.Controls.SetChildIndex(this.stockCodeList, 0);
             this.ResumeLayout(false);
             this.PerformLayout();
+
         }
 
         #endregion
