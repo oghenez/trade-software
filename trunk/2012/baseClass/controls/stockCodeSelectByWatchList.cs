@@ -30,21 +30,24 @@ namespace baseClass.controls
         {
             try
             {
+                fProcessing = true;
                 InitializeComponent();
-                //backgroundWorker.DoWork += backgroundWorker_DoRefreshData;
-                //backgroundWorker.WorkerSupportsCancellation = true;
                 InitGrid();
-                if (!DesignMode)
-                {
-                    codeGroupCb.SelectedItem = cbStockSelection.Options.All;
-                    common.dialogs.SetFileDialogEXCEL(saveFileDialog);
-                }
+                codeGroupCb.SelectedItem = cbStockSelection.Options.All;
+                common.dialogs.SetFileDialogEXCEL(saveFileDialog);
+                DoRefreshData(true);
+                this.bgWorker.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bgWorker_RunWorkerCompleted);
+                fProcessing = false;
             }
             catch (Exception er)
             {
+                fProcessing = false;
                 ErrorHandler(this, er);
             }
         }
+        // See Making Thread-Safe Calls by using BackgroundWorker
+        // http://msdn.microsoft.com/en-us/library/ms171728.aspx
+        private BackgroundWorker bgWorker = new BackgroundWorker();
 
         private bool fProcessing = false;
         private DataGridViewTextBoxColumn stockExchangeColumn = new DataGridViewTextBoxColumn();
@@ -154,26 +157,37 @@ namespace baseClass.controls
         public enum RefreshOptions : byte { CodeGroup = 1, PriceData = 4 , All = 255}
         public void RefreshData(bool force)
         {
+            this.bgWorker.RunWorkerAsync();
+        }
+
+        private void bgWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
             try
             {
                 if (fProcessing) return;
                 fProcessing = true;
-                if (force)
-                {
-                    DoRefreshData(RefreshOptions.All);
-                }
-                else
-                {
-                    DoRefreshData(RefreshOptions.PriceData);
-                }
+                DoRefreshData(false);
                 fProcessing = false;
             }
             catch (Exception er)
             {
+                this.fProcessing = false;
                 ErrorHandler(this, er);
-                fProcessing = false;
             }
         }
+
+        private void DoRefreshData(bool force)
+        {
+            if (force)
+            {
+                DoRefreshData(RefreshOptions.All);
+            }
+            else
+            {
+                DoRefreshData(RefreshOptions.PriceData);
+            }
+        }
+
         public void RefreshData(baseClass.controls.stockCodeSelectByWatchList.RefreshOptions options)
         {
             DoRefreshData(options);
@@ -331,31 +345,31 @@ namespace baseClass.controls
                 if (openPriceRow != null)
                     stockCodeRow.priceVariant = closePriceRow.value - openPriceRow.value;
                 else stockCodeRow.priceVariant = 0;
-                SetColor(idx);
             }
+            SetColor();
         }
 
-        private void SetColor(int idx)
-        {
-            decimal variant = (decimal)stockGV.Rows[idx].Cells[priceVariantColumn.Name].Value;
-            if (variant < 0)
-            {
-                stockGV.Rows[idx].Cells[priceVariantColumn.Name].Style.BackColor = Settings.sysPriceColor_Decrease_BG;
-                stockGV.Rows[idx].Cells[priceVariantColumn.Name].Style.ForeColor = Settings.sysPriceColor_Decrease_FG;
-                return; 
-            }
-            if (variant > 0)
-            {
-                stockGV.Rows[idx].Cells[priceVariantColumn.Name].Style.BackColor = Settings.sysPriceColor_Increase_BG;
-                stockGV.Rows[idx].Cells[priceVariantColumn.Name].Style.ForeColor = Settings.sysPriceColor_Increase_FG;
-                return;
-            }
-            stockGV.Rows[idx].Cells[priceVariantColumn.Name].Style.BackColor = Settings.sysPriceColor_NotChange_BG;
-            stockGV.Rows[idx].Cells[priceVariantColumn.Name].Style.ForeColor = Settings.sysPriceColor_NotChange_FG;
-        }
         private void SetColor()
         {
-            for (int idx = 0; idx < stockGV.RowCount; idx++) SetColor(idx);
+            decimal variant;
+            for (int idx = 0; idx < stockGV.RowCount; idx++)
+            {
+                variant = (decimal)stockGV.Rows[idx].Cells[priceVariantColumn.Name].Value;
+                if (variant < 0)
+                {
+                    stockGV.Rows[idx].Cells[priceVariantColumn.Name].Style.BackColor = Settings.sysPriceColor_Decrease_BG;
+                    stockGV.Rows[idx].Cells[priceVariantColumn.Name].Style.ForeColor = Settings.sysPriceColor_Decrease_FG;
+                    continue;
+                }
+                if (variant > 0)
+                {
+                    stockGV.Rows[idx].Cells[priceVariantColumn.Name].Style.BackColor = Settings.sysPriceColor_Increase_BG;
+                    stockGV.Rows[idx].Cells[priceVariantColumn.Name].Style.ForeColor = Settings.sysPriceColor_Increase_FG;
+                    continue;
+                }
+                stockGV.Rows[idx].Cells[priceVariantColumn.Name].Style.BackColor = Settings.sysPriceColor_NotChange_BG;
+                stockGV.Rows[idx].Cells[priceVariantColumn.Name].Style.ForeColor = Settings.sysPriceColor_NotChange_FG;
+            }
         }
 
         #region event handler
@@ -385,7 +399,7 @@ namespace baseClass.controls
         {
             try
             {
-                RefreshData(true);
+                DoRefreshData(true);
             }
             catch (Exception er)
             {
@@ -413,7 +427,8 @@ namespace baseClass.controls
         {
             try
             {
-                if (!fProcessing) SetColor();
+                if (!fProcessing)  
+                    SetColor();
             }
             catch (Exception er)
             {

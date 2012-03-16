@@ -19,7 +19,12 @@ namespace client
     //public partial class main : common.forms.baseApplication
     public partial class main : baseClass.forms.baseApplication
     {
-        const int constPaneLeftWidth = 13; //In percentage
+        // The sizes (in percentage) of 4 main panel's parts.
+        const int constPaneTop = 20; 
+        const int constPaneBottom = 27; 
+        const int constPaneLeft = 15;   
+        const int constPaneRight = 30; 
+        
         const string constFormNameIndicator = "indicator-";
         const string constFormNameStock = "stock-";
         const string constFormNameWatchList = "WatchList-";
@@ -244,13 +249,13 @@ namespace client
                 this.backTestingMenuItem.Text = Languages.Libs.GetString("backTesting");
                 this.strategyRankingMenuItem.Text = Languages.Libs.GetString("strategyRanking");
                 this.companyListMenuItem.Text = Languages.Libs.GetString("companyList");
+                this.marketSummaryMenuItem.Text = Languages.Libs.GetString("marketSummary");
 
                 this.toolOptionMenu.Text = Languages.Libs.GetString("toolAllOptions");
                 this.strategyOptionsMenuItem.Text = Languages.Libs.GetString("strategyOption");
                 this.screeningOptionsMenuItem.Text = Languages.Libs.GetString("screeningOption");
 
                 this.sysOptionMenuItem.Text = Languages.Libs.GetString("sysOptions");
-
 
                 this.windowsMenuItem.Text = Languages.Libs.GetString("windows");
                 this.closeAllMenuItem.Text = Languages.Libs.GetString("closeAll");
@@ -418,8 +423,7 @@ namespace client
             transHistoryMenuItem.Checked = application.Configuration.GetDefaultFormState("transHistory");
 
             OpenDefaultForm();
-
-            //common.Data.Clear();
+            SetTimer(true);
             return true;
         }
         protected override void SaveUserConfig()
@@ -432,8 +436,8 @@ namespace client
 
         private void OpenDefaultForm()
         {
-            ShowMarketSummaryForm();
-
+            System.Diagnostics.Stopwatch stopWatch = new System.Diagnostics.Stopwatch();
+            stopWatch.Start();
             if (marketWatchMenuItem.Checked) ShowMarketWatchForm();
             else HideMarketWatchForm();
 
@@ -445,6 +449,11 @@ namespace client
 
             if (transHistoryMenuItem.Checked) ShowTransHistForm();
             else HideTransHistForm();
+
+            ShowMarketSummaryForm();
+
+            stopWatch.Stop();
+            this.ShowMessage(common.dateTimeLibs.TimeSpan2String(stopWatch.Elapsed));
         }
 
         private void SetFormAppearance()
@@ -475,7 +484,12 @@ namespace client
 
             //dockPanel
             dockPanel.Parent = this;     
-            dockPanel.DockLeftPortion = (double)constPaneLeftWidth/100;
+            dockPanel.DockLeftPortion = (double)constPaneLeft/100;
+            dockPanel.DockRightPortion = (double)constPaneRight / 100;
+            
+            dockPanel.DockTopPortion = (double)constPaneTop / 100;
+            dockPanel.DockBottomPortion = (double)constPaneBottom / 100;
+
             dockPanel.AllowDrop = true;
             dockPanel.ActiveAutoHideContent = null;
 
@@ -1899,32 +1913,9 @@ namespace client
         }
 
         /// <summary>
-        /// Show main windows : MarketWatchForm and MarketSummary Form
         /// </summary>
         private void main_Load(object sender, EventArgs e)
         {
-            System.Diagnostics.Stopwatch stopWatch = new System.Diagnostics.Stopwatch();
-            stopWatch.Start();
-            DataAccess.PleaseWait waitObj = null;
-            using (waitObj = new DataAccess.PleaseWait())
-            {
-                try
-                {
-                    SetTimer(true);
-                    this.ShowMessage(common.dateTimeLibs.TimeSpan2String(stopWatch.Elapsed));
-                    SetTimer(true);
-                }
-                catch (Exception er)
-                {
-                    this.ShowError(er);
-                }
-                finally
-                {
-                    if (waitObj != null) waitObj.Dispose();
-                }
-            }
-            stopWatch.Stop();
-            this.ShowMessage(common.dateTimeLibs.TimeSpan2String(stopWatch.Elapsed));
         }
 
         private void addToWatchListMenuItem_Click(object sender, EventArgs e)

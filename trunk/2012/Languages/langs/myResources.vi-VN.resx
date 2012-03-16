@@ -1306,9 +1306,9 @@
     <value>Tổng quan thị trường</value>
   </data>
   <data name="softwareIntro" xml:space="preserve">
-    <value>@Quantum là sản phẩm tiên phong trong lãnh vực hỗ trợ mua bán cổ phiếu, hàng hóa...</value>
+    <value>@Quantum là phẩn mềm đi đầu trong lãnh vực giao dịch tự động.</value>
   </data>
   <data name="welcomeMarketSummary" xml:space="preserve">
-    <value>Chào mừng đến với phần tổng quan thị trường !</value>
+    <value>Chào mừng đến tổng quan thị trường !</value>
   </data>
 </root>

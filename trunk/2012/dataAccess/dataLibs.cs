@@ -1031,7 +1031,7 @@ namespace DataAccess
                     string cacheKey = MakeCacheKey("LastPrice", "Close");
                     LastPriceCache lastPriceCache = (LastPriceCache)GetCache(cacheKey);
                     if (lastPriceCache != null && 
-                        common.dateTimeLibs.DateDiffInSecs(lastPriceCache.CacheTime, DateTime.Now) < commonTypes.Settings.sysGlobal.RefreshDataInSecs)
+                        common.dateTimeLibs.DateDiffInSecs(lastPriceCache.CacheTime, DateTime.Now) <= commonTypes.Settings.sysGlobal.RefreshDataInSecs)
                         return lastPriceCache.DataTbl;
 
                     if (lastPriceCache == null) lastPriceCache = new LastPriceCache();
@@ -1055,7 +1055,7 @@ namespace DataAccess
                 {
                     string cacheKey = MakeCacheKey("LastPrice", "Open");
                     LastPriceCache lastPriceCache = (LastPriceCache)GetCache(cacheKey);
-                    if (lastPriceCache != null && lastPriceCache.CacheTime!= DateTime.Today)
+                    if (lastPriceCache != null && lastPriceCache.CacheTime== DateTime.Today)
                         return lastPriceCache.DataTbl;
                     if (lastPriceCache == null) lastPriceCache = new LastPriceCache();
                     lastPriceCache.DataTbl = myClient.GetLastPrice(AppTypes.PriceDataType.Open);
@@ -1079,7 +1079,7 @@ namespace DataAccess
                     string cacheKey = MakeCacheKey("LastPrice", "Volume");
                     LastPriceCache lastPriceCache = (LastPriceCache)GetCache(cacheKey);
                     if (lastPriceCache != null &&
-                        common.dateTimeLibs.DateDiffInSecs(lastPriceCache.CacheTime, DateTime.Now) < commonTypes.Settings.sysGlobal.RefreshDataInSecs)
+                        common.dateTimeLibs.DateDiffInSecs(lastPriceCache.CacheTime, DateTime.Now) <= commonTypes.Settings.sysGlobal.RefreshDataInSecs)
                         return lastPriceCache.DataTbl;
 
                     if (lastPriceCache == null) lastPriceCache = new LastPriceCache();
@@ -1713,10 +1713,16 @@ namespace DataAccess
         {
             try
             {
+                string cacheKey = MakeCacheKey("PriceVarriance", "Weekly");
+                object obj = GetCache(cacheKey);
+                if (obj != null) return (databases.tmpDS.dataVarrianceDataTable)obj;
+
                 //Maybe there are some holidays or weekend so wee need to look before some days 
                 DateTime toDate = DateTime.Now.AddDays(-6);
-                DateTime frDate = toDate.AddDays(-13);
-                return myClient.GetPriceVarriance(frDate, toDate,AppTypes.TimeScaleTypeToCode(AppTypes.TimeScaleTypes.Week), topN);
+                DateTime frDate = toDate.AddDays(-7-6);
+                databases.tmpDS.dataVarrianceDataTable tbl = myClient.GetPriceVarriance(frDate, toDate, AppTypes.TimeScaleTypeToCode(AppTypes.TimeScaleTypes.Week), topN);
+                AddCache(cacheKey, tbl);
+                return tbl;
             }
             catch (Exception er)
             {
