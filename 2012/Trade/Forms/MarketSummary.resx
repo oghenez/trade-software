@@ -118,59 +118,6 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <metadata name="myToolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>247, 0</value>
+    <value>151, 17</value>
   </metadata>
-  <metadata name="myPrintDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>734, 0</value>
-  </metadata>
-  <metadata name="chartStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>996, 0</value>
-  </metadata>
-  <metadata name="toolsStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>627, 0</value>
-  </metadata>
-  <metadata name="mainMenu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>0, 0</value>
-  </metadata>
-  <metadata name="standartStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>868, 0</value>
-  </metadata>
-  <metadata name="formatStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>0, 0</value>
-  </metadata>
-  <metadata name="strategyStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>360, 0</value>
-  </metadata>
-  <metadata name="periodicityStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>487, 0</value>
-  </metadata>
-  <metadata name="testStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>1105, 0</value>
-  </metadata>
-  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>66</value>
-  </metadata>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        AAABAAIAEBAQAAAABAAoAQAAJgAAACAgEAAAAAQA6AIAAE4BAAAoAAAAEAAAACAAAAABAAQAAAAAAIAA
-        AAAAAAAAAAAAABAAAAAQAAAAAAAAAAAAgAAAgAAAAICAAIAAAACAAIAAgIAAAICAgADAwMAAAAD/AAD/
-        AAAA//8A/wAAAP8A/wD//wAA////AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAHd3d3d3
-        cAAAd3d3eHdwAAB3d3d4d3AAAHd3CIh3cAAAd3iHeHdwAAB3eHd4d3AAAHd3h3h3cAAAd3cIAHdwAAB3
-        d3d3d3AAAAiIiIiIAAAAAAAAAAAAAAAAAAAAAAAA//8AAP//AAD//wAA4AcAAMAHAADABwAAwAcAAMIH
-        AADABwAAwAcAAMAHAADCxwAAwAcAAOAPAAD//wAA//8AACgAAAAgAAAAQAAAAAEABAAAAAAAAAIAAAAA
-        AAAAAAAAEAAAABAAAAAAAAAAAACAAACAAAAAgIAAgAAAAIAAgACAgAAAgICAAMDAwAAAAP8AAP8AAAD/
-        /wD/AAAA/wD/AP//AAD///8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIh3d3d3d3d3iAAAAAAAAAcAAA
-        AAAAAAAAB4AAAAAAAAd3d3d3d3d3d3AAAAAAAAd3d3d3d3d3d3d3cAAAAAAHd3d3d3d3cId3d0AAAAAA
-        B3d3d3d3d3CHd3dwAAAAAAd3d3d3d3dwh3d3cAAAAAAHd3d3d3d3cId3d3AAAAAAB3d3d3gAB3CHd3dw
-        AAAAAAd3d3cAB4CAh3d3cAAAAAAHd3d3AHd3gId3d3AAAAAAB3d3eAh3d3CHd3dwAAAAAAd3d3gHd3dw
-        h3d3cAAAAAAHd3d4B3d3cId3d3AAAAAAB3d3eAd3d3CHd3dwAAAAAAd3d3cId3dwh3d3cAAAAAAHd3d3
-        AHd3gId3d3AAAAAAB3d3d3AIgAAHd3dwAAAAAAd3d3d3gAh4h3d3cAAAAAAHd3d3d3d3d3d3d3AAAAAA
-        CHd3d3d3d3d3d3eAAAAAAACIiIiIiIiIiIiIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/////////////
-        //////////////4AAH/8AAAf/AAAP/gAAB/4ABAf+AAQH/gAEB/4ABAf+AOQH/gOUB/4DBAf+AgQH/gI
-        EB/4CBAf+AgQH/gIEB/4DBAf+AZ4H/gBgB/4AAAf+AAAH/wAAD///////////////////////////w==
-</value>
-  </data>
 </root>
