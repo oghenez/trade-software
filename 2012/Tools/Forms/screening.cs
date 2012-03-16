@@ -92,6 +92,12 @@ namespace Tools.Forms
             common.Data.dataCache.Add(cacheKey, form);
             return form;
         }
+        public void SetSelectedCode(StringCollection codes)
+        {
+            stockCodeLb.ShowCheckedOnly = false;
+            stockCodeLb.myValues = codes;
+            stockCodeLb.ShowCheckedOnly = (codes.Count > 0);
+        }
 
         public void Execute()
         {

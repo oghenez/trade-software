@@ -107,15 +107,5 @@ namespace baseClass.controls
             selectAllChk.Checked = false;
             onlySeletedChk.Checked = false;
         }
-
-        public void CheckStockCode(string code)
-        {
-            for (int i = 0; i < stockCodeClb.Items.Count; i++)
-                if (stockCodeClb.Items[i].ToString().Contains(code))
-                {
-                    stockCodeClb.SetItemChecked(i, true);
-                    break;
-                }
-        }
     }
 }

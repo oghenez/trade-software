@@ -189,20 +189,11 @@ namespace Tools.Forms
             }
         }
 
-
-        public void SetSelectedStocks(DataGridViewSelectedRowCollection SelectedRows)
+        public void SetSelectedCode(StringCollection codes)
         {
-            codeSelectLb.Refresh();
-            for (int i = 0; i < SelectedRows.Count; i++){
-                //lay stock code trong watchlist
-                string code=SelectedRows[i].Cells[1].Value.ToString();
-
-                //??lam viec voi codeSlectLB la kieu stockCodeSelect
-                //codeSelectLb.myValues.Add(code);
-                codeSelectLb.CheckStockCode(code); 
-            }
-            //Refresh();
-            //codeSelectLb.Refresh();
+            codeSelectLb.ShowCheckedOnly = false;
+            codeSelectLb.myValues = codes;
+            codeSelectLb.ShowCheckedOnly = (codes.Count>0);
         }
 
         /// <summary>

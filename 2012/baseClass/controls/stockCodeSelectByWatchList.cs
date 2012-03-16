@@ -133,6 +133,17 @@ namespace baseClass.controls
             priceColumn.HeaderText = Languages.Libs.GetString("price");
         }
 
+        public StringCollection mySelectedCodes
+        {
+            get 
+            { 
+                StringCollection selectedCodes = new StringCollection();
+                for (int idx = 0; idx < stockGV.SelectedRows.Count; idx++)
+                    selectedCodes.Add(stockGV.SelectedRows[idx].Cells[codeColumn.Name].Value.ToString());
+                return selectedCodes; 
+            }
+        }
+
         public ContextMenuStrip myContextMenuStrip
         {
             get { return stockGV.ContextMenuStrip; }
