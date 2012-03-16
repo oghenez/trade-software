@@ -41,6 +41,8 @@ namespace databases {
         
         private porfolioWatchDataTable tableporfolioWatch;
         
+        private dataVarrianceDataTable tabledataVarriance;
+        
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -90,6 +92,9 @@ namespace databases {
                 }
                 if ((ds.Tables["porfolioWatch"] != null)) {
                     base.Tables.Add(new porfolioWatchDataTable(ds.Tables["porfolioWatch"]));
+                }
+                if ((ds.Tables["dataVarriance"] != null)) {
+                    base.Tables.Add(new dataVarrianceDataTable(ds.Tables["dataVarriance"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -182,6 +187,15 @@ namespace databases {
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public dataVarrianceDataTable dataVarriance {
+            get {
+                return this.tabledataVarriance;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.BrowsableAttribute(true)]
         [global::System.ComponentModel.DesignerSerializationVisibilityAttribute(global::System.ComponentModel.DesignerSerializationVisibility.Visible)]
         public override global::System.Data.SchemaSerializationMode SchemaSerializationMode {
@@ -264,6 +278,9 @@ namespace databases {
                 if ((ds.Tables["porfolioWatch"] != null)) {
                     base.Tables.Add(new porfolioWatchDataTable(ds.Tables["porfolioWatch"]));
                 }
+                if ((ds.Tables["dataVarriance"] != null)) {
+                    base.Tables.Add(new dataVarrianceDataTable(ds.Tables["dataVarriance"]));
+                }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
                 this.Namespace = ds.Namespace;
@@ -342,6 +359,12 @@ namespace databases {
                     this.tableporfolioWatch.InitVars();
                 }
             }
+            this.tabledataVarriance = ((dataVarrianceDataTable)(base.Tables["dataVarriance"]));
+            if ((initTable == true)) {
+                if ((this.tabledataVarriance != null)) {
+                    this.tabledataVarriance.InitVars();
+                }
+            }
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -366,6 +389,8 @@ namespace databases {
             base.Tables.Add(this.tablepriceDiagnose);
             this.tableporfolioWatch = new porfolioWatchDataTable();
             base.Tables.Add(this.tableporfolioWatch);
+            this.tabledataVarriance = new dataVarrianceDataTable();
+            base.Tables.Add(this.tabledataVarriance);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -405,6 +430,11 @@ namespace databases {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         private bool ShouldSerializeporfolioWatch() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        private bool ShouldSerializedataVarriance() {
             return false;
         }
         
@@ -476,6 +506,8 @@ namespace databases {
         public delegate void priceDiagnoseRowChangeEventHandler(object sender, priceDiagnoseRowChangeEvent e);
         
         public delegate void porfolioWatchRowChangeEventHandler(object sender, porfolioWatchRowChangeEvent e);
+        
+        public delegate void dataVarrianceRowChangeEventHandler(object sender, dataVarrianceRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -3013,6 +3045,267 @@ namespace databases {
         }
         
         /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class dataVarrianceDataTable : global::System.Data.TypedTableBase<dataVarrianceRow> {
+            
+            private global::System.Data.DataColumn columncode;
+            
+            private global::System.Data.DataColumn columnvalue;
+            
+            private global::System.Data.DataColumn columnpercent;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public dataVarrianceDataTable() {
+                this.TableName = "dataVarriance";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            internal dataVarrianceDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected dataVarrianceDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn codeColumn {
+                get {
+                    return this.columncode;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn valueColumn {
+                get {
+                    return this.columnvalue;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn percentColumn {
+                get {
+                    return this.columnpercent;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public dataVarrianceRow this[int index] {
+                get {
+                    return ((dataVarrianceRow)(this.Rows[index]));
+                }
+            }
+            
+            public event dataVarrianceRowChangeEventHandler dataVarrianceRowChanging;
+            
+            public event dataVarrianceRowChangeEventHandler dataVarrianceRowChanged;
+            
+            public event dataVarrianceRowChangeEventHandler dataVarrianceRowDeleting;
+            
+            public event dataVarrianceRowChangeEventHandler dataVarrianceRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void AdddataVarrianceRow(dataVarrianceRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public dataVarrianceRow AdddataVarrianceRow(string code, decimal value, decimal percent) {
+                dataVarrianceRow rowdataVarrianceRow = ((dataVarrianceRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        code,
+                        value,
+                        percent};
+                rowdataVarrianceRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowdataVarrianceRow);
+                return rowdataVarrianceRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public dataVarrianceRow FindBycode(string code) {
+                return ((dataVarrianceRow)(this.Rows.Find(new object[] {
+                            code})));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public override global::System.Data.DataTable Clone() {
+                dataVarrianceDataTable cln = ((dataVarrianceDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new dataVarrianceDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            internal void InitVars() {
+                this.columncode = base.Columns["code"];
+                this.columnvalue = base.Columns["value"];
+                this.columnpercent = base.Columns["percent"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            private void InitClass() {
+                this.columncode = new global::System.Data.DataColumn("code", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncode);
+                this.columnvalue = new global::System.Data.DataColumn("value", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnvalue);
+                this.columnpercent = new global::System.Data.DataColumn("percent", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnpercent);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columncode}, true));
+                this.columncode.AllowDBNull = false;
+                this.columncode.Unique = true;
+                this.columncode.Caption = "stockCode";
+                this.columncode.MaxLength = 20;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public dataVarrianceRow NewdataVarrianceRow() {
+                return ((dataVarrianceRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new dataVarrianceRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override global::System.Type GetRowType() {
+                return typeof(dataVarrianceRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.dataVarrianceRowChanged != null)) {
+                    this.dataVarrianceRowChanged(this, new dataVarrianceRowChangeEvent(((dataVarrianceRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.dataVarrianceRowChanging != null)) {
+                    this.dataVarrianceRowChanging(this, new dataVarrianceRowChangeEvent(((dataVarrianceRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.dataVarrianceRowDeleted != null)) {
+                    this.dataVarrianceRowDeleted(this, new dataVarrianceRowChangeEvent(((dataVarrianceRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.dataVarrianceRowDeleting != null)) {
+                    this.dataVarrianceRowDeleting(this, new dataVarrianceRowChangeEvent(((dataVarrianceRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void RemovedataVarrianceRow(dataVarrianceRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                tmpDS ds = new tmpDS();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "dataVarrianceDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
@@ -4273,6 +4566,81 @@ namespace databases {
         }
         
         /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
+        public partial class dataVarrianceRow : global::System.Data.DataRow {
+            
+            private dataVarrianceDataTable tabledataVarriance;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            internal dataVarrianceRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tabledataVarriance = ((dataVarrianceDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string code {
+                get {
+                    return ((string)(this[this.tabledataVarriance.codeColumn]));
+                }
+                set {
+                    this[this.tabledataVarriance.codeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public decimal value {
+                get {
+                    try {
+                        return ((decimal)(this[this.tabledataVarriance.valueColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'value\' in table \'dataVarriance\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabledataVarriance.valueColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public decimal percent {
+                get {
+                    try {
+                        return ((decimal)(this[this.tabledataVarriance.percentColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'percent\' in table \'dataVarriance\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabledataVarriance.percentColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsvalueNull() {
+                return this.IsNull(this.tabledataVarriance.valueColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetvalueNull() {
+                this[this.tabledataVarriance.valueColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IspercentNull() {
+                return this.IsNull(this.tabledataVarriance.percentColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetpercentNull() {
+                this[this.tabledataVarriance.percentColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
@@ -4507,6 +4875,37 @@ namespace databases {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public porfolioWatchRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
+        public class dataVarrianceRowChangeEvent : global::System.EventArgs {
+            
+            private dataVarrianceRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public dataVarrianceRowChangeEvent(dataVarrianceRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public dataVarrianceRow Row {
                 get {
                     return this.eventRow;
                 }

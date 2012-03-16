@@ -33,6 +33,7 @@ namespace DataAccess
         const int constMaxReceivedMessageSize = 655360000;
         const int constMaxStringContentLength = 655360000;
         const int constMaxBytesPerRead = 65536000;
+
         #region system
         private static ServiceReference1.StockServiceClient _myClient = null;
         private static ServiceReference1.StockServiceClient myClient
@@ -1703,6 +1704,40 @@ namespace DataAccess
         }
         #endregion
 
+        /// <summary>
+        /// Get top N  of weekly varriance
+        /// </summary>
+        /// <param name="topN"></param>
+        /// <returns></returns>
+        public static databases.tmpDS.dataVarrianceDataTable GetPriceVarrianceWeekly(byte topN)
+        {
+            try
+            {
+                //Maybe there are some holidays or weekend so wee need to look before some days 
+                DateTime toDate = DateTime.Now.AddDays(-6);
+                DateTime frDate = toDate.AddDays(-13);
+                return myClient.GetPriceVarriance(frDate, toDate,AppTypes.TimeScaleTypeToCode(AppTypes.TimeScaleTypes.Week), topN);
+            }
+            catch (Exception er)
+            {
+                if (OnError != null) OnError(er);
+            }
+            return null;
+        }
+
+        public static void ReAggregatePriceData(string code)
+        {
+            try
+            {
+                myClient.ReAggregatePriceData(code);
+            }
+            catch (Exception er)
+            {
+                if (OnError != null) OnError(er);
+            }
+        }
+
+        //In testing
         public static databases.tmpDS.priceDiagnoseDataTable DiagnosePrice_CloseAndNextOpen(DateTime frDate, DateTime toDate, string timeScaleCode,
                                                                                             string exchangeCode,string code, 
                                                                                             double variancePerc, 
@@ -1718,20 +1753,6 @@ namespace DataAccess
             }
             return null;
         }
-
-
-        public static void ReAggregatePriceData(string code)
-        {
-            try
-            {
-                myClient.ReAggregatePriceData(code);
-            }
-            catch (Exception er)
-            {
-                if (OnError != null) OnError(er);
-            }
-        }
-
 
         ///// <summary>
         /// Update data to the most recent from the last update.

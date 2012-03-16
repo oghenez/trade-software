@@ -25314,59 +25314,45 @@ SELECT portfolio, code, subCode, data FROM portfolioDetail WHERE (code = @code) 
             this._commandCollection[0].CommandText = @"SELECT     a.stockCode, a.closePrice AS value
 FROM         priceData AS a INNER JOIN
                           (SELECT     MAX(onDate) AS onDate, stockCode
-                            FROM          priceData WHERE onDate>=@onDate
+                            FROM          priceData WHERE onDate>=@beforeDate
                             GROUP BY stockCode) AS b ON a.onDate = b.onDate AND a.stockCode = b.stockCode
 ORDER BY a.stockCode";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@onDate", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@beforeDate", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = @"SELECT     a.stockCode, a.highPrice AS value
-FROM         priceData AS a INNER JOIN
-                          (SELECT     MAX(onDate) AS onDate, stockCode
-                            FROM          priceData WHERE onDate>=@onDate
-                            GROUP BY stockCode) AS b ON a.onDate = b.onDate AND a.stockCode = b.stockCode
-ORDER BY a.stockCode";
+            this._commandCollection[1].CommandText = @"SELECT a.stockCode, a.highPrice AS value FROM priceData AS a INNER JOIN (SELECT MAX(onDate) AS onDate, stockCode FROM priceData WHERE (onDate >= @beforeDate) GROUP BY stockCode) AS b ON a.onDate = b.onDate AND a.stockCode = b.stockCode ORDER BY a.stockCode";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@onDate", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@beforeDate", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = @"SELECT     a.stockCode, a.lowPrice AS value
-FROM         priceData AS a INNER JOIN
-                          (SELECT     MAX(onDate) AS onDate, stockCode
-                            FROM          priceData WHERE onDate>=@onDate
-                            GROUP BY stockCode) AS b ON a.onDate = b.onDate AND a.stockCode = b.stockCode
-ORDER BY a.stockCode";
+            this._commandCollection[2].CommandText = "SELECT a.stockCode, a.lowPrice AS value FROM priceData AS a INNER JOIN (SELECT MA" +
+                "X(onDate) AS onDate, stockCode FROM priceData WHERE (onDate >= @beforeDate) GROU" +
+                "P BY stockCode) AS b ON a.onDate = b.onDate AND a.stockCode = b.stockCode ORDER " +
+                "BY a.stockCode";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@onDate", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@beforeDate", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[3].Connection = this.Connection;
-            this._commandCollection[3].CommandText = @"SELECT     a.stockCode, a.openPrice AS value
-FROM         priceData AS a INNER JOIN
-                          (SELECT     MAX(onDate) AS onDate, stockCode
-                            FROM          priceData WHERE onDate>=@onDate
-                            GROUP BY stockCode) AS b ON a.onDate = b.onDate AND a.stockCode = b.stockCode
-ORDER BY a.stockCode";
+            this._commandCollection[3].CommandText = @"SELECT a.stockCode, a.openPrice AS value FROM priceData AS a INNER JOIN (SELECT MAX(onDate) AS onDate, stockCode FROM priceData WHERE (onDate >= @beforeDate) GROUP BY stockCode) AS b ON a.onDate = b.onDate AND a.stockCode = b.stockCode ORDER BY a.stockCode";
             this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@onDate", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@beforeDate", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[4] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[4].Connection = this.Connection;
-            this._commandCollection[4].CommandText = @"SELECT     a.stockCode, a.volume AS value
-FROM         priceData AS a INNER JOIN
-                          (SELECT     MAX(onDate) AS onDate, stockCode
-                            FROM          priceData WHERE onDate>=@onDate
-                            GROUP BY stockCode) AS b ON a.onDate = b.onDate AND a.stockCode = b.stockCode
-ORDER BY a.stockCode";
+            this._commandCollection[4].CommandText = "SELECT a.stockCode, a.volume AS value FROM priceData AS a INNER JOIN (SELECT MAX(" +
+                "onDate) AS onDate, stockCode FROM priceData WHERE (onDate >= @beforeDate) GROUP " +
+                "BY stockCode) AS b ON a.onDate = b.onDate AND a.stockCode = b.stockCode ORDER BY" +
+                " a.stockCode";
             this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@onDate", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@beforeDate", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual baseDS.lastPriceDataDataTable GetClosePrice(System.DateTime onDate) {
+        public virtual baseDS.lastPriceDataDataTable GetClose(System.DateTime beforeDate) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            this.Adapter.SelectCommand.Parameters[0].Value = ((System.DateTime)(onDate));
+            this.Adapter.SelectCommand.Parameters[0].Value = ((System.DateTime)(beforeDate));
             baseDS.lastPriceDataDataTable dataTable = new baseDS.lastPriceDataDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -25375,9 +25361,9 @@ ORDER BY a.stockCode";
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual baseDS.lastPriceDataDataTable GetHigh(System.DateTime onDate) {
+        public virtual baseDS.lastPriceDataDataTable GetHigh(System.DateTime beforeDate) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
-            this.Adapter.SelectCommand.Parameters[0].Value = ((System.DateTime)(onDate));
+            this.Adapter.SelectCommand.Parameters[0].Value = ((System.DateTime)(beforeDate));
             baseDS.lastPriceDataDataTable dataTable = new baseDS.lastPriceDataDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -25386,9 +25372,9 @@ ORDER BY a.stockCode";
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual baseDS.lastPriceDataDataTable GetLow(System.DateTime onDate) {
+        public virtual baseDS.lastPriceDataDataTable GetLow(System.DateTime beforeDate) {
             this.Adapter.SelectCommand = this.CommandCollection[2];
-            this.Adapter.SelectCommand.Parameters[0].Value = ((System.DateTime)(onDate));
+            this.Adapter.SelectCommand.Parameters[0].Value = ((System.DateTime)(beforeDate));
             baseDS.lastPriceDataDataTable dataTable = new baseDS.lastPriceDataDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -25397,9 +25383,9 @@ ORDER BY a.stockCode";
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual baseDS.lastPriceDataDataTable GetOpenPrice(System.DateTime onDate) {
+        public virtual baseDS.lastPriceDataDataTable GetOpen(System.DateTime beforeDate) {
             this.Adapter.SelectCommand = this.CommandCollection[3];
-            this.Adapter.SelectCommand.Parameters[0].Value = ((System.DateTime)(onDate));
+            this.Adapter.SelectCommand.Parameters[0].Value = ((System.DateTime)(beforeDate));
             baseDS.lastPriceDataDataTable dataTable = new baseDS.lastPriceDataDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -25408,9 +25394,9 @@ ORDER BY a.stockCode";
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual baseDS.lastPriceDataDataTable GetVolume(System.DateTime onDate) {
+        public virtual baseDS.lastPriceDataDataTable GetVolume(System.DateTime beforeDate) {
             this.Adapter.SelectCommand = this.CommandCollection[4];
-            this.Adapter.SelectCommand.Parameters[0].Value = ((System.DateTime)(onDate));
+            this.Adapter.SelectCommand.Parameters[0].Value = ((System.DateTime)(beforeDate));
             baseDS.lastPriceDataDataTable dataTable = new baseDS.lastPriceDataDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;

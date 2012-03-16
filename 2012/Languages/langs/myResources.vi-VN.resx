@@ -1302,4 +1302,13 @@
   <data name="priceMask" xml:space="preserve">
     <value>Đơn giá</value>
   </data>
+  <data name="marketSummary" xml:space="preserve">
+    <value>Tổng quan thị trường</value>
+  </data>
+  <data name="softwareIntro" xml:space="preserve">
+    <value>@Quantum là sản phẩm tiên phong trong lãnh vực hỗ trợ mua bán cổ phiếu, hàng hóa...</value>
+  </data>
+  <data name="welcomeMarketSummary" xml:space="preserve">
+    <value>Chào mừng đến với phần tổng quan thị trường !</value>
+  </data>
 </root>

@@ -1,28 +1,30 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<configuration>
-    <system.serviceModel>
-        <bindings>
-            <basicHttpBinding>
-                <binding name="HoSTC_ServiceSoap" closeTimeout="00:01:00" openTimeout="00:01:00"
-                    receiveTimeout="00:10:00" sendTimeout="00:01:00" allowCookies="false"
-                    bypassProxyOnLocal="false" hostNameComparisonMode="StrongWildcard"
-                    maxBufferSize="65536" maxBufferPoolSize="524288" maxReceivedMessageSize="65536"
-                    messageEncoding="Text" textEncoding="utf-8" transferMode="Buffered"
-                    useDefaultWebProxy="true">
-                    <readerQuotas maxDepth="32" maxStringContentLength="8192" maxArrayLength="16384"
-                        maxBytesPerRead="4096" maxNameTableCharCount="16384" />
-                    <security mode="None">
-                        <transport clientCredentialType="None" proxyCredentialType="None"
-                            realm="" />
-                        <message clientCredentialType="UserName" algorithmSuite="Default" />
-                    </security>
-                </binding>
-            </basicHttpBinding>
-        </bindings>
-        <client>
-            <endpoint address="http://www.vse.org.vn/LS/HoSTC_Service.asmx"
-                binding="basicHttpBinding" bindingConfiguration="HoSTC_ServiceSoap"
-                contract="clientHOSE.HoSTC_ServiceSoap" name="HoSTC_ServiceSoap" />
-        </client>
-    </system.serviceModel>
-</configuration>
+<Configuration>
+  <WSCONNECTION>
+    <Main wsURI="cr+BsZtc1VaYm7T/XSx9KuG520FRCPDyKi71VlKTkDddD2pctDCOqfABbH/XEv2j" />
+    <Main wsURI="cr+BsZtc1VaYm7T/XSx9KuG520FRCPDyKi71VlKTkDddD2pctDCOqfABbH/XEv2j" />
+  </WSCONNECTION>
+  <WSCONNECTION>
+    <Main wsAccount="KyfIBVMmkxxwVTSmToEeiw==" />
+  </WSCONNECTION>
+  <WSCONNECTION>
+    <Main wsPassword="AsULALTQODioRsx1v+oBlQ==" />
+  </WSCONNECTION>
+  <WSCONNECTION>
+    <Main wsWindowAuthentication="MVsoctThcobSC9M10quTJg==" />
+  </WSCONNECTION>
+  <WSCONNECTION>
+    <Main wsTimeout="TFxgWMRyZ8Wb/dG0orW7Mg==" />
+  </WSCONNECTION>
+  <WSCONNECTION>
+    <Main wsUseProxy="EpAxoobbG0tPxhyMIVa+4Q==" />
+  </WSCONNECTION>
+  <WSCONNECTION>
+    <Main wsUseDefaultProxy="MVsoctThcobSC9M10quTJg==" />
+  </WSCONNECTION>
+  <WSCONNECTION>
+    <Main wsProxyAddress="" />
+  </WSCONNECTION>
+  <WSCONNECTION>
+    <Main wsProxyPort="" />
+  </WSCONNECTION>
+</Configuration>

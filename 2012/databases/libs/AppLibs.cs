@@ -5,6 +5,7 @@ using System.Globalization;
 using System.Threading;
 using System.Text;
 using System.Xml;
+using System.Data;
 using System.Windows.Forms;
 using commonTypes; 
 
@@ -445,11 +446,6 @@ namespace databases
         //    }
         //}
 
-        public static bool IsUseVietnamese()
-        {
-            return (common.language.myCulture.Name == "vi-VN");
-        }
-
         #region imports
         public class AgrregateInfo
         {
@@ -607,6 +603,47 @@ namespace databases
                 }
                 databases.DbAccess.UpdateData(priceSumDataTbl);
             }
+        /// <summary>
+        /// Get top N price varriance ( [close - open], percentage) in specific date range and for specific time scale
+        /// </summary>
+        /// <param name="frDate"></param>
+        /// <param name="toDate"></param>
+        /// <param name="timeScaleCode"></param>
+        /// <param name="topN"></param>
+        /// <returns></returns>
+        public static tmpDS.dataVarrianceDataTable GetPriceVarriance(DateTime frDate, DateTime toDate, string timeScaleCode, int topN)
+        {
+            baseDS.lastPriceDataDataTable closeTbl = DbAccess.GetLastPrice(AppTypes.PriceDataType.Close, toDate);
+            baseDS.lastPriceDataDataTable openTbl = DbAccess.GetLastPrice(AppTypes.PriceDataType.Open, frDate);  
+            tmpDS.dataVarrianceDataTable tmpDataTbl = new tmpDS.dataVarrianceDataTable();
+            
+            baseDS.lastPriceDataRow openPriceRow;
+            tmpDS.dataVarrianceRow dataRow;
+            for (int idx = 0; idx < closeTbl.Count; idx++)
+            {
+                openPriceRow = openTbl.FindBystockCode(closeTbl[idx].stockCode);
+                if ((openPriceRow == null)||(openPriceRow.value == 0) ) continue;
+                dataRow = tmpDataTbl.NewdataVarrianceRow();
+                dataRow.code = closeTbl[idx].stockCode;
+                dataRow.value = closeTbl[idx].value - openPriceRow.value;
+                dataRow.percent = dataRow.value / openPriceRow.value;
+                tmpDataTbl.AdddataVarrianceRow(dataRow);
+            }
+            DataView dataView = new DataView(tmpDataTbl);
+            dataView.Sort = tmpDataTbl.percentColumn + " DESC";
+
+            tmpDS.dataVarrianceDataTable dataTbl = new tmpDS.dataVarrianceDataTable();
+            for (int idx = 0; idx < dataView.Count && idx < topN; idx++)
+            {
+                dataRow = dataTbl.NewdataVarrianceRow();
+                dataRow.code = (dataView[idx].Row as tmpDS.dataVarrianceRow).code;
+                dataRow.value = (dataView[idx].Row as tmpDS.dataVarrianceRow).value;
+                dataRow.percent = (dataView[idx].Row as tmpDS.dataVarrianceRow).percent;
+                dataTbl.AdddataVarrianceRow(dataRow);
+            }
+            return dataTbl;
+        }
+
         #endregion
     }
 }

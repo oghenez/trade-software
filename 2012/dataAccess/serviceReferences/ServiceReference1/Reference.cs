@@ -51,6 +51,9 @@ namespace DataAccess.ServiceReference1 {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/Test", ReplyAction="http://tempuri.org/IStockService/TestResponse")]
         System.Data.DataTable Test(string sql);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetPriceVarriance", ReplyAction="http://tempuri.org/IStockService/GetPriceVarrianceResponse")]
+        databases.tmpDS.dataVarrianceDataTable GetPriceVarriance(System.DateTime frDate, System.DateTime toDate, string timeScaleCode, int topN);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetBizSubSector_ByIndustry", ReplyAction="http://tempuri.org/IStockService/GetBizSubSector_ByIndustryResponse")]
         databases.baseDS.bizSubSectorDataTable GetBizSubSector_ByIndustry(string code);
         
@@ -377,6 +380,10 @@ namespace DataAccess.ServiceReference1 {
         
         public System.Data.DataTable Test(string sql) {
             return base.Channel.Test(sql);
+        }
+        
+        public databases.tmpDS.dataVarrianceDataTable GetPriceVarriance(System.DateTime frDate, System.DateTime toDate, string timeScaleCode, int topN) {
+            return base.Channel.GetPriceVarriance(frDate, toDate, timeScaleCode, topN);
         }
         
         public databases.baseDS.bizSubSectorDataTable GetBizSubSector_ByIndustry(string code) {

@@ -1825,6 +1825,15 @@ namespace Languages.langs {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Market summary.
+        /// </summary>
+        internal static string marketSummary {
+            get {
+                return ResourceManager.GetString("marketSummary", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Market watch.
         /// </summary>
         internal static string marketWatch {
@@ -2878,6 +2887,15 @@ namespace Languages.langs {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to @Quantum is the pioneer software in automatic trading..
+        /// </summary>
+        internal static string softwareIntro {
+            get {
+                return ResourceManager.GetString("softwareIntro", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Source.
         /// </summary>
         internal static string source {
@@ -3513,6 +3531,15 @@ namespace Languages.langs {
         internal static string weight {
             get {
                 return ResourceManager.GetString("weight", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Welcome to Market Summary .
+        /// </summary>
+        internal static string welcomeMarketSummary {
+            get {
+                return ResourceManager.GetString("welcomeMarketSummary", resourceCulture);
             }
         }
         

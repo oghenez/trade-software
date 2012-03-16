@@ -285,5 +285,8 @@ namespace wsServices
         
         [OperationContract]
         DataTable Test(string sql);
+
+        [OperationContract]
+        databases.tmpDS.dataVarrianceDataTable GetPriceVarriance(DateTime frDate, DateTime toDate, string timeScaleCode, int topN);
     }
 }
