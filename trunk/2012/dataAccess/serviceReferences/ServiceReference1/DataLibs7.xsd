@@ -204,6 +204,21 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="dataVarriance">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element msdata:Caption="stockCode" name="code">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element minOccurs="0" name="value" type="xs:decimal" />
+              <xs:element minOccurs="0" name="percent" type="xs:decimal" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
     <xs:unique msdata:PrimaryKey="true" name="Constraint1">
@@ -231,6 +246,10 @@
     </xs:unique>
     <xs:unique msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true" name="porfolioWatch_Constraint1">
       <xs:selector xpath=".//porfolioWatch" />
+      <xs:field xpath="code" />
+    </xs:unique>
+    <xs:unique msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true" name="dataVarriance_Constraint1">
+      <xs:selector xpath=".//dataVarriance" />
       <xs:field xpath="code" />
     </xs:unique>
   </xs:element>

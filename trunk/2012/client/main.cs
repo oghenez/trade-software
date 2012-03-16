@@ -418,7 +418,6 @@ namespace client
             transHistoryMenuItem.Checked = application.Configuration.GetDefaultFormState("transHistory");
 
             OpenDefaultForm();
-            //ShowMarketSummaryForm();
 
             //common.Data.Clear();
             return true;
@@ -433,6 +432,8 @@ namespace client
 
         private void OpenDefaultForm()
         {
+            ShowMarketSummaryForm();
+
             if (marketWatchMenuItem.Checked) ShowMarketWatchForm();
             else HideMarketWatchForm();
 
@@ -834,14 +835,14 @@ namespace client
             if (form!=null) form.Hide();
         }
 
-        private Tools.Forms.MarketSummary GetMarketSummaryForm(bool createIfNotFound)
+        private Trade.Forms.MarketSummary GetMarketSummaryForm(bool createIfNotFound)
         {
-            string formName = constFormNameMarketSummary + "Market ";
-            Tools.Forms.MarketSummary myForm = (Tools.Forms.MarketSummary)cachedForms.Find(formName);
+            string formName = constFormNameMarketSummary + "Market";
+            Trade.Forms.MarketSummary myForm = (Trade.Forms.MarketSummary)cachedForms.Find(formName);
             if (myForm == null || myForm.IsDisposed)
             {
                 if (!createIfNotFound) return null;
-                myForm = new Tools.Forms.MarketSummary();
+                myForm = new Trade.Forms.MarketSummary();
                 myForm.Name = formName;
                 cachedForms.Add(formName, myForm);
             }
@@ -849,14 +850,13 @@ namespace client
         }
         private void ShowMarketSummaryForm()
         {
-            Tools.Forms.MarketSummary form = GetMarketSummaryForm(true);
-            //form.myContextMenuStrip = CreateContextMenu_MarketWatch();
-            //form.myGrid.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(NewChartMenuItem_Click);
+            Trade.Forms.MarketSummary form = GetMarketSummaryForm(true);
             form.Show(dockPanel, DockState.Document);
+            form.RefreshData(true);
         }
         private void HideMarketSummaryForm()
         {
-            Tools.Forms.MarketSummary form = GetMarketSummaryForm(false);
+            Trade.Forms.MarketSummary form = GetMarketSummaryForm(false);
             if (form != null) form.Hide();
         }
 

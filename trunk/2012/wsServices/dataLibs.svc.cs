@@ -1080,14 +1080,18 @@ namespace wsServices
 
         #region test
 
-        //public object[] GetPriceByCode(string stockCode)
-        //{
-        //    databases.baseDS.priceDataRow priceRow = databases.DbAccess.GetLastPriceData(stockCode);
-        //    if (priceRow == null) return null;
-        //    return priceRow.ItemArray;
-        //}
-
-        //[OperationBehavior]
+        public databases.tmpDS.dataVarrianceDataTable GetPriceVarriance(DateTime frDate, DateTime toDate, string timeScaleCode, int topN)
+        {
+            try
+            {
+                return databases.AppLibs.GetPriceVarriance(frDate, toDate, timeScaleCode, topN);
+            }
+            catch (Exception ex)
+            {
+                WriteSysLogLocal(ex);
+            }
+            return null;
+        }
         public DataTable Test(string sql)
         {
             DataTable tbl = new DataTable("testTbl");

@@ -32,13 +32,16 @@
             this.baseLabel3 = new baseClass.controls.baseLabel();
             this.baseLabel4 = new baseClass.controls.baseLabel();
             this.baseLabel5 = new baseClass.controls.baseLabel();
-            this.baseLabel6 = new baseClass.controls.baseLabel();
             this.lblDisclaimer = new System.Windows.Forms.Label();
             this.baseLabel1 = new baseClass.controls.baseLabel();
             this.baseLabel7 = new baseClass.controls.baseLabel();
             this.baseLabel8 = new baseClass.controls.baseLabel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.baseLabel10 = new baseClass.controls.baseLabel();
+            this.baseLabel12 = new baseClass.controls.baseLabel();
+            this.baseLabel11 = new baseClass.controls.baseLabel();
+            this.baseLabel9 = new baseClass.controls.baseLabel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
@@ -48,10 +51,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.baseLabel9 = new baseClass.controls.baseLabel();
-            this.baseLabel10 = new baseClass.controls.baseLabel();
-            this.baseLabel11 = new baseClass.controls.baseLabel();
-            this.baseLabel12 = new baseClass.controls.baseLabel();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -104,16 +103,6 @@
             this.baseLabel5.Size = new System.Drawing.Size(101, 16);
             this.baseLabel5.TabIndex = 0;
             this.baseLabel5.Text = "VNIndex trend";
-            // 
-            // baseLabel6
-            // 
-            this.baseLabel6.AutoSize = true;
-            this.baseLabel6.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.baseLabel6.Location = new System.Drawing.Point(12, 88);
-            this.baseLabel6.Name = "baseLabel6";
-            this.baseLabel6.Size = new System.Drawing.Size(222, 16);
-            this.baseLabel6.TabIndex = 0;
-            this.baseLabel6.Text = "Quantum is the pioneer software";
             // 
             // lblDisclaimer
             // 
@@ -177,6 +166,46 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(449, 189);
             this.panel2.TabIndex = 147;
+            // 
+            // baseLabel10
+            // 
+            this.baseLabel10.AutoSize = true;
+            this.baseLabel10.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.baseLabel10.Location = new System.Drawing.Point(121, 170);
+            this.baseLabel10.Name = "baseLabel10";
+            this.baseLabel10.Size = new System.Drawing.Size(98, 16);
+            this.baseLabel10.TabIndex = 1;
+            this.baseLabel10.Text = "SSI, CTG, AAA";
+            // 
+            // baseLabel12
+            // 
+            this.baseLabel12.AutoSize = true;
+            this.baseLabel12.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.baseLabel12.Location = new System.Drawing.Point(20, 67);
+            this.baseLabel12.Name = "baseLabel12";
+            this.baseLabel12.Size = new System.Drawing.Size(123, 16);
+            this.baseLabel12.TabIndex = 1;
+            this.baseLabel12.Text = "ACB Trend: DOWN";
+            // 
+            // baseLabel11
+            // 
+            this.baseLabel11.AutoSize = true;
+            this.baseLabel11.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.baseLabel11.Location = new System.Drawing.Point(20, 42);
+            this.baseLabel11.Name = "baseLabel11";
+            this.baseLabel11.Size = new System.Drawing.Size(102, 16);
+            this.baseLabel11.TabIndex = 1;
+            this.baseLabel11.Text = "SSI Trends: UP";
+            // 
+            // baseLabel9
+            // 
+            this.baseLabel9.AutoSize = true;
+            this.baseLabel9.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.baseLabel9.Location = new System.Drawing.Point(121, 130);
+            this.baseLabel9.Name = "baseLabel9";
+            this.baseLabel9.Size = new System.Drawing.Size(98, 16);
+            this.baseLabel9.TabIndex = 1;
+            this.baseLabel9.Text = "SSI, CTG, AAA";
             // 
             // panel3
             // 
@@ -260,46 +289,6 @@
             this.label6.TabIndex = 0;
             this.label6.Text = "Investors Best Strategies";
             // 
-            // baseLabel9
-            // 
-            this.baseLabel9.AutoSize = true;
-            this.baseLabel9.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.baseLabel9.Location = new System.Drawing.Point(121, 130);
-            this.baseLabel9.Name = "baseLabel9";
-            this.baseLabel9.Size = new System.Drawing.Size(98, 16);
-            this.baseLabel9.TabIndex = 1;
-            this.baseLabel9.Text = "SSI, CTG, AAA";
-            // 
-            // baseLabel10
-            // 
-            this.baseLabel10.AutoSize = true;
-            this.baseLabel10.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.baseLabel10.Location = new System.Drawing.Point(121, 170);
-            this.baseLabel10.Name = "baseLabel10";
-            this.baseLabel10.Size = new System.Drawing.Size(98, 16);
-            this.baseLabel10.TabIndex = 1;
-            this.baseLabel10.Text = "SSI, CTG, AAA";
-            // 
-            // baseLabel11
-            // 
-            this.baseLabel11.AutoSize = true;
-            this.baseLabel11.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.baseLabel11.Location = new System.Drawing.Point(20, 42);
-            this.baseLabel11.Name = "baseLabel11";
-            this.baseLabel11.Size = new System.Drawing.Size(102, 16);
-            this.baseLabel11.TabIndex = 1;
-            this.baseLabel11.Text = "SSI Trends: UP";
-            // 
-            // baseLabel12
-            // 
-            this.baseLabel12.AutoSize = true;
-            this.baseLabel12.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.baseLabel12.Location = new System.Drawing.Point(20, 67);
-            this.baseLabel12.Name = "baseLabel12";
-            this.baseLabel12.Size = new System.Drawing.Size(123, 16);
-            this.baseLabel12.TabIndex = 1;
-            this.baseLabel12.Text = "ACB Trend: DOWN";
-            // 
             // MarketSummary
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -312,13 +301,11 @@
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.baseLabel6);
-            
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "MarketSummary";
             this.Text = "Market Overview";
             this.Load += new System.EventHandler(this.MarketSummary_Load);
             this.Controls.SetChildIndex(this.TitleLbl, 0);
-            this.Controls.SetChildIndex(this.baseLabel6, 0);
             this.Controls.SetChildIndex(this.panel1, 0);
             this.Controls.SetChildIndex(this.panel2, 0);
             this.Controls.SetChildIndex(this.panel3, 0);
@@ -346,7 +333,6 @@
         private baseClass.controls.baseLabel baseLabel3;
         private baseClass.controls.baseLabel baseLabel4;
         private baseClass.controls.baseLabel baseLabel5;
-        private baseClass.controls.baseLabel baseLabel6;
         private System.Windows.Forms.Label lblDisclaimer;
         private baseClass.controls.baseLabel baseLabel1;
         private baseClass.controls.baseLabel baseLabel7;

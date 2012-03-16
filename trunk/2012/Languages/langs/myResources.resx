@@ -1296,4 +1296,13 @@
   <data name="priceMask" xml:space="preserve">
     <value>Unit price</value>
   </data>
+  <data name="marketSummary" xml:space="preserve">
+    <value>Market summary</value>
+  </data>
+  <data name="softwareIntro" xml:space="preserve">
+    <value>@Quantum is the pioneer software in automatic trading.</value>
+  </data>
+  <data name="welcomeMarketSummary" xml:space="preserve">
+    <value>Welcome to Market Summary </value>
+  </data>
 </root>
