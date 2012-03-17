@@ -2623,8 +2623,6 @@ namespace databases {
             
             private global::System.Data.DataColumn columnnotes;
             
-            private global::System.Data.DataColumn columntransVolume;
-            
             private global::System.Data.DataColumn columnprofitVariantAmt;
             
             private global::System.Data.DataColumn columnnameEn;
@@ -2746,13 +2744,6 @@ namespace databases {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn transVolumeColumn {
-                get {
-                    return this.columntransVolume;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public global::System.Data.DataColumn profitVariantAmtColumn {
                 get {
                     return this.columnprofitVariantAmt;
@@ -2802,23 +2793,7 @@ namespace databases {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public porfolioWatchRow AddporfolioWatchRow(
-                        string code, 
-                        string stockExchange, 
-                        string tickerCode, 
-                        string name, 
-                        decimal price, 
-                        decimal priceVariant, 
-                        decimal qty, 
-                        decimal boughtPrice, 
-                        decimal amt, 
-                        decimal boughtAmt, 
-                        decimal profitVariantPerc, 
-                        string notes, 
-                        decimal transVolume, 
-                        decimal profitVariantAmt, 
-                        string nameEn, 
-                        int selected) {
+            public porfolioWatchRow AddporfolioWatchRow(string code, string stockExchange, string tickerCode, string name, decimal price, decimal priceVariant, decimal qty, decimal boughtPrice, decimal amt, decimal boughtAmt, decimal profitVariantPerc, string notes, decimal profitVariantAmt, string nameEn, int selected) {
                 porfolioWatchRow rowporfolioWatchRow = ((porfolioWatchRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         code,
@@ -2833,7 +2808,6 @@ namespace databases {
                         boughtAmt,
                         profitVariantPerc,
                         notes,
-                        transVolume,
                         profitVariantAmt,
                         nameEn,
                         selected};
@@ -2874,7 +2848,6 @@ namespace databases {
                 this.columnboughtAmt = base.Columns["boughtAmt"];
                 this.columnprofitVariantPerc = base.Columns["profitVariantPerc"];
                 this.columnnotes = base.Columns["notes"];
-                this.columntransVolume = base.Columns["transVolume"];
                 this.columnprofitVariantAmt = base.Columns["profitVariantAmt"];
                 this.columnnameEn = base.Columns["nameEn"];
                 this.columnselected = base.Columns["selected"];
@@ -2906,8 +2879,6 @@ namespace databases {
                 base.Columns.Add(this.columnprofitVariantPerc);
                 this.columnnotes = new global::System.Data.DataColumn("notes", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnnotes);
-                this.columntransVolume = new global::System.Data.DataColumn("transVolume", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columntransVolume);
                 this.columnprofitVariantAmt = new global::System.Data.DataColumn("profitVariantAmt", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnprofitVariantAmt);
                 this.columnnameEn = new global::System.Data.DataColumn("nameEn", typeof(string), null, global::System.Data.MappingType.Element);
@@ -4398,21 +4369,6 @@ namespace databases {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public decimal transVolume {
-                get {
-                    try {
-                        return ((decimal)(this[this.tableporfolioWatch.transVolumeColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'transVolume\' in table \'porfolioWatch\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableporfolioWatch.transVolumeColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public decimal profitVariantAmt {
                 get {
                     try {
@@ -4535,16 +4491,6 @@ namespace databases {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public void SetnotesNull() {
                 this[this.tableporfolioWatch.notesColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public bool IstransVolumeNull() {
-                return this.IsNull(this.tableporfolioWatch.transVolumeColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public void SettransVolumeNull() {
-                this[this.tableporfolioWatch.transVolumeColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

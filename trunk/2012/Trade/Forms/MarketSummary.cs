@@ -7,6 +7,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
+using commonTypes;
 
 namespace Trade.Forms
 {
@@ -46,6 +47,8 @@ namespace Trade.Forms
         }
         public void RefreshData(bool force)
         {
+            Market_Indexes();
+
             //Market data
             databases.tmpDS.dataVarrianceDataTable tbl = DataAccess.Libs.GetTopPriceVarrianceWeekly(5);
             decimal[] yValues = new decimal[tbl.Count];
@@ -62,28 +65,42 @@ namespace Trade.Forms
             Market_WeeklyTopBiggestChange(xValues, yValues);
             Market_DataDailyChange(topCodes);
         }
+
+        private void Market_Indexes()
+        {
+            DateTime toDate = DateTime.Now;
+            DateTime frDate = toDate.AddMonths(-2);
+            string timeScaleCode = AppTypes.TimeScaleTypeToCode(AppTypes.TimeScaleTypes.Day);
+            DrawLineChartIndexes(vnIdxChart, 0,true, "VN-IDX", frDate, toDate, timeScaleCode);
+            DrawLineChartIndexes(vnIdxChart, 1,false, "VN30-IDX", frDate, toDate, timeScaleCode);
+            
+            DrawLineChartIndexes(hnxChart, 0,true, "HNX-IDX", frDate, toDate, timeScaleCode);
+        }
+
+        private void DrawLineChartIndexes(Chart chart, int chartSeriesNo,bool isShowVolume, string code, DateTime frDate, DateTime toDate, string timeScaleCode)
+        {
+          
+            databases.baseDS.priceDataDataTable vnidxTbl = DataAccess.Libs.GetPriceData(code,timeScaleCode,frDate, toDate);
+            decimal[] yValues = new decimal[vnidxTbl.Count];
+            DateTime[] xValues = new DateTime[vnidxTbl.Count];
+            decimal[] volValues = new decimal[vnidxTbl.Count];
+            for (int idx = 0; idx < vnidxTbl.Count; idx++)
+            {
+                yValues[idx] = vnidxTbl[idx].closePrice;
+                xValues[idx] = vnidxTbl[idx].onDate;
+                volValues[idx] = vnidxTbl[idx].volume/100000;
+            }
+            chart.Series[chartSeriesNo].Points.DataBindXY(xValues, yValues);
+            if (isShowVolume)
+            {
+                chart.Series["Volume"].Points.DataBindXY(xValues, volValues);    
+            }            
+        }
+
+
         private void Market_WeeklyTopBiggestChange(string[] xValues,decimal[] yValues)
         {
-            // Populate series data
-            top10Chart.Series["Default"].Points.DataBindXY(xValues, yValues);
-
-            // Set Doughnut chart type
-            top10Chart.Series["Default"].ChartType = SeriesChartType.Pie;
-
-            // Set labels style
-            top10Chart.Series["Default"]["PieLabelStyle"] = "Inside";
-
-            // Set Doughnut radius percentage
-            top10Chart.Series["Default"]["DoughnutRadius"] = "99";
-
-            // Explode data point with label "Italy"
-            top10Chart.Series["Default"].Points[yValues.Length - 1]["Exploded"] = "true";
-
-            // Enable 3D
-            top10Chart.ChartAreas["Default"].Area3DStyle.Enable3D = true;
-
-            // Set drawing style
-            top10Chart.Series["Default"]["PieDrawingStyle"] = "SoftEdge";
+            top10Chart.Series[0].Points.DataBindXY(xValues, yValues);
         }
         private void Market_DataDailyChange(StringCollection codes)
         {
