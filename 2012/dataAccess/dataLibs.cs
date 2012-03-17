@@ -730,6 +730,18 @@ namespace DataAccess
             return null;
         }
 
+        public static databases.baseDS.tradeAlertDataTable GetTradeAlert(DateTime frDate, DateTime toDate, string investor, byte statusMask)
+        {
+            try
+            {
+                return myClient.GetTradeAlert(frDate, toDate, investor, statusMask);
+            }
+            catch (Exception er)
+            {
+                if (OnError != null) OnError(er);
+            }
+            return null;
+        }
         public static databases.baseDS.tradeAlertDataTable GetTradeAlert_BySQL(string sql)
         {
             try
@@ -1709,7 +1721,7 @@ namespace DataAccess
         /// </summary>
         /// <param name="topN"></param>
         /// <returns></returns>
-        public static databases.tmpDS.dataVarrianceDataTable GetPriceVarrianceWeekly(byte topN)
+        public static databases.tmpDS.dataVarrianceDataTable GetTopPriceVarrianceWeekly(byte topN)
         {
             try
             {
@@ -1720,7 +1732,7 @@ namespace DataAccess
                 //Maybe there are some holidays or weekend so wee need to look before some days 
                 DateTime toDate = DateTime.Now.AddDays(-6);
                 DateTime frDate = toDate.AddDays(-7-6);
-                databases.tmpDS.dataVarrianceDataTable tbl = myClient.GetPriceVarriance(frDate, toDate, AppTypes.TimeScaleTypeToCode(AppTypes.TimeScaleTypes.Week), topN);
+                databases.tmpDS.dataVarrianceDataTable tbl = myClient.GetTopPriceVarriance(frDate, toDate, AppTypes.TimeScaleTypeToCode(AppTypes.TimeScaleTypes.Week), topN);
                 AddCache(cacheKey, tbl);
                 return tbl;
             }

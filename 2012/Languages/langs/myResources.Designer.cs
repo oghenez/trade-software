@@ -1816,6 +1816,15 @@ namespace Languages.langs {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Market Daily Change.
+        /// </summary>
+        internal static string marketDailyChange {
+            get {
+                return ResourceManager.GetString("marketDailyChange", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Market info.
         /// </summary>
         internal static string marketInfo {
@@ -1839,6 +1848,15 @@ namespace Languages.langs {
         internal static string marketWatch {
             get {
                 return ResourceManager.GetString("marketWatch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Market Weekly Change.
+        /// </summary>
+        internal static string marketWeeklyChange {
+            get {
+                return ResourceManager.GetString("marketWeeklyChange", resourceCulture);
             }
         }
         
