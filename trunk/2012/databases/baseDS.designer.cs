@@ -23458,9 +23458,9 @@ SELECT id, onTime, type, tradeAction, portfolio, stockCode, timeScale, strategy,
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@oldStat", global::System.Data.SqlDbType.TinyInt, 1, global::System.Data.ParameterDirection.Input, 0, 0, "status", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[3].Connection = this.Connection;
-            this._commandCollection[3].CommandText = "SELECT* FROM tradeAlert WHERE (portfolio IN (SELECT code FROM portfolio WHERE (in" +
-                "vestorCode = @investorCode))) AND (onTime BETWEEN @frTime AND @toTime) AND (stat" +
-                "us & @statusMask > 0) ORDER BY onTime DESC";
+            this._commandCollection[3].CommandText = "SELECT * FROM tradeAlert WHERE (portfolio IN (SELECT code FROM portfolio WHERE (i" +
+                "nvestorCode = @investorCode))) AND (onTime BETWEEN @frTime AND @toTime) AND (sta" +
+                "tus & @statusMask > 0) ORDER BY onTime DESC";
             this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@frTime", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "onTime", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@toTime", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "onTime", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));

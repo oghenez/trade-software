@@ -15,6 +15,9 @@ namespace DataAccess.ServiceReference1 {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.IStockService")]
     public interface IStockService {
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/Estimate_Matrix_LastBizWeight", ReplyAction="http://tempuri.org/IStockService/Estimate_Matrix_LastBizWeightResponse")]
+        double[][] Estimate_Matrix_LastBizWeight(commonClass.DataParams dataParams, string[] stockCodeList, string[] strategyList);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/Analysis", ReplyAction="http://tempuri.org/IStockService/AnalysisResponse")]
         commonClass.TradePointInfo[] Analysis(string dataKey, string strategyCode);
         
@@ -51,8 +54,8 @@ namespace DataAccess.ServiceReference1 {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/Test", ReplyAction="http://tempuri.org/IStockService/TestResponse")]
         System.Data.DataTable Test(string sql);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetPriceVarriance", ReplyAction="http://tempuri.org/IStockService/GetPriceVarrianceResponse")]
-        databases.tmpDS.dataVarrianceDataTable GetPriceVarriance(System.DateTime frDate, System.DateTime toDate, string timeScaleCode, int topN);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetTopPriceVarriance", ReplyAction="http://tempuri.org/IStockService/GetTopPriceVarrianceResponse")]
+        databases.tmpDS.dataVarrianceDataTable GetTopPriceVarriance(System.DateTime frDate, System.DateTime toDate, string timeScaleCode, int topN);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetBizSubSector_ByIndustry", ReplyAction="http://tempuri.org/IStockService/GetBizSubSector_ByIndustryResponse")]
         databases.baseDS.bizSubSectorDataTable GetBizSubSector_ByIndustry(string code);
@@ -74,6 +77,9 @@ namespace DataAccess.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetPortfolio_ByInvestor", ReplyAction="http://tempuri.org/IStockService/GetPortfolio_ByInvestorResponse")]
         databases.baseDS.portfolioDataTable GetPortfolio_ByInvestor(string investorCode);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetTradeAlert", ReplyAction="http://tempuri.org/IStockService/GetTradeAlertResponse")]
+        databases.baseDS.tradeAlertDataTable GetTradeAlert(System.DateTime frDate, System.DateTime toDate, string investor, byte statusMask);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetTradeAlert_BySQL", ReplyAction="http://tempuri.org/IStockService/GetTradeAlert_BySQLResponse")]
         databases.baseDS.tradeAlertDataTable GetTradeAlert_BySQL(string alertSql);
@@ -134,9 +140,6 @@ namespace DataAccess.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/Estimate_Matrix_Profit", ReplyAction="http://tempuri.org/IStockService/Estimate_Matrix_ProfitResponse")]
         decimal[][] Estimate_Matrix_Profit(commonTypes.AppTypes.TimeRanges timeRange, string timeScaleCode, string[] stockCodeList, string[] strategyList, commonClass.EstimateOptions option);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/Estimate_Matrix_LastBizWeight", ReplyAction="http://tempuri.org/IStockService/Estimate_Matrix_LastBizWeightResponse")]
-        double[][] Estimate_Matrix_LastBizWeight(commonClass.DataParams dataParams, string[] stockCodeList, string[] strategyList);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetInvestorShortList", ReplyAction="http://tempuri.org/IStockService/GetInvestorShortListResponse")]
         databases.tmpDS.investorDataTable GetInvestorShortList();
@@ -334,6 +337,10 @@ namespace DataAccess.ServiceReference1 {
                 base(binding, remoteAddress) {
         }
         
+        public double[][] Estimate_Matrix_LastBizWeight(commonClass.DataParams dataParams, string[] stockCodeList, string[] strategyList) {
+            return base.Channel.Estimate_Matrix_LastBizWeight(dataParams, stockCodeList, strategyList);
+        }
+        
         public commonClass.TradePointInfo[] Analysis(string dataKey, string strategyCode) {
             return base.Channel.Analysis(dataKey, strategyCode);
         }
@@ -382,8 +389,8 @@ namespace DataAccess.ServiceReference1 {
             return base.Channel.Test(sql);
         }
         
-        public databases.tmpDS.dataVarrianceDataTable GetPriceVarriance(System.DateTime frDate, System.DateTime toDate, string timeScaleCode, int topN) {
-            return base.Channel.GetPriceVarriance(frDate, toDate, timeScaleCode, topN);
+        public databases.tmpDS.dataVarrianceDataTable GetTopPriceVarriance(System.DateTime frDate, System.DateTime toDate, string timeScaleCode, int topN) {
+            return base.Channel.GetTopPriceVarriance(frDate, toDate, timeScaleCode, topN);
         }
         
         public databases.baseDS.bizSubSectorDataTable GetBizSubSector_ByIndustry(string code) {
@@ -412,6 +419,10 @@ namespace DataAccess.ServiceReference1 {
         
         public databases.baseDS.portfolioDataTable GetPortfolio_ByInvestor(string investorCode) {
             return base.Channel.GetPortfolio_ByInvestor(investorCode);
+        }
+        
+        public databases.baseDS.tradeAlertDataTable GetTradeAlert(System.DateTime frDate, System.DateTime toDate, string investor, byte statusMask) {
+            return base.Channel.GetTradeAlert(frDate, toDate, investor, statusMask);
         }
         
         public databases.baseDS.tradeAlertDataTable GetTradeAlert_BySQL(string alertSql) {
@@ -492,10 +503,6 @@ namespace DataAccess.ServiceReference1 {
         
         public decimal[][] Estimate_Matrix_Profit(commonTypes.AppTypes.TimeRanges timeRange, string timeScaleCode, string[] stockCodeList, string[] strategyList, commonClass.EstimateOptions option) {
             return base.Channel.Estimate_Matrix_Profit(timeRange, timeScaleCode, stockCodeList, strategyList, option);
-        }
-        
-        public double[][] Estimate_Matrix_LastBizWeight(commonClass.DataParams dataParams, string[] stockCodeList, string[] strategyList) {
-            return base.Channel.Estimate_Matrix_LastBizWeight(dataParams, stockCodeList, strategyList);
         }
         
         public databases.tmpDS.investorDataTable GetInvestorShortList() {

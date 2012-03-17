@@ -1305,4 +1305,10 @@
   <data name="welcomeMarketSummary" xml:space="preserve">
     <value>Welcome to Market Summary </value>
   </data>
+  <data name="marketDailyChange" xml:space="preserve">
+    <value>Market Daily Change</value>
+  </data>
+  <data name="marketWeeklyChange" xml:space="preserve">
+    <value>Market Weekly Change</value>
+  </data>
 </root>

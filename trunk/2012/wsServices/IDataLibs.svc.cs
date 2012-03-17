@@ -180,6 +180,8 @@ namespace wsServices
         databases.baseDS.portfolioDataTable GetPortfolio_ByInvestor(string investorCode);
 
         [OperationContract]
+        databases.baseDS.tradeAlertDataTable GetTradeAlert(DateTime frDate, DateTime toDate, string investor, byte statusMask);
+        [OperationContract]
         databases.baseDS.tradeAlertDataTable GetTradeAlert_BySQL(string alertSql);
         [OperationContract]
         databases.baseDS.transactionsDataTable GetTransaction_BySQL(string transSql);
@@ -287,6 +289,6 @@ namespace wsServices
         DataTable Test(string sql);
 
         [OperationContract]
-        databases.tmpDS.dataVarrianceDataTable GetPriceVarriance(DateTime frDate, DateTime toDate, string timeScaleCode, int topN);
+        databases.tmpDS.dataVarrianceDataTable GetTopPriceVarriance(DateTime frDate, DateTime toDate, string timeScaleCode, int topN);
     }
 }

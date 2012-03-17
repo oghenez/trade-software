@@ -464,6 +464,11 @@ namespace wsServices
             return tbl;
         }
 
+
+        public databases.baseDS.tradeAlertDataTable GetTradeAlert(DateTime frDate, DateTime toDate, string investor, byte statusMask)
+        {
+            return databases.DbAccess.GetTradeAlert(frDate, toDate, investor, statusMask);
+        }
         public databases.baseDS.tradeAlertDataTable GetTradeAlert_BySQL(string sql)
         {
             databases.baseDS.tradeAlertDataTable tbl = new databases.baseDS.tradeAlertDataTable();
@@ -1080,11 +1085,11 @@ namespace wsServices
 
         #region test
 
-        public databases.tmpDS.dataVarrianceDataTable GetPriceVarriance(DateTime frDate, DateTime toDate, string timeScaleCode, int topN)
+        public databases.tmpDS.dataVarrianceDataTable GetTopPriceVarriance(DateTime frDate, DateTime toDate, string timeScaleCode, int topN)
         {
             try
             {
-                return databases.AppLibs.GetPriceVarriance(frDate, toDate, timeScaleCode, topN);
+                return databases.AppLibs.GetTopPriceVarriance(frDate, toDate, timeScaleCode, topN);
             }
             catch (Exception ex)
             {

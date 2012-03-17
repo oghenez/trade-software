@@ -583,7 +583,7 @@ namespace client
                 fRefreshingAlert = true;
                 Trade.Forms.tradeAlertList form = GetTradeAlertForm(false);
                 if (form != null && !form.IsDisposed && form.Visible)
-                    form.Refresh();
+                    form.RefreshData();
                 fRefreshingAlert = false;
             }
             catch (Exception er)

@@ -228,6 +228,13 @@ namespace databases
             row.profitVariantAmt = 0;
             row.profitVariantPerc = 0;
         }
+        public static void InitData(databases.tmpDS.dataVarrianceRow row)
+        {
+            row.code = "";
+            row.value = 0;
+            row.percent = 0;
+        }
+        
 
         #endregion
 
@@ -611,7 +618,7 @@ namespace databases
         /// <param name="timeScaleCode"></param>
         /// <param name="topN"></param>
         /// <returns></returns>
-        public static tmpDS.dataVarrianceDataTable GetPriceVarriance(DateTime frDate, DateTime toDate, string timeScaleCode, int topN)
+        public static tmpDS.dataVarrianceDataTable GetTopPriceVarriance(DateTime frDate, DateTime toDate, string timeScaleCode, int topN)
         {
             baseDS.lastPriceDataDataTable closeTbl = DbAccess.GetLastPrice(AppTypes.PriceDataType.Close, toDate);
             baseDS.lastPriceDataDataTable openTbl = DbAccess.GetLastPrice(AppTypes.PriceDataType.Open, frDate);  
