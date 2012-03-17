@@ -29,61 +29,55 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea7 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend7 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint31 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0, 65.62);
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint32 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0, 75.54);
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint33 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0, 60.45);
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint34 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0, 55.73);
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint35 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0, 70.42);
-            System.Windows.Forms.DataVisualization.Charting.Title title7 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea8 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend8 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint36 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0, 65.62);
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint37 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0, 75.54);
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint38 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0, 60.45);
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint39 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0, 55.73);
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint40 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0, 70.42);
-            System.Windows.Forms.DataVisualization.Charting.Title title8 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea9 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend9 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series9 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint41 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0, 65.62);
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint42 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0, 75.54);
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint43 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0, 60.45);
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint44 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0, 55.73);
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint45 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0, 70.42);
-            System.Windows.Forms.DataVisualization.Charting.Title title9 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint1 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0, 65.62);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint2 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0, 75.54);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint3 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0, 60.45);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint4 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0, 55.73);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint5 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0, 70.42);
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.layoutPnl = new System.Windows.Forms.TableLayoutPanel();
-            this.dataVarrianceSource = new System.Windows.Forms.BindingSource(this.components);
-            this.myTmpDS = new databases.tmpDS();
-            this.introLbl = new baseClass.controls.baseLabel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.dailyChangeGV = new common.controls.baseDataGridView();
             this.dailyChangeLbl = new common.controls.baseLabel();
-            this.splitContainer2 = new System.Windows.Forms.SplitContainer();
-            this.top10Chart = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.weeklyChangeLbl = new common.controls.baseLabel();
-            this.splitContainer3 = new System.Windows.Forms.SplitContainer();
-            this.vnIdxChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.marketTitle1Ed = new common.controls.baseLabel();
-            this.splitContainer4 = new System.Windows.Forms.SplitContainer();
-            this.hnIdxChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.marketTitle2Ed = new common.controls.baseLabel();
+            this.dailyChangeGV = new common.controls.baseDataGridView();
             this.codeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.priceColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.percentColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.alertNotesColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataVarrianceSource = new System.Windows.Forms.BindingSource(this.components);
+            this.myTmpDS = new databases.tmpDS();
+            this.splitContainer2 = new System.Windows.Forms.SplitContainer();
+            this.weeklyChangeLbl = new common.controls.baseLabel();
+            this.top10Chart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.splitContainer3 = new System.Windows.Forms.SplitContainer();
+            this.marketTitle1Ed = new common.controls.baseLabel();
+            this.vnIdxChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.splitContainer4 = new System.Windows.Forms.SplitContainer();
+            this.marketTitle2Ed = new common.controls.baseLabel();
+            this.introLbl = new baseClass.controls.baseLabel();
+            this.hnxChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.layoutPnl.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataVarrianceSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.myTmpDS)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dailyChangeGV)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataVarrianceSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.myTmpDS)).BeginInit();
             this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
@@ -95,7 +89,7 @@
             this.splitContainer4.Panel1.SuspendLayout();
             this.splitContainer4.Panel2.SuspendLayout();
             this.splitContainer4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.hnIdxChart)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.hnxChart)).BeginInit();
             this.SuspendLayout();
             // 
             // TitleLbl
@@ -125,28 +119,6 @@
             this.layoutPnl.Size = new System.Drawing.Size(891, 557);
             this.layoutPnl.TabIndex = 149;
             // 
-            // dataVarrianceSource
-            // 
-            this.dataVarrianceSource.DataMember = "dataVarriance";
-            this.dataVarrianceSource.DataSource = this.myTmpDS;
-            // 
-            // myTmpDS
-            // 
-            this.myTmpDS.DataSetName = "tmpDS";
-            this.myTmpDS.EnforceConstraints = false;
-            this.myTmpDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // introLbl
-            // 
-            this.introLbl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.introLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.introLbl.Location = new System.Drawing.Point(18, 43);
-            this.introLbl.Name = "introLbl";
-            this.introLbl.Size = new System.Drawing.Size(913, 29);
-            this.introLbl.TabIndex = 1;
-            this.introLbl.Text = "Quantum is the pioneer software bla bla bla";
-            // 
             // splitContainer1
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -165,6 +137,20 @@
             this.splitContainer1.SplitterDistance = 25;
             this.splitContainer1.TabIndex = 149;
             // 
+            // dailyChangeLbl
+            // 
+            this.dailyChangeLbl.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.dailyChangeLbl.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dailyChangeLbl.Dock = System.Windows.Forms.DockStyle.Top;
+            this.dailyChangeLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dailyChangeLbl.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.dailyChangeLbl.Location = new System.Drawing.Point(0, 0);
+            this.dailyChangeLbl.Name = "dailyChangeLbl";
+            this.dailyChangeLbl.Size = new System.Drawing.Size(440, 26);
+            this.dailyChangeLbl.TabIndex = 151;
+            this.dailyChangeLbl.Text = "Daily Market Change";
+            this.dailyChangeLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // dailyChangeGV
             // 
             this.dailyChangeGV.AllowUserToAddRows = false;
@@ -181,343 +167,11 @@
             this.dailyChangeGV.Location = new System.Drawing.Point(0, 0);
             this.dailyChangeGV.Name = "dailyChangeGV";
             this.dailyChangeGV.ReadOnly = true;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dailyChangeGV.RowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dailyChangeGV.RowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dailyChangeGV.RowTemplate.Height = 24;
             this.dailyChangeGV.Size = new System.Drawing.Size(440, 244);
             this.dailyChangeGV.TabIndex = 6;
-            // 
-            // dailyChangeLbl
-            // 
-            this.dailyChangeLbl.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.dailyChangeLbl.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.dailyChangeLbl.Dock = System.Windows.Forms.DockStyle.Top;
-            this.dailyChangeLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dailyChangeLbl.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.dailyChangeLbl.Location = new System.Drawing.Point(0, 0);
-            this.dailyChangeLbl.Name = "dailyChangeLbl";
-            this.dailyChangeLbl.Size = new System.Drawing.Size(440, 26);
-            this.dailyChangeLbl.TabIndex = 151;
-            this.dailyChangeLbl.Text = "Daily Market Change";
-            this.dailyChangeLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // splitContainer2
-            // 
-            this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer2.Location = new System.Drawing.Point(3, 281);
-            this.splitContainer2.Name = "splitContainer2";
-            this.splitContainer2.Orientation = System.Windows.Forms.Orientation.Horizontal;
-            // 
-            // splitContainer2.Panel1
-            // 
-            this.splitContainer2.Panel1.Controls.Add(this.weeklyChangeLbl);
-            // 
-            // splitContainer2.Panel2
-            // 
-            this.splitContainer2.Panel2.Controls.Add(this.top10Chart);
-            this.splitContainer2.Size = new System.Drawing.Size(439, 273);
-            this.splitContainer2.SplitterDistance = 28;
-            this.splitContainer2.TabIndex = 150;
-            // 
-            // top10Chart
-            // 
-            this.top10Chart.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.top10Chart.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.TopBottom;
-            this.top10Chart.BackSecondaryColor = System.Drawing.Color.White;
-            this.top10Chart.BorderlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(59)))), ((int)(((byte)(105)))));
-            this.top10Chart.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid;
-            this.top10Chart.BorderlineWidth = 2;
-            this.top10Chart.BorderSkin.SkinStyle = System.Windows.Forms.DataVisualization.Charting.BorderSkinStyle.Emboss;
-            chartArea7.Area3DStyle.IsClustered = true;
-            chartArea7.Area3DStyle.IsRightAngleAxes = false;
-            chartArea7.Area3DStyle.Perspective = 10;
-            chartArea7.Area3DStyle.PointGapDepth = 0;
-            chartArea7.Area3DStyle.Rotation = 0;
-            chartArea7.Area3DStyle.WallWidth = 0;
-            chartArea7.AxisX.LabelStyle.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Bold);
-            chartArea7.AxisX.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            chartArea7.AxisX.MajorGrid.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            chartArea7.AxisY.LabelStyle.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Bold);
-            chartArea7.AxisY.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            chartArea7.AxisY.MajorGrid.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            chartArea7.BackColor = System.Drawing.Color.Transparent;
-            chartArea7.BackSecondaryColor = System.Drawing.Color.Transparent;
-            chartArea7.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            chartArea7.BorderWidth = 0;
-            chartArea7.Name = "Default";
-            chartArea7.ShadowColor = System.Drawing.Color.Transparent;
-            this.top10Chart.ChartAreas.Add(chartArea7);
-            this.top10Chart.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend7.Alignment = System.Drawing.StringAlignment.Center;
-            legend7.BackColor = System.Drawing.Color.Transparent;
-            legend7.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
-            legend7.Enabled = false;
-            legend7.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Bold);
-            legend7.IsTextAutoFit = false;
-            legend7.Name = "Default";
-            this.top10Chart.Legends.Add(legend7);
-            this.top10Chart.Location = new System.Drawing.Point(0, 0);
-            this.top10Chart.Name = "top10Chart";
-            series7.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(26)))), ((int)(((byte)(59)))), ((int)(((byte)(105)))));
-            series7.ChartArea = "Default";
-            series7.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
-            series7.Color = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(65)))), ((int)(((byte)(140)))), ((int)(((byte)(240)))));
-            series7.CustomProperties = "DoughnutRadius=60, PieLabelStyle=Disabled, PieDrawingStyle=SoftEdge";
-            series7.Legend = "Default";
-            series7.Name = "Default";
-            dataPoint31.CustomProperties = "Exploded=false";
-            dataPoint31.Label = "France";
-            dataPoint32.CustomProperties = "Exploded=false";
-            dataPoint32.Label = "Canada";
-            dataPoint33.CustomProperties = "Exploded=false";
-            dataPoint33.Label = "UK";
-            dataPoint34.CustomProperties = "Exploded=false";
-            dataPoint34.Label = "USA";
-            dataPoint35.CustomProperties = "Exploded=false";
-            dataPoint35.Label = "Italy";
-            series7.Points.Add(dataPoint31);
-            series7.Points.Add(dataPoint32);
-            series7.Points.Add(dataPoint33);
-            series7.Points.Add(dataPoint34);
-            series7.Points.Add(dataPoint35);
-            series7.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.String;
-            series7.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
-            this.top10Chart.Series.Add(series7);
-            this.top10Chart.Size = new System.Drawing.Size(439, 241);
-            this.top10Chart.TabIndex = 149;
-            title7.Font = new System.Drawing.Font("Trebuchet MS", 14.25F, System.Drawing.FontStyle.Bold);
-            title7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(59)))), ((int)(((byte)(105)))));
-            title7.Name = "Title1";
-            title7.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            title7.ShadowOffset = 3;
-            title7.Text = "Doughnut Chart";
-            this.top10Chart.Titles.Add(title7);
-            // 
-            // weeklyChangeLbl
-            // 
-            this.weeklyChangeLbl.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.weeklyChangeLbl.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.weeklyChangeLbl.Dock = System.Windows.Forms.DockStyle.Top;
-            this.weeklyChangeLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.weeklyChangeLbl.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.weeklyChangeLbl.Location = new System.Drawing.Point(0, 0);
-            this.weeklyChangeLbl.Name = "weeklyChangeLbl";
-            this.weeklyChangeLbl.Size = new System.Drawing.Size(439, 26);
-            this.weeklyChangeLbl.TabIndex = 152;
-            this.weeklyChangeLbl.Text = "Weekly Market Change";
-            this.weeklyChangeLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // splitContainer3
-            // 
-            this.splitContainer3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer3.Location = new System.Drawing.Point(3, 3);
-            this.splitContainer3.Name = "splitContainer3";
-            this.splitContainer3.Orientation = System.Windows.Forms.Orientation.Horizontal;
-            // 
-            // splitContainer3.Panel1
-            // 
-            this.splitContainer3.Panel1.Controls.Add(this.marketTitle1Ed);
-            // 
-            // splitContainer3.Panel2
-            // 
-            this.splitContainer3.Panel2.Controls.Add(this.vnIdxChart);
-            this.splitContainer3.Size = new System.Drawing.Size(439, 272);
-            this.splitContainer3.SplitterDistance = 31;
-            this.splitContainer3.TabIndex = 151;
-            // 
-            // vnIdxChart
-            // 
-            this.vnIdxChart.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.vnIdxChart.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.TopBottom;
-            this.vnIdxChart.BackSecondaryColor = System.Drawing.Color.White;
-            this.vnIdxChart.BorderlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(59)))), ((int)(((byte)(105)))));
-            this.vnIdxChart.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid;
-            this.vnIdxChart.BorderlineWidth = 2;
-            this.vnIdxChart.BorderSkin.SkinStyle = System.Windows.Forms.DataVisualization.Charting.BorderSkinStyle.Emboss;
-            chartArea8.Area3DStyle.IsClustered = true;
-            chartArea8.Area3DStyle.IsRightAngleAxes = false;
-            chartArea8.Area3DStyle.Perspective = 10;
-            chartArea8.Area3DStyle.PointGapDepth = 0;
-            chartArea8.Area3DStyle.Rotation = 0;
-            chartArea8.Area3DStyle.WallWidth = 0;
-            chartArea8.AxisX.LabelStyle.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Bold);
-            chartArea8.AxisX.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            chartArea8.AxisX.MajorGrid.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            chartArea8.AxisY.LabelStyle.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Bold);
-            chartArea8.AxisY.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            chartArea8.AxisY.MajorGrid.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            chartArea8.BackColor = System.Drawing.Color.Transparent;
-            chartArea8.BackSecondaryColor = System.Drawing.Color.Transparent;
-            chartArea8.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            chartArea8.BorderWidth = 0;
-            chartArea8.Name = "Default";
-            chartArea8.ShadowColor = System.Drawing.Color.Transparent;
-            this.vnIdxChart.ChartAreas.Add(chartArea8);
-            this.vnIdxChart.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend8.Alignment = System.Drawing.StringAlignment.Center;
-            legend8.BackColor = System.Drawing.Color.Transparent;
-            legend8.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
-            legend8.Enabled = false;
-            legend8.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Bold);
-            legend8.IsTextAutoFit = false;
-            legend8.Name = "Default";
-            this.vnIdxChart.Legends.Add(legend8);
-            this.vnIdxChart.Location = new System.Drawing.Point(0, 0);
-            this.vnIdxChart.Name = "vnIdxChart";
-            series8.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(26)))), ((int)(((byte)(59)))), ((int)(((byte)(105)))));
-            series8.ChartArea = "Default";
-            series8.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
-            series8.Color = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(65)))), ((int)(((byte)(140)))), ((int)(((byte)(240)))));
-            series8.CustomProperties = "DoughnutRadius=60, PieLabelStyle=Disabled, PieDrawingStyle=SoftEdge";
-            series8.Legend = "Default";
-            series8.Name = "Default";
-            dataPoint36.CustomProperties = "Exploded=false";
-            dataPoint36.Label = "France";
-            dataPoint37.CustomProperties = "Exploded=false";
-            dataPoint37.Label = "Canada";
-            dataPoint38.CustomProperties = "Exploded=false";
-            dataPoint38.Label = "UK";
-            dataPoint39.CustomProperties = "Exploded=false";
-            dataPoint39.Label = "USA";
-            dataPoint40.CustomProperties = "Exploded=false";
-            dataPoint40.Label = "Italy";
-            series8.Points.Add(dataPoint36);
-            series8.Points.Add(dataPoint37);
-            series8.Points.Add(dataPoint38);
-            series8.Points.Add(dataPoint39);
-            series8.Points.Add(dataPoint40);
-            series8.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.String;
-            series8.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
-            this.vnIdxChart.Series.Add(series8);
-            this.vnIdxChart.Size = new System.Drawing.Size(439, 237);
-            this.vnIdxChart.TabIndex = 147;
-            title8.Font = new System.Drawing.Font("Trebuchet MS", 14.25F, System.Drawing.FontStyle.Bold);
-            title8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(59)))), ((int)(((byte)(105)))));
-            title8.Name = "Title1";
-            title8.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            title8.ShadowOffset = 3;
-            title8.Text = "Doughnut Chart";
-            this.vnIdxChart.Titles.Add(title8);
-            // 
-            // marketTitle1Ed
-            // 
-            this.marketTitle1Ed.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.marketTitle1Ed.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.marketTitle1Ed.Dock = System.Windows.Forms.DockStyle.Top;
-            this.marketTitle1Ed.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.marketTitle1Ed.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.marketTitle1Ed.Location = new System.Drawing.Point(0, 0);
-            this.marketTitle1Ed.Name = "marketTitle1Ed";
-            this.marketTitle1Ed.Size = new System.Drawing.Size(439, 26);
-            this.marketTitle1Ed.TabIndex = 153;
-            this.marketTitle1Ed.Text = "HOSE";
-            this.marketTitle1Ed.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // splitContainer4
-            // 
-            this.splitContainer4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer4.Location = new System.Drawing.Point(448, 3);
-            this.splitContainer4.Name = "splitContainer4";
-            this.splitContainer4.Orientation = System.Windows.Forms.Orientation.Horizontal;
-            // 
-            // splitContainer4.Panel1
-            // 
-            this.splitContainer4.Panel1.Controls.Add(this.marketTitle2Ed);
-            // 
-            // splitContainer4.Panel2
-            // 
-            this.splitContainer4.Panel2.Controls.Add(this.hnIdxChart);
-            this.splitContainer4.Size = new System.Drawing.Size(440, 272);
-            this.splitContainer4.SplitterDistance = 27;
-            this.splitContainer4.TabIndex = 152;
-            // 
-            // hnIdxChart
-            // 
-            this.hnIdxChart.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.hnIdxChart.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.TopBottom;
-            this.hnIdxChart.BackSecondaryColor = System.Drawing.Color.White;
-            this.hnIdxChart.BorderlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(59)))), ((int)(((byte)(105)))));
-            this.hnIdxChart.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid;
-            this.hnIdxChart.BorderlineWidth = 2;
-            this.hnIdxChart.BorderSkin.SkinStyle = System.Windows.Forms.DataVisualization.Charting.BorderSkinStyle.Emboss;
-            chartArea9.Area3DStyle.IsClustered = true;
-            chartArea9.Area3DStyle.IsRightAngleAxes = false;
-            chartArea9.Area3DStyle.Perspective = 10;
-            chartArea9.Area3DStyle.PointGapDepth = 0;
-            chartArea9.Area3DStyle.Rotation = 0;
-            chartArea9.Area3DStyle.WallWidth = 0;
-            chartArea9.AxisX.LabelStyle.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Bold);
-            chartArea9.AxisX.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            chartArea9.AxisX.MajorGrid.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            chartArea9.AxisY.LabelStyle.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Bold);
-            chartArea9.AxisY.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            chartArea9.AxisY.MajorGrid.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            chartArea9.BackColor = System.Drawing.Color.Transparent;
-            chartArea9.BackSecondaryColor = System.Drawing.Color.Transparent;
-            chartArea9.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            chartArea9.BorderWidth = 0;
-            chartArea9.Name = "Default";
-            chartArea9.ShadowColor = System.Drawing.Color.Transparent;
-            this.hnIdxChart.ChartAreas.Add(chartArea9);
-            this.hnIdxChart.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend9.Alignment = System.Drawing.StringAlignment.Center;
-            legend9.BackColor = System.Drawing.Color.Transparent;
-            legend9.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
-            legend9.Enabled = false;
-            legend9.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Bold);
-            legend9.IsTextAutoFit = false;
-            legend9.Name = "Default";
-            this.hnIdxChart.Legends.Add(legend9);
-            this.hnIdxChart.Location = new System.Drawing.Point(0, 0);
-            this.hnIdxChart.Name = "hnIdxChart";
-            series9.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(26)))), ((int)(((byte)(59)))), ((int)(((byte)(105)))));
-            series9.ChartArea = "Default";
-            series9.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
-            series9.Color = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(65)))), ((int)(((byte)(140)))), ((int)(((byte)(240)))));
-            series9.CustomProperties = "DoughnutRadius=60, PieLabelStyle=Disabled, PieDrawingStyle=SoftEdge";
-            series9.Legend = "Default";
-            series9.Name = "Default";
-            dataPoint41.CustomProperties = "Exploded=false";
-            dataPoint41.Label = "France";
-            dataPoint42.CustomProperties = "Exploded=false";
-            dataPoint42.Label = "Canada";
-            dataPoint43.CustomProperties = "Exploded=false";
-            dataPoint43.Label = "UK";
-            dataPoint44.CustomProperties = "Exploded=false";
-            dataPoint44.Label = "USA";
-            dataPoint45.CustomProperties = "Exploded=false";
-            dataPoint45.Label = "Italy";
-            series9.Points.Add(dataPoint41);
-            series9.Points.Add(dataPoint42);
-            series9.Points.Add(dataPoint43);
-            series9.Points.Add(dataPoint44);
-            series9.Points.Add(dataPoint45);
-            series9.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.String;
-            series9.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
-            this.hnIdxChart.Series.Add(series9);
-            this.hnIdxChart.Size = new System.Drawing.Size(440, 241);
-            this.hnIdxChart.TabIndex = 148;
-            title9.Font = new System.Drawing.Font("Trebuchet MS", 14.25F, System.Drawing.FontStyle.Bold);
-            title9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(59)))), ((int)(((byte)(105)))));
-            title9.Name = "Title1";
-            title9.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            title9.ShadowOffset = 3;
-            title9.Text = "Doughnut Chart";
-            this.hnIdxChart.Titles.Add(title9);
-            // 
-            // marketTitle2Ed
-            // 
-            this.marketTitle2Ed.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.marketTitle2Ed.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.marketTitle2Ed.Dock = System.Windows.Forms.DockStyle.Top;
-            this.marketTitle2Ed.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.marketTitle2Ed.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.marketTitle2Ed.Location = new System.Drawing.Point(0, 0);
-            this.marketTitle2Ed.Name = "marketTitle2Ed";
-            this.marketTitle2Ed.Size = new System.Drawing.Size(440, 26);
-            this.marketTitle2Ed.TabIndex = 154;
-            this.marketTitle2Ed.Text = "HASTC";
-            this.marketTitle2Ed.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // codeColumn
             // 
@@ -551,24 +205,403 @@
             this.alertNotesColumn.ReadOnly = true;
             this.alertNotesColumn.Width = 200;
             // 
+            // dataVarrianceSource
+            // 
+            this.dataVarrianceSource.DataMember = "dataVarriance";
+            this.dataVarrianceSource.DataSource = this.myTmpDS;
+            // 
+            // myTmpDS
+            // 
+            this.myTmpDS.DataSetName = "tmpDS";
+            this.myTmpDS.EnforceConstraints = false;
+            this.myTmpDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // splitContainer2
+            // 
+            this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer2.Location = new System.Drawing.Point(3, 281);
+            this.splitContainer2.Name = "splitContainer2";
+            this.splitContainer2.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainer2.Panel1
+            // 
+            this.splitContainer2.Panel1.Controls.Add(this.weeklyChangeLbl);
+            // 
+            // splitContainer2.Panel2
+            // 
+            this.splitContainer2.Panel2.Controls.Add(this.top10Chart);
+            this.splitContainer2.Size = new System.Drawing.Size(439, 273);
+            this.splitContainer2.SplitterDistance = 28;
+            this.splitContainer2.TabIndex = 150;
+            // 
+            // weeklyChangeLbl
+            // 
+            this.weeklyChangeLbl.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.weeklyChangeLbl.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.weeklyChangeLbl.Dock = System.Windows.Forms.DockStyle.Top;
+            this.weeklyChangeLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.weeklyChangeLbl.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.weeklyChangeLbl.Location = new System.Drawing.Point(0, 0);
+            this.weeklyChangeLbl.Name = "weeklyChangeLbl";
+            this.weeklyChangeLbl.Size = new System.Drawing.Size(439, 26);
+            this.weeklyChangeLbl.TabIndex = 152;
+            this.weeklyChangeLbl.Text = "Weekly Market Change";
+            this.weeklyChangeLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // top10Chart
+            // 
+            this.top10Chart.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.top10Chart.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.TopBottom;
+            this.top10Chart.BackSecondaryColor = System.Drawing.Color.White;
+            this.top10Chart.BorderlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(59)))), ((int)(((byte)(105)))));
+            this.top10Chart.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid;
+            this.top10Chart.BorderlineWidth = 2;
+            this.top10Chart.BorderSkin.SkinStyle = System.Windows.Forms.DataVisualization.Charting.BorderSkinStyle.Emboss;
+            chartArea1.Area3DStyle.IsClustered = true;
+            chartArea1.Area3DStyle.IsRightAngleAxes = false;
+            chartArea1.Area3DStyle.Perspective = 10;
+            chartArea1.Area3DStyle.PointGapDepth = 0;
+            chartArea1.Area3DStyle.Rotation = 0;
+            chartArea1.Area3DStyle.WallWidth = 0;
+            chartArea1.AxisX.LabelStyle.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Bold);
+            chartArea1.AxisX.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            chartArea1.AxisX.MajorGrid.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            chartArea1.AxisY.LabelStyle.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Bold);
+            chartArea1.AxisY.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            chartArea1.AxisY.MajorGrid.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            chartArea1.BackColor = System.Drawing.Color.Transparent;
+            chartArea1.BackSecondaryColor = System.Drawing.Color.Transparent;
+            chartArea1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            chartArea1.BorderWidth = 0;
+            chartArea1.Name = "Default";
+            chartArea1.ShadowColor = System.Drawing.Color.Transparent;
+            this.top10Chart.ChartAreas.Add(chartArea1);
+            this.top10Chart.Dock = System.Windows.Forms.DockStyle.Fill;
+            legend1.Alignment = System.Drawing.StringAlignment.Center;
+            legend1.BackColor = System.Drawing.Color.Transparent;
+            legend1.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
+            legend1.Enabled = false;
+            legend1.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Bold);
+            legend1.IsTextAutoFit = false;
+            legend1.Name = "Default";
+            this.top10Chart.Legends.Add(legend1);
+            this.top10Chart.Location = new System.Drawing.Point(0, 0);
+            this.top10Chart.Name = "top10Chart";
+            series1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(26)))), ((int)(((byte)(59)))), ((int)(((byte)(105)))));
+            series1.ChartArea = "Default";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
+            series1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(65)))), ((int)(((byte)(140)))), ((int)(((byte)(240)))));
+            series1.CustomProperties = "DoughnutRadius=60, PieLabelStyle=Disabled, PieDrawingStyle=SoftEdge";
+            series1.IsValueShownAsLabel = true;
+            series1.IsXValueIndexed = true;
+            series1.Label = "#VAL";
+            series1.Legend = "Default";
+            series1.Name = "Default";
+            dataPoint1.CustomProperties = "Exploded=false";
+            dataPoint1.Label = "France";
+            dataPoint2.CustomProperties = "Exploded=false";
+            dataPoint2.Label = "Canada";
+            dataPoint3.CustomProperties = "Exploded=false";
+            dataPoint3.Label = "UK";
+            dataPoint4.CustomProperties = "Exploded=false";
+            dataPoint4.Label = "USA";
+            dataPoint5.CustomProperties = "Exploded=false";
+            dataPoint5.Label = "Italy";
+            series1.Points.Add(dataPoint1);
+            series1.Points.Add(dataPoint2);
+            series1.Points.Add(dataPoint3);
+            series1.Points.Add(dataPoint4);
+            series1.Points.Add(dataPoint5);
+            series1.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.String;
+            series1.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
+            this.top10Chart.Series.Add(series1);
+            this.top10Chart.Size = new System.Drawing.Size(439, 241);
+            this.top10Chart.TabIndex = 149;
+            // 
+            // splitContainer3
+            // 
+            this.splitContainer3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer3.Location = new System.Drawing.Point(3, 3);
+            this.splitContainer3.Name = "splitContainer3";
+            this.splitContainer3.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainer3.Panel1
+            // 
+            this.splitContainer3.Panel1.Controls.Add(this.marketTitle1Ed);
+            // 
+            // splitContainer3.Panel2
+            // 
+            this.splitContainer3.Panel2.Controls.Add(this.vnIdxChart);
+            this.splitContainer3.Size = new System.Drawing.Size(439, 272);
+            this.splitContainer3.SplitterDistance = 31;
+            this.splitContainer3.TabIndex = 151;
+            // 
+            // marketTitle1Ed
+            // 
+            this.marketTitle1Ed.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.marketTitle1Ed.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.marketTitle1Ed.Dock = System.Windows.Forms.DockStyle.Top;
+            this.marketTitle1Ed.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.marketTitle1Ed.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.marketTitle1Ed.Location = new System.Drawing.Point(0, 0);
+            this.marketTitle1Ed.Name = "marketTitle1Ed";
+            this.marketTitle1Ed.Size = new System.Drawing.Size(439, 26);
+            this.marketTitle1Ed.TabIndex = 153;
+            this.marketTitle1Ed.Text = "HOSE";
+            this.marketTitle1Ed.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // vnIdxChart
+            // 
+            this.vnIdxChart.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.vnIdxChart.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.TopBottom;
+            this.vnIdxChart.BackSecondaryColor = System.Drawing.Color.White;
+            this.vnIdxChart.BorderlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(59)))), ((int)(((byte)(105)))));
+            this.vnIdxChart.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid;
+            this.vnIdxChart.BorderlineWidth = 2;
+            this.vnIdxChart.BorderSkin.SkinStyle = System.Windows.Forms.DataVisualization.Charting.BorderSkinStyle.Emboss;
+            chartArea2.AlignWithChartArea = "VolumeArea";
+            chartArea2.Area3DStyle.IsClustered = true;
+            chartArea2.Area3DStyle.IsRightAngleAxes = false;
+            chartArea2.Area3DStyle.Perspective = 10;
+            chartArea2.Area3DStyle.PointGapDepth = 0;
+            chartArea2.Area3DStyle.Rotation = 0;
+            chartArea2.Area3DStyle.WallWidth = 0;
+            chartArea2.AxisX.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.False;
+            chartArea2.AxisX.LabelStyle.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Bold);
+            chartArea2.AxisX.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            chartArea2.AxisX.MajorGrid.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            chartArea2.AxisY.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.False;
+            chartArea2.AxisY.LabelStyle.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Bold);
+            chartArea2.AxisY.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            chartArea2.AxisY.MajorGrid.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            chartArea2.AxisY2.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.True;
+            chartArea2.AxisY2.MajorGrid.Enabled = false;
+            chartArea2.BackColor = System.Drawing.Color.Transparent;
+            chartArea2.BackSecondaryColor = System.Drawing.Color.Transparent;
+            chartArea2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            chartArea2.BorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid;
+            chartArea2.Name = "Default";
+            chartArea2.Position.Auto = false;
+            chartArea2.Position.Height = 65F;
+            chartArea2.Position.Width = 89.71918F;
+            chartArea2.Position.X = 4.712329F;
+            chartArea2.ShadowColor = System.Drawing.Color.Transparent;
+            chartArea3.AlignWithChartArea = "Default";
+            chartArea3.AxisX.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Months;
+            chartArea3.AxisX.LineColor = System.Drawing.Color.DarkGray;
+            chartArea3.AxisX.MajorGrid.Enabled = false;
+            chartArea3.AxisY.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.False;
+            chartArea3.AxisY2.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.True;
+            chartArea3.AxisY2.MajorGrid.Enabled = false;
+            chartArea3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            chartArea3.BorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid;
+            chartArea3.Name = "VolumeArea";
+            chartArea3.Position.Auto = false;
+            chartArea3.Position.Height = 30F;
+            chartArea3.Position.Width = 89.71918F;
+            chartArea3.Position.X = 4.712329F;
+            chartArea3.Position.Y = 65F;
+            chartArea3.ShadowColor = System.Drawing.Color.Transparent;
+            this.vnIdxChart.ChartAreas.Add(chartArea2);
+            this.vnIdxChart.ChartAreas.Add(chartArea3);
+            this.vnIdxChart.Dock = System.Windows.Forms.DockStyle.Fill;
+            legend2.Alignment = System.Drawing.StringAlignment.Far;
+            legend2.BackColor = System.Drawing.Color.Transparent;
+            legend2.DockedToChartArea = "Default";
+            legend2.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Bold);
+            legend2.IsTextAutoFit = false;
+            legend2.Name = "vnIndex";
+            legend3.Alignment = System.Drawing.StringAlignment.Far;
+            legend3.DockedToChartArea = "Default";
+            legend3.Name = "vn30Index";
+            this.vnIdxChart.Legends.Add(legend2);
+            this.vnIdxChart.Legends.Add(legend3);
+            this.vnIdxChart.Location = new System.Drawing.Point(0, 0);
+            this.vnIdxChart.Name = "vnIdxChart";
+            series2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(26)))), ((int)(((byte)(59)))), ((int)(((byte)(105)))));
+            series2.ChartArea = "Default";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series2.Color = System.Drawing.Color.Red;
+            series2.CustomProperties = "DoughnutRadius=60, PieLabelStyle=Disabled, PieDrawingStyle=SoftEdge";
+            series2.IsXValueIndexed = true;
+            series2.Legend = "vnIndex";
+            series2.LegendText = "VN-Index";
+            series2.Name = "vnIndex";
+            series2.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.DateTime;
+            series2.YAxisType = System.Windows.Forms.DataVisualization.Charting.AxisType.Secondary;
+            series2.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
+            series3.ChartArea = "Default";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series3.IsXValueIndexed = true;
+            series3.Legend = "vn30Index";
+            series3.LegendText = "VN30";
+            series3.Name = "vn30Index";
+            series3.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.DateTime;
+            series3.YAxisType = System.Windows.Forms.DataVisualization.Charting.AxisType.Secondary;
+            series4.ChartArea = "VolumeArea";
+            series4.Color = System.Drawing.Color.Navy;
+            series4.IsXValueIndexed = true;
+            series4.Legend = "vnIndex";
+            series4.MarkerSize = 30;
+            series4.Name = "Volume";
+            series4.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.DateTime;
+            series4.YAxisType = System.Windows.Forms.DataVisualization.Charting.AxisType.Secondary;
+            this.vnIdxChart.Series.Add(series2);
+            this.vnIdxChart.Series.Add(series3);
+            this.vnIdxChart.Series.Add(series4);
+            this.vnIdxChart.Size = new System.Drawing.Size(439, 237);
+            this.vnIdxChart.TabIndex = 147;
+            // 
+            // splitContainer4
+            // 
+            this.splitContainer4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer4.Location = new System.Drawing.Point(448, 3);
+            this.splitContainer4.Name = "splitContainer4";
+            this.splitContainer4.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainer4.Panel1
+            // 
+            this.splitContainer4.Panel1.Controls.Add(this.marketTitle2Ed);
+            // 
+            // splitContainer4.Panel2
+            // 
+            this.splitContainer4.Panel2.Controls.Add(this.hnxChart);
+            this.splitContainer4.Size = new System.Drawing.Size(440, 272);
+            this.splitContainer4.SplitterDistance = 27;
+            this.splitContainer4.TabIndex = 152;
+            // 
+            // marketTitle2Ed
+            // 
+            this.marketTitle2Ed.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.marketTitle2Ed.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.marketTitle2Ed.Dock = System.Windows.Forms.DockStyle.Top;
+            this.marketTitle2Ed.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.marketTitle2Ed.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.marketTitle2Ed.Location = new System.Drawing.Point(0, 0);
+            this.marketTitle2Ed.Name = "marketTitle2Ed";
+            this.marketTitle2Ed.Size = new System.Drawing.Size(440, 26);
+            this.marketTitle2Ed.TabIndex = 154;
+            this.marketTitle2Ed.Text = "HASTC";
+            this.marketTitle2Ed.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // introLbl
+            // 
+            this.introLbl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.introLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.introLbl.Location = new System.Drawing.Point(18, 43);
+            this.introLbl.Name = "introLbl";
+            this.introLbl.Size = new System.Drawing.Size(913, 29);
+            this.introLbl.TabIndex = 1;
+            this.introLbl.Text = "Quantum is the pioneer software bla bla bla";
+            // 
+            // hnxChart
+            // 
+            this.hnxChart.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.hnxChart.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.TopBottom;
+            this.hnxChart.BackSecondaryColor = System.Drawing.Color.White;
+            this.hnxChart.BorderlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(59)))), ((int)(((byte)(105)))));
+            this.hnxChart.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid;
+            this.hnxChart.BorderlineWidth = 2;
+            this.hnxChart.BorderSkin.SkinStyle = System.Windows.Forms.DataVisualization.Charting.BorderSkinStyle.Emboss;
+            chartArea4.AlignWithChartArea = "Volume";
+            chartArea4.Area3DStyle.IsClustered = true;
+            chartArea4.Area3DStyle.IsRightAngleAxes = false;
+            chartArea4.Area3DStyle.Perspective = 10;
+            chartArea4.Area3DStyle.PointGapDepth = 0;
+            chartArea4.Area3DStyle.Rotation = 0;
+            chartArea4.Area3DStyle.WallWidth = 0;
+            chartArea4.AxisX.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.False;
+            chartArea4.AxisX.IsMarginVisible = false;
+            chartArea4.AxisX.LabelStyle.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Bold);
+            chartArea4.AxisX.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            chartArea4.AxisX.MajorGrid.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            chartArea4.AxisY.LabelStyle.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Bold);
+            chartArea4.AxisY.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            chartArea4.AxisY.MajorGrid.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            chartArea4.AxisY2.MajorGrid.Enabled = false;
+            chartArea4.BackColor = System.Drawing.Color.Transparent;
+            chartArea4.BackSecondaryColor = System.Drawing.Color.Transparent;
+            chartArea4.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            chartArea4.BorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid;
+            chartArea4.Name = "Default";
+            chartArea4.Position.Auto = false;
+            chartArea4.Position.Height = 65F;
+            chartArea4.Position.Width = 89.72893F;
+            chartArea4.Position.X = 4.708428F;
+            chartArea4.ShadowColor = System.Drawing.Color.Transparent;
+            chartArea5.AlignWithChartArea = "Default";
+            chartArea5.AxisX.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            chartArea5.AxisX.MajorGrid.Enabled = false;
+            chartArea5.AxisY.IsMarginVisible = false;
+            chartArea5.AxisY2.IsMarginVisible = false;
+            chartArea5.AxisY2.MajorGrid.Enabled = false;
+            chartArea5.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            chartArea5.BorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid;
+            chartArea5.Name = "Volume";
+            chartArea5.Position.Auto = false;
+            chartArea5.Position.Height = 30F;
+            chartArea5.Position.Width = 89.72893F;
+            chartArea5.Position.X = 4.708428F;
+            chartArea5.Position.Y = 65F;
+            chartArea5.ShadowColor = System.Drawing.Color.Transparent;
+            this.hnxChart.ChartAreas.Add(chartArea4);
+            this.hnxChart.ChartAreas.Add(chartArea5);
+            this.hnxChart.Dock = System.Windows.Forms.DockStyle.Fill;
+            legend4.Alignment = System.Drawing.StringAlignment.Far;
+            legend4.BackColor = System.Drawing.Color.Transparent;
+            legend4.DockedToChartArea = "Default";
+            legend4.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Bold);
+            legend4.IsTextAutoFit = false;
+            legend4.Name = "hnxIndex";
+            legend5.DockedToChartArea = "Volume";
+            legend5.Enabled = false;
+            legend5.Name = "Volume";
+            legend5.Title = "Volume";
+            this.hnxChart.Legends.Add(legend4);
+            this.hnxChart.Legends.Add(legend5);
+            this.hnxChart.Location = new System.Drawing.Point(0, 0);
+            this.hnxChart.Name = "hnxChart";
+            series5.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(26)))), ((int)(((byte)(59)))), ((int)(((byte)(105)))));
+            series5.ChartArea = "Default";
+            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series5.Color = System.Drawing.Color.Red;
+            series5.Legend = "hnxIndex";
+            series5.LegendText = "HNX-Index";
+            series5.Name = "hnxIndex";
+            series5.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.DateTime;
+            series5.YAxisType = System.Windows.Forms.DataVisualization.Charting.AxisType.Secondary;
+            series5.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
+            series6.ChartArea = "Volume";
+            series6.Color = System.Drawing.Color.Navy;
+            series6.Legend = "Volume";
+            series6.Name = "Volume";
+            series6.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.DateTime;
+            series6.YAxisType = System.Windows.Forms.DataVisualization.Charting.AxisType.Secondary;
+            this.hnxChart.Series.Add(series5);
+            this.hnxChart.Series.Add(series6);
+            this.hnxChart.Size = new System.Drawing.Size(440, 241);
+            this.hnxChart.TabIndex = 148;
+            // 
             // MarketSummary
             // 
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(931, 673);
             this.Controls.Add(this.introLbl);
             this.Controls.Add(this.layoutPnl);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "MarketSummary";
             this.Resize += new System.EventHandler(this.MarketSummary_Resize);
             this.Controls.SetChildIndex(this.layoutPnl, 0);
             this.Controls.SetChildIndex(this.introLbl, 0);
             this.Controls.SetChildIndex(this.TitleLbl, 0);
             this.layoutPnl.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataVarrianceSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.myTmpDS)).EndInit();
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             this.splitContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dailyChangeGV)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataVarrianceSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.myTmpDS)).EndInit();
             this.splitContainer2.Panel1.ResumeLayout(false);
             this.splitContainer2.Panel2.ResumeLayout(false);
             this.splitContainer2.ResumeLayout(false);
@@ -580,7 +613,7 @@
             this.splitContainer4.Panel1.ResumeLayout(false);
             this.splitContainer4.Panel2.ResumeLayout(false);
             this.splitContainer4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.hnIdxChart)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.hnxChart)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -603,11 +636,11 @@
         private System.Windows.Forms.DataVisualization.Charting.Chart vnIdxChart;
         private System.Windows.Forms.SplitContainer splitContainer4;
         private common.controls.baseLabel marketTitle2Ed;
-        private System.Windows.Forms.DataVisualization.Charting.Chart hnIdxChart;
         private System.Windows.Forms.DataGridViewTextBoxColumn codeColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn priceColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn percentColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn alertNotesColumn;
+        private System.Windows.Forms.DataVisualization.Charting.Chart hnxChart;
 
     }
 }

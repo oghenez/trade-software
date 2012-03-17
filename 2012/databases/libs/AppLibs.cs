@@ -223,7 +223,6 @@ namespace databases
             row.boughtPrice = 0;
             row.price = 0;
             row.priceVariant = 0;
-            row.transVolume = 0;
             row.amt = 0;
             row.profitVariantAmt = 0;
             row.profitVariantPerc = 0;
