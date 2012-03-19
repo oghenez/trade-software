@@ -19,10 +19,16 @@ namespace Trade.Forms
             {
                 InitializeComponent();
                 
-                priceColumn.DefaultCellStyle.Format = "N" + common.system.GetPrecisionFromMask(commonTypes.Settings.sysMaskPrice);
-                priceColumn.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                openColumn.DefaultCellStyle.Format = commonTypes.Settings.sysMaskPrice;
+                openColumn.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                
+                closeColumn.DefaultCellStyle.Format = commonTypes.Settings.sysMaskPrice;
+                closeColumn.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
 
-                percentColumn.DefaultCellStyle.Format = "N" + common.system.GetPrecisionFromMask(commonTypes.Settings.sysMaskPercent);
+                valueColumn.DefaultCellStyle.Format = commonTypes.Settings.sysMaskPrice;
+                valueColumn.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
+                percentColumn.DefaultCellStyle.Format = commonTypes.Settings.sysMaskPercent;
                 percentColumn.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter; 
             }
             catch (Exception er)
@@ -41,8 +47,8 @@ namespace Trade.Forms
             this.dailyChangeLbl.Text = Languages.Libs.GetString("marketDailyChange");
 
             this.codeColumn.HeaderText = Languages.Libs.GetString("code");
-            this.priceColumn.HeaderText = Languages.Libs.GetString("price");
-            this.alertNotesColumn.HeaderText = Languages.Libs.GetString("alert");
+            this.openColumn.HeaderText = Languages.Libs.GetString("open");
+            this.closeColumn.HeaderText = Languages.Libs.GetString("close");
             dailyChangeGV.Refresh();
         }
         public void RefreshData(bool force)
@@ -61,7 +67,6 @@ namespace Trade.Forms
 
             //DrawLineChart(hnxChart, 0, true, "HNX-IDX", frDate, toDate, timeScaleCode);
         }
-
         private void DrawLineChart(Chart chart, int chartSeriesNo,bool isShowVolume, string code, DateTime frDate, DateTime toDate, string timeScaleCode)
         {
           
@@ -103,10 +108,10 @@ namespace Trade.Forms
         }
         private void Market_DataDailyChange(StringCollection codes)
         {
-            databases.baseDS.tradeAlertDataTable alertTbl = AppLibs.GetTradeAlertSummaryOfLogin();
-            if (alertTbl == null) return;
-            DataView alertView = new DataView(alertTbl);
-            alertView.Sort = alertTbl.stockCodeColumn.ColumnName;
+            //databases.baseDS.tradeAlertDataTable alertTbl = AppLibs.GetTradeAlertSummaryOfLogin();
+            //if (alertTbl == null) return;
+            //DataView alertView = new DataView(alertTbl);
+            //alertView.Sort = alertTbl.stockCodeColumn.ColumnName;
 
             databases.baseDS.lastPriceDataRow lastPriceRowOpen, lastPriceRowClose; 
             databases.baseDS.lastPriceDataDataTable openTbl = DataAccess.Libs.myLastDataOpenPrice;
@@ -125,14 +130,16 @@ namespace Trade.Forms
                 varrianceRow = myTmpDS.dataVarriance.NewdataVarrianceRow();
                 databases.AppLibs.InitData(varrianceRow);
                 varrianceRow.code = codes[idx];
-                varrianceRow.value = closePrice;
+                varrianceRow.val1 = openPrice;
+                varrianceRow.val2 = closePrice;
+                varrianceRow.value = (closePrice - openPrice);
                 varrianceRow.percent = ((closePrice-openPrice)/openPrice)*100;
 
-                DataRowView[] foundRows = alertView.FindRows(codes[idx]);
-                if (foundRows.Length > 0)
-                {
-                    varrianceRow.notes = (foundRows[0].Row as databases.baseDS.tradeAlertRow).msg;
-                }
+                //DataRowView[] foundRows = alertView.FindRows(codes[idx]);
+                //if (foundRows.Length > 0)
+                //{
+                //    varrianceRow.notes = (foundRows[0].Row as databases.baseDS.tradeAlertRow).msg;
+                //}
                 myTmpDS.dataVarriance.AdddataVarrianceRow(varrianceRow);
             }
         }
@@ -142,7 +149,7 @@ namespace Trade.Forms
         {
             try
             {
-                common.system.AutoFitGridColumn(dailyChangeGV, alertNotesColumn.Name);
+                common.system.AutoFitGridColumn(dailyChangeGV);
             }
             catch (Exception er)
             {

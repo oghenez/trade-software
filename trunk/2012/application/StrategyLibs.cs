@@ -935,7 +935,7 @@ namespace application.Strategy
             aFields.Add("params");
             StringCollection aValues = new StringCollection();
             aValues.Add(common.system.ToString(meta.Parameters));
-            if (@commonClass.Configuration.SaveLocalConfig(meta.ClassType.FullName, aFields, aValues)) return false;
+            if (!commonClass.Configuration.SaveLocalConfig(meta.ClassType.FullName, aFields, aValues)) return false;
             return true;
         }
 

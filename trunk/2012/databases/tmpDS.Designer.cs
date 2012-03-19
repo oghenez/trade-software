@@ -3031,6 +3031,10 @@ namespace databases {
             
             private global::System.Data.DataColumn columnnotes;
             
+            private global::System.Data.DataColumn columnval1;
+            
+            private global::System.Data.DataColumn columnval2;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public dataVarrianceDataTable() {
                 this.TableName = "dataVarriance";
@@ -3090,6 +3094,20 @@ namespace databases {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn val1Column {
+                get {
+                    return this.columnval1;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn val2Column {
+                get {
+                    return this.columnval2;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -3118,13 +3136,15 @@ namespace databases {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public dataVarrianceRow AdddataVarrianceRow(string code, decimal value, decimal percent, string notes) {
+            public dataVarrianceRow AdddataVarrianceRow(string code, decimal value, decimal percent, string notes, decimal val1, decimal val2) {
                 dataVarrianceRow rowdataVarrianceRow = ((dataVarrianceRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         code,
                         value,
                         percent,
-                        notes};
+                        notes,
+                        val1,
+                        val2};
                 rowdataVarrianceRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowdataVarrianceRow);
                 return rowdataVarrianceRow;
@@ -3154,6 +3174,8 @@ namespace databases {
                 this.columnvalue = base.Columns["value"];
                 this.columnpercent = base.Columns["percent"];
                 this.columnnotes = base.Columns["notes"];
+                this.columnval1 = base.Columns["val1"];
+                this.columnval2 = base.Columns["val2"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3166,6 +3188,10 @@ namespace databases {
                 base.Columns.Add(this.columnpercent);
                 this.columnnotes = new global::System.Data.DataColumn("notes", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnnotes);
+                this.columnval1 = new global::System.Data.DataColumn("val1", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnval1);
+                this.columnval2 = new global::System.Data.DataColumn("val2", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnval2);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columncode}, true));
                 this.columncode.AllowDBNull = false;
@@ -4594,6 +4620,36 @@ namespace databases {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public decimal val1 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tabledataVarriance.val1Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'val1\' in table \'dataVarriance\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabledataVarriance.val1Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public decimal val2 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tabledataVarriance.val2Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'val2\' in table \'dataVarriance\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabledataVarriance.val2Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public bool IsvalueNull() {
                 return this.IsNull(this.tabledataVarriance.valueColumn);
             }
@@ -4621,6 +4677,26 @@ namespace databases {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public void SetnotesNull() {
                 this[this.tabledataVarriance.notesColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool Isval1Null() {
+                return this.IsNull(this.tabledataVarriance.val1Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void Setval1Null() {
+                this[this.tabledataVarriance.val1Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool Isval2Null() {
+                return this.IsNull(this.tabledataVarriance.val2Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void Setval2Null() {
+                this[this.tabledataVarriance.val2Column] = global::System.Convert.DBNull;
             }
         }
         

@@ -14,7 +14,7 @@
     <Shape ID="DesignTable:marketData" ZOrder="5" X="413" Y="81" Height="87" Width="156" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="83" />
     <Shape ID="DesignTable:priceDiagnose" ZOrder="4" X="415" Y="181" Height="163" Width="153" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="159" />
     <Shape ID="DesignTable:porfolioWatch" ZOrder="8" X="175" Y="362" Height="314" Width="161" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="368" />
-    <Shape ID="DesignTable:dataVarriance" ZOrder="1" X="623" Y="224" Height="105" Width="147" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="101" />
+    <Shape ID="DesignTable:dataVarriance" ZOrder="1" X="623" Y="224" Height="125" Width="148" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="121" />
   </Shapes>
   <Connectors />
 </DiagramLayout>
