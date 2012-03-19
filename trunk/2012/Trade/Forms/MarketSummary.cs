@@ -48,22 +48,7 @@ namespace Trade.Forms
         public void RefreshData(bool force)
         {
             Market_Indexes();
-
-            //Market data
-            databases.tmpDS.dataVarrianceDataTable tbl = DataAccess.Libs.GetTopPriceVarrianceWeekly(5);
-            decimal[] yValues = new decimal[tbl.Count];
-            string[] xValues = new string[tbl.Count];
-            StringCollection topCodes = new StringCollection();
-            for (int idx = 0; idx < tbl.Count; idx++)
-            {
-                yValues[idx] = tbl[idx].percent;
-                xValues[idx] = tbl[idx].code;
-                topCodes.Add(tbl[idx].code);
-            }
-
-            //Chart and grid
-            Market_WeeklyTopBiggestChange(xValues, yValues);
-            Market_DataDailyChange(topCodes);
+            Market_TopBiggestChange();
         }
 
         private void Market_Indexes()
@@ -71,13 +56,13 @@ namespace Trade.Forms
             DateTime toDate = DateTime.Now;
             DateTime frDate = toDate.AddMonths(-2);
             string timeScaleCode = AppTypes.TimeScaleTypeToCode(AppTypes.TimeScaleTypes.Day);
-            DrawLineChartIndexes(vnIdxChart, 0,true, "VN-IDX", frDate, toDate, timeScaleCode);
-            DrawLineChartIndexes(vnIdxChart, 1,false, "VN30-IDX", frDate, toDate, timeScaleCode);
-            
-            DrawLineChartIndexes(hnxChart, 0,true, "HNX-IDX", frDate, toDate, timeScaleCode);
+            DrawLineChart(vnIdxChart, 0, true, "VN-IDX", frDate, toDate, timeScaleCode);
+            //DrawLineChart(vnIdxChart, 1, false, "VN30-IDX", frDate, toDate, timeScaleCode);
+
+            //DrawLineChart(hnxChart, 0, true, "HNX-IDX", frDate, toDate, timeScaleCode);
         }
 
-        private void DrawLineChartIndexes(Chart chart, int chartSeriesNo,bool isShowVolume, string code, DateTime frDate, DateTime toDate, string timeScaleCode)
+        private void DrawLineChart(Chart chart, int chartSeriesNo,bool isShowVolume, string code, DateTime frDate, DateTime toDate, string timeScaleCode)
         {
           
             databases.baseDS.priceDataDataTable vnidxTbl = DataAccess.Libs.GetPriceData(code,timeScaleCode,frDate, toDate);
@@ -98,9 +83,23 @@ namespace Trade.Forms
         }
 
 
-        private void Market_WeeklyTopBiggestChange(string[] xValues,decimal[] yValues)
+        private void Market_TopBiggestChange()
         {
-            top10Chart.Series[0].Points.DataBindXY(xValues, yValues);
+            //Weekly Market data
+            databases.tmpDS.dataVarrianceDataTable tbl = DataAccess.Libs.GetTopPriceVarrianceWeekly(5);
+            decimal[] yValues = new decimal[tbl.Count];
+            string[] xValues = new string[tbl.Count];
+            StringCollection topCodes = new StringCollection();
+            for (int idx = 0; idx < tbl.Count; idx++)
+            {
+                yValues[idx] = tbl[idx].percent;
+                xValues[idx] = tbl[idx].code;
+                topCodes.Add(tbl[idx].code);
+            }
+            top10biggestChangeChart.Series[0].Points.DataBindXY(xValues, yValues);
+
+            //Daily Market data
+            Market_DataDailyChange(topCodes);
         }
         private void Market_DataDailyChange(StringCollection codes)
         {

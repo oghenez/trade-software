@@ -63,14 +63,14 @@
             this.myTmpDS = new databases.tmpDS();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.weeklyChangeLbl = new common.controls.baseLabel();
-            this.top10Chart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.top10biggestChangeChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
             this.marketTitle1Ed = new common.controls.baseLabel();
             this.vnIdxChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.splitContainer4 = new System.Windows.Forms.SplitContainer();
             this.marketTitle2Ed = new common.controls.baseLabel();
-            this.introLbl = new baseClass.controls.baseLabel();
             this.hnxChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.introLbl = new baseClass.controls.baseLabel();
             this.layoutPnl.SuspendLayout();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -81,7 +81,7 @@
             this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.top10Chart)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.top10biggestChangeChart)).BeginInit();
             this.splitContainer3.Panel1.SuspendLayout();
             this.splitContainer3.Panel2.SuspendLayout();
             this.splitContainer3.SuspendLayout();
@@ -229,7 +229,7 @@
             // 
             // splitContainer2.Panel2
             // 
-            this.splitContainer2.Panel2.Controls.Add(this.top10Chart);
+            this.splitContainer2.Panel2.Controls.Add(this.top10biggestChangeChart);
             this.splitContainer2.Size = new System.Drawing.Size(439, 273);
             this.splitContainer2.SplitterDistance = 28;
             this.splitContainer2.TabIndex = 150;
@@ -248,15 +248,10 @@
             this.weeklyChangeLbl.Text = "Weekly Market Change";
             this.weeklyChangeLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // top10Chart
+            // top10biggestChangeChart
             // 
-            this.top10Chart.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.top10Chart.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.TopBottom;
-            this.top10Chart.BackSecondaryColor = System.Drawing.Color.White;
-            this.top10Chart.BorderlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(59)))), ((int)(((byte)(105)))));
-            this.top10Chart.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid;
-            this.top10Chart.BorderlineWidth = 2;
-            this.top10Chart.BorderSkin.SkinStyle = System.Windows.Forms.DataVisualization.Charting.BorderSkinStyle.Emboss;
+            this.top10biggestChangeChart.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid;
+            this.top10biggestChangeChart.BorderSkin.SkinStyle = System.Windows.Forms.DataVisualization.Charting.BorderSkinStyle.Emboss;
             chartArea1.Area3DStyle.IsClustered = true;
             chartArea1.Area3DStyle.IsRightAngleAxes = false;
             chartArea1.Area3DStyle.Perspective = 10;
@@ -275,21 +270,22 @@
             chartArea1.BorderWidth = 0;
             chartArea1.Name = "Default";
             chartArea1.ShadowColor = System.Drawing.Color.Transparent;
-            this.top10Chart.ChartAreas.Add(chartArea1);
-            this.top10Chart.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.top10biggestChangeChart.ChartAreas.Add(chartArea1);
+            this.top10biggestChangeChart.Dock = System.Windows.Forms.DockStyle.Fill;
             legend1.Alignment = System.Drawing.StringAlignment.Center;
             legend1.BackColor = System.Drawing.Color.Transparent;
             legend1.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
             legend1.Enabled = false;
-            legend1.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Bold);
+            legend1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             legend1.IsTextAutoFit = false;
             legend1.Name = "Default";
-            this.top10Chart.Legends.Add(legend1);
-            this.top10Chart.Location = new System.Drawing.Point(0, 0);
-            this.top10Chart.Name = "top10Chart";
+            this.top10biggestChangeChart.Legends.Add(legend1);
+            this.top10biggestChangeChart.Location = new System.Drawing.Point(0, 0);
+            this.top10biggestChangeChart.Name = "top10biggestChangeChart";
+            this.top10biggestChangeChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Excel;
             series1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(26)))), ((int)(((byte)(59)))), ((int)(((byte)(105)))));
             series1.ChartArea = "Default";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
             series1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(65)))), ((int)(((byte)(140)))), ((int)(((byte)(240)))));
             series1.CustomProperties = "DoughnutRadius=60, PieLabelStyle=Disabled, PieDrawingStyle=SoftEdge";
             series1.IsValueShownAsLabel = true;
@@ -312,11 +308,12 @@
             series1.Points.Add(dataPoint3);
             series1.Points.Add(dataPoint4);
             series1.Points.Add(dataPoint5);
-            series1.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.String;
+            series1.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Date;
             series1.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
-            this.top10Chart.Series.Add(series1);
-            this.top10Chart.Size = new System.Drawing.Size(439, 241);
-            this.top10Chart.TabIndex = 149;
+            this.top10biggestChangeChart.Series.Add(series1);
+            this.top10biggestChangeChart.Size = new System.Drawing.Size(439, 241);
+            this.top10biggestChangeChart.TabIndex = 149;
+            this.top10biggestChangeChart.TextAntiAliasingQuality = System.Windows.Forms.DataVisualization.Charting.TextAntiAliasingQuality.Normal;
             // 
             // splitContainer3
             // 
@@ -484,17 +481,6 @@
             this.marketTitle2Ed.Text = "HASTC";
             this.marketTitle2Ed.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // introLbl
-            // 
-            this.introLbl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.introLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.introLbl.Location = new System.Drawing.Point(18, 43);
-            this.introLbl.Name = "introLbl";
-            this.introLbl.Size = new System.Drawing.Size(913, 29);
-            this.introLbl.TabIndex = 1;
-            this.introLbl.Text = "Quantum is the pioneer software bla bla bla";
-            // 
             // hnxChart
             // 
             this.hnxChart.BackColor = System.Drawing.Color.WhiteSmoke;
@@ -583,6 +569,17 @@
             this.hnxChart.Size = new System.Drawing.Size(440, 241);
             this.hnxChart.TabIndex = 148;
             // 
+            // introLbl
+            // 
+            this.introLbl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.introLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.introLbl.Location = new System.Drawing.Point(18, 43);
+            this.introLbl.Name = "introLbl";
+            this.introLbl.Size = new System.Drawing.Size(913, 29);
+            this.introLbl.TabIndex = 1;
+            this.introLbl.Text = "Quantum is the pioneer software bla bla bla";
+            // 
             // MarketSummary
             // 
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
@@ -605,7 +602,7 @@
             this.splitContainer2.Panel1.ResumeLayout(false);
             this.splitContainer2.Panel2.ResumeLayout(false);
             this.splitContainer2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.top10Chart)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.top10biggestChangeChart)).EndInit();
             this.splitContainer3.Panel1.ResumeLayout(false);
             this.splitContainer3.Panel2.ResumeLayout(false);
             this.splitContainer3.ResumeLayout(false);
@@ -630,7 +627,7 @@
         private common.controls.baseDataGridView dailyChangeGV;
         private System.Windows.Forms.SplitContainer splitContainer2;
         private common.controls.baseLabel weeklyChangeLbl;
-        private System.Windows.Forms.DataVisualization.Charting.Chart top10Chart;
+        private System.Windows.Forms.DataVisualization.Charting.Chart top10biggestChangeChart;
         private System.Windows.Forms.SplitContainer splitContainer3;
         private common.controls.baseLabel marketTitle1Ed;
         private System.Windows.Forms.DataVisualization.Charting.Chart vnIdxChart;

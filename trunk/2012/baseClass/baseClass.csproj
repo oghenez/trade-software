@@ -38,36 +38,21 @@
     <Reference Include="common, Version=1.5.0.0, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="commonClass, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="commonTypes, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
-    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=12.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
-    <Reference Include="CrystalDecisions.Shared, Version=12.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
-    <Reference Include="CrystalDecisions.Windows.Forms, Version=12.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="dataAccess, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="databases, Version=2.1.0.0, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="ExpandableGridView, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
-    <Reference Include="LaMarvin.Windows.Forms.ColorPicker, Version=1.1.81.0, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="Languages, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
-    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
-    <Reference Include="System.Configuration" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
     <Reference Include="System.Data.DataSetExtensions">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
-    <Reference Include="System.Management" />
-    <Reference Include="System.Runtime.Serialization">
-      <RequiredTargetFramework>3.0</RequiredTargetFramework>
-    </Reference>
-    <Reference Include="System.ServiceModel">
-      <RequiredTargetFramework>3.0</RequiredTargetFramework>
-    </Reference>
-    <Reference Include="System.Transactions" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
-    <Reference Include="System.Web" />
     <Reference Include="System.Windows.Forms" />
-    <Reference Include="System.Xml" />
+    <Reference Include="System.XML" />
     <Reference Include="WeifenLuo.WinFormsUI.Docking, Version=2.5.0.18386, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="XPPanel, Version=1.0.0.0, Culture=neutral, PublicKeyToken=c1a4c9eadd4711d4">
       <SpecificVersion>False</SpecificVersion>
