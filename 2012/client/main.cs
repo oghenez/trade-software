@@ -335,7 +335,7 @@ namespace client
             if (!common.xmlLibs.IsValidXML(commonTypes.Settings.sysUserConfigFile))
             {
                 commonClass.SysLibs.WriteSysLog(AppTypes.SyslogTypes.Others, null,"Invalid configuration file :" +  commonTypes.Settings.sysUserConfigFile);
-                common.xmlLibs.CreateEmptyXML(commonTypes.Settings.sysUserConfigFile);
+                if (!common.xmlLibs.CreateEmptyXML(commonTypes.Settings.sysUserConfigFile,true)) return false;
             }
             return true;
         }
