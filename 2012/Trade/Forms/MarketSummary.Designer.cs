@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
@@ -55,10 +56,6 @@
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.dailyChangeLbl = new common.controls.baseLabel();
             this.dailyChangeGV = new common.controls.baseDataGridView();
-            this.codeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.priceColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.percentColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.alertNotesColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataVarrianceSource = new System.Windows.Forms.BindingSource(this.components);
             this.myTmpDS = new databases.tmpDS();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
@@ -71,6 +68,11 @@
             this.marketTitle2Ed = new common.controls.baseLabel();
             this.hnxChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.introLbl = new baseClass.controls.baseLabel();
+            this.codeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.openColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.closeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.valueColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.percentColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.layoutPnl.SuspendLayout();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -159,51 +161,28 @@
             this.dailyChangeGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dailyChangeGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.codeColumn,
-            this.priceColumn,
-            this.percentColumn,
-            this.alertNotesColumn});
+            this.openColumn,
+            this.closeColumn,
+            this.valueColumn,
+            this.percentColumn});
             this.dailyChangeGV.DataSource = this.dataVarrianceSource;
             this.dailyChangeGV.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dailyChangeGV.Location = new System.Drawing.Point(0, 0);
             this.dailyChangeGV.Name = "dailyChangeGV";
             this.dailyChangeGV.ReadOnly = true;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dailyChangeGV.RowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dailyChangeGV.RowHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dailyChangeGV.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dailyChangeGV.RowTemplate.Height = 24;
             this.dailyChangeGV.Size = new System.Drawing.Size(440, 244);
             this.dailyChangeGV.TabIndex = 6;
-            // 
-            // codeColumn
-            // 
-            this.codeColumn.DataPropertyName = "code";
-            this.codeColumn.HeaderText = "Code";
-            this.codeColumn.Name = "codeColumn";
-            this.codeColumn.ReadOnly = true;
-            this.codeColumn.Width = 70;
-            // 
-            // priceColumn
-            // 
-            this.priceColumn.DataPropertyName = "value";
-            this.priceColumn.HeaderText = "Price";
-            this.priceColumn.Name = "priceColumn";
-            this.priceColumn.ReadOnly = true;
-            this.priceColumn.Width = 70;
-            // 
-            // percentColumn
-            // 
-            this.percentColumn.DataPropertyName = "percent";
-            this.percentColumn.HeaderText = "%";
-            this.percentColumn.Name = "percentColumn";
-            this.percentColumn.ReadOnly = true;
-            this.percentColumn.Width = 55;
-            // 
-            // alertNotesColumn
-            // 
-            this.alertNotesColumn.DataPropertyName = "notes";
-            this.alertNotesColumn.HeaderText = "Alerts";
-            this.alertNotesColumn.Name = "alertNotesColumn";
-            this.alertNotesColumn.ReadOnly = true;
-            this.alertNotesColumn.Width = 200;
             // 
             // dataVarrianceSource
             // 
@@ -580,13 +559,52 @@
             this.introLbl.TabIndex = 1;
             this.introLbl.Text = "Quantum is the pioneer software bla bla bla";
             // 
+            // codeColumn
+            // 
+            this.codeColumn.DataPropertyName = "code";
+            this.codeColumn.HeaderText = "Code";
+            this.codeColumn.Name = "codeColumn";
+            this.codeColumn.ReadOnly = true;
+            this.codeColumn.Width = 70;
+            // 
+            // openColumn
+            // 
+            this.openColumn.DataPropertyName = "val1";
+            this.openColumn.HeaderText = "Open";
+            this.openColumn.Name = "openColumn";
+            this.openColumn.ReadOnly = true;
+            this.openColumn.Width = 90;
+            // 
+            // closeColumn
+            // 
+            this.closeColumn.DataPropertyName = "val2";
+            this.closeColumn.HeaderText = "Close";
+            this.closeColumn.Name = "closeColumn";
+            this.closeColumn.ReadOnly = true;
+            this.closeColumn.Width = 90;
+            // 
+            // valueColumn
+            // 
+            this.valueColumn.DataPropertyName = "value";
+            this.valueColumn.HeaderText = "    +/-";
+            this.valueColumn.Name = "valueColumn";
+            this.valueColumn.ReadOnly = true;
+            this.valueColumn.Width = 70;
+            // 
+            // percentColumn
+            // 
+            this.percentColumn.DataPropertyName = "percent";
+            this.percentColumn.HeaderText = "   %";
+            this.percentColumn.Name = "percentColumn";
+            this.percentColumn.ReadOnly = true;
+            this.percentColumn.Width = 60;
+            // 
             // MarketSummary
             // 
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(931, 673);
             this.Controls.Add(this.introLbl);
             this.Controls.Add(this.layoutPnl);
-            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "MarketSummary";
             this.Resize += new System.EventHandler(this.MarketSummary_Resize);
             this.Controls.SetChildIndex(this.layoutPnl, 0);
@@ -633,11 +651,12 @@
         private System.Windows.Forms.DataVisualization.Charting.Chart vnIdxChart;
         private System.Windows.Forms.SplitContainer splitContainer4;
         private common.controls.baseLabel marketTitle2Ed;
-        private System.Windows.Forms.DataGridViewTextBoxColumn codeColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn priceColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn percentColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn alertNotesColumn;
         private System.Windows.Forms.DataVisualization.Charting.Chart hnxChart;
+        private System.Windows.Forms.DataGridViewTextBoxColumn codeColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn openColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn closeColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn valueColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn percentColumn;
 
     }
 }

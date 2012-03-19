@@ -23,7 +23,7 @@ namespace client
         const int constPaneTop = 20; 
         const int constPaneBottom = 27; 
         const int constPaneLeft = 15;   
-        const int constPaneRight = 30; 
+        const int constPaneRight = 20; 
         
         const string constFormNameIndicator = "indicator-";
         const string constFormNameStock = "stock-";
@@ -426,12 +426,12 @@ namespace client
             SetTimer(true);
             return true;
         }
-        protected override void SaveUserConfig()
+        protected override bool SaveUserConfig()
         {
-            application.Configuration.SetDefaultFormState("marketWatch", marketWatchMenuItem.Checked);
-            application.Configuration.SetDefaultFormState("tradeAlert", tradeAlertMenuItem.Checked);
-            application.Configuration.SetDefaultFormState("portfolio", myPortfolioMenuItem.Checked);
-            application.Configuration.SetDefaultFormState("transHistory", transHistoryMenuItem.Checked);
+            return application.Configuration.SetDefaultFormState("marketWatch", marketWatchMenuItem.Checked)&&
+                   application.Configuration.SetDefaultFormState("tradeAlert", tradeAlertMenuItem.Checked) &&
+                   application.Configuration.SetDefaultFormState("portfolio", myPortfolioMenuItem.Checked) &&
+                   application.Configuration.SetDefaultFormState("transHistory", transHistoryMenuItem.Checked);
         }
 
         private void OpenDefaultForm()
