@@ -919,21 +919,24 @@ namespace application.Strategy
             form.ShowDialog();
         }
         //Read and save setting to users's XML file
-        public static void GetUserSettings(Meta meta)
+        public static bool GetUserSettings(Meta meta)
         {
             StringCollection aFields = new StringCollection();
             aFields.Add("params");
-            if (commonClass.Configuration.GetLocalConfig(meta.ClassType.FullName, aFields))
-                meta.Parameters = common.system.String2DoubleList(aFields[0]);
+            if (!commonClass.Configuration.GetLocalConfig(meta.ClassType.FullName, aFields))
+                return false;
+            meta.Parameters = common.system.String2DoubleList(aFields[0]);
+            return true;
         }
-        public static void SaveUserSettings(Meta meta)
+        public static bool SaveUserSettings(Meta meta)
         {
             StringCollection aFields = new StringCollection();
             aFields.Clear();
             aFields.Add("params");
             StringCollection aValues = new StringCollection();
             aValues.Add(common.system.ToString(meta.Parameters));
-            commonClass.Configuration.SaveLocalConfig(meta.ClassType.FullName, aFields, aValues);
+            if (@commonClass.Configuration.SaveLocalConfig(meta.ClassType.FullName, aFields, aValues)) return false;
+            return true;
         }
 
         //Load strategy to table

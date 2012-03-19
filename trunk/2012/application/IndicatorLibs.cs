@@ -572,7 +572,7 @@ namespace application.Indicators
             }
             meta.DrawInNewWindow = (aFields[2]==Boolean.TrueString);
         }
-        public static void SaveLocalConfig(Meta meta)
+        public static bool SaveLocalConfig(Meta meta)
         {
             StringCollection aFields = new StringCollection();
             aFields.Clear();
@@ -583,7 +583,8 @@ namespace application.Indicators
             aValues.Add(common.system.ToString(meta.Parameters));
             aValues.Add(Meta.OutputInfo2Tring(meta.Output));
             aValues.Add(meta.DrawInNewWindow.ToString());
-            commonClass.Configuration.SaveLocalConfig(meta.ClassType.FullName, aFields, aValues);
+            if (!commonClass.Configuration.SaveLocalConfig(meta.ClassType.FullName, aFields, aValues)) return false;
+            return true;
         }
     }
 }
