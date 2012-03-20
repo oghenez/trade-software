@@ -256,13 +256,6 @@ namespace client.Properties {
             }
         }
         
-        internal static System.Drawing.Bitmap working {
-            get {
-                object obj = ResourceManager.GetObject("working", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
         internal static System.Drawing.Bitmap zoomIn {
             get {
                 object obj = ResourceManager.GetObject("zoomIn", resourceCulture);
