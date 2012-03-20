@@ -657,9 +657,9 @@
     <None Include="Resources\book.png" />
     <None Include="Resources\save.png" />
     <None Include="Resources\report.png" />
-    <None Include="Resources\connected.png" />
     <None Include="Resources\disconnected.png" />
     <None Include="Resources\data.png" />
+    <None Include="Resources\connected.gif" />
     <Content Include="Resources\strategy_images.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

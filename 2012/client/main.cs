@@ -537,6 +537,8 @@ namespace client
             {
                 if (fRefreshingData) return;
                 fRefreshingData = true;
+
+                //myWorkingImageVisibled = true;
                 IDockContent[] fomrs = new IDockContent[0];
                 for (int idx = 0; idx < dockPanel.Contents.Count; idx++)
                 {
@@ -564,11 +566,13 @@ namespace client
                         (dockPanel.Contents[idx] as Trade.Forms.portfolioWatch).RefreshData(false);
                         continue;
                     }
+                    //myWorkingImageVisibled = false;
                 }
                 fRefreshingData = false;
             }
             catch(Exception er)
             {
+                //myWorkingImageVisibled = false;
                 fRefreshingData = false;
                 ShowError(er);
             }
@@ -581,13 +585,20 @@ namespace client
             {
                 if (fRefreshingAlert) return;
                 fRefreshingAlert = true;
+                //this.myWorkingImageVisibled = true;
                 Trade.Forms.tradeAlertList form = GetTradeAlertForm(false);
                 if (form != null && !form.IsDisposed && form.Visible)
                     form.RefreshData();
+
+                //Update trade point on chart
+                PlotTradepointHandler(strategyCbStrip, null);
+
                 fRefreshingAlert = false;
+                //this.myWorkingImageVisibled = false;
             }
             catch (Exception er)
             {
+                //this.myWorkingImageVisibled = false;
                 fRefreshingAlert = false;
                 ShowError(er);
             }
