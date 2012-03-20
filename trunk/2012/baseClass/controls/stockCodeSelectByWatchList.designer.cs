@@ -88,7 +88,7 @@
             this.codeGroupCb.Location = new System.Drawing.Point(1, -1);
             this.codeGroupCb.myValue = baseClass.controls.cbStockSelection.Options.None;
             this.codeGroupCb.Name = "codeGroupCb";
-            this.codeGroupCb.Size = new System.Drawing.Size(256, 24);
+            this.codeGroupCb.Size = new System.Drawing.Size(256, 21);
             this.codeGroupCb.TabIndex = 1;
             this.codeGroupCb.SelectionChangeCommitted += new System.EventHandler(this.codeGroupCb_SelectionChangeCommitted);
             // 
@@ -98,7 +98,6 @@
             this.Controls.Add(this.codeGroupCb);
             this.Controls.Add(this.refreshBtn);
             this.Controls.Add(this.stockGV);
-            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "stockCodeSelectByWatchList";
             this.Size = new System.Drawing.Size(280, 375);

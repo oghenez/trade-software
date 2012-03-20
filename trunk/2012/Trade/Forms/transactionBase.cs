@@ -102,7 +102,7 @@ namespace Trade.Forms
         public virtual void ClearEditData()
         {
             transCodeEd.Text = "";
-            codeEd.Text = "";
+            codeEd.Text =  common.Settings.sysNewDataText;
             onTimeEd.myDateTime = DateTime.Now;
             qtyEd.Value = 0; subTotalEd.Value = 0; feeAmtEd.Value = 0; totalAmtEd.Value = 0;
             transTypeCb.myValue = AppTypes.TradeActions.None;

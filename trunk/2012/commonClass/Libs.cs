@@ -131,15 +131,15 @@ namespace commonClass
         {
             return (loginType.Trim() == Consts.constWorkerTypeAdmin);
         }
-        public static bool isAdminLogin()
+        public static bool isSystemUserLogin()
         {
-            return isAdminLogin(sysLoginType);
+            return sysLoginType== AppTypes.UserTypes.System;
         }
         public static void ClearLogin()
         {
             sysLoginCode = "";
             sysLoginAccount = "";
-            sysLoginType = "";
+            sysLoginType =  AppTypes.UserTypes.Investor;
         }
 
         public static void WriteSysLog(AppTypes.SyslogTypes type, string investorCode, string text)
@@ -170,7 +170,7 @@ namespace commonClass
         //User
         public static string sysLoginCode = "";
         public static string sysLoginAccount = "";
-        public static string sysLoginType = "";
+        public static AppTypes.UserTypes sysLoginType =  AppTypes.UserTypes.Investor;
         public static string sysCompanyName = "";
         public static string sysCompanyAddr1 = "";
         public static string sysCompanyAddr2 = "";

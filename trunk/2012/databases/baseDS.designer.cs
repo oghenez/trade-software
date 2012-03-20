@@ -16390,7 +16390,7 @@ SELECT reportType, stockCode, onDate, reportCode, currency, val0, val1, val2, va
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM investor\r\nWHERE     (code = @Original_code)";
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM investor\r\nWHERE  (code = @Original_code)";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_code", global::System.Data.SqlDbType.NVarChar, 10, global::System.Data.ParameterDirection.Input, 0, 0, "code", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
@@ -16419,11 +16419,11 @@ SELECT code, type, firstName, lastName, displayName, sex, address1, address2, em
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@note", global::System.Data.SqlDbType.NText, 0, global::System.Data.ParameterDirection.Input, 0, 0, "note", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE    investor
-SET              code = @code, type = @type, firstName = @firstName, lastName = @lastName, displayName = @displayName, sex = @sex, address1 = @address1, 
-                      address2 = @address2, email = @email, phone = @phone, mobile = @mobile, city = @city, country = @country, account = @account, 
-                      password = @password, catCode = @catCode, expireDate = @expireDate, status = @status, note = @note
-WHERE     (code = @Original_code); 
+            this._adapter.UpdateCommand.CommandText = @"UPDATE investor
+SET        code = @code, type = @type, firstName = @firstName, lastName = @lastName, displayName = @displayName, sex = @sex, address1 = @address1, address2 = @address2, 
+               email = @email, phone = @phone, mobile = @mobile, city = @city, country = @country, account = @account, password = @password, catCode = @catCode, 
+               expireDate = @expireDate, status = @status, note = @note
+WHERE  (code = @Original_code); 
 SELECT code, type, firstName, lastName, displayName, sex, address1, address2, email, phone, mobile, city, country, account, password, catCode, expireDate, status, note FROM investor WHERE (code = @code)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@code", global::System.Data.SqlDbType.NVarChar, 10, global::System.Data.ParameterDirection.Input, 0, 0, "code", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -16463,7 +16463,7 @@ SELECT code, type, firstName, lastName, displayName, sex, address1, address2, em
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT *  FROM investor WHERE (account = @account)";
+            this._commandCollection[1].CommandText = "SELECT * FROM investor WHERE (account = @account)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@account", global::System.Data.SqlDbType.NVarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "account", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
@@ -16473,7 +16473,7 @@ SELECT code, type, firstName, lastName, displayName, sex, address1, address2, em
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@code", global::System.Data.SqlDbType.NVarChar, 10, global::System.Data.ParameterDirection.Input, 0, 0, "code", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[3].Connection = this.Connection;
-            this._commandCollection[3].CommandText = "SELECT * FROM investor WHERE email=@email";
+            this._commandCollection[3].CommandText = "SELECT * FROM investor WHERE (email = @email)";
             this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@email", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "email", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }

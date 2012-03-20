@@ -1986,5 +1986,22 @@ namespace client
                 this.ShowError(er);
             }
         }
+
+
+        private void chartLeveling()
+        {
+        }
+
+        private void chartLevelkBtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                chartLeveling();
+            }
+            catch (Exception er)
+            {
+                this.ShowError(er);
+            }
+        }
     }
 }

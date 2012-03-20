@@ -158,6 +158,13 @@ namespace client.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap level {
+            get {
+                object obj = ResourceManager.GetObject("level", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap lineChart2 {
             get {
                 object obj = ResourceManager.GetObject("lineChart2", resourceCulture);

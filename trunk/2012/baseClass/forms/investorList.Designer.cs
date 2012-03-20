@@ -37,8 +37,6 @@
             this.filterBtn = new baseClass.controls.baseButton();
             this.closeFindBtn = new baseClass.controls.baseButton();
             this.findCriteria = new baseClass.controls.investorCriteria();
-            ((System.ComponentModel.ISupportInitialize)(this.portfolioSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.watchListSource)).BeginInit();
             this.infoPnl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.investorSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.myDataSet)).BeginInit();
@@ -304,8 +302,6 @@
             this.Controls.SetChildIndex(this.TitleLbl, 0);
             this.Controls.SetChildIndex(this.dataGrid, 0);
             this.Controls.SetChildIndex(this.findPnl, 0);
-            ((System.ComponentModel.ISupportInitialize)(this.portfolioSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.watchListSource)).EndInit();
             this.infoPnl.ResumeLayout(false);
             this.infoPnl.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.investorSource)).EndInit();
