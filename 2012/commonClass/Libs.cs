@@ -200,7 +200,7 @@ namespace commonClass
         }
         public static bool SaveLocalConfig(string type, StringCollection aFields, StringCollection aValues)
         {
-            if (SysLibs.sysLoginCode.Trim() == "") return false;
+            if (SysLibs.sysLoginCode.Trim() == "") return true;
             return common.configuration.SaveConfiguration(Settings.sysUserConfigFile, SysLibs.sysLoginCode, type, aFields, aValues, false);
         }
     }
