@@ -251,7 +251,14 @@ namespace client.Properties {
         
         internal static System.Drawing.Bitmap waiting_bar {
             get {
-                object obj = ResourceManager.GetObject("waiting-bar", resourceCulture);
+                object obj = ResourceManager.GetObject("waiting_bar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap working {
+            get {
+                object obj = ResourceManager.GetObject("working", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

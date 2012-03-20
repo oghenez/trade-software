@@ -263,13 +263,22 @@
     <None Include="Resources\trading2.PNG" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\waiting-bar.gif" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\save.png" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\red.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\green.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\waiting-bar.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\working.gif" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

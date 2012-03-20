@@ -136,7 +136,6 @@
             this.toolStripSeparator14 = new System.Windows.Forms.ToolStripSeparator();
             this.chartPropertyMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.strategyEstimationMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.backTestingMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.strategyRankingMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.screeningMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -145,14 +144,16 @@
             this.toolStripSeparator13 = new System.Windows.Forms.ToolStripSeparator();
             this.companyListMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator25 = new System.Windows.Forms.ToolStripSeparator();
+            this.marketSummaryMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator27 = new System.Windows.Forms.ToolStripSeparator();
+            this.strategyEstimationMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolOptionMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator22 = new System.Windows.Forms.ToolStripSeparator();
             this.screeningOptionsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.strategyOptionsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.markovToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator27 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator31 = new System.Windows.Forms.ToolStripSeparator();
             this.sysOptionMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.marketSummaryMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.windowsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.closeAllMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
@@ -166,8 +167,6 @@
             this.aboutMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.testMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripPanel = new System.Windows.Forms.ToolStripPanel();
-            this.testStrip = new System.Windows.Forms.ToolStrip();
-            this.feedbackStripItem = new common.controls.buttonStripItem();
             this.standartStrip = new System.Windows.Forms.ToolStrip();
             this.addChartBtn = new System.Windows.Forms.ToolStripButton();
             this.printChartBtn = new System.Windows.Forms.ToolStripButton();
@@ -183,16 +182,17 @@
             this.strategyCbStrip = new baseClass.controls.ToolStripCbStrategy();
             this.periodicityStrip = new System.Windows.Forms.ToolStrip();
             this.dummyStripBtn = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator31 = new System.Windows.Forms.ToolStripSeparator();
+            this.testStrip = new System.Windows.Forms.ToolStrip();
+            this.feedbackStripItem = new common.controls.buttonStripItem();
             this.chartStrip.SuspendLayout();
             this.toolsStrip.SuspendLayout();
             this.mainMenu.SuspendLayout();
             this.toolStripPanel.SuspendLayout();
-            this.testStrip.SuspendLayout();
             this.standartStrip.SuspendLayout();
             this.formatStrip.SuspendLayout();
             this.strategyStrip.SuspendLayout();
             this.periodicityStrip.SuspendLayout();
+            this.testStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // TitleLbl
@@ -1040,12 +1040,6 @@
             this.toolsMenuItem.Size = new System.Drawing.Size(51, 20);
             this.toolsMenuItem.Text = "&Tools";
             // 
-            // strategyEstimationMenuItem
-            // 
-            this.strategyEstimationMenuItem.Name = "strategyEstimationMenuItem";
-            this.strategyEstimationMenuItem.Size = new System.Drawing.Size(194, 22);
-            this.strategyEstimationMenuItem.Text = "Strategy List";
-            // 
             // backTestingMenuItem
             // 
             this.backTestingMenuItem.Name = "backTestingMenuItem";
@@ -1096,6 +1090,24 @@
             this.toolStripSeparator25.Name = "toolStripSeparator25";
             this.toolStripSeparator25.Size = new System.Drawing.Size(191, 6);
             // 
+            // marketSummaryMenuItem
+            // 
+            this.marketSummaryMenuItem.Name = "marketSummaryMenuItem";
+            this.marketSummaryMenuItem.Size = new System.Drawing.Size(194, 22);
+            this.marketSummaryMenuItem.Text = "Market Summary";
+            this.marketSummaryMenuItem.Click += new System.EventHandler(this.marketSummaryMenuItem_Click);
+            // 
+            // toolStripSeparator27
+            // 
+            this.toolStripSeparator27.Name = "toolStripSeparator27";
+            this.toolStripSeparator27.Size = new System.Drawing.Size(191, 6);
+            // 
+            // strategyEstimationMenuItem
+            // 
+            this.strategyEstimationMenuItem.Name = "strategyEstimationMenuItem";
+            this.strategyEstimationMenuItem.Size = new System.Drawing.Size(194, 22);
+            this.strategyEstimationMenuItem.Text = "Strategy List";
+            // 
             // toolOptionMenu
             // 
             this.toolOptionMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -1131,10 +1143,10 @@
             this.markovToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
             this.markovToolStripMenuItem.Text = "Markov";
             // 
-            // toolStripSeparator27
+            // toolStripSeparator31
             // 
-            this.toolStripSeparator27.Name = "toolStripSeparator27";
-            this.toolStripSeparator27.Size = new System.Drawing.Size(191, 6);
+            this.toolStripSeparator31.Name = "toolStripSeparator31";
+            this.toolStripSeparator31.Size = new System.Drawing.Size(191, 6);
             // 
             // sysOptionMenuItem
             // 
@@ -1142,13 +1154,6 @@
             this.sysOptionMenuItem.Size = new System.Drawing.Size(194, 22);
             this.sysOptionMenuItem.Text = "Preferences";
             this.sysOptionMenuItem.Click += new System.EventHandler(this.sysOptionMenuItem_Click);
-            // 
-            // marketSummaryMenuItem
-            // 
-            this.marketSummaryMenuItem.Name = "marketSummaryMenuItem";
-            this.marketSummaryMenuItem.Size = new System.Drawing.Size(194, 22);
-            this.marketSummaryMenuItem.Text = "Market Summary";
-            this.marketSummaryMenuItem.Click += new System.EventHandler(this.marketSummaryMenuItem_Click);
             // 
             // windowsMenuItem
             // 
@@ -1250,27 +1255,6 @@
             this.toolStripPanel.Orientation = System.Windows.Forms.Orientation.Horizontal;
             this.toolStripPanel.RowMargin = new System.Windows.Forms.Padding(3, 0, 0, 0);
             this.toolStripPanel.Size = new System.Drawing.Size(1284, 55);
-            // 
-            // testStrip
-            // 
-            this.testStrip.Dock = System.Windows.Forms.DockStyle.None;
-            this.testStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.feedbackStripItem});
-            this.testStrip.Location = new System.Drawing.Point(911, 24);
-            this.testStrip.Name = "testStrip";
-            this.testStrip.Size = new System.Drawing.Size(110, 31);
-            this.testStrip.TabIndex = 151;
-            // 
-            // feedbackStripItem
-            // 
-            this.feedbackStripItem.AutoSize = false;
-            this.feedbackStripItem.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.feedbackStripItem.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
-            this.feedbackStripItem.myImage = null;
-            this.feedbackStripItem.Name = "feedbackStripItem";
-            this.feedbackStripItem.Size = new System.Drawing.Size(100, 28);
-            this.feedbackStripItem.Text = "Feedback";
-            this.feedbackStripItem.Click += new System.EventHandler(this.feedbackMenuItem_Click);
             // 
             // standartStrip
             // 
@@ -1423,10 +1407,26 @@
             this.dummyStripBtn.Size = new System.Drawing.Size(85, 22);
             this.dummyStripBtn.Text = "Auto created";
             // 
-            // toolStripSeparator31
+            // testStrip
             // 
-            this.toolStripSeparator31.Name = "toolStripSeparator31";
-            this.toolStripSeparator31.Size = new System.Drawing.Size(191, 6);
+            this.testStrip.Dock = System.Windows.Forms.DockStyle.None;
+            this.testStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.feedbackStripItem});
+            this.testStrip.Location = new System.Drawing.Point(911, 24);
+            this.testStrip.Name = "testStrip";
+            this.testStrip.Size = new System.Drawing.Size(110, 31);
+            this.testStrip.TabIndex = 151;
+            // 
+            // feedbackStripItem
+            // 
+            this.feedbackStripItem.AutoSize = false;
+            this.feedbackStripItem.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.feedbackStripItem.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
+            this.feedbackStripItem.myImage = null;
+            this.feedbackStripItem.Name = "feedbackStripItem";
+            this.feedbackStripItem.Size = new System.Drawing.Size(100, 28);
+            this.feedbackStripItem.Text = "Feedback";
+            this.feedbackStripItem.Click += new System.EventHandler(this.feedbackMenuItem_Click);
             // 
             // main
             // 
@@ -1455,8 +1455,6 @@
             this.mainMenu.PerformLayout();
             this.toolStripPanel.ResumeLayout(false);
             this.toolStripPanel.PerformLayout();
-            this.testStrip.ResumeLayout(false);
-            this.testStrip.PerformLayout();
             this.standartStrip.ResumeLayout(false);
             this.standartStrip.PerformLayout();
             this.formatStrip.ResumeLayout(false);
@@ -1465,6 +1463,8 @@
             this.strategyStrip.PerformLayout();
             this.periodicityStrip.ResumeLayout(false);
             this.periodicityStrip.PerformLayout();
+            this.testStrip.ResumeLayout(false);
+            this.testStrip.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1615,7 +1615,6 @@
         private System.Windows.Forms.ToolStrip testStrip;
         private common.controls.buttonStripItem feedbackStripItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator31;
-
     }
 }
 
