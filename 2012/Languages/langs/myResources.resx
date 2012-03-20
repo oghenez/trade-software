@@ -1311,4 +1311,7 @@
   <data name="marketWeeklyChange" xml:space="preserve">
     <value>Market Weekly Change</value>
   </data>
+  <data name="userType" xml:space="preserve">
+    <value>User type</value>
+  </data>
 </root>

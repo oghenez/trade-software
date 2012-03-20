@@ -66,6 +66,7 @@
             this.zoomInBtn = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator19 = new System.Windows.Forms.ToolStripSeparator();
             this.chartRefreshBtn = new System.Windows.Forms.ToolStripButton();
+            this.chartLevelBtn = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator29 = new System.Windows.Forms.ToolStripSeparator();
             this.toolsStrip = new System.Windows.Forms.ToolStrip();
             this.toolRunBtn = new System.Windows.Forms.ToolStripButton();
@@ -351,10 +352,11 @@
             this.zoomOutBtn,
             this.zoomInBtn,
             this.toolStripSeparator19,
-            this.chartRefreshBtn});
-            this.chartStrip.Location = new System.Drawing.Point(157, 24);
+            this.chartRefreshBtn,
+            this.chartLevelBtn});
+            this.chartStrip.Location = new System.Drawing.Point(188, 24);
             this.chartStrip.Name = "chartStrip";
-            this.chartStrip.Size = new System.Drawing.Size(212, 25);
+            this.chartStrip.Size = new System.Drawing.Size(235, 25);
             this.chartStrip.TabIndex = 11;
             // 
             // chartPropertiesBtn
@@ -460,6 +462,14 @@
             this.chartRefreshBtn.ToolTipText = "Refresh";
             this.chartRefreshBtn.Click += new System.EventHandler(this.ChartRefreshBtn_Click);
             // 
+            // chartLevelBtn
+            // 
+            this.chartLevelBtn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.chartLevelBtn.Image = global::client.Properties.Resources.level;
+            this.chartLevelBtn.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.chartLevelBtn.Name = "chartLevelBtn";
+            this.chartLevelBtn.Size = new System.Drawing.Size(23, 22);
+            // 
             // toolStripSeparator29
             // 
             this.toolStripSeparator29.Name = "toolStripSeparator29";
@@ -473,7 +483,7 @@
             this.toolRunBtn,
             this.toolFullViewBtn,
             this.exportBtn});
-            this.toolsStrip.Location = new System.Drawing.Point(369, 24);
+            this.toolsStrip.Location = new System.Drawing.Point(425, 24);
             this.toolsStrip.Name = "toolsStrip";
             this.toolsStrip.Size = new System.Drawing.Size(79, 25);
             this.toolsStrip.TabIndex = 2;
@@ -824,8 +834,6 @@
             // 
             // marketWatchMenuItem
             // 
-            this.marketWatchMenuItem.Checked = true;
-            this.marketWatchMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.marketWatchMenuItem.Name = "marketWatchMenuItem";
             this.marketWatchMenuItem.Size = new System.Drawing.Size(209, 22);
             this.marketWatchMenuItem.Text = "Market Watch";
@@ -1269,7 +1277,7 @@
             this.transHistoryBtn});
             this.standartStrip.Location = new System.Drawing.Point(3, 24);
             this.standartStrip.Name = "standartStrip";
-            this.standartStrip.Size = new System.Drawing.Size(154, 25);
+            this.standartStrip.Size = new System.Drawing.Size(185, 25);
             this.standartStrip.TabIndex = 10;
             // 
             // addChartBtn
@@ -1344,7 +1352,7 @@
             this.formatStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.amountBtn,
             this.percentBtn});
-            this.formatStrip.Location = new System.Drawing.Point(448, 24);
+            this.formatStrip.Location = new System.Drawing.Point(505, 24);
             this.formatStrip.Name = "formatStrip";
             this.formatStrip.Size = new System.Drawing.Size(56, 25);
             this.formatStrip.TabIndex = 148;
@@ -1374,7 +1382,7 @@
             this.strategyStrip.Enabled = false;
             this.strategyStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.strategyCbStrip});
-            this.strategyStrip.Location = new System.Drawing.Point(504, 24);
+            this.strategyStrip.Location = new System.Drawing.Point(563, 24);
             this.strategyStrip.Name = "strategyStrip";
             this.strategyStrip.Size = new System.Drawing.Size(312, 25);
             this.strategyStrip.TabIndex = 149;
@@ -1393,7 +1401,7 @@
             this.periodicityStrip.Enabled = false;
             this.periodicityStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.dummyStripBtn});
-            this.periodicityStrip.Location = new System.Drawing.Point(816, 24);
+            this.periodicityStrip.Location = new System.Drawing.Point(947, 24);
             this.periodicityStrip.Name = "periodicityStrip";
             this.periodicityStrip.Size = new System.Drawing.Size(95, 25);
             this.periodicityStrip.TabIndex = 147;
@@ -1412,7 +1420,7 @@
             this.testStrip.Dock = System.Windows.Forms.DockStyle.None;
             this.testStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.feedbackStripItem});
-            this.testStrip.Location = new System.Drawing.Point(911, 24);
+            this.testStrip.Location = new System.Drawing.Point(1042, 24);
             this.testStrip.Name = "testStrip";
             this.testStrip.Size = new System.Drawing.Size(110, 31);
             this.testStrip.TabIndex = 151;
@@ -1615,6 +1623,7 @@
         private System.Windows.Forms.ToolStrip testStrip;
         private common.controls.buttonStripItem feedbackStripItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator31;
+        private System.Windows.Forms.ToolStripButton chartLevelBtn;
     }
 }
 

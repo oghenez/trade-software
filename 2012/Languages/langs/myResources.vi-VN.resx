@@ -1317,4 +1317,7 @@
   <data name="marketWeeklyChange" xml:space="preserve">
     <value>Thị trường trong tuần</value>
   </data>
+  <data name="userType" xml:space="preserve">
+    <value>Lọai tài khỏan</value>
+  </data>
 </root>

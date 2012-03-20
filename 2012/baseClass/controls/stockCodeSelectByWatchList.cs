@@ -57,6 +57,8 @@ namespace baseClass.controls
         private DataGridViewTextBoxColumn stockNameColumn = new DataGridViewTextBoxColumn();
         private void InitGrid()
         {
+            stockGV.myQuickFindColumnId = 1;
+            stockGV.myUseQuickFind = true;
             byte precisionPrice = common.system.GetPrecisionFromMask(Settings.sysMaskPrice);
             byte precisionPercent = common.system.GetPrecisionFromMask(Settings.sysMaskPercent);
             // 

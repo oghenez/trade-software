@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(investorEdit));
-            ((System.ComponentModel.ISupportInitialize)(this.portfolioSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.watchListSource)).BeginInit();
             this.infoPnl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.investorSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.myDataSet)).BeginInit();
@@ -140,7 +138,6 @@
             // expireDateEd
             // 
             this.expireDateEd.Location = new System.Drawing.Point(688, 295);
-            this.expireDateEd.Margin = new System.Windows.Forms.Padding(3);
             this.expireDateEd.Visible = false;
             // 
             // expireDateLbl
@@ -162,7 +159,6 @@
             // countryCb
             // 
             this.countryCb.Location = new System.Drawing.Point(25, 397);
-            this.countryCb.Size = new System.Drawing.Size(286, 24);
             // 
             // investorCatCb
             // 
@@ -173,7 +169,6 @@
             // statusCb
             // 
             this.statusCb.Location = new System.Drawing.Point(688, 337);
-            this.statusCb.Size = new System.Drawing.Size(103, 24);
             this.statusCb.Visible = false;
             // 
             // sexCb
@@ -215,6 +210,18 @@
             this.passStrenghtLbl.Size = new System.Drawing.Size(114, 16);
             this.passStrenghtLbl.Text = "passStrenghtLbl";
             this.passStrenghtLbl.Visible = false;
+            // 
+            // userTypeLbl
+            // 
+            this.userTypeLbl.Location = new System.Drawing.Point(548, 558);
+            this.userTypeLbl.Size = new System.Drawing.Size(71, 16);
+            this.userTypeLbl.Text = "User type";
+            this.userTypeLbl.Visible = false;
+            // 
+            // userTypeCb
+            // 
+            this.userTypeCb.Location = new System.Drawing.Point(549, 578);
+            this.userTypeCb.Visible = false;
             // 
             // exitBtn
             // 
@@ -280,8 +287,6 @@
             this.ClientSize = new System.Drawing.Size(530, 677);
             this.Margin = new System.Windows.Forms.Padding(3);
             this.Name = "investorEdit";
-            ((System.ComponentModel.ISupportInitialize)(this.portfolioSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.watchListSource)).EndInit();
             this.infoPnl.ResumeLayout(false);
             this.infoPnl.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.investorSource)).EndInit();

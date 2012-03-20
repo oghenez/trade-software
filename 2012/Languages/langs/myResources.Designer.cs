@@ -3391,6 +3391,15 @@ namespace Languages.langs {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to User type.
+        /// </summary>
+        internal static string userType {
+            get {
+                return ResourceManager.GetString("userType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Use strong password.
         /// </summary>
         internal static string useStrongPass {

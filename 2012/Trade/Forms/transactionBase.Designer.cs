@@ -57,13 +57,12 @@
             // 
             // totalAmtEd
             // 
-            this.totalAmtEd.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.totalAmtEd.InsertKeyMode = System.Windows.Forms.InsertKeyMode.Overwrite;
             this.totalAmtEd.Location = new System.Drawing.Point(163, 233);
             this.totalAmtEd.myFormat = "###,###,###,###,###";
             this.totalAmtEd.Name = "totalAmtEd";
             this.totalAmtEd.ReadOnly = true;
-            this.totalAmtEd.Size = new System.Drawing.Size(163, 24);
+            this.totalAmtEd.Size = new System.Drawing.Size(163, 23);
             this.totalAmtEd.TabIndex = 18;
             this.totalAmtEd.TabStop = false;
             this.totalAmtEd.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -76,13 +75,12 @@
             // 
             // feePercEd
             // 
-            this.feePercEd.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.feePercEd.InsertKeyMode = System.Windows.Forms.InsertKeyMode.Overwrite;
             this.feePercEd.Location = new System.Drawing.Point(163, 209);
             this.feePercEd.myFormat = "###,###,##0.00";
             this.feePercEd.Name = "feePercEd";
             this.feePercEd.ReadOnly = true;
-            this.feePercEd.Size = new System.Drawing.Size(42, 24);
+            this.feePercEd.Size = new System.Drawing.Size(42, 23);
             this.feePercEd.TabIndex = 16;
             this.feePercEd.TabStop = false;
             this.feePercEd.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -95,12 +93,11 @@
             // 
             // qtyEd
             // 
-            this.qtyEd.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.qtyEd.InsertKeyMode = System.Windows.Forms.InsertKeyMode.Overwrite;
             this.qtyEd.Location = new System.Drawing.Point(163, 137);
             this.qtyEd.myFormat = "###,###,###,###,###";
             this.qtyEd.Name = "qtyEd";
-            this.qtyEd.Size = new System.Drawing.Size(163, 24);
+            this.qtyEd.Size = new System.Drawing.Size(163, 23);
             this.qtyEd.TabIndex = 13;
             this.qtyEd.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.qtyEd.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludePromptAndLiterals;
@@ -132,13 +129,12 @@
             // 
             // priceEd
             // 
-            this.priceEd.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.priceEd.InsertKeyMode = System.Windows.Forms.InsertKeyMode.Overwrite;
             this.priceEd.Location = new System.Drawing.Point(163, 161);
             this.priceEd.myFormat = "###,###,###,###,###";
             this.priceEd.Name = "priceEd";
             this.priceEd.ReadOnly = true;
-            this.priceEd.Size = new System.Drawing.Size(163, 24);
+            this.priceEd.Size = new System.Drawing.Size(163, 23);
             this.priceEd.TabIndex = 14;
             this.priceEd.TabStop = false;
             this.priceEd.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -171,13 +167,12 @@
             // 
             // feeAmtEd
             // 
-            this.feeAmtEd.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.feeAmtEd.InsertKeyMode = System.Windows.Forms.InsertKeyMode.Overwrite;
             this.feeAmtEd.Location = new System.Drawing.Point(205, 209);
             this.feeAmtEd.myFormat = "###,###,###,###,###";
             this.feeAmtEd.Name = "feeAmtEd";
             this.feeAmtEd.ReadOnly = true;
-            this.feeAmtEd.Size = new System.Drawing.Size(120, 24);
+            this.feeAmtEd.Size = new System.Drawing.Size(120, 23);
             this.feeAmtEd.TabIndex = 17;
             this.feeAmtEd.TabStop = false;
             this.feeAmtEd.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -190,13 +185,12 @@
             // 
             // subTotalEd
             // 
-            this.subTotalEd.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.subTotalEd.InsertKeyMode = System.Windows.Forms.InsertKeyMode.Overwrite;
             this.subTotalEd.Location = new System.Drawing.Point(163, 185);
             this.subTotalEd.myFormat = "###,###,###,###,###";
             this.subTotalEd.Name = "subTotalEd";
             this.subTotalEd.ReadOnly = true;
-            this.subTotalEd.Size = new System.Drawing.Size(163, 24);
+            this.subTotalEd.Size = new System.Drawing.Size(163, 23);
             this.subTotalEd.TabIndex = 15;
             this.subTotalEd.TabStop = false;
             this.subTotalEd.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -262,7 +256,6 @@
             // 
             this.statusCb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.statusCb.Enabled = false;
-            this.statusCb.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.statusCb.Location = new System.Drawing.Point(163, 258);
             this.statusCb.myValue = commonTypes.AppTypes.CommonStatus.None;
             this.statusCb.Name = "statusCb";
@@ -284,14 +277,13 @@
             // onTimeEd
             // 
             this.onTimeEd.BeepOnError = true;
-            this.onTimeEd.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.onTimeEd.InsertKeyMode = System.Windows.Forms.InsertKeyMode.Overwrite;
             this.onTimeEd.Location = new System.Drawing.Point(163, 113);
             this.onTimeEd.Mask = "00/00/0000 90:00";
             this.onTimeEd.myDateTime = new System.DateTime(((long)(0)));
             this.onTimeEd.Name = "onTimeEd";
             this.onTimeEd.ReadOnly = true;
-            this.onTimeEd.Size = new System.Drawing.Size(163, 24);
+            this.onTimeEd.Size = new System.Drawing.Size(163, 23);
             this.onTimeEd.TabIndex = 12;
             this.onTimeEd.TabStop = false;
             this.onTimeEd.ValidatingType = typeof(System.DateTime);
@@ -329,7 +321,6 @@
             // portfolioCb
             // 
             this.portfolioCb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.portfolioCb.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.portfolioCb.Location = new System.Drawing.Point(163, 87);
             this.portfolioCb.myValue = "";
             this.portfolioCb.Name = "portfolioCb";
@@ -339,23 +330,23 @@
             // codeEd
             // 
             this.codeEd.BackColor = System.Drawing.Color.White;
-            this.codeEd.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.codeEd.ForeColor = System.Drawing.Color.Black;
+            this.codeEd.isRequired = true;
             this.codeEd.isToUpperCase = true;
             this.codeEd.Location = new System.Drawing.Point(163, 14);
             this.codeEd.Name = "codeEd";
-            this.codeEd.Size = new System.Drawing.Size(81, 24);
+            this.codeEd.Size = new System.Drawing.Size(81, 23);
             this.codeEd.TabIndex = 1;
             this.codeEd.TabStop = false;
             // 
             // transCodeEd
             // 
-            this.transCodeEd.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.transCodeEd.isRequired = true;
             this.transCodeEd.isToUpperCase = false;
             this.transCodeEd.Location = new System.Drawing.Point(163, 38);
             this.transCodeEd.Name = "transCodeEd";
             this.transCodeEd.ReadOnly = true;
-            this.transCodeEd.Size = new System.Drawing.Size(81, 24);
+            this.transCodeEd.Size = new System.Drawing.Size(81, 23);
             this.transCodeEd.TabIndex = 3;
             this.transCodeEd.TabStop = false;
             // 

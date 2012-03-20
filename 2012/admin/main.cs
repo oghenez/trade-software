@@ -31,6 +31,22 @@ namespace admin
         {
             return true;
         }
+        protected override bool ShowLogin()
+        {
+            if (!base.ShowLogin())
+            {
+                System.Environment.Exit(1);
+                return false;
+            }
+            if (commonClass.SysLibs.sysLoginType != AppTypes.UserTypes.System)
+            {
+                common.system.ShowErrorMessage("Không thể đăng nhập bằng tài khỏan này !");
+                return false;
+            }
+            return true;
+        }
+
+
      
         private void exitMenu_Click(object sender, EventArgs e)
         {
