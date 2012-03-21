@@ -63,24 +63,31 @@ namespace Trade.Forms
             DateTime frDate = toDate.AddMonths(-2);
             string timeScaleCode = AppTypes.TimeScaleTypeToCode(AppTypes.TimeScaleTypes.Day);
             DrawLineChart(vnIdxChart, 0, true, "VN-IDX", frDate, toDate, timeScaleCode);
-            //DrawLineChart(vnIdxChart, 1, false, "VN30-IDX", frDate, toDate, timeScaleCode);
+            DrawLineChart(hnxChart, 0, true, "HNX-IDX", frDate, toDate, timeScaleCode);
 
             //DrawLineChart(hnxChart, 0, true, "HNX-IDX", frDate, toDate, timeScaleCode);
         }
         private void DrawLineChart(Chart chart, int chartSeriesNo,bool isShowVolume, string code, DateTime frDate, DateTime toDate, string timeScaleCode)
         {
           
-            databases.baseDS.priceDataDataTable vnidxTbl = DataAccess.Libs.GetPriceData(code,timeScaleCode,frDate, toDate);
-            decimal[] yValues = new decimal[vnidxTbl.Count];
-            DateTime[] xValues = new DateTime[vnidxTbl.Count];
-            decimal[] volValues = new decimal[vnidxTbl.Count];
-            for (int idx = 0; idx < vnidxTbl.Count; idx++)
+            databases.baseDS.priceDataDataTable dataTbl = DataAccess.Libs.GetPriceData(code,timeScaleCode,frDate, toDate);
+            decimal[] yValues = new decimal[dataTbl.Count];
+            DateTime[] xValues = new DateTime[dataTbl.Count];
+            decimal[] volValues = new decimal[dataTbl.Count];
+
+            decimal min = decimal.MaxValue;
+            decimal max = decimal.MinValue;
+            for (int idx = 0; idx < dataTbl.Count; idx++)
             {
-                yValues[idx] = vnidxTbl[idx].closePrice;
-                xValues[idx] = vnidxTbl[idx].onDate;
-                volValues[idx] = vnidxTbl[idx].volume/100000;
-            }
+                yValues[idx] = dataTbl[idx].closePrice;
+                xValues[idx] = dataTbl[idx].onDate;
+                volValues[idx] = dataTbl[idx].volume / 100000;
+                if (min > yValues[idx]) min = yValues[idx];
+                if (max < yValues[idx]) max = yValues[idx];
+            }            
             chart.Series[chartSeriesNo].Points.DataBindXY(xValues, yValues);
+            chart.ChartAreas[0].AxisY.Minimum = (double)min - 0.1 * (double)min;
+            chart.ChartAreas[0].AxisY.Maximum = (double)max + 0.1 * (double)max;
             if (isShowVolume)
             {
                 chart.Series["Volume"].Points.DataBindXY(xValues, volValues);    
@@ -102,17 +109,29 @@ namespace Trade.Forms
                 topCodes.Add(tbl[idx].code);
             }
             top10biggestChangeChart.Series[0].Points.DataBindXY(xValues, yValues);
+            top10biggestChangeChart.Series[0].ChartType = SeriesChartType.Doughnut;
+
+             for (int idx = 0; idx < top10biggestChangeChart.Series[0].Points.Count; idx++)
+             {
+                //top10biggestChangeChart.Series[0].Points[idx]["Exploded"] = "true";
+                top10biggestChangeChart.Series[0].Points[idx].Label = xValues[idx] + Environment.NewLine +  (yValues[idx]).ToString("##%");
+                //top10biggestChangeChart.Series[0].Points[idx].Label = (yValues[idx]).ToString("##%");
+             }
+            // Set labels style
+            top10biggestChangeChart.Series[0]["PieLabelStyle"] = "Inside";
+            top10biggestChangeChart.Series[0].MarkerStyle = MarkerStyle.Circle;  
+
+            // Set Doughnut radius percentage
+            top10biggestChangeChart.Series[0]["DoughnutRadius"] = "90";
+
+            // Explode data point with label "Italy"
+            //lineChart.Series[0].Points[0]["Exploded"] = "true";
 
             //Daily Market data
             Market_DataDailyChange(topCodes);
         }
         private void Market_DataDailyChange(StringCollection codes)
         {
-            //databases.baseDS.tradeAlertDataTable alertTbl = AppLibs.GetTradeAlertSummaryOfLogin();
-            //if (alertTbl == null) return;
-            //DataView alertView = new DataView(alertTbl);
-            //alertView.Sort = alertTbl.stockCodeColumn.ColumnName;
-
             databases.baseDS.lastPriceDataRow lastPriceRowOpen, lastPriceRowClose; 
             databases.baseDS.lastPriceDataDataTable openTbl = DataAccess.Libs.myLastDataOpenPrice;
             databases.baseDS.lastPriceDataDataTable closeTbl = DataAccess.Libs.myLastDataClosePrice; 
