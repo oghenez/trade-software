@@ -54,7 +54,7 @@
             // 
             this.ClientSize = new System.Drawing.Size(253, 774);
             this.Controls.Add(this.stockCodeList);
-            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "marketWatch";
             this.Resize += new System.EventHandler(this.marketWatch_Resize);
             this.Controls.SetChildIndex(this.TitleLbl, 0);

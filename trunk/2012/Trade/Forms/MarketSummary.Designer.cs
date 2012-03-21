@@ -56,6 +56,11 @@
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.dailyChangeLbl = new common.controls.baseLabel();
             this.dailyChangeGV = new common.controls.baseDataGridView();
+            this.codeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.openColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.closeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.valueColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.percentColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataVarrianceSource = new System.Windows.Forms.BindingSource(this.components);
             this.myTmpDS = new databases.tmpDS();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
@@ -68,11 +73,6 @@
             this.marketTitle2Ed = new common.controls.baseLabel();
             this.hnxChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.introLbl = new baseClass.controls.baseLabel();
-            this.codeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.openColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.closeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.valueColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.percentColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.layoutPnl.SuspendLayout();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -183,6 +183,46 @@
             this.dailyChangeGV.RowTemplate.Height = 24;
             this.dailyChangeGV.Size = new System.Drawing.Size(440, 244);
             this.dailyChangeGV.TabIndex = 6;
+            // 
+            // codeColumn
+            // 
+            this.codeColumn.DataPropertyName = "code";
+            this.codeColumn.HeaderText = "Code";
+            this.codeColumn.Name = "codeColumn";
+            this.codeColumn.ReadOnly = true;
+            this.codeColumn.Width = 70;
+            // 
+            // openColumn
+            // 
+            this.openColumn.DataPropertyName = "val1";
+            this.openColumn.HeaderText = "Open";
+            this.openColumn.Name = "openColumn";
+            this.openColumn.ReadOnly = true;
+            this.openColumn.Width = 90;
+            // 
+            // closeColumn
+            // 
+            this.closeColumn.DataPropertyName = "val2";
+            this.closeColumn.HeaderText = "Close";
+            this.closeColumn.Name = "closeColumn";
+            this.closeColumn.ReadOnly = true;
+            this.closeColumn.Width = 90;
+            // 
+            // valueColumn
+            // 
+            this.valueColumn.DataPropertyName = "value";
+            this.valueColumn.HeaderText = "    +/-";
+            this.valueColumn.Name = "valueColumn";
+            this.valueColumn.ReadOnly = true;
+            this.valueColumn.Width = 70;
+            // 
+            // percentColumn
+            // 
+            this.percentColumn.DataPropertyName = "percent";
+            this.percentColumn.HeaderText = "   %";
+            this.percentColumn.Name = "percentColumn";
+            this.percentColumn.ReadOnly = true;
+            this.percentColumn.Width = 60;
             // 
             // dataVarrianceSource
             // 
@@ -559,52 +599,13 @@
             this.introLbl.TabIndex = 1;
             this.introLbl.Text = "Quantum is the pioneer software bla bla bla";
             // 
-            // codeColumn
-            // 
-            this.codeColumn.DataPropertyName = "code";
-            this.codeColumn.HeaderText = "Code";
-            this.codeColumn.Name = "codeColumn";
-            this.codeColumn.ReadOnly = true;
-            this.codeColumn.Width = 70;
-            // 
-            // openColumn
-            // 
-            this.openColumn.DataPropertyName = "val1";
-            this.openColumn.HeaderText = "Open";
-            this.openColumn.Name = "openColumn";
-            this.openColumn.ReadOnly = true;
-            this.openColumn.Width = 90;
-            // 
-            // closeColumn
-            // 
-            this.closeColumn.DataPropertyName = "val2";
-            this.closeColumn.HeaderText = "Close";
-            this.closeColumn.Name = "closeColumn";
-            this.closeColumn.ReadOnly = true;
-            this.closeColumn.Width = 90;
-            // 
-            // valueColumn
-            // 
-            this.valueColumn.DataPropertyName = "value";
-            this.valueColumn.HeaderText = "    +/-";
-            this.valueColumn.Name = "valueColumn";
-            this.valueColumn.ReadOnly = true;
-            this.valueColumn.Width = 70;
-            // 
-            // percentColumn
-            // 
-            this.percentColumn.DataPropertyName = "percent";
-            this.percentColumn.HeaderText = "   %";
-            this.percentColumn.Name = "percentColumn";
-            this.percentColumn.ReadOnly = true;
-            this.percentColumn.Width = 60;
-            // 
             // MarketSummary
             // 
-            this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(931, 673);
             this.Controls.Add(this.introLbl);
             this.Controls.Add(this.layoutPnl);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "MarketSummary";
             this.Resize += new System.EventHandler(this.MarketSummary_Resize);
             this.Controls.SetChildIndex(this.layoutPnl, 0);
