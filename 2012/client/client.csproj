@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.30729</ProductVersion>
+    <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{54D43B08-45E4-4BE4-92C0-A080C7DD16BE}</ProjectGuid>
     <OutputType>WinExe</OutputType>
@@ -273,6 +273,42 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\level.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\OnLamp-icon_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sort-ascending-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\money-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Help-and-support-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\language-skills-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\uk-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Vietnam-Flag-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\contacts-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Actions-edit-copy-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\price-watch-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Office-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Network-icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
