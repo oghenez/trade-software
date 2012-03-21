@@ -186,7 +186,6 @@ namespace client.Properties {
             }
         }
         
-<<<<<<< .mine
         internal static System.Drawing.Bitmap Help_and_support_icon {
             get {
                 object obj = ResourceManager.GetObject("Help-and-support-icon", resourceCulture);
@@ -201,7 +200,6 @@ namespace client.Properties {
             }
         }
         
-=======
         internal static System.Drawing.Bitmap level {
             get {
                 object obj = ResourceManager.GetObject("level", resourceCulture);
@@ -209,7 +207,6 @@ namespace client.Properties {
             }
         }
         
->>>>>>> .r530
         internal static System.Drawing.Bitmap lineChart2 {
             get {
                 object obj = ResourceManager.GetObject("lineChart2", resourceCulture);
