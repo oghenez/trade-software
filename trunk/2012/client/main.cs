@@ -134,15 +134,24 @@ namespace client
             contextMenuStrip.Items.Add(new ToolStripSeparator());
             menuItem = contextMenuStrip.Items.Add(Languages.Libs.GetString("addToWatchList"));
             menuItem.Click += new System.EventHandler(addToWatchListMenuItem_Click);
+            
+            //Order
             menuItem = contextMenuStrip.Items.Add(orderMenuItem.Text);
+            menuItem.Image = client.Properties.Resources.money_icon;
             menuItem.Click += new System.EventHandler(orderMenuItem_Click);
 
+            //Tools
             contextMenuStrip.Items.Add(new ToolStripSeparator());
             menuItem = contextMenuStrip.Items.Add(backTestingMenuItem.Text);
+            menuItem.Image = client.Properties.Resources.Network_icon;
             menuItem.Click += new System.EventHandler(backTestingMenuItem_Click);
+
             menuItem = contextMenuStrip.Items.Add(strategyRankingMenuItem.Text);
+            menuItem.Image = client.Properties.Resources.OnLamp_icon_16;
             menuItem.Click += new System.EventHandler(strategyRankingMenuItem_Click);
+
             menuItem = contextMenuStrip.Items.Add(screeningMenuItem.Text);
+            menuItem.Image = client.Properties.Resources.sort_ascending_icon;
             menuItem.Click += new System.EventHandler(screeningMenuItem_Click);
             
             return contextMenuStrip;
@@ -152,10 +161,13 @@ namespace client
             ContextMenuStrip contextMenuStrip = new ContextMenuStrip();
             ToolStripItem menuItem;
 
-            
+            //Zoom menu
             menuItem = contextMenuStrip.Items.Add(zoomInMenuItem.Text);
+            menuItem.Image = client.Properties.Resources.zoomIn;
             menuItem.Click += new System.EventHandler(zoomInMenuItem_Click);
+
             menuItem = contextMenuStrip.Items.Add(zoomOutMenuItem.Text);
+            menuItem.Image = client.Properties.Resources.zoomOut;
             menuItem.Click += new System.EventHandler(zoomOutMenuItem_Click);
 
             //menu for Strategy
@@ -175,10 +187,15 @@ namespace client
             //Tools
             contextMenuStrip.Items.Add(new ToolStripSeparator());
             menuItem = contextMenuStrip.Items.Add(backTestingMenuItem.Text);
+            menuItem.Image = client.Properties.Resources.Network_icon;
             menuItem.Click += new System.EventHandler(backTestingMenuItem_Click);
+
             menuItem = contextMenuStrip.Items.Add(strategyRankingMenuItem.Text);
+            menuItem.Image = client.Properties.Resources.OnLamp_icon_16;
             menuItem.Click += new System.EventHandler(strategyRankingMenuItem_Click);
+
             menuItem = contextMenuStrip.Items.Add(screeningMenuItem.Text);
+            menuItem.Image = client.Properties.Resources.sort_ascending_icon;
             menuItem.Click += new System.EventHandler(screeningMenuItem_Click);
 
 
@@ -191,15 +208,23 @@ namespace client
             menuItem = contextMenuStrip.Items.Add(NewChartMenuItem.Text);
             menuItem.Click += new System.EventHandler(Alert_OpenChartMenuItem_Click);
 
+            //Order
             menuItem = contextMenuStrip.Items.Add(orderMenuItem.Text);
+            menuItem.Image = client.Properties.Resources.money_icon;
             menuItem.Click += new System.EventHandler(Alert_MakeOrderMenuItem_Click);
 
+            //Tools
             contextMenuStrip.Items.Add(new ToolStripSeparator());
             menuItem = contextMenuStrip.Items.Add(backTestingMenuItem.Text);
+            menuItem.Image = client.Properties.Resources.Network_icon;
             menuItem.Click += new System.EventHandler(backTestingMenuItem_Click);
+
             menuItem = contextMenuStrip.Items.Add(strategyRankingMenuItem.Text);
+            menuItem.Image = client.Properties.Resources.OnLamp_icon_16;
             menuItem.Click += new System.EventHandler(strategyRankingMenuItem_Click);
+
             menuItem = contextMenuStrip.Items.Add(screeningMenuItem.Text);
+            menuItem.Image = client.Properties.Resources.sort_ascending_icon;
             menuItem.Click += new System.EventHandler(screeningMenuItem_Click);
 
             return contextMenuStrip;
@@ -212,7 +237,9 @@ namespace client
             menuItem = contextMenuStrip.Items.Add(NewChartMenuItem.Text);
             menuItem.Click += new System.EventHandler(PorfolioWatch_OpenChartMenuItem_Click);
 
+            //Order
             menuItem = contextMenuStrip.Items.Add(orderMenuItem.Text);
+            menuItem.Image=client.Properties.Resources.money_icon;
             menuItem.Click += new System.EventHandler(PorfolioWatch_MakeOrderMenuItem_Click);
             return contextMenuStrip;
         }
