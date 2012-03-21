@@ -66,7 +66,7 @@
             this.zoomInBtn = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator19 = new System.Windows.Forms.ToolStripSeparator();
             this.chartRefreshBtn = new System.Windows.Forms.ToolStripButton();
-            this.chartLevelBtn = new System.Windows.Forms.ToolStripButton();
+            this.chartLeverageBtn = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator29 = new System.Windows.Forms.ToolStripSeparator();
             this.toolsStrip = new System.Windows.Forms.ToolStrip();
             this.toolRunBtn = new System.Windows.Forms.ToolStripButton();
@@ -353,7 +353,7 @@
             this.zoomInBtn,
             this.toolStripSeparator19,
             this.chartRefreshBtn,
-            this.chartLevelBtn});
+            this.chartLeverageBtn});
             this.chartStrip.Location = new System.Drawing.Point(188, 24);
             this.chartStrip.Name = "chartStrip";
             this.chartStrip.Size = new System.Drawing.Size(235, 25);
@@ -462,13 +462,14 @@
             this.chartRefreshBtn.ToolTipText = "Refresh";
             this.chartRefreshBtn.Click += new System.EventHandler(this.ChartRefreshBtn_Click);
             // 
-            // chartLevelBtn
+            // chartLeverageBtn
             // 
-            this.chartLevelBtn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.chartLevelBtn.Image = global::client.Properties.Resources.level;
-            this.chartLevelBtn.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.chartLevelBtn.Name = "chartLevelBtn";
-            this.chartLevelBtn.Size = new System.Drawing.Size(23, 22);
+            this.chartLeverageBtn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.chartLeverageBtn.Image = global::client.Properties.Resources.level;
+            this.chartLeverageBtn.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.chartLeverageBtn.Name = "chartLeverageBtn";
+            this.chartLeverageBtn.Size = new System.Drawing.Size(23, 22);
+            this.chartLeverageBtn.Click += new System.EventHandler(this.chartLeverageBtn_Click);
             // 
             // toolStripSeparator29
             // 
@@ -1277,7 +1278,7 @@
             this.transHistoryBtn});
             this.standartStrip.Location = new System.Drawing.Point(3, 24);
             this.standartStrip.Name = "standartStrip";
-            this.standartStrip.Size = new System.Drawing.Size(185, 25);
+            this.standartStrip.Size = new System.Drawing.Size(154, 25);
             this.standartStrip.TabIndex = 10;
             // 
             // addChartBtn
@@ -1442,7 +1443,6 @@
             this.ClientSize = new System.Drawing.Size(1284, 672);
             this.Controls.Add(this.dockPanel);
             this.Controls.Add(this.toolStripPanel);
-            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.mainMenu;
@@ -1623,7 +1623,7 @@
         private System.Windows.Forms.ToolStrip testStrip;
         private common.controls.buttonStripItem feedbackStripItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator31;
-        private System.Windows.Forms.ToolStripButton chartLevelBtn;
+        private System.Windows.Forms.ToolStripButton chartLeverageBtn;
     }
 }
 

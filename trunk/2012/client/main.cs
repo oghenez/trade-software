@@ -55,6 +55,11 @@ namespace client
                 this.ShowError(er);
             }
         }
+
+        private common.TimerProcess RefreshDataProc = null;
+        private common.TimerProcess RefreshAlertProc = null;
+        private common.DictionaryList cachedForms = new common.DictionaryList();  // To cache used forms 
+
         private bool InitSystem(bool force)
         {
             if (force) DataAccess.Libs.ClearCache();
@@ -64,6 +69,59 @@ namespace client
             DataAccess.Libs.LoadSystemVars();
             return true;
         }
+        private void SetCulture(AppTypes.LanguageCodes code)
+        {
+            Settings.sysLanguage = code;
+            common.language.myCulture = AppTypes.Code2Culture(code);
+            switch (code)
+            {
+                case AppTypes.LanguageCodes.VI:
+                    vietnameseMenuItem.Checked = true;
+                    englishMenuItem.Checked = false;
+                    break;
+                default:
+                    vietnameseMenuItem.Checked = false;
+                    englishMenuItem.Checked = true;
+                    break;
+            }
+            common.language.SetLanguage();
+            commonClass.SysLibs.SetLanguage();
+            application.Strategy.Data.Clear();
+            application.Indicators.Data.Clear();
+            SetLanguage();
+            SetLanguageAllOpenForms();
+        }
+        private void SetLanguageAllOpenForms()
+        {
+            ContextMenuStrip tradeAnalysisContextMenu = CreateContextMenu_TradeAnalysis();
+            foreach (Form form in Application.OpenForms)
+            {
+                System.Reflection.MethodInfo method = form.GetType().GetMethod("SetLanguage");
+                try
+                {
+                    if (method != null)
+                        method.Invoke(form, null);
+                }
+                catch (Exception er)
+                {
+                    ShowError(er);
+                }
+
+                if (form.GetType() == typeof(Tools.Forms.tradeAnalysis))
+                {
+                    (form as Tools.Forms.tradeAnalysis).myContextMenuStrip = tradeAnalysisContextMenu;
+                }
+                if (form.GetType() == typeof(Trade.Forms.tradeAlertList))
+                {
+                    (form as Trade.Forms.tradeAlertList).myContextMenuStrip = CreateContextMenu_TradeAlert();
+                }
+                if (form.GetType() == typeof(Trade.Forms.marketWatch))
+                {
+                    (form as Trade.Forms.marketWatch).myContextMenuStrip = CreateContextMenu_MarketWatch();
+                }
+            }
+        }
+
 
         #region CreateContextMenu
         private ContextMenuStrip CreateContextMenu_MarketWatch()
@@ -160,278 +218,8 @@ namespace client
         }
         #endregion
 
-        static common.TimerProcess RefreshDataProc = null;
-        static common.TimerProcess RefreshAlertProc = null;
-        protected override void ProcessSysTimerTick()
+        protected void ChartLeverage()
         {
-            base.ProcessSysTimerTick();
-            if (!Settings.sysAutoRefreshData) return;
-
-            if (RefreshDataProc == null)
-            {
-                RefreshDataProc = new common.TimerProcess();
-                RefreshDataProc.WaitInSeconds = Settings.sysGlobal.RefreshDataInSecs;
-                RefreshDataProc.OnProcess += new common.TimerProcess.OnProcessEvent(RefreshData);
-            }
-            RefreshDataProc.Execute();
-
-            if (RefreshAlertProc == null)
-            {
-                RefreshAlertProc = new common.TimerProcess();
-                RefreshAlertProc.WaitInSeconds = Settings.sysGlobal.CheckAlertInSeconds;
-                RefreshAlertProc.OnProcess += new common.TimerProcess.OnProcessEvent(RefreshAlert);
-            }
-            RefreshAlertProc.Execute();
-        }
-        /// <summary>
-        /// Set language for controls's main form
-        /// </summary>
-        public override void SetLanguage()
-        {
-            try
-            {
-                base.SetLanguage();
-                this.FileMenuStrip.Text = Languages.Libs.GetString("file");
-                this.loginMenuItem.Text = Languages.Libs.GetString("login");
-                this.logOutMenuItem.Text = Languages.Libs.GetString("logout");
-                this.changePassMenuItem.Text = Languages.Libs.GetString("changePassword");
-                this.MyProfileMenuItem.Text = Languages.Libs.GetString("myProfile"); ;
-
-
-                this.NewChartMenuItem.Text = Languages.Libs.GetString("openChart");
-                this.closeChartMenuItem.Text = Languages.Libs.GetString("closeChart");
-
-                this.configMenuItem.Text = Languages.Libs.GetString("configure");
-                this.printSetupMenuItem.Text = Languages.Libs.GetString("printSetup");
-                this.printPreViewMenuItem.Text = Languages.Libs.GetString("printPreview");
-                this.printMenuItem.Text = Languages.Libs.GetString("print");
-                this.exitMenuItem.Text = Languages.Libs.GetString("exit");
-
-                this.editMenuStrip.Text = Languages.Libs.GetString("edit");
-                this.undoMenuItem.Text = Languages.Libs.GetString("undo");
-                this.redoMenuItem.Text = Languages.Libs.GetString("redo");
-                this.copyMenuItem.Text = Languages.Libs.GetString("copy");
-                this.cutMenuItem.Text = Languages.Libs.GetString("cut");
-                this.pasteMenuItem.Text = Languages.Libs.GetString("paste");
-                this.deleteMenuItem.Text = Languages.Libs.GetString("delete");
-                this.selectAllMenuItem.Text = Languages.Libs.GetString("selectAll");
-
-                this.viewMenuStrip.Text = Languages.Libs.GetString("view");
-                this.languageMenuItem.Text = Languages.Libs.GetString("language");
-                this.englishMenuItem.Text = Languages.Libs.GetString("english");
-                this.vietnameseMenuItem.Text = Languages.Libs.GetString("vietnamese");
-
-                this.toolBarMenuItem.Text = Languages.Libs.GetString("toolBar");
-                this.tbStandardMenuItem.Text = Languages.Libs.GetString("standard");
-                this.tbChartMenuItem.Text = Languages.Libs.GetString("chart");
-                this.tbPeriodicityMenuItem.Text = Languages.Libs.GetString("periodicity");
-
-                this.marketWatchMenuItem.Text = Languages.Libs.GetString("marketWatch");
-                this.tradeAlertMenuItem.Text = Languages.Libs.GetString("tradeAlert");
-                this.transHistoryMenuItem.Text = Languages.Libs.GetString("transHistory");
-                this.myPortfolioMenuItem.Text = Languages.Libs.GetString("myPortfolio");
-                this.strategyEstimationiMenuItem.Text = Languages.Libs.GetString("strategyEstimation");
-
-                this.chartMenuStrip.Text = Languages.Libs.GetString("chart");
-                this.indicatorMenuItem.Text = Languages.Libs.GetString("indicator");
-                this.chartMenuItem.Text = Languages.Libs.GetString("chart");
-                this.lineChartMenuItem.Text = Languages.Libs.GetString("lineChart");
-                this.barChartMenuItem.Text = Languages.Libs.GetString("barChart");
-                this.candleSticksMenuItem.Text = Languages.Libs.GetString("candleSticks");
-                this.chartGridMenuItem.Text = Languages.Libs.GetString("chartGrid");
-                this.periodicityMenuItem.Text = Languages.Libs.GetString("periodicity");
-                this.zoomInMenuItem.Text = Languages.Libs.GetString("zoomIn");
-                this.zoomOutMenuItem.Text = Languages.Libs.GetString("zoomOut");
-                this.chartVolumeMenuItem.Text = Languages.Libs.GetString("chartVolume");
-                this.chartPropertyMenuItem.Text = Languages.Libs.GetString("chartProperty");
-
-                this.toolsMenuItem.Text = Languages.Libs.GetString("tools");
-                this.backTestingMenuItem.Text = Languages.Libs.GetString("backTesting");
-                this.strategyRankingMenuItem.Text = Languages.Libs.GetString("strategyRanking");
-                this.companyListMenuItem.Text = Languages.Libs.GetString("companyList");
-                this.marketSummaryMenuItem.Text = Languages.Libs.GetString("marketSummary");
-
-                this.toolOptionMenu.Text = Languages.Libs.GetString("toolAllOptions");
-                this.strategyOptionsMenuItem.Text = Languages.Libs.GetString("strategyOption");
-                this.screeningOptionsMenuItem.Text = Languages.Libs.GetString("screeningOption");
-
-                this.sysOptionMenuItem.Text = Languages.Libs.GetString("sysOptions");
-
-                this.windowsMenuItem.Text = Languages.Libs.GetString("windows");
-                this.closeAllMenuItem.Text = Languages.Libs.GetString("closeAll");
-
-                this.feedbackMenuItem.Text = Languages.Libs.GetString("feedback");
-                this.helpMenuItem.Text = Languages.Libs.GetString("help");
-                this.contentsMenuItem.Text = Languages.Libs.GetString("contents");
-                this.indexMenuItem.Text = Languages.Libs.GetString("index");
-                this.searchMenuItem.Text = Languages.Libs.GetString("search");
-                this.aboutMenuItem.Text = Languages.Libs.GetString("about");
-
-                this.screeningMenuItem.Text = Languages.Libs.GetString("screening");
-                this.orderMenuItem.Text = Languages.Libs.GetString("order");
-                this.strategyEstimationMenuItem.Text = Languages.Libs.GetString("strategyEstimation");
-                this.screeningMenuItem.Text = Languages.Libs.GetString("screening");
-
-                this.feedbackStripItem.Text = Languages.Libs.GetString("feedback");
-
-
-                //Create indicator menu
-                indicatorMenuItem.DropDownItems.Clear();
-                application.Indicators.Libs.CreateIndicatorMenu(indicatorMenuItem, showIndicatorHandler);
-
-                //Strategy menu
-                strategyEstimationMenuItem.DropDownItems.Clear();
-                application.Strategy.Libs.CreateMenu(AppTypes.StrategyTypes.Strategy, strategyEstimationMenuItem, PlotTradepointHandler);
-
-                strategyOptionsMenuItem.DropDownItems.Clear();
-                application.Strategy.Libs.CreateMenu(AppTypes.StrategyTypes.Strategy, strategyOptionsMenuItem, StrategyParaEditHandler);
-
-                screeningOptionsMenuItem.DropDownItems.Clear();
-                application.Strategy.Libs.CreateMenu(AppTypes.StrategyTypes.Screening, screeningOptionsMenuItem, StrategyParaEditHandler);
-
-                strategyCbStrip.Items.Clear();
-                strategyCbStrip.LoadData();
-
-                //Tool tip
-                this.addChartBtn.ToolTipText = this.NewChartMenuItem.Text;
-                this.printChartBtn.ToolTipText = this.printMenuItem.Text;
-
-                this.transHistoryBtn.ToolTipText = this.transHistoryMenuItem.Text;
-                this.marketWatchBtn.ToolTipText = this.marketWatchMenuItem.Text;
-                this.tradeAlertBtn.ToolTipText = this.tradeAlertMenuItem.Text;
-                this.myPortfolioBtn.ToolTipText = this.myPortfolioMenuItem.Text;
-                this.chartPropertiesBtn.ToolTipText = this.chartPropertyMenuItem.Text;
-
-                this.lineChartBtn.ToolTipText = this.lineChartMenuItem.Text;
-                this.barChartBtn.ToolTipText = this.barChartMenuItem.Text;
-                this.candleSticksBtn.ToolTipText = this.candleSticksMenuItem.Text;
-                this.chartVolumeBtn.ToolTipText = this.chartVolumeMenuItem.Text;
-
-                this.zoomInBtn.ToolTipText = this.zoomInMenuItem.Text;
-                this.zoomOutBtn.ToolTipText = this.zoomOutMenuItem.Text;
-                this.chartRefreshBtn.ToolTipText = this.chartPropertyMenuItem.Text;
-            }
-            catch (Exception er)
-            {
-                this.ShowError(er);
-            }
-        }
-
-        //Check user config file
-        protected override bool CheckValid()
-        {
-            if(!base.CheckValid()) return false;
-
-            if (!DataAccess.Libs.OpenConnection())
-            {
-                ShowConfigForm();
-                if (!DataAccess.Libs.OpenConnection())
-                {
-                    commonClass.SysLibs.WriteSysLog(AppTypes.SyslogTypes.Others, null, "Invalid configuration file :" + common.Settings.sysConfigFile);
-                    return false;
-                }
-            }
-            //Ensure that user.xml file is valid
-            if (!common.xmlLibs.IsValidXML(commonTypes.Settings.sysUserConfigFile))
-            {
-                commonClass.SysLibs.WriteSysLog(AppTypes.SyslogTypes.Others, null,"Invalid configuration file :" +  commonTypes.Settings.sysUserConfigFile);
-                if (!common.xmlLibs.CreateEmptyXML(commonTypes.Settings.sysUserConfigFile,true)) return false;
-            }
-            return true;
-        }
-
-        private void SetCulture(AppTypes.LanguageCodes code)
-        {
-            Settings.sysLanguage = code;
-            common.language.myCulture = AppTypes.Code2Culture(code);
-            switch (code)
-            {
-                case AppTypes.LanguageCodes.VI: 
-                    vietnameseMenuItem.Checked = true;
-                    englishMenuItem.Checked = false;
-                    break;
-                default:
-                    vietnameseMenuItem.Checked = false;
-                    englishMenuItem.Checked = true;
-                    break;
-            }
-            common.language.SetLanguage();
-            commonClass.SysLibs.SetLanguage();
-            application.Strategy.Data.Clear();
-            application.Indicators.Data.Clear();
-            SetLanguage();
-            SetLanguageAllOpenForms();
-        }
-
-        private void SetLanguageAllOpenForms()
-        {
-            ContextMenuStrip tradeAnalysisContextMenu = CreateContextMenu_TradeAnalysis();
-            foreach (Form form in Application.OpenForms)
-            {
-                System.Reflection.MethodInfo method = form.GetType().GetMethod("SetLanguage");
-                try
-                {
-                    if (method != null)
-                        method.Invoke(form, null);
-                }
-                catch (Exception er)
-                {
-                    ShowError(er);
-                }
-
-                if (form.GetType() == typeof(Tools.Forms.tradeAnalysis))
-                {
-                    (form as Tools.Forms.tradeAnalysis).myContextMenuStrip = tradeAnalysisContextMenu;
-                }
-                if (form.GetType() == typeof(Trade.Forms.tradeAlertList))
-                {
-                    (form as Trade.Forms.tradeAlertList).myContextMenuStrip = CreateContextMenu_TradeAlert();
-                }
-                if (form.GetType() == typeof(Trade.Forms.marketWatch))
-                {
-                    (form as Trade.Forms.marketWatch).myContextMenuStrip = CreateContextMenu_MarketWatch();
-                }
-            }
-        }
-
-        /// <summary>
-        /// Startup Form - Login
-        /// </summary>
-        /// <returns></returns>
-        protected override bool ShowLogin()
-        {
-            if (!base.ShowLogin())
-            {
-                System.Environment.Exit(1);
-                return false;
-            }
-            CloseAllForms();
-            return true;
-        }
-
-        private common.DictionaryList cachedForms = new common.DictionaryList();  // To cache used forms 
-
-        protected override bool LoadUserConfig()
-        {
-            if (!base.LoadUserConfig()) return false;
-            SetCulture(Settings.sysLanguage);
-
-            // Restore the last settings from user config file.
-            marketWatchMenuItem.Checked = application.Configuration.GetDefaultFormState("marketWatch");
-            tradeAlertMenuItem.Checked = application.Configuration.GetDefaultFormState("tradeAlert");
-            myPortfolioMenuItem.Checked = application.Configuration.GetDefaultFormState("portfolio");
-            transHistoryMenuItem.Checked = application.Configuration.GetDefaultFormState("transHistory");
-
-            OpenDefaultForm();
-            SetTimer(true);
-            return true;
-        }
-        protected override bool SaveUserConfig()
-        {
-            return application.Configuration.SetDefaultFormState("marketWatch", marketWatchMenuItem.Checked)&&
-                   application.Configuration.SetDefaultFormState("tradeAlert", tradeAlertMenuItem.Checked) &&
-                   application.Configuration.SetDefaultFormState("portfolio", myPortfolioMenuItem.Checked) &&
-                   application.Configuration.SetDefaultFormState("transHistory", transHistoryMenuItem.Checked);
         }
 
         private void OpenDefaultForm()
@@ -1087,8 +875,227 @@ namespace client
                                  (curContent.GetType() == typeof(Tools.Forms.screening)) ||
                                  (curContent.GetType() == typeof(Tools.Forms.strategyRanking));
             formatStrip.Enabled = toolsStrip.Enabled;
-            
+
         }
+
+        #region overwtite functions
+        protected override bool LoadUserConfig()
+        {
+            if (!base.LoadUserConfig()) return false;
+            SetCulture(Settings.sysLanguage);
+
+            // Restore the last settings from user config file.
+            marketWatchMenuItem.Checked = application.Configuration.GetDefaultFormState("marketWatch");
+            tradeAlertMenuItem.Checked = application.Configuration.GetDefaultFormState("tradeAlert");
+            myPortfolioMenuItem.Checked = application.Configuration.GetDefaultFormState("portfolio");
+            transHistoryMenuItem.Checked = application.Configuration.GetDefaultFormState("transHistory");
+
+            OpenDefaultForm();
+            SetTimer(true);
+            return true;
+        }
+        protected override bool SaveUserConfig()
+        {
+            return application.Configuration.SetDefaultFormState("marketWatch", marketWatchMenuItem.Checked) &&
+                   application.Configuration.SetDefaultFormState("tradeAlert", tradeAlertMenuItem.Checked) &&
+                   application.Configuration.SetDefaultFormState("portfolio", myPortfolioMenuItem.Checked) &&
+                   application.Configuration.SetDefaultFormState("transHistory", transHistoryMenuItem.Checked);
+        }
+
+        protected override void ProcessSysTimerTick()
+        {
+            base.ProcessSysTimerTick();
+            if (!Settings.sysAutoRefreshData) return;
+
+            if (RefreshDataProc == null)
+            {
+                RefreshDataProc = new common.TimerProcess();
+                RefreshDataProc.WaitInSeconds = Settings.sysGlobal.RefreshDataInSecs;
+                RefreshDataProc.OnProcess += new common.TimerProcess.OnProcessEvent(RefreshData);
+            }
+            RefreshDataProc.Execute();
+
+            if (RefreshAlertProc == null)
+            {
+                RefreshAlertProc = new common.TimerProcess();
+                RefreshAlertProc.WaitInSeconds = Settings.sysGlobal.CheckAlertInSeconds;
+                RefreshAlertProc.OnProcess += new common.TimerProcess.OnProcessEvent(RefreshAlert);
+            }
+            RefreshAlertProc.Execute();
+        }
+        /// <summary>
+        /// Set language for controls's main form
+        /// </summary>
+        public override void SetLanguage()
+        {
+            try
+            {
+                base.SetLanguage();
+                this.FileMenuStrip.Text = Languages.Libs.GetString("file");
+                this.loginMenuItem.Text = Languages.Libs.GetString("login");
+                this.logOutMenuItem.Text = Languages.Libs.GetString("logout");
+                this.changePassMenuItem.Text = Languages.Libs.GetString("changePassword");
+                this.MyProfileMenuItem.Text = Languages.Libs.GetString("myProfile"); ;
+
+
+                this.NewChartMenuItem.Text = Languages.Libs.GetString("openChart");
+                this.closeChartMenuItem.Text = Languages.Libs.GetString("closeChart");
+
+                this.configMenuItem.Text = Languages.Libs.GetString("configure");
+                this.printSetupMenuItem.Text = Languages.Libs.GetString("printSetup");
+                this.printPreViewMenuItem.Text = Languages.Libs.GetString("printPreview");
+                this.printMenuItem.Text = Languages.Libs.GetString("print");
+                this.exitMenuItem.Text = Languages.Libs.GetString("exit");
+
+                this.editMenuStrip.Text = Languages.Libs.GetString("edit");
+                this.undoMenuItem.Text = Languages.Libs.GetString("undo");
+                this.redoMenuItem.Text = Languages.Libs.GetString("redo");
+                this.copyMenuItem.Text = Languages.Libs.GetString("copy");
+                this.cutMenuItem.Text = Languages.Libs.GetString("cut");
+                this.pasteMenuItem.Text = Languages.Libs.GetString("paste");
+                this.deleteMenuItem.Text = Languages.Libs.GetString("delete");
+                this.selectAllMenuItem.Text = Languages.Libs.GetString("selectAll");
+
+                this.viewMenuStrip.Text = Languages.Libs.GetString("view");
+                this.languageMenuItem.Text = Languages.Libs.GetString("language");
+                this.englishMenuItem.Text = Languages.Libs.GetString("english");
+                this.vietnameseMenuItem.Text = Languages.Libs.GetString("vietnamese");
+
+                this.toolBarMenuItem.Text = Languages.Libs.GetString("toolBar");
+                this.tbStandardMenuItem.Text = Languages.Libs.GetString("standard");
+                this.tbChartMenuItem.Text = Languages.Libs.GetString("chart");
+                this.tbPeriodicityMenuItem.Text = Languages.Libs.GetString("periodicity");
+
+                this.marketWatchMenuItem.Text = Languages.Libs.GetString("marketWatch");
+                this.tradeAlertMenuItem.Text = Languages.Libs.GetString("tradeAlert");
+                this.transHistoryMenuItem.Text = Languages.Libs.GetString("transHistory");
+                this.myPortfolioMenuItem.Text = Languages.Libs.GetString("myPortfolio");
+                this.strategyEstimationiMenuItem.Text = Languages.Libs.GetString("strategyEstimation");
+
+                this.chartMenuStrip.Text = Languages.Libs.GetString("chart");
+                this.indicatorMenuItem.Text = Languages.Libs.GetString("indicator");
+                this.chartMenuItem.Text = Languages.Libs.GetString("chart");
+                this.lineChartMenuItem.Text = Languages.Libs.GetString("lineChart");
+                this.barChartMenuItem.Text = Languages.Libs.GetString("barChart");
+                this.candleSticksMenuItem.Text = Languages.Libs.GetString("candleSticks");
+                this.chartGridMenuItem.Text = Languages.Libs.GetString("chartGrid");
+                this.periodicityMenuItem.Text = Languages.Libs.GetString("periodicity");
+                this.zoomInMenuItem.Text = Languages.Libs.GetString("zoomIn");
+                this.zoomOutMenuItem.Text = Languages.Libs.GetString("zoomOut");
+                this.chartVolumeMenuItem.Text = Languages.Libs.GetString("chartVolume");
+                this.chartPropertyMenuItem.Text = Languages.Libs.GetString("chartProperty");
+
+                this.toolsMenuItem.Text = Languages.Libs.GetString("tools");
+                this.backTestingMenuItem.Text = Languages.Libs.GetString("backTesting");
+                this.strategyRankingMenuItem.Text = Languages.Libs.GetString("strategyRanking");
+                this.companyListMenuItem.Text = Languages.Libs.GetString("companyList");
+                this.marketSummaryMenuItem.Text = Languages.Libs.GetString("marketSummary");
+
+                this.toolOptionMenu.Text = Languages.Libs.GetString("toolAllOptions");
+                this.strategyOptionsMenuItem.Text = Languages.Libs.GetString("strategyOption");
+                this.screeningOptionsMenuItem.Text = Languages.Libs.GetString("screeningOption");
+
+                this.sysOptionMenuItem.Text = Languages.Libs.GetString("sysOptions");
+
+                this.windowsMenuItem.Text = Languages.Libs.GetString("windows");
+                this.closeAllMenuItem.Text = Languages.Libs.GetString("closeAll");
+
+                this.feedbackMenuItem.Text = Languages.Libs.GetString("feedback");
+                this.helpMenuItem.Text = Languages.Libs.GetString("help");
+                this.contentsMenuItem.Text = Languages.Libs.GetString("contents");
+                this.indexMenuItem.Text = Languages.Libs.GetString("index");
+                this.searchMenuItem.Text = Languages.Libs.GetString("search");
+                this.aboutMenuItem.Text = Languages.Libs.GetString("about");
+
+                this.screeningMenuItem.Text = Languages.Libs.GetString("screening");
+                this.orderMenuItem.Text = Languages.Libs.GetString("order");
+                this.strategyEstimationMenuItem.Text = Languages.Libs.GetString("strategyEstimation");
+                this.screeningMenuItem.Text = Languages.Libs.GetString("screening");
+
+                this.feedbackStripItem.Text = Languages.Libs.GetString("feedback");
+
+
+                //Create indicator menu
+                indicatorMenuItem.DropDownItems.Clear();
+                application.Indicators.Libs.CreateIndicatorMenu(indicatorMenuItem, showIndicatorHandler);
+
+                //Strategy menu
+                strategyEstimationMenuItem.DropDownItems.Clear();
+                application.Strategy.Libs.CreateMenu(AppTypes.StrategyTypes.Strategy, strategyEstimationMenuItem, PlotTradepointHandler);
+
+                strategyOptionsMenuItem.DropDownItems.Clear();
+                application.Strategy.Libs.CreateMenu(AppTypes.StrategyTypes.Strategy, strategyOptionsMenuItem, StrategyParaEditHandler);
+
+                screeningOptionsMenuItem.DropDownItems.Clear();
+                application.Strategy.Libs.CreateMenu(AppTypes.StrategyTypes.Screening, screeningOptionsMenuItem, StrategyParaEditHandler);
+
+                strategyCbStrip.Items.Clear();
+                strategyCbStrip.LoadData();
+
+                //Tool tip
+                this.addChartBtn.ToolTipText = this.NewChartMenuItem.Text;
+                this.printChartBtn.ToolTipText = this.printMenuItem.Text;
+
+                this.transHistoryBtn.ToolTipText = this.transHistoryMenuItem.Text;
+                this.marketWatchBtn.ToolTipText = this.marketWatchMenuItem.Text;
+                this.tradeAlertBtn.ToolTipText = this.tradeAlertMenuItem.Text;
+                this.myPortfolioBtn.ToolTipText = this.myPortfolioMenuItem.Text;
+                this.chartPropertiesBtn.ToolTipText = this.chartPropertyMenuItem.Text;
+
+                this.lineChartBtn.ToolTipText = this.lineChartMenuItem.Text;
+                this.barChartBtn.ToolTipText = this.barChartMenuItem.Text;
+                this.candleSticksBtn.ToolTipText = this.candleSticksMenuItem.Text;
+                this.chartVolumeBtn.ToolTipText = this.chartVolumeMenuItem.Text;
+
+                this.zoomInBtn.ToolTipText = this.zoomInMenuItem.Text;
+                this.zoomOutBtn.ToolTipText = this.zoomOutMenuItem.Text;
+                this.chartRefreshBtn.ToolTipText = this.chartPropertyMenuItem.Text;
+            }
+            catch (Exception er)
+            {
+                this.ShowError(er);
+            }
+        }
+
+        //Check user config file
+        protected override bool CheckValid()
+        {
+            if (!base.CheckValid()) return false;
+
+            if (!DataAccess.Libs.OpenConnection())
+            {
+                ShowConfigForm();
+                if (!DataAccess.Libs.OpenConnection())
+                {
+                    commonClass.SysLibs.WriteSysLog(AppTypes.SyslogTypes.Others, null, "Invalid configuration file :" + common.Settings.sysConfigFile);
+                    return false;
+                }
+            }
+            //Ensure that user.xml file is valid
+            if (!common.xmlLibs.IsValidXML(commonTypes.Settings.sysUserConfigFile))
+            {
+                commonClass.SysLibs.WriteSysLog(AppTypes.SyslogTypes.Others, null, "Invalid configuration file :" + commonTypes.Settings.sysUserConfigFile);
+                if (!common.xmlLibs.CreateEmptyXML(commonTypes.Settings.sysUserConfigFile, true)) return false;
+            }
+            return true;
+        }
+
+        /// <summary>
+        /// Startup Form - Login
+        /// </summary>
+        /// <returns></returns>
+        protected override bool ShowLogin()
+        {
+            if (!base.ShowLogin())
+            {
+                System.Environment.Exit(1);
+                return false;
+            }
+            CloseAllForms();
+            return true;
+        }
+
+        #endregion
 
         #region event handler
 
@@ -1971,6 +1978,19 @@ namespace client
                 this.ShowError(er);
             }
         }
+
+        private void chartLeverageBtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ChartLeverage();
+            }
+            catch (Exception er)
+            {
+                this.ShowError(er);
+            }
+        }
+
         #endregion event handler
 
         private void testMenuItem_Click(object sender, EventArgs e)
@@ -1987,21 +2007,5 @@ namespace client
             }
         }
 
-
-        private void chartLeveling()
-        {
-        }
-
-        private void chartLevelkBtn_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                chartLeveling();
-            }
-            catch (Exception er)
-            {
-                this.ShowError(er);
-            }
-        }
     }
 }
