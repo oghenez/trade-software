@@ -606,7 +606,7 @@
     <TwoSMA_VolumeFilter Version="1.0" />
   </STRATEGY>
 
-  <STRATEGY>
+  <!--<STRATEGY>
     <ConsecutiveUpDown Code="STR027"/>
     <ConsecutiveUpDown Category="TRE" />
     <ConsecutiveUpDown Parameters="Days down=5,Days Up=5" />
@@ -616,7 +616,7 @@
     <ConsecutiveUpDown URL="http://www.quantum.vn" />
     <ConsecutiveUpDown Authors="Quan Nguyen" />
     <ConsecutiveUpDown Version="1.0" />
-  </STRATEGY>
+  </STRATEGY>-->
 
   <STRATEGY>
     <BasicSAR Code="STR028"/>
@@ -644,7 +644,7 @@
     <TwoSMA_SAR Version="1.0" />
   </STRATEGY>
 
-  <STRATEGY>
+  <!--<STRATEGY>
     <BasicAroon Code="STR030"/>
     <BasicAroon Category="TRE" />
     <BasicAroon Parameters="Period=25,Stop Loss Level (%)=5,Take Profit Level (%)=200" />
@@ -654,7 +654,7 @@
     <BasicAroon URL="http://www.quantum.vn" />
     <BasicAroon Authors="Quan Nguyen" />
     <BasicAroon Version="1.0" />
-  </STRATEGY>
+  </STRATEGY>-->
 
   <STRATEGY>
     <TSFLIN Code="STR031"/>
@@ -845,7 +845,7 @@
     <HybridTest Category="HFT" />
     <HybridTest Parameters="ATR Period=14,SMA Short Period=5,SMA Long Period=10,Stop Loss Level (%)=5,Trailing Stop (%)=15, Take Profit Level (%)=200" />
     <HybridTest ParameterDescriptions="Period is the period for the short term moving average line." />
-    <HybridTest Name="Testing Hybrid ATR-SMA" />
+    <HybridTest Name="HybridTest: Testing Hybrid ATR-SMA " />
     <HybridTest Description="Testing Hybrid ATR-SMA" />
     <HybridTest URL="http://www.quantum.vn" />
     <HybridTest Authors="Quan Nguyen" />
