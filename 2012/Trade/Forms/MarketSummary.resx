@@ -118,11 +118,8 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <metadata name="myToolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-<<<<<<< .mine
     <value>138, 17</value>
-=======
     <value>144, 17</value>
->>>>>>> .r536
   </metadata>
   <metadata name="openColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -134,18 +131,12 @@
     <value>True</value>
   </metadata>
   <metadata name="dataVarrianceSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-<<<<<<< .mine
     <value>241, 17</value>
-=======
     <value>253, 17</value>
->>>>>>> .r536
   </metadata>
   <metadata name="myTmpDS.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-<<<<<<< .mine
     <value>395, 17</value>
-=======
     <value>417, 17</value>
->>>>>>> .r536
   </metadata>
   <metadata name="myTmpDS.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>395, 17</value>
