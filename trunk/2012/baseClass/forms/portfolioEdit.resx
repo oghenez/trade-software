@@ -118,44 +118,43 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <metadata name="myDataSet.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>264, 17</value>
+    <value>253, 17</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="editBtn.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAYAAAAfSC3RAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAAlwSFlzAAALEwAA
-        CxMBAJqcGAAAAn9JREFUOE9lkF9IU1Ecx6/inNvQFVmCD/UQUVzpKXpKe1yaPmhlJK07rJnmegjJsUnZ
-        W/QHmqFgktMyU/yHf9Iprjk1k2n70/4IEZZkpA8lmtfNuevut3tuWYYHPpzvOd/v+f3OOTHUtqEpZiQX
-        8tUr/d2D8lV2VXSUSUoqJy8z1NHatMtc38xtz1Ozn+ZiyEa50bD4xGyGw+FCQ2MTGp81Y3ragzpzA8qN
-        xkWS2cr+LeD1zwhmJd8zMMQXFmq54eHX7OCQlb18Rcv1Waz8TcMt3usL4L+OZFGqu4G2TgsKLhVh2uko
-        2wq893lMBWot2rssIJkdBxmNBi86XiH/vGaHmXdWjZdd/WAY5p+3yP5Is9t7UZS7h2/p00OnOcI/ry/A
-        0zq1wEUQXcoc5lt69biam8zbR/uwwC4dpTzeN7TpTg6WHYcQ+paB8HwG1r4eR/DLMRGiw/PpCC2cxPLk
-        QZCs2ztOUy6/j66qzEF4XIqNuUREPySDmz2A8OdkEaKjH/eJXmQiAabb2XD5fDTl9U3RtYZscN1KrL3b
-        C96RAs6jhKksVYRo3pGKkDMFmz1K1BqzQc5Q7sAkXWM8jUi7BKERCbiRJESdMuhO/SbqlGNzVIJ1eywi
-        bQrUGISrBiZoaiowQz+qOAe2Mx7rNgoRaxwwFo+x+/tFiOZssUJRCkEhQ7JTgYDQ0W+jq42ZCLcmIGIR
-        OlgU2HhLgZ1UiBAdHVAKnlC4PRbVFSq4/cLnOD1Oukp/BsGuRITtUsAmA6xyATL/0Ta54MUh2CPDY30u
-        XB43Tc2v/KSrH95FSTqFayoFdKrdYLLioc2UijBZUlwX3lqikqH4hNDxwT3MLX1P+wXahq8F1VfeGQAA
-        AABJRU5ErkJggg==
+        YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAAlwSFlzAAALEgAA
+        CxIB0t1+/AAAAnRJREFUOE9lkFtIk2EYx7+Gc85hI1oJXtRFRPFJV9FV2uXS9MKOIM1vmDMP20WNHJuU
+        3UUHaIaCSakdDU1JLadszqnZ2GyHdhAirNEivSixmJtzn/v+vd/XSdgLP54//P/P87zvS1GbjrqOEY9N
+        WONa7UVUMTUCOp0e43ZrvEajEm/OCnrhY2QLX5tMxqW7XV1wubzo7nmEngdPMDfnR2dXN5pMpqXN2X9D
+        AqF5YrZwQ6PjXHW1hrVaJ2Jj47bYuRoNO2KxcZeMl7lAMIyMrY3aC+gbsKCyqhZzHpf+b+Bd0G+uVGnQ
+        P2gBn8loZNRqPH7+EqfPqDPM4ydVeDr4CgzD/PeWYt8LHY5h1FZs53pHDNCq93MP71fiXqeKcBa8bmT2
+        cb3DBpyvUHCOqREsxpYPUP7Aa9p8tRwrrr1IfC1GMlqM1S+HEP98UIDXyWgREotHsOLcAz7rC8zQlDcU
+        pFtbypGckWA9kof0ewXYhd1IflII8Dr9YafgpWZzYL5SBm8wSFOBoJvuMJaBfSHH6tsd4Fz5YP1ymPUF
+        ArzmXAVIePKxMSRHh6kMfA/lCzvpdtMxpPrFSEyKwU5uRdojhfbob9KeXGxMibHmECHVJ0O7kVw1PEtT
+        7vA8fbv5FGID2VizU0jZsoDpbEzf2CXAa9YuIkMpxEmGz7rDYbIxZKfbTCVIPstBykI2WGRYf0Mh5pQJ
+        8Do9KiceGdwvQluzEr4Q+RyP30O3Gk4gPpiHpEMC2KWALZfA1z/anku8LMSHpLhjqIDX76Op6I+fdNut
+        a6gvotCglEGr3AamNBuaEokAUyqBjry1XilF3WGy8eZ1RJa/Ff4CIxOxZAaslH8AAAAASUVORK5CYII=
 </value>
   </data>
   <metadata name="myToolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>151, 17</value>
+    <value>144, 17</value>
   </metadata>
   <metadata name="portfolioSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>380, 17</value>
+    <value>364, 17</value>
   </metadata>
   <metadata name="investorStockSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>521, 17</value>
+    <value>500, 17</value>
   </metadata>
   <metadata name="stockCodeSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>692, 17</value>
+    <value>662, 17</value>
   </metadata>
   <metadata name="transHistorySource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 56</value>
   </metadata>
   <metadata name="tradeActionSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>180, 56</value>
+    <value>172, 56</value>
   </metadata>
   <metadata name="stockNameColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>

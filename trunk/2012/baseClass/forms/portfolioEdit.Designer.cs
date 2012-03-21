@@ -31,6 +31,8 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(portfolioEdit));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.portfolioSource = new System.Windows.Forms.BindingSource(this.components);
             this.investorStockSource = new System.Windows.Forms.BindingSource(this.components);
             this.stockCodeSource = new System.Windows.Forms.BindingSource(this.components);
@@ -190,7 +192,7 @@
             this.xpPanelGroup_Info.Name = "xpPanelGroup_Info";
             this.xpPanelGroup_Info.PanelGradient = ((UIComponents.GradientColor)(resources.GetObject("xpPanelGroup_Info.PanelGradient")));
             this.xpPanelGroup_Info.PanelSpacing = 0;
-            this.xpPanelGroup_Info.Size = new System.Drawing.Size(483, 730);
+            this.xpPanelGroup_Info.Size = new System.Drawing.Size(483, 706);
             this.xpPanelGroup_Info.TabIndex = 360;
             // 
             // xpPane_ownedStock
@@ -215,7 +217,7 @@
             this.xpPane_ownedStock.PanelGradient.End = System.Drawing.SystemColors.Control;
             this.xpPane_ownedStock.PanelGradient.Start = System.Drawing.SystemColors.Control;
             this.xpPane_ownedStock.PanelGradientMode = System.Drawing.Drawing2D.LinearGradientMode.Horizontal;
-            this.xpPane_ownedStock.Size = new System.Drawing.Size(483, 352);
+            this.xpPane_ownedStock.Size = new System.Drawing.Size(466, 352);
             this.xpPane_ownedStock.TabIndex = 363;
             this.xpPane_ownedStock.TextColors.Foreground = System.Drawing.SystemColors.Control;
             this.xpPane_ownedStock.TextHighlightColors.Foreground = System.Drawing.SystemColors.ActiveCaptionText;
@@ -229,12 +231,28 @@
             this.stockGrid.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)));
             this.stockGrid.AutoGenerateColumns = false;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.stockGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.stockGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.stockGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.stockCodeColumn,
             this.stockNameColumn,
             this.qtyColumn});
             this.stockGrid.DataSource = this.investorStockSource;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.stockGrid.DefaultCellStyle = dataGridViewCellStyle3;
             this.stockGrid.Location = new System.Drawing.Point(2, 34);
             this.stockGrid.Name = "stockGrid";
             this.stockGrid.ReadOnly = true;
@@ -266,10 +284,10 @@
             // qtyColumn
             // 
             this.qtyColumn.DataPropertyName = "qty";
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle1.Format = "N0";
-            dataGridViewCellStyle1.NullValue = null;
-            this.qtyColumn.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle2.Format = "N0";
+            dataGridViewCellStyle2.NullValue = null;
+            this.qtyColumn.DefaultCellStyle = dataGridViewCellStyle2;
             this.qtyColumn.HeaderText = "Qty";
             this.qtyColumn.Name = "qtyColumn";
             this.qtyColumn.ReadOnly = true;
@@ -309,7 +327,7 @@
             this.xpPanel_Investment.PanelGradient.End = System.Drawing.SystemColors.Control;
             this.xpPanel_Investment.PanelGradient.Start = System.Drawing.SystemColors.Control;
             this.xpPanel_Investment.PanelGradientMode = System.Drawing.Drawing2D.LinearGradientMode.Horizontal;
-            this.xpPanel_Investment.Size = new System.Drawing.Size(483, 163);
+            this.xpPanel_Investment.Size = new System.Drawing.Size(466, 163);
             this.xpPanel_Investment.TabIndex = 362;
             this.xpPanel_Investment.TextColors.Foreground = System.Drawing.SystemColors.Control;
             this.xpPanel_Investment.TextHighlightColors.Foreground = System.Drawing.SystemColors.ActiveCaptionText;
@@ -533,7 +551,7 @@
             this.xpPane_generalInfo.PanelGradient.End = System.Drawing.SystemColors.Control;
             this.xpPane_generalInfo.PanelGradient.Start = System.Drawing.SystemColors.Control;
             this.xpPane_generalInfo.PanelGradientMode = System.Drawing.Drawing2D.LinearGradientMode.Horizontal;
-            this.xpPane_generalInfo.Size = new System.Drawing.Size(483, 214);
+            this.xpPane_generalInfo.Size = new System.Drawing.Size(466, 214);
             this.xpPane_generalInfo.TabIndex = 6;
             this.xpPane_generalInfo.TextColors.Foreground = System.Drawing.SystemColors.Control;
             this.xpPane_generalInfo.TextHighlightColors.Foreground = System.Drawing.SystemColors.ActiveCaptionText;
@@ -630,7 +648,7 @@
             this.portfolioGrid.ReadOnly = true;
             this.portfolioGrid.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.portfolioGrid.RowTemplate.Height = 24;
-            this.portfolioGrid.Size = new System.Drawing.Size(363, 777);
+            this.portfolioGrid.Size = new System.Drawing.Size(363, 753);
             this.portfolioGrid.TabIndex = 361;
             this.portfolioGrid.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.grid_DataError);
             // 
@@ -653,9 +671,10 @@
             // portfolioEdit
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(846, 798);
+            this.ClientSize = new System.Drawing.Size(846, 774);
             this.Controls.Add(this.xpPanelGroup_Info);
             this.Controls.Add(this.portfolioGrid);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "portfolioEdit";
             this.Text = "Portfolio";
