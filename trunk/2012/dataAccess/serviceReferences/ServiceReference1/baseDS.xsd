@@ -96,6 +96,19 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="interestedCode">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="code">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
         <xs:element name="tradeEstimate">
           <xs:complexType>
             <xs:sequence>
@@ -191,7 +204,6 @@
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element minOccurs="0" name="transVolume" type="xs:decimal" />
               <xs:element minOccurs="0" name="profitVariantAmt" type="xs:decimal" />
               <xs:element minOccurs="0" name="nameEn">
                 <xs:simpleType>
@@ -217,6 +229,8 @@
               <xs:element minOccurs="0" name="value" type="xs:decimal" />
               <xs:element minOccurs="0" name="percent" type="xs:decimal" />
               <xs:element minOccurs="0" name="notes" type="xs:string" />
+              <xs:element minOccurs="0" name="val1" type="xs:decimal" />
+              <xs:element minOccurs="0" name="val2" type="xs:decimal" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -234,6 +248,10 @@
       <xs:selector xpath=".//investorStock" />
       <xs:field xpath="stockCode" />
       <xs:field xpath="portfolio" />
+    </xs:unique>
+    <xs:unique msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true" name="interestedCode_Constraint1">
+      <xs:selector xpath=".//interestedCode" />
+      <xs:field xpath="code" />
     </xs:unique>
     <xs:unique msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true" name="codeList_Constraint1">
       <xs:selector xpath=".//codeList" />

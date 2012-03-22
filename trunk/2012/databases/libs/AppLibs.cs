@@ -619,24 +619,11 @@ namespace databases
         /// <returns></returns>
         public static tmpDS.dataVarrianceDataTable GetTopPriceVarriance(DateTime frDate, DateTime toDate, string timeScaleCode, int topN)
         {
-            baseDS.lastPriceDataDataTable closeTbl = DbAccess.GetLastPrice(AppTypes.PriceDataType.Close, toDate);
-            baseDS.lastPriceDataDataTable openTbl = DbAccess.GetLastPrice(AppTypes.PriceDataType.Open, frDate);  
-            tmpDS.dataVarrianceDataTable tmpDataTbl = new tmpDS.dataVarrianceDataTable();
-            
-            baseDS.lastPriceDataRow openPriceRow;
+            tmpDS.dataVarrianceDataTable tmpDataTbl = GetPriceVarriance(frDate,toDate,timeScaleCode);
             tmpDS.dataVarrianceRow dataRow;
-            for (int idx = 0; idx < closeTbl.Count; idx++)
-            {
-                openPriceRow = openTbl.FindBystockCode(closeTbl[idx].stockCode);
-                if ((openPriceRow == null)||(openPriceRow.value == 0) ) continue;
-                dataRow = tmpDataTbl.NewdataVarrianceRow();
-                dataRow.code = closeTbl[idx].stockCode;
-                dataRow.value = closeTbl[idx].value - openPriceRow.value;
-                dataRow.percent = dataRow.value / openPriceRow.value;
-                tmpDataTbl.AdddataVarrianceRow(dataRow);
-            }
             DataView dataView = new DataView(tmpDataTbl);
             dataView.Sort = tmpDataTbl.percentColumn + " DESC";
+            dataView.RowFilter = tmpDataTbl.valueColumn + "<>0";
 
             tmpDS.dataVarrianceDataTable dataTbl = new tmpDS.dataVarrianceDataTable();
             for (int idx = 0; idx < dataView.Count && idx < topN; idx++)
@@ -648,6 +635,51 @@ namespace databases
                 dataTbl.AdddataVarrianceRow(dataRow);
             }
             return dataTbl;
+        }
+        public static tmpDS.dataVarrianceDataTable GetTopPriceVarrianceOfUser(DateTime frDate, DateTime toDate,string timeScaleCode,string userCode, int topN)
+        {
+            tmpDS.interestedCodeDataTable interestedCodeTbl = new tmpDS.interestedCodeDataTable();
+            DbAccess.LoadData(interestedCodeTbl, userCode);
+            tmpDS.dataVarrianceDataTable tmpDataTbl = GetPriceVarriance(frDate, toDate, timeScaleCode);
+
+            tmpDS.dataVarrianceRow dataRow;
+            DataView dataView = new DataView(tmpDataTbl);
+            dataView.Sort = tmpDataTbl.percentColumn + " DESC";
+
+            tmpDS.dataVarrianceDataTable dataTbl = new tmpDS.dataVarrianceDataTable();
+            for (int idx1 = 0, idx2 = 0; idx1 < dataView.Count && idx2 < topN; idx1++)
+            {
+                if (interestedCodeTbl.FindBycode((dataView[idx1].Row as tmpDS.dataVarrianceRow).code) == null) continue;
+                dataRow = dataTbl.NewdataVarrianceRow();
+                dataRow.code = (dataView[idx1].Row as tmpDS.dataVarrianceRow).code;
+                dataRow.value = (dataView[idx1].Row as tmpDS.dataVarrianceRow).value;
+                dataRow.percent = (dataView[idx1].Row as tmpDS.dataVarrianceRow).percent;
+                dataTbl.AdddataVarrianceRow(dataRow);
+                idx2++;
+            }
+            return dataTbl;
+        }
+        private static tmpDS.dataVarrianceDataTable GetPriceVarriance(DateTime frDate, DateTime toDate, string timeScaleCode)
+        {
+            baseDS.lastPriceDataDataTable closeTbl = DbAccess.GetLastPrice(AppTypes.PriceDataType.Close, toDate);
+            baseDS.lastPriceDataDataTable openTbl = DbAccess.GetLastPrice(AppTypes.PriceDataType.Open, frDate);
+            tmpDS.dataVarrianceDataTable tmpDataTbl = new tmpDS.dataVarrianceDataTable();
+
+            baseDS.lastPriceDataRow openPriceRow;
+            tmpDS.dataVarrianceRow dataRow;
+            for (int idx = 0; idx < closeTbl.Count; idx++)
+            {
+                openPriceRow = openTbl.FindBystockCode(closeTbl[idx].stockCode);
+                if ((openPriceRow == null) || (openPriceRow.value == 0)) continue;
+                if (closeTbl[idx].value == openPriceRow.value) continue;
+
+                dataRow = tmpDataTbl.NewdataVarrianceRow();
+                dataRow.code = closeTbl[idx].stockCode;
+                dataRow.value = closeTbl[idx].value - openPriceRow.value;
+                dataRow.percent = dataRow.value / openPriceRow.value;
+                tmpDataTbl.AdddataVarrianceRow(dataRow);
+            }
+            return tmpDataTbl;
         }
 
         #endregion

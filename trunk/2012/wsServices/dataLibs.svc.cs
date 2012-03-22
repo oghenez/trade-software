@@ -1097,6 +1097,21 @@ namespace wsServices
             }
             return null;
         }
+
+        public databases.tmpDS.dataVarrianceDataTable GetTopPriceVarrianceOfUser(DateTime frDate, DateTime toDate, string timeScaleCode,string userCode, int topN)
+        {
+            try
+            {
+                return databases.AppLibs.GetTopPriceVarrianceOfUser(frDate, toDate, timeScaleCode,userCode, topN);
+            }
+            catch (Exception ex)
+            {
+                WriteSysLogLocal(ex);
+            }
+            return null;
+        }
+
+
         public DataTable Test(string sql)
         {
             DataTable tbl = new DataTable("testTbl");
