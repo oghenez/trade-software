@@ -623,8 +623,6 @@ namespace databases
             tmpDS.dataVarrianceRow dataRow;
             DataView dataView = new DataView(tmpDataTbl);
             dataView.Sort = tmpDataTbl.percentColumn + " DESC";
-            dataView.RowFilter = tmpDataTbl.valueColumn + "<>0";
-
             tmpDS.dataVarrianceDataTable dataTbl = new tmpDS.dataVarrianceDataTable();
             for (int idx = 0; idx < dataView.Count && idx < topN; idx++)
             {
