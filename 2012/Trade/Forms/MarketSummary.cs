@@ -97,24 +97,32 @@ namespace Trade.Forms
 
         private void Market_TopBiggestChange()
         {
-            //Weekly Market data
-            databases.tmpDS.dataVarrianceDataTable tbl = DataAccess.Libs.GetTopPriceVarrianceWeekly(5);
+            //Weekly Market data for user's interested code
+            databases.tmpDS.dataVarrianceDataTable tbl = DataAccess.Libs.GetTopPriceVarrianceWeeklyOfLoginUser(10);
+            //If NONE get weekly data of all the market
+            if (tbl.Count==0)  tbl = DataAccess.Libs.GetTopPriceVarrianceWeekly(10);
             decimal[] yValues = new decimal[tbl.Count];
             string[] xValues = new string[tbl.Count];
             StringCollection topCodes = new StringCollection();
+
+            int displayChartCount = Math.Min(tbl.Count, 5);
             for (int idx = 0; idx < tbl.Count; idx++)
             {
-                yValues[idx] = tbl[idx].percent;
-                xValues[idx] = tbl[idx].code;
+                if (idx < displayChartCount)
+                {
+                    yValues[idx] = tbl[idx].percent;
+                    xValues[idx] = tbl[idx].code;
+                }
                 topCodes.Add(tbl[idx].code);
             }
             top10biggestChangeChart.Series[0].Points.DataBindXY(xValues, yValues);
             top10biggestChangeChart.Series[0].ChartType = SeriesChartType.Doughnut;
 
+            
              for (int idx = 0; idx < top10biggestChangeChart.Series[0].Points.Count; idx++)
              {
-                //top10biggestChangeChart.Series[0].Points[idx]["Exploded"] = "true";
-                top10biggestChangeChart.Series[0].Points[idx].Label = xValues[idx] + Environment.NewLine +  (yValues[idx]).ToString("##%");
+                top10biggestChangeChart.Series[0].Points[idx].Label = xValues[idx] + common.Consts.constCRLF +  (yValues[idx]).ToString(commonTypes.Settings.sysMaskPercent + "%");
+                 //top10biggestChangeChart.Series[0].Points[idx]["Exploded"] = "true";
                 //top10biggestChangeChart.Series[0].Points[idx].Label = (yValues[idx]).ToString("##%");
              }
             // Set labels style
@@ -123,9 +131,6 @@ namespace Trade.Forms
 
             // Set Doughnut radius percentage
             top10biggestChangeChart.Series[0]["DoughnutRadius"] = "90";
-
-            // Explode data point with label "Italy"
-            //lineChart.Series[0].Points[0]["Exploded"] = "true";
 
             //Daily Market data
             Market_DataDailyChange(topCodes);

@@ -286,9 +286,12 @@ namespace wsServices
         void WriteExcptionLog(string investorCode, common.SysLog.LogData logData);
         
         [OperationContract]
-        DataTable Test(string sql);
+        databases.tmpDS.dataVarrianceDataTable GetTopPriceVarriance(DateTime frDate, DateTime toDate, string timeScaleCode, int topN);
 
         [OperationContract]
-        databases.tmpDS.dataVarrianceDataTable GetTopPriceVarriance(DateTime frDate, DateTime toDate, string timeScaleCode, int topN);
+        databases.tmpDS.dataVarrianceDataTable GetTopPriceVarrianceOfUser(DateTime frDate, DateTime toDate, string timeScaleCode, string userCode, int topN);
+
+        [OperationContract]
+        DataTable Test(string sql);
     }
 }

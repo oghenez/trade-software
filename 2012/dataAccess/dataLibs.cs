@@ -1725,7 +1725,7 @@ namespace DataAccess
         {
             try
             {
-                string cacheKey = MakeCacheKey("PriceVarriance", "Weekly");
+                string cacheKey = MakeCacheKey("PriceVarrianceWeekly", "Market");
                 object obj = GetCache(cacheKey);
                 if (obj != null) return (databases.tmpDS.dataVarrianceDataTable)obj;
 
@@ -1733,6 +1733,29 @@ namespace DataAccess
                 DateTime toDate = DateTime.Now.AddDays(-6);
                 DateTime frDate = toDate.AddDays(-7-6);
                 databases.tmpDS.dataVarrianceDataTable tbl = myClient.GetTopPriceVarriance(frDate, toDate, AppTypes.TimeScaleTypeToCode(AppTypes.TimeScaleTypes.Week), topN);
+                AddCache(cacheKey, tbl);
+                return tbl;
+            }
+            catch (Exception er)
+            {
+                if (OnError != null) OnError(er);
+            }
+            return null;
+        }
+
+        public static databases.tmpDS.dataVarrianceDataTable GetTopPriceVarrianceWeeklyOfLoginUser(byte topN)
+        {
+            try
+            {
+                string cacheKey = MakeCacheKey("PriceVarrianceWeekly", "Login");
+                object obj = GetCache(cacheKey);
+                if (obj != null) return (databases.tmpDS.dataVarrianceDataTable)obj;
+
+                //Maybe there are some holidays or weekend so wee need to look before some days 
+                DateTime toDate = DateTime.Now.AddDays(-6);
+                DateTime frDate = toDate.AddDays(-7 - 6);
+                databases.tmpDS.dataVarrianceDataTable tbl = myClient.GetTopPriceVarrianceOfUser(frDate, toDate, AppTypes.TimeScaleTypeToCode(AppTypes.TimeScaleTypes.Week),
+                                                                                                 commonClass.SysLibs.sysLoginCode,topN);
                 AddCache(cacheKey, tbl);
                 return tbl;
             }

@@ -51,11 +51,14 @@ namespace DataAccess.ServiceReference1 {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/WriteExcptionLog", ReplyAction="http://tempuri.org/IStockService/WriteExcptionLogResponse")]
         void WriteExcptionLog(string investorCode, common.SysLog.LogData logData);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/Test", ReplyAction="http://tempuri.org/IStockService/TestResponse")]
-        System.Data.DataTable Test(string sql);
-        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetTopPriceVarriance", ReplyAction="http://tempuri.org/IStockService/GetTopPriceVarrianceResponse")]
         databases.tmpDS.dataVarrianceDataTable GetTopPriceVarriance(System.DateTime frDate, System.DateTime toDate, string timeScaleCode, int topN);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetTopPriceVarrianceOfUser", ReplyAction="http://tempuri.org/IStockService/GetTopPriceVarrianceOfUserResponse")]
+        databases.tmpDS.dataVarrianceDataTable GetTopPriceVarrianceOfUser(System.DateTime frDate, System.DateTime toDate, string timeScaleCode, string userCode, int topN);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/Test", ReplyAction="http://tempuri.org/IStockService/TestResponse")]
+        System.Data.DataTable Test(string sql);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetBizSubSector_ByIndustry", ReplyAction="http://tempuri.org/IStockService/GetBizSubSector_ByIndustryResponse")]
         databases.baseDS.bizSubSectorDataTable GetBizSubSector_ByIndustry(string code);
@@ -385,12 +388,16 @@ namespace DataAccess.ServiceReference1 {
             base.Channel.WriteExcptionLog(investorCode, logData);
         }
         
-        public System.Data.DataTable Test(string sql) {
-            return base.Channel.Test(sql);
-        }
-        
         public databases.tmpDS.dataVarrianceDataTable GetTopPriceVarriance(System.DateTime frDate, System.DateTime toDate, string timeScaleCode, int topN) {
             return base.Channel.GetTopPriceVarriance(frDate, toDate, timeScaleCode, topN);
+        }
+        
+        public databases.tmpDS.dataVarrianceDataTable GetTopPriceVarrianceOfUser(System.DateTime frDate, System.DateTime toDate, string timeScaleCode, string userCode, int topN) {
+            return base.Channel.GetTopPriceVarrianceOfUser(frDate, toDate, timeScaleCode, userCode, topN);
+        }
+        
+        public System.Data.DataTable Test(string sql) {
+            return base.Channel.Test(sql);
         }
         
         public databases.baseDS.bizSubSectorDataTable GetBizSubSector_ByIndustry(string code) {
