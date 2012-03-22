@@ -28,7 +28,7 @@ namespace Charts
 
         //Default margins of the rectangle where charts are in.
         public static int sysChartMarginLEFT = 50;
-        public static int sysChartMarginRIGHT = 0;
+        public static int sysChartMarginRIGHT = 30;
         public static int sysChartMarginTOP = 0;
         public static int sysChartMarginBOT = 0;
 
@@ -39,7 +39,7 @@ namespace Charts
         public static int sysViewSpaceAtLEFT = 0;  //In percentage
         public static int sysViewSpaceAtRIGHT = 1; //1%
 
-        public static decimal sysViewSpaceAtTOP = 2; //1% percent
-        public static decimal sysViewSpaceAtBOT = 2; //1%
+        public static decimal sysViewSpaceAtTOP = 20; //1% percent
+        public static decimal sysViewSpaceAtBOT = 20; //1%
     }
 }

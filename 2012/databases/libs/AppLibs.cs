@@ -66,8 +66,8 @@ namespace databases
             row.equity = 0;
             row.totalDebt = 0;
             row.totaAssets = 0;
-            row.noOutstandingStock = 0;
-            row.noListedStock = 0;
+            row.noOutstandingStock = 1000000;
+            row.noListedStock = 1000000;
             row.noTreasuryStock = 0;
             row.noForeignOwnedStock = 0;
             row.bookPrice = 0;
