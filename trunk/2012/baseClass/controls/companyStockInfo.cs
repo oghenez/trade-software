@@ -55,7 +55,7 @@ namespace baseClass.controls
             this.targetPriceVariantEd.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.myDataSource, tbl.targetPriceVariantColumn.ColumnName, true));
 
             this.regDateEd.DataBindings.Clear();
-            this.regDateEd.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.myDataSource, tbl.regDateColumn.ColumnName, true));
+            this.regDateEd.DataBindings.Add(new System.Windows.Forms.Binding("myDateTime", this.myDataSource, tbl.regDateColumn.ColumnName, true));
             
             this.statusCb.DataBindings.Clear();
             this.statusCb.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.myDataSource, tbl.statusColumn.ColumnName, true));
@@ -116,6 +116,7 @@ namespace baseClass.controls
             if (myDataSource == null) return;
             if (myDataSource.Current == null) state = true;
             this.stockMarketCb.Enabled = !state;
+            this.tickerCodeEd.Enabled = !state;
 
             this.treasuryStockEd.Enabled = !state;
             this.listedStockEd.Enabled = !state;

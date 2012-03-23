@@ -54,7 +54,7 @@
             // 
             this.xpPanel_OtherInfo.ImageItems.ImageSet = null;
             this.xpPanel_OtherInfo.Location = new System.Drawing.Point(0, 536);
-            this.xpPanel_OtherInfo.Size = new System.Drawing.Size(483, 262);
+            this.xpPanel_OtherInfo.Size = new System.Drawing.Size(482, 262);
             // 
             // companyOtherInfo
             // 
@@ -68,12 +68,12 @@
             // 
             this.xpPanel_StockInfo.ImageItems.ImageSet = null;
             this.xpPanel_StockInfo.Location = new System.Drawing.Point(0, 355);
-            this.xpPanel_StockInfo.Size = new System.Drawing.Size(483, 181);
+            this.xpPanel_StockInfo.Size = new System.Drawing.Size(482, 181);
             // 
             // xpPanel_GeneralInfo
             // 
             this.xpPanel_GeneralInfo.ImageItems.ImageSet = null;
-            this.xpPanel_GeneralInfo.Size = new System.Drawing.Size(483, 355);
+            this.xpPanel_GeneralInfo.Size = new System.Drawing.Size(482, 355);
             // 
             // companyGeneral
             // 
@@ -172,6 +172,7 @@
             this.filterBtn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.filterBtn.Image = global::baseClass.Properties.Resources.filter;
             this.filterBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.filterBtn.isDownState = false;
             this.filterBtn.Location = new System.Drawing.Point(445, 28);
             this.filterBtn.Name = "filterBtn";
             this.filterBtn.Size = new System.Drawing.Size(86, 29);
@@ -185,6 +186,7 @@
             this.closeFindBtn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.closeFindBtn.Image = global::baseClass.Properties.Resources.close;
             this.closeFindBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.closeFindBtn.isDownState = false;
             this.closeFindBtn.Location = new System.Drawing.Point(445, 57);
             this.closeFindBtn.Name = "closeFindBtn";
             this.closeFindBtn.Size = new System.Drawing.Size(86, 29);
@@ -211,6 +213,7 @@
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGrid.Location = new System.Drawing.Point(502, -1);
             this.dataGrid.Name = "dataGrid";
+            this.dataGrid.RowTemplate.Height = 24;
             this.dataGrid.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGrid.Size = new System.Drawing.Size(571, 713);
@@ -222,6 +225,7 @@
             this.ClientSize = new System.Drawing.Size(1073, 734);
             this.Controls.Add(this.findPnl);
             this.Controls.Add(this.dataGrid);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "companyList";
