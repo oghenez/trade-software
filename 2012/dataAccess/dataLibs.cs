@@ -1838,14 +1838,18 @@ namespace DataAccess
 
 
 
-        public static databases.tmpDS.marketDataDataTable GetMarketData(DateTime startDate, DateTime endDate,
-                                                                        string codeList,                                                      
-                                                                        AppTypes.TimeScale timeScale,
-                                                                        AppTypes.MarketDataTypes marketDataTypes)
+        public static DataValues[] GetIndicatorData(string code, DataParams dataParam, string metaName)
         {
             try
             {
-                return myClient.GetMarketData(startDate, endDate, codeList, timeScale.Code, marketDataTypes);
+                string cacheKey = MakeCacheKey("IndicatorData", dataParam.ToUniqueString());
+                cacheKey = MakeCacheKey(cacheKey,metaName);
+                object obj = GetCache(cacheKey);
+                if (obj != null) return (DataValues[])obj;
+                
+                DataValues[] data = myClient.GetIndicatorData(code, dataParam, metaName);
+                AddCache(cacheKey, data);
+                return data;
             }
             catch (Exception er)
             {
@@ -1853,6 +1857,8 @@ namespace DataAccess
             }
             return null;
         }
-               
+           
+    
+
     }
 }

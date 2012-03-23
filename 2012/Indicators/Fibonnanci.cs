@@ -38,7 +38,6 @@ namespace Indicators
             : base(ds, name)
         {
             this.Name = name;
-            int begin = 0, length = 0;
 
             //138.2%, 161.8%, 200% and 261.8%
 
