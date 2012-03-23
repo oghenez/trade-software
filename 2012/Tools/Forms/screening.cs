@@ -22,11 +22,8 @@ namespace Tools.Forms
             {
                 InitializeComponent();
                 this.fOnProccessing = true;
-                strategyDescEd.BackColor = strategyCb.BackColor;
                 stockCodeLb.LoadData();
                 LockOptions(true);
-                minScrollBar.Maximum = Int32.MaxValue - 1;
-                maxScrollBar.Maximum = Int32.MaxValue - 1;
                 editColumn.myImageType = common.controls.imageType.Edit;
                 LockOptions(criteriaSource.Count <= 0);
 
@@ -60,12 +57,7 @@ namespace Tools.Forms
             maxDataCountLbl.Text = Languages.Libs.GetString("noDataBars");
             timeScaleLbl.Text = Languages.Libs.GetString("timeScale");
 
-            criteriaLbl.Text = Languages.Libs.GetString("criteria");
-            descriptionLbl.Text = Languages.Libs.GetString("description");
-            minLbl.Text = Languages.Libs.GetString("min");
-            maxLbl.Text = Languages.Libs.GetString("max");
-            addBtn.Text = Languages.Libs.GetString("add");
-            delBtn.Text = Languages.Libs.GetString("delete");
+            //criteriaLbl.Text = Languages.Libs.GetString("criteria");
             codeListLbl.Text = Languages.Libs.GetString("codeList");
 
             codeColumn.HeaderText = Languages.Libs.GetString("criteria");
@@ -78,7 +70,6 @@ namespace Tools.Forms
             timeScaleCb.myValue = AppTypes.TimeScaleFromCode(Settings.sysGlobal.ScreeningTimeScaleCode);
 
             stockCodeLb.SetLanguage();
-            strategyCb.SetLanguage();
 
             LoadScreeningCodes();
             CreateContextMenu();
@@ -152,9 +143,6 @@ namespace Tools.Forms
 
         private void LockOptions(bool state)
         {
-            strategyCb.Enabled = !state;
-            minScrollBar.Enabled = !state;
-            maxScrollBar.Enabled = !state;
         }
         private void LoadScreeningCodes()
         {
@@ -308,7 +296,7 @@ namespace Tools.Forms
             }
             if (!fHaveCriteria)
             {
-                NotifyError(criteriaGridLbl);
+                NotifyError(selectAllChk);
                 retVal = false;
             }
             criteriaGrid.Refresh();
@@ -555,73 +543,6 @@ namespace Tools.Forms
             tmpDS.screeningCriteria.AddscreeningCriteriaRow(row);
         }
 
-        private void addBtn_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                AddCriteria(strategyCb.myValue, true);
-                criteriaSource.Position = criteriaSource.Count - 1;
-                LockOptions(criteriaSource.Count <= 0);
-            }
-            catch (Exception er)
-            {
-                this.ShowError(er);
-            }
-        }
-
-        private void delBtn_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (criteriaSource.Current != null) criteriaSource.RemoveCurrent();
-                LockOptions(criteriaSource.Count<=0);
-            }
-            catch (Exception er)
-            {
-                this.ShowError(er);
-            }
-        }
-
-        private void minScrollBar_ValueChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                //minLbl.Text = "Min : " + minScrollBar.Value.ToString(Settings.sysLocalAmtMask);
-                criteriaSource.EndEdit();
-            }
-            catch (Exception er)
-            {
-                this.ShowError(er);
-            }
-
-        }
-
-        private void maxScrollBar_ValueChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                //maxLbl.Text = "Max : " + maxScrollBar.Value.ToString(Settings.sysLocalAmtMask);
-                criteriaSource.EndEdit();
-            }
-            catch (Exception er)
-            {
-                this.ShowError(er);
-            }
-        }
-
-        private void editBtn_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (strategyCb.myValue == "") return;
-                EditScreeningOption(strategyCb.myValue);
-            }
-            catch (Exception er)
-            {
-                this.ShowMessage(er.Message);
-            }
-        }
-
         private void criteriaGrid_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             try
@@ -658,6 +579,20 @@ namespace Tools.Forms
             {
                 if (e.RowIndex<=0) return;
                 this.ShowReccount("["+(e.RowIndex+1).ToString()+"/"+resultDataGrid.Rows.Count.ToString()+"]");
+            }
+            catch (Exception er)
+            {
+                this.ShowMessage(er.Message);
+            }
+        }
+        private void criteriaGrid_RowEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                if (this.criteriaGrid.CurrentRow==null) return;
+                Data.tmpDataSet.screeningCodeRow row = (Data.tmpDataSet.screeningCodeRow)((DataRowView)screeningCodeSource.Current).Row;
+                if (!row.IsdescriptionNull())
+                    this.criteriaGrid.CurrentRow.Cells[codeColumn.Name].ToolTipText = row.description;
             }
             catch (Exception er)
             {

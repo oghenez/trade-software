@@ -54,45 +54,25 @@
             this.timeScaleCb = new baseClass.controls.cbTimeScale();
             this.maxDataCountLbl = new baseClass.controls.baseLabel();
             this.selectAllChk = new common.controls.baseCheckBox();
-            this.criteriaGridLbl = new baseClass.controls.baseLabel();
-            this.editBtn = new System.Windows.Forms.Button();
-            this.maxScrollBar = new System.Windows.Forms.HScrollBar();
-            this.criteriaSource = new System.Windows.Forms.BindingSource(this.components);
-            this.tmpDS = new Tools.Data.tmpDataSet();
-            this.minScrollBar = new System.Windows.Forms.HScrollBar();
-            this.screeningCodeNav = new System.Windows.Forms.BindingNavigator(this.components);
-            this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.strategyCb = new common.controls.baseComboBox();
-            this.screeningCodeSource = new System.Windows.Forms.BindingSource(this.components);
-            this.delBtn = new System.Windows.Forms.Button();
-            this.addBtn = new System.Windows.Forms.Button();
-            this.descriptionLbl = new baseClass.controls.baseLabel();
-            this.strategyDescEd = new common.controls.baseTextBox();
-            this.maxLbl = new baseClass.controls.baseLabel();
-            this.minLbl = new baseClass.controls.baseLabel();
-            this.criteriaLbl = new baseClass.controls.baseLabel();
             this.criteriaGrid = new common.controls.baseDataGridView();
             this.selectedColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.codeColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.screeningCodeSource = new System.Windows.Forms.BindingSource(this.components);
+            this.tmpDS = new Tools.Data.tmpDataSet();
             this.minColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.maxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.editColumn = new common.controls.gridViewImageColumn();
+            this.criteriaSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.myDataSet)).BeginInit();
             this.dataPnl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.resultDataGrid)).BeginInit();
             this.menuStrip.SuspendLayout();
             this.optionPnl.SuspendLayout();
             this.strategyGb.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.criteriaSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tmpDS)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.screeningCodeNav)).BeginInit();
-            this.screeningCodeNav.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.screeningCodeSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.criteriaGrid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.screeningCodeSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tmpDS)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.criteriaSource)).BeginInit();
             this.SuspendLayout();
             // 
             // TitleLbl
@@ -103,9 +83,9 @@
             // dataPnl
             // 
             this.dataPnl.Controls.Add(this.resultDataGrid);
-            this.dataPnl.Location = new System.Drawing.Point(468, 0);
+            this.dataPnl.Location = new System.Drawing.Point(479, 0);
             this.dataPnl.Name = "dataPnl";
-            this.dataPnl.Size = new System.Drawing.Size(633, 641);
+            this.dataPnl.Size = new System.Drawing.Size(538, 645);
             this.dataPnl.TabIndex = 315;
             // 
             // resultDataGrid
@@ -114,15 +94,13 @@
             this.resultDataGrid.AllowUserToDeleteRows = false;
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Blue;
             this.resultDataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.resultDataGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
             this.resultDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.resultDataGrid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.resultDataGrid.Location = new System.Drawing.Point(0, 0);
             this.resultDataGrid.Name = "resultDataGrid";
             this.resultDataGrid.ReadOnly = true;
             this.resultDataGrid.RowTemplate.Height = 24;
-            this.resultDataGrid.Size = new System.Drawing.Size(628, 662);
+            this.resultDataGrid.Size = new System.Drawing.Size(538, 645);
             this.resultDataGrid.TabIndex = 309;
             this.resultDataGrid.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.resultDataGrid_RowEnter);
             this.resultDataGrid.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGrid_CellContentDoubleClick);
@@ -135,7 +113,7 @@
             this.mainMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(1004, 24);
+            this.menuStrip.Size = new System.Drawing.Size(1015, 24);
             this.menuStrip.TabIndex = 318;
             this.menuStrip.Text = "menuStrip1";
             // 
@@ -212,22 +190,22 @@
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.stockCodeLb.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.stockCodeLb.Location = new System.Drawing.Point(2, 433);
+            this.stockCodeLb.Location = new System.Drawing.Point(2, 309);
             this.stockCodeLb.Margin = new System.Windows.Forms.Padding(2);
             this.stockCodeLb.myItemString = "";
             this.stockCodeLb.myValues = ((System.Collections.Specialized.StringCollection)(resources.GetObject("stockCodeLb.myValues")));
             this.stockCodeLb.Name = "stockCodeLb";
             this.stockCodeLb.ShowCheckedOnly = false;
-            this.stockCodeLb.Size = new System.Drawing.Size(465, 205);
+            this.stockCodeLb.Size = new System.Drawing.Size(476, 305);
             this.stockCodeLb.TabIndex = 2;
             // 
             // codeListLbl
             // 
             this.codeListLbl.AutoSize = true;
-            this.codeListLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.codeListLbl.Location = new System.Drawing.Point(1, 415);
+            this.codeListLbl.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.codeListLbl.Location = new System.Drawing.Point(6, 291);
             this.codeListLbl.Name = "codeListLbl";
-            this.codeListLbl.Size = new System.Drawing.Size(67, 16);
+            this.codeListLbl.Size = new System.Drawing.Size(64, 14);
             this.codeListLbl.TabIndex = 316;
             this.codeListLbl.Text = "Code List";
             this.codeListLbl.Click += new System.EventHandler(this.strategyLbl_Click);
@@ -237,9 +215,9 @@
             this.optionPnl.Controls.Add(this.codeListLbl);
             this.optionPnl.Controls.Add(this.stockCodeLb);
             this.optionPnl.Controls.Add(this.strategyGb);
-            this.optionPnl.Location = new System.Drawing.Point(0, -1);
+            this.optionPnl.Location = new System.Drawing.Point(0, 28);
             this.optionPnl.Name = "optionPnl";
-            this.optionPnl.Size = new System.Drawing.Size(466, 642);
+            this.optionPnl.Size = new System.Drawing.Size(478, 617);
             this.optionPnl.TabIndex = 1;
             // 
             // strategyGb
@@ -249,34 +227,21 @@
             this.strategyGb.Controls.Add(this.timeScaleCb);
             this.strategyGb.Controls.Add(this.maxDataCountLbl);
             this.strategyGb.Controls.Add(this.selectAllChk);
-            this.strategyGb.Controls.Add(this.criteriaGridLbl);
-            this.strategyGb.Controls.Add(this.editBtn);
-            this.strategyGb.Controls.Add(this.maxScrollBar);
-            this.strategyGb.Controls.Add(this.minScrollBar);
-            this.strategyGb.Controls.Add(this.screeningCodeNav);
-            this.strategyGb.Controls.Add(this.strategyCb);
-            this.strategyGb.Controls.Add(this.delBtn);
-            this.strategyGb.Controls.Add(this.addBtn);
-            this.strategyGb.Controls.Add(this.descriptionLbl);
-            this.strategyGb.Controls.Add(this.strategyDescEd);
-            this.strategyGb.Controls.Add(this.maxLbl);
-            this.strategyGb.Controls.Add(this.minLbl);
-            this.strategyGb.Controls.Add(this.criteriaLbl);
             this.strategyGb.Controls.Add(this.criteriaGrid);
-            this.strategyGb.Location = new System.Drawing.Point(3, -4);
+            this.strategyGb.Location = new System.Drawing.Point(3, -5);
             this.strategyGb.Name = "strategyGb";
-            this.strategyGb.Size = new System.Drawing.Size(460, 413);
+            this.strategyGb.Size = new System.Drawing.Size(475, 289);
             this.strategyGb.TabIndex = 1;
             this.strategyGb.TabStop = false;
             // 
             // dataCounEd
             // 
-            this.dataCounEd.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataCounEd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dataCounEd.InsertKeyMode = System.Windows.Forms.InsertKeyMode.Overwrite;
-            this.dataCounEd.Location = new System.Drawing.Point(178, 31);
+            this.dataCounEd.Location = new System.Drawing.Point(176, 31);
             this.dataCounEd.myFormat = "###,###,###,###,##0";
             this.dataCounEd.Name = "dataCounEd";
-            this.dataCounEd.Size = new System.Drawing.Size(99, 24);
+            this.dataCounEd.Size = new System.Drawing.Size(99, 21);
             this.dataCounEd.TabIndex = 2;
             this.dataCounEd.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.dataCounEd.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludePromptAndLiterals;
@@ -289,32 +254,32 @@
             // timeScaleLbl
             // 
             this.timeScaleLbl.AutoSize = true;
-            this.timeScaleLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.timeScaleLbl.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.timeScaleLbl.Location = new System.Drawing.Point(24, 13);
             this.timeScaleLbl.Name = "timeScaleLbl";
-            this.timeScaleLbl.Size = new System.Drawing.Size(74, 16);
+            this.timeScaleLbl.Size = new System.Drawing.Size(68, 14);
             this.timeScaleLbl.TabIndex = 381;
             this.timeScaleLbl.Text = "Time scale";
             // 
             // timeScaleCb
             // 
             this.timeScaleCb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.timeScaleCb.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.timeScaleCb.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.timeScaleCb.FormattingEnabled = true;
             this.timeScaleCb.Location = new System.Drawing.Point(23, 31);
             this.timeScaleCb.Name = "timeScaleCb";
             this.timeScaleCb.SelectedValue = "RT";
-            this.timeScaleCb.Size = new System.Drawing.Size(155, 24);
+            this.timeScaleCb.Size = new System.Drawing.Size(155, 21);
             this.timeScaleCb.TabIndex = 1;
             this.timeScaleCb.TabStop = false;
             // 
             // maxDataCountLbl
             // 
             this.maxDataCountLbl.AutoSize = true;
-            this.maxDataCountLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.maxDataCountLbl.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.maxDataCountLbl.Location = new System.Drawing.Point(178, 13);
             this.maxDataCountLbl.Name = "maxDataCountLbl";
-            this.maxDataCountLbl.Size = new System.Drawing.Size(74, 16);
+            this.maxDataCountLbl.Size = new System.Drawing.Size(70, 14);
             this.maxDataCountLbl.TabIndex = 379;
             this.maxDataCountLbl.Text = "No of bars";
             // 
@@ -322,224 +287,13 @@
             // 
             this.selectAllChk.AutoSize = true;
             this.selectAllChk.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.selectAllChk.Location = new System.Drawing.Point(28, 246);
+            this.selectAllChk.Location = new System.Drawing.Point(30, 60);
             this.selectAllChk.Name = "selectAllChk";
             this.selectAllChk.Size = new System.Drawing.Size(15, 14);
             this.selectAllChk.TabIndex = 377;
             this.selectAllChk.TabStop = false;
             this.selectAllChk.UseVisualStyleBackColor = true;
             this.selectAllChk.CheckedChanged += new System.EventHandler(this.selectAllChk_CheckedChanged);
-            // 
-            // criteriaGridLbl
-            // 
-            this.criteriaGridLbl.AutoSize = true;
-            this.criteriaGridLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.criteriaGridLbl.Location = new System.Drawing.Point(4, 200);
-            this.criteriaGridLbl.Name = "criteriaGridLbl";
-            this.criteriaGridLbl.Size = new System.Drawing.Size(16, 16);
-            this.criteriaGridLbl.TabIndex = 376;
-            this.criteriaGridLbl.Text = "  ";
-            // 
-            // editBtn
-            // 
-            this.editBtn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.editBtn.Image = global::Tools.Properties.Resources.edit;
-            this.editBtn.Location = new System.Drawing.Point(435, 75);
-            this.editBtn.Name = "editBtn";
-            this.editBtn.Size = new System.Drawing.Size(20, 20);
-            this.editBtn.TabIndex = 2;
-            this.editBtn.UseVisualStyleBackColor = true;
-            this.editBtn.Click += new System.EventHandler(this.editBtn_Click);
-            // 
-            // maxScrollBar
-            // 
-            this.maxScrollBar.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.criteriaSource, "max", true));
-            this.maxScrollBar.Location = new System.Drawing.Point(231, 186);
-            this.maxScrollBar.Name = "maxScrollBar";
-            this.maxScrollBar.Size = new System.Drawing.Size(208, 18);
-            this.maxScrollBar.TabIndex = 11;
-            this.maxScrollBar.ValueChanged += new System.EventHandler(this.maxScrollBar_ValueChanged);
-            // 
-            // criteriaSource
-            // 
-            this.criteriaSource.DataMember = "screeningCriteria";
-            this.criteriaSource.DataSource = this.tmpDS;
-            // 
-            // tmpDS
-            // 
-            this.tmpDS.DataSetName = "tmpDataSet";
-            this.tmpDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // minScrollBar
-            // 
-            this.minScrollBar.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.criteriaSource, "min", true));
-            this.minScrollBar.Location = new System.Drawing.Point(23, 186);
-            this.minScrollBar.Name = "minScrollBar";
-            this.minScrollBar.Size = new System.Drawing.Size(208, 18);
-            this.minScrollBar.TabIndex = 10;
-            this.minScrollBar.ValueChanged += new System.EventHandler(this.minScrollBar_ValueChanged);
-            // 
-            // screeningCodeNav
-            // 
-            this.screeningCodeNav.AddNewItem = null;
-            this.screeningCodeNav.BindingSource = this.criteriaSource;
-            this.screeningCodeNav.CountItem = null;
-            this.screeningCodeNav.DeleteItem = null;
-            this.screeningCodeNav.Dock = System.Windows.Forms.DockStyle.None;
-            this.screeningCodeNav.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.bindingNavigatorMoveFirstItem,
-            this.bindingNavigatorMovePreviousItem,
-            this.bindingNavigatorMoveNextItem,
-            this.bindingNavigatorMoveLastItem,
-            this.bindingNavigatorSeparator2});
-            this.screeningCodeNav.Location = new System.Drawing.Point(23, 210);
-            this.screeningCodeNav.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
-            this.screeningCodeNav.MoveLastItem = this.bindingNavigatorMoveLastItem;
-            this.screeningCodeNav.MoveNextItem = this.bindingNavigatorMoveNextItem;
-            this.screeningCodeNav.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
-            this.screeningCodeNav.Name = "screeningCodeNav";
-            this.screeningCodeNav.PositionItem = null;
-            this.screeningCodeNav.Size = new System.Drawing.Size(108, 25);
-            this.screeningCodeNav.TabIndex = 319;
-            // 
-            // bindingNavigatorMoveFirstItem
-            // 
-            this.bindingNavigatorMoveFirstItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
-            this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
-            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorMoveFirstItem.Text = "Move first";
-            // 
-            // bindingNavigatorMovePreviousItem
-            // 
-            this.bindingNavigatorMovePreviousItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
-            this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
-            this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorMovePreviousItem.Text = "Move previous";
-            // 
-            // bindingNavigatorMoveNextItem
-            // 
-            this.bindingNavigatorMoveNextItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
-            this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
-            this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorMoveNextItem.Text = "Move next";
-            // 
-            // bindingNavigatorMoveLastItem
-            // 
-            this.bindingNavigatorMoveLastItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
-            this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
-            this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorMoveLastItem.Text = "Move last";
-            // 
-            // bindingNavigatorSeparator2
-            // 
-            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
-            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
-            // 
-            // strategyCb
-            // 
-            this.strategyCb.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.criteriaSource, "code", true));
-            this.strategyCb.DataSource = this.screeningCodeSource;
-            this.strategyCb.DisplayMember = "description";
-            this.strategyCb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.strategyCb.FormattingEnabled = true;
-            this.strategyCb.Location = new System.Drawing.Point(23, 74);
-            this.strategyCb.myValue = "";
-            this.strategyCb.Name = "strategyCb";
-            this.strategyCb.Size = new System.Drawing.Size(413, 24);
-            this.strategyCb.TabIndex = 1;
-            this.strategyCb.ValueMember = "code";
-            // 
-            // screeningCodeSource
-            // 
-            this.screeningCodeSource.DataMember = "screeningCode";
-            this.screeningCodeSource.DataSource = this.tmpDS;
-            // 
-            // delBtn
-            // 
-            this.delBtn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.delBtn.Image = global::Tools.Properties.Resources.delete;
-            this.delBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.delBtn.Location = new System.Drawing.Point(364, 211);
-            this.delBtn.Name = "delBtn";
-            this.delBtn.Size = new System.Drawing.Size(74, 27);
-            this.delBtn.TabIndex = 21;
-            this.delBtn.Text = "  Delete";
-            this.delBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.delBtn.UseVisualStyleBackColor = true;
-            this.delBtn.Click += new System.EventHandler(this.delBtn_Click);
-            // 
-            // addBtn
-            // 
-            this.addBtn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addBtn.Image = global::Tools.Properties.Resources.adddata;
-            this.addBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.addBtn.Location = new System.Drawing.Point(289, 211);
-            this.addBtn.Name = "addBtn";
-            this.addBtn.Size = new System.Drawing.Size(74, 27);
-            this.addBtn.TabIndex = 20;
-            this.addBtn.Text = "Add";
-            this.addBtn.UseVisualStyleBackColor = true;
-            this.addBtn.Click += new System.EventHandler(this.addBtn_Click);
-            // 
-            // descriptionLbl
-            // 
-            this.descriptionLbl.AutoSize = true;
-            this.descriptionLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.descriptionLbl.Location = new System.Drawing.Point(23, 97);
-            this.descriptionLbl.Name = "descriptionLbl";
-            this.descriptionLbl.Size = new System.Drawing.Size(81, 16);
-            this.descriptionLbl.TabIndex = 324;
-            this.descriptionLbl.Text = "Description";
-            // 
-            // strategyDescEd
-            // 
-            this.strategyDescEd.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.screeningCodeSource, "description", true));
-            this.strategyDescEd.isRequired = true;
-            this.strategyDescEd.isToUpperCase = false;
-            this.strategyDescEd.Location = new System.Drawing.Point(23, 116);
-            this.strategyDescEd.Multiline = true;
-            this.strategyDescEd.Name = "strategyDescEd";
-            this.strategyDescEd.ReadOnly = true;
-            this.strategyDescEd.Size = new System.Drawing.Size(410, 50);
-            this.strategyDescEd.TabIndex = 15;
-            this.strategyDescEd.TabStop = false;
-            // 
-            // maxLbl
-            // 
-            this.maxLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.maxLbl.Location = new System.Drawing.Point(232, 167);
-            this.maxLbl.Name = "maxLbl";
-            this.maxLbl.Size = new System.Drawing.Size(207, 19);
-            this.maxLbl.TabIndex = 322;
-            this.maxLbl.Text = "Max";
-            this.maxLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // minLbl
-            // 
-            this.minLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.minLbl.Location = new System.Drawing.Point(23, 167);
-            this.minLbl.Name = "minLbl";
-            this.minLbl.Size = new System.Drawing.Size(206, 19);
-            this.minLbl.TabIndex = 321;
-            this.minLbl.Text = "Min";
-            this.minLbl.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // criteriaLbl
-            // 
-            this.criteriaLbl.AutoSize = true;
-            this.criteriaLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.criteriaLbl.Location = new System.Drawing.Point(25, 56);
-            this.criteriaLbl.Name = "criteriaLbl";
-            this.criteriaLbl.Size = new System.Drawing.Size(56, 16);
-            this.criteriaLbl.TabIndex = 318;
-            this.criteriaLbl.Text = "Criteria";
             // 
             // criteriaGrid
             // 
@@ -556,12 +310,14 @@
             this.maxColumn,
             this.editColumn});
             this.criteriaGrid.DataSource = this.criteriaSource;
-            this.criteriaGrid.Location = new System.Drawing.Point(0, 242);
+            this.criteriaGrid.Location = new System.Drawing.Point(1, 56);
             this.criteriaGrid.Name = "criteriaGrid";
             this.criteriaGrid.RowHeadersWidth = 25;
+            this.criteriaGrid.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.criteriaGrid.RowTemplate.Height = 24;
-            this.criteriaGrid.Size = new System.Drawing.Size(463, 169);
+            this.criteriaGrid.Size = new System.Drawing.Size(478, 231);
             this.criteriaGrid.TabIndex = 375;
+            this.criteriaGrid.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.criteriaGrid_RowEnter);
             this.criteriaGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.criteriaGrid_CellClick);
             // 
             // selectedColumn
@@ -577,13 +333,23 @@
             this.codeColumn.DataPropertyName = "code";
             this.codeColumn.DataSource = this.screeningCodeSource;
             this.codeColumn.DisplayMember = "description";
-            this.codeColumn.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.ComboBox;
+            this.codeColumn.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
             this.codeColumn.HeaderText = "Criteria";
             this.codeColumn.Name = "codeColumn";
             this.codeColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.codeColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.codeColumn.ValueMember = "code";
             this.codeColumn.Width = 235;
+            // 
+            // screeningCodeSource
+            // 
+            this.screeningCodeSource.DataMember = "screeningCode";
+            this.screeningCodeSource.DataSource = this.tmpDS;
+            // 
+            // tmpDS
+            // 
+            this.tmpDS.DataSetName = "tmpDataSet";
+            this.tmpDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // minColumn
             // 
@@ -614,19 +380,25 @@
             this.editColumn.Name = "editColumn";
             this.editColumn.Width = 25;
             // 
+            // criteriaSource
+            // 
+            this.criteriaSource.DataMember = "screeningCriteria";
+            this.criteriaSource.DataSource = this.tmpDS;
+            // 
             // screening
             // 
-            this.ClientSize = new System.Drawing.Size(1004, 668);
+            this.ClientSize = new System.Drawing.Size(1015, 671);
             this.Controls.Add(this.dataPnl);
             this.Controls.Add(this.optionPnl);
             this.Controls.Add(this.menuStrip);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "screening";
             this.Text = "Screening";
             this.Load += new System.EventHandler(this.Form_Load);
             this.Resize += new System.EventHandler(this.Form_Resize);
-            this.Controls.SetChildIndex(this.TitleLbl, 0);
             this.Controls.SetChildIndex(this.menuStrip, 0);
+            this.Controls.SetChildIndex(this.TitleLbl, 0);
             this.Controls.SetChildIndex(this.optionPnl, 0);
             this.Controls.SetChildIndex(this.dataPnl, 0);
             ((System.ComponentModel.ISupportInitialize)(this.myDataSet)).EndInit();
@@ -638,13 +410,10 @@
             this.optionPnl.PerformLayout();
             this.strategyGb.ResumeLayout(false);
             this.strategyGb.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.criteriaSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tmpDS)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.screeningCodeNav)).EndInit();
-            this.screeningCodeNav.ResumeLayout(false);
-            this.screeningCodeNav.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.screeningCodeSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.criteriaGrid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.screeningCodeSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tmpDS)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.criteriaSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -666,39 +435,21 @@
         private System.Windows.Forms.ToolStripMenuItem addToWatchListMenuItem;
         protected baseClass.controls.baseLabel codeListLbl;
         private System.Windows.Forms.Panel optionPnl;
-        protected baseClass.controls.baseLabel criteriaLbl;
-        protected baseClass.controls.baseLabel maxLbl;
-        protected baseClass.controls.baseLabel minLbl;
         private System.Windows.Forms.GroupBox strategyGb;
-        protected baseClass.controls.baseLabel descriptionLbl;
-        protected System.Windows.Forms.Button addBtn;
-        protected System.Windows.Forms.Button delBtn;
         protected System.Windows.Forms.BindingSource criteriaSource;
         protected Tools.Data.tmpDataSet tmpDS;
         protected System.Windows.Forms.BindingSource screeningCodeSource;
-        protected common.controls.baseComboBox strategyCb;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveFirstItem;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorMovePreviousItem;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveNextItem;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
-        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
         protected baseClass.controls.stockCodeSelect stockCodeLb;
-        protected common.controls.baseTextBox strategyDescEd;
         protected common.controls.baseDataGridView criteriaGrid;
-        protected System.Windows.Forms.BindingNavigator screeningCodeNav;
-        protected System.Windows.Forms.HScrollBar maxScrollBar;
-        protected System.Windows.Forms.HScrollBar minScrollBar;
-        protected System.Windows.Forms.Button editBtn;
-        protected baseClass.controls.baseLabel criteriaGridLbl;
         private common.controls.baseCheckBox selectAllChk;
         protected baseClass.controls.baseLabel timeScaleLbl;
         private baseClass.controls.cbTimeScale timeScaleCb;
         protected baseClass.controls.baseLabel maxDataCountLbl;
-        private common.controls.numberTextBox dataCounEd;
         private System.Windows.Forms.DataGridViewCheckBoxColumn selectedColumn;
         private System.Windows.Forms.DataGridViewComboBoxColumn codeColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn minColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn maxColumn;
         private common.controls.gridViewImageColumn editColumn;
+        private common.controls.numberTextBox dataCounEd;
     }
 }

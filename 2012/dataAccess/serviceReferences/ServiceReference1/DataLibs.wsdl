@@ -1388,7 +1388,7 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
-  <wsp:Policy wsu:Id="WSHttpBinding_IStockService_GetMarketData_BySQL_Input_policy">
+  <wsp:Policy wsu:Id="WSHttpBinding_IStockService_GetMarketData_Input_policy">
     <wsp:ExactlyOne>
       <wsp:All>
         <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
@@ -1407,7 +1407,7 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
-  <wsp:Policy wsu:Id="WSHttpBinding_IStockService_GetMarketData_BySQL_output_policy">
+  <wsp:Policy wsu:Id="WSHttpBinding_IStockService_GetMarketData_output_policy">
     <wsp:ExactlyOne>
       <wsp:All>
         <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
@@ -4076,11 +4076,11 @@
   <wsdl:message name="IStockService_GetData_ByTimeScale_Code_DateRange_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetData_ByTimeScale_Code_DateRangeResponse" />
   </wsdl:message>
-  <wsdl:message name="IStockService_GetMarketData_BySQL_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetMarketData_BySQL" />
+  <wsdl:message name="IStockService_GetMarketData_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMarketData" />
   </wsdl:message>
-  <wsdl:message name="IStockService_GetMarketData_BySQL_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetMarketData_BySQLResponse" />
+  <wsdl:message name="IStockService_GetMarketData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMarketDataResponse" />
   </wsdl:message>
   <wsdl:message name="IStockService_GetData_TotalRow_InputMessage">
     <wsdl:part name="parameters" element="tns:GetData_TotalRow" />
@@ -4603,9 +4603,9 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IStockService/GetData_ByTimeScale_Code_DateRange" message="tns:IStockService_GetData_ByTimeScale_Code_DateRange_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IStockService/GetData_ByTimeScale_Code_DateRangeResponse" message="tns:IStockService_GetData_ByTimeScale_Code_DateRange_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="GetMarketData_BySQL">
-      <wsdl:input wsaw:Action="http://tempuri.org/IStockService/GetMarketData_BySQL" message="tns:IStockService_GetMarketData_BySQL_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IStockService/GetMarketData_BySQLResponse" message="tns:IStockService_GetMarketData_BySQL_OutputMessage" />
+    <wsdl:operation name="GetMarketData">
+      <wsdl:input wsaw:Action="http://tempuri.org/IStockService/GetMarketData" message="tns:IStockService_GetMarketData_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IStockService/GetMarketDataResponse" message="tns:IStockService_GetMarketData_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetData_TotalRow">
       <wsdl:input wsaw:Action="http://tempuri.org/IStockService/GetData_TotalRow" message="tns:IStockService_GetData_TotalRow_InputMessage" />
@@ -5241,14 +5241,14 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetMarketData_BySQL">
-      <soap12:operation soapAction="http://tempuri.org/IStockService/GetMarketData_BySQL" style="document" />
+    <wsdl:operation name="GetMarketData">
+      <soap12:operation soapAction="http://tempuri.org/IStockService/GetMarketData" style="document" />
       <wsdl:input>
-        <wsp:PolicyReference URI="#WSHttpBinding_IStockService_GetMarketData_BySQL_Input_policy" />
+        <wsp:PolicyReference URI="#WSHttpBinding_IStockService_GetMarketData_Input_policy" />
         <soap12:body use="literal" />
       </wsdl:input>
       <wsdl:output>
-        <wsp:PolicyReference URI="#WSHttpBinding_IStockService_GetMarketData_BySQL_output_policy" />
+        <wsp:PolicyReference URI="#WSHttpBinding_IStockService_GetMarketData_output_policy" />
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
