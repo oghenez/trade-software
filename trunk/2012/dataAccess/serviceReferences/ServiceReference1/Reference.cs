@@ -117,8 +117,8 @@ namespace DataAccess.ServiceReference1 {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetData_ByTimeScale_Code_DateRange", ReplyAction="http://tempuri.org/IStockService/GetData_ByTimeScale_Code_DateRangeResponse")]
         databases.baseDS.priceDataDataTable GetData_ByTimeScale_Code_DateRange(string timeScaleCode, string stockCode, System.DateTime frDate, System.DateTime toDate);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetMarketData_BySQL", ReplyAction="http://tempuri.org/IStockService/GetMarketData_BySQLResponse")]
-        databases.tmpDS.marketDataDataTable GetMarketData_BySQL(string sqlCmd1);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetMarketData", ReplyAction="http://tempuri.org/IStockService/GetMarketDataResponse")]
+        databases.tmpDS.marketDataDataTable GetMarketData(System.DateTime startDate, System.DateTime endDate, string codeList, string timeScaleCode, commonTypes.AppTypes.MarketDataTypes marketDataType);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetData_TotalRow", ReplyAction="http://tempuri.org/IStockService/GetData_TotalRowResponse")]
         int GetData_TotalRow(string timeScaleCode, string stockCode, System.DateTime frDate, System.DateTime toDate);
@@ -476,8 +476,8 @@ namespace DataAccess.ServiceReference1 {
             return base.Channel.GetData_ByTimeScale_Code_DateRange(timeScaleCode, stockCode, frDate, toDate);
         }
         
-        public databases.tmpDS.marketDataDataTable GetMarketData_BySQL(string sqlCmd1) {
-            return base.Channel.GetMarketData_BySQL(sqlCmd1);
+        public databases.tmpDS.marketDataDataTable GetMarketData(System.DateTime startDate, System.DateTime endDate, string codeList, string timeScaleCode, commonTypes.AppTypes.MarketDataTypes marketDataType) {
+            return base.Channel.GetMarketData(startDate, endDate, codeList, timeScaleCode, marketDataType);
         }
         
         public int GetData_TotalRow(string timeScaleCode, string stockCode, System.DateTime frDate, System.DateTime toDate) {

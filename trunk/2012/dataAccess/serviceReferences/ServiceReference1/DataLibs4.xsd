@@ -173,6 +173,19 @@
     </xs:restriction>
   </xs:simpleType>
   <xs:element name="AppTypes.PriceDataType" nillable="true" type="tns:AppTypes.PriceDataType" />
+  <xs:simpleType name="AppTypes.MarketDataTypes">
+    <xs:annotation>
+      <xs:appinfo>
+        <ActualType Name="unsignedByte" Namespace="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Advancing" />
+      <xs:enumeration value="Declining" />
+      <xs:enumeration value="NonChange" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="AppTypes.MarketDataTypes" nillable="true" type="tns:AppTypes.MarketDataTypes" />
   <xs:simpleType name="AppTypes.CommonStatus">
     <xs:annotation>
       <xs:appinfo>

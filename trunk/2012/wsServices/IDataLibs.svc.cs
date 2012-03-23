@@ -213,7 +213,9 @@ namespace wsServices
         databases.baseDS.priceDataDataTable GetData_ByTimeScale_Code_DateRange(string timeScaleCode, string stockCode, DateTime frDate, DateTime toDate);
 
         [OperationContract]
-        databases.tmpDS.marketDataDataTable GetMarketData_BySQL(string sqlCmd1);
+        databases.tmpDS.marketDataDataTable GetMarketData(DateTime startDate, DateTime endDate, string codeList, string timeScaleCode, AppTypes.MarketDataTypes marketDataType);
+        //databases.tmpDS.marketDataDataTable GetMarketData_BySQL(string sqlCmd1);
+
         [OperationContract]
         int GetData_TotalRow(string timeScaleCode, string stockCode, DateTime frDate, DateTime toDate);
         [OperationContract]

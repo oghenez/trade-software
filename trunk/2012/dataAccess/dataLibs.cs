@@ -1779,7 +1779,8 @@ namespace DataAccess
         }
 
         //In testing
-        public static databases.tmpDS.priceDiagnoseDataTable DiagnosePrice_CloseAndNextOpen(DateTime frDate, DateTime toDate, string timeScaleCode,
+        public static databases.tmpDS.priceDiagnoseDataTable DiagnosePrice_CloseAndNextOpen(DateTime frDate, DateTime toDate, 
+                                                                                            string timeScaleCode,
                                                                                             string exchangeCode,string code, 
                                                                                             double variancePerc, 
                                                                                             double variance,byte precision)
@@ -1834,5 +1835,24 @@ namespace DataAccess
             }
             return null;
         }
+
+
+
+        public static databases.tmpDS.marketDataDataTable GetMarketData(DateTime startDate, DateTime endDate,
+                                                                        string codeList,                                                      
+                                                                        AppTypes.TimeScale timeScale,
+                                                                        AppTypes.MarketDataTypes marketDataTypes)
+        {
+            try
+            {
+                return myClient.GetMarketData(startDate, endDate, codeList, timeScale.Code, marketDataTypes);
+            }
+            catch (Exception er)
+            {
+                if (OnError != null) OnError(er);
+            }
+            return null;
+        }
+               
     }
 }

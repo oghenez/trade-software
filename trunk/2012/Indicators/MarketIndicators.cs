@@ -67,7 +67,8 @@ namespace Indicators
             : base(ds, name)
         {
             //application.Data stockData = new application.Data(AppTypes.TimeRanges.Y1, AppTypes.TimeScaleFromCode("D1"), "SSI");
-            application.MarketData market = new application.MarketData(AppTypes.TimeRanges.Y1, AppTypes.TimeScaleFromCode("D1"));
+
+            application.MarketData market = new application.MarketData(AppTypes.TimeRanges.Y1, AppTypes.TimeScaleFromType(AppTypes.TimeScaleTypes.Day));
             DataSeries advancingIssues = market.AdvancingIssues;
             DataSeries decliningIssues = market.DecliningIssues;
 
@@ -120,7 +121,7 @@ namespace Indicators
             : base(ds, name)
         {
             //application.Data stockData = new application.Data(AppTypes.TimeRanges.Y1, AppTypes.TimeScaleFromCode("D1"), "SSI");
-            application.MarketData market = new application.MarketData(AppTypes.TimeRanges.Y1, AppTypes.TimeScaleFromCode("D1"));
+            application.MarketData market = new application.MarketData(AppTypes.TimeRanges.Y1, AppTypes.TimeScaleFromType(AppTypes.TimeScaleTypes.Day));
             DataSeries advancingIssues = market.AdvancingIssues;
             DataSeries decliningIssues = market.DecliningIssues;
 
@@ -173,7 +174,7 @@ namespace Indicators
             : base(ds, name)
         {
             //application.Data stockData = new application.Data(AppTypes.TimeRanges.Y1, AppTypes.TimeScaleFromCode("D1"), "SSI");
-            application.MarketData market = new application.MarketData(AppTypes.TimeRanges.Y1, AppTypes.TimeScaleFromCode("D1"));
+            application.MarketData market = new application.MarketData(AppTypes.TimeRanges.Y1, AppTypes.TimeScaleFromType(AppTypes.TimeScaleTypes.Day));
             DataSeries advancingIssues = market.AdvancingIssues;
             DataSeries decliningIssues = market.DecliningIssues;
 

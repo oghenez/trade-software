@@ -121,7 +121,7 @@ namespace application
         {
             DateTime startDate = DateTime.Today, endDate = DateTime.Today;
             AppTypes.GetDate(data.DataTimeRange, out startDate, out endDate);
-            this.Init(startDate,endDate,data.DataTimeScale, stockCodes);
+            this.Init(startDate, endDate, data.DataTimeScale, stockCodes);
         }
         public MarketData(commonClass.BaseAnalysisData data)
         {
@@ -139,8 +139,8 @@ namespace application
                 databases.tmpDS.marketDataDataTable dataTbl = null;
                 if (dataObj == null)
                 {
-                    dataTbl = databases.DbAccess.GetMarketData(this.StartDateTime, this.EndDateTime, this.TimeScale, StockCodeList, AppTypes.MarketDataTypes.Advancing);
-                    Cache.Add("data-advancing",dataObj);
+                    dataTbl = databases.DbAccess.GetMarketData(this.StartDateTime, this.EndDateTime, StockCodeList, this.TimeScale, AppTypes.MarketDataTypes.Advancing);
+                    Cache.Add("data-advancing", dataObj);
                 }
                 else dataTbl = (databases.tmpDS.marketDataDataTable)dataObj;
 
@@ -159,7 +159,7 @@ namespace application
                 databases.tmpDS.marketDataDataTable dataTbl = null;
                 if (dataObj == null)
                 {
-                    dataTbl = databases.DbAccess.GetMarketData(this.StartDateTime, this.EndDateTime, this.TimeScale, StockCodeList, AppTypes.MarketDataTypes.Advancing);
+                    dataTbl = databases.DbAccess.GetMarketData(this.StartDateTime, this.EndDateTime, StockCodeList, this.TimeScale, AppTypes.MarketDataTypes.Advancing);
                     Cache.Add("data-advancing", dataObj);
                 }
                 else dataTbl = (databases.tmpDS.marketDataDataTable)dataObj;
@@ -180,7 +180,7 @@ namespace application
                 databases.tmpDS.marketDataDataTable dataTbl = null;
                 if (dataObj == null)
                 {
-                    dataTbl = databases.DbAccess.GetMarketData(this.StartDateTime, this.EndDateTime, this.TimeScale, StockCodeList,AppTypes.MarketDataTypes.Advancing);
+                    dataTbl = databases.DbAccess.GetMarketData(this.StartDateTime, this.EndDateTime, StockCodeList, this.TimeScale, AppTypes.MarketDataTypes.Advancing);
                     Cache.Add("data-advancing", dataObj);
                 }
                 else dataTbl = (databases.tmpDS.marketDataDataTable)dataObj;
@@ -202,7 +202,7 @@ namespace application
                 databases.tmpDS.marketDataDataTable dataTbl = null;
                 if (dataObj == null)
                 {
-                    dataTbl = databases.DbAccess.GetMarketData(this.StartDateTime, this.EndDateTime, this.TimeScale, StockCodeList, AppTypes.MarketDataTypes.Declining);
+                    dataTbl = databases.DbAccess.GetMarketData(this.StartDateTime, this.EndDateTime, StockCodeList, this.TimeScale, AppTypes.MarketDataTypes.Declining);
                     Cache.Add("data-declining", dataObj);
                 }
                 else dataTbl = (databases.tmpDS.marketDataDataTable)dataObj;
@@ -222,7 +222,7 @@ namespace application
                 object dataObj = Cache.Find("data-declining");
                 if (dataObj == null)
                 {
-                    dataTbl = databases.DbAccess.GetMarketData(this.StartDateTime, this.EndDateTime, this.TimeScale, StockCodeList,AppTypes.MarketDataTypes.Declining);
+                    dataTbl = databases.DbAccess.GetMarketData(this.StartDateTime, this.EndDateTime, StockCodeList, this.TimeScale, AppTypes.MarketDataTypes.Declining);
                     Cache.Add("data-declining", dataObj);
                 }
                 else dataTbl = (databases.tmpDS.marketDataDataTable)dataObj;
@@ -242,7 +242,7 @@ namespace application
                 object dataObj = Cache.Find("data-declining");
                 if (dataObj == null)
                 {
-                    dataTbl = databases.DbAccess.GetMarketData(this.StartDateTime, this.EndDateTime, this.TimeScale, StockCodeList, AppTypes.MarketDataTypes.Declining);
+                    dataTbl = databases.DbAccess.GetMarketData(this.StartDateTime, this.EndDateTime, StockCodeList, this.TimeScale, AppTypes.MarketDataTypes.Declining);
                     Cache.Add("data-declining", dataObj);
                 }
                 else dataTbl = (databases.tmpDS.marketDataDataTable)dataObj;
@@ -263,7 +263,7 @@ namespace application
                 databases.tmpDS.marketDataDataTable dataTbl = null;
                 if (dataObj == null)
                 {
-                    dataTbl = databases.DbAccess.GetMarketData(this.StartDateTime, this.EndDateTime, this.TimeScale, StockCodeList, AppTypes.MarketDataTypes.NonChange);
+                    dataTbl = databases.DbAccess.GetMarketData(this.StartDateTime, this.EndDateTime, StockCodeList, this.TimeScale, AppTypes.MarketDataTypes.NonChange);
                     Cache.Add("data-NonChange", dataObj);
                 }
                 else dataTbl = (databases.tmpDS.marketDataDataTable)dataObj;
@@ -284,7 +284,7 @@ namespace application
                 databases.tmpDS.marketDataDataTable dataTbl = null;
                 if (dataObj == null)
                 {
-                    dataTbl = databases.DbAccess.GetMarketData(this.StartDateTime, this.EndDateTime, this.TimeScale, StockCodeList, AppTypes.MarketDataTypes.NonChange);
+                    dataTbl = databases.DbAccess.GetMarketData(this.StartDateTime, this.EndDateTime, StockCodeList, this.TimeScale,AppTypes.MarketDataTypes.NonChange);
                     Cache.Add("data-NonChange", dataObj);
                 }
                 else dataTbl = (databases.tmpDS.marketDataDataTable)dataObj;
@@ -304,7 +304,7 @@ namespace application
                 databases.tmpDS.marketDataDataTable dataTbl = null;
                 if (dataObj == null)
                 {
-                    dataTbl = databases.DbAccess.GetMarketData(this.StartDateTime, this.EndDateTime, this.TimeScale, StockCodeList, AppTypes.MarketDataTypes.NonChange);
+                    dataTbl = databases.DbAccess.GetMarketData(this.StartDateTime, this.EndDateTime, StockCodeList, this.TimeScale, AppTypes.MarketDataTypes.NonChange);
                     Cache.Add("data-NonChange", dataObj);
                 }
                 else dataTbl = (databases.tmpDS.marketDataDataTable)dataObj;
@@ -347,10 +347,10 @@ namespace application
             private MarketData Create3()
             {
                 StringCollection list = new StringCollection();
-                list.AddRange(new string[]{"ACB","FPT"});
+                list.AddRange(new string[] { "ACB", "FPT" });
                 return new MarketData(AppTypes.TimeRanges.Y1, AppTypes.TimeScaleFromCode("D1"), list);
             }
-            
+
             //Get market indicator series
             private void Access(MarketData data)
             {

@@ -544,12 +544,23 @@ namespace wsServices
             databases.DbAccess.LoadData(tbl, timeScaleCode, frDate, toDate, stockCode);
             return tbl;
         }
-        public databases.tmpDS.marketDataDataTable GetMarketData_BySQL(string sqlCmd)
+        
+        
+        //public databases.tmpDS.marketDataDataTable GetMarketData_BySQL(string sqlCmd)
+        //{
+        //    databases.tmpDS.marketDataDataTable tbl = new databases.tmpDS.marketDataDataTable();
+        //    databases.DbAccess.LoadFromSQL(tbl, sqlCmd);
+        //    return tbl;
+        //}
+
+        public databases.tmpDS.marketDataDataTable GetMarketData(DateTime startDate, DateTime endDate,string codeList, string timeScaleCode, 
+                                                                 AppTypes.MarketDataTypes marketDataType)
         {
-            databases.tmpDS.marketDataDataTable tbl = new databases.tmpDS.marketDataDataTable();
-            databases.DbAccess.LoadFromSQL(tbl, sqlCmd);
-            return tbl;
+            return databases.DbAccess.GetMarketData(startDate, endDate, codeList,AppTypes.TimeScaleFromCode(timeScaleCode), marketDataType);
         }
+
+
+
         public int GetData_TotalRow(string timeScaleCode, string stockCode, DateTime frDate, DateTime toDate)
         {
             return databases.DbAccess.GetTotalPriceRow(AppTypes.TimeScaleFromCode(timeScaleCode), frDate, toDate, stockCode);
