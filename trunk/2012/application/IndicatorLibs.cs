@@ -345,22 +345,20 @@ namespace application.Indicators
         }
 
         /// <summary>
-        /// Calculated primary indicator databases. If an indicator has several output,one is called "primary data" 
+        /// Calculated indicator data. If an indicator has several output,one is called "primary data" 
         /// and others are calles "exatra data".
         /// </summary>
         /// <param name="myData"> Data used to calculate indicator databases.</param>
         /// <param name="meta">Indicator meta data</param>
         /// <param name="periods">List of indicator parametters</param>
         /// <returns></returns>
-        public static DataSeries GetIndicatorData(application.AnalysisData myData, Meta meta)
+        public static DataValues[] GetIndicatorData(application.AnalysisData myData, Meta meta)
         {
             string cacheName = myData.DataStockCode + "-" + meta.ClassType.Name;
             object[] para = new object[1];
-            
-            if (meta.InputDataType == typeof(DataBars))  para[0] = myData.Bars;
-
-
+            if (meta.InputDataType == typeof(DataBars)) para[0] = myData.Bars;
             else para[0] = myData.Close;
+
             for (int idx = 0; idx < meta.Parameters.Length; idx++)
             {
                 Array.Resize(ref para, para.Length + 1);
@@ -370,29 +368,35 @@ namespace application.Indicators
             Array.Resize(ref para, para.Length + 1);
             para[para.Length - 1] = meta.Name;
 
-            DataSeries indicatorSeries = (DataSeries)dataCache.Find(cacheName);
-            if (indicatorSeries == null)
+            DataValues[] indicatorValues = (DataValues[])dataCache.Find(cacheName);
+            if (indicatorValues == null)
             {
-                indicatorSeries = (DataSeries)Activator.CreateInstance(meta.ClassType, para);
-                dataCache.Add(cacheName, indicatorSeries);
-            }
-            return indicatorSeries;
-        }
+                indicatorValues = new DataValues[meta.Output.Length];
 
-        /// <summary>
-        /// Get extra indicator databases.
-        /// Some indicator such as MACD having more than one output series which can be accessed by "ExtraSeries".
-        /// "ExtraSeries" properties must be implemented in multi-ouput indicator.
-        /// </summary>
-        /// <param name="ds"> The primary data returned by Indicator</param>
-        /// <param name="meta">Indicator meta data</param>
-        /// <param name="extraInfo">Information(period,color,wegiht...) about EXTRA output.It's the "ExtraInfo" properties from Indicator form.</param>
-        /// <returns></returns>
-        public static DataSeries[] GetIndicatorData(DataSeries ds, Meta meta)
-        {
-            PropertyInfo propertyInfo = meta.ClassType.GetProperty("ExtraSeries");
-            if (propertyInfo == null) return null;
-            return (DataSeries[])propertyInfo.GetValue(ds, null);
+                DataSeries mainSeries= (DataSeries)Activator.CreateInstance(meta.ClassType, para);
+                indicatorValues[0] = new DataValues();
+                indicatorValues[0].Values =  mainSeries.Values;
+                indicatorValues[0].FirstValidValue =  mainSeries.FirstValidValue;
+
+                // Some indicator such as MACD having more than one output series.
+                // In such case, indicator form MUST have [form.ExtraInfo] propery to provide information for the output series. 
+                if (meta.Output.Length > 1)
+                {
+                    PropertyInfo propertyInfo = meta.ClassType.GetProperty("ExtraSeries");
+                    if (propertyInfo != null)
+                    {
+                        DataSeries[] extraSeries = (DataSeries[])propertyInfo.GetValue(mainSeries, null);
+                        for (int idx = 0, metaIdx = 1; idx < extraSeries.Length && metaIdx < meta.Output.Length; idx++, metaIdx++)
+                        {
+                            indicatorValues[metaIdx] = new DataValues();
+                            indicatorValues[metaIdx].Values = extraSeries[idx].Values;
+                            indicatorValues[metaIdx].FirstValidValue = extraSeries[idx].FirstValidValue;
+                        }
+                    }
+                }
+                dataCache.Add(cacheName, indicatorValues);
+            }
+            return indicatorValues;
         }
 
         /// <summary>

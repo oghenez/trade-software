@@ -43,13 +43,20 @@ namespace wsServices
         //Start-up function. See http://stackoverflow.com/questions/739268/wcf-application-start-event
         public DataLibs()
         {
-            common.configuration.withEncryption = true;
-            common.Settings.sysConfigFile = common.fileFuncs.ConcatFileName(commonClass.SysLibs.myExecuteDirectory, commonTypes.Consts.constWebServiceConf);
-            databases.SysLibs.dbConnectionString = common.configuration.GetDbConnectionString();
+            try
+            {
+                common.configuration.withEncryption = true;
+                common.Settings.sysConfigFile = common.fileFuncs.ConcatFileName(commonClass.SysLibs.myExecuteDirectory, commonTypes.Consts.constWebServiceConf);
+                databases.SysLibs.dbConnectionString = common.configuration.GetDbConnectionString();
 
-            GlobalSettings globalSetting = Settings.sysGlobal;
-            application.Configuration.Load_Global_Settings(ref globalSetting);
-            Settings.sysGlobal = globalSetting;
+                GlobalSettings globalSetting = Settings.sysGlobal;
+                application.Configuration.Load_Global_Settings(ref globalSetting);
+                Settings.sysGlobal = globalSetting;
+            }
+            catch (Exception ex)
+            {
+                WriteSysLogLocal(ex);
+            }
         }
 
         private static common.DictionaryList sysDataCache = new common.DictionaryList();
@@ -80,7 +87,7 @@ namespace wsServices
 
         private static string MakeCacheKey(string code, commonClass.DataParams dataParam)
         {
-            return "data" + "-" + code + "-" + dataParam.TimeRange.ToString() + "-" + dataParam.MaxDataCount.ToString()+ "-" + dataParam.TimeScale;
+            return "data" + "-" + code + "-" + dataParam.ToUniqueString();
         }
         private static string MakeCacheKey()
         {
@@ -198,180 +205,439 @@ namespace wsServices
             return null;
         }
 
+        public databases.tmpDS.dataVarrianceDataTable GetTopPriceVarriance(DateTime frDate, DateTime toDate, string timeScaleCode, int topN)
+        {
+            try
+            {
+                return databases.AppLibs.GetTopPriceVarriance(frDate, toDate, timeScaleCode, topN);
+            }
+            catch (Exception ex)
+            {
+                WriteSysLogLocal(ex);
+            }
+            return null;
+        }
+
+        public databases.tmpDS.dataVarrianceDataTable GetTopPriceVarrianceOfUser(DateTime frDate, DateTime toDate, string timeScaleCode, string userCode, int topN)
+        {
+            try
+            {
+                return databases.AppLibs.GetTopPriceVarrianceOfUser(frDate, toDate, timeScaleCode, userCode, topN);
+            }
+            catch (Exception ex)
+            {
+                WriteSysLogLocal(ex);
+            }
+            return null;
+        }
+
+        public DataValues[] GetIndicatorData(string code, commonClass.DataParams dataParam, string metaName)
+        {
+            try
+            {
+                application.AnalysisData data = GetAnalysisData(LoadAnalysisData(code, dataParam, false));
+                if (data == null) return null;
+                application.Indicators.Meta meta = application.Indicators.Libs.FindMetaByName(metaName);
+                return application.Indicators.Libs.GetIndicatorData(data, meta);
+            }
+            catch (Exception ex)
+            {
+                WriteSysLogLocal(ex);
+            }
+            return null;
+        }
+
         #endregion Tools
 
         #region Load/Get data
         public databases.tmpDS.investorDataTable GetInvestorShortList()
         {
-            databases.tmpDS.investorDataTable tbl = new databases.tmpDS.investorDataTable();
-            databases.DbAccess.LoadData(tbl);
-            return tbl;
+            try
+            {
+                databases.tmpDS.investorDataTable tbl = new databases.tmpDS.investorDataTable();
+                databases.DbAccess.LoadData(tbl);
+                return tbl;
+            }
+            catch (Exception ex)
+            {
+                WriteSysLogLocal(ex);
+            }
+            return null;
         }
         public databases.baseDS.sysLogDataTable GetSyslog_ByDate(DateTime frDate,DateTime toDate)
         {
-            databases.baseDS.sysLogDataTable tbl = new databases.baseDS.sysLogDataTable();
-            databases.DbAccess.LoadData(tbl, frDate,toDate);
-            return tbl;
+            try
+            {
+                databases.baseDS.sysLogDataTable tbl = new databases.baseDS.sysLogDataTable();
+                databases.DbAccess.LoadData(tbl, frDate, toDate);
+                return tbl;
+            }
+            catch (Exception ex)
+            {
+                WriteSysLogLocal(ex);
+            }
+            return null;
+
         }
         public databases.baseDS.sysLogDataTable GetSyslog_BySQL(string sql)
         {
-            databases.baseDS.sysLogDataTable tbl = new databases.baseDS.sysLogDataTable();
-            databases.DbAccess.LoadFromSQL(tbl, sql);
-            return tbl;
+            try
+            {
+                databases.baseDS.sysLogDataTable tbl = new databases.baseDS.sysLogDataTable();
+                databases.DbAccess.LoadFromSQL(tbl, sql);
+                return tbl;
+            }
+            catch (Exception ex)
+            {
+                WriteSysLogLocal(ex);
+            }
+            return null;
         }
 
         public databases.baseDS.investorDataTable GetInvestor_BySQL(string sql)
         {
-            databases.baseDS.investorDataTable tbl = new databases.baseDS.investorDataTable();
-            databases.DbAccess.LoadFromSQL(tbl, sql);
-            return tbl;
+            try
+            {
+                databases.baseDS.investorDataTable tbl = new databases.baseDS.investorDataTable();
+                databases.DbAccess.LoadFromSQL(tbl, sql);
+                return tbl;
+            }
+            catch (Exception ex)
+            {
+                WriteSysLogLocal(ex);
+            }
+            return null;
         }
         public databases.baseDS.investorDataTable GetInvestor_ByCode(string code)
         {
-            databases.baseDS.investorDataTable tbl = new databases.baseDS.investorDataTable();
-            databases.DbAccess.LoadData(tbl, code);
-            return tbl;
+            try
+            {
+                databases.baseDS.investorDataTable tbl = new databases.baseDS.investorDataTable();
+                databases.DbAccess.LoadData(tbl, code);
+                return tbl;
+            }
+            catch (Exception ex)
+            {
+                WriteSysLogLocal(ex);
+            }
+            return null;
         }
         public databases.baseDS.investorDataTable GetInvestor_ByAccount(string account)
         {
-            databases.baseDS.investorDataTable tbl = new databases.baseDS.investorDataTable();
-            databases.DbAccess.LoadInvestorByAccount(tbl, account);
-            return tbl;
+            try
+            {
+                databases.baseDS.investorDataTable tbl = new databases.baseDS.investorDataTable();
+                databases.DbAccess.LoadInvestorByAccount(tbl, account);
+                return tbl;
+            }
+            catch (Exception ex)
+            {
+                WriteSysLogLocal(ex);
+            }
+            return null;
         }
         public databases.baseDS.investorDataTable GetInvestor_ByEmail(string email)
         {
-            databases.baseDS.investorDataTable tbl = new databases.baseDS.investorDataTable();
-            databases.DbAccess.LoadInvestorByEmail(tbl, email);
-            return tbl;
+            try
+            {
+                databases.baseDS.investorDataTable tbl = new databases.baseDS.investorDataTable();
+                databases.DbAccess.LoadInvestorByEmail(tbl, email);
+                return tbl;
+            }
+            catch (Exception ex)
+            {
+                WriteSysLogLocal(ex);
+            }
+            return null;
         }
 
         public databases.tmpDS.stockCodeDataTable GetStockByStatus(AppTypes.CommonStatus status)
         {
-            databases.tmpDS.stockCodeDataTable tbl = new databases.tmpDS.stockCodeDataTable();
-            databases.DbAccess.LoadData(tbl, status);
-            return tbl;
+            try
+            {
+                databases.tmpDS.stockCodeDataTable tbl = new databases.tmpDS.stockCodeDataTable();
+                databases.DbAccess.LoadData(tbl, status);
+                return tbl;
+            }
+            catch (Exception ex)
+            {
+                WriteSysLogLocal(ex);
+            }
+            return null;
         }
         public databases.baseDS.stockCodeDataTable GetStockFull()
         {
-            databases.baseDS.stockCodeDataTable tbl = new databases.baseDS.stockCodeDataTable();
-            databases.DbAccess.LoadData(tbl);
-            return tbl;
+            try
+            {
+                databases.baseDS.stockCodeDataTable tbl = new databases.baseDS.stockCodeDataTable();
+                databases.DbAccess.LoadData(tbl);
+                return tbl;
+            }
+            catch (Exception ex)
+            {
+                WriteSysLogLocal(ex);
+            }
+            return null;
         }
         public databases.baseDS.stockExchangeDataTable GetStockExchange()
         {
-            databases.baseDS.stockExchangeDataTable tbl = new databases.baseDS.stockExchangeDataTable();
-            databases.DbAccess.LoadData(tbl);
-            return tbl;
+            try
+            {
+                databases.baseDS.stockExchangeDataTable tbl = new databases.baseDS.stockExchangeDataTable();
+                databases.DbAccess.LoadData(tbl);
+                return tbl;
+            }
+            catch (Exception ex)
+            {
+                WriteSysLogLocal(ex);
+            }
+            return null;
         }
         public databases.baseDS.exchangeDetailDataTable GetExchangeDetail(string code)
         {
-            databases.baseDS.exchangeDetailDataTable tbl = new databases.baseDS.exchangeDetailDataTable();
-            databases.DbAccess.LoadData(tbl,code);
-            return tbl;
+            try
+            {
+                databases.baseDS.exchangeDetailDataTable tbl = new databases.baseDS.exchangeDetailDataTable();
+                databases.DbAccess.LoadData(tbl, code);
+                return tbl;
+            }
+            catch (Exception ex)
+            {
+                WriteSysLogLocal(ex);
+            }
+            return null;
         }
 
         public databases.baseDS.employeeRangeDataTable GetEmployeeRange()
         {
-            databases.baseDS.employeeRangeDataTable tbl = new databases.baseDS.employeeRangeDataTable();
-            databases.DbAccess.LoadData(tbl);
-            return tbl;
+            try
+            {
+                databases.baseDS.employeeRangeDataTable tbl = new databases.baseDS.employeeRangeDataTable();
+                databases.DbAccess.LoadData(tbl);
+                return tbl;
+            }
+            catch (Exception ex)
+            {
+                WriteSysLogLocal(ex);
+            }
+            return null;
         }
 
         public databases.baseDS.bizIndustryDataTable GetBizIndustry()
         {
-            databases.baseDS.bizIndustryDataTable tbl = new databases.baseDS.bizIndustryDataTable();
-            databases.DbAccess.LoadData(tbl);
-            return tbl;
+            try
+            {
+                databases.baseDS.bizIndustryDataTable tbl = new databases.baseDS.bizIndustryDataTable();
+                databases.DbAccess.LoadData(tbl);
+                return tbl;
+            }
+            catch (Exception ex)
+            {
+                WriteSysLogLocal(ex);
+            }
+            return null;
         }
         public databases.baseDS.bizSuperSectorDataTable GetBizSuperSector()
         {
-            databases.baseDS.bizSuperSectorDataTable tbl = new databases.baseDS.bizSuperSectorDataTable();
-            databases.DbAccess.LoadData(tbl);
-            return tbl;
+            try
+            {
+                databases.baseDS.bizSuperSectorDataTable tbl = new databases.baseDS.bizSuperSectorDataTable();
+                databases.DbAccess.LoadData(tbl);
+                return tbl;
+            }
+            catch (Exception ex)
+            {
+                WriteSysLogLocal(ex);
+            }
+            return null;
         }
         public databases.baseDS.bizSectorDataTable GetBizSector()
         {
-            databases.baseDS.bizSectorDataTable tbl = new databases.baseDS.bizSectorDataTable();
-            databases.DbAccess.LoadData(tbl);
-            return tbl;
+            try
+            {
+                databases.baseDS.bizSectorDataTable tbl = new databases.baseDS.bizSectorDataTable();
+                databases.DbAccess.LoadData(tbl);
+                return tbl;
+            }
+            catch (Exception ex)
+            {
+                WriteSysLogLocal(ex);
+            }
+            return null;
         }
 
         public databases.baseDS.bizSubSectorDataTable GetBizSubSector()
         {
-            databases.baseDS.bizSubSectorDataTable tbl = new databases.baseDS.bizSubSectorDataTable();
-            databases.DbAccess.LoadData(tbl);
-            return tbl;
+            try
+            {
+                databases.baseDS.bizSubSectorDataTable tbl = new databases.baseDS.bizSubSectorDataTable();
+                databases.DbAccess.LoadData(tbl);
+                return tbl;
+            }
+            catch (Exception ex)
+            {
+                WriteSysLogLocal(ex);
+            }
+            return null;
         }
         public databases.baseDS.bizSubSectorDataTable GetBizSubSectorByIndustry(string industryCode)
         {
-            databases.baseDS.bizSubSectorDataTable tbl = new databases.baseDS.bizSubSectorDataTable();
-            databases.DbAccess.LoadDataByIndustryCode(tbl, industryCode);
-            return tbl;
+            try
+            {
+                databases.baseDS.bizSubSectorDataTable tbl = new databases.baseDS.bizSubSectorDataTable();
+                databases.DbAccess.LoadDataByIndustryCode(tbl, industryCode);
+                return tbl;
+            }
+            catch (Exception ex)
+            {
+                WriteSysLogLocal(ex);
+            }
+            return null;
         }
         public databases.baseDS.bizSubSectorDataTable GetBizSubSectorBySuperSector(string superSectorCode)
         {
-            databases.baseDS.bizSubSectorDataTable tbl = new databases.baseDS.bizSubSectorDataTable();
-            databases.DbAccess.LoadDataBySuperSectorCode(tbl, superSectorCode);
-            return tbl;
+            try
+            {
+                databases.baseDS.bizSubSectorDataTable tbl = new databases.baseDS.bizSubSectorDataTable();
+                databases.DbAccess.LoadDataBySuperSectorCode(tbl, superSectorCode);
+                return tbl;
+            }
+            catch (Exception ex)
+            {
+                WriteSysLogLocal(ex);
+            }
+            return null;
         }
         public databases.baseDS.bizSubSectorDataTable GetBizSubSectorBySector(string sectorCode)
         {
-            databases.baseDS.bizSubSectorDataTable tbl = new databases.baseDS.bizSubSectorDataTable();
-            databases.DbAccess.LoadDataBySectorCode(tbl, sectorCode);
-            return tbl;
+            try
+            {
+                databases.baseDS.bizSubSectorDataTable tbl = new databases.baseDS.bizSubSectorDataTable();
+                databases.DbAccess.LoadDataBySectorCode(tbl, sectorCode);
+                return tbl;
+            }
+            catch (Exception ex)
+            {
+                WriteSysLogLocal(ex);
+            }
+            return null;
         }
 
         public databases.baseDS.feedbackCatDataTable GetFeedbackCat(string cultureCode)
         {
-            databases.baseDS.feedbackCatDataTable tbl = new databases.baseDS.feedbackCatDataTable();
-            databases.DbAccess.LoadData(tbl, cultureCode);
-            return tbl;
+            try
+            {
+                databases.baseDS.feedbackCatDataTable tbl = new databases.baseDS.feedbackCatDataTable();
+                databases.DbAccess.LoadData(tbl, cultureCode);
+                return tbl;
+            }
+            catch (Exception ex)
+            {
+                WriteSysLogLocal(ex);
+            }
+            return null;
         }
         public databases.baseDS.countryDataTable GetCountry()
         {
-            databases.baseDS.countryDataTable tbl = new databases.baseDS.countryDataTable();
-            databases.DbAccess.LoadData(tbl);
-            return tbl;
+            try
+            {
+                databases.baseDS.countryDataTable tbl = new databases.baseDS.countryDataTable();
+                databases.DbAccess.LoadData(tbl);
+                return tbl;
+            }
+            catch (Exception ex)
+            {
+                WriteSysLogLocal(ex);
+            }
+            return null;
         }
         public databases.baseDS.currencyDataTable GetCurrency()
         {
-            databases.baseDS.currencyDataTable tbl = new databases.baseDS.currencyDataTable();
-            databases.DbAccess.LoadData(tbl);
-            return tbl;
+            try
+            {
+                databases.baseDS.currencyDataTable tbl = new databases.baseDS.currencyDataTable();
+                databases.DbAccess.LoadData(tbl);
+                return tbl;
+            }
+            catch (Exception ex)
+            {
+                WriteSysLogLocal(ex);
+            }
+            return null;
         }
 
         public databases.baseDS.investorCatDataTable GetInvestorCat()
         {
-            databases.baseDS.investorCatDataTable tbl = new databases.baseDS.investorCatDataTable();
-            databases.DbAccess.LoadData(tbl);
-            return tbl;
+            try
+            {
+                databases.baseDS.investorCatDataTable tbl = new databases.baseDS.investorCatDataTable();
+                databases.DbAccess.LoadData(tbl);
+                return tbl;
+            }
+            catch (Exception ex)
+            {
+                WriteSysLogLocal(ex);
+            }
+            return null;
         }
 
         public databases.baseDS.sysCodeDataTable GetSysCode(string catCode)
         {
-            databases.baseDS.sysCodeDataTable tbl = new databases.baseDS.sysCodeDataTable();
-            databases.DbAccess.LoadData(tbl, catCode);
-            return tbl;
+            try
+            {
+                databases.baseDS.sysCodeDataTable tbl = new databases.baseDS.sysCodeDataTable();
+                databases.DbAccess.LoadData(tbl, catCode);
+                return tbl;
+            }
+            catch (Exception ex)
+            {
+                WriteSysLogLocal(ex);
+            }
+            return null;
         }
         public databases.baseDS.sysCodeCatDataTable GetSysCodeCat()
         {
-            databases.baseDS.sysCodeCatDataTable tbl = new databases.baseDS.sysCodeCatDataTable();
-            databases.DbAccess.LoadData(tbl);
-            return tbl;
+            try
+            {
+                databases.baseDS.sysCodeCatDataTable tbl = new databases.baseDS.sysCodeCatDataTable();
+                databases.DbAccess.LoadData(tbl);
+                return tbl;
+            }
+            catch (Exception ex)
+            {
+                WriteSysLogLocal(ex);
+            }
+            return null;
         }
 
         public databases.tmpDS.investorStockDataTable GetOwnedStockSum_ByInvestor(string investorCode)
         {
-            databases.tmpDS.investorStockDataTable tbl = new databases.tmpDS.investorStockDataTable();
-            databases.DbAccess.LoadData(tbl, investorCode);
-            return tbl;
+            try
+            {
+                databases.tmpDS.investorStockDataTable tbl = new databases.tmpDS.investorStockDataTable();
+                databases.DbAccess.LoadData(tbl, investorCode);
+                return tbl;
+            }
+            catch (Exception ex)
+            {
+                WriteSysLogLocal(ex);
+            }
+            return null;
         }
 
         public databases.baseDS.investorStockDataTable GetOwnedStock_ByPortfolio(string portfolioCode)
         {
-            databases.baseDS.investorStockDataTable tbl = new databases.baseDS.investorStockDataTable();
-            databases.DbAccess.LoadData(tbl, portfolioCode);
-            return tbl;
+            try
+            {
+                databases.baseDS.investorStockDataTable tbl = new databases.baseDS.investorStockDataTable();
+                databases.DbAccess.LoadData(tbl, portfolioCode);
+                return tbl;
+            }
+            catch (Exception ex)
+            {
+                WriteSysLogLocal(ex);
+            }
+            return null;
         }
 
         private static string[] MakeStockCodeList(databases.tmpDS.stockCodeDataTable stockCodeTbl)
@@ -385,101 +651,229 @@ namespace wsServices
         }
         public string[] GetStockList_ByWatchList(string[] watchList)
         {
-            databases.tmpDS.stockCodeDataTable stockCodeTbl = new databases.tmpDS.stockCodeDataTable();
-            databases.DbAccess.LoadStockCode_ByWatchList(stockCodeTbl, common.system.List2Collection(watchList));
-            return MakeStockCodeList(stockCodeTbl);
+            try
+            {
+                databases.tmpDS.stockCodeDataTable stockCodeTbl = new databases.tmpDS.stockCodeDataTable();
+                databases.DbAccess.LoadStockCode_ByWatchList(stockCodeTbl, common.system.List2Collection(watchList));
+                return MakeStockCodeList(stockCodeTbl);
+            }
+            catch (Exception ex)
+            {
+                WriteSysLogLocal(ex);
+            }
+            return null;
         }
         public string[] GetStockList_ByBizSector(string[] sectors)
         {
-            databases.tmpDS.stockCodeDataTable stockCodeTbl = new databases.tmpDS.stockCodeDataTable();
-            databases.DbAccess.LoadStockCode_ByBizSectors(stockCodeTbl, common.system.List2Collection(sectors));
-            return MakeStockCodeList(stockCodeTbl);
+            try
+            {
+                databases.tmpDS.stockCodeDataTable stockCodeTbl = new databases.tmpDS.stockCodeDataTable();
+                databases.DbAccess.LoadStockCode_ByBizSectors(stockCodeTbl, common.system.List2Collection(sectors));
+                return MakeStockCodeList(stockCodeTbl);
+            }
+            catch (Exception ex)
+            {
+                WriteSysLogLocal(ex);
+            }
+            return null;
         }
 
         public databases.tmpDS.stockCodeDataTable GetStock_InPortfolio(string[] portfolios)
         {
-            databases.tmpDS.stockCodeDataTable retTbl = new databases.tmpDS.stockCodeDataTable();
-            databases.DbAccess.LoadStockCode_ByPortfolios(retTbl, common.system.List2Collection(portfolios));
-            return retTbl;
+            try
+            {
+                databases.tmpDS.stockCodeDataTable retTbl = new databases.tmpDS.stockCodeDataTable();
+                databases.DbAccess.LoadStockCode_ByPortfolios(retTbl, common.system.List2Collection(portfolios));
+                return retTbl;
+            }
+            catch (Exception ex)
+            {
+                WriteSysLogLocal(ex);
+            }
+            return null;
         }
         public databases.tmpDS.stockCodeDataTable GetStock_ByBizSector(string[] bizSectors)
         {
-            databases.tmpDS.stockCodeDataTable retTbl = new databases.tmpDS.stockCodeDataTable();
-            databases.DbAccess.LoadStockCode_ByBizSectors(retTbl, common.system.List2Collection(bizSectors));
-            return retTbl;
+            try
+            {
+                databases.tmpDS.stockCodeDataTable retTbl = new databases.tmpDS.stockCodeDataTable();
+                databases.DbAccess.LoadStockCode_ByBizSectors(retTbl, common.system.List2Collection(bizSectors));
+                return retTbl;
+            }
+            catch (Exception ex)
+            {
+                WriteSysLogLocal(ex);
+            }
+            return null;
         }
 
         public databases.baseDS.bizSubSectorDataTable GetBizSubSector_ByIndustry(string codes)
         {
-            databases.baseDS.bizSubSectorDataTable tbl = new databases.baseDS.bizSubSectorDataTable();
-            databases.DbAccess.LoadDataByIndustryCode(tbl, codes);
-            return tbl;
+            try
+            {
+                databases.baseDS.bizSubSectorDataTable tbl = new databases.baseDS.bizSubSectorDataTable();
+                databases.DbAccess.LoadDataByIndustryCode(tbl, codes);
+                return tbl;
+            }
+            catch (Exception ex)
+            {
+                WriteSysLogLocal(ex);
+            }
+            return null;
         }
         public databases.baseDS.bizSubSectorDataTable GetBizSubSector_BySuperSector(string codes)
         {
-            databases.baseDS.bizSubSectorDataTable tbl = new databases.baseDS.bizSubSectorDataTable();
-            databases.DbAccess.LoadDataBySuperSectorCode(tbl, codes);
-            return tbl;
+            try
+            {
+                databases.baseDS.bizSubSectorDataTable tbl = new databases.baseDS.bizSubSectorDataTable();
+                databases.DbAccess.LoadDataBySuperSectorCode(tbl, codes);
+                return tbl;
+            }
+            catch (Exception ex)
+            {
+                WriteSysLogLocal(ex);
+            }
+            return null;
         }
         public databases.baseDS.bizSubSectorDataTable GetBizSubSector_BySector(string codes)
         {
-            databases.baseDS.bizSubSectorDataTable tbl = new databases.baseDS.bizSubSectorDataTable();
-            databases.DbAccess.LoadDataBySectorCode(tbl, codes);
-            return tbl;
+            try
+            {
+                databases.baseDS.bizSubSectorDataTable tbl = new databases.baseDS.bizSubSectorDataTable();
+                databases.DbAccess.LoadDataBySectorCode(tbl, codes);
+                return tbl;
+            }
+            catch (Exception ex)
+            {
+                WriteSysLogLocal(ex);
+            }
+            return null;
         }
 
         public databases.baseDS.portfolioDataTable GetPortfolio_ByInvestorAndType(string investorCode, AppTypes.PortfolioTypes type)
         {
-            databases.baseDS.portfolioDataTable tbl = new databases.baseDS.portfolioDataTable();
-            databases.DbAccess.LoadPortfolioByInvestor(tbl, investorCode, type);
-            return tbl;
+            try
+            {
+                databases.baseDS.portfolioDataTable tbl = new databases.baseDS.portfolioDataTable();
+                databases.DbAccess.LoadPortfolioByInvestor(tbl, investorCode, type);
+                return tbl;
+            }
+            catch (Exception ex)
+            {
+                WriteSysLogLocal(ex);
+            }
+            return null;
         }
         public databases.baseDS.portfolioDataTable GetPortfolio_ByType(AppTypes.PortfolioTypes type)
         {
-            databases.baseDS.portfolioDataTable tbl = new databases.baseDS.portfolioDataTable();
-            databases.DbAccess.LoadData(tbl, type);
-            return tbl;
+            try
+            {
+                databases.baseDS.portfolioDataTable tbl = new databases.baseDS.portfolioDataTable();
+                databases.DbAccess.LoadData(tbl, type);
+                return tbl;
+            }
+            catch (Exception ex)
+            {
+                WriteSysLogLocal(ex);
+            }
+            return null;
         }
         public databases.baseDS.portfolioDataTable GetPortfolio_ByCode(string code)
         {
-            databases.baseDS.portfolioDataTable tbl = new databases.baseDS.portfolioDataTable();
-            databases.DbAccess.LoadData(tbl, code);
-            return tbl;
+            try
+            {
+                databases.baseDS.portfolioDataTable tbl = new databases.baseDS.portfolioDataTable();
+                databases.DbAccess.LoadData(tbl, code);
+                return tbl;
+            }
+            catch (Exception ex)
+            {
+                WriteSysLogLocal(ex);
+            }
+            return null;
         }
         public databases.baseDS.portfolioDataTable GetPortfolio_ByInvestor(string investorCode)
         {
-            databases.baseDS.portfolioDataTable tbl = new databases.baseDS.portfolioDataTable();
-            databases.DbAccess.LoadPortfolioByInvestor(tbl, investorCode);
-            return tbl;
+            try
+            {
+                databases.baseDS.portfolioDataTable tbl = new databases.baseDS.portfolioDataTable();
+                databases.DbAccess.LoadPortfolioByInvestor(tbl, investorCode);
+                return tbl;
+            }
+            catch (Exception ex)
+            {
+                WriteSysLogLocal(ex);
+            }
+            return null;
         }
 
         public databases.baseDS.portfolioDetailDataTable GetPortfolioDetail_ByType(AppTypes.PortfolioTypes[] types)
         {
-            return databases.DbAccess.GetPortfolioDetail_ByType(types);
+            try
+            {
+                return databases.DbAccess.GetPortfolioDetail_ByType(types);
+            }
+            catch (Exception ex)
+            {
+                WriteSysLogLocal(ex);
+            }
+            return null;
         }
         public databases.baseDS.portfolioDetailDataTable GetPortfolioDetail_ByCode(string portfolioCode)
         {
-            databases.baseDS.portfolioDetailDataTable tbl = new databases.baseDS.portfolioDetailDataTable();
-            databases.DbAccess.LoadData(tbl, portfolioCode);
-            return tbl;
+            try
+            {
+                databases.baseDS.portfolioDetailDataTable tbl = new databases.baseDS.portfolioDetailDataTable();
+                databases.DbAccess.LoadData(tbl, portfolioCode);
+                return tbl;
+            }
+            catch (Exception ex)
+            {
+                WriteSysLogLocal(ex);
+            }
+            return null;
         }
 
 
         public databases.baseDS.tradeAlertDataTable GetTradeAlert(DateTime frDate, DateTime toDate, string investor, byte statusMask)
         {
-            return databases.DbAccess.GetTradeAlert(frDate, toDate, investor, statusMask);
+            try
+            {
+                return databases.DbAccess.GetTradeAlert(frDate, toDate, investor, statusMask);
+            }
+            catch (Exception ex)
+            {
+                WriteSysLogLocal(ex);
+            }
+            return null;
         }
         public databases.baseDS.tradeAlertDataTable GetTradeAlert_BySQL(string sql)
         {
-            databases.baseDS.tradeAlertDataTable tbl = new databases.baseDS.tradeAlertDataTable();
-            databases.DbAccess.LoadFromSQL(tbl, sql);
-            return tbl;
+            try
+            {
+                databases.baseDS.tradeAlertDataTable tbl = new databases.baseDS.tradeAlertDataTable();
+                databases.DbAccess.LoadFromSQL(tbl, sql);
+                return tbl;
+            }
+            catch (Exception ex)
+            {
+                WriteSysLogLocal(ex);
+            }
+            return null;
         }
         public databases.baseDS.transactionsDataTable GetTransaction_BySQL(string sql)
         {
-            databases.baseDS.transactionsDataTable tbl = new databases.baseDS.transactionsDataTable();
-            databases.DbAccess.LoadFromSQL(tbl, sql);
-            return tbl;
+            try
+            {
+                databases.baseDS.transactionsDataTable tbl = new databases.baseDS.transactionsDataTable();
+                databases.DbAccess.LoadFromSQL(tbl, sql);
+                return tbl;
+            }
+            catch (Exception ex)
+            {
+                WriteSysLogLocal(ex);
+            }
+            return null;
         }
 
         public databases.baseDS.priceDataDataTable GetPriceData(string stockCode, string timeScaleCode,DateTime frDate,DateTime toDate)
@@ -499,37 +893,53 @@ namespace wsServices
 
         public databases.baseDS.lastPriceDataDataTable GetLastPrice(AppTypes.PriceDataType type)
         {
-            DateTime fromDate = DateTime.Today.AddDays(-Settings.sysGlobal.DayScanForLastPrice); 
-            string cacheName = "lastPrice-" + type.ToString();
-            databases.baseDS.lastPriceDataDataTable dataTbl = null;
-            object obj = sysDataCache.Find(cacheName);
-            if (obj == null)
+            try
             {
+                DateTime fromDate = DateTime.Today.AddDays(-Settings.sysGlobal.DayScanForLastPrice);
+                string cacheName = "lastPrice-" + type.ToString();
+                databases.baseDS.lastPriceDataDataTable dataTbl = null;
+                object obj = sysDataCache.Find(cacheName);
+                if (obj == null)
+                {
+                    dataTbl = databases.DbAccess.GetLastPrice(type, fromDate);
+                    sysDataCache.Add(cacheName, new DataCacheItem(dataTbl));
+                    return dataTbl;
+                }
+                if ((obj as DataCacheItem).timeStamp + TimeSpan.FromSeconds(Settings.sysDataDelayTimeInSecs).Ticks > DateTime.Now.Ticks)
+                {
+                    return (databases.baseDS.lastPriceDataDataTable)(obj as DataCacheItem).data;
+                }
                 dataTbl = databases.DbAccess.GetLastPrice(type, fromDate);
                 sysDataCache.Add(cacheName, new DataCacheItem(dataTbl));
                 return dataTbl;
             }
-            if ((obj as DataCacheItem).timeStamp + TimeSpan.FromSeconds(Settings.sysDataDelayTimeInSecs).Ticks > DateTime.Now.Ticks)
+            catch (Exception ex)
             {
-                return (databases.baseDS.lastPriceDataDataTable)(obj as DataCacheItem).data;
+                WriteSysLogLocal(ex);
             }
-            dataTbl = databases.DbAccess.GetLastPrice(type, fromDate);
-            sysDataCache.Add(cacheName, new DataCacheItem(dataTbl));
-            return dataTbl;
+            return null;
         }
 
         public bool GetTransactionInfo(ref TransactionInfo transInfo)
         {
-            databases.baseDS.priceDataRow priceRow = databases.DbAccess.GetLastPriceData(transInfo.stockCode);
-            databases.baseDS.portfolioRow portfolioRow = databases.DbAccess.GetPortfolio(transInfo.portfolio);
-            databases.baseDS.stockExchangeRow marketRow = databases.DbAccess.GetStockExchange(transInfo.stockCode);
-            if (priceRow == null || portfolioRow == null || marketRow==null) return false;
-            transInfo.price = priceRow.closePrice;
-            transInfo.priceDate = priceRow.onDate;
-            transInfo.availableCash = portfolioRow.startCapAmt - portfolioRow.usedCapAmt;
-            transInfo.transFeePerc = marketRow.tranFeePerc;
-            transInfo.priceRatio = marketRow.priceRatio;
-            return true;
+            try
+            {
+                databases.baseDS.priceDataRow priceRow = databases.DbAccess.GetLastPriceData(transInfo.stockCode);
+                databases.baseDS.portfolioRow portfolioRow = databases.DbAccess.GetPortfolio(transInfo.portfolio);
+                databases.baseDS.stockExchangeRow marketRow = databases.DbAccess.GetStockExchange(transInfo.stockCode);
+                if (priceRow == null || portfolioRow == null || marketRow == null) return false;
+                transInfo.price = priceRow.closePrice;
+                transInfo.priceDate = priceRow.onDate;
+                transInfo.availableCash = portfolioRow.startCapAmt - portfolioRow.usedCapAmt;
+                transInfo.transFeePerc = marketRow.tranFeePerc;
+                transInfo.priceRatio = marketRow.priceRatio;
+                return true;
+            }
+            catch (Exception ex)
+            {
+                WriteSysLogLocal(ex);
+            }
+            return false;
         }
 
         public databases.baseDS.priceDataDataTable GetData_ByTimeScale_Code_FrDate(string timeScaleCode,string stockCode,DateTime fromDate)
@@ -545,21 +955,6 @@ namespace wsServices
             return tbl;
         }
         
-        
-        //public databases.tmpDS.marketDataDataTable GetMarketData_BySQL(string sqlCmd)
-        //{
-        //    databases.tmpDS.marketDataDataTable tbl = new databases.tmpDS.marketDataDataTable();
-        //    databases.DbAccess.LoadFromSQL(tbl, sqlCmd);
-        //    return tbl;
-        //}
-
-        public databases.tmpDS.marketDataDataTable GetMarketData(DateTime startDate, DateTime endDate,string codeList, string timeScaleCode, 
-                                                                 AppTypes.MarketDataTypes marketDataType)
-        {
-            return databases.DbAccess.GetMarketData(startDate, endDate, codeList,AppTypes.TimeScaleFromCode(timeScaleCode), marketDataType);
-        }
-
-
 
         public int GetData_TotalRow(string timeScaleCode, string stockCode, DateTime frDate, DateTime toDate)
         {
@@ -1095,34 +1490,6 @@ namespace wsServices
         #endregion syslog
 
         #region test
-
-        public databases.tmpDS.dataVarrianceDataTable GetTopPriceVarriance(DateTime frDate, DateTime toDate, string timeScaleCode, int topN)
-        {
-            try
-            {
-                return databases.AppLibs.GetTopPriceVarriance(frDate, toDate, timeScaleCode, topN);
-            }
-            catch (Exception ex)
-            {
-                WriteSysLogLocal(ex);
-            }
-            return null;
-        }
-
-        public databases.tmpDS.dataVarrianceDataTable GetTopPriceVarrianceOfUser(DateTime frDate, DateTime toDate, string timeScaleCode,string userCode, int topN)
-        {
-            try
-            {
-                return databases.AppLibs.GetTopPriceVarrianceOfUser(frDate, toDate, timeScaleCode,userCode, topN);
-            }
-            catch (Exception ex)
-            {
-                WriteSysLogLocal(ex);
-            }
-            return null;
-        }
-
-
         public DataTable Test(string sql)
         {
             DataTable tbl = new DataTable("testTbl");
