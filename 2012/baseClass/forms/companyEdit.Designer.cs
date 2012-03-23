@@ -139,7 +139,7 @@
             this.xpPanel_OtherInfo.PanelGradient.End = System.Drawing.SystemColors.Control;
             this.xpPanel_OtherInfo.PanelGradient.Start = System.Drawing.SystemColors.Control;
             this.xpPanel_OtherInfo.PanelGradientMode = System.Drawing.Drawing2D.LinearGradientMode.Horizontal;
-            this.xpPanel_OtherInfo.Size = new System.Drawing.Size(483, 202);
+            this.xpPanel_OtherInfo.Size = new System.Drawing.Size(482, 202);
             this.xpPanel_OtherInfo.Spacing = new System.Drawing.Point(0, 0);
             this.xpPanel_OtherInfo.TabIndex = 2;
             this.xpPanel_OtherInfo.TextColors.Foreground = System.Drawing.SystemColors.Control;
@@ -153,7 +153,7 @@
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.companyOtherInfo.Location = new System.Drawing.Point(30, 30);
             this.companyOtherInfo.Name = "companyOtherInfo";
-            this.companyOtherInfo.Size = new System.Drawing.Size(454, 155);
+            this.companyOtherInfo.Size = new System.Drawing.Size(453, 155);
             this.companyOtherInfo.TabIndex = 0;
             // 
             // xpPanel_StockInfo
@@ -177,7 +177,7 @@
             this.xpPanel_StockInfo.PanelGradient.End = System.Drawing.SystemColors.Control;
             this.xpPanel_StockInfo.PanelGradient.Start = System.Drawing.SystemColors.Control;
             this.xpPanel_StockInfo.PanelGradientMode = System.Drawing.Drawing2D.LinearGradientMode.Horizontal;
-            this.xpPanel_StockInfo.Size = new System.Drawing.Size(483, 181);
+            this.xpPanel_StockInfo.Size = new System.Drawing.Size(482, 181);
             this.xpPanel_StockInfo.Spacing = new System.Drawing.Point(0, 0);
             this.xpPanel_StockInfo.TabIndex = 1;
             this.xpPanel_StockInfo.TextColors.Foreground = System.Drawing.SystemColors.Control;
@@ -214,7 +214,7 @@
             this.xpPanel_GeneralInfo.PanelGradient.End = System.Drawing.SystemColors.Control;
             this.xpPanel_GeneralInfo.PanelGradient.Start = System.Drawing.SystemColors.Control;
             this.xpPanel_GeneralInfo.PanelGradientMode = System.Drawing.Drawing2D.LinearGradientMode.Horizontal;
-            this.xpPanel_GeneralInfo.Size = new System.Drawing.Size(483, 358);
+            this.xpPanel_GeneralInfo.Size = new System.Drawing.Size(482, 358);
             this.xpPanel_GeneralInfo.Spacing = new System.Drawing.Point(0, 0);
             this.xpPanel_GeneralInfo.TabIndex = 0;
             this.xpPanel_GeneralInfo.TextColors.Foreground = System.Drawing.SystemColors.Control;
@@ -239,6 +239,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(499, 735);
             this.Controls.Add(this.xpPanelGroup_Info);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "companyEdit";
             this.Text = "Company";

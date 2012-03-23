@@ -95,13 +95,13 @@
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.codeListLb.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.codeListLb.Location = new System.Drawing.Point(21, 383);
+            this.codeListLb.Location = new System.Drawing.Point(21, 358);
             this.codeListLb.Margin = new System.Windows.Forms.Padding(2);
             this.codeListLb.myItemString = "";
             this.codeListLb.myValues = ((System.Collections.Specialized.StringCollection)(resources.GetObject("codeListLb.myValues")));
             this.codeListLb.Name = "codeListLb";
             this.codeListLb.ShowCheckedOnly = false;
-            this.codeListLb.Size = new System.Drawing.Size(426, 263);
+            this.codeListLb.Size = new System.Drawing.Size(426, 287);
             this.codeListLb.TabIndex = 30;
             // 
             // timeScaleLbl
@@ -123,7 +123,7 @@
             this.timeScaleCb.Location = new System.Drawing.Point(346, 4);
             this.timeScaleCb.Name = "timeScaleCb";
             this.timeScaleCb.SelectedValue = "RT";
-            this.timeScaleCb.Size = new System.Drawing.Size(102, 24);
+            this.timeScaleCb.Size = new System.Drawing.Size(102, 23);
             this.timeScaleCb.TabIndex = 2;
             // 
             // allTimeRangeChk
@@ -142,7 +142,7 @@
             // 
             this.codeListLbl.AutoSize = true;
             this.codeListLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.codeListLbl.Location = new System.Drawing.Point(21, 365);
+            this.codeListLbl.Location = new System.Drawing.Point(21, 340);
             this.codeListLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.codeListLbl.Name = "codeListLbl";
             this.codeListLbl.Size = new System.Drawing.Size(63, 16);
@@ -154,6 +154,7 @@
             this.timeRangeLb.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.timeRangeLb.CheckOnClick = true;
+            this.timeRangeLb.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.timeRangeLb.FormattingEnabled = true;
             this.timeRangeLb.Location = new System.Drawing.Point(22, 27);
             this.timeRangeLb.MultiColumn = true;
@@ -163,14 +164,14 @@
             this.timeRangeLb.myItemValues = ((System.Collections.Specialized.StringCollection)(resources.GetObject("timeRangeLb.myItemValues")));
             this.timeRangeLb.Name = "timeRangeLb";
             this.timeRangeLb.ShowCheckedOnly = false;
-            this.timeRangeLb.Size = new System.Drawing.Size(426, 64);
+            this.timeRangeLb.Size = new System.Drawing.Size(426, 55);
             this.timeRangeLb.TabIndex = 10;
             // 
             // strategyLbl
             // 
             this.strategyLbl.AutoSize = true;
             this.strategyLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.strategyLbl.Location = new System.Drawing.Point(22, 108);
+            this.strategyLbl.Location = new System.Drawing.Point(22, 90);
             this.strategyLbl.Name = "strategyLbl";
             this.strategyLbl.Size = new System.Drawing.Size(66, 16);
             this.strategyLbl.TabIndex = 315;
@@ -181,12 +182,12 @@
             this.strategyClb.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.strategyClb.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.strategyClb.Location = new System.Drawing.Point(22, 127);
+            this.strategyClb.Location = new System.Drawing.Point(22, 109);
             this.strategyClb.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.strategyClb.myCheckedValues = ((System.Collections.Specialized.StringCollection)(resources.GetObject("strategyClb.myCheckedValues")));
             this.strategyClb.myItemString = "";
             this.strategyClb.Name = "strategyClb";
-            this.strategyClb.Size = new System.Drawing.Size(428, 230);
+            this.strategyClb.Size = new System.Drawing.Size(428, 222);
             this.strategyClb.TabIndex = 20;
             // 
             // menuStrip
@@ -297,7 +298,7 @@
             this.resultTab.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.resultTab.Location = new System.Drawing.Point(475, 1);
+            this.resultTab.Location = new System.Drawing.Point(473, 1);
             this.resultTab.Name = "resultTab";
             this.resultTab.SelectedIndex = 0;
             this.resultTab.Size = new System.Drawing.Size(576, 674);
@@ -310,6 +311,7 @@
             this.Controls.Add(this.optionPnl);
             this.Controls.Add(this.menuStrip);
             this.Controls.Add(this.resultTab);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip;
             this.Name = "strategyRanking";

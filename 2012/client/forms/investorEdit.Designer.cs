@@ -159,6 +159,7 @@
             // countryCb
             // 
             this.countryCb.Location = new System.Drawing.Point(25, 397);
+            this.countryCb.Size = new System.Drawing.Size(286, 23);
             // 
             // investorCatCb
             // 
@@ -179,6 +180,7 @@
             // 
             this.displayNameEd.Location = new System.Drawing.Point(25, 173);
             this.displayNameEd.ReadOnly = true;
+            this.displayNameEd.Size = new System.Drawing.Size(251, 21);
             // 
             // noteLbl
             // 
@@ -285,6 +287,7 @@
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(530, 677);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(3);
             this.Name = "investorEdit";
             this.infoPnl.ResumeLayout(false);

@@ -61,12 +61,12 @@
             // 
             // xpPanelGroup_Info
             // 
-            this.xpPanelGroup_Info.Size = new System.Drawing.Size(500, 669);
+            this.xpPanelGroup_Info.Size = new System.Drawing.Size(500, 673);
             // 
             // xpPanel_OtherInfo
             // 
             this.xpPanel_OtherInfo.ImageItems.ImageSet = null;
-            this.xpPanel_OtherInfo.Size = new System.Drawing.Size(483, 207);
+            this.xpPanel_OtherInfo.Size = new System.Drawing.Size(482, 207);
             // 
             // companyOtherInfo
             // 
@@ -76,12 +76,12 @@
             // xpPanel_StockInfo
             // 
             this.xpPanel_StockInfo.ImageItems.ImageSet = null;
-            this.xpPanel_StockInfo.Size = new System.Drawing.Size(483, 181);
+            this.xpPanel_StockInfo.Size = new System.Drawing.Size(482, 181);
             // 
             // xpPanel_GeneralInfo
             // 
             this.xpPanel_GeneralInfo.ImageItems.ImageSet = null;
-            this.xpPanel_GeneralInfo.Size = new System.Drawing.Size(483, 355);
+            this.xpPanel_GeneralInfo.Size = new System.Drawing.Size(482, 355);
             // 
             // editBtn
             // 
