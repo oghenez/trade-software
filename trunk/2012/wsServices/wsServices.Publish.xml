@@ -1,43 +1,45 @@
 <publishData>
   <publishTarget publishUrl="http://localhost">
-    <file relUrl="bin/Languages.pdb" publishTime="03/23/2012 22:09:27" />
-    <file relUrl="bin/Languages.dll" publishTime="03/23/2012 22:09:27" />
-    <file relUrl="bin/wsServices.pdb" publishTime="03/23/2012 22:35:25" />
-    <file relUrl="bin/commonClass.pdb" publishTime="03/23/2012 22:09:29" />
-    <file relUrl="bin\vi-VN/common.resources.dll" publishTime="03/23/2012 22:09:28" />
-    <file relUrl="bin/Indicators.dll" publishTime="03/23/2012 22:11:40" />
+    <file relUrl="bin/Languages.pdb" publishTime="03/24/2012 20:38:20" />
+    <file relUrl="bin/Languages.dll" publishTime="03/24/2012 20:38:20" />
+    <file relUrl="bin/wsServices.pdb" publishTime="03/24/2012 20:38:48" />
+    <file relUrl="bin/ResolveAssemblyReference.cache" publishTime="03/24/2012 20:38:48" />
+    <file relUrl="bin/commonClass.pdb" publishTime="03/24/2012 20:15:28" />
+    <file relUrl="bin/Indicators.dll" publishTime="03/24/2012 20:38:26" />
     <file relUrl="bin\en-US/strategyInfo.xml" publishTime="02/26/2012 23:07:02" />
-    <file relUrl="bin/commonClass.dll" publishTime="03/23/2012 22:09:29" />
-    <file relUrl="bin/common.pdb" publishTime="03/23/2012 22:09:28" />
-    <file relUrl="bin/commonTypes.dll" publishTime="03/23/2012 22:09:27" />
-    <file relUrl="bin/Charts.dll" publishTime="03/23/2012 22:09:30" />
-    <file relUrl="bin\vi-VN/Languages.resources.dll" publishTime="03/23/2012 22:09:27" />
+    <file relUrl="bin/commonClass.dll" publishTime="03/24/2012 20:15:28" />
+    <file relUrl="bin/common.pdb" publishTime="03/24/2012 20:27:25" />
+    <file relUrl="bin/NTP.dll" publishTime="03/09/2009 17:21:08" />
+    <file relUrl="bin/commonTypes.dll" publishTime="03/23/2012 08:53:28" />
+    <file relUrl="bin/Charts.dll" publishTime="03/24/2012 20:38:21" />
+    <file relUrl="bin\vi-VN/Languages.resources.dll" publishTime="03/24/2012 20:38:20" />
     <file relUrl="bin/PdfSharp.dll" publishTime="11/26/2009 12:06:32" />
-    <file relUrl="bin/strategy.pdb" publishTime="03/23/2012 22:11:44" />
+    <file relUrl="bin/strategy.pdb" publishTime="03/24/2012 20:38:47" />
     <file relUrl="bin/databases.pdb" publishTime="03/23/2012 22:09:29" />
     <file relUrl="Web.config" publishTime="02/11/2012 15:23:57" />
     <file relUrl="bin/databases.dll" publishTime="03/23/2012 22:09:29" />
-    <file relUrl="bin/commonTypes.pdb" publishTime="03/23/2012 22:09:27" />
-    <file relUrl="bin/ZedGraph.dll" publishTime="03/06/2012 12:48:06" />
+    <file relUrl="bin/commonTypes.pdb" publishTime="03/23/2012 08:53:28" />
+    <file relUrl="bin/wsServices.dll" publishTime="03/24/2012 20:38:48" />
     <file relUrl="bin/WeifenLuo.WinFormsUI.Docking.dll" publishTime="09/22/2011 10:12:53" />
-    <file relUrl="wsServices.DataLibs.svc" publishTime="03/23/2012 22:35:49" />
-    <file relUrl="bin/Interop.WIALib.dll" publishTime="03/23/2012 22:09:27" />
+    <file relUrl="wsServices.DataLibs.svc" publishTime="03/24/2012 20:38:50" />
+    <file relUrl="bin/Interop.WIALib.dll" publishTime="03/23/2012 09:13:03" />
     <file relUrl="bin/TA-Lib-Core.dll" publishTime="03/06/2012 12:48:06" />
-    <file relUrl="bin/application.pdb" publishTime="03/23/2012 22:09:30" />
+    <file relUrl="bin/application.pdb" publishTime="03/24/2012 20:38:22" />
     <file relUrl="bin\en-US/indicators.xml" publishTime="02/06/2012 16:10:35" />
-    <file relUrl="bin/strategy.dll" publishTime="03/23/2012 22:11:44" />
+    <file relUrl="bin/strategy.dll" publishTime="03/24/2012 20:38:47" />
+    <file relUrl="bin/Interop.WIA.dll" publishTime="03/23/2012 09:13:03" />
     <file relUrl="bin/LaMarvin.Windows.Forms.ColorPicker.dll" publishTime="02/27/2008 15:13:28" />
-    <file relUrl="bin/Indicators.pdb" publishTime="03/23/2012 22:11:40" />
+    <file relUrl="bin/Indicators.pdb" publishTime="03/24/2012 20:38:26" />
     <file relUrl="DataLibs.svc" publishTime="12/07/2011 00:35:04" />
-    <file relUrl="bin/common.dll" publishTime="03/23/2012 22:09:28" />
+    <file relUrl="bin/common.dll" publishTime="03/24/2012 20:27:25" />
     <file relUrl="bin\vi-VN/indicators.xml" publishTime="02/06/2012 16:10:38" />
     <file relUrl="bin\vi-VN/strategyInfo.xml" publishTime="02/26/2012 23:07:02" />
-    <file relUrl="bin/application.dll" publishTime="03/23/2012 22:09:30" />
-    <file relUrl="bin/wsServices.csproj.FileListAbsolute.txt" publishTime="03/23/2012 22:29:11" />
+    <file relUrl="bin/application.dll" publishTime="03/24/2012 20:38:22" />
+    <file relUrl="bin/wsServices.csproj.FileListAbsolute.txt" publishTime="03/24/2012 20:38:37" />
     <file relUrl="bin/wsServices.dll.config" publishTime="02/11/2012 15:23:57" />
-    <file relUrl="bin/Charts.pdb" publishTime="03/23/2012 22:09:30" />
-    <file relUrl="bin/Interop.WIA.dll" publishTime="03/23/2012 22:09:27" />
+    <file relUrl="bin/Charts.pdb" publishTime="03/24/2012 20:38:21" />
+    <file relUrl="bin/ZedGraph.dll" publishTime="03/06/2012 12:48:06" />
     <file relUrl="bin/wsStock.xml" publishTime="03/22/2012 10:19:52" />
-    <file relUrl="bin/wsServices.dll" publishTime="03/23/2012 22:35:25" />
+    <file relUrl="bin\vi-VN/common.resources.dll" publishTime="03/24/2012 20:27:25" />
   </publishTarget>
 </publishData>

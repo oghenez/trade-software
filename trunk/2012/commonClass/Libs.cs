@@ -6,6 +6,7 @@ using System.Threading;
 using System.Text;
 using System.Xml;
 using System.Windows.Forms;
+using System.Drawing;
 using commonTypes;
 
 namespace commonClass
@@ -194,14 +195,22 @@ namespace commonClass
             return common.xmlLibs.GetXmlDocument(tmp);
         }
 
-        public static bool GetLocalConfig(string type, StringCollection aFields)
+        public static bool GetLocalConfig(string[] nodes, StringCollection aFields)
         {
-            return common.configuration.GetConfiguration(Settings.sysUserConfigFile, SysLibs.sysLoginCode,type, aFields, false);
+            return common.configuration.GetConfiguration(nodes, aFields, Settings.sysUserConfigFile, false);
         }
-        public static bool SaveLocalConfig(string type, StringCollection aFields, StringCollection aValues)
+        public static bool SaveLocalConfig(string[] nodes, StringCollection aFields, StringCollection aValues)
         {
-            if (SysLibs.sysLoginCode.Trim() == "") return true;
-            return common.configuration.SaveConfiguration(Settings.sysUserConfigFile, SysLibs.sysLoginCode, type, aFields, aValues, false);
+            return common.configuration.SaveConfiguration(nodes, aFields, aValues,Settings.sysUserConfigFile, false);
+        }
+
+        public static Font GetLocalConfigFont(string[] nodes)
+        {
+            return common.xmlLibs.GetFontFromXML(Settings.sysUserConfigFile,nodes, false);
+        }
+        public static void SaveLocalConfigFont(string[] nodes,Font font)
+        {
+            common.xmlLibs.WriteFontToXML(Settings.sysUserConfigFile, nodes, font, false);
         }
     }
 }

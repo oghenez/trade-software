@@ -251,8 +251,6 @@ namespace client
 
         private void OpenDefaultForm()
         {
-            System.Diagnostics.Stopwatch stopWatch = new System.Diagnostics.Stopwatch();
-            stopWatch.Start();
             if (marketWatchMenuItem.Checked) ShowMarketWatchForm();
             else HideMarketWatchForm();
 
@@ -266,9 +264,6 @@ namespace client
             else HideTransHistForm();
 
             ShowMarketSummaryForm();
-
-            stopWatch.Stop();
-            this.ShowMessage(common.dateTimeLibs.TimeSpan2String(stopWatch.Elapsed));
         }
 
         private void SetFormAppearance()
@@ -309,7 +304,7 @@ namespace client
             dockPanel.ActiveAutoHideContent = null;
 
             //Default language from global settings
-            SetCulture(Settings.sysGlobal.DefautLanguage);
+            //SetCulture(Settings.sysGlobal.DefautLanguage);
         }
         private void Reset()
         {
@@ -908,7 +903,16 @@ namespace client
         #region overwtite functions
         protected override bool LoadUserConfig()
         {
-            if (!base.LoadUserConfig()) return false;
+            System.Diagnostics.Stopwatch stopWatch = new System.Diagnostics.Stopwatch();
+            stopWatch.Start();
+            try
+            {
+                if (!base.LoadUserConfig()) return false;
+            }
+            catch (Exception er)
+            {
+                this.ShowError(er);
+            }
             SetCulture(Settings.sysLanguage);
 
             // Restore the last settings from user config file.
@@ -919,6 +923,10 @@ namespace client
 
             OpenDefaultForm();
             SetTimer(true);
+
+            stopWatch.Stop();
+            this.ShowMessage(common.dateTimeLibs.TimeSpan2String(stopWatch.Elapsed));
+
             return true;
         }
         protected override bool SaveUserConfig()
@@ -1087,23 +1095,13 @@ namespace client
         //Check user config file
         protected override bool CheckValid()
         {
-            if (!base.CheckValid()) return false;
-
-            if (!DataAccess.Libs.OpenConnection())
-            {
-                ShowConfigForm();
-                if (!DataAccess.Libs.OpenConnection())
-                {
-                    commonClass.SysLibs.WriteSysLog(AppTypes.SyslogTypes.Others, null, "Invalid configuration file :" + common.Settings.sysConfigFile);
-                    return false;
-                }
-            }
             //Ensure that user.xml file is valid
             if (!common.xmlLibs.IsValidXML(commonTypes.Settings.sysUserConfigFile))
             {
                 commonClass.SysLibs.WriteSysLog(AppTypes.SyslogTypes.Others, null, "Invalid configuration file :" + commonTypes.Settings.sysUserConfigFile);
                 if (!common.xmlLibs.CreateEmptyXML(commonTypes.Settings.sysUserConfigFile, true)) return false;
             }
+            if (!base.CheckValid()) return false;
             return true;
         }
 
@@ -1963,6 +1961,11 @@ namespace client
         /// </summary>
         private void main_Load(object sender, EventArgs e)
         {
+            if (Settings.sysFontMenu != null && mainMenu != null)
+            {
+                this.mainMenu.Font = Settings.sysFontMenu;
+            }
+
         }
 
         private void addToWatchListMenuItem_Click(object sender, EventArgs e)

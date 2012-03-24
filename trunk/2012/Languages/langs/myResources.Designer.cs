@@ -1789,6 +1789,15 @@ namespace Languages.langs {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Main font.
+        /// </summary>
+        internal static string mainFont {
+            get {
+                return ResourceManager.GetString("mainFont", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Male.
         /// </summary>
         internal static string male {
@@ -1956,6 +1965,15 @@ namespace Languages.langs {
         internal static string maxWinAmt {
             get {
                 return ResourceManager.GetString("maxWinAmt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Menu font.
+        /// </summary>
+        internal static string menuFont {
+            get {
+                return ResourceManager.GetString("menuFont", resourceCulture);
             }
         }
         
@@ -2806,7 +2824,7 @@ namespace Languages.langs {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Time difference between the Client and Server is more than {0:g} seconds. Please setup the computer time..
+        ///   Looks up a localized string similar to Time difference between the Client and Server is [{0}] different. Please setup the computer time..
         /// </summary>
         internal static string serverClientTimeDifference {
             get {
@@ -3153,6 +3171,15 @@ namespace Languages.langs {
         internal static string timeScale {
             get {
                 return ResourceManager.GetString("timeScale", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Time server.
+        /// </summary>
+        internal static string timeServer {
+            get {
+                return ResourceManager.GetString("timeServer", resourceCulture);
             }
         }
         

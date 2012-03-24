@@ -923,7 +923,7 @@ namespace application.Strategy
         {
             StringCollection aFields = new StringCollection();
             aFields.Add("params");
-            if (!commonClass.Configuration.GetLocalConfig(meta.ClassType.FullName, aFields))
+            if (!Configuration.GetLocalUserConfig(meta.ClassType.FullName, aFields))
                 return false;
             meta.Parameters = common.system.String2DoubleList(aFields[0]);
             return true;
@@ -935,7 +935,7 @@ namespace application.Strategy
             aFields.Add("params");
             StringCollection aValues = new StringCollection();
             aValues.Add(common.system.ToString(meta.Parameters));
-            if (!commonClass.Configuration.SaveLocalConfig(meta.ClassType.FullName, aFields, aValues)) return false;
+            if (!Configuration.SaveLocalUserConfig(meta.ClassType.FullName, aFields, aValues)) return false;
             return true;
         }
 

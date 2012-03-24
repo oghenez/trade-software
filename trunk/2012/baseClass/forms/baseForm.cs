@@ -44,6 +44,11 @@ namespace baseClass.forms
         {
             try
             {
+                if (Settings.sysFontMain != null)
+                {
+                    this.Font = Settings.sysFontMain;
+                }
+
                 if (!LogAccess) return;
                 switch (Settings.sysGlobal.WriteLogAccess)
                 {

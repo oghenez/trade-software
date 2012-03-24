@@ -116,10 +116,14 @@ namespace commonTypes
             }
         }
 
+        public static string sysTimeServer = "";
+        public static Font sysFontMain = null;
+        public static Font sysFontMenu = null;
+        
         public static bool sysAutoRefreshData = true;
 
         //The max datetime diffences b/w server and client in seconds
-        //public static int sysMaxTimeDifferenceInSecs = 600; //10 Mins
+        public static int sysMaxTimeDifferenceInSecs = 300; //5 Mins
 
         //Whether to keep sell that was blocked by T+4 and issue it when the time come
         public static bool sysKeepInApplicableSell = true;

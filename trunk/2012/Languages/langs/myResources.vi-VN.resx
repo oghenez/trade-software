@@ -556,7 +556,7 @@
     <value>Dữ liệu không hợp lệ !</value>
   </data>
   <data name="invalidLogin" xml:space="preserve">
-    <value>Không thể đăng nhập.Xin vui lòng kiểm tra [Tài khỏan] và [Mất khẩu] !</value>
+    <value>Không thể đăng nhập.Xin vui lòng kiểm tra [Tài khỏan] và [Mật khẩu] !</value>
   </data>
   <data name="investment" xml:space="preserve">
     <value>Đầu tư</value>
@@ -1054,7 +1054,7 @@
     <value>Sau</value>
   </data>
   <data name="serverClientTimeDifference" xml:space="preserve">
-    <value>Thời gian của máy làm việc và máy chủ lệch nhau {0:g} giây. Xin vui lòng điều chỉnh thời gian máy làm việc.</value>
+    <value>Thời gian của máy làm việc và máy chủ lệch nhau [{0}]. Xin vui lòng điều chỉnh thời gian máy làm việc.</value>
   </data>
   <data name="noDataBars" xml:space="preserve">
     <value>SL dữ liệu</value>
@@ -1319,5 +1319,14 @@
   </data>
   <data name="userType" xml:space="preserve">
     <value>Lọai tài khỏan</value>
+  </data>
+  <data name="mainFont" xml:space="preserve">
+    <value>Phông chính</value>
+  </data>
+  <data name="menuFont" xml:space="preserve">
+    <value>Phông menu</value>
+  </data>
+  <data name="timeServer" xml:space="preserve">
+    <value>Máy chủ thời gian</value>
   </data>
 </root>

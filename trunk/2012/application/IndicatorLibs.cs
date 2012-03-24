@@ -564,7 +564,7 @@ namespace application.Indicators
             aFields.Add("params");
             aFields.Add("output");
             aFields.Add("drawInNewWindow");
-            if (!commonClass.Configuration.GetLocalConfig(meta.ClassType.FullName, aFields)) return;
+            if (!Configuration.GetLocalUserConfig(meta.ClassType.FullName, aFields)) return;
             meta.Parameters = common.system.String2DoubleList(aFields[0]);
             Meta.OutputInfo[] saveMetaOutput = meta.Output;
             meta.Output = Meta.String2OutputInfo(aFields[1]);
@@ -587,7 +587,7 @@ namespace application.Indicators
             aValues.Add(common.system.ToString(meta.Parameters));
             aValues.Add(Meta.OutputInfo2Tring(meta.Output));
             aValues.Add(meta.DrawInNewWindow.ToString());
-            if (!commonClass.Configuration.SaveLocalConfig(meta.ClassType.FullName, aFields, aValues)) return false;
+            if (!Configuration.SaveLocalUserConfig(meta.ClassType.FullName, aFields, aValues)) return false;
             return true;
         }
     }
