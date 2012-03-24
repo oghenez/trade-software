@@ -1048,7 +1048,7 @@
     <value>Trailing</value>
   </data>
   <data name="serverClientTimeDifference" xml:space="preserve">
-    <value>Time difference between the Client and Server is more than {0:g} seconds. Please setup the computer time.</value>
+    <value>Time difference between the Client and Server is [{0}] different. Please setup the computer time.</value>
   </data>
   <data name="noDataBars" xml:space="preserve">
     <value>No. of bars</value>
@@ -1313,5 +1313,14 @@
   </data>
   <data name="userType" xml:space="preserve">
     <value>User type</value>
+  </data>
+  <data name="mainFont" xml:space="preserve">
+    <value>Main font</value>
+  </data>
+  <data name="menuFont" xml:space="preserve">
+    <value>Menu font</value>
+  </data>
+  <data name="timeServer" xml:space="preserve">
+    <value>Time server</value>
   </data>
 </root>

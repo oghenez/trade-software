@@ -509,10 +509,10 @@
             // autoKeyPg
             // 
             this.autoKeyPg.Controls.Add(this.autoKeyGb);
-            this.autoKeyPg.Location = new System.Drawing.Point(4, 25);
+            this.autoKeyPg.Location = new System.Drawing.Point(4, 22);
             this.autoKeyPg.Name = "autoKeyPg";
             this.autoKeyPg.Padding = new System.Windows.Forms.Padding(3);
-            this.autoKeyPg.Size = new System.Drawing.Size(418, 282);
+            this.autoKeyPg.Size = new System.Drawing.Size(418, 285);
             this.autoKeyPg.TabIndex = 0;
             this.autoKeyPg.Text = "Số tự động";
             this.autoKeyPg.UseVisualStyleBackColor = true;
@@ -686,10 +686,10 @@
             // emailPg
             // 
             this.emailPg.Controls.Add(this.emailGb);
-            this.emailPg.Location = new System.Drawing.Point(4, 25);
+            this.emailPg.Location = new System.Drawing.Point(4, 22);
             this.emailPg.Name = "emailPg";
             this.emailPg.Padding = new System.Windows.Forms.Padding(3);
-            this.emailPg.Size = new System.Drawing.Size(418, 282);
+            this.emailPg.Size = new System.Drawing.Size(418, 285);
             this.emailPg.TabIndex = 5;
             this.emailPg.Text = "E-mail";
             this.emailPg.UseVisualStyleBackColor = true;
@@ -989,7 +989,7 @@
             this.groupBox3.Controls.Add(this.autoCheckEd);
             this.groupBox3.Location = new System.Drawing.Point(15, 4);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(390, 148);
+            this.groupBox3.Size = new System.Drawing.Size(390, 136);
             this.groupBox3.TabIndex = 155;
             this.groupBox3.TabStop = false;
             // 
@@ -1303,6 +1303,7 @@
             this.Controls.Add(this.closeBtn);
             this.Controls.Add(this.saveBtn);
             this.Controls.Add(this.mainTab);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimizeBox = false;
             this.Name = "sysOptionGlobal";
