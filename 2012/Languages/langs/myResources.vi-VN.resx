@@ -1054,7 +1054,7 @@
     <value>Sau</value>
   </data>
   <data name="serverClientTimeDifference" xml:space="preserve">
-    <value>Thời gian của máy làm việc và máy chủ lệch nhau [{0}]. Xin vui lòng điều chỉnh thời gian máy làm việc.</value>
+    <value>Thời gian của máy làm việc sai [{0}]. Xin vui lòng điều chỉnh thời gian để hệ thống có thể họat động.</value>
   </data>
   <data name="noDataBars" xml:space="preserve">
     <value>SL dữ liệu</value>
