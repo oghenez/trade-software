@@ -84,12 +84,6 @@
     <Compile Include="Forms\baseTesting.Designer.cs">
       <DependentUpon>baseTesting.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\MarketSummary.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\MarketSummary.Designer.cs">
-      <DependentUpon>MarketSummary.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\strategyRanking.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -121,10 +115,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\baseTesting.resx">
       <DependentUpon>baseTesting.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\MarketSummary.resx">
-      <DependentUpon>MarketSummary.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\profitEstimate.resx">

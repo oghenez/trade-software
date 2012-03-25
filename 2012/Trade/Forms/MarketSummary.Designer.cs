@@ -167,7 +167,6 @@
             this.dailyChangeGV.Location = new System.Drawing.Point(0, 0);
             this.dailyChangeGV.Name = "dailyChangeGV";
             this.dailyChangeGV.ReadOnly = true;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dailyChangeGV.RowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dailyChangeGV.RowTemplate.Height = 24;
             this.dailyChangeGV.Size = new System.Drawing.Size(440, 244);
@@ -598,7 +597,6 @@
             this.ClientSize = new System.Drawing.Size(931, 673);
             this.Controls.Add(this.introLbl);
             this.Controls.Add(this.layoutPnl);
-            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "MarketSummary";
             this.Resize += new System.EventHandler(this.MarketSummary_Resize);
             this.Controls.SetChildIndex(this.layoutPnl, 0);

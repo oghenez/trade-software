@@ -189,7 +189,6 @@
             this.stockCodeLb.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.stockCodeLb.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.stockCodeLb.Location = new System.Drawing.Point(2, 309);
             this.stockCodeLb.Margin = new System.Windows.Forms.Padding(2);
             this.stockCodeLb.myItemString = "";
@@ -236,7 +235,6 @@
             // 
             // dataCounEd
             // 
-            this.dataCounEd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dataCounEd.InsertKeyMode = System.Windows.Forms.InsertKeyMode.Overwrite;
             this.dataCounEd.Location = new System.Drawing.Point(176, 31);
             this.dataCounEd.myFormat = "###,###,###,###,##0";
@@ -264,12 +262,11 @@
             // timeScaleCb
             // 
             this.timeScaleCb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.timeScaleCb.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.timeScaleCb.FormattingEnabled = true;
             this.timeScaleCb.Location = new System.Drawing.Point(23, 31);
             this.timeScaleCb.Name = "timeScaleCb";
             this.timeScaleCb.SelectedValue = "RT";
-            this.timeScaleCb.Size = new System.Drawing.Size(155, 21);
+            this.timeScaleCb.Size = new System.Drawing.Size(155, 23);
             this.timeScaleCb.TabIndex = 1;
             this.timeScaleCb.TabStop = false;
             // 
@@ -313,7 +310,6 @@
             this.criteriaGrid.Location = new System.Drawing.Point(1, 56);
             this.criteriaGrid.Name = "criteriaGrid";
             this.criteriaGrid.RowHeadersWidth = 25;
-            this.criteriaGrid.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.criteriaGrid.RowTemplate.Height = 24;
             this.criteriaGrid.Size = new System.Drawing.Size(478, 231);
             this.criteriaGrid.TabIndex = 375;

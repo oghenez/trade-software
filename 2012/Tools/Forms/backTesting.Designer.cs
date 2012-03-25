@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(backTesting));
             this.resultDataGrid = new common.controls.baseDataGridView();
             this.periodicityLbl = new baseClass.controls.baseLabel();
@@ -71,9 +71,9 @@
             // 
             this.resultDataGrid.AllowUserToAddRows = false;
             this.resultDataGrid.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Blue;
-            this.resultDataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Blue;
+            this.resultDataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
             this.resultDataGrid.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.resultDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -99,7 +99,6 @@
             // 
             // periodicityEd
             // 
-            this.periodicityEd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.periodicityEd.Location = new System.Drawing.Point(21, 21);
             this.periodicityEd.myTimeRange = commonTypes.AppTypes.TimeRanges.Y5;
             this.periodicityEd.Name = "periodicityEd";
@@ -143,8 +142,8 @@
             // 
             this.strategyEstimationGrid.AllowUserToAddRows = false;
             this.strategyEstimationGrid.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Blue;
-            this.strategyEstimationGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Blue;
+            this.strategyEstimationGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.strategyEstimationGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
@@ -174,7 +173,6 @@
             // 
             this.codeSelectLb.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)));
-            this.codeSelectLb.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.codeSelectLb.Location = new System.Drawing.Point(21, 250);
             this.codeSelectLb.Margin = new System.Windows.Forms.Padding(2);
             this.codeSelectLb.myItemString = "";
@@ -207,7 +205,6 @@
             // 
             // strategyClb
             // 
-            this.strategyClb.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.strategyClb.Location = new System.Drawing.Point(21, 68);
             this.strategyClb.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.strategyClb.myCheckedValues = ((System.Collections.Specialized.StringCollection)(resources.GetObject("strategyClb.myCheckedValues")));

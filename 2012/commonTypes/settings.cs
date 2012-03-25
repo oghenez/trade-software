@@ -117,8 +117,8 @@ namespace commonTypes
         }
 
         public static string sysTimeServer = "";
-        public static Font sysFontMain = null;
-        public static Font sysFontMenu = null;
+        public static Font sysFontMain = new Font("Microsoft Sans Serif",8f);
+        public static Font sysFontMenu = new Font("Tahoma",10f);
         
         public static bool sysAutoRefreshData = true;
 
