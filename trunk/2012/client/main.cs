@@ -271,10 +271,10 @@ namespace client
 
         private void SetFormAppearance()
         {
-            standartStrip.BringToFront();
+            standardStrip.BringToFront();
             chartStrip.BringToFront();
             toolsStrip.BringToFront();
-            periodicityStrip.BringToFront();
+            autoCreateStrip.BringToFront();
 
             //Assign chart type to each button
             lineChartBtn.Tag = AppTypes.ChartTypes.Line;
@@ -286,9 +286,9 @@ namespace client
             candleSticksMenuItem.Tag = AppTypes.ChartTypes.CandleStick;
 
             //Create period button strips : M5,H1,H2,W1,D1,...
-            periodicityStrip.Items.Clear();
+            autoCreateStrip.Items.Clear();
             periodicityMenuItem.DropDownItems.Clear();
-            CreatePeriodicityStrip(periodicityStrip, periodicityMenuItem);
+            CreatePeriodicityStrip(autoCreateStrip, periodicityMenuItem);
 
             strategyCbStrip.SelectedIndexChanged += new EventHandler(PlotTradepointHandler);
 
@@ -482,10 +482,10 @@ namespace client
         {
             get
             {
-                for (int idx = 0; idx < periodicityStrip.Items.Count; idx++)
+                for (int idx = 0; idx < autoCreateStrip.Items.Count; idx++)
                 {
-                    if (periodicityStrip.Items[idx].GetType() != typeof(ToolStripButton)) continue;
-                    ToolStripButton btn = (ToolStripButton)periodicityStrip.Items[idx];
+                    if (autoCreateStrip.Items[idx].GetType() != typeof(ToolStripButton)) continue;
+                    ToolStripButton btn = (ToolStripButton)autoCreateStrip.Items[idx];
                     if (btn.Checked) return  (AppTypes.TimeScale)btn.Tag;
                 }
                 return AppTypes.MainDataTimeScale;
@@ -493,10 +493,10 @@ namespace client
             set
             {
                 AppTypes.TimeScale saveTimeScale = this.ChartTimeScale;
-                for (int idx = 0; idx < periodicityStrip.Items.Count; idx++)
+                for (int idx = 0; idx < autoCreateStrip.Items.Count; idx++)
                 {
-                    if (periodicityStrip.Items[idx].GetType() != typeof(ToolStripButton)) continue;
-                    ToolStripButton btn = (ToolStripButton)periodicityStrip.Items[idx];
+                    if (autoCreateStrip.Items[idx].GetType() != typeof(ToolStripButton)) continue;
+                    ToolStripButton btn = (ToolStripButton)autoCreateStrip.Items[idx];
                     btn.Checked = ((AppTypes.TimeScale)btn.Tag).Code == value.Code;
                 }
                 for (int idx = 0; idx < periodicityMenuItem.DropDownItems.Count; idx++)
@@ -893,7 +893,7 @@ namespace client
             IDockContent curDocument = (dockPanel.ActiveDocument==null?null:dockPanel.ActiveDocument);
 
             chartStrip.Enabled = (curContent.GetType() == typeof(Tools.Forms.tradeAnalysis));
-            periodicityStrip.Enabled = chartStrip.Enabled;
+            autoCreateStrip.Enabled = chartStrip.Enabled;
             chartMenuStrip.Visible = chartStrip.Enabled;
 
             strategyStrip.Enabled = chartStrip.Enabled ||
@@ -1237,7 +1237,7 @@ namespace client
             ToolStripMenuItem menu = (ToolStripMenuItem)sender;
             if (menu == tbStandardMenuItem)
             {
-                standartStrip.Visible = menu.Checked;
+                standardStrip.Visible = menu.Checked;
                 return;
             }
             if (menu == tbChartMenuItem)
@@ -1247,7 +1247,7 @@ namespace client
             }
             if (menu == tbPeriodicityMenuItem)
             {
-                periodicityStrip.Visible = menu.Checked;
+                autoCreateStrip.Visible = menu.Checked;
                 return;
             }
         }
