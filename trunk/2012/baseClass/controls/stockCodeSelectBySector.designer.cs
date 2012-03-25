@@ -43,10 +43,12 @@
             // 
             this.selectCodeEd.BackColor = System.Drawing.Color.White;
             this.selectCodeEd.ForeColor = System.Drawing.Color.Black;
+            this.selectCodeEd.isRequired = true;
+            this.selectCodeEd.isToUpperCase = false;
             this.selectCodeEd.Location = new System.Drawing.Point(222, 1);
             this.selectCodeEd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.selectCodeEd.Name = "selectCodeEd";
-            this.selectCodeEd.Size = new System.Drawing.Size(159, 23);
+            this.selectCodeEd.Size = new System.Drawing.Size(159, 20);
             this.selectCodeEd.TabIndex = 3;
             this.selectCodeEd.Validated += new System.EventHandler(this.selectCodeEd_Validated);
             // 
@@ -68,6 +70,7 @@
             // 
             this.selectCodeBtn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.selectCodeBtn.Image = global::baseClass.Properties.Resources.addLine;
+            this.selectCodeBtn.isDownState = false;
             this.selectCodeBtn.Location = new System.Drawing.Point(377, 1);
             this.selectCodeBtn.Name = "selectCodeBtn";
             this.selectCodeBtn.Size = new System.Drawing.Size(23, 23);
@@ -105,7 +108,6 @@
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.stockCodeClb.CheckOnClick = true;
-            this.stockCodeClb.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.stockCodeClb.FormattingEnabled = true;
             this.stockCodeClb.Location = new System.Drawing.Point(-1, 27);
             this.stockCodeClb.myCheckedItems = ((System.Collections.ArrayList)(resources.GetObject("stockCodeClb.myCheckedItems")));
@@ -122,7 +124,6 @@
             // 
             this.bizSectorTypesSelection.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.bizSectorTypesSelection.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bizSectorTypesSelection.Location = new System.Drawing.Point(0, 1);
             this.bizSectorTypesSelection.Margin = new System.Windows.Forms.Padding(2);
             this.bizSectorTypesSelection.myBizSectorCode = "";
@@ -137,7 +138,6 @@
             this.Controls.Add(this.optionPnl);
             this.Controls.Add(this.stockCodeClb);
             this.Controls.Add(this.bizSectorTypesSelection);
-            this.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "stockCodeSelectBySector";
             this.Size = new System.Drawing.Size(703, 409);

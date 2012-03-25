@@ -39,7 +39,7 @@
             this.bizSectorCb.Location = new System.Drawing.Point(175, 0);
             this.bizSectorCb.myValue = "";
             this.bizSectorCb.Name = "bizSectorCb";
-            this.bizSectorCb.Size = new System.Drawing.Size(257, 24);
+            this.bizSectorCb.Size = new System.Drawing.Size(257, 21);
             this.bizSectorCb.TabIndex = 2;
             this.bizSectorCb.SelectionChangeCommitted += new System.EventHandler(this.bizSectorCb_SelectionChangeCommitted);
             // 
@@ -51,17 +51,14 @@
             this.bizSectorTypesCb.myValue = commonTypes.AppTypes.BizSectorTypes.None;
             this.bizSectorTypesCb.Name = "bizSectorTypesCb";
             this.bizSectorTypesCb.SelectedValue = ((byte)(0));
-            this.bizSectorTypesCb.Size = new System.Drawing.Size(175, 24);
+            this.bizSectorTypesCb.Size = new System.Drawing.Size(175, 21);
             this.bizSectorTypesCb.TabIndex = 1;
             this.bizSectorTypesCb.SelectionChangeCommitted += new System.EventHandler(this.bizSectorTypesCb_SelectionChangeCommitted);
             // 
             // BizSectorTypesSelection
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
-            
             this.Controls.Add(this.bizSectorCb);
             this.Controls.Add(this.bizSectorTypesCb);
-            this.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "BizSectorTypesSelection";
             this.Size = new System.Drawing.Size(430, 22);

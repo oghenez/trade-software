@@ -110,14 +110,17 @@ namespace client
                 if (form.GetType() == typeof(Tools.Forms.tradeAnalysis))
                 {
                     (form as Tools.Forms.tradeAnalysis).myContextMenuStrip = tradeAnalysisContextMenu;
+                    (form as Tools.Forms.tradeAnalysis).myContextMenuStrip.Font = Settings.sysFontMenu;
                 }
                 if (form.GetType() == typeof(Trade.Forms.tradeAlertList))
                 {
                     (form as Trade.Forms.tradeAlertList).myContextMenuStrip = CreateContextMenu_TradeAlert();
+                    (form as Trade.Forms.tradeAlertList).myContextMenuStrip.Font = Settings.sysFontMenu; 
                 }
                 if (form.GetType() == typeof(Trade.Forms.marketWatch))
                 {
                     (form as Trade.Forms.marketWatch).myContextMenuStrip = CreateContextMenu_MarketWatch();
+                    (form as Trade.Forms.marketWatch).myContextMenuStrip.Font = Settings.sysFontMenu;
                 }
             }
         }
@@ -660,6 +663,7 @@ namespace client
         {
             Trade.Forms.marketWatch form = GetMarketWatchForm(true);
             form.myContextMenuStrip = CreateContextMenu_MarketWatch();
+            form.myContextMenuStrip.Font = Settings.sysFontMenu;
             form.myGrid.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(NewChartMenuItem_Click);
             form.RefreshData(true);
             form.Show(dockPanel, DockState.DockLeft);
@@ -714,6 +718,7 @@ namespace client
         {
             Trade.Forms.tradeAlertList myForm = GetTradeAlertForm(true);
             myForm.myContextMenuStrip = CreateContextMenu_TradeAlert();
+            myForm.myContextMenuStrip.Font = Settings.sysFontMenu;
             myForm.Show(dockPanel, DockState.DockBottom);
             MapForm(myForm, tradeAlertMenuItem);
         }
@@ -742,6 +747,7 @@ namespace client
         {
             Trade.Forms.portfolioWatch myForm = GetPorfolioWatchForm(true);
             myForm.myContextMenuStrip = CreateContextMenu_PorfolioWatch();
+            myForm.myContextMenuStrip.Font = Settings.sysFontMenu;
             myForm.Show(dockPanel, DockState.DockBottom);
             MapForm(myForm, myPortfolioMenuItem);
         }
@@ -791,6 +797,7 @@ namespace client
                 cachedForms.Add(formName, myForm);
             }
             myForm.myContextMenuStrip = CreateContextMenu_TradeAnalysis();
+            myForm.myContextMenuStrip.Font = Settings.sysFontMenu;
             myForm.Show(dockPanel);
             UpdateActiveForm(FormOptions.ChartType); 
         }
@@ -1092,18 +1099,6 @@ namespace client
             }
         }
 
-        //Check user config file
-        protected override bool CheckValid()
-        {
-            //Ensure that user.xml file is valid
-            if (!common.xmlLibs.IsValidXML(commonTypes.Settings.sysUserConfigFile))
-            {
-                commonClass.SysLibs.WriteSysLog(AppTypes.SyslogTypes.Others, null, "Invalid configuration file :" + commonTypes.Settings.sysUserConfigFile);
-                if (!common.xmlLibs.CreateEmptyXML(commonTypes.Settings.sysUserConfigFile, true)) return false;
-            }
-            if (!base.CheckValid()) return false;
-            return true;
-        }
 
         /// <summary>
         /// Startup Form - Login
@@ -1961,7 +1956,7 @@ namespace client
         /// </summary>
         private void main_Load(object sender, EventArgs e)
         {
-            if (Settings.sysFontMenu != null && mainMenu != null)
+            if (mainMenu != null)
             {
                 this.mainMenu.Font = Settings.sysFontMenu;
             }

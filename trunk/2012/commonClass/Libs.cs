@@ -208,9 +208,9 @@ namespace commonClass
         {
             return common.xmlLibs.GetFontFromXML(Settings.sysUserConfigFile,nodes, false);
         }
-        public static void SaveLocalConfigFont(string[] nodes,Font font)
+        public static bool SaveLocalConfigFont(string[] nodes,Font font)
         {
-            common.xmlLibs.WriteFontToXML(Settings.sysUserConfigFile, nodes, font, false);
+            return common.xmlLibs.WriteFontToXML(Settings.sysUserConfigFile, nodes, font, false);
         }
     }
 }

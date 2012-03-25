@@ -41,7 +41,7 @@
             this.strategyCatCb.Location = new System.Drawing.Point(0, 0);
             this.strategyCatCb.myValue = "";
             this.strategyCatCb.Name = "strategyCatCb";
-            this.strategyCatCb.Size = new System.Drawing.Size(415, 24);
+            this.strategyCatCb.Size = new System.Drawing.Size(415, 21);
             this.strategyCatCb.TabIndex = 1;
             this.strategyCatCb.SelectedIndexChanged += new System.EventHandler(this.strategyCatCb_SelectedIndexChanged);
             // 
@@ -76,7 +76,6 @@
             this.Controls.Add(this.selectAllChk);
             this.Controls.Add(this.strategyClb);
             this.Controls.Add(this.strategyCatCb);
-            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "strategySelect";
             this.Size = new System.Drawing.Size(416, 199);
             this.Resize += new System.EventHandler(this.form_Resize);
