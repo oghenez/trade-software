@@ -1048,7 +1048,7 @@
     <value>Trailing</value>
   </data>
   <data name="serverClientTimeDifference" xml:space="preserve">
-    <value>Time difference between the Client and Server is [{0}] different. Please setup the computer time.</value>
+    <value>Time system time is not correct [{0}]. Please setup the computer time to ensure that the system can work properly !</value>
   </data>
   <data name="noDataBars" xml:space="preserve">
     <value>No. of bars</value>

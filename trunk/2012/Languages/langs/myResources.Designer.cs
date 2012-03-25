@@ -2824,7 +2824,7 @@ namespace Languages.langs {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Time difference between the Client and Server is [{0}] different. Please setup the computer time..
+        ///   Looks up a localized string similar to Time system time is not correct [{0}]. Please setup the computer time to ensure that the system can work properly !.
         /// </summary>
         internal static string serverClientTimeDifference {
             get {
