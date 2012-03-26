@@ -12,7 +12,7 @@ using commonClass;
 
 namespace Trade.Forms
 {
-    public partial class transactionBase : common.forms.baseForm
+    public partial class transactionBase : baseClass.forms.baseForm
     {
         public transactionBase()
         {
