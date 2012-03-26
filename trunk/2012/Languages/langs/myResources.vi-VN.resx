@@ -1309,7 +1309,7 @@
     <value>@Quantum là phần mềm dẫn dầu trong lãnh vực giao dịch tự động.</value>
   </data>
   <data name="welcomeMarketSummary" xml:space="preserve">
-    <value>Chào mừng đến tổng quan thị trường !</value>
+    <value>Xin chào {0} , chào mừng đến tổng quan thị trường ! </value>
   </data>
   <data name="marketDailyChange" xml:space="preserve">
     <value>Thị trường trong ngày</value>

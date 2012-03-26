@@ -1303,7 +1303,7 @@
     <value>@Quantum is the pioneer software in automatic trading.</value>
   </data>
   <data name="welcomeMarketSummary" xml:space="preserve">
-    <value>Welcome to Market Summary </value>
+    <value>Hello {0} , welcome to Market Summary ! </value>
   </data>
   <data name="marketDailyChange" xml:space="preserve">
     <value>Market Daily Change</value>
