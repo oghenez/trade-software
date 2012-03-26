@@ -13,6 +13,7 @@ using WeifenLuo.WinFormsUI.Docking;
 using application;
 using commonTypes;
 using commonClass;
+using System.Diagnostics;
 
 namespace client
 {
@@ -35,6 +36,20 @@ namespace client
 
         public main()
         {
+            //string[] arguments = Environment.GetCommandLineArgs();
+            //foreach (string argument in arguments)
+            //{
+            //    if (argument.Split('=')[0].ToLower() == "/u")
+            //    {
+            //        string guid = argument.Split('=')[1];
+            //        string path = Environment.GetFolderPath(Environment.SpecialFolder.System);
+            //        ProcessStartInfo si = new ProcessStartInfo(path + "/msiexec.exe", "/x " + guid);
+            //        Process.Start(si);
+            //        Close();
+            //        Application.Exit();
+            //    }
+
+            //}
             try
             {
                 using (new common.PleaseWait(new Point(), new forms.startSplash()))

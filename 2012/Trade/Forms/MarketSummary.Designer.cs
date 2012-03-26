@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
@@ -167,7 +166,6 @@
             this.dailyChangeGV.Location = new System.Drawing.Point(0, 0);
             this.dailyChangeGV.Name = "dailyChangeGV";
             this.dailyChangeGV.ReadOnly = true;
-            this.dailyChangeGV.RowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dailyChangeGV.RowTemplate.Height = 24;
             this.dailyChangeGV.Size = new System.Drawing.Size(440, 244);
             this.dailyChangeGV.TabIndex = 6;
@@ -593,10 +591,12 @@
             // 
             // MarketSummary
             // 
+            this.AutoScroll = true;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(931, 673);
             this.Controls.Add(this.introLbl);
             this.Controls.Add(this.layoutPnl);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
             this.Name = "MarketSummary";
             this.Resize += new System.EventHandler(this.MarketSummary_Resize);
             this.Controls.SetChildIndex(this.layoutPnl, 0);

@@ -136,15 +136,25 @@ namespace Strategy
 
             Indicators.MIN min = Indicators.MIN.Series(data.Close, parameters[1], "min");
             Indicators.MAX max = Indicators.MAX.Series(data.Close, parameters[2], "max");
-            
+
+            Indicators.Fibonnanci fibo = Indicators.Fibonnanci.Series(data.Bars, parameters[1], "fibo");
+
+
+        //    public double Short_Resistance;
+        //public double Short_Support;
+        //public double Short_Target;
+        //public AppTypes.MarketTrend ShortTermTrend;
+        //public double Stop_Loss;
             for (int idx = 1; idx < data.Close.Count; idx++)
             {
                 if (rule.isValid_forBuy(idx))
                 {
                     BusinessInfo info = new BusinessInfo();
                     info.SetTrend(AppTypes.MarketTrend.Upward, AppTypes.MarketTrend.Unspecified, AppTypes.MarketTrend.Unspecified);
-                    info.Short_Target = max[idx];
-                    info.Stop_Loss = min[idx];
+                    info.Short_Resistance = max[idx];
+                    info.Short_Support = min[idx];
+                    info.Short_Target = fibo.Fibo23pc[idx];
+                    info.Stop_Loss = data.Close[idx] * (1-cutlosslevel/100);
                     BuyAtClose(idx, info);
                 }
                 else
@@ -152,8 +162,10 @@ namespace Strategy
                     {
                         BusinessInfo info = new BusinessInfo();
                         info.SetTrend(AppTypes.MarketTrend.Downward, AppTypes.MarketTrend.Unspecified, AppTypes.MarketTrend.Unspecified);
-                        info.Short_Target = min[idx];
-                        info.Stop_Loss = max[idx];
+                        info.Short_Resistance = max[idx];
+                        info.Short_Support = min[idx];
+                        info.Short_Target = fibo.Fibo23pc[idx];
+                        info.Stop_Loss = data.Close[idx] * (1 - cutlosslevel / 100);
                         SellAtClose(idx, info);
                     }
                 if (is_bought && CutLossCondition(data.Close[idx], buy_price, cutlosslevel))
