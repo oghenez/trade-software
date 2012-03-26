@@ -20,16 +20,32 @@ namespace Trade.Forms
                 this.stockCodeList.SetColumnVisibility(baseClass.controls.stockCodeSelectByWatchList.gridColumnName.StockExCode,false);
                 this.stockCodeList.myOnError += new common.myEventHandler(stockCodeList_onError);
                 LogAccess = false;
+
+                this.bgWorker.DoWork += new DoWorkEventHandler(bgWorker_DoWork);
             }
             catch (Exception er)
             {
                 this.ShowError(er);
             }
         }
+        private BackgroundWorker bgWorker = new BackgroundWorker();
+        private void bgWorker_DoWork(object sender, DoWorkEventArgs e)
+        {
+            try
+            {
+                stockCodeList.RefreshData((bool)e.Argument);
+            }
+            catch (Exception er)
+            {
+                this.ShowError(er);
+            }
+        }
+
         public void RefreshData(bool force)
         {
-            stockCodeList.RefreshData(force);
+            this.bgWorker.RunWorkerAsync(force);
         }
+
         public void RefreshData(baseClass.controls.stockCodeSelectByWatchList.RefreshOptions options)
         {
             stockCodeList.RefreshData(options);

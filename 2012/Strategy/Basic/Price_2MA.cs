@@ -16,8 +16,8 @@ namespace Strategy
             PriceTwoSMARule smarule = new PriceTwoSMARule(data.Close, parameters[0], parameters[1]);
 
             int cutlosslevel = 5;
-            Indicators.MIN min = Indicators.MIN.Series(data.Close, parameters[1], "min");
-            Indicators.MAX max = Indicators.MAX.Series(data.Close, parameters[2], "max");
+            Indicators.MIN min = Indicators.MIN.Series(data.Close, parameters[0], "min");
+            Indicators.MAX max = Indicators.MAX.Series(data.Close, parameters[1], "max");
             Indicators.Fibonnanci fibo = Indicators.Fibonnanci.Series(data.Bars, parameters[1], "fibo");
 
 

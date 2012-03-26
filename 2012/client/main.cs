@@ -382,18 +382,18 @@ namespace client
                         (dockPanel.Contents[idx] as Trade.Forms.marketWatch).RefreshData(false);
                         continue;
                     }
-                    //TransactionList watch
-                    if (dockPanel.Contents[idx].GetType() == typeof(Trade.Forms.transactionList))
-                    {
-                        (dockPanel.Contents[idx] as Trade.Forms.transactionList).RefreshData(false);
-                        continue;
-                    }
                     //Portfolio watch
                     if (dockPanel.Contents[idx].GetType() == typeof(Trade.Forms.portfolioWatch))
                     {
                         (dockPanel.Contents[idx] as Trade.Forms.portfolioWatch).RefreshData(false);
                         continue;
                     }
+                    ////TransactionList watch
+                    //if (dockPanel.Contents[idx].GetType() == typeof(Trade.Forms.transactionList))
+                    //{
+                    //    (dockPanel.Contents[idx] as Trade.Forms.transactionList).RefreshData(false);
+                    //    continue;
+                    //}
                     //myWorkingImageVisibled = false;
                 }
                 fRefreshingData = false;
@@ -416,7 +416,7 @@ namespace client
                 //this.myWorkingImageVisibled = true;
                 Trade.Forms.tradeAlertList form = GetTradeAlertForm(false);
                 if (form != null && !form.IsDisposed && form.Visible)
-                    form.RefreshData();
+                    form.RefreshData(false);
 
                 //Update trade point on chart
                 PlotTradepointHandler(strategyCbStrip, null);
@@ -724,7 +724,7 @@ namespace client
                 myForm = new Trade.Forms.tradeAlertList();
                 myForm.Name = formName;
                 myForm.Init();
-                myForm.LoadData();
+                myForm.LoadData(true);
                 cachedForms.Add(formName, myForm);
             }
             return myForm;
