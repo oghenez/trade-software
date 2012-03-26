@@ -3589,7 +3589,7 @@ namespace Languages.langs {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Welcome to Market Summary .
+        ///   Looks up a localized string similar to Hello {0} , welcome to Market Summary ! .
         /// </summary>
         internal static string welcomeMarketSummary {
             get {

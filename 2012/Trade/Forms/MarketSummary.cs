@@ -40,7 +40,7 @@ namespace Trade.Forms
         {
             base.SetLanguage();
             this.Text = Languages.Libs.GetString("marketSummary");
-            this.TitleLbl.Text = Languages.Libs.GetString("welcomeMarketSummary");
+            this.TitleLbl.Text = string.Format(Languages.Libs.GetString("welcomeMarketSummary"), commonClass.SysLibs.sysLoginDisplayName);
             this.introLbl.Text = Languages.Libs.GetString("softwareIntro");
 
             this.weeklyChangeLbl.Text = Languages.Libs.GetString("marketWeeklyChange");

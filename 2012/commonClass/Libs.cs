@@ -140,6 +140,7 @@ namespace commonClass
         {
             sysLoginCode = "";
             sysLoginAccount = "";
+            sysLoginDisplayName = "";
             sysLoginType =  AppTypes.UserTypes.Investor;
         }
 
@@ -171,6 +172,7 @@ namespace commonClass
         //User
         public static string sysLoginCode = "";
         public static string sysLoginAccount = "";
+        public static string sysLoginDisplayName = "";
         public static AppTypes.UserTypes sysLoginType =  AppTypes.UserTypes.Investor;
         public static string sysCompanyName = "";
         public static string sysCompanyAddr1 = "";
