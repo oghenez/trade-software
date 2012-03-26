@@ -1960,7 +1960,7 @@ namespace client
             {
                 this.mainMenu.Font = Settings.sysFontMenu;
             }
-
+            dockPanel.Font = Settings.sysFontMain;
         }
 
         private void addToWatchListMenuItem_Click(object sender, EventArgs e)
