@@ -1,0 +1,7 @@
+#summary Công việc tuần 26/03/2012
+
+= Spring Backlog =
+
+A Dung: Portfolio Refress (1 week)
+Tuan: Chart
+Quan: testing, indicators, presentation
