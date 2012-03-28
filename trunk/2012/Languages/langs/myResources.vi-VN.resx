@@ -661,7 +661,7 @@
     <value>Xin vui lòng lưu dữ liệu trước khi đóng !</value>
   </data>
   <data name="zoomRate" xml:space="preserve">
-    <value>Phóng đại</value>
+    <value>Phóng lớn</value>
   </data>
   <data name="sex" xml:space="preserve">
     <value>Giới tính</value>
@@ -1328,5 +1328,8 @@
   </data>
   <data name="timeServer" xml:space="preserve">
     <value>Máy chủ thời gian</value>
+  </data>
+  <data name="profitVariant" xml:space="preserve">
+    <value>Lợi nhuận</value>
   </data>
 </root>
