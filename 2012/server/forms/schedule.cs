@@ -129,8 +129,8 @@ namespace server
                     return;
                 }
                 fCreateAlertRunning = true;
-                commonClass.SysLibs.WriteSysLog("-Trade alert started.");
                 application.TradeAlert.CreateTradeAlert(onTradeAlertProcessStart, onTradeAlertProcessItem, onTradeAlertProcessEnd);
+                commonClass.SysLibs.WriteSysLog("-Trade alert run successfully.");
                 fCreateAlertRunning = false;
             }
             catch (Exception er)

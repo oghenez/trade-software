@@ -137,26 +137,34 @@ namespace server
                 exchangeDetailRow = (databases.baseDS.exchangeDetailRow)myDataView[0].Row;
                 while (true)
                 {
-                    switch ((AppTypes.DataSourceCodes)exchangeDetailRow.sourceCode)
+                    try
                     {
-                        case AppTypes.DataSourceCodes.HOSE1:
-                            retVal = hoseImport.ImportFromWeb(updateTime, exchangeDetailRow);
-                            break;
-                        case AppTypes.DataSourceCodes.HASTC1:
-                            retVal = htastcImport.ImportFromWeb(updateTime, exchangeDetailRow);
-                            break;
-                        case AppTypes.DataSourceCodes.GOLD1:
-                            retVal = forexImport.ImportFromWeb(updateTime, exchangeDetailRow);
-                            break;
+                        switch ((AppTypes.DataSourceCodes)exchangeDetailRow.sourceCode)
+                        {
+                            case AppTypes.DataSourceCodes.HOSE1:
+                                retVal = hoseImport.ImportFromWeb(updateTime, exchangeDetailRow);
+                                break;
+                            case AppTypes.DataSourceCodes.HASTC1:
+                                retVal = htastcImport.ImportFromWeb(updateTime, exchangeDetailRow);
+                                break;
+                            case AppTypes.DataSourceCodes.GOLD1:
+                                retVal = forexImport.ImportFromWeb(updateTime, exchangeDetailRow);
+                                break;
 
-                        case AppTypes.DataSourceCodes.VNVN30_IDX1:
-                            retVal = vnIdxImport.ImportFromWeb(updateTime, exchangeDetailRow);
-                            break;
-                        case AppTypes.DataSourceCodes.HN_IDX1:
-                            retVal = hnIdxImport.ImportFromWeb(updateTime, exchangeDetailRow);
-                            break;
+                            case AppTypes.DataSourceCodes.VNVN30_IDX1:
+                                retVal = vnIdxImport.ImportFromWeb(updateTime, exchangeDetailRow);
+                                break;
+                            case AppTypes.DataSourceCodes.HN_IDX1:
+                                retVal = hnIdxImport.ImportFromWeb(updateTime, exchangeDetailRow);
+                                break;
 
-                        default: return; //To avoid loop
+                            default: return; //To avoid loop
+                        }
+                    }
+                    catch (Exception er)
+                    {
+                        retVal = false;
+                        commonClass.SysLibs.WriteSysLog("Error " + er.Message);
                     }
 
                     int nextRunId = 0;

@@ -511,7 +511,7 @@
     <value>Tên hiển thị</value>
   </data>
   <data name="exchange" xml:space="preserve">
-    <value>Sàn giao dịch</value>
+    <value>Sàn </value>
   </data>
   <data name="expireDate" xml:space="preserve">
     <value>Ngày hết hạn</value>
@@ -1331,5 +1331,11 @@
   </data>
   <data name="profitVariant" xml:space="preserve">
     <value>Lợi nhuận</value>
+  </data>
+  <data name="currentAmt" xml:space="preserve">
+    <value>Giá trị hiện tại</value>
+  </data>
+  <data name="currentPrice" xml:space="preserve">
+    <value>Giá hiện tại</value>
   </data>
 </root>
