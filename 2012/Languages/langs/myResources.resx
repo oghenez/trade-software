@@ -1323,4 +1323,7 @@
   <data name="timeServer" xml:space="preserve">
     <value>Time server</value>
   </data>
+  <data name="profitVariant" xml:space="preserve">
+    <value>Profit Variant</value>
+  </data>
 </root>

@@ -2527,6 +2527,15 @@ namespace Languages.langs {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Profit Variant.
+        /// </summary>
+        internal static string profitVariant {
+            get {
+                return ResourceManager.GetString("profitVariant", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Properties.
         /// </summary>
         internal static string property {
