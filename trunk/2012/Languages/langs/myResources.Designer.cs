@@ -871,11 +871,29 @@ namespace Languages.langs {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Current Amt.
+        /// </summary>
+        internal static string currentAmt {
+            get {
+                return ResourceManager.GetString("currentAmt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Current Cash.
         /// </summary>
         internal static string currentCash {
             get {
                 return ResourceManager.GetString("currentCash", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Current Price.
+        /// </summary>
+        internal static string currentPrice {
+            get {
+                return ResourceManager.GetString("currentPrice", resourceCulture);
             }
         }
         

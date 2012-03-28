@@ -34,8 +34,8 @@
             // waitingPB
             // 
             this.waitingPB.Image = global::client.Properties.Resources.waiting_bar;
-            this.waitingPB.Location = new System.Drawing.Point(28, 253);
-            this.waitingPB.Size = new System.Drawing.Size(310, 8);
+            this.waitingPB.Location = new System.Drawing.Point(9, 245);
+            this.waitingPB.Size = new System.Drawing.Size(339, 8);
             // 
             // waitingLbl
             // 

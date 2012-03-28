@@ -1326,4 +1326,10 @@
   <data name="profitVariant" xml:space="preserve">
     <value>Profit Variant</value>
   </data>
+  <data name="currentAmt" xml:space="preserve">
+    <value>Current Amt</value>
+  </data>
+  <data name="currentPrice" xml:space="preserve">
+    <value>Current Price</value>
+  </data>
 </root>
