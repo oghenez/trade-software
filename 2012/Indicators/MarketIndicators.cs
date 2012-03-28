@@ -84,7 +84,7 @@ namespace Indicators
             FirstValidValue = 0;
             this.Name = name;
             for (int i = begin, j = 0; j < result3.Count; i++, j++)
-                this[i] = result3[j];
+                this[i] = result3[j]*100;
         }
     }
 
@@ -137,7 +137,7 @@ namespace Indicators
             FirstValidValue = 0;
             this.Name = name;
             for (int i = begin, j = 0; j < result3.Count; i++, j++)
-                this[i] = result3[j];
+                this[i] = result3[j] * 100;
         }
     }
 
@@ -187,7 +187,7 @@ namespace Indicators
             FirstValidValue = 0;
             this.Name = name;
             for (int i = begin, j = 0; j < result3.Count; i++, j++)
-                this[i] = result3[j];
+                this[i] = result3[j] * 100;
         }
     }
 }
