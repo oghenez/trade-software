@@ -130,7 +130,7 @@ namespace server
                 }
                 fCreateAlertRunning = true;
                 int noAlertCreated = application.TradeAlert.CreateTradeAlert(onTradeAlertProcessStart, onTradeAlertProcessItem, onTradeAlertProcessEnd);
-                commonClass.SysLibs.WriteSysLog(" - Trade alert run successfully. (" + noAlertCreated + " alerts created)");
+                commonClass.SysLibs.WriteSysLog(" - Trade alert run successfully : " + noAlertCreated + " alerts created");
                 fCreateAlertRunning = false;
             }
             catch (Exception er)

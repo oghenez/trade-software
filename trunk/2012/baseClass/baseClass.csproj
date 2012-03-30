@@ -665,6 +665,7 @@
     <None Include="Resources\disconnected.png" />
     <None Include="Resources\data.png" />
     <None Include="Resources\connected.gif" />
+    <None Include="Resources\configure1.png" />
     <Content Include="Resources\strategy_images.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
