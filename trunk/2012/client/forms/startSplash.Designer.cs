@@ -34,8 +34,8 @@
             // waitingPB
             // 
             this.waitingPB.Image = global::client.Properties.Resources.waiting_bar;
-            this.waitingPB.Location = new System.Drawing.Point(9, 245);
-            this.waitingPB.Size = new System.Drawing.Size(339, 8);
+            this.waitingPB.Location = new System.Drawing.Point(126, 327);
+            this.waitingPB.Size = new System.Drawing.Size(294, 23);
             // 
             // waitingLbl
             // 
@@ -49,12 +49,11 @@
             // 
             // startSplash
             // 
-            this.BackColor = System.Drawing.SystemColors.Window;
+            this.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.BackgroundImage = global::client.Properties.Resources.trading2;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(358, 267);
+            this.ClientSize = new System.Drawing.Size(544, 382);
             this.DoubleBuffered = true;
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "startSplash";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             ((System.ComponentModel.ISupportInitialize)(this.waitingPB)).EndInit();
