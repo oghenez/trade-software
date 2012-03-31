@@ -1,17 +1,18 @@
 ﻿using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
+using System.Resources;
 
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("test")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("Quantum 2012")]
+[assembly: AssemblyDescription("Quantum system is the pioneer software in automatic trading")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("cesti")]
-[assembly: AssemblyProduct("test")]
-[assembly: AssemblyCopyright("Copyright © cesti 2011")]
-[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCompany("HQ Investment & Consulting Corporation")]
+[assembly: AssemblyProduct("Quantum 2012")]
+[assembly: AssemblyCopyright("Copyright © by HQ Corporation")]
+[assembly: AssemblyTrademark("Quantum 2012")]
 [assembly: AssemblyCulture("")]
 
 // Setting ComVisible to false makes the types in this assembly not visible 
@@ -34,3 +35,4 @@ using System.Runtime.InteropServices;
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("1.0.0.0")]
 [assembly: AssemblyFileVersion("1.0.0.0")]
+[assembly: NeutralResourcesLanguageAttribute("en-GB")]

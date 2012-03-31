@@ -1545,7 +1545,8 @@ namespace client
         {
             try
             {
-
+                client.forms.AboutBox about = new client.forms.AboutBox();
+                about.ShowDialog();
             }
             catch (Exception er)
             {

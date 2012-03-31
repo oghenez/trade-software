@@ -140,6 +140,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="ClassDiagram1.cd" />
     <None Include="Resources\license.jpg" />
     <None Include="Resources\open.png" />
     <None Include="Resources\connection.png" />
