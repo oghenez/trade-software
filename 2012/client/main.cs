@@ -52,6 +52,7 @@ namespace client
             //}
             try
             {
+                DateTime time1 = DateTime.Now;
                 using (new common.PleaseWait(new Point(), new forms.startSplash()))
                 {
                     InitializeComponent();
@@ -60,6 +61,12 @@ namespace client
 
                     InitSystem(false);
                     this.LogAccess = false;
+                    DateTime time2 = DateTime.Now;
+                    TimeSpan ts = time2 - time1;
+                    
+                    //Neu chua du 3 giay
+                    if (ts.Seconds  - 3 > 0) 
+                        Thread.Sleep(ts.Seconds - 3);
                 }
                 testMenuItem.Visible = false;
             }
