@@ -528,7 +528,7 @@ namespace databases
                                               CultureInfo cultureInfo, databases.baseDS.priceDataSumDataTable toSumTbl)
         {
             DateTime dataDate = AggregateDateTime(timeScale, priceRow.onDate, cultureInfo);
-            int dataTimeOffset = common.dateTimeLibs.DateDiffInMilliseconds(dataDate, priceRow.onDate);
+            int dataTimeOffset = (int)common.dateTimeLibs.DateDiffInMilliseconds(dataDate, priceRow.onDate);
 
             databases.baseDS.priceDataSumRow priceDataSumRow;
             priceDataSumRow = AppLibs.FindAndCache(toSumTbl, priceRow.stockCode, timeScale.Code, dataDate);

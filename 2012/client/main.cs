@@ -52,22 +52,7 @@ namespace client
             //}
             try
             {
-                DateTime time1 = DateTime.Now;
-                using (new common.PleaseWait(new Point(), new forms.startSplash()))
-                {
-                    InitializeComponent();
-                    SetTimer(false);
-                    SetFormAppearance();
-
-                    InitSystem(false);
-                    this.LogAccess = false;
-                    DateTime time2 = DateTime.Now;
-                    TimeSpan ts = time2 - time1;
-                    
-                    //Neu chua du 3 giay
-                    if (ts.Seconds  - 3 > 0) 
-                        Thread.Sleep(ts.Seconds - 3);
-                }
+                InitializeComponent();
                 testMenuItem.Visible = false;
             }
             catch (Exception er)
@@ -78,6 +63,36 @@ namespace client
             }
         }
 
+        protected override bool CheckValid()
+        {
+            bool retVal = true;
+            using (new common.PleaseWait(new Point(), new forms.startSplash()))
+            {
+                DateTime time1 = DateTime.Now;
+                try
+                {
+                    retVal = base.CheckValid();
+                }
+                catch (Exception er)
+                {
+                    retVal = false;
+                    common.system.ShowError(Languages.Libs.GetString("systemError"), er.Message);
+                }
+                if (retVal)
+                {
+                    SetTimer(false);
+                    SetFormAppearance();
+
+                    InitSystem(false);
+                    this.LogAccess = false;
+                }
+                DateTime time2 = DateTime.Now;
+                TimeSpan ts = time2 - time1;
+                //Neu chua du 3 giay = 3000 ms
+                if (3000-ts.TotalSeconds> 0) Thread.Sleep((int)(3000-ts.TotalMilliseconds));
+            }
+            return retVal;
+        }
         private common.TimerProcess RefreshDataProc = null;
         private common.TimerProcess RefreshAlertProc = null;
         private common.DictionaryList cachedForms = new common.DictionaryList();  // To cache used forms 
