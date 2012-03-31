@@ -234,7 +234,7 @@ namespace Charts.Controls
                     {
                         DateTime prevDate = DateTime.FromOADate(this.mySeriesX[this.myViewportX.Max - NoExtraBarAtRight]);
                         DateTime curDate = DateTime.FromOADate(this.mySeriesX[this.myViewportX.Max]);
-                        int seconds = common.dateTimeLibs.DateDiffInSecs(prevDate, curDate);
+                        double seconds = common.dateTimeLibs.DateDiffInSecs(prevDate, curDate);
                         this.myGraphPane.XAxis.Scale.Max = DateTime.FromOADate(this.mySeriesX[this.myViewportX.Max]).AddSeconds(seconds).ToOADate();
                     }
                     else
@@ -246,7 +246,7 @@ namespace Charts.Controls
                     {
                         DateTime nextDate = DateTime.FromOADate(this.mySeriesX[NoExtraBarAtLeft]);
                         DateTime curDate = DateTime.FromOADate(this.mySeriesX[0]);
-                        int seconds = common.dateTimeLibs.DateDiffInSecs(curDate, nextDate);
+                        double seconds = common.dateTimeLibs.DateDiffInSecs(curDate, nextDate);
                         this.myGraphPane.XAxis.Scale.Min = curDate.AddSeconds(-seconds).ToOADate();
                     }
                     else

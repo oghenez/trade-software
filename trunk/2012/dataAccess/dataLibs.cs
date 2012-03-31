@@ -75,7 +75,7 @@ namespace DataAccess
             binding.ReaderQuotas.MaxStringContentLength = constMaxStringContentLength;
             binding.ReaderQuotas.MaxBytesPerRead = constMaxBytesPerRead;
 
-            //Proxy  must befor setting Endpoint ?
+            //Proxy  must before setting Endpoint ?
             binding.UseDefaultWebProxy = false;
             if (wsInfo.useProxy)
             {
@@ -111,7 +111,6 @@ namespace DataAccess
             //For testing
             if (common.Settings.sysDebugMode)
             {
-                //_myClient.Endpoint.Address = new System.ServiceModel.EndpointAddress("http://localhost:8731/wsServices/DataLibs/?wsdl");
                 _myClient.Endpoint.Address = new System.ServiceModel.EndpointAddress("http://localhost:8731/wsServices/DataLibs");
                 _myClient.ClientCredentials.Windows.ClientCredential.UserName = "";
                 _myClient.ClientCredentials.Windows.ClientCredential.Password = "";
@@ -119,7 +118,8 @@ namespace DataAccess
             //End testing
 
             _myClient.Open();
-            //DataTable tbl = _myClient.Test("select * from investor");
+
+            myConnState = ConnState.Connected;
             return true;
         }
         private static void CloseConnection()

@@ -39,7 +39,7 @@ namespace Imports.Forms
                 DateTime endDate = dateRangeEd.toDate;
 
                 progressBar.Visible = true;
-                progressBar.Maximum = common.dateTimeLibs.DateDiffInDays(curDate, endDate)+1;
+                progressBar.Maximum = (int)common.dateTimeLibs.DateDiffInDays(curDate, endDate)+1;
                 progressBar.Value = 0;
 
                 CultureInfo stockCulture = application.AppLibs.GetStockCulture(codeEd.Text.Trim());
