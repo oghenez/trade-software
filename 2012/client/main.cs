@@ -65,6 +65,12 @@ namespace client
 
         protected override bool CheckValid()
         {
+            if (Process.GetProcessesByName(Process.GetCurrentProcess().ProcessName).Length > 1)
+            {
+                common.system.ShowMessage("Application is running.Only one instance of this application is allowed");
+                return false;
+            }
+
             bool retVal = true;
             using (new common.PleaseWait(new Point(), new forms.startSplash()))
             {
