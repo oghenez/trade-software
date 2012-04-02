@@ -95,7 +95,7 @@ namespace client
                 DateTime time2 = DateTime.Now;
                 TimeSpan ts = time2 - time1;
                 //Neu chua du 3 giay = 3000 ms
-                if (3000-ts.TotalSeconds> 0) Thread.Sleep((int)(3000-ts.TotalMilliseconds));
+                if (3000 - ts.TotalMilliseconds > 0) Thread.Sleep((int)(3000 - ts.TotalMilliseconds));
             }
             return retVal;
         }
