@@ -96,6 +96,8 @@ namespace commonTypes
     }
     public static class Settings
     {
+        public const bool sysDebugMode = false;
+
         private static GlobalSettings _sysGlobal = null;
         public static GlobalSettings sysGlobal
         {
@@ -136,11 +138,64 @@ namespace commonTypes
         // The setting specified the time (in seconds) that data cached in the application server
         public static int sysDataDelayTimeInSecs = 5;
 
-        public static string sysUserConfigFile
+        //user config file
+        private static string _sysFileUserConfig = null;
+        public static string sysFileUserConfig
         {
             get
             {
-                return common.fileFuncs.GetFullPath(Consts.constConfFile_User);
+                if (_sysFileUserConfig == null)
+                {
+                    _sysFileUserConfig = common.fileFuncs.ConcatFileName(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "user.xml");
+                }
+                return _sysFileUserConfig;
+                //return common.fileFuncs.GetFullPath(Consts.constConfFile_User);
+            }
+        }
+
+        //Syslog file
+        private static string _sysFileUserLog = null;
+        public static string sysFileUserLog
+        {
+            get
+            {
+                if (_sysFileUserLog == null)
+                {
+                    string tmp = common.system.GetWebRootPath();
+                    //Run on web server
+                    if (tmp != null)
+                        _sysFileUserLog = common.fileFuncs.ConcatFileName(tmp , "syslog.log");
+                    else 
+                        _sysFileUserLog = common.fileFuncs.ConcatFileName(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "syslog.log");
+                }
+                return _sysFileUserLog;
+            }
+        }
+
+        //The folder from where the application run
+        private static string _sysExecuteDirectory = null;
+        public static string sysExecuteDirectory
+        {
+            get
+            {
+                //For testing 
+                if (_sysExecuteDirectory == null)
+                {
+                    if (sysDebugMode)
+                    {
+                        //_sysExecuteDirectory = common.fileFuncs.ConcatFileName(common.system.GetExecutePath() + "\\..\\wsServices\\obj\\Debug");
+                        _sysExecuteDirectory  = "D:\\work\\stockProject\\code\\wsServices\\obj\\Debug";
+                    }
+                    else
+                    {
+                        string tmp = common.system.GetWebRootPath();
+                        //Run on web server
+                        if (tmp != null)
+                            _sysExecuteDirectory = common.fileFuncs.ConcatFileName(tmp, "bin");
+                        else _sysExecuteDirectory = common.system.GetExecutePath();
+                    }
+                }
+                return _sysExecuteDirectory;
             }
         }
 

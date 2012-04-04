@@ -90,27 +90,6 @@ namespace commonClass
     }
     public static class SysLibs
     {
-        //The folder from where the application run
-        private static string _executeDirectory = null;
-        public static string myExecuteDirectory
-        {
-            get
-            {
-                //For testing 
-                if (common.Settings.sysDebugMode)
-                    return "D:\\work\\stockProject\\code\\wsServices\\obj\\Debug"; 
-
-                if (_executeDirectory == null)
-                {
-                    string tmp = common.system.GetWebRootPath();
-                    //Run on web server
-                    if (tmp != null)
-                        _executeDirectory = common.fileFuncs.ConcatFileName(tmp, "bin");
-                    else _executeDirectory = common.system.GetExecutePath();
-                }
-                return _executeDirectory;
-            }
-        }
         public static bool IsUseVietnamese()
         {
             return (Settings.sysLanguage == AppTypes.LanguageCodes.VI);
@@ -147,8 +126,7 @@ namespace commonClass
         public static void WriteSysLog(AppTypes.SyslogTypes type, string investorCode, string text)
         {
             common.SysLog.WriteLog(DateTime.Now.ToString() + common.Consts.constTab + type.ToString() + common.Consts.constTab +
-                                  (investorCode == null || investorCode.Trim() == "" ? "" : investorCode.Trim()) + common.Consts.constTab + text,
-                                   common.fileFuncs.ConcatFileName(myExecuteDirectory, Consts.constFile_SysLog));
+                                  (investorCode == null || investorCode.Trim() == "" ? "" : investorCode.Trim()) + common.Consts.constTab + text, Settings.sysFileUserLog);
         }
         public static void WriteSysLog(string investorCode,Exception er)
         {
@@ -156,7 +134,7 @@ namespace commonClass
         }
         public static void WriteSysLog(string text)
         {
-            common.SysLog.WriteLog(DateTime.Now.ToString() + common.Consts.constTab + text, common.fileFuncs.ConcatFileName(myExecuteDirectory, Consts.constFile_SysLog));
+            common.SysLog.WriteLog(DateTime.Now.ToString() + common.Consts.constTab + text, Settings.sysFileUserLog);
         }
 
         #region system environment
@@ -188,31 +166,31 @@ namespace commonClass
     {
         public static XmlDocument GetLocalXmlDocSTRATEGY()
         {
-            string tmp = common.fileFuncs.ConcatFileName(new string[] { commonClass.SysLibs.myExecuteDirectory, common.language.myCulture.Name, Consts.constConfFile_Meta_Strategy });
+            string tmp = common.fileFuncs.ConcatFileName(new string[] { Settings.sysExecuteDirectory, common.language.myCulture.Name, Consts.constConfFile_Meta_Strategy });
             return common.xmlLibs.GetXmlDocument(tmp);
         }
         public static XmlDocument GetLocalXmlDocINDICATOR()
         {
-            string tmp = common.fileFuncs.ConcatFileName(new string[] { commonClass.SysLibs.myExecuteDirectory, common.language.myCulture.Name, Consts.constConfFile_Meta_Indicator });
+            string tmp = common.fileFuncs.ConcatFileName(new string[] { Settings.sysExecuteDirectory, common.language.myCulture.Name, Consts.constConfFile_Meta_Indicator });
             return common.xmlLibs.GetXmlDocument(tmp);
         }
 
         public static bool GetLocalConfig(string[] nodes, StringCollection aFields)
         {
-            return common.configuration.GetConfiguration(nodes, aFields, Settings.sysUserConfigFile, false);
+            return common.configuration.GetConfiguration(nodes, aFields, Settings.sysFileUserConfig, false);
         }
         public static bool SaveLocalConfig(string[] nodes, StringCollection aFields, StringCollection aValues)
         {
-            return common.configuration.SaveConfiguration(nodes, aFields, aValues,Settings.sysUserConfigFile, false);
+            return common.configuration.SaveConfiguration(nodes, aFields, aValues, Settings.sysFileUserConfig, false);
         }
 
         public static Font GetLocalConfigFont(string[] nodes)
         {
-            return common.xmlLibs.GetFontFromXML(Settings.sysUserConfigFile,nodes, false);
+            return common.xmlLibs.GetFontFromXML(Settings.sysFileUserConfig, nodes, false);
         }
         public static bool SaveLocalConfigFont(string[] nodes,Font font)
         {
-            return common.xmlLibs.WriteFontToXML(Settings.sysUserConfigFile, nodes, font, false);
+            return common.xmlLibs.WriteFontToXML(Settings.sysFileUserConfig, nodes, font, false);
         }
     }
 }

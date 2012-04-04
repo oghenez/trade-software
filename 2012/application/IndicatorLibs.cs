@@ -92,7 +92,7 @@ namespace application.Indicators
                 if (_Metas == null)
                 {
                     _Metas = new common.DictionaryList();
-                    Libs.GetMeta(commonClass.SysLibs.myExecuteDirectory, constAssemplyNamePattern, _Metas);
+                    Libs.GetMeta(Settings.sysExecuteDirectory, constAssemplyNamePattern, _Metas);
                 }
                 return _Metas;
             }

@@ -109,7 +109,7 @@ namespace DataAccess
             ServicePointManager.DefaultConnectionLimit = ServicePointManager.DefaultPersistentConnectionLimit;
 
             //For testing
-            if (common.Settings.sysDebugMode)
+            if (Settings.sysDebugMode)
             {
                 _myClient.Endpoint.Address = new System.ServiceModel.EndpointAddress("http://localhost:8731/wsServices/DataLibs");
                 _myClient.ClientCredentials.Windows.ClientCredential.UserName = "";
