@@ -18,19 +18,19 @@ namespace commonTypes
         [DataMember]
         public bool UseStrongPassword = false;
 
-        // Auto-generated edit key has the form  <number><postfix>
-        // myAutoEditKeySize specifies the lenght of <number> part 
+        /// Auto-generated edit key has the form  <number><postfix>
+        /// myAutoEditKeySize specifies the lenght of <number> part 
         [DataMember]
         public int AutoEditKeySize = 4;
 
-        // Auto-generated data has the form  <prefix><numeric string>
-        // DataKeySize specifies the lenght of <number string> part 
+        /// Auto-generated data has the form  <prefix><numeric string>
+        /// DataKeySize specifies the lenght of <number string> part 
         [DataMember]
         public int DataKeySize = 9;
         [DataMember]
         public string DataKeyPrefix = "A";
 
-        //Maximum time (in seconds) that consider an auto key is valid.
+        ///Maximum time (in seconds) that consider an auto key is valid.
         [DataMember]
         public int TimeOut_AutoKey = 120; //2*60= 2 Minutes
 
@@ -63,34 +63,52 @@ namespace commonTypes
         [DataMember]
         public string DefaultTimeScaleCode = "";
 
-        //Interval in seconds at which  system time events occur.
+        /// <summary>
+        /// Interval in seconds at which  system time events occur.
+        /// </summary>
         [DataMember]
         public short TimerIntervalInSecs = 2;   //  Possitive number to enable system timer
 
-        //How many seconds to check for new data , should be multiple of TimerIntervalInSecs
+        /// <summary>
+        /// How many seconds to check for new data , should be multiple of TimerIntervalInSecs
+        /// </summary>
         [DataMember]
         public short RefreshDataInSecs = 10;
 
-        //How many second to check for alerts, should be multiple of TimerIntervalInSecs
+        /// <summary>
+        /// How many second to check for alerts, should be multiple of TimerIntervalInSecs
+        /// </summary>
         [DataMember]
         public short CheckAlertInSeconds = 300;
 
-        //How long (seconds) to perform auto checking (connection,...) , should be multiple of TimerIntervalInSecs
+        /// <summary>
+        /// How long (seconds) to perform auto checking (connection,...) , should be multiple of TimerIntervalInSecs
+        /// </summary>
         [DataMember]
         public short AutoCheckInSeconds = 60;
 
-        //The number of days to scan for getting the last price. The bigger the numer is, the more time needs for the system to get the last price
-        //The system will look for the last price in date range [today-DayScanForLastPrice,today]
+        /// <summary>
+        /// The number of days to scan for getting the last price. The bigger the numer is, the more time needs for the system to get the last price
+        /// The system will look for the last price in date range [today-DayScanForLastPrice,today]
+        /// </summary>
         [DataMember]
         public short DayScanForLastPrice = 90;
 
-        // Loading long chart can be very slow, the setting limit the maximum number of points to be loaded
+        /// <summary>
+        /// Loading long chart can be very slow, the setting limit the maximum number of points to be loaded
+        /// </summary>
         [DataMember]
         public short ChartMaxLoadCount_FIRST = 6000; //For the first time
+        
+        /// <summary>
+        /// 
+        /// </summary>
         [DataMember]
         public short ChartMaxLoadCount_MORE = 0;   //For each "get more" load
 
-        // Whether to log user access...
+        /// <summary>
+        /// Whether to log user access...
+        /// </summary>
         [DataMember]
         public AppTypes.SyslogMedia WriteLogAccess = AppTypes.SyslogMedia.None;
     }
@@ -123,22 +141,33 @@ namespace commonTypes
         public static Font sysFontMenu = new Font("Tahoma",10f);
         
         public static bool sysAutoRefreshData = true;
+        
+        /// <summary>
+        /// The max datetime diffences b/w server and client in seconds
+        /// </summary>
+        public static int sysMaxTimeDifferenceInSecs = 300; ///5 Mins
 
-        //The max datetime diffences b/w server and client in seconds
-        public static int sysMaxTimeDifferenceInSecs = 300; //5 Mins
-
-        //Whether to keep sell that was blocked by T+4 and issue it when the time come
+        
+        /// <summary>
+        ///Whether to keep sell that was blocked by T+4 and issue it when the time come
+        /// </summary>        
         public static bool sysKeepInApplicableSell = true;
 
-        // Some process such as backtesting need to slit a process into several batches 
-        // The setting specifies the number of items put in each batch process.
+        /// <summary>
+        /// Some process such as backtesting need to slit a process into several batches 
+        /// The setting specifies the number of items put in each batch process.        
+        /// </summary>
         public static int sysNumberOfItemsInBatchProcess = 5;
 
-        // Price can be querried from SQL continouously and cause some bottleneck. 
-        // The setting specified the time (in seconds) that data cached in the application server
+        /// <summary>
+        /// Price can be querried from SQL continouously and cause some bottleneck. 
+        /// The setting specified the time (in seconds) that data cached in the application server
+        /// </summary>
         public static int sysDataDelayTimeInSecs = 5;
 
-        //user config file
+        /// <summary>
+        /// user config file
+        /// </summary>
         private static string _sysFileUserConfig = null;
         public static string sysFileUserConfig
         {
@@ -153,7 +182,7 @@ namespace commonTypes
             }
         }
 
-        //Syslog file
+        ///Syslog file
         private static string _sysFileUserLog = null;
         public static string sysFileUserLog
         {
@@ -172,7 +201,7 @@ namespace commonTypes
             }
         }
 
-        //The folder from where the application run
+        ///The folder from where the application run
         private static string _sysExecuteDirectory = null;
         public static string sysExecuteDirectory
         {
@@ -199,7 +228,7 @@ namespace commonTypes
             }
         }
 
-        //Images and logo
+        ///Images and logo
         public static string sysImgFilePathIcon = "";
         public static string sysImgFilePathBackGround = "";
         public static string sysImgFilePathCompanyLogo1 = "";
@@ -236,46 +265,46 @@ namespace commonTypes
         public static DateTime sysStartDataDate = DateTime.Parse("2006/01/01");
         public static int sysAutoRefreshInSeconds = 5 * 60;
 
-        // Multi-value field is stored in the format: <prefix><value><postfix><separator>
+        /// Multi-value field is stored in the format: <prefix><value><postfix><separator>
         public static string sysListSeparatorPrefix = "/";
         public static string sysListSeparatorPostfix = "/";
         public static string sysListSeparator = " ";
 
-        //Default        
+        ///Default        
         public static int sysDefaultLoginAccountDayToExpire = 365;
         public static string sysSuperAdminName = "admin";
         public static string sysDefaultImageFile = "images/employee.png";
         public static AppTypes.LanguageCodes sysLanguage = AppTypes.LanguageCodes.EN; 
 
-        //Country
+        ///Country
         public static string sysDefaultCountry = "VN";
 
         public static Color sysColorTradePoint = Color.Red;
         public static Color sysColorTradePointAnnotation = Color.FromArgb(255, 255, 128);
 
-        //Currency
+        ///Currency
         public static string sysMainCurrency = "V";
         public static string sysMainCurrencyDisplay = "VND";
         public static string sysMainCurrencyText = "dong";
         public static string sysMainCurrencyName = "Viet nam dong";
 
-        //Customed format
+        ///Customed format
 
         public static string sysMaskGeneralValue = "###,###,###,##0";
         public static string sysMaskLocalAmt = "###,###,###,###,##0";
         public static string sysMaskForeignAmt = "###,###,###,##0.00";
-        public static string sysMaskPercent = "#0";
+        public static string sysMaskPercent = "#0.0";
         public static string sysMaskQty = "###,###,###,##0";
         public static string sysMaskPrice = "###,###,##0.0";
 
-        //Stock
+        ///Stock
         public static decimal sysStockMaxBuyQtyPerc = 10;
         public static decimal sysStockReduceQtyPerc = 10;
         public static decimal sysStockAccumulateQtyPerc = 10;
         public static decimal sysStockTotalCapAmt = 10000000;
         public static decimal sysStockMaxBuyAmtPerc = 100;
 
-        //Chart property settings
+        ///Chart property settings
         public static Color sysChartBgColor = Color.White;
         public static Color sysChartFgColor = Color.Black;
         public static Color sysChartGridColor = Color.Black;
@@ -292,7 +321,7 @@ namespace commonTypes
         public static bool sysChartShowGrid = true;
         public static bool sysChartShowLegend = true;
 
-        // Whether to log exception, user access...
+        /// Whether to log exception, user access...
         public static AppTypes.SyslogMedia sysWriteLogException = AppTypes.SyslogMedia.File;
 
         public static string sysAdminCode = "A00000004"; 
