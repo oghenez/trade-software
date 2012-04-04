@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Drawing;
 using System.Runtime.Serialization;
+using System.IO;
 
 namespace commonTypes
 {
@@ -165,6 +166,19 @@ namespace commonTypes
         /// </summary>
         public static int sysDataDelayTimeInSecs = 5;
 
+
+        /// <summary>
+        /// Get (and create if neccessary) application folder.
+        /// Application folder is in  C:\Documents and Settings\%%user%%\Application Data\
+        /// </summary>
+        /// <returns></returns>
+        private static string GetApplicationFolder()
+        {
+            string folder = common.fileFuncs.ConcatFileName(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Quantum");
+            if (!Directory.Exists(folder)) Directory.CreateDirectory(folder);
+            return folder;
+        }
+
         /// <summary>
         /// user config file
         /// </summary>
@@ -175,7 +189,7 @@ namespace commonTypes
             {
                 if (_sysFileUserConfig == null)
                 {
-                    _sysFileUserConfig = common.fileFuncs.ConcatFileName(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "user.xml");
+                    _sysFileUserConfig = common.fileFuncs.ConcatFileName(GetApplicationFolder(), "user.xml");
                 }
                 return _sysFileUserConfig;
                 //return common.fileFuncs.GetFullPath(Consts.constConfFile_User);
@@ -195,7 +209,7 @@ namespace commonTypes
                     if (tmp != null)
                         _sysFileUserLog = common.fileFuncs.ConcatFileName(tmp , "syslog.log");
                     else 
-                        _sysFileUserLog = common.fileFuncs.ConcatFileName(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "syslog.log");
+                        _sysFileUserLog = common.fileFuncs.ConcatFileName(GetApplicationFolder(), "syslog.log");
                 }
                 return _sysFileUserLog;
             }
