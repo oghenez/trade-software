@@ -1060,7 +1060,7 @@ namespace application.Strategy
                 if (_metaList == null)
                 {
                     _metaList = new common.DictionaryList();
-                    Libs.GetMeta(commonClass.SysLibs.myExecuteDirectory, constAssemplyNamePattern, _metaList);
+                    Libs.GetMeta(Settings.sysExecuteDirectory, constAssemplyNamePattern, _metaList);
                 }
                 return _metaList;
             }

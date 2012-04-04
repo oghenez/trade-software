@@ -112,10 +112,13 @@ namespace client
             DataAccess.Libs.LoadSystemVars();
             return true;
         }
-        private void SetCulture(AppTypes.LanguageCodes code)
+        private void SetCulture(AppTypes.LanguageCodes code,bool force)
         {
             Settings.sysLanguage = code;
-            common.language.myCulture = AppTypes.Code2Culture(code);
+            CultureInfo newCulture = AppTypes.Code2Culture(code);
+            if (!force && (newCulture == common.language.myCulture)) return;
+
+            common.language.myCulture = newCulture;
             switch (code)
             {
                 case AppTypes.LanguageCodes.VI:
@@ -963,7 +966,7 @@ namespace client
             {
                 this.ShowError(er);
             }
-            SetCulture(Settings.sysLanguage);
+            SetCulture(Settings.sysLanguage,false);
 
             // Restore the last settings from user config file.
             marketWatchMenuItem.Checked = application.Configuration.GetDefaultFormState("marketWatch");
@@ -1803,7 +1806,7 @@ namespace client
         {
             try
             {
-                SetCulture(AppTypes.LanguageCodes.VI);
+                SetCulture(AppTypes.LanguageCodes.VI,false);
             }
             catch (Exception er)
             {
@@ -1820,7 +1823,7 @@ namespace client
         {
             try
             {
-                SetCulture(AppTypes.LanguageCodes.EN);
+                SetCulture(AppTypes.LanguageCodes.EN,false);
             }
             catch (Exception er)
             {

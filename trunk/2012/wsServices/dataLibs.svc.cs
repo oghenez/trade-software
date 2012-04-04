@@ -46,7 +46,7 @@ namespace wsServices
             try
             {
                 common.configuration.withEncryption = true;
-                common.Settings.sysConfigFile = common.fileFuncs.ConcatFileName(commonClass.SysLibs.myExecuteDirectory, commonTypes.Consts.constWebServiceConf);
+                common.Settings.sysConfigFile = common.fileFuncs.ConcatFileName(Settings.sysExecuteDirectory, commonTypes.Consts.constWebServiceConf);
                 databases.SysLibs.dbConnectionString = common.configuration.GetDbConnectionString();
 
                 GlobalSettings globalSetting = Settings.sysGlobal;

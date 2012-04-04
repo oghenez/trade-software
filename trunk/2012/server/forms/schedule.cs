@@ -170,7 +170,7 @@ namespace server
         {
             try
             {
-                common.fileFuncs.DisplayFile(common.fileFuncs.ConcatFileName(commonClass.SysLibs.myExecuteDirectory, Consts.constFile_SysLog));
+                common.fileFuncs.DisplayFile(Settings.sysFileUserLog);
             }
             catch (Exception er)
             {
