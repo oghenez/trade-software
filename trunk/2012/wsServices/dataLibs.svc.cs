@@ -195,6 +195,7 @@ namespace wsServices
         {
             try
             {
+                WriteLog(1, "InvestorCode", "Estimate_Matrix_LastBizWeight", stockCodeList.ToString(), strategyList.ToString());
                 return application.Strategy.Libs.Estimate_Matrix_LastBizWeight(dataParam, common.system.List2Collection(stockCodeList),
                                                                                common.system.List2Collection(strategyList));
             }
