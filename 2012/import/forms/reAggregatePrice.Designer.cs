@@ -36,7 +36,7 @@
             this.noteGb = new System.Windows.Forms.GroupBox();
             this.noteLbl = new baseClass.controls.baseLabel();
             this.codeEd = new common.controls.baseTextBox();
-            this.codeLbl = new common.controls.baseLabel();
+            this.codeChk = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.myBaseDS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.myImportDS)).BeginInit();
             this.noteGb.SuspendLayout();
@@ -115,29 +115,32 @@
             this.codeEd.isToUpperCase = true;
             this.codeEd.Location = new System.Drawing.Point(89, 36);
             this.codeEd.Name = "codeEd";
-            this.codeEd.Size = new System.Drawing.Size(170, 20);
+            this.codeEd.Size = new System.Drawing.Size(170, 23);
             this.codeEd.TabIndex = 2;
             this.codeEd.Text = "ACB";
             // 
-            // codeLbl
+            // codeChk
             // 
-            this.codeLbl.AutoSize = true;
-            this.codeLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.codeLbl.Location = new System.Drawing.Point(86, 17);
-            this.codeLbl.Name = "codeLbl";
-            this.codeLbl.Size = new System.Drawing.Size(58, 16);
-            this.codeLbl.TabIndex = 153;
-            this.codeLbl.Text = "Mã hiệu";
+            this.codeChk.AutoSize = true;
+            this.codeChk.Checked = true;
+            this.codeChk.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.codeChk.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            this.codeChk.Location = new System.Drawing.Point(92, 13);
+            this.codeChk.Name = "codeChk";
+            this.codeChk.Size = new System.Drawing.Size(84, 21);
+            this.codeChk.TabIndex = 1;
+            this.codeChk.Text = "Mã hiệu";
+            this.codeChk.UseVisualStyleBackColor = true;
+            this.codeChk.CheckedChanged += new System.EventHandler(this.codeChk_CheckedChanged);
             // 
             // reAggregatePrice
             // 
             this.ClientSize = new System.Drawing.Size(358, 173);
+            this.Controls.Add(this.codeChk);
             this.Controls.Add(this.codeEd);
-            this.Controls.Add(this.codeLbl);
             this.Controls.Add(this.noteGb);
             this.Controls.Add(this.closeBtn);
             this.Controls.Add(this.okBtn);
-            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "reAggregatePrice";
             this.Text = "To hop lai du lieu";
@@ -145,8 +148,8 @@
             this.Controls.SetChildIndex(this.okBtn, 0);
             this.Controls.SetChildIndex(this.closeBtn, 0);
             this.Controls.SetChildIndex(this.noteGb, 0);
-            this.Controls.SetChildIndex(this.codeLbl, 0);
             this.Controls.SetChildIndex(this.codeEd, 0);
+            this.Controls.SetChildIndex(this.codeChk, 0);
             ((System.ComponentModel.ISupportInitialize)(this.myBaseDS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.myImportDS)).EndInit();
             this.noteGb.ResumeLayout(false);
@@ -164,7 +167,7 @@
         private System.Windows.Forms.GroupBox noteGb;
         private baseClass.controls.baseLabel noteLbl;
         protected common.controls.baseTextBox codeEd;
-        protected common.controls.baseLabel codeLbl;
+        private System.Windows.Forms.CheckBox codeChk;
 
     }
 }
