@@ -1198,7 +1198,7 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
-  <wsp:Policy wsu:Id="WSHttpBinding_IStockService_GetLastPrice_Input_policy">
+  <wsp:Policy wsu:Id="WSHttpBinding_IStockService_GetLastPriceSum_Input_policy">
     <wsp:ExactlyOne>
       <wsp:All>
         <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
@@ -1217,7 +1217,7 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
-  <wsp:Policy wsu:Id="WSHttpBinding_IStockService_GetLastPrice_output_policy">
+  <wsp:Policy wsu:Id="WSHttpBinding_IStockService_GetLastPriceSum_output_policy">
     <wsp:ExactlyOne>
       <wsp:All>
         <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
@@ -4046,11 +4046,11 @@
   <wsdl:message name="IStockService_GetOwnedStock_ByPortfolio_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetOwnedStock_ByPortfolioResponse" />
   </wsdl:message>
-  <wsdl:message name="IStockService_GetLastPrice_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetLastPrice" />
+  <wsdl:message name="IStockService_GetLastPriceSum_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLastPriceSum" />
   </wsdl:message>
-  <wsdl:message name="IStockService_GetLastPrice_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetLastPriceResponse" />
+  <wsdl:message name="IStockService_GetLastPriceSum_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLastPriceSumResponse" />
   </wsdl:message>
   <wsdl:message name="IStockService_GetPriceData_InputMessage">
     <wsdl:part name="parameters" element="tns:GetPriceData" />
@@ -4583,9 +4583,9 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IStockService/GetOwnedStock_ByPortfolio" message="tns:IStockService_GetOwnedStock_ByPortfolio_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IStockService/GetOwnedStock_ByPortfolioResponse" message="tns:IStockService_GetOwnedStock_ByPortfolio_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="GetLastPrice">
-      <wsdl:input wsaw:Action="http://tempuri.org/IStockService/GetLastPrice" message="tns:IStockService_GetLastPrice_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IStockService/GetLastPriceResponse" message="tns:IStockService_GetLastPrice_OutputMessage" />
+    <wsdl:operation name="GetLastPriceSum">
+      <wsdl:input wsaw:Action="http://tempuri.org/IStockService/GetLastPriceSum" message="tns:IStockService_GetLastPriceSum_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IStockService/GetLastPriceSumResponse" message="tns:IStockService_GetLastPriceSum_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetPriceData">
       <wsdl:input wsaw:Action="http://tempuri.org/IStockService/GetPriceData" message="tns:IStockService_GetPriceData_InputMessage" />
@@ -5186,14 +5186,14 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetLastPrice">
-      <soap12:operation soapAction="http://tempuri.org/IStockService/GetLastPrice" style="document" />
+    <wsdl:operation name="GetLastPriceSum">
+      <soap12:operation soapAction="http://tempuri.org/IStockService/GetLastPriceSum" style="document" />
       <wsdl:input>
-        <wsp:PolicyReference URI="#WSHttpBinding_IStockService_GetLastPrice_Input_policy" />
+        <wsp:PolicyReference URI="#WSHttpBinding_IStockService_GetLastPriceSum_Input_policy" />
         <soap12:body use="literal" />
       </wsdl:input>
       <wsdl:output>
-        <wsp:PolicyReference URI="#WSHttpBinding_IStockService_GetLastPrice_output_policy" />
+        <wsp:PolicyReference URI="#WSHttpBinding_IStockService_GetLastPriceSum_output_policy" />
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>

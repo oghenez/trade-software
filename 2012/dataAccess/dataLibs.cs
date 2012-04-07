@@ -1032,9 +1032,9 @@ namespace DataAccess
         private class LastPriceCache
         {
             public DateTime CacheTime = common.Consts.constNullDate;
-            public databases.baseDS.lastPriceDataDataTable DataTbl = null;
+            public databases.baseDS.lastPriceDataSumDataTable DataTbl = null;
         }
-        public static databases.baseDS.lastPriceDataDataTable myLastDataClosePrice
+        public static databases.baseDS.lastPriceDataSumDataTable myLastDailyClosePrice
         {
             get
             {
@@ -1047,7 +1047,8 @@ namespace DataAccess
                         return lastPriceCache.DataTbl;
 
                     if (lastPriceCache == null) lastPriceCache = new LastPriceCache();
-                    lastPriceCache.DataTbl = myClient.GetLastPrice(AppTypes.PriceDataType.Close);
+                    string timeScaleCode = AppTypes.TimeScaleFromType(AppTypes.TimeScaleTypes.Day).Code;
+                    lastPriceCache.DataTbl = myClient.GetLastPriceSum(AppTypes.PriceDataType.Close,timeScaleCode);
                     lastPriceCache.CacheTime = DateTime.Now;
                     AddCache(cacheKey, lastPriceCache);
                     return lastPriceCache.DataTbl;
@@ -1059,7 +1060,7 @@ namespace DataAccess
                 return null;
             }
         }
-        public static databases.baseDS.lastPriceDataDataTable myLastDataOpenPrice
+        public static databases.baseDS.lastPriceDataSumDataTable myLastDailyOpenPrice
         {
             get
             {
@@ -1070,7 +1071,8 @@ namespace DataAccess
                     if (lastPriceCache != null && lastPriceCache.CacheTime== DateTime.Today)
                         return lastPriceCache.DataTbl;
                     if (lastPriceCache == null) lastPriceCache = new LastPriceCache();
-                    lastPriceCache.DataTbl = myClient.GetLastPrice(AppTypes.PriceDataType.Open);
+                    string timeScaleCode = AppTypes.TimeScaleFromType(AppTypes.TimeScaleTypes.Day).Code;
+                    lastPriceCache.DataTbl = myClient.GetLastPriceSum(AppTypes.PriceDataType.Open, timeScaleCode);
                     lastPriceCache.CacheTime = DateTime.Today;
                     AddCache(cacheKey, lastPriceCache);
                     return lastPriceCache.DataTbl;
@@ -1082,31 +1084,31 @@ namespace DataAccess
                 return null;
             }
         }
-        public static databases.baseDS.lastPriceDataDataTable myLastDataVolume
-        {
-            get
-            {
-                try
-                {
-                    string cacheKey = MakeCacheKey("LastPrice", "Volume");
-                    LastPriceCache lastPriceCache = (LastPriceCache)GetCache(cacheKey);
-                    if (lastPriceCache != null &&
-                        common.dateTimeLibs.DateDiffInSecs(lastPriceCache.CacheTime, DateTime.Now) <= commonTypes.Settings.sysGlobal.RefreshDataInSecs)
-                        return lastPriceCache.DataTbl;
+        //public static databases.baseDS.lastPriceDataSumDataTable myLastDataVolume
+        //{
+        //    get
+        //    {
+        //        try
+        //        {
+        //            string cacheKey = MakeCacheKey("LastPrice", "Volume");
+        //            LastPriceCache lastPriceCache = (LastPriceCache)GetCache(cacheKey);
+        //            if (lastPriceCache != null &&
+        //                common.dateTimeLibs.DateDiffInSecs(lastPriceCache.CacheTime, DateTime.Now) <= commonTypes.Settings.sysGlobal.RefreshDataInSecs)
+        //                return lastPriceCache.DataTbl;
 
-                    if (lastPriceCache == null) lastPriceCache = new LastPriceCache();
-                    lastPriceCache.DataTbl = myClient.GetLastPrice(AppTypes.PriceDataType.Volume);
-                    lastPriceCache.CacheTime = DateTime.Now;
-                    AddCache(cacheKey, lastPriceCache);
-                    return lastPriceCache.DataTbl;
-                }
-                catch (Exception er)
-                {
-                    if (OnError != null) OnError(er);
-                }
-                return null;
-            }
-        }
+        //            if (lastPriceCache == null) lastPriceCache = new LastPriceCache();
+        //            lastPriceCache.DataTbl = myClient.GetLastPriceSum(AppTypes.PriceDataType.Volume);
+        //            lastPriceCache.CacheTime = DateTime.Now;
+        //            AddCache(cacheKey, lastPriceCache);
+        //            return lastPriceCache.DataTbl;
+        //        }
+        //        catch (Exception er)
+        //        {
+        //            if (OnError != null) OnError(er);
+        //        }
+        //        return null;
+        //    }
+        //}
 
         public static bool GetTransactionInfo(ref TransactionInfo transInfo)
         {

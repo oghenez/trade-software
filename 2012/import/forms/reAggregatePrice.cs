@@ -58,6 +58,7 @@ namespace Imports.Forms
                         this.ShowMessage(tbl[idx].code);
                         databases.AppLibs.ReAggregatePriceData(tbl[idx].code, stockCulture);
                         this.ShowMessage("");
+                        Application.DoEvents();
                     }
                 }
                 stopWatch.Stop();

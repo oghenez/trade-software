@@ -102,8 +102,8 @@ namespace DataAccess.ServiceReference1 {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetOwnedStock_ByPortfolio", ReplyAction="http://tempuri.org/IStockService/GetOwnedStock_ByPortfolioResponse")]
         databases.baseDS.investorStockDataTable GetOwnedStock_ByPortfolio(string portfolioCode);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetLastPrice", ReplyAction="http://tempuri.org/IStockService/GetLastPriceResponse")]
-        databases.baseDS.lastPriceDataDataTable GetLastPrice(commonTypes.AppTypes.PriceDataType type);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetLastPriceSum", ReplyAction="http://tempuri.org/IStockService/GetLastPriceSumResponse")]
+        databases.baseDS.lastPriceDataSumDataTable GetLastPriceSum(commonTypes.AppTypes.PriceDataType type, string timeScaleCode);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetPriceData", ReplyAction="http://tempuri.org/IStockService/GetPriceDataResponse")]
         databases.baseDS.priceDataDataTable GetPriceData(string stockCode, string timeScaleCode, System.DateTime frDate, System.DateTime toDate);
@@ -456,8 +456,8 @@ namespace DataAccess.ServiceReference1 {
             return base.Channel.GetOwnedStock_ByPortfolio(portfolioCode);
         }
         
-        public databases.baseDS.lastPriceDataDataTable GetLastPrice(commonTypes.AppTypes.PriceDataType type) {
-            return base.Channel.GetLastPrice(type);
+        public databases.baseDS.lastPriceDataSumDataTable GetLastPriceSum(commonTypes.AppTypes.PriceDataType type, string timeScaleCode) {
+            return base.Channel.GetLastPriceSum(type, timeScaleCode);
         }
         
         public databases.baseDS.priceDataDataTable GetPriceData(string stockCode, string timeScaleCode, System.DateTime frDate, System.DateTime toDate) {

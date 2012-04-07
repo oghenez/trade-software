@@ -1143,6 +1143,20 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="lastPriceDataSum">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="stockCode">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="value" type="xs:decimal" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
     <xs:unique msdata:PrimaryKey="true" name="Constraint1">
@@ -1277,6 +1291,10 @@
     <xs:unique msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true" name="exchangeDetail_Constraint1">
       <xs:selector xpath=".//mstns:exchangeDetail" />
       <xs:field xpath="mstns:id" />
+    </xs:unique>
+    <xs:unique msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true" name="lastPriceDataSum_Constraint1">
+      <xs:selector xpath=".//mstns:lastPriceDataSum" />
+      <xs:field xpath="mstns:stockCode" />
     </xs:unique>
   </xs:element>
 </xs:schema>

@@ -19,9 +19,6 @@ namespace databases
             row.onDate = common.Consts.constNullDate;
             row.stockCode = "";
             row.closePrice = 0;
-            row.openPrice = 0;
-            row.highPrice = 0;
-            row.lowPrice = 0;
             row.volume = 0;
             row.isTotalVolume = false;
         }
@@ -475,6 +472,7 @@ namespace databases
             //Delete all summ pricedata
             databases.DbAccess.DeletePriceSumData(code);
             AggregatePriceData(priceTbl, stockCulture, null);
+            priceTbl.Dispose();
         }
 
         /// <summary>
@@ -606,9 +604,12 @@ namespace databases
                         priceSumDataTbl.Clear();
                         lastYear = priceDataRow.onDate.Year;
                     }
+                    //databases.DbAccess.UpdateData(priceDataRow);
                 }
                 databases.DbAccess.UpdateData(priceSumDataTbl);
+                priceSumDataTbl.Dispose();
             }
+            
         /// <summary>
         /// Get top N price varriance ( [close - open], percentage) in specific date range and for specific time scale
         /// </summary>
@@ -659,11 +660,11 @@ namespace databases
         }
         private static tmpDS.dataVarrianceDataTable GetPriceVarriance(DateTime frDate, DateTime toDate, string timeScaleCode)
         {
-            baseDS.lastPriceDataDataTable closeTbl = DbAccess.GetLastPrice(AppTypes.PriceDataType.Close, toDate);
-            baseDS.lastPriceDataDataTable openTbl = DbAccess.GetLastPrice(AppTypes.PriceDataType.Open, frDate);
+            baseDS.lastPriceDataSumDataTable closeTbl = DbAccess.GetLastPrice(AppTypes.PriceDataType.Close,timeScaleCode, toDate);
+            baseDS.lastPriceDataSumDataTable openTbl = DbAccess.GetLastPrice(AppTypes.PriceDataType.Open, timeScaleCode, frDate);
             tmpDS.dataVarrianceDataTable tmpDataTbl = new tmpDS.dataVarrianceDataTable();
 
-            baseDS.lastPriceDataRow openPriceRow;
+            baseDS.lastPriceDataSumRow openPriceRow;
             tmpDS.dataVarrianceRow dataRow;
             for (int idx = 0; idx < closeTbl.Count; idx++)
             {

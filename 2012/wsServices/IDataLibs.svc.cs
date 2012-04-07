@@ -198,7 +198,7 @@ namespace wsServices
         databases.baseDS.investorStockDataTable GetOwnedStock_ByPortfolio(string portfolioCode);
         
         [OperationContract]
-        databases.baseDS.lastPriceDataDataTable GetLastPrice(AppTypes.PriceDataType type);
+        databases.baseDS.lastPriceDataSumDataTable GetLastPriceSum(AppTypes.PriceDataType type, string timeScaleCode);
 
         [OperationContract]
         databases.baseDS.priceDataDataTable GetPriceData(string stockCode, string timeScaleCode, DateTime frDate, DateTime toDate);

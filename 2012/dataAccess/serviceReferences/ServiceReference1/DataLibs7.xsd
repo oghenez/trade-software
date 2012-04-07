@@ -150,11 +150,11 @@
       <xs:attribute fixed="investorStockDataTable" name="tableTypeName" />
     </xs:complexType>
   </xs:element>
-  <xs:element name="baseDS.lastPriceDataDataTable" nillable="true">
+  <xs:element name="baseDS.lastPriceDataSumDataTable" nillable="true">
     <xs:complexType>
       <xs:annotation>
         <xs:appinfo>
-          <ActualType Name="baseDS.lastPriceDataDataTable" Namespace="http://schemas.datacontract.org/2004/07/databases" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          <ActualType Name="baseDS.lastPriceDataSumDataTable" Namespace="http://schemas.datacontract.org/2004/07/databases" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
         </xs:appinfo>
       </xs:annotation>
       <xs:sequence>
@@ -162,7 +162,7 @@
         <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
       </xs:sequence>
       <xs:attribute fixed="http://tempuri.org/masterDataSet.xsd" name="namespace" />
-      <xs:attribute fixed="lastPriceDataDataTable" name="tableTypeName" />
+      <xs:attribute fixed="lastPriceDataSumDataTable" name="tableTypeName" />
     </xs:complexType>
   </xs:element>
   <xs:element name="baseDS.priceDataDataTable" nillable="true">

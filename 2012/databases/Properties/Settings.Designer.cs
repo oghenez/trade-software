@@ -28,8 +28,9 @@ namespace databases.Properties {
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
         [global::System.Configuration.DefaultSettingValueAttribute("Data Source=localhost;Initial Catalog=stock;Integrated Security=True")]
         public string dbConnectionString {
-            get {
-                return databases.SysLibs.dbConnectionString; 
+            get 
+            {
+                return SysLibs.dbConnectionString;
                 return ((string)(this["dbConnectionString"]));
             }
         }
@@ -41,7 +42,7 @@ namespace databases.Properties {
         public string importConnectionString {
             get 
             {
-                return databases.SysLibs.importConnectionString;
+                return SysLibs.importConnectionString;
                 return ((string)(this["importConnectionString"]));
             }
         }
