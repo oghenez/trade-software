@@ -1,4 +1,5 @@
-﻿namespace client
+﻿//#define STANDARD //Standard Version
+namespace client
 {
     partial class main
     {
@@ -1086,6 +1087,9 @@
             // backTestingMenuItem
             // 
             this.backTestingMenuItem.Image = global::client.Properties.Resources.Network_icon;
+#if (STANDARD)
+            this.backTestingMenuItem.Enabled = false;
+#endif
             this.backTestingMenuItem.Name = "backTestingMenuItem";
             this.backTestingMenuItem.Size = new System.Drawing.Size(187, 22);
             this.backTestingMenuItem.Text = "Back Testing";
@@ -1094,6 +1098,9 @@
             // strategyRankingMenuItem
             // 
             this.strategyRankingMenuItem.Image = global::client.Properties.Resources.OnLamp_icon_16;
+#if (STANDARD)
+            this.strategyRankingMenuItem.Enabled = false;
+#endif
             this.strategyRankingMenuItem.Name = "strategyRankingMenuItem";
             this.strategyRankingMenuItem.Size = new System.Drawing.Size(187, 22);
             this.strategyRankingMenuItem.Text = "Strategy Ranking";

@@ -333,6 +333,20 @@ namespace client.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap trader_professional {
+            get {
+                object obj = ResourceManager.GetObject("trader_professional", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap trader_standard {
+            get {
+                object obj = ResourceManager.GetObject("trader_standard", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap trading2 {
             get {
                 object obj = ResourceManager.GetObject("trading2", resourceCulture);

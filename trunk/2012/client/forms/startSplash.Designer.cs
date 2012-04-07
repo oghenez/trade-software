@@ -1,4 +1,5 @@
-﻿namespace client.forms
+﻿//#define STANDARD //Standard Version
+namespace client.forms
 {
     partial class startSplash
     {
@@ -50,7 +51,11 @@
             // startSplash
             // 
             this.BackColor = System.Drawing.SystemColors.ActiveBorder;
+#if (STANDARD)
+            this.BackgroundImage = global::client.Properties.Resources.trader_standard;
+#else
             this.BackgroundImage = global::client.Properties.Resources.trading2;
+#endif
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(544, 382);
             this.DoubleBuffered = true;
