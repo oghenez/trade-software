@@ -1,4 +1,6 @@
-﻿using System;
+﻿//#define STANDARD //Standard Version
+
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.Specialized;
@@ -33,7 +35,7 @@ namespace client
         const string constFormNameTradeAlert = "TradeAlert";
         const string constFormNameMarketSummary = "MarketSummary";
         const string constFormNameEstimateTrade = "EstimateTrade-";
-
+        
         public main()
         {
             //string[] arguments = Environment.GetCommandLineArgs();
@@ -193,10 +195,16 @@ namespace client
             contextMenuStrip.Items.Add(new ToolStripSeparator());
             menuItem = contextMenuStrip.Items.Add(backTestingMenuItem.Text);
             menuItem.Image = client.Properties.Resources.Network_icon;
+#if (STANDARD)
+            menuItem.Enabled = false;
+#endif
             menuItem.Click += new System.EventHandler(backTestingMenuItem_Click);
 
             menuItem = contextMenuStrip.Items.Add(strategyRankingMenuItem.Text);
             menuItem.Image = client.Properties.Resources.OnLamp_icon_16;
+#if (STANDARD)
+            menuItem.Enabled = false;
+#endif
             menuItem.Click += new System.EventHandler(strategyRankingMenuItem_Click);
 
             menuItem = contextMenuStrip.Items.Add(screeningMenuItem.Text);
@@ -205,6 +213,11 @@ namespace client
             
             return contextMenuStrip;
         }
+
+        /// <summary>
+        /// Create contextual menu for main Chart
+        /// </summary>
+        /// <returns></returns>
         private ContextMenuStrip CreateContextMenu_TradeAnalysis()
         {
             ContextMenuStrip contextMenuStrip = new ContextMenuStrip();
@@ -237,10 +250,16 @@ namespace client
             contextMenuStrip.Items.Add(new ToolStripSeparator());
             menuItem = contextMenuStrip.Items.Add(backTestingMenuItem.Text);
             menuItem.Image = client.Properties.Resources.Network_icon;
+#if (STANDARD)
+            menuItem.Enabled = false;
+#endif
             menuItem.Click += new System.EventHandler(backTestingMenuItem_Click);
 
             menuItem = contextMenuStrip.Items.Add(strategyRankingMenuItem.Text);
             menuItem.Image = client.Properties.Resources.OnLamp_icon_16;
+#if (STANDARD)
+            menuItem.Enabled = false;
+#endif
             menuItem.Click += new System.EventHandler(strategyRankingMenuItem_Click);
 
             menuItem = contextMenuStrip.Items.Add(screeningMenuItem.Text);
@@ -250,6 +269,11 @@ namespace client
 
             return contextMenuStrip;
         }
+
+        /// <summary>
+        /// Create contextual menu for Alerts
+        /// </summary>
+        /// <returns></returns>
         private ContextMenuStrip CreateContextMenu_TradeAlert()
         {
             ContextMenuStrip contextMenuStrip = new ContextMenuStrip();
@@ -266,10 +290,16 @@ namespace client
             contextMenuStrip.Items.Add(new ToolStripSeparator());
             menuItem = contextMenuStrip.Items.Add(backTestingMenuItem.Text);
             menuItem.Image = client.Properties.Resources.Network_icon;
+#if (STANDARD)
+            menuItem.Enabled = false;
+#endif
             menuItem.Click += new System.EventHandler(backTestingMenuItem_Click);
 
             menuItem = contextMenuStrip.Items.Add(strategyRankingMenuItem.Text);
             menuItem.Image = client.Properties.Resources.OnLamp_icon_16;
+#if (STANDARD)
+            menuItem.Enabled = false;
+#endif
             menuItem.Click += new System.EventHandler(strategyRankingMenuItem_Click);
 
             menuItem = contextMenuStrip.Items.Add(screeningMenuItem.Text);
@@ -279,6 +309,10 @@ namespace client
             return contextMenuStrip;
         }
 
+        /// <summary>
+        /// Contextual menu for portfolio watch
+        /// </summary>
+        /// <returns></returns>
         private ContextMenuStrip CreateContextMenu_PorfolioWatch()
         {
             ContextMenuStrip contextMenuStrip = new ContextMenuStrip();
