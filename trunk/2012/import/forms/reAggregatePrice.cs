@@ -20,16 +20,16 @@ namespace Imports.Forms
         {
             InitializeComponent();
         }
-
+        bool fCanceled = false;
         private void okBtn_Click(object sender, System.EventArgs e)
         {
             try
             {
                 ClearNotifyError();
                 codeEd.Text = codeEd.Text.Trim();
-                if (codeEd.Text == "")
+                if (codeChk.Checked &&  codeEd.Text == "")
                 {
-                    NotifyError(codeLbl);
+                    NotifyError(codeChk);
                     return; 
                 }
 
@@ -38,10 +38,30 @@ namespace Imports.Forms
                 this.ShowMessage("");
                 okBtn.Enabled = false;
                 ShowCurrorWait();
+                fCanceled = false;
+                
+                System.Diagnostics.Stopwatch stopWatch = new System.Diagnostics.Stopwatch();
+                stopWatch.Start();
 
                 CultureInfo stockCulture = application.AppLibs.GetStockCulture(codeEd.Text);
-                databases.AppLibs.ReAggregatePriceData(codeEd.Text, stockCulture);
-                this.ShowMessage("Hòan tất");
+                if (codeChk.Checked)
+                {
+                    databases.AppLibs.ReAggregatePriceData(codeEd.Text, stockCulture);
+                }
+                else
+                {
+                    databases.baseDS.stockCodeDataTable tbl = new databases.baseDS.stockCodeDataTable();
+                    databases.DbAccess.LoadData(tbl);
+                    for (int idx = 0; idx < tbl.Count; idx++)
+                    {
+                        if (fCanceled) break;
+                        this.ShowMessage(tbl[idx].code);
+                        databases.AppLibs.ReAggregatePriceData(tbl[idx].code, stockCulture);
+                        this.ShowMessage("");
+                    }
+                }
+                stopWatch.Stop();
+                this.ShowMessage("Hòan tất " + common.dateTimeLibs.TimeSpan2String(stopWatch.Elapsed));
             }
             catch (Exception er)
             {
@@ -57,7 +77,13 @@ namespace Imports.Forms
         }
         private void closeBtn_Click(object sender, EventArgs e)
         {
+            fCanceled = true;
             this.Close();
+        }
+
+        private void codeChk_CheckedChanged(object sender, EventArgs e)
+        {
+            codeEd.Enabled = codeChk.Checked;
         }
     }
 }
