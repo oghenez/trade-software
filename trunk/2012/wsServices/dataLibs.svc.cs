@@ -892,25 +892,54 @@ namespace wsServices
             return null;
         }
 
-        public databases.baseDS.lastPriceDataDataTable GetLastPrice(AppTypes.PriceDataType type)
+        //public databases.baseDS.lastPriceDataDataTable GetLastPrice(AppTypes.PriceDataType type)
+        //{
+        //    try
+        //    {
+        //        DateTime fromDate = DateTime.Today.AddDays(-Settings.sysGlobal.DayScanForLastPrice);
+        //        string cacheName = "lastPrice-" + type.ToString();
+        //        databases.baseDS.lastPriceDataDataTable dataTbl = null;
+        //        object obj = sysDataCache.Find(cacheName);
+        //        if (obj == null)
+        //        {
+        //            dataTbl = databases.DbAccess.GetLastPrice(type, fromDate);
+        //            sysDataCache.Add(cacheName, new DataCacheItem(dataTbl));
+        //            return dataTbl;
+        //        }
+        //        if ((obj as DataCacheItem).timeStamp + TimeSpan.FromSeconds(Settings.sysDataDelayTimeInSecs).Ticks > DateTime.Now.Ticks)
+        //        {
+        //            return (databases.baseDS.lastPriceDataDataTable)(obj as DataCacheItem).data;
+        //        }
+        //        dataTbl = databases.DbAccess.GetLastPrice(type, fromDate);
+        //        sysDataCache.Add(cacheName, new DataCacheItem(dataTbl));
+        //        return dataTbl;
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        WriteSysLogLocal(ex);
+        //    }
+        //    return null;
+        //}
+
+        public databases.baseDS.lastPriceDataSumDataTable GetLastPriceSum(AppTypes.PriceDataType type,string timeScaleCode)
         {
             try
             {
                 DateTime fromDate = DateTime.Today.AddDays(-Settings.sysGlobal.DayScanForLastPrice);
                 string cacheName = "lastPrice-" + type.ToString();
-                databases.baseDS.lastPriceDataDataTable dataTbl = null;
+                databases.baseDS.lastPriceDataSumDataTable dataTbl = null;
                 object obj = sysDataCache.Find(cacheName);
                 if (obj == null)
                 {
-                    dataTbl = databases.DbAccess.GetLastPrice(type, fromDate);
+                    dataTbl = databases.DbAccess.GetLastPrice(type,timeScaleCode, fromDate);
                     sysDataCache.Add(cacheName, new DataCacheItem(dataTbl));
                     return dataTbl;
                 }
                 if ((obj as DataCacheItem).timeStamp + TimeSpan.FromSeconds(Settings.sysDataDelayTimeInSecs).Ticks > DateTime.Now.Ticks)
                 {
-                    return (databases.baseDS.lastPriceDataDataTable)(obj as DataCacheItem).data;
+                    return (databases.baseDS.lastPriceDataSumDataTable)(obj as DataCacheItem).data;
                 }
-                dataTbl = databases.DbAccess.GetLastPrice(type, fromDate);
+                dataTbl = databases.DbAccess.GetLastPrice(type,timeScaleCode, fromDate);
                 sysDataCache.Add(cacheName, new DataCacheItem(dataTbl));
                 return dataTbl;
             }

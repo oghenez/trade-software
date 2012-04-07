@@ -137,9 +137,9 @@ namespace Trade.Forms
         }
         private void Market_DataDailyChange(StringCollection codes)
         {
-            databases.baseDS.lastPriceDataRow lastPriceRowOpen, lastPriceRowClose; 
-            databases.baseDS.lastPriceDataDataTable openTbl = DataAccess.Libs.myLastDataOpenPrice;
-            databases.baseDS.lastPriceDataDataTable closeTbl = DataAccess.Libs.myLastDataClosePrice; 
+            databases.baseDS.lastPriceDataSumRow lastPriceRowOpen, lastPriceRowClose; 
+            databases.baseDS.lastPriceDataSumDataTable openTbl = DataAccess.Libs.myLastDailyOpenPrice;
+            databases.baseDS.lastPriceDataSumDataTable closeTbl = DataAccess.Libs.myLastDailyClosePrice; 
             databases.tmpDS.dataVarrianceRow varrianceRow;
             myTmpDS.dataVarriance.Clear();
             for (int idx = 0; idx < codes.Count; idx++)

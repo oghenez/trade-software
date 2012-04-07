@@ -298,12 +298,6 @@ namespace databases {
             
             private global::System.Data.DataColumn columnstockCode;
             
-            private global::System.Data.DataColumn columnopenPrice;
-            
-            private global::System.Data.DataColumn columnlowPrice;
-            
-            private global::System.Data.DataColumn columnhighPrice;
-            
             private global::System.Data.DataColumn columnclosePrice;
             
             private global::System.Data.DataColumn columnvolume;
@@ -351,27 +345,6 @@ namespace databases {
             public global::System.Data.DataColumn stockCodeColumn {
                 get {
                     return this.columnstockCode;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn openPriceColumn {
-                get {
-                    return this.columnopenPrice;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn lowPriceColumn {
-                get {
-                    return this.columnlowPrice;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn highPriceColumn {
-                get {
-                    return this.columnhighPrice;
                 }
             }
             
@@ -425,14 +398,11 @@ namespace databases {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public importPriceRow AddimportPriceRow(System.DateTime onDate, string stockCode, decimal openPrice, decimal lowPrice, decimal highPrice, decimal closePrice, decimal volume, bool isTotalVolume) {
+            public importPriceRow AddimportPriceRow(System.DateTime onDate, string stockCode, decimal closePrice, decimal volume, bool isTotalVolume) {
                 importPriceRow rowimportPriceRow = ((importPriceRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         onDate,
                         stockCode,
-                        openPrice,
-                        lowPrice,
-                        highPrice,
                         closePrice,
                         volume,
                         isTotalVolume};
@@ -464,9 +434,6 @@ namespace databases {
             internal void InitVars() {
                 this.columnonDate = base.Columns["onDate"];
                 this.columnstockCode = base.Columns["stockCode"];
-                this.columnopenPrice = base.Columns["openPrice"];
-                this.columnlowPrice = base.Columns["lowPrice"];
-                this.columnhighPrice = base.Columns["highPrice"];
                 this.columnclosePrice = base.Columns["closePrice"];
                 this.columnvolume = base.Columns["volume"];
                 this.columnisTotalVolume = base.Columns["isTotalVolume"];
@@ -478,12 +445,6 @@ namespace databases {
                 base.Columns.Add(this.columnonDate);
                 this.columnstockCode = new global::System.Data.DataColumn("stockCode", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnstockCode);
-                this.columnopenPrice = new global::System.Data.DataColumn("openPrice", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnopenPrice);
-                this.columnlowPrice = new global::System.Data.DataColumn("lowPrice", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnlowPrice);
-                this.columnhighPrice = new global::System.Data.DataColumn("highPrice", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnhighPrice);
                 this.columnclosePrice = new global::System.Data.DataColumn("closePrice", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnclosePrice);
                 this.columnvolume = new global::System.Data.DataColumn("volume", typeof(decimal), null, global::System.Data.MappingType.Element);
@@ -496,9 +457,6 @@ namespace databases {
                 this.columnonDate.AllowDBNull = false;
                 this.columnstockCode.AllowDBNull = false;
                 this.columnstockCode.MaxLength = 20;
-                this.columnopenPrice.AllowDBNull = false;
-                this.columnlowPrice.AllowDBNull = false;
-                this.columnhighPrice.AllowDBNull = false;
                 this.columnclosePrice.AllowDBNull = false;
                 this.columnvolume.AllowDBNull = false;
                 this.columnisTotalVolume.AllowDBNull = false;
@@ -929,36 +887,6 @@ namespace databases {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public decimal openPrice {
-                get {
-                    return ((decimal)(this[this.tableimportPrice.openPriceColumn]));
-                }
-                set {
-                    this[this.tableimportPrice.openPriceColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public decimal lowPrice {
-                get {
-                    return ((decimal)(this[this.tableimportPrice.lowPriceColumn]));
-                }
-                set {
-                    this[this.tableimportPrice.lowPriceColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public decimal highPrice {
-                get {
-                    return ((decimal)(this[this.tableimportPrice.highPriceColumn]));
-                }
-                set {
-                    this[this.tableimportPrice.highPriceColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public decimal closePrice {
                 get {
                     return ((decimal)(this[this.tableimportPrice.closePriceColumn]));
@@ -1312,56 +1240,43 @@ namespace databases.importDSTableAdapters {
             tableMapping.DataSetTable = "importPrice";
             tableMapping.ColumnMappings.Add("onDate", "onDate");
             tableMapping.ColumnMappings.Add("stockCode", "stockCode");
-            tableMapping.ColumnMappings.Add("openPrice", "openPrice");
-            tableMapping.ColumnMappings.Add("lowPrice", "lowPrice");
-            tableMapping.ColumnMappings.Add("highPrice", "highPrice");
             tableMapping.ColumnMappings.Add("closePrice", "closePrice");
             tableMapping.ColumnMappings.Add("volume", "volume");
             tableMapping.ColumnMappings.Add("isTotalVolume", "isTotalVolume");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [importPrice] WHERE (([onDate] = @Original_onDate) AND ([stockCode] = @Original_stockCode) AND ([openPrice] = @Original_openPrice) AND ([lowPrice] = @Original_lowPrice) AND ([highPrice] = @Original_highPrice) AND ([closePrice] = @Original_closePrice) AND ([volume] = @Original_volume) AND ([isTotalVolume] = @Original_isTotalVolume))";
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [importPrice] WHERE (([onDate] = @Original_onDate) AND ([stockCode] =" +
+                " @Original_stockCode) AND ([closePrice] = @Original_closePrice) AND ([volume] = " +
+                "@Original_volume) AND ([isTotalVolume] = @Original_isTotalVolume))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_onDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "onDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_stockCode", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "stockCode", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_openPrice", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "openPrice", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_lowPrice", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "lowPrice", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_highPrice", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "highPrice", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_closePrice", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "closePrice", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_volume", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 0, "volume", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_isTotalVolume", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "isTotalVolume", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [importPrice] ([onDate], [stockCode], [openPrice], [lowPrice], [highPrice], [closePrice], [volume], [isTotalVolume]) VALUES (@onDate, @stockCode, @openPrice, @lowPrice, @highPrice, @closePrice, @volume, @isTotalVolume);
-SELECT onDate, stockCode, openPrice, lowPrice, highPrice, closePrice, volume, isTotalVolume FROM importPrice WHERE (onDate = @onDate) AND (stockCode = @stockCode)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [importPrice] ([onDate], [stockCode], [closePrice], [volume], [isTotalVolume]) VALUES (@onDate, @stockCode, @closePrice, @volume, @isTotalVolume);
+SELECT onDate, stockCode, closePrice, volume, isTotalVolume FROM importPrice WHERE (onDate = @onDate) AND (stockCode = @stockCode)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@onDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "onDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@stockCode", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "stockCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@openPrice", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "openPrice", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@lowPrice", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "lowPrice", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@highPrice", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "highPrice", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@closePrice", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "closePrice", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@volume", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 0, "volume", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@isTotalVolume", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "isTotalVolume", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [importPrice] SET [onDate] = @onDate, [stockCode] = @stockCode, [openPrice] = @openPrice, [lowPrice] = @lowPrice, [highPrice] = @highPrice, [closePrice] = @closePrice, [volume] = @volume, [isTotalVolume] = @isTotalVolume WHERE (([onDate] = @Original_onDate) AND ([stockCode] = @Original_stockCode) AND ([openPrice] = @Original_openPrice) AND ([lowPrice] = @Original_lowPrice) AND ([highPrice] = @Original_highPrice) AND ([closePrice] = @Original_closePrice) AND ([volume] = @Original_volume) AND ([isTotalVolume] = @Original_isTotalVolume));
-SELECT onDate, stockCode, openPrice, lowPrice, highPrice, closePrice, volume, isTotalVolume FROM importPrice WHERE (onDate = @onDate) AND (stockCode = @stockCode)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [importPrice] SET [onDate] = @onDate, [stockCode] = @stockCode, [closePrice] = @closePrice, [volume] = @volume, [isTotalVolume] = @isTotalVolume WHERE (([onDate] = @Original_onDate) AND ([stockCode] = @Original_stockCode) AND ([closePrice] = @Original_closePrice) AND ([volume] = @Original_volume) AND ([isTotalVolume] = @Original_isTotalVolume));
+SELECT onDate, stockCode, closePrice, volume, isTotalVolume FROM importPrice WHERE (onDate = @onDate) AND (stockCode = @stockCode)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@onDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "onDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@stockCode", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "stockCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@openPrice", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "openPrice", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@lowPrice", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "lowPrice", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@highPrice", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "highPrice", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@closePrice", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "closePrice", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@volume", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 0, "volume", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@isTotalVolume", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "isTotalVolume", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_onDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "onDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_stockCode", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "stockCode", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_openPrice", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "openPrice", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_lowPrice", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "lowPrice", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_highPrice", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "highPrice", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_closePrice", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "closePrice", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_volume", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 0, "volume", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_isTotalVolume", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "isTotalVolume", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -1378,12 +1293,12 @@ SELECT onDate, stockCode, openPrice, lowPrice, highPrice, closePrice, volume, is
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[3];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT * FROM importPrice";
+            this._commandCollection[0].CommandText = "SELECT *  FROM importPrice";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT *  FROM importPrice WHERE (onDate BETWEEN @frDate AND @toDate) ORDER BY on" +
-                "Date, stockCode";
+            this._commandCollection[1].CommandText = "SELECT * FROM importPrice WHERE (onDate BETWEEN @frDate AND @toDate) ORDER BY onD" +
+                "ate, stockCode";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@frDate", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "onDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@toDate", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "onDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
