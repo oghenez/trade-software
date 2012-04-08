@@ -52,13 +52,10 @@ namespace DataAccess.ServiceReference1 {
         void WriteExcptionLog(string investorCode, common.SysLog.LogData logData);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetTopPriceVarriance", ReplyAction="http://tempuri.org/IStockService/GetTopPriceVarrianceResponse")]
-        databases.tmpDS.dataVarrianceDataTable GetTopPriceVarriance(System.DateTime frDate, System.DateTime toDate, string timeScaleCode, int topN);
+        databases.tmpDS.dataVarrianceDataTable GetTopPriceVarriance(System.DateTime beforeDate, string timeScaleCode, int topN);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetTopPriceVarrianceOfUser", ReplyAction="http://tempuri.org/IStockService/GetTopPriceVarrianceOfUserResponse")]
-        databases.tmpDS.dataVarrianceDataTable GetTopPriceVarrianceOfUser(System.DateTime frDate, System.DateTime toDate, string timeScaleCode, string userCode, int topN);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/Test", ReplyAction="http://tempuri.org/IStockService/TestResponse")]
-        System.Data.DataTable Test(string sql);
+        databases.tmpDS.dataVarrianceDataTable GetTopPriceVarrianceOfUser(System.DateTime beforeDate, string timeScaleCode, string userCode, int topN);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetBizSubSector_ByIndustry", ReplyAction="http://tempuri.org/IStockService/GetBizSubSector_ByIndustryResponse")]
         databases.baseDS.bizSubSectorDataTable GetBizSubSector_ByIndustry(string code);
@@ -103,7 +100,7 @@ namespace DataAccess.ServiceReference1 {
         databases.baseDS.investorStockDataTable GetOwnedStock_ByPortfolio(string portfolioCode);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetLastPriceSum", ReplyAction="http://tempuri.org/IStockService/GetLastPriceSumResponse")]
-        databases.baseDS.lastPriceDataSumDataTable GetLastPriceSum(commonTypes.AppTypes.PriceDataType type, string timeScaleCode);
+        databases.baseDS.lastPriceDataDataTable GetLastPriceSum(commonTypes.AppTypes.PriceDataType type, string timeScaleCode);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetPriceData", ReplyAction="http://tempuri.org/IStockService/GetPriceDataResponse")]
         databases.baseDS.priceDataDataTable GetPriceData(string stockCode, string timeScaleCode, System.DateTime frDate, System.DateTime toDate);
@@ -388,16 +385,12 @@ namespace DataAccess.ServiceReference1 {
             base.Channel.WriteExcptionLog(investorCode, logData);
         }
         
-        public databases.tmpDS.dataVarrianceDataTable GetTopPriceVarriance(System.DateTime frDate, System.DateTime toDate, string timeScaleCode, int topN) {
-            return base.Channel.GetTopPriceVarriance(frDate, toDate, timeScaleCode, topN);
+        public databases.tmpDS.dataVarrianceDataTable GetTopPriceVarriance(System.DateTime beforeDate, string timeScaleCode, int topN) {
+            return base.Channel.GetTopPriceVarriance(beforeDate, timeScaleCode, topN);
         }
         
-        public databases.tmpDS.dataVarrianceDataTable GetTopPriceVarrianceOfUser(System.DateTime frDate, System.DateTime toDate, string timeScaleCode, string userCode, int topN) {
-            return base.Channel.GetTopPriceVarrianceOfUser(frDate, toDate, timeScaleCode, userCode, topN);
-        }
-        
-        public System.Data.DataTable Test(string sql) {
-            return base.Channel.Test(sql);
+        public databases.tmpDS.dataVarrianceDataTable GetTopPriceVarrianceOfUser(System.DateTime beforeDate, string timeScaleCode, string userCode, int topN) {
+            return base.Channel.GetTopPriceVarrianceOfUser(beforeDate, timeScaleCode, userCode, topN);
         }
         
         public databases.baseDS.bizSubSectorDataTable GetBizSubSector_ByIndustry(string code) {
@@ -456,7 +449,7 @@ namespace DataAccess.ServiceReference1 {
             return base.Channel.GetOwnedStock_ByPortfolio(portfolioCode);
         }
         
-        public databases.baseDS.lastPriceDataSumDataTable GetLastPriceSum(commonTypes.AppTypes.PriceDataType type, string timeScaleCode) {
+        public databases.baseDS.lastPriceDataDataTable GetLastPriceSum(commonTypes.AppTypes.PriceDataType type, string timeScaleCode) {
             return base.Channel.GetLastPriceSum(type, timeScaleCode);
         }
         

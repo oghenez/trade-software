@@ -88,9 +88,6 @@ namespace client
                 }
                 if (retVal)
                 {
-                    SetTimer(false);
-                    SetFormAppearance();
-
                     InitSystem(false);
                     this.LogAccess = false;
                 }
@@ -100,6 +97,14 @@ namespace client
                 if (3000 - ts.TotalMilliseconds > 0) Thread.Sleep((int)(3000 - ts.TotalMilliseconds));
             }
             return retVal;
+        }
+
+
+        protected override bool BeforeLoadForm()
+        {
+            SetTimer(false);
+            SetFormAppearance();
+            return true;
         }
         private common.TimerProcess RefreshDataProc = null;
         private common.TimerProcess RefreshAlertProc = null;

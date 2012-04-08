@@ -198,7 +198,7 @@ namespace wsServices
         databases.baseDS.investorStockDataTable GetOwnedStock_ByPortfolio(string portfolioCode);
         
         [OperationContract]
-        databases.baseDS.lastPriceDataSumDataTable GetLastPriceSum(AppTypes.PriceDataType type, string timeScaleCode);
+        databases.baseDS.lastPriceDataDataTable GetLastPriceSum(AppTypes.PriceDataType type, string timeScaleCode);
 
         [OperationContract]
         databases.baseDS.priceDataDataTable GetPriceData(string stockCode, string timeScaleCode, DateTime frDate, DateTime toDate);
@@ -286,12 +286,22 @@ namespace wsServices
         void WriteExcptionLog(string investorCode, common.SysLog.LogData logData);
         
         [OperationContract]
-        databases.tmpDS.dataVarrianceDataTable GetTopPriceVarriance(DateTime frDate, DateTime toDate, string timeScaleCode, int topN);
+        databases.tmpDS.dataVarrianceDataTable GetTopPriceVarrianceMarket(DateTime beforeDate, string timeScaleCode, int topN);
 
         [OperationContract]
-        databases.tmpDS.dataVarrianceDataTable GetTopPriceVarrianceOfUser(DateTime frDate, DateTime toDate, string timeScaleCode, string userCode, int topN);
+        databases.tmpDS.dataVarrianceDataTable GetTopPriceVarrianceUser(DateTime beforeDate, string timeScaleCode, string userCode, int topN);
+
+        //Functions that must be kept to server older versions 
+        //[OperationContract]
+        //databases.tmpDS.dataVarrianceDataTable GetTopPriceVarrianceOfUser(DateTime frDate, DateTime toDate, string timeScaleCode, string userCode, int topN);
+        
+        ////[OperationContract]
+        //databases.tmpDS.dataVarrianceDataTable GetTopPriceVarriance(DateTime frDate, DateTime toDate, string timeScaleCode, int topN);
 
         [OperationContract]
-        DataTable Test(string sql);
+        databases.baseDS.lastPriceDataDataTable GetLastPrice(AppTypes.PriceDataType type);
+
+        //[OperationContract]
+        //DataTable Test(string sql);
     }
 }

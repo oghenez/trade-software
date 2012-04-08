@@ -618,9 +618,9 @@ namespace databases
         /// <param name="timeScaleCode"></param>
         /// <param name="topN"></param>
         /// <returns></returns>
-        public static tmpDS.dataVarrianceDataTable GetTopPriceVarriance(DateTime frDate, DateTime toDate, string timeScaleCode, int topN)
+        public static tmpDS.dataVarrianceDataTable GetTopPriceVarriance(DateTime beforeDate, string timeScaleCode, int topN)
         {
-            tmpDS.dataVarrianceDataTable tmpDataTbl = GetPriceVarriance(frDate,toDate,timeScaleCode);
+            tmpDS.dataVarrianceDataTable tmpDataTbl = GetPriceVarriance(beforeDate, timeScaleCode);
             tmpDS.dataVarrianceRow dataRow;
             DataView dataView = new DataView(tmpDataTbl);
             dataView.Sort = tmpDataTbl.percentColumn + " DESC";
@@ -635,11 +635,11 @@ namespace databases
             }
             return dataTbl;
         }
-        public static tmpDS.dataVarrianceDataTable GetTopPriceVarrianceOfUser(DateTime frDate, DateTime toDate,string timeScaleCode,string userCode, int topN)
+        public static tmpDS.dataVarrianceDataTable GetTopPriceVarrianceOfUser(DateTime beforeDate, string timeScaleCode, string userCode, int topN)
         {
             tmpDS.interestedCodeDataTable interestedCodeTbl = new tmpDS.interestedCodeDataTable();
             DbAccess.LoadData(interestedCodeTbl, userCode);
-            tmpDS.dataVarrianceDataTable tmpDataTbl = GetPriceVarriance(frDate, toDate, timeScaleCode);
+            tmpDS.dataVarrianceDataTable tmpDataTbl = GetPriceVarriance(beforeDate, timeScaleCode);
 
             tmpDS.dataVarrianceRow dataRow;
             DataView dataView = new DataView(tmpDataTbl);
@@ -658,13 +658,13 @@ namespace databases
             }
             return dataTbl;
         }
-        private static tmpDS.dataVarrianceDataTable GetPriceVarriance(DateTime frDate, DateTime toDate, string timeScaleCode)
+        private static tmpDS.dataVarrianceDataTable GetPriceVarriance(DateTime beforeDate, string timeScaleCode)
         {
-            baseDS.lastPriceDataSumDataTable closeTbl = DbAccess.GetLastPrice(AppTypes.PriceDataType.Close,timeScaleCode, toDate);
-            baseDS.lastPriceDataSumDataTable openTbl = DbAccess.GetLastPrice(AppTypes.PriceDataType.Open, timeScaleCode, frDate);
+            baseDS.lastPriceDataDataTable closeTbl = DbAccess.GetLastPrice(AppTypes.PriceDataType.Close, timeScaleCode, beforeDate);
+            baseDS.lastPriceDataDataTable openTbl = DbAccess.GetLastPrice(AppTypes.PriceDataType.Open, timeScaleCode, beforeDate);
             tmpDS.dataVarrianceDataTable tmpDataTbl = new tmpDS.dataVarrianceDataTable();
 
-            baseDS.lastPriceDataSumRow openPriceRow;
+            baseDS.lastPriceDataRow openPriceRow;
             tmpDS.dataVarrianceRow dataRow;
             for (int idx = 0; idx < closeTbl.Count; idx++)
             {
