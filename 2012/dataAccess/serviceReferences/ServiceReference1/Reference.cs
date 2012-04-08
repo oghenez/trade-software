@@ -51,11 +51,20 @@ namespace DataAccess.ServiceReference1 {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/WriteExcptionLog", ReplyAction="http://tempuri.org/IStockService/WriteExcptionLogResponse")]
         void WriteExcptionLog(string investorCode, common.SysLog.LogData logData);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetTopPriceVarriance", ReplyAction="http://tempuri.org/IStockService/GetTopPriceVarrianceResponse")]
-        databases.tmpDS.dataVarrianceDataTable GetTopPriceVarriance(System.DateTime beforeDate, string timeScaleCode, int topN);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetTopPriceVarrianceMarket", ReplyAction="http://tempuri.org/IStockService/GetTopPriceVarrianceMarketResponse")]
+        databases.tmpDS.dataVarrianceDataTable GetTopPriceVarrianceMarket(System.DateTime beforeDate, string timeScaleCode, int topN);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetTopPriceVarrianceUser", ReplyAction="http://tempuri.org/IStockService/GetTopPriceVarrianceUserResponse")]
+        databases.tmpDS.dataVarrianceDataTable GetTopPriceVarrianceUser(System.DateTime beforeDate, string timeScaleCode, string userCode, int topN);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetTopPriceVarrianceOfUser", ReplyAction="http://tempuri.org/IStockService/GetTopPriceVarrianceOfUserResponse")]
-        databases.tmpDS.dataVarrianceDataTable GetTopPriceVarrianceOfUser(System.DateTime beforeDate, string timeScaleCode, string userCode, int topN);
+        databases.tmpDS.dataVarrianceDataTable GetTopPriceVarrianceOfUser(System.DateTime frDate, System.DateTime toDate, string timeScaleCode, string userCode, int topN);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetTopPriceVarriance", ReplyAction="http://tempuri.org/IStockService/GetTopPriceVarrianceResponse")]
+        databases.tmpDS.dataVarrianceDataTable GetTopPriceVarriance(System.DateTime frDate, System.DateTime toDate, string timeScaleCode, int topN);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetLastPrice", ReplyAction="http://tempuri.org/IStockService/GetLastPriceResponse")]
+        databases.baseDS.lastPriceDataDataTable GetLastPrice(commonTypes.AppTypes.PriceDataType type);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetBizSubSector_ByIndustry", ReplyAction="http://tempuri.org/IStockService/GetBizSubSector_ByIndustryResponse")]
         databases.baseDS.bizSubSectorDataTable GetBizSubSector_ByIndustry(string code);
@@ -385,12 +394,24 @@ namespace DataAccess.ServiceReference1 {
             base.Channel.WriteExcptionLog(investorCode, logData);
         }
         
-        public databases.tmpDS.dataVarrianceDataTable GetTopPriceVarriance(System.DateTime beforeDate, string timeScaleCode, int topN) {
-            return base.Channel.GetTopPriceVarriance(beforeDate, timeScaleCode, topN);
+        public databases.tmpDS.dataVarrianceDataTable GetTopPriceVarrianceMarket(System.DateTime beforeDate, string timeScaleCode, int topN) {
+            return base.Channel.GetTopPriceVarrianceMarket(beforeDate, timeScaleCode, topN);
         }
         
-        public databases.tmpDS.dataVarrianceDataTable GetTopPriceVarrianceOfUser(System.DateTime beforeDate, string timeScaleCode, string userCode, int topN) {
-            return base.Channel.GetTopPriceVarrianceOfUser(beforeDate, timeScaleCode, userCode, topN);
+        public databases.tmpDS.dataVarrianceDataTable GetTopPriceVarrianceUser(System.DateTime beforeDate, string timeScaleCode, string userCode, int topN) {
+            return base.Channel.GetTopPriceVarrianceUser(beforeDate, timeScaleCode, userCode, topN);
+        }
+        
+        public databases.tmpDS.dataVarrianceDataTable GetTopPriceVarrianceOfUser(System.DateTime frDate, System.DateTime toDate, string timeScaleCode, string userCode, int topN) {
+            return base.Channel.GetTopPriceVarrianceOfUser(frDate, toDate, timeScaleCode, userCode, topN);
+        }
+        
+        public databases.tmpDS.dataVarrianceDataTable GetTopPriceVarriance(System.DateTime frDate, System.DateTime toDate, string timeScaleCode, int topN) {
+            return base.Channel.GetTopPriceVarriance(frDate, toDate, timeScaleCode, topN);
+        }
+        
+        public databases.baseDS.lastPriceDataDataTable GetLastPrice(commonTypes.AppTypes.PriceDataType type) {
+            return base.Channel.GetLastPrice(type);
         }
         
         public databases.baseDS.bizSubSectorDataTable GetBizSubSector_ByIndustry(string code) {
