@@ -552,7 +552,7 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
-  <wsp:Policy wsu:Id="WSHttpBinding_IStockService_GetTopPriceVarriance_Input_policy">
+  <wsp:Policy wsu:Id="WSHttpBinding_IStockService_GetTopPriceVarrianceMarket_Input_policy">
     <wsp:ExactlyOne>
       <wsp:All>
         <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
@@ -571,7 +571,45 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
-  <wsp:Policy wsu:Id="WSHttpBinding_IStockService_GetTopPriceVarriance_output_policy">
+  <wsp:Policy wsu:Id="WSHttpBinding_IStockService_GetTopPriceVarrianceMarket_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IStockService_GetTopPriceVarrianceUser_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IStockService_GetTopPriceVarrianceUser_output_policy">
     <wsp:ExactlyOne>
       <wsp:All>
         <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
@@ -610,6 +648,82 @@
     </wsp:ExactlyOne>
   </wsp:Policy>
   <wsp:Policy wsu:Id="WSHttpBinding_IStockService_GetTopPriceVarrianceOfUser_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IStockService_GetTopPriceVarriance_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IStockService_GetTopPriceVarriance_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IStockService_GetLastPrice_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IStockService_GetLastPrice_output_policy">
     <wsp:ExactlyOne>
       <wsp:All>
         <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
@@ -3905,17 +4019,35 @@
   <wsdl:message name="IStockService_WriteExcptionLog_OutputMessage">
     <wsdl:part name="parameters" element="tns:WriteExcptionLogResponse" />
   </wsdl:message>
-  <wsdl:message name="IStockService_GetTopPriceVarriance_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetTopPriceVarriance" />
+  <wsdl:message name="IStockService_GetTopPriceVarrianceMarket_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTopPriceVarrianceMarket" />
   </wsdl:message>
-  <wsdl:message name="IStockService_GetTopPriceVarriance_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetTopPriceVarrianceResponse" />
+  <wsdl:message name="IStockService_GetTopPriceVarrianceMarket_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTopPriceVarrianceMarketResponse" />
+  </wsdl:message>
+  <wsdl:message name="IStockService_GetTopPriceVarrianceUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTopPriceVarrianceUser" />
+  </wsdl:message>
+  <wsdl:message name="IStockService_GetTopPriceVarrianceUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTopPriceVarrianceUserResponse" />
   </wsdl:message>
   <wsdl:message name="IStockService_GetTopPriceVarrianceOfUser_InputMessage">
     <wsdl:part name="parameters" element="tns:GetTopPriceVarrianceOfUser" />
   </wsdl:message>
   <wsdl:message name="IStockService_GetTopPriceVarrianceOfUser_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetTopPriceVarrianceOfUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IStockService_GetTopPriceVarriance_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTopPriceVarriance" />
+  </wsdl:message>
+  <wsdl:message name="IStockService_GetTopPriceVarriance_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTopPriceVarrianceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IStockService_GetLastPrice_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLastPrice" />
+  </wsdl:message>
+  <wsdl:message name="IStockService_GetLastPrice_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLastPriceResponse" />
   </wsdl:message>
   <wsdl:message name="IStockService_GetBizSubSector_ByIndustry_InputMessage">
     <wsdl:part name="parameters" element="tns:GetBizSubSector_ByIndustry" />
@@ -4470,13 +4602,25 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IStockService/WriteExcptionLog" message="tns:IStockService_WriteExcptionLog_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IStockService/WriteExcptionLogResponse" message="tns:IStockService_WriteExcptionLog_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="GetTopPriceVarriance">
-      <wsdl:input wsaw:Action="http://tempuri.org/IStockService/GetTopPriceVarriance" message="tns:IStockService_GetTopPriceVarriance_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IStockService/GetTopPriceVarrianceResponse" message="tns:IStockService_GetTopPriceVarriance_OutputMessage" />
+    <wsdl:operation name="GetTopPriceVarrianceMarket">
+      <wsdl:input wsaw:Action="http://tempuri.org/IStockService/GetTopPriceVarrianceMarket" message="tns:IStockService_GetTopPriceVarrianceMarket_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IStockService/GetTopPriceVarrianceMarketResponse" message="tns:IStockService_GetTopPriceVarrianceMarket_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTopPriceVarrianceUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IStockService/GetTopPriceVarrianceUser" message="tns:IStockService_GetTopPriceVarrianceUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IStockService/GetTopPriceVarrianceUserResponse" message="tns:IStockService_GetTopPriceVarrianceUser_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetTopPriceVarrianceOfUser">
       <wsdl:input wsaw:Action="http://tempuri.org/IStockService/GetTopPriceVarrianceOfUser" message="tns:IStockService_GetTopPriceVarrianceOfUser_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IStockService/GetTopPriceVarrianceOfUserResponse" message="tns:IStockService_GetTopPriceVarrianceOfUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTopPriceVarriance">
+      <wsdl:input wsaw:Action="http://tempuri.org/IStockService/GetTopPriceVarriance" message="tns:IStockService_GetTopPriceVarriance_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IStockService/GetTopPriceVarrianceResponse" message="tns:IStockService_GetTopPriceVarriance_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLastPrice">
+      <wsdl:input wsaw:Action="http://tempuri.org/IStockService/GetLastPrice" message="tns:IStockService_GetLastPrice_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IStockService/GetLastPriceResponse" message="tns:IStockService_GetLastPrice_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetBizSubSector_ByIndustry">
       <wsdl:input wsaw:Action="http://tempuri.org/IStockService/GetBizSubSector_ByIndustry" message="tns:IStockService_GetBizSubSector_ByIndustry_InputMessage" />
@@ -4950,14 +5094,25 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetTopPriceVarriance">
-      <soap12:operation soapAction="http://tempuri.org/IStockService/GetTopPriceVarriance" style="document" />
+    <wsdl:operation name="GetTopPriceVarrianceMarket">
+      <soap12:operation soapAction="http://tempuri.org/IStockService/GetTopPriceVarrianceMarket" style="document" />
       <wsdl:input>
-        <wsp:PolicyReference URI="#WSHttpBinding_IStockService_GetTopPriceVarriance_Input_policy" />
+        <wsp:PolicyReference URI="#WSHttpBinding_IStockService_GetTopPriceVarrianceMarket_Input_policy" />
         <soap12:body use="literal" />
       </wsdl:input>
       <wsdl:output>
-        <wsp:PolicyReference URI="#WSHttpBinding_IStockService_GetTopPriceVarriance_output_policy" />
+        <wsp:PolicyReference URI="#WSHttpBinding_IStockService_GetTopPriceVarrianceMarket_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTopPriceVarrianceUser">
+      <soap12:operation soapAction="http://tempuri.org/IStockService/GetTopPriceVarrianceUser" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#WSHttpBinding_IStockService_GetTopPriceVarrianceUser_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#WSHttpBinding_IStockService_GetTopPriceVarrianceUser_output_policy" />
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
@@ -4969,6 +5124,28 @@
       </wsdl:input>
       <wsdl:output>
         <wsp:PolicyReference URI="#WSHttpBinding_IStockService_GetTopPriceVarrianceOfUser_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTopPriceVarriance">
+      <soap12:operation soapAction="http://tempuri.org/IStockService/GetTopPriceVarriance" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#WSHttpBinding_IStockService_GetTopPriceVarriance_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#WSHttpBinding_IStockService_GetTopPriceVarriance_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLastPrice">
+      <soap12:operation soapAction="http://tempuri.org/IStockService/GetLastPrice" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#WSHttpBinding_IStockService_GetLastPrice_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#WSHttpBinding_IStockService_GetLastPrice_output_policy" />
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>

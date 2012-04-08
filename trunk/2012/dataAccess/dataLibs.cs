@@ -1708,7 +1708,7 @@ namespace DataAccess
 
                 //Maybe there are some holidays or weekend so wee need to look before some days 
                 DateTime beforeDate = DateTime.Today.AddDays(-commonTypes.Settings.sysGlobal.DayScanForLastPrice);
-                databases.tmpDS.dataVarrianceDataTable tbl = myClient.GetTopPriceVarriance(beforeDate, AppTypes.TimeScaleTypeToCode(AppTypes.TimeScaleTypes.Week), topN);
+                databases.tmpDS.dataVarrianceDataTable tbl = myClient.GetTopPriceVarrianceMarket(beforeDate, AppTypes.TimeScaleTypeToCode(AppTypes.TimeScaleTypes.Week), topN);
                 AddCache(cacheKey, tbl);
                 return tbl;
             }
@@ -1729,8 +1729,8 @@ namespace DataAccess
 
                 //Maybe there are some holidays or weekend so wee need to look before some days 
                 DateTime beforeDate = DateTime.Today.AddDays(-commonTypes.Settings.sysGlobal.DayScanForLastPrice);
-                databases.tmpDS.dataVarrianceDataTable tbl = myClient.GetTopPriceVarrianceOfUser(beforeDate, AppTypes.TimeScaleTypeToCode(AppTypes.TimeScaleTypes.Week),
-                                                                                                 commonClass.SysLibs.sysLoginCode,topN);
+                databases.tmpDS.dataVarrianceDataTable tbl = myClient.GetTopPriceVarrianceUser(beforeDate, AppTypes.TimeScaleTypeToCode(AppTypes.TimeScaleTypes.Week),
+                                                                                               commonClass.SysLibs.sysLoginCode,topN);
                 AddCache(cacheKey, tbl);
                 return tbl;
             }

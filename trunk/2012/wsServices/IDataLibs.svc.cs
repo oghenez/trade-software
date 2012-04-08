@@ -291,12 +291,12 @@ namespace wsServices
         [OperationContract]
         databases.tmpDS.dataVarrianceDataTable GetTopPriceVarrianceUser(DateTime beforeDate, string timeScaleCode, string userCode, int topN);
 
-        //Functions that must be kept to server older versions 
-        //[OperationContract]
-        //databases.tmpDS.dataVarrianceDataTable GetTopPriceVarrianceOfUser(DateTime frDate, DateTime toDate, string timeScaleCode, string userCode, int topN);
+        //Functions that must be kept for backward compatibity
+        [OperationContract]
+        databases.tmpDS.dataVarrianceDataTable GetTopPriceVarrianceOfUser(DateTime frDate, DateTime toDate, string timeScaleCode, string userCode, int topN);
         
-        ////[OperationContract]
-        //databases.tmpDS.dataVarrianceDataTable GetTopPriceVarriance(DateTime frDate, DateTime toDate, string timeScaleCode, int topN);
+        [OperationContract]
+        databases.tmpDS.dataVarrianceDataTable GetTopPriceVarriance(DateTime frDate, DateTime toDate, string timeScaleCode, int topN);
 
         [OperationContract]
         databases.baseDS.lastPriceDataDataTable GetLastPrice(AppTypes.PriceDataType type);
