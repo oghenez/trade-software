@@ -336,15 +336,15 @@ namespace baseClass.controls
         
         private void DoRefreshPrice(databases.tmpDS.stockCodeDataTable dataTbl)
         {
-            databases.baseDS.lastPriceDataSumDataTable openPriceTbl = DataAccess.Libs.myLastDailyOpenPrice;
-            databases.baseDS.lastPriceDataSumDataTable closePriceTbl = DataAccess.Libs.myLastDailyClosePrice;
+            databases.baseDS.lastPriceDataDataTable openPriceTbl = DataAccess.Libs.myLastDailyOpenPrice;
+            databases.baseDS.lastPriceDataDataTable closePriceTbl = DataAccess.Libs.myLastDailyClosePrice;
             if (openPriceTbl==null || closePriceTbl == null) return;
 
             dataTbl.priceColumn.ReadOnly = false;
             dataTbl.priceVariantColumn.ReadOnly = false;
 
             databases.tmpDS.stockCodeRow stockCodeRow;
-            databases.baseDS.lastPriceDataSumRow openPriceRow, closePriceRow;
+            databases.baseDS.lastPriceDataRow openPriceRow, closePriceRow;
             for (int idx = 0; idx < stockGV.RowCount; idx++)
             {
                 stockCodeRow = dataTbl.FindBycode(stockGV.Rows[idx].Cells[codeColumn.Name].Value.ToString());

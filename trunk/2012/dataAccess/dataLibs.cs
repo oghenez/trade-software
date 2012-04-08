@@ -1032,9 +1032,9 @@ namespace DataAccess
         private class LastPriceCache
         {
             public DateTime CacheTime = common.Consts.constNullDate;
-            public databases.baseDS.lastPriceDataSumDataTable DataTbl = null;
+            public databases.baseDS.lastPriceDataDataTable DataTbl = null;
         }
-        public static databases.baseDS.lastPriceDataSumDataTable myLastDailyClosePrice
+        public static databases.baseDS.lastPriceDataDataTable myLastDailyClosePrice
         {
             get
             {
@@ -1060,7 +1060,7 @@ namespace DataAccess
                 return null;
             }
         }
-        public static databases.baseDS.lastPriceDataSumDataTable myLastDailyOpenPrice
+        public static databases.baseDS.lastPriceDataDataTable myLastDailyOpenPrice
         {
             get
             {
@@ -1084,31 +1084,6 @@ namespace DataAccess
                 return null;
             }
         }
-        //public static databases.baseDS.lastPriceDataSumDataTable myLastDataVolume
-        //{
-        //    get
-        //    {
-        //        try
-        //        {
-        //            string cacheKey = MakeCacheKey("LastPrice", "Volume");
-        //            LastPriceCache lastPriceCache = (LastPriceCache)GetCache(cacheKey);
-        //            if (lastPriceCache != null &&
-        //                common.dateTimeLibs.DateDiffInSecs(lastPriceCache.CacheTime, DateTime.Now) <= commonTypes.Settings.sysGlobal.RefreshDataInSecs)
-        //                return lastPriceCache.DataTbl;
-
-        //            if (lastPriceCache == null) lastPriceCache = new LastPriceCache();
-        //            lastPriceCache.DataTbl = myClient.GetLastPriceSum(AppTypes.PriceDataType.Volume);
-        //            lastPriceCache.CacheTime = DateTime.Now;
-        //            AddCache(cacheKey, lastPriceCache);
-        //            return lastPriceCache.DataTbl;
-        //        }
-        //        catch (Exception er)
-        //        {
-        //            if (OnError != null) OnError(er);
-        //        }
-        //        return null;
-        //    }
-        //}
 
         public static bool GetTransactionInfo(ref TransactionInfo transInfo)
         {
@@ -1732,9 +1707,8 @@ namespace DataAccess
                 if (obj != null) return (databases.tmpDS.dataVarrianceDataTable)obj;
 
                 //Maybe there are some holidays or weekend so wee need to look before some days 
-                DateTime toDate = DateTime.Now.AddDays(-6);
-                DateTime frDate = toDate.AddDays(-7-6);
-                databases.tmpDS.dataVarrianceDataTable tbl = myClient.GetTopPriceVarriance(frDate, toDate, AppTypes.TimeScaleTypeToCode(AppTypes.TimeScaleTypes.Week), topN);
+                DateTime beforeDate = DateTime.Today.AddDays(-commonTypes.Settings.sysGlobal.DayScanForLastPrice);
+                databases.tmpDS.dataVarrianceDataTable tbl = myClient.GetTopPriceVarriance(beforeDate, AppTypes.TimeScaleTypeToCode(AppTypes.TimeScaleTypes.Week), topN);
                 AddCache(cacheKey, tbl);
                 return tbl;
             }
@@ -1754,9 +1728,8 @@ namespace DataAccess
                 if (obj != null) return (databases.tmpDS.dataVarrianceDataTable)obj;
 
                 //Maybe there are some holidays or weekend so wee need to look before some days 
-                DateTime toDate = DateTime.Now.AddDays(-6);
-                DateTime frDate = toDate.AddDays(-7 - 6);
-                databases.tmpDS.dataVarrianceDataTable tbl = myClient.GetTopPriceVarrianceOfUser(frDate, toDate, AppTypes.TimeScaleTypeToCode(AppTypes.TimeScaleTypes.Week),
+                DateTime beforeDate = DateTime.Today.AddDays(-commonTypes.Settings.sysGlobal.DayScanForLastPrice);
+                databases.tmpDS.dataVarrianceDataTable tbl = myClient.GetTopPriceVarrianceOfUser(beforeDate, AppTypes.TimeScaleTypeToCode(AppTypes.TimeScaleTypes.Week),
                                                                                                  commonClass.SysLibs.sysLoginCode,topN);
                 AddCache(cacheKey, tbl);
                 return tbl;

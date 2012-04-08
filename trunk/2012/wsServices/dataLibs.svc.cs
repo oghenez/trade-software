@@ -206,11 +206,11 @@ namespace wsServices
             return null;
         }
 
-        public databases.tmpDS.dataVarrianceDataTable GetTopPriceVarriance(DateTime frDate, DateTime toDate, string timeScaleCode, int topN)
+        public databases.tmpDS.dataVarrianceDataTable GetTopPriceVarrianceMarket(DateTime beforeDate, string timeScaleCode, int topN)
         {
             try
             {
-                return databases.AppLibs.GetTopPriceVarriance(frDate, toDate, timeScaleCode, topN);
+                return databases.AppLibs.GetTopPriceVarriance(beforeDate, timeScaleCode, topN);
             }
             catch (Exception ex)
             {
@@ -219,11 +219,11 @@ namespace wsServices
             return null;
         }
 
-        public databases.tmpDS.dataVarrianceDataTable GetTopPriceVarrianceOfUser(DateTime frDate, DateTime toDate, string timeScaleCode, string userCode, int topN)
+        public databases.tmpDS.dataVarrianceDataTable GetTopPriceVarrianceUser(DateTime beforeDate, string timeScaleCode, string userCode, int topN)
         {
             try
             {
-                return databases.AppLibs.GetTopPriceVarrianceOfUser(frDate, toDate, timeScaleCode, userCode, topN);
+                return databases.AppLibs.GetTopPriceVarrianceOfUser(beforeDate, timeScaleCode, userCode, topN);
             }
             catch (Exception ex)
             {
@@ -892,42 +892,13 @@ namespace wsServices
             return null;
         }
 
-        //public databases.baseDS.lastPriceDataDataTable GetLastPrice(AppTypes.PriceDataType type)
-        //{
-        //    try
-        //    {
-        //        DateTime fromDate = DateTime.Today.AddDays(-Settings.sysGlobal.DayScanForLastPrice);
-        //        string cacheName = "lastPrice-" + type.ToString();
-        //        databases.baseDS.lastPriceDataDataTable dataTbl = null;
-        //        object obj = sysDataCache.Find(cacheName);
-        //        if (obj == null)
-        //        {
-        //            dataTbl = databases.DbAccess.GetLastPrice(type, fromDate);
-        //            sysDataCache.Add(cacheName, new DataCacheItem(dataTbl));
-        //            return dataTbl;
-        //        }
-        //        if ((obj as DataCacheItem).timeStamp + TimeSpan.FromSeconds(Settings.sysDataDelayTimeInSecs).Ticks > DateTime.Now.Ticks)
-        //        {
-        //            return (databases.baseDS.lastPriceDataDataTable)(obj as DataCacheItem).data;
-        //        }
-        //        dataTbl = databases.DbAccess.GetLastPrice(type, fromDate);
-        //        sysDataCache.Add(cacheName, new DataCacheItem(dataTbl));
-        //        return dataTbl;
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        WriteSysLogLocal(ex);
-        //    }
-        //    return null;
-        //}
-
-        public databases.baseDS.lastPriceDataSumDataTable GetLastPriceSum(AppTypes.PriceDataType type,string timeScaleCode)
+        public databases.baseDS.lastPriceDataDataTable GetLastPriceSum(AppTypes.PriceDataType type,string timeScaleCode)
         {
             try
             {
                 DateTime fromDate = DateTime.Today.AddDays(-Settings.sysGlobal.DayScanForLastPrice);
                 string cacheName = "lastPrice-" + type.ToString();
-                databases.baseDS.lastPriceDataSumDataTable dataTbl = null;
+                databases.baseDS.lastPriceDataDataTable dataTbl = null;
                 object obj = sysDataCache.Find(cacheName);
                 if (obj == null)
                 {
@@ -937,7 +908,7 @@ namespace wsServices
                 }
                 if ((obj as DataCacheItem).timeStamp + TimeSpan.FromSeconds(Settings.sysDataDelayTimeInSecs).Ticks > DateTime.Now.Ticks)
                 {
-                    return (databases.baseDS.lastPriceDataSumDataTable)(obj as DataCacheItem).data;
+                    return (databases.baseDS.lastPriceDataDataTable)(obj as DataCacheItem).data;
                 }
                 dataTbl = databases.DbAccess.GetLastPrice(type,timeScaleCode, fromDate);
                 sysDataCache.Add(cacheName, new DataCacheItem(dataTbl));
@@ -949,7 +920,7 @@ namespace wsServices
             }
             return null;
         }
-
+        
         public bool GetTransactionInfo(ref TransactionInfo transInfo)
         {
             try
@@ -1031,8 +1002,6 @@ namespace wsServices
             }
             return null;
         }
-
-
         #endregion
 
         #region Update
@@ -1518,6 +1487,24 @@ namespace wsServices
         }
 
         #endregion syslog
+
+
+        #region Backward compatible
+
+        public databases.baseDS.lastPriceDataDataTable GetLastPrice(AppTypes.PriceDataType type)
+        {
+            return GetLastPriceSum(type, AppTypes.TimeScaleFromType(AppTypes.TimeScaleTypes.Day).Code);
+        }
+        public databases.tmpDS.dataVarrianceDataTable GetTopPriceVarrianceOfUser(DateTime frDate, DateTime toDate, string timeScaleCode, string userCode, int topN)
+        {
+            return GetTopPriceVarrianceUser(frDate, timeScaleCode, userCode, topN);
+        }
+        public databases.tmpDS.dataVarrianceDataTable GetTopPriceVarriance(DateTime frDate, DateTime toDate, string timeScaleCode, int topN)
+        {
+            return GetTopPriceVarrianceMarket(frDate, timeScaleCode, topN);
+        }
+
+        #endregion
 
         #region test
         public DataTable Test(string sql)

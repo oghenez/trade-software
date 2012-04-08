@@ -130,13 +130,14 @@
     <None Include="Properties\DataSources\commonTypes.GlobalSettings.datasource" />
     <None Include="Properties\DataSources\databases.baseDS.datasource" />
     <None Include="Properties\DataSources\databases.tmpDS.datasource" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\DataSources\commonClass.DataValues.datasource" />
     <None Include="serviceReferences\ServiceReference1\baseDS.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="serviceReferences\ServiceReference1\DataLibs.xsd" />
     <None Include="serviceReferences\ServiceReference1\DataLibs1.xsd" />
-    <None Include="serviceReferences\ServiceReference1\DataLibs2.xsd" />
-    <None Include="serviceReferences\ServiceReference1\DataLibs3.xsd" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="serviceReferences\ServiceReference1\" />
@@ -144,10 +145,11 @@
   <ItemGroup>
     <None Include="serviceReferences\ServiceReference1\DataLibs.disco" />
     <None Include="serviceReferences\ServiceReference1\DataLibs.wsdl" />
+    <None Include="serviceReferences\ServiceReference1\DataLibs2.xsd" />
+    <None Include="serviceReferences\ServiceReference1\DataLibs3.xsd" />
     <None Include="serviceReferences\ServiceReference1\DataLibs4.xsd" />
     <None Include="serviceReferences\ServiceReference1\DataLibs5.xsd" />
     <None Include="serviceReferences\ServiceReference1\DataLibs6.xsd" />
-    <None Include="serviceReferences\ServiceReference1\DataLibs7.xsd" />
     <None Include="serviceReferences\ServiceReference1\tmpDS.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -159,7 +161,6 @@
     <None Include="serviceReferences\ServiceReference1\configuration.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Properties\DataSources\commonClass.DataValues.datasource" />
     <None Include="serviceReferences\ServiceReference1\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
