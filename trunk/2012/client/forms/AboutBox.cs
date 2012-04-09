@@ -19,6 +19,12 @@ namespace client.forms
             this.labelCopyright.Text = AssemblyCopyright;
             this.labelCompanyName.Text = AssemblyCompany;
             this.textBoxDescription.Text = AssemblyDescription;
+
+            if (commonTypes.Consts.constEditionPROFESSIONALL)
+                this.logoPictureBox.Image = global::client.Properties.Resources.trader_professional;
+            else
+                this.logoPictureBox.Image = global::client.Properties.Resources.trader_standard;
+
         }
 
         #region Assembly Attribute Accessors

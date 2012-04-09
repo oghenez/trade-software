@@ -13,7 +13,10 @@ namespace client.forms
         public startSplash()
         {
             InitializeComponent();
-            //this.Size = new Size(0, 0);
+            if (commonTypes.Consts.constEditionPROFESSIONALL)
+                this.BackgroundImage = global::client.Properties.Resources.trader_professional;
+            else
+                this.BackgroundImage = global::client.Properties.Resources.trader_standard;
         }
     }
 }
