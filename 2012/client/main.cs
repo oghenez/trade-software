@@ -1,4 +1,4 @@
-﻿//#define STANDARD //Standard Version
+﻿#define PROFESSIONAL
 
 using System;
 using System.Collections;
@@ -198,23 +198,20 @@ namespace client
 
             //Tools
             contextMenuStrip.Items.Add(new ToolStripSeparator());
-            menuItem = contextMenuStrip.Items.Add(backTestingMenuItem.Text);
-            menuItem.Image = client.Properties.Resources.Network_icon;
-#if (STANDARD)
-            menuItem.Enabled = false;
-#endif
-            menuItem.Click += new System.EventHandler(backTestingMenuItem_Click);
+            #if PROFESSIONAL
+                menuItem = contextMenuStrip.Items.Add(backTestingMenuItem.Text);
+                menuItem.Image = client.Properties.Resources.Network_icon;
+                menuItem.Click += new System.EventHandler(backTestingMenuItem_Click);
 
-            menuItem = contextMenuStrip.Items.Add(strategyRankingMenuItem.Text);
-            menuItem.Image = client.Properties.Resources.OnLamp_icon_16;
-#if (STANDARD)
-            menuItem.Enabled = false;
-#endif
-            menuItem.Click += new System.EventHandler(strategyRankingMenuItem_Click);
+                menuItem = contextMenuStrip.Items.Add(strategyRankingMenuItem.Text);
+                menuItem.Image = client.Properties.Resources.OnLamp_icon_16;
+                menuItem.Click += new System.EventHandler(strategyRankingMenuItem_Click);
+            #endif
 
             menuItem = contextMenuStrip.Items.Add(screeningMenuItem.Text);
             menuItem.Image = client.Properties.Resources.sort_ascending_icon;
             menuItem.Click += new System.EventHandler(screeningMenuItem_Click);
+            
             
             return contextMenuStrip;
         }
@@ -251,27 +248,22 @@ namespace client
             application.Indicators.Libs.CreateIndicatorMenu(indicatorMenuItem, showIndicatorHandler);
             contextMenuStrip.Items.Add(indicatorMenuItem);
 
+
             //Tools
             contextMenuStrip.Items.Add(new ToolStripSeparator());
-            menuItem = contextMenuStrip.Items.Add(backTestingMenuItem.Text);
-            menuItem.Image = client.Properties.Resources.Network_icon;
-#if (STANDARD)
-            menuItem.Enabled = false;
-#endif
-            menuItem.Click += new System.EventHandler(backTestingMenuItem_Click);
+            #if(PROFESSIONAL)
+                menuItem = contextMenuStrip.Items.Add(backTestingMenuItem.Text);
+                menuItem.Image = client.Properties.Resources.Network_icon;
+                menuItem.Click += new System.EventHandler(backTestingMenuItem_Click);
 
-            menuItem = contextMenuStrip.Items.Add(strategyRankingMenuItem.Text);
-            menuItem.Image = client.Properties.Resources.OnLamp_icon_16;
-#if (STANDARD)
-            menuItem.Enabled = false;
-#endif
-            menuItem.Click += new System.EventHandler(strategyRankingMenuItem_Click);
+                menuItem = contextMenuStrip.Items.Add(strategyRankingMenuItem.Text);
+                menuItem.Image = client.Properties.Resources.OnLamp_icon_16;
+                menuItem.Click += new System.EventHandler(strategyRankingMenuItem_Click);
+            #endif
 
             menuItem = contextMenuStrip.Items.Add(screeningMenuItem.Text);
             menuItem.Image = client.Properties.Resources.sort_ascending_icon;
             menuItem.Click += new System.EventHandler(screeningMenuItem_Click);
-
-
             return contextMenuStrip;
         }
 
@@ -293,24 +285,19 @@ namespace client
 
             //Tools
             contextMenuStrip.Items.Add(new ToolStripSeparator());
-            menuItem = contextMenuStrip.Items.Add(backTestingMenuItem.Text);
-            menuItem.Image = client.Properties.Resources.Network_icon;
-#if (STANDARD)
-            menuItem.Enabled = false;
-#endif
-            menuItem.Click += new System.EventHandler(backTestingMenuItem_Click);
+            #if(PROFESSIONAL)
+                menuItem = contextMenuStrip.Items.Add(backTestingMenuItem.Text);
+                menuItem.Image = client.Properties.Resources.Network_icon;
+                menuItem.Click += new System.EventHandler(backTestingMenuItem_Click);
 
-            menuItem = contextMenuStrip.Items.Add(strategyRankingMenuItem.Text);
-            menuItem.Image = client.Properties.Resources.OnLamp_icon_16;
-#if (STANDARD)
-            menuItem.Enabled = false;
-#endif
-            menuItem.Click += new System.EventHandler(strategyRankingMenuItem_Click);
-
+                menuItem = contextMenuStrip.Items.Add(strategyRankingMenuItem.Text);
+                menuItem.Image = client.Properties.Resources.OnLamp_icon_16;
+                menuItem.Click += new System.EventHandler(strategyRankingMenuItem_Click);
+            #endif
+            
             menuItem = contextMenuStrip.Items.Add(screeningMenuItem.Text);
             menuItem.Image = client.Properties.Resources.sort_ascending_icon;
             menuItem.Click += new System.EventHandler(screeningMenuItem_Click);
-
             return contextMenuStrip;
         }
 
@@ -2045,9 +2032,17 @@ namespace client
             if (mainMenu != null)
             {
                 this.mainMenu.Font = Settings.sysFontMenu;
+            #if(PROFESSIONAL)
+                backTestingMenuItem.Visible = true;
+                strategyRankingMenuItem.Visible = true;
+            #else
+                backTestingMenuItem.Visible = false;
+                strategyRankingMenuItem.Visible = false;
+            #endif
             }
             dockPanel.Font = Settings.sysFontMain;
         }
+
 
         private void addToWatchListMenuItem_Click(object sender, EventArgs e)
         {
