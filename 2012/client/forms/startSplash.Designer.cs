@@ -51,11 +51,7 @@ namespace client.forms
             // startSplash
             // 
             this.BackColor = System.Drawing.SystemColors.ActiveBorder;
-#if (STANDARD)
-            this.BackgroundImage = global::client.Properties.Resources.trader_standard;
-#else
-            this.BackgroundImage = global::client.Properties.Resources.trading2;
-#endif
+            this.BackgroundImage = global::client.Properties.Resources.trader_professional;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(544, 382);
             this.DoubleBuffered = true;

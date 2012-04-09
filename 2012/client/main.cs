@@ -1,6 +1,4 @@
-﻿#define PROFESSIONAL
-
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.Specialized;
@@ -198,7 +196,8 @@ namespace client
 
             //Tools
             contextMenuStrip.Items.Add(new ToolStripSeparator());
-            #if PROFESSIONAL
+            if (commonTypes.Consts.constEditionPROFESSIONALL)
+            {
                 menuItem = contextMenuStrip.Items.Add(backTestingMenuItem.Text);
                 menuItem.Image = client.Properties.Resources.Network_icon;
                 menuItem.Click += new System.EventHandler(backTestingMenuItem_Click);
@@ -206,7 +205,7 @@ namespace client
                 menuItem = contextMenuStrip.Items.Add(strategyRankingMenuItem.Text);
                 menuItem.Image = client.Properties.Resources.OnLamp_icon_16;
                 menuItem.Click += new System.EventHandler(strategyRankingMenuItem_Click);
-            #endif
+            }
 
             menuItem = contextMenuStrip.Items.Add(screeningMenuItem.Text);
             menuItem.Image = client.Properties.Resources.sort_ascending_icon;
@@ -251,7 +250,8 @@ namespace client
 
             //Tools
             contextMenuStrip.Items.Add(new ToolStripSeparator());
-            #if(PROFESSIONAL)
+            if (commonTypes.Consts.constEditionPROFESSIONALL)
+            {
                 menuItem = contextMenuStrip.Items.Add(backTestingMenuItem.Text);
                 menuItem.Image = client.Properties.Resources.Network_icon;
                 menuItem.Click += new System.EventHandler(backTestingMenuItem_Click);
@@ -259,7 +259,7 @@ namespace client
                 menuItem = contextMenuStrip.Items.Add(strategyRankingMenuItem.Text);
                 menuItem.Image = client.Properties.Resources.OnLamp_icon_16;
                 menuItem.Click += new System.EventHandler(strategyRankingMenuItem_Click);
-            #endif
+            }
 
             menuItem = contextMenuStrip.Items.Add(screeningMenuItem.Text);
             menuItem.Image = client.Properties.Resources.sort_ascending_icon;
@@ -285,7 +285,8 @@ namespace client
 
             //Tools
             contextMenuStrip.Items.Add(new ToolStripSeparator());
-            #if(PROFESSIONAL)
+            if (commonTypes.Consts.constEditionPROFESSIONALL)
+            {
                 menuItem = contextMenuStrip.Items.Add(backTestingMenuItem.Text);
                 menuItem.Image = client.Properties.Resources.Network_icon;
                 menuItem.Click += new System.EventHandler(backTestingMenuItem_Click);
@@ -293,7 +294,7 @@ namespace client
                 menuItem = contextMenuStrip.Items.Add(strategyRankingMenuItem.Text);
                 menuItem.Image = client.Properties.Resources.OnLamp_icon_16;
                 menuItem.Click += new System.EventHandler(strategyRankingMenuItem_Click);
-            #endif
+            }
             
             menuItem = contextMenuStrip.Items.Add(screeningMenuItem.Text);
             menuItem.Image = client.Properties.Resources.sort_ascending_icon;
@@ -2032,13 +2033,16 @@ namespace client
             if (mainMenu != null)
             {
                 this.mainMenu.Font = Settings.sysFontMenu;
-            #if(PROFESSIONAL)
-                backTestingMenuItem.Visible = true;
-                strategyRankingMenuItem.Visible = true;
-            #else
-                backTestingMenuItem.Visible = false;
-                strategyRankingMenuItem.Visible = false;
-            #endif
+                if (commonTypes.Consts.constEditionPROFESSIONALL)
+                {
+                    backTestingMenuItem.Visible = true;
+                    strategyRankingMenuItem.Visible = true;
+                }
+                else
+                {
+                    backTestingMenuItem.Visible = false;
+                    strategyRankingMenuItem.Visible = false;
+                }
             }
             dockPanel.Font = Settings.sysFontMain;
         }
