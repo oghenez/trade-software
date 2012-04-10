@@ -11,8 +11,16 @@ using commonTypes;
 
 namespace Trade.Forms
 {
+    /// <summary>
+    /// Market Summary shows the overview of the market
+    /// It is customized by each user
+    /// There are four parts: VNIndex chart, HNINdex Chart, Weekly change, Daily change
+    /// </summary>
     public partial class MarketSummary : baseClass.forms.baseForm
     {
+        /// <summary>
+        /// Initiates values for showing the market summary
+        /// </summary>
         public MarketSummary()
         {
             try
@@ -36,6 +44,10 @@ namespace Trade.Forms
                 this.ShowError(er);
             }
         }
+
+        /// <summary>
+        /// Set language
+        /// </summary>
         public override void SetLanguage()
         {
             base.SetLanguage();
@@ -51,12 +63,20 @@ namespace Trade.Forms
             this.closeColumn.HeaderText = Languages.Libs.GetString("close");
             dailyChangeGV.Refresh();
         }
+
+        /// <summary>
+        /// Refressh all form
+        /// </summary>
+        /// <param name="force"></param>
         public void RefreshData(bool force)
         {
             Market_Indexes();
             Market_TopBiggestChange();
         }
 
+        /// <summary>
+        /// Showing VNIndex and HNXIndex for 2 months from now
+        /// </summary>
         private void Market_Indexes()
         {
             DateTime toDate = DateTime.Now;
@@ -67,6 +87,17 @@ namespace Trade.Forms
 
             //DrawLineChart(hnxChart, 0, true, "HNX-IDX", frDate, toDate, timeScaleCode);
         }
+
+        /// <summary>
+        /// Drawing a line chart for a stock code
+        /// </summary>
+        /// <param name="chart"></param>
+        /// <param name="chartSeriesNo"></param>
+        /// <param name="isShowVolume"></param>
+        /// <param name="code"></param>
+        /// <param name="frDate"></param>
+        /// <param name="toDate"></param>
+        /// <param name="timeScaleCode"></param>
         private void DrawLineChart(Chart chart, int chartSeriesNo,bool isShowVolume, string code, DateTime frDate, DateTime toDate, string timeScaleCode)
         {
           
@@ -94,7 +125,9 @@ namespace Trade.Forms
             }            
         }
 
-
+        /// <summary>
+        /// Showing Weekly change and call Daily changes
+        /// </summary>
         private void Market_TopBiggestChange()
         {
             //Weekly Market data for user's interested code
@@ -135,6 +168,11 @@ namespace Trade.Forms
             //Daily Market data
             Market_DataDailyChange(topCodes);
         }
+
+        /// <summary>
+        /// Showing Daily change for stock
+        /// </summary>
+        /// <param name="codes"></param>
         private void Market_DataDailyChange(StringCollection codes)
         {
             databases.baseDS.lastPriceDataRow lastPriceRowOpen, lastPriceRowClose; 
