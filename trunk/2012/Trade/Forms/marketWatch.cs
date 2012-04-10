@@ -9,8 +9,14 @@ using System.Windows.Forms;
 
 namespace Trade.Forms
 {
+    /// <summary>
+    /// Showing Market Watch form
+    /// </summary>
     public partial class marketWatch : baseClass.forms.baseForm 
     {
+        /// <summary>
+        /// Initiate
+        /// </summary>
         public marketWatch()
         {
             try
@@ -65,15 +71,26 @@ namespace Trade.Forms
             }
         }
 
-        //bo xung de lam viec tren grid
+        /// <summary>
+        /// Add to work with Grid
+        /// </summary>
+
         public common.controls.baseDataGridView myGrid{
             get { return stockCodeList.myGridView; }
         }
+
+        /// <summary>
+        /// Set language
+        /// </summary>
         public override void SetLanguage()
         {
             base.SetLanguage();
             stockCodeList.SetLanguage();
         }
+
+        /// <summary>
+        /// Export stock code list
+        /// </summary>
         public void Export()
         {
             stockCodeList.Export();
