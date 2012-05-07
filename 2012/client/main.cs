@@ -527,6 +527,8 @@ namespace client
             AppTypes.TimeScaleTypes lastTimeScaleType =  AppTypes.TimeScaleTypes.Day;
             for (int idx = 0; idx < AppTypes.myTimeScales.Length; idx++)
             {
+                if (AppTypes.myTimeScales[idx].Code == AppTypes.MainDataTimeScale.Code) continue;
+
                 btn = new ToolStripButton();
                 btn.Name = "Periodicity-" + AppTypes.myTimeScales[idx].Code;
                 btn.Text = AppTypes.myTimeScales[idx].Text;
