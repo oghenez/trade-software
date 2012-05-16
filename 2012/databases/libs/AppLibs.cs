@@ -489,7 +489,7 @@ namespace databases
             {
                 case AppTypes.TimeScaleTypes.Minnute:
                     int newMin = ((int)(onDateTime.Minute / timeScale.AggregationValue)) * timeScale.AggregationValue;
-                    return onDateTime.AddMinutes(-onDateTime.Minute + newMin);
+                    return onDateTime.Date.AddHours(onDateTime.Hour).AddMinutes(newMin);
                 case AppTypes.TimeScaleTypes.Hour:
                     int newHour = ((int)(onDateTime.Hour / timeScale.AggregationValue)) * timeScale.AggregationValue;
                     return onDateTime.Date.AddHours(newHour);
