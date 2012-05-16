@@ -489,7 +489,7 @@ namespace databases
             {
                 case AppTypes.TimeScaleTypes.Minnute:
                     int newMin = ((int)(onDateTime.Minute / timeScale.AggregationValue)) * timeScale.AggregationValue;
-                    return onDateTime.Date.AddHours(newMin);
+                    return onDateTime.AddMinutes(-onDateTime.Minute + newMin);
                 case AppTypes.TimeScaleTypes.Hour:
                     int newHour = ((int)(onDateTime.Hour / timeScale.AggregationValue)) * timeScale.AggregationValue;
                     return onDateTime.Date.AddHours(newHour);
@@ -575,14 +575,14 @@ namespace databases
                 databases.baseDS.priceDataSumDataTable priceSumDataTbl = new databases.baseDS.priceDataSumDataTable();
                 AgrregateInfo myAgrregateStat = new AgrregateInfo();
                 myAgrregateStat.maxCount = priceTbl.Count;
-                priceTbl.DefaultView.Sort = priceTbl.onDateColumn.ColumnName + "," + priceTbl.stockCodeColumn.ColumnName;
+                //priceTbl.DefaultView.Sort = priceTbl.onDateColumn.ColumnName + "," + priceTbl.stockCodeColumn.ColumnName;
                 databases.baseDS.priceDataRow priceDataRow;
 
                 decimal changeVolume;
                 int lastYear = int.MinValue;
-                for (int idx = 0; idx < priceTbl.DefaultView.Count; idx++)
+                for (int idx = 0; idx < priceTbl.Count; idx++)
                 {
-                    priceDataRow = (databases.baseDS.priceDataRow)priceTbl.DefaultView[idx].Row;
+                    priceDataRow = priceTbl[idx];
                     myAgrregateStat.count = idx;
                     if (onAggregateDataFunc != null) onAggregateDataFunc(myAgrregateStat);
                     if (myAgrregateStat.cancel)
