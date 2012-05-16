@@ -99,7 +99,7 @@ namespace commonTypes
         /// Loading long chart can be very slow, the setting limit the maximum number of points to be loaded
         /// </summary>
         [DataMember]
-        public short ChartMaxLoadCount_FIRST = 6000; //For the first time
+        public short ChartMaxLoadCount_FIRST = 1000; // 6000; //For the first time
         
         /// <summary>
         /// 

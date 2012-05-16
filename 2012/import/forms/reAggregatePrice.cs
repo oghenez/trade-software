@@ -37,6 +37,9 @@ namespace Imports.Forms
                 this.ShowMessage("");
                 this.ShowMessage("");
                 okBtn.Enabled = false;
+                codeChk.Enabled = false;
+                codeEd.Enabled = false;
+
                 ShowCurrorWait();
                 fCanceled = false;
                 
@@ -72,6 +75,9 @@ namespace Imports.Forms
             {
                 progressBar.Visible = false;
                 okBtn.Enabled = true;
+                codeChk.Enabled = true;
+                codeChk_CheckedChanged(null,null);
+
                 progressBar.Visible = false;
                 ShowCurrorDefault();
             }
