@@ -26,11 +26,9 @@ namespace databases.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=localhost;Initial Catalog=stock;Integrated Security=True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=localhost\\sql08;Initial Catalog=stock;Integrated Security=True")]
         public string dbConnectionString {
-            get 
-            {
-                return SysLibs.dbConnectionString;
+            get {
                 return ((string)(this["dbConnectionString"]));
             }
         }
@@ -40,9 +38,7 @@ namespace databases.Properties {
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
         [global::System.Configuration.DefaultSettingValueAttribute("Data Source=localhost;Initial Catalog=stock-import;Integrated Security=True")]
         public string importConnectionString {
-            get 
-            {
-                return SysLibs.importConnectionString;
+            get {
                 return ((string)(this["importConnectionString"]));
             }
         }

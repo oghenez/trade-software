@@ -463,15 +463,15 @@ namespace databases
             }
         }
         public delegate void OnAggregateData(AgrregateInfo param);
-        public static void ReAggregatePriceData(string code, CultureInfo stockCulture)
+        public static void ReAggregatePriceData(string code, CultureInfo stockCulture, OnAggregateData onAggregateDataFunc)
         {
             //Load main  pricedata
-            databases.baseDS.priceDataDataTable priceTbl = new databases.baseDS.priceDataDataTable();
-            databases.DbAccess.LoadData(priceTbl, AppTypes.MainDataTimeScale.Code, DateTime.MinValue, DateTime.MaxValue, code);
+            baseDS.priceDataDataTable priceTbl = new databases.baseDS.priceDataDataTable();
+            DbAccess.LoadData(priceTbl, AppTypes.MainDataTimeScale.Code, DateTime.MinValue, DateTime.MaxValue, code);
             if (priceTbl == null) return;
             //Delete all summ pricedata
-            databases.DbAccess.DeletePriceSumData(code);
-            AggregatePriceData(priceTbl, stockCulture, null);
+            DbAccess.DeletePriceSumData(code);
+            AggregatePriceData(priceTbl, stockCulture, onAggregateDataFunc);
             priceTbl.Dispose();
         }
 
@@ -576,13 +576,12 @@ namespace databases
                 AgrregateInfo myAgrregateStat = new AgrregateInfo();
                 myAgrregateStat.maxCount = priceTbl.Count;
                 //priceTbl.DefaultView.Sort = priceTbl.onDateColumn.ColumnName + "," + priceTbl.stockCodeColumn.ColumnName;
-                databases.baseDS.priceDataRow priceDataRow;
+                //databases.baseDS.priceDataRow priceDataRow;
 
                 decimal changeVolume;
                 int lastYear = int.MinValue;
                 for (int idx = 0; idx < priceTbl.Count; idx++)
                 {
-                    priceDataRow = priceTbl[idx];
                     myAgrregateStat.count = idx;
                     if (onAggregateDataFunc != null) onAggregateDataFunc(myAgrregateStat);
                     if (myAgrregateStat.cancel)
@@ -590,19 +589,20 @@ namespace databases
                         priceSumDataTbl.Clear();
                         break;
                     }
-                    changeVolume = priceDataRow.volume;
+                    Application.DoEvents();
+
+                    changeVolume = priceTbl[idx].volume;
                     foreach (AppTypes.TimeScale timeScale in AppTypes.myTimeScales)
                     {
                         if (timeScale.Type == AppTypes.TimeScaleTypes.RealTime) continue;
-                        AggregatePriceData(priceDataRow, changeVolume, timeScale, cultureInfo, priceSumDataTbl);
-                        Application.DoEvents();
+                        AggregatePriceData(priceTbl[idx], changeVolume, timeScale, cultureInfo, priceSumDataTbl);
                     }
                     //Update and clear cache to speed up the performance
-                    if (lastYear != priceDataRow.onDate.Year)
+                    if (lastYear != priceTbl[idx].onDate.Year)
                     {
                         databases.DbAccess.UpdateData(priceSumDataTbl);
                         priceSumDataTbl.Clear();
-                        lastYear = priceDataRow.onDate.Year;
+                        lastYear = priceTbl[idx].onDate.Year;
                     }
                     //databases.DbAccess.UpdateData(priceDataRow);
                 }
@@ -610,14 +610,7 @@ namespace databases
                 priceSumDataTbl.Dispose();
             }
             
-        /// <summary>
-        /// Get top N price varriance ( [close - open], percentage) in specific date range and for specific time scale
-        /// </summary>
-        /// <param name="frDate"></param>
-        /// <param name="toDate"></param>
-        /// <param name="timeScaleCode"></param>
-        /// <param name="topN"></param>
-        /// <returns></returns>
+        
         public static tmpDS.dataVarrianceDataTable GetTopPriceVarriance(DateTime beforeDate, string timeScaleCode, int topN)
         {
             tmpDS.dataVarrianceDataTable tmpDataTbl = GetPriceVarriance(beforeDate, timeScaleCode);

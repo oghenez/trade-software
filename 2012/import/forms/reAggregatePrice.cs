@@ -20,6 +20,12 @@ namespace Imports.Forms
         {
             InitializeComponent();
         }
+        private void OnAggregateData(databases.AppLibs.AgrregateInfo param)
+        {
+            if (fCanceled) param.cancel = true;
+            this.ShowReccount(param.count.ToString()+"/"+param.maxCount.ToString()); 
+        }
+
         bool fCanceled = false;
         private void okBtn_Click(object sender, System.EventArgs e)
         {
@@ -49,7 +55,8 @@ namespace Imports.Forms
                 CultureInfo stockCulture = application.AppLibs.GetStockCulture(codeEd.Text);
                 if (codeChk.Checked)
                 {
-                    databases.AppLibs.ReAggregatePriceData(codeEd.Text, stockCulture);
+                    this.ShowMessage(codeEd.Text);
+                    databases.AppLibs.ReAggregatePriceData(codeEd.Text, stockCulture, OnAggregateData);
                 }
                 else
                 {
@@ -59,7 +66,7 @@ namespace Imports.Forms
                     {
                         if (fCanceled) break;
                         this.ShowMessage(tbl[idx].code);
-                        databases.AppLibs.ReAggregatePriceData(tbl[idx].code, stockCulture);
+                        databases.AppLibs.ReAggregatePriceData(tbl[idx].code, stockCulture, OnAggregateData);
                         this.ShowMessage("");
                         Application.DoEvents();
                     }
