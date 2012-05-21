@@ -29,6 +29,7 @@ namespace databases.Properties {
         [global::System.Configuration.DefaultSettingValueAttribute("Data Source=localhost\\sql08;Initial Catalog=stock;Integrated Security=True")]
         public string dbConnectionString {
             get {
+                return SysLibs.dbConnectionString;
                 return ((string)(this["dbConnectionString"]));
             }
         }
@@ -39,6 +40,7 @@ namespace databases.Properties {
         [global::System.Configuration.DefaultSettingValueAttribute("Data Source=localhost;Initial Catalog=stock-import;Integrated Security=True")]
         public string importConnectionString {
             get {
+                return SysLibs.importConnectionString;
                 return ((string)(this["importConnectionString"]));
             }
         }

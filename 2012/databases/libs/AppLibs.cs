@@ -539,9 +539,12 @@ namespace databases
                 priceDataSumRow.onDate = dataDate;
                 priceDataSumRow.openPrice = priceRow.openPrice;
                 priceDataSumRow.closePrice = priceRow.closePrice;
+                priceDataSumRow.openTimeOffset = dataTimeOffset;
+                priceDataSumRow.closeTimeOffset = dataTimeOffset;
+
                 toSumTbl.AddpriceDataSumRow(priceDataSumRow);
             }
-            if (priceDataSumRow.openTimeOffset > dataTimeOffset)
+            if (priceDataSumRow.openTimeOffset >= dataTimeOffset)
             {
                 priceDataSumRow.openPrice = priceRow.openPrice;
                 priceDataSumRow.openTimeOffset = dataTimeOffset;
