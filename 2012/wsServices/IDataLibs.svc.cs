@@ -92,8 +92,8 @@ namespace wsServices
         [OperationContract]
         databases.tmpDS.stockCodeDataTable GetStockByStatus(AppTypes.CommonStatus status);
 
-        [OperationContract]
-        databases.baseDS.priceDataDataTable GetAbnormalData(string code,DateTime frDate, DateTime toDate,string timeSacleCode);
+        //[OperationContract]
+        //databases.baseDS.priceDataDataTable GetAbnormalData(string code,DateTime frDate, DateTime toDate,string timeSacleCode);
 
         [OperationContract]
         databases.tmpDS.investorDataTable GetInvestorShortList();
