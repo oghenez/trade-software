@@ -967,12 +967,12 @@ namespace wsServices
             return databases.DbAccess.GetLastAlertTime(investorCode);
         }
 
-        public databases.baseDS.priceDataDataTable GetAbnormalData(string code,DateTime frDate, DateTime toDate,string timeSacleCode)
-        {
-            databases.baseDS.priceDataDataTable tbl = new databases.baseDS.priceDataDataTable();
-            databases.DbAccess.LoadAbnormalData(tbl,code,frDate, toDate,timeSacleCode);
-            return tbl;
-        }
+        //public databases.baseDS.priceDataDataTable GetAbnormalData(string code,DateTime frDate, DateTime toDate,string timeSacleCode)
+        //{
+        //    databases.baseDS.priceDataDataTable tbl = new databases.baseDS.priceDataDataTable();
+        //    databases.DbAccess.LoadAbnormalData(tbl,code,frDate, toDate,timeSacleCode);
+        //    return tbl;
+        //}
 
         public databases.baseDS.messagesDataTable GetMesssage_ByDate(DateTime frDate,DateTime toDate)
         {
@@ -1452,7 +1452,7 @@ namespace wsServices
             try
             {
                 CultureInfo stockCulture = application.AppLibs.GetStockCulture(code);
-                databases.AppLibs.ReAggregatePriceData(code, stockCulture);
+                databases.AppLibs.ReAggregatePriceData(code, stockCulture,null);
             }
             catch (Exception ex)
             {
