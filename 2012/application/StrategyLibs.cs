@@ -464,7 +464,7 @@ namespace application.Strategy
 
         public class EstimationData
         {
-            public string  tradeAction = "";
+            public AppTypes.TradeActions tradeAction = AppTypes.TradeActions.None;
             public DateTime onDate = common.Consts.constNullDate;
             public decimal price = 0;
             public decimal qty=0;
@@ -522,24 +522,22 @@ namespace application.Strategy
             databases.baseDS.stockCodeRow stockCodeRow = application.SysLibs.FindAndCache_StockCode(data.DataStockCode);
             if (stockCodeRow == null) return;
 
-            int adviceDataIdx, lastBuyId = -1;
+            int transDataIdx, lastBuyId = -1;
             decimal stockQty = 0, qty;
             decimal maxBuyQty = (decimal)(stockCodeRow.noOutstandingStock * options.MaxBuyQtyPerc / 100);
             decimal stockAmt = 0, stockPrice = 0, amt, feeAmt, totalFeeAmt = 0;
             decimal cashAmt = initCapAmt;
             
-            DateTime transDate = common.Consts.constNullDate; ;
-            
+
+            //DateTime transDate = common.Consts.constNullDate; ;
             for (int idx = 0; idx < tradePoints.Length; idx++)
             {
-                adviceDataIdx = tradePoints[idx].DataIdx;
+                transDataIdx = tradePoints[idx].DataIdx;
                 qty = 0; amt = 0;
                 myEstimationData.ignored = false;
-                AppTypes.TradeActions action = tradePoints[idx].TradeAction;
 
-                stockPrice = (decimal)data.Close[adviceDataIdx];
-                transDate = DateTime.FromOADate(data.DateTime[adviceDataIdx]);
-                switch (action)
+                stockPrice = (decimal)data.Close[transDataIdx];
+                switch (tradePoints[idx].TradeAction)
                 {
                     case AppTypes.TradeActions.Buy:
                         //Assume that we can only buy if we have money 
@@ -553,10 +551,11 @@ namespace application.Strategy
                             feeAmt = Math.Round(amt * feePerc, 0);
                             cashAmt -= amt + feeAmt;
                             totalFeeAmt += feeAmt;
-                            lastBuyId = adviceDataIdx;
+                            lastBuyId = transDataIdx;
                         }
                         else myEstimationData.ignored = true;
                         break;
+
                     case AppTypes.TradeActions.Sell:
                         //Can sell if own some stock
                         if (stockQty <= 0)
@@ -570,57 +569,65 @@ namespace application.Strategy
                             myEstimationData.ignored = true;
                             break;
                         }
+                        //==========================
+                        // Check T+4 contrainst 
+                        //==========================
+                        int minAllowSellPointIdx = lastBuyId + buy2SellInterval;
 
-                        // T+4 contrainst ?
-                        if (common.dateTimeLibs.DateDiffInDays(DateTime.FromOADate(data.DateTime[lastBuyId]).Date,
-                                                               DateTime.FromOADate(data.DateTime[adviceDataIdx]).Date) < buy2SellInterval)
+                        // [minAllowSellPoint] is out of data bound , ignore it.
+                        if (minAllowSellPointIdx >= data.DateTime.Count)
+                        {
+                            myEstimationData.ignored = true;
+                        }
+                        
+                        // Violate T4 contrainst ?
+                        if (!myEstimationData.ignored && tradePoints[idx].DataIdx < minAllowSellPointIdx)
                         {
                             // Keep inapplicable Sells ??
                             if (Settings.sysKeepInApplicableSell)
                             {
-                                int transDataIdx = -1;
-                                DateTime minAllowSellDate = DateTime.FromOADate(data.DateTime[lastBuyId]).Date.AddDays(buy2SellInterval);
-                                //If it is the last trade point, find the next applicable date 
+                                //If it is the last trade point, make transaction (sell) at [minAllowSellPoint]
                                 if (idx >= tradePoints.Length-1)
                                 {
-                                    transDataIdx = FindDateIdx(data, tradePoints[idx].DataIdx + 1, data.DateTime.Count - 1, minAllowSellDate);
+                                    transDataIdx = minAllowSellPointIdx;
                                 }
                                 else 
                                 {
-                                    //If the next trade point is before or at [minAllowSellDate], ignore this
-                                    if (DateTime.FromOADate(data.DateTime.Values[tradePoints[idx + 1].DataIdx]).Date <= minAllowSellDate)
+                                    //If there is some trade point between it and [minAllowSellPoint], ignore it
+                                    if (tradePoints[idx + 1].DataIdx < minAllowSellPointIdx)
                                     {
                                         myEstimationData.ignored = true;
                                     }
                                     else
                                     {
-                                        //Find the next applicable date after this point and before next point
-                                        transDataIdx = FindDateIdx(data, tradePoints[idx].DataIdx + 1, tradePoints[idx + 1].DataIdx - 1, minAllowSellDate);
+                                        transDataIdx = minAllowSellPointIdx;
                                     }
-                                }
-                                if (transDataIdx < 0) myEstimationData.ignored = true;
-                                else
-                                {
-                                    stockPrice = (decimal)data.Close[transDataIdx];
-                                    transDate = DateTime.FromOADate(data.DateTime[transDataIdx]).Date;
                                 }
                             }
                             else myEstimationData.ignored = true;
                         }
                         //Ok, sell it
-                        if (!myEstimationData.ignored)
+                        if (myEstimationData.ignored != true)
                         {
+                            stockPrice = (decimal)data.Close[transDataIdx];
                             qty = stockQty;
                             amt = qty * stockPrice * priceWeight;
                             stockQty = 0; stockAmt = 0;
                             feeAmt = Math.Round(amt * feePerc, 0);
                             cashAmt += amt - feeAmt;
                             totalFeeAmt += feeAmt;
+
+                            //Adjust trade point to refresh chages by T4 constrainst
+                            tradePoints[idx].DataIdx = transDataIdx;
+                        }
+                        else
+                        {
+                            tradePoints[idx].isValid = false;
                         }
                         break;
                 }
-                myEstimationData.tradeAction = action.ToString();
-                myEstimationData.onDate = transDate;
+                myEstimationData.tradeAction = tradePoints[idx].TradeAction;
+                myEstimationData.onDate = DateTime.FromOADate(data.DateTime[transDataIdx]).Date; 
                 myEstimationData.price = stockPrice;
                 myEstimationData.qty = qty;
                 myEstimationData.amt = amt;
@@ -682,7 +689,7 @@ namespace application.Strategy
             databases.tmpDS.tradeEstimateRow row;
             row = (retObj as databases.tmpDS.tradeEstimateDataTable).NewtradeEstimateRow();
             row.ignored = data.ignored;
-            row.tradeAction = data.tradeAction;
+            row.tradeAction = data.tradeAction.ToString();
             row.onDate = data.onDate;
             row.price = data.price;
             row.qty = data.qty;
