@@ -595,7 +595,7 @@ namespace Charts.Controls
 
             myCurve.Color = color;
 
-            myCurve.Stick.FallingColor = fallingColor;
+            myCurve.Stick.FallingFill.Color = fallingColor;
             myCurve.Stick.RisingFill.Color = risingColor;
             return myCurve;
         }
