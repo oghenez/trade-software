@@ -156,8 +156,14 @@ namespace server
                 fetchDataTimer.WaitInSeconds = (short)(fetchDataChk.Checked?Settings.sysGlobal.RefreshDataInSecs:0);
                 createTradeAlertTimer.WaitInSeconds = (short)(tradeAlertChk.Checked ? Settings.sysGlobal.CheckAlertInSeconds : 0);
                 //createTradeAlertTimer.WaitInSeconds = 10;
-               
-                if (fRunning) myTimer.Start();
+
+                if (fRunning)
+                {
+                    myTimer.Start();
+                    
+                    //Init last price before importing
+                    databases.AppLibs.GetLastClosePrices();
+                }
                 else myTimer.Stop();
             }
             catch (Exception er)
