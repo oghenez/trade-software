@@ -595,8 +595,12 @@ namespace Charts.Controls
 
             myCurve.Color = color;
 
+            myCurve.Stick.FallingColor = fallingColor;
             myCurve.Stick.FallingFill.Color = fallingColor;
+            //myCurve.Stick.FallingBorder.Color = fallingColor;
+
             myCurve.Stick.RisingFill.Color = risingColor;
+            //myCurve.Stick.RisingBorder.Color = risingColor;
             return myCurve;
         }
         #endregion Chart
