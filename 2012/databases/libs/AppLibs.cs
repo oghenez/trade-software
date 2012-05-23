@@ -186,8 +186,6 @@ namespace databases
             row.volume = 0;
             row.highPrice = decimal.MinValue;
             row.lowPrice = decimal.MaxValue;
-            row.openTimeOffset = int.MaxValue;
-            row.closeTimeOffset = int.MinValue;
         }
 
         public static void InitData(databases.baseDS.tradeAlertRow row)
@@ -471,6 +469,7 @@ namespace databases
             if (priceTbl == null) return;
             //Delete all summ pricedata
             DbAccess.DeletePriceSumData(code);
+            ClearLastClosePrices();
             AggregatePriceData(priceTbl, stockCulture, onAggregateDataFunc);
             priceTbl.Dispose();
         }
@@ -514,6 +513,44 @@ namespace databases
             return onDateTime;
         }
 
+        // [lastClosePrices] variable keeps last close price list used for aggregation
+        // [lastClosePrices] is updated continuously during aggregation process to refresh the latest values
+        private static common.DictionaryList lastClosePrices = new common.DictionaryList();
+        private static void ClearLastClosePrices()
+        {
+            lastClosePrices.Clear();
+        }
+        //private static void SetLastClosePrices(common.DictionaryList values)
+        //{
+        //    lastClosePrices.Clear();
+        //    for (int idx = 0; idx < values.Keys.Length; idx++)
+        //    {
+        //        lastClosePrices.Add(values.Keys[idx], values.Values[idx]);
+        //    }
+        //}
+
+        /// <summary>
+        /// Get the all last price (grouped by timescale and stock) from databases
+        /// </summary>
+        public static void GetLastClosePrices()
+        {
+            ClearLastClosePrices();
+            databases.baseDS.stockCodeDataTable stockCodeTbl = new baseDS.stockCodeDataTable();
+            databases.DbAccess.LoadData(stockCodeTbl);
+
+            databases.baseDS.priceDataSumRow priceDataSumRow;
+            for (int idx = 0; idx < stockCodeTbl.Count; idx++)
+            {
+                foreach (AppTypes.TimeScale timeScale in AppTypes.myTimeScales)
+                {
+                    if (timeScale == AppTypes.MainDataTimeScale) continue;
+                    priceDataSumRow = databases.DbAccess.GetLastPrice(timeScale.Code, stockCodeTbl[idx].code);
+                    if (priceDataSumRow == null) continue;
+                    lastClosePrices.Add(timeScale.Code + stockCodeTbl[idx].code, priceDataSumRow.closePrice);
+                }
+            }
+        }
+
         /// <summary>
         /// Agrregate a data row to hourly,daily data...
         /// </summary>
@@ -526,8 +563,6 @@ namespace databases
                                               CultureInfo cultureInfo, databases.baseDS.priceDataSumDataTable toSumTbl)
         {
             DateTime dataDate = AggregateDateTime(timeScale, priceRow.onDate, cultureInfo);
-            int dataTimeOffset = (int)common.dateTimeLibs.DateDiffInMilliseconds(dataDate, priceRow.onDate);
-
             databases.baseDS.priceDataSumRow priceDataSumRow;
             priceDataSumRow = AppLibs.FindAndCache(toSumTbl, priceRow.stockCode, timeScale.Code, dataDate);
             if (priceDataSumRow == null)
@@ -539,21 +574,18 @@ namespace databases
                 priceDataSumRow.onDate = dataDate;
                 priceDataSumRow.openPrice = priceRow.openPrice;
                 priceDataSumRow.closePrice = priceRow.closePrice;
-                priceDataSumRow.openTimeOffset = dataTimeOffset;
-                priceDataSumRow.closeTimeOffset = dataTimeOffset;
 
+                object lastPriceObj = lastClosePrices.Find(timeScale.Code + priceRow.stockCode);
+                if (lastPriceObj!=null)
+                {
+                    priceDataSumRow.openPrice = (decimal)lastPriceObj;
+                }
+                else priceDataSumRow.openPrice = priceDataSumRow.closePrice;
                 toSumTbl.AddpriceDataSumRow(priceDataSumRow);
             }
-            if (priceDataSumRow.openTimeOffset >= dataTimeOffset)
-            {
-                priceDataSumRow.openPrice = priceRow.openPrice;
-                priceDataSumRow.openTimeOffset = dataTimeOffset;
-            }
-            if (priceDataSumRow.closeTimeOffset <= dataTimeOffset)
-            {
-                priceDataSumRow.closePrice = priceRow.closePrice;
-                priceDataSumRow.closeTimeOffset = dataTimeOffset;
-            }
+            priceDataSumRow.closePrice = priceRow.closePrice;
+            lastClosePrices.Add(timeScale.Code + priceRow.stockCode, priceRow.closePrice);
+
             if (priceDataSumRow.highPrice < priceRow.highPrice) priceDataSumRow.highPrice = priceRow.highPrice;
             if (priceDataSumRow.lowPrice > priceRow.lowPrice) priceDataSumRow.lowPrice = priceRow.lowPrice;
             priceDataSumRow.volume += changeVolume;
@@ -578,8 +610,6 @@ namespace databases
                 databases.baseDS.priceDataSumDataTable priceSumDataTbl = new databases.baseDS.priceDataSumDataTable();
                 AgrregateInfo myAgrregateStat = new AgrregateInfo();
                 myAgrregateStat.maxCount = priceTbl.Count;
-                //priceTbl.DefaultView.Sort = priceTbl.onDateColumn.ColumnName + "," + priceTbl.stockCodeColumn.ColumnName;
-                //databases.baseDS.priceDataRow priceDataRow;
 
                 decimal changeVolume;
                 int lastYear = int.MinValue;
@@ -613,7 +643,6 @@ namespace databases
                 priceSumDataTbl.Dispose();
             }
             
-        
         public static tmpDS.dataVarrianceDataTable GetTopPriceVarriance(DateTime beforeDate, string timeScaleCode, int topN)
         {
             tmpDS.dataVarrianceDataTable tmpDataTbl = GetPriceVarriance(beforeDate, timeScaleCode);
