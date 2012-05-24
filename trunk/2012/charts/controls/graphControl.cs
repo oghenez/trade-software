@@ -578,7 +578,9 @@ namespace Charts.Controls
             return myCurve;
         }
         public JapaneseCandleStickItem AddCandleStick(string name, double[] seriesHigh, double[] seriesLow, double[] seriesOpen, double[] seriesClose, double[] seriesVolume,
-                                                      Color color, Color stickColor, Color risingColor, Color fallingColor)
+                                                      Color barUpColor, Color barDownColor, 
+                                                      Color risingFillColor, Color risingBorderColor,
+                                                      Color fallingFillColor, Color fallingBorderColor)
         {
             if (this.mySeriesX == null) return null;
             StockPointList spl = new StockPointList();
@@ -591,16 +593,17 @@ namespace Charts.Controls
 
             JapaneseCandleStickItem myCurve = myGraphPane.AddJapaneseCandleStick(name, spl);
             myCurve.Stick.IsAutoSize = true;
-            myCurve.Stick.Color = stickColor;
+            
+            myCurve.Stick.Color = barUpColor; //Bar up
+            myCurve.Stick.FallingColor = barDownColor; //Bar down 
+            //myCurve.Color = Color.Pink; // Unknown
 
-            myCurve.Color = color;
+            myCurve.Stick.FallingFill.Color = fallingFillColor;
+            myCurve.Stick.FallingBorder.Color = fallingBorderColor;
 
-            myCurve.Stick.FallingColor = fallingColor;
-            myCurve.Stick.FallingFill.Color = fallingColor;
-            //myCurve.Stick.FallingBorder.Color = fallingColor;
+            myCurve.Stick.RisingFill.Color = risingFillColor;
+            myCurve.Stick.RisingBorder.Color = risingBorderColor;
 
-            myCurve.Stick.RisingFill.Color = risingColor;
-            //myCurve.Stick.RisingBorder.Color = risingColor;
             return myCurve;
         }
         #endregion Chart

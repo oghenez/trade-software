@@ -394,6 +394,15 @@ namespace Languages.langs {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Bear Border.
+        /// </summary>
+        internal static string bearBorder {
+            get {
+                return ResourceManager.GetString("bearBorder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Bear Candle.
         /// </summary>
         internal static string bearCandle {
@@ -444,6 +453,15 @@ namespace Languages.langs {
         internal static string boughtPrice {
             get {
                 return ResourceManager.GetString("boughtPrice", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Bull Border.
+        /// </summary>
+        internal static string bullBorder {
+            get {
+                return ResourceManager.GetString("bullBorder", resourceCulture);
             }
         }
         

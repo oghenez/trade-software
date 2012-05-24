@@ -1332,4 +1332,10 @@
   <data name="currentPrice" xml:space="preserve">
     <value>Current Price</value>
   </data>
+  <data name="bearBorder" xml:space="preserve">
+    <value>Bear Border</value>
+  </data>
+  <data name="bullBorder" xml:space="preserve">
+    <value>Bull Border</value>
+  </data>
 </root>
