@@ -1338,4 +1338,10 @@
   <data name="currentPrice" xml:space="preserve">
     <value>Giá hiện tại</value>
   </data>
+  <data name="bearBorder" xml:space="preserve">
+    <value>Viền giảm</value>
+  </data>
+  <data name="bullBorder" xml:space="preserve">
+    <value>Viền tăng</value>
+  </data>
 </root>

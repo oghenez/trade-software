@@ -325,8 +325,13 @@ namespace commonTypes
 
         public static Color sysChartVolumesColor = Color.Navy;
         public static Color sysChartLineCandleColor = Color.DarkBlue;
+
         public static Color sysChartBearCandleColor = Color.Red;
+        public static Color sysChartBearBorderColor = Color.Black;
+        
         public static Color sysChartBullCandleColor = Color.Green;
+        public static Color sysChartBullBorderColor = Color.Black;
+
         public static Color sysChartBarDnColor = Color.Pink;
         public static Color sysChartBarUpColor = Color.Blue;
 
