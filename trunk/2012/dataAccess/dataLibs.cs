@@ -63,14 +63,19 @@ namespace DataAccess
         private static bool OpenConnection(common.wsConnectionInfo wsInfo)
         {
             if (_myClient != null) _myClient.Abort();
-            _myClient = new ServiceReference1.StockServiceClient();
+            //Basic binding
+            _myClient = new ServiceReference1.StockServiceClient("basicEndpoint");
+            System.ServiceModel.BasicHttpBinding binding = (_myClient.Endpoint.Binding as System.ServiceModel.BasicHttpBinding);
 
-            System.ServiceModel.WSHttpBinding binding = (_myClient.Endpoint.Binding as System.ServiceModel.WSHttpBinding);
+            //Secure binding
+            //_myClient = new ServiceReference1.StockServiceClient("wsEndpoint");
+            //System.ServiceModel.WSHttpBinding binding = (_myClient.Endpoint.Binding as System.ServiceModel.WSHttpBinding);
 
             binding.OpenTimeout = TimeSpan.FromSeconds(wsInfo.timeoutInSecs);
             binding.CloseTimeout = TimeSpan.FromSeconds(wsInfo.timeoutInSecs);
             binding.SendTimeout = TimeSpan.FromSeconds(wsInfo.timeoutInSecs);
 
+            binding.MaxBufferSize = constMaxReceivedMessageSize; //Basic HTTP require MaxBufferSize=MaxReceivedMessageSize
             binding.MaxReceivedMessageSize = constMaxReceivedMessageSize;
             binding.ReaderQuotas.MaxStringContentLength = constMaxStringContentLength;
             binding.ReaderQuotas.MaxBytesPerRead = constMaxBytesPerRead;
@@ -202,7 +207,9 @@ namespace DataAccess
             {
                 return myClient.IsWorking();
             }
-            catch{}
+            catch(Exception er)
+            {
+            }
             return false;
         }
 
@@ -562,7 +569,7 @@ namespace DataAccess
         {
             try
             {
-                return myClient.GetAbnormalData(code, frDate, toDate, timeScaleCode);
+                //return myClient.GetAbnormalData(code, frDate, toDate, timeScaleCode);
             }
             catch (Exception er)
             {

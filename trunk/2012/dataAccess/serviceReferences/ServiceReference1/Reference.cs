@@ -15,45 +15,6 @@ namespace DataAccess.ServiceReference1 {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.IStockService")]
     public interface IStockService {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/Estimate_Matrix_LastBizWeight", ReplyAction="http://tempuri.org/IStockService/Estimate_Matrix_LastBizWeightResponse")]
-        double[][] Estimate_Matrix_LastBizWeight(commonClass.DataParams dataParams, string[] stockCodeList, string[] strategyList);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/Analysis", ReplyAction="http://tempuri.org/IStockService/AnalysisResponse")]
-        commonClass.TradePointInfo[] Analysis(string dataKey, string strategyCode);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/MakeTransaction", ReplyAction="http://tempuri.org/IStockService/MakeTransactionResponse")]
-        databases.baseDS.transactionsDataTable MakeTransaction(out string errorText, commonTypes.AppTypes.TradeActions type, string stockCode, string portfolioCode, int qty, decimal feePerc);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetTradePointWithEstimationDetail", ReplyAction="http://tempuri.org/IStockService/GetTradePointWithEstimationDetailResponse")]
-        commonClass.TradePointInfo[] GetTradePointWithEstimationDetail(out databases.tmpDS.tradeEstimateDataTable toTbl, commonClass.DataParams dataParam, string stockCode, string strategyCode, commonClass.EstimateOptions options);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/DiagnosePrice_CloseAndNextOpen", ReplyAction="http://tempuri.org/IStockService/DiagnosePrice_CloseAndNextOpenResponse")]
-        databases.tmpDS.priceDiagnoseDataTable DiagnosePrice_CloseAndNextOpen(System.DateTime frDate, System.DateTime toDate, string timeScaleCode, string exchangeCode, string code, double variantPerc, double variance, byte precision);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/ReAggregatePriceData", ReplyAction="http://tempuri.org/IStockService/ReAggregatePriceDataResponse")]
-        void ReAggregatePriceData(string code);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetXmlDoc2StringSTRATEGY", ReplyAction="http://tempuri.org/IStockService/GetXmlDoc2StringSTRATEGYResponse")]
-        string GetXmlDoc2StringSTRATEGY();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetXmlDoc2StringINDICATOR", ReplyAction="http://tempuri.org/IStockService/GetXmlDoc2StringINDICATORResponse")]
-        string GetXmlDoc2StringINDICATOR();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/Load_Global_Settings", ReplyAction="http://tempuri.org/IStockService/Load_Global_SettingsResponse")]
-        void Load_Global_Settings(ref commonTypes.GlobalSettings settings);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/Save_Global_Settings", ReplyAction="http://tempuri.org/IStockService/Save_Global_SettingsResponse")]
-        void Save_Global_Settings(commonTypes.GlobalSettings settings);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/WriteLog", ReplyAction="http://tempuri.org/IStockService/WriteLogResponse")]
-        void WriteLog(byte logType, string investorCode, string desc, string source, string msg);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/WriteExcptionLog", ReplyAction="http://tempuri.org/IStockService/WriteExcptionLogResponse")]
-        void WriteExcptionLog(string investorCode, common.SysLog.LogData logData);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetTopPriceVarrianceMarket", ReplyAction="http://tempuri.org/IStockService/GetTopPriceVarrianceMarketResponse")]
-        databases.tmpDS.dataVarrianceDataTable GetTopPriceVarrianceMarket(System.DateTime beforeDate, string timeScaleCode, int topN);
-        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetTopPriceVarrianceUser", ReplyAction="http://tempuri.org/IStockService/GetTopPriceVarrianceUserResponse")]
         databases.tmpDS.dataVarrianceDataTable GetTopPriceVarrianceUser(System.DateTime beforeDate, string timeScaleCode, string userCode, int topN);
         
@@ -65,33 +26,6 @@ namespace DataAccess.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetLastPrice", ReplyAction="http://tempuri.org/IStockService/GetLastPriceResponse")]
         databases.baseDS.lastPriceDataDataTable GetLastPrice(commonTypes.AppTypes.PriceDataType type);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetBizSubSector_ByIndustry", ReplyAction="http://tempuri.org/IStockService/GetBizSubSector_ByIndustryResponse")]
-        databases.baseDS.bizSubSectorDataTable GetBizSubSector_ByIndustry(string code);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetBizSubSector_BySuperSector", ReplyAction="http://tempuri.org/IStockService/GetBizSubSector_BySuperSectorResponse")]
-        databases.baseDS.bizSubSectorDataTable GetBizSubSector_BySuperSector(string code);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetBizSubSector_BySector", ReplyAction="http://tempuri.org/IStockService/GetBizSubSector_BySectorResponse")]
-        databases.baseDS.bizSubSectorDataTable GetBizSubSector_BySector(string code);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetPortfolio_ByInvestorAndType", ReplyAction="http://tempuri.org/IStockService/GetPortfolio_ByInvestorAndTypeResponse")]
-        databases.baseDS.portfolioDataTable GetPortfolio_ByInvestorAndType(string investorCode, commonTypes.AppTypes.PortfolioTypes type);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetPortfolio_ByType", ReplyAction="http://tempuri.org/IStockService/GetPortfolio_ByTypeResponse")]
-        databases.baseDS.portfolioDataTable GetPortfolio_ByType(commonTypes.AppTypes.PortfolioTypes type);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetPortfolio_ByCode", ReplyAction="http://tempuri.org/IStockService/GetPortfolio_ByCodeResponse")]
-        databases.baseDS.portfolioDataTable GetPortfolio_ByCode(string portfolioCode);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetPortfolio_ByInvestor", ReplyAction="http://tempuri.org/IStockService/GetPortfolio_ByInvestorResponse")]
-        databases.baseDS.portfolioDataTable GetPortfolio_ByInvestor(string investorCode);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetTradeAlert", ReplyAction="http://tempuri.org/IStockService/GetTradeAlertResponse")]
-        databases.baseDS.tradeAlertDataTable GetTradeAlert(System.DateTime frDate, System.DateTime toDate, string investor, byte statusMask);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetTradeAlert_BySQL", ReplyAction="http://tempuri.org/IStockService/GetTradeAlert_BySQLResponse")]
-        databases.baseDS.tradeAlertDataTable GetTradeAlert_BySQL(string alertSql);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetTransaction_BySQL", ReplyAction="http://tempuri.org/IStockService/GetTransaction_BySQLResponse")]
         databases.baseDS.transactionsDataTable GetTransaction_BySQL(string transSql);
@@ -150,20 +84,44 @@ namespace DataAccess.ServiceReference1 {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/Estimate_Matrix_Profit", ReplyAction="http://tempuri.org/IStockService/Estimate_Matrix_ProfitResponse")]
         decimal[][] Estimate_Matrix_Profit(commonTypes.AppTypes.TimeRanges timeRange, string timeScaleCode, string[] stockCodeList, string[] strategyList, commonClass.EstimateOptions option);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetInvestorShortList", ReplyAction="http://tempuri.org/IStockService/GetInvestorShortListResponse")]
-        databases.tmpDS.investorDataTable GetInvestorShortList();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/Estimate_Matrix_LastBizWeight", ReplyAction="http://tempuri.org/IStockService/Estimate_Matrix_LastBizWeightResponse")]
+        double[][] Estimate_Matrix_LastBizWeight(commonClass.DataParams dataParams, string[] stockCodeList, string[] strategyList);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetSyslog_ByDate", ReplyAction="http://tempuri.org/IStockService/GetSyslog_ByDateResponse")]
-        databases.baseDS.sysLogDataTable GetSyslog_ByDate(System.DateTime frDate, System.DateTime toDate);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/Analysis", ReplyAction="http://tempuri.org/IStockService/AnalysisResponse")]
+        commonClass.TradePointInfo[] Analysis(string dataKey, string strategyCode);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetSyslog_BySQL", ReplyAction="http://tempuri.org/IStockService/GetSyslog_BySQLResponse")]
-        databases.baseDS.sysLogDataTable GetSyslog_BySQL(string sql);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/MakeTransaction", ReplyAction="http://tempuri.org/IStockService/MakeTransactionResponse")]
+        databases.baseDS.transactionsDataTable MakeTransaction(out string errorText, commonTypes.AppTypes.TradeActions type, string stockCode, string portfolioCode, int qty, decimal feePerc);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetStockFull", ReplyAction="http://tempuri.org/IStockService/GetStockFullResponse")]
-        databases.baseDS.stockCodeDataTable GetStockFull();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetTradePointWithEstimationDetail", ReplyAction="http://tempuri.org/IStockService/GetTradePointWithEstimationDetailResponse")]
+        commonClass.TradePointInfo[] GetTradePointWithEstimationDetail(out databases.tmpDS.tradeEstimateDataTable toTbl, commonClass.DataParams dataParam, string stockCode, string strategyCode, commonClass.EstimateOptions options);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetStockList_ByWatchList", ReplyAction="http://tempuri.org/IStockService/GetStockList_ByWatchListResponse")]
-        string[] GetStockList_ByWatchList(string[] watchList);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/DiagnosePrice_CloseAndNextOpen", ReplyAction="http://tempuri.org/IStockService/DiagnosePrice_CloseAndNextOpenResponse")]
+        databases.tmpDS.priceDiagnoseDataTable DiagnosePrice_CloseAndNextOpen(System.DateTime frDate, System.DateTime toDate, string timeScaleCode, string exchangeCode, string code, double variantPerc, double variance, byte precision);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/ReAggregatePriceData", ReplyAction="http://tempuri.org/IStockService/ReAggregatePriceDataResponse")]
+        void ReAggregatePriceData(string code);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetXmlDoc2StringSTRATEGY", ReplyAction="http://tempuri.org/IStockService/GetXmlDoc2StringSTRATEGYResponse")]
+        string GetXmlDoc2StringSTRATEGY();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetXmlDoc2StringINDICATOR", ReplyAction="http://tempuri.org/IStockService/GetXmlDoc2StringINDICATORResponse")]
+        string GetXmlDoc2StringINDICATOR();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/Load_Global_Settings", ReplyAction="http://tempuri.org/IStockService/Load_Global_SettingsResponse")]
+        void Load_Global_Settings(ref commonTypes.GlobalSettings settings);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/Save_Global_Settings", ReplyAction="http://tempuri.org/IStockService/Save_Global_SettingsResponse")]
+        void Save_Global_Settings(commonTypes.GlobalSettings settings);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/WriteLog", ReplyAction="http://tempuri.org/IStockService/WriteLogResponse")]
+        void WriteLog(byte logType, string investorCode, string desc, string source, string msg);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/WriteExcptionLog", ReplyAction="http://tempuri.org/IStockService/WriteExcptionLogResponse")]
+        void WriteExcptionLog(string investorCode, common.SysLog.LogData logData);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetTopPriceVarrianceMarket", ReplyAction="http://tempuri.org/IStockService/GetTopPriceVarrianceMarketResponse")]
+        databases.tmpDS.dataVarrianceDataTable GetTopPriceVarrianceMarket(System.DateTime beforeDate, string timeScaleCode, int topN);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetStockList_ByBizSector", ReplyAction="http://tempuri.org/IStockService/GetStockList_ByBizSectorResponse")]
         string[] GetStockList_ByBizSector(string[] sectors);
@@ -233,6 +191,33 @@ namespace DataAccess.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetStock_ByBizSector", ReplyAction="http://tempuri.org/IStockService/GetStock_ByBizSectorResponse")]
         databases.tmpDS.stockCodeDataTable GetStock_ByBizSector(string[] bizSector);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetBizSubSector_ByIndustry", ReplyAction="http://tempuri.org/IStockService/GetBizSubSector_ByIndustryResponse")]
+        databases.baseDS.bizSubSectorDataTable GetBizSubSector_ByIndustry(string code);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetBizSubSector_BySuperSector", ReplyAction="http://tempuri.org/IStockService/GetBizSubSector_BySuperSectorResponse")]
+        databases.baseDS.bizSubSectorDataTable GetBizSubSector_BySuperSector(string code);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetBizSubSector_BySector", ReplyAction="http://tempuri.org/IStockService/GetBizSubSector_BySectorResponse")]
+        databases.baseDS.bizSubSectorDataTable GetBizSubSector_BySector(string code);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetPortfolio_ByInvestorAndType", ReplyAction="http://tempuri.org/IStockService/GetPortfolio_ByInvestorAndTypeResponse")]
+        databases.baseDS.portfolioDataTable GetPortfolio_ByInvestorAndType(string investorCode, commonTypes.AppTypes.PortfolioTypes type);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetPortfolio_ByType", ReplyAction="http://tempuri.org/IStockService/GetPortfolio_ByTypeResponse")]
+        databases.baseDS.portfolioDataTable GetPortfolio_ByType(commonTypes.AppTypes.PortfolioTypes type);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetPortfolio_ByCode", ReplyAction="http://tempuri.org/IStockService/GetPortfolio_ByCodeResponse")]
+        databases.baseDS.portfolioDataTable GetPortfolio_ByCode(string portfolioCode);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetPortfolio_ByInvestor", ReplyAction="http://tempuri.org/IStockService/GetPortfolio_ByInvestorResponse")]
+        databases.baseDS.portfolioDataTable GetPortfolio_ByInvestor(string investorCode);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetTradeAlert", ReplyAction="http://tempuri.org/IStockService/GetTradeAlertResponse")]
+        databases.baseDS.tradeAlertDataTable GetTradeAlert(System.DateTime frDate, System.DateTime toDate, string investor, byte statusMask);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetTradeAlert_BySQL", ReplyAction="http://tempuri.org/IStockService/GetTradeAlert_BySQLResponse")]
+        databases.baseDS.tradeAlertDataTable GetTradeAlert_BySQL(string alertSql);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/Reset", ReplyAction="http://tempuri.org/IStockService/ResetResponse")]
         void Reset();
@@ -315,8 +300,20 @@ namespace DataAccess.ServiceReference1 {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetStockByStatus", ReplyAction="http://tempuri.org/IStockService/GetStockByStatusResponse")]
         databases.tmpDS.stockCodeDataTable GetStockByStatus(commonTypes.AppTypes.CommonStatus status);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetAbnormalData", ReplyAction="http://tempuri.org/IStockService/GetAbnormalDataResponse")]
-        databases.baseDS.priceDataDataTable GetAbnormalData(string code, System.DateTime frDate, System.DateTime toDate, string timeSacleCode);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetInvestorShortList", ReplyAction="http://tempuri.org/IStockService/GetInvestorShortListResponse")]
+        databases.tmpDS.investorDataTable GetInvestorShortList();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetSyslog_ByDate", ReplyAction="http://tempuri.org/IStockService/GetSyslog_ByDateResponse")]
+        databases.baseDS.sysLogDataTable GetSyslog_ByDate(System.DateTime frDate, System.DateTime toDate);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetSyslog_BySQL", ReplyAction="http://tempuri.org/IStockService/GetSyslog_BySQLResponse")]
+        databases.baseDS.sysLogDataTable GetSyslog_BySQL(string sql);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetStockFull", ReplyAction="http://tempuri.org/IStockService/GetStockFullResponse")]
+        databases.baseDS.stockCodeDataTable GetStockFull();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetStockList_ByWatchList", ReplyAction="http://tempuri.org/IStockService/GetStockList_ByWatchListResponse")]
+        string[] GetStockList_ByWatchList(string[] watchList);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "3.0.0.0")]
@@ -346,58 +343,6 @@ namespace DataAccess.ServiceReference1 {
                 base(binding, remoteAddress) {
         }
         
-        public double[][] Estimate_Matrix_LastBizWeight(commonClass.DataParams dataParams, string[] stockCodeList, string[] strategyList) {
-            return base.Channel.Estimate_Matrix_LastBizWeight(dataParams, stockCodeList, strategyList);
-        }
-        
-        public commonClass.TradePointInfo[] Analysis(string dataKey, string strategyCode) {
-            return base.Channel.Analysis(dataKey, strategyCode);
-        }
-        
-        public databases.baseDS.transactionsDataTable MakeTransaction(out string errorText, commonTypes.AppTypes.TradeActions type, string stockCode, string portfolioCode, int qty, decimal feePerc) {
-            return base.Channel.MakeTransaction(out errorText, type, stockCode, portfolioCode, qty, feePerc);
-        }
-        
-        public commonClass.TradePointInfo[] GetTradePointWithEstimationDetail(out databases.tmpDS.tradeEstimateDataTable toTbl, commonClass.DataParams dataParam, string stockCode, string strategyCode, commonClass.EstimateOptions options) {
-            return base.Channel.GetTradePointWithEstimationDetail(out toTbl, dataParam, stockCode, strategyCode, options);
-        }
-        
-        public databases.tmpDS.priceDiagnoseDataTable DiagnosePrice_CloseAndNextOpen(System.DateTime frDate, System.DateTime toDate, string timeScaleCode, string exchangeCode, string code, double variantPerc, double variance, byte precision) {
-            return base.Channel.DiagnosePrice_CloseAndNextOpen(frDate, toDate, timeScaleCode, exchangeCode, code, variantPerc, variance, precision);
-        }
-        
-        public void ReAggregatePriceData(string code) {
-            base.Channel.ReAggregatePriceData(code);
-        }
-        
-        public string GetXmlDoc2StringSTRATEGY() {
-            return base.Channel.GetXmlDoc2StringSTRATEGY();
-        }
-        
-        public string GetXmlDoc2StringINDICATOR() {
-            return base.Channel.GetXmlDoc2StringINDICATOR();
-        }
-        
-        public void Load_Global_Settings(ref commonTypes.GlobalSettings settings) {
-            base.Channel.Load_Global_Settings(ref settings);
-        }
-        
-        public void Save_Global_Settings(commonTypes.GlobalSettings settings) {
-            base.Channel.Save_Global_Settings(settings);
-        }
-        
-        public void WriteLog(byte logType, string investorCode, string desc, string source, string msg) {
-            base.Channel.WriteLog(logType, investorCode, desc, source, msg);
-        }
-        
-        public void WriteExcptionLog(string investorCode, common.SysLog.LogData logData) {
-            base.Channel.WriteExcptionLog(investorCode, logData);
-        }
-        
-        public databases.tmpDS.dataVarrianceDataTable GetTopPriceVarrianceMarket(System.DateTime beforeDate, string timeScaleCode, int topN) {
-            return base.Channel.GetTopPriceVarrianceMarket(beforeDate, timeScaleCode, topN);
-        }
-        
         public databases.tmpDS.dataVarrianceDataTable GetTopPriceVarrianceUser(System.DateTime beforeDate, string timeScaleCode, string userCode, int topN) {
             return base.Channel.GetTopPriceVarrianceUser(beforeDate, timeScaleCode, userCode, topN);
         }
@@ -412,42 +357,6 @@ namespace DataAccess.ServiceReference1 {
         
         public databases.baseDS.lastPriceDataDataTable GetLastPrice(commonTypes.AppTypes.PriceDataType type) {
             return base.Channel.GetLastPrice(type);
-        }
-        
-        public databases.baseDS.bizSubSectorDataTable GetBizSubSector_ByIndustry(string code) {
-            return base.Channel.GetBizSubSector_ByIndustry(code);
-        }
-        
-        public databases.baseDS.bizSubSectorDataTable GetBizSubSector_BySuperSector(string code) {
-            return base.Channel.GetBizSubSector_BySuperSector(code);
-        }
-        
-        public databases.baseDS.bizSubSectorDataTable GetBizSubSector_BySector(string code) {
-            return base.Channel.GetBizSubSector_BySector(code);
-        }
-        
-        public databases.baseDS.portfolioDataTable GetPortfolio_ByInvestorAndType(string investorCode, commonTypes.AppTypes.PortfolioTypes type) {
-            return base.Channel.GetPortfolio_ByInvestorAndType(investorCode, type);
-        }
-        
-        public databases.baseDS.portfolioDataTable GetPortfolio_ByType(commonTypes.AppTypes.PortfolioTypes type) {
-            return base.Channel.GetPortfolio_ByType(type);
-        }
-        
-        public databases.baseDS.portfolioDataTable GetPortfolio_ByCode(string portfolioCode) {
-            return base.Channel.GetPortfolio_ByCode(portfolioCode);
-        }
-        
-        public databases.baseDS.portfolioDataTable GetPortfolio_ByInvestor(string investorCode) {
-            return base.Channel.GetPortfolio_ByInvestor(investorCode);
-        }
-        
-        public databases.baseDS.tradeAlertDataTable GetTradeAlert(System.DateTime frDate, System.DateTime toDate, string investor, byte statusMask) {
-            return base.Channel.GetTradeAlert(frDate, toDate, investor, statusMask);
-        }
-        
-        public databases.baseDS.tradeAlertDataTable GetTradeAlert_BySQL(string alertSql) {
-            return base.Channel.GetTradeAlert_BySQL(alertSql);
         }
         
         public databases.baseDS.transactionsDataTable GetTransaction_BySQL(string transSql) {
@@ -526,24 +435,56 @@ namespace DataAccess.ServiceReference1 {
             return base.Channel.Estimate_Matrix_Profit(timeRange, timeScaleCode, stockCodeList, strategyList, option);
         }
         
-        public databases.tmpDS.investorDataTable GetInvestorShortList() {
-            return base.Channel.GetInvestorShortList();
+        public double[][] Estimate_Matrix_LastBizWeight(commonClass.DataParams dataParams, string[] stockCodeList, string[] strategyList) {
+            return base.Channel.Estimate_Matrix_LastBizWeight(dataParams, stockCodeList, strategyList);
         }
         
-        public databases.baseDS.sysLogDataTable GetSyslog_ByDate(System.DateTime frDate, System.DateTime toDate) {
-            return base.Channel.GetSyslog_ByDate(frDate, toDate);
+        public commonClass.TradePointInfo[] Analysis(string dataKey, string strategyCode) {
+            return base.Channel.Analysis(dataKey, strategyCode);
         }
         
-        public databases.baseDS.sysLogDataTable GetSyslog_BySQL(string sql) {
-            return base.Channel.GetSyslog_BySQL(sql);
+        public databases.baseDS.transactionsDataTable MakeTransaction(out string errorText, commonTypes.AppTypes.TradeActions type, string stockCode, string portfolioCode, int qty, decimal feePerc) {
+            return base.Channel.MakeTransaction(out errorText, type, stockCode, portfolioCode, qty, feePerc);
         }
         
-        public databases.baseDS.stockCodeDataTable GetStockFull() {
-            return base.Channel.GetStockFull();
+        public commonClass.TradePointInfo[] GetTradePointWithEstimationDetail(out databases.tmpDS.tradeEstimateDataTable toTbl, commonClass.DataParams dataParam, string stockCode, string strategyCode, commonClass.EstimateOptions options) {
+            return base.Channel.GetTradePointWithEstimationDetail(out toTbl, dataParam, stockCode, strategyCode, options);
         }
         
-        public string[] GetStockList_ByWatchList(string[] watchList) {
-            return base.Channel.GetStockList_ByWatchList(watchList);
+        public databases.tmpDS.priceDiagnoseDataTable DiagnosePrice_CloseAndNextOpen(System.DateTime frDate, System.DateTime toDate, string timeScaleCode, string exchangeCode, string code, double variantPerc, double variance, byte precision) {
+            return base.Channel.DiagnosePrice_CloseAndNextOpen(frDate, toDate, timeScaleCode, exchangeCode, code, variantPerc, variance, precision);
+        }
+        
+        public void ReAggregatePriceData(string code) {
+            base.Channel.ReAggregatePriceData(code);
+        }
+        
+        public string GetXmlDoc2StringSTRATEGY() {
+            return base.Channel.GetXmlDoc2StringSTRATEGY();
+        }
+        
+        public string GetXmlDoc2StringINDICATOR() {
+            return base.Channel.GetXmlDoc2StringINDICATOR();
+        }
+        
+        public void Load_Global_Settings(ref commonTypes.GlobalSettings settings) {
+            base.Channel.Load_Global_Settings(ref settings);
+        }
+        
+        public void Save_Global_Settings(commonTypes.GlobalSettings settings) {
+            base.Channel.Save_Global_Settings(settings);
+        }
+        
+        public void WriteLog(byte logType, string investorCode, string desc, string source, string msg) {
+            base.Channel.WriteLog(logType, investorCode, desc, source, msg);
+        }
+        
+        public void WriteExcptionLog(string investorCode, common.SysLog.LogData logData) {
+            base.Channel.WriteExcptionLog(investorCode, logData);
+        }
+        
+        public databases.tmpDS.dataVarrianceDataTable GetTopPriceVarrianceMarket(System.DateTime beforeDate, string timeScaleCode, int topN) {
+            return base.Channel.GetTopPriceVarrianceMarket(beforeDate, timeScaleCode, topN);
         }
         
         public string[] GetStockList_ByBizSector(string[] sectors) {
@@ -636,6 +577,42 @@ namespace DataAccess.ServiceReference1 {
         
         public databases.tmpDS.stockCodeDataTable GetStock_ByBizSector(string[] bizSector) {
             return base.Channel.GetStock_ByBizSector(bizSector);
+        }
+        
+        public databases.baseDS.bizSubSectorDataTable GetBizSubSector_ByIndustry(string code) {
+            return base.Channel.GetBizSubSector_ByIndustry(code);
+        }
+        
+        public databases.baseDS.bizSubSectorDataTable GetBizSubSector_BySuperSector(string code) {
+            return base.Channel.GetBizSubSector_BySuperSector(code);
+        }
+        
+        public databases.baseDS.bizSubSectorDataTable GetBizSubSector_BySector(string code) {
+            return base.Channel.GetBizSubSector_BySector(code);
+        }
+        
+        public databases.baseDS.portfolioDataTable GetPortfolio_ByInvestorAndType(string investorCode, commonTypes.AppTypes.PortfolioTypes type) {
+            return base.Channel.GetPortfolio_ByInvestorAndType(investorCode, type);
+        }
+        
+        public databases.baseDS.portfolioDataTable GetPortfolio_ByType(commonTypes.AppTypes.PortfolioTypes type) {
+            return base.Channel.GetPortfolio_ByType(type);
+        }
+        
+        public databases.baseDS.portfolioDataTable GetPortfolio_ByCode(string portfolioCode) {
+            return base.Channel.GetPortfolio_ByCode(portfolioCode);
+        }
+        
+        public databases.baseDS.portfolioDataTable GetPortfolio_ByInvestor(string investorCode) {
+            return base.Channel.GetPortfolio_ByInvestor(investorCode);
+        }
+        
+        public databases.baseDS.tradeAlertDataTable GetTradeAlert(System.DateTime frDate, System.DateTime toDate, string investor, byte statusMask) {
+            return base.Channel.GetTradeAlert(frDate, toDate, investor, statusMask);
+        }
+        
+        public databases.baseDS.tradeAlertDataTable GetTradeAlert_BySQL(string alertSql) {
+            return base.Channel.GetTradeAlert_BySQL(alertSql);
         }
         
         public void Reset() {
@@ -746,8 +723,24 @@ namespace DataAccess.ServiceReference1 {
             return base.Channel.GetStockByStatus(status);
         }
         
-        public databases.baseDS.priceDataDataTable GetAbnormalData(string code, System.DateTime frDate, System.DateTime toDate, string timeSacleCode) {
-            return base.Channel.GetAbnormalData(code, frDate, toDate, timeSacleCode);
+        public databases.tmpDS.investorDataTable GetInvestorShortList() {
+            return base.Channel.GetInvestorShortList();
+        }
+        
+        public databases.baseDS.sysLogDataTable GetSyslog_ByDate(System.DateTime frDate, System.DateTime toDate) {
+            return base.Channel.GetSyslog_ByDate(frDate, toDate);
+        }
+        
+        public databases.baseDS.sysLogDataTable GetSyslog_BySQL(string sql) {
+            return base.Channel.GetSyslog_BySQL(sql);
+        }
+        
+        public databases.baseDS.stockCodeDataTable GetStockFull() {
+            return base.Channel.GetStockFull();
+        }
+        
+        public string[] GetStockList_ByWatchList(string[] watchList) {
+            return base.Channel.GetStockList_ByWatchList(watchList);
         }
     }
 }

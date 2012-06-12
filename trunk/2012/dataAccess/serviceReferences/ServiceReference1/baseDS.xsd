@@ -967,8 +967,6 @@
               <xs:element name="lowPrice" type="xs:decimal" />
               <xs:element name="highPrice" type="xs:decimal" />
               <xs:element name="volume" type="xs:decimal" />
-              <xs:element name="openTimeOffset" type="xs:int" />
-              <xs:element name="closeTimeOffset" type="xs:int" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
