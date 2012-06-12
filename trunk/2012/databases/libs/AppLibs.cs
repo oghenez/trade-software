@@ -520,15 +520,7 @@ namespace databases
         {
             lastClosePrices.Clear();
         }
-        //private static void SetLastClosePrices(common.DictionaryList values)
-        //{
-        //    lastClosePrices.Clear();
-        //    for (int idx = 0; idx < values.Keys.Length; idx++)
-        //    {
-        //        lastClosePrices.Add(values.Keys[idx], values.Values[idx]);
-        //    }
-        //}
-
+        
         /// <summary>
         /// Get the all last price (grouped by timescale and stock) from databases
         /// </summary>
