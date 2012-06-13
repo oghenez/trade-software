@@ -1,4 +1,4 @@
-﻿using System;
+ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.Specialized;
@@ -36,20 +36,6 @@ namespace client
         
         public main()
         {
-            //string[] arguments = Environment.GetCommandLineArgs();
-            //foreach (string argument in arguments)
-            //{
-            //    if (argument.Split('=')[0].ToLower() == "/u")
-            //    {
-            //        string guid = argument.Split('=')[1];
-            //        string path = Environment.GetFolderPath(Environment.SpecialFolder.System);
-            //        ProcessStartInfo si = new ProcessStartInfo(path + "/msiexec.exe", "/x " + guid);
-            //        Process.Start(si);
-            //        Close();
-            //        Application.Exit();
-            //    }
-
-            //}
             try
             {
                 InitializeComponent();
@@ -388,15 +374,22 @@ namespace client
             SetTimer(true);
         }
 
-        //Map form to checked menu button  : 
-        // Check menu -> Open/Close form 
-        // Close form -> uncheck menu
+        /// <summary>
+        /// Map form to checked menu button
+        /// Check menu -> Open/Close form 
+        /// Close form -> uncheck me
+        /// </summary>
+        /// <returns></returns>
         private void MapForm(Form form, ToolStripMenuItem menuBtn)
         {
             form.Tag = menuBtn;
             form.FormClosed += new FormClosedEventHandler(MapFormClosed);
             form.Activated += new EventHandler(MapFormActivated);
         }
+        
+        /// <summary>
+        /// Close form -> uncheck me
+        /// </summary>
         private void MapFormClosed(object sender, FormClosedEventArgs e)
         {
             if ((sender as Form).Tag.GetType() == typeof(ToolStripMenuItem))
@@ -404,6 +397,10 @@ namespace client
                 ((sender as Form).Tag as ToolStripMenuItem).Checked = false;
             }
         }
+        
+        /// <summary>
+        /// Active form -> uncheck me
+        /// </summary>
         private void MapFormActivated(object sender, EventArgs e)
         {
             if ((sender as Form).Tag.GetType() == typeof(ToolStripMenuItem))
@@ -414,6 +411,7 @@ namespace client
 
 
         bool fRefreshingData = false;
+        
         /// <summary>
         /// Refresh data : market watch, stock analysis and porfolio  
         /// </summary>
@@ -465,6 +463,10 @@ namespace client
         }
 
         bool fRefreshingAlert = false;
+        
+        /// <summary>
+        /// Refresh alert form
+        /// </summary>
         private void RefreshAlert()
         {
             try
