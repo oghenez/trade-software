@@ -1,4 +1,4 @@
-﻿using System;
+ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,6 +16,8 @@ namespace client
         FormB formB = new FormB();
         FormA formC = new FormA();
         FormB formD = new FormB();
+        ///test
+        ///
         public Form1()
         {
             InitializeComponent();
