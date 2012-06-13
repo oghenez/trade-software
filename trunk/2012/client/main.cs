@@ -1,4 +1,4 @@
- using System;
+﻿ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.Specialized;
@@ -103,6 +103,7 @@ namespace client
             DataAccess.Libs.LoadSystemVars();
             return true;
         }
+
         private void SetCulture(AppTypes.LanguageCodes code,bool force)
         {
             Settings.sysLanguage = code;
