@@ -92,13 +92,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tools", "Tools\Tools.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "test", "test\test.csproj", "{9D4D209A-AA3F-42ED-ADB6-AC9E4B1095FC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Strategy", "Strategy\Strategy.csproj", "{1463FC47-2B74-4E63-9710-2C3B8ED3DE8A}"
-	ProjectSection(ProjectDependencies) = postProject
-		{90A73556-87A1-4887-BB82-F482669A7784} = {90A73556-87A1-4887-BB82-F482669A7784}
-		{AE392C66-BEBF-4507-ADD9-F17D9E51FC42} = {AE392C66-BEBF-4507-ADD9-F17D9E51FC42}
-		{38C531D1-0881-4DC3-B616-34810EF077E7} = {38C531D1-0881-4DC3-B616-34810EF077E7}
-	EndProjectSection
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "charts", "charts\charts.csproj", "{B4BB5B7E-B7E1-4F82-9C4B-B373A46B08F8}"
 	ProjectSection(ProjectDependencies) = postProject
 		{90A73556-87A1-4887-BB82-F482669A7784} = {90A73556-87A1-4887-BB82-F482669A7784}
@@ -169,6 +162,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "databases", "databases\data
 		{AE392C66-BEBF-4507-ADD9-F17D9E51FC42} = {AE392C66-BEBF-4507-ADD9-F17D9E51FC42}
 	EndProjectSection
 EndProject
+<<<<<<< .mine
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "QuantumSetup", "QInvestSetup\QInvestSetup.vdproj", "{D1DC49F4-36B7-423A-9D0A-1155A3E54787}"
+EndProject
+=======
+>>>>>>> .r593
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Strategy", "..\QStrategy\strategy\Strategy.csproj", "{1463FC47-2B74-4E63-9710-2C3B8ED3DE8A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -211,10 +211,6 @@ Global
 		{9D4D209A-AA3F-42ED-ADB6-AC9E4B1095FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9D4D209A-AA3F-42ED-ADB6-AC9E4B1095FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9D4D209A-AA3F-42ED-ADB6-AC9E4B1095FC}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1463FC47-2B74-4E63-9710-2C3B8ED3DE8A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1463FC47-2B74-4E63-9710-2C3B8ED3DE8A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1463FC47-2B74-4E63-9710-2C3B8ED3DE8A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1463FC47-2B74-4E63-9710-2C3B8ED3DE8A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B4BB5B7E-B7E1-4F82-9C4B-B373A46B08F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B4BB5B7E-B7E1-4F82-9C4B-B373A46B08F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B4BB5B7E-B7E1-4F82-9C4B-B373A46B08F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -255,6 +251,17 @@ Global
 		{B698A85B-1837-49DF-B2E5-221DFB0D02CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B698A85B-1837-49DF-B2E5-221DFB0D02CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B698A85B-1837-49DF-B2E5-221DFB0D02CA}.Release|Any CPU.Build.0 = Release|Any CPU
+<<<<<<< .mine
+		{D1DC49F4-36B7-423A-9D0A-1155A3E54787}.Debug|Any CPU.ActiveCfg = Debug
+		{D1DC49F4-36B7-423A-9D0A-1155A3E54787}.Debug|Any CPU.Build.0 = Debug
+		{D1DC49F4-36B7-423A-9D0A-1155A3E54787}.Release|Any CPU.ActiveCfg = Release
+		{D1DC49F4-36B7-423A-9D0A-1155A3E54787}.Release|Any CPU.Build.0 = Release
+		{1463FC47-2B74-4E63-9710-2C3B8ED3DE8A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1463FC47-2B74-4E63-9710-2C3B8ED3DE8A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1463FC47-2B74-4E63-9710-2C3B8ED3DE8A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1463FC47-2B74-4E63-9710-2C3B8ED3DE8A}.Release|Any CPU.Build.0 = Release|Any CPU
+=======
+>>>>>>> .r593
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
