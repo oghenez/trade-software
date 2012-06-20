@@ -1,0 +1,37 @@
+<publishData>
+  <publishTarget publishUrl="http://localhost">
+    <file relUrl="bin\vi-VN/common.resources.dll" publishTime="05/22/2012 15:27:18" />
+    <file relUrl="bin\en-US/indicators.xml" publishTime="02/06/2012 16:10:35" />
+    <file relUrl="bin/databases.pdb" publishTime="06/02/2012 12:24:51" />
+    <file relUrl="bin/TA-Lib-Core.dll" publishTime="03/06/2012 12:48:06" />
+    <file relUrl="wsServices.DataLibs.svc" publishTime="06/12/2012 18:07:15" />
+    <file relUrl="bin/NTP.dll" publishTime="03/09/2009 17:21:08" />
+    <file relUrl="bin/common.dll" publishTime="05/22/2012 15:27:17" />
+    <file relUrl="Web.config" publishTime="06/12/2012 18:03:29" />
+    <file relUrl="bin\en-US/strategyInfo.xml" publishTime="02/26/2012 23:07:02" />
+    <file relUrl="bin\vi-VN/strategyInfo.xml" publishTime="02/26/2012 23:07:02" />
+    <file relUrl="bin/commonTypes.dll" publishTime="06/12/2012 18:07:11" />
+    <file relUrl="bin/LaMarvin.Windows.Forms.ColorPicker.dll" publishTime="02/27/2008 15:13:28" />
+    <file relUrl="bin/PdfSharp.dll" publishTime="11/26/2009 12:06:32" />
+    <file relUrl="bin/wsServices.dll" publishTime="06/12/2012 18:07:12" />
+    <file relUrl="bin\vi-VN/indicators.xml" publishTime="02/06/2012 16:10:38" />
+    <file relUrl="bin/commonTypes.pdb" publishTime="06/12/2012 18:07:11" />
+    <file relUrl="bin/Indicators.dll" publishTime="05/22/2012 15:04:20" />
+    <file relUrl="bin/wsStock.xml" publishTime="05/21/2012 16:01:18" />
+    <file relUrl="bin/Charts.dll" publishTime="05/24/2012 08:09:02" />
+    <file relUrl="bin/WeifenLuo.WinFormsUI.Docking.dll" publishTime="09/22/2011 10:12:53" />
+    <file relUrl="bin/commonClass.dll" publishTime="05/23/2012 10:18:41" />
+    <file relUrl="bin/wsServices.csproj.FileListAbsolute.txt" publishTime="06/12/2012 18:07:12" />
+    <file relUrl="bin/ZedGraph.dll" publishTime="03/06/2012 12:48:06" />
+    <file relUrl="DataLibs.svc" publishTime="12/07/2011 00:35:04" />
+    <file relUrl="bin/wsServices.pdb" publishTime="06/12/2012 18:07:11" />
+    <file relUrl="bin/Interop.WIALib.dll" publishTime="05/22/2012 15:27:17" />
+    <file relUrl="bin/Interop.WIA.dll" publishTime="05/22/2012 15:27:17" />
+    <file relUrl="bin/databases.dll" publishTime="06/02/2012 12:24:52" />
+    <file relUrl="bin/wsServices.dll.config" publishTime="06/12/2012 18:03:29" />
+    <file relUrl="bin/application.dll" publishTime="05/24/2012 08:37:06" />
+    <file relUrl="bin/Languages.dll" publishTime="05/24/2012 08:14:32" />
+    <file relUrl="bin\vi-VN/Languages.resources.dll" publishTime="05/24/2012 08:14:32" />
+    <file relUrl="bin/strategy.dll" publishTime="04/08/2012 22:37:47" />
+  </publishTarget>
+</publishData>
