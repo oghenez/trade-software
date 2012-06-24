@@ -211,6 +211,8 @@ namespace Trade.Forms
         {
             try
             {
+                layoutPnl.Width = this.Width - SystemInformation.CaptionHeight;
+                layoutPnl.Height = this.Height - layoutPnl.Location.Y - 2* SystemInformation.CaptionHeight - 5 ;
                 common.system.AutoFitGridColumn(dailyChangeGV);
             }
             catch (Exception er)
@@ -220,5 +222,7 @@ namespace Trade.Forms
         }
         
         #endregion event viewer
+
+
     }
 }

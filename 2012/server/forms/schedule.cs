@@ -188,8 +188,10 @@ namespace server
         {
             try
             {
-                fetchDataTimer.Execute();
-                createTradeAlertTimer.Execute();
+                if (fetchDataTimer.IsEndWaitTime()) 
+                    fetchDataTimer.Execute();
+                if (createTradeAlertTimer.IsEndWaitTime()) 
+                    createTradeAlertTimer.Execute();
             }
             catch (Exception er)
             {

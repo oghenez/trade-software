@@ -32,19 +32,21 @@ namespace wsServices
 
         private void WriteSysLogLocal(Exception er)
         {
-            commonClass.SysLibs.WriteSysLog(null,er);
+            //commonClass.SysLibs.WriteSysLog(null,er);
         }
         private void WriteSysLogLocal(string msg)
         {
-            commonClass.SysLibs.WriteSysLog(msg);
+            //commonClass.SysLibs.WriteSysLog(msg);
         }
 
         #region system
         //Start-up function. See http://stackoverflow.com/questions/739268/wcf-application-start-event
+        private static bool fDataLibsLoaded = false;
         public DataLibs()
         {
             try
             {
+                if (fDataLibsLoaded) return;
                 common.configuration.withEncryption = true;
                 common.Settings.sysConfigFile = common.fileFuncs.ConcatFileName(Settings.sysExecuteDirectory, commonTypes.Consts.constWebServiceConf);
                 databases.SysLibs.dbConnectionString = common.configuration.GetDbConnectionString();
@@ -52,10 +54,12 @@ namespace wsServices
                 GlobalSettings globalSetting = Settings.sysGlobal;
                 application.Configuration.Load_Global_Settings(ref globalSetting);
                 Settings.sysGlobal = globalSetting;
+                fDataLibsLoaded = true;
             }
             catch (Exception ex)
             {
                 WriteSysLogLocal(ex);
+                commonClass.SysLibs.WriteSysLog("e01");
             }
         }
 
@@ -130,6 +134,7 @@ namespace wsServices
             catch (Exception ex)
             {
                 WriteSysLogLocal(ex);
+                commonClass.SysLibs.WriteSysLog("e02");
             }
             return null;
         }
@@ -146,6 +151,7 @@ namespace wsServices
             catch (Exception ex)
             {
                 WriteSysLogLocal(ex);
+                commonClass.SysLibs.WriteSysLog("e03");
             }
             return null;
         }
@@ -170,6 +176,7 @@ namespace wsServices
             catch (Exception ex)
             {
                 WriteSysLogLocal(ex);
+                commonClass.SysLibs.WriteSysLog("e04");
             }
             return null;
         }
@@ -187,6 +194,7 @@ namespace wsServices
             catch (Exception ex)
             {
                 WriteSysLogLocal(ex);
+                commonClass.SysLibs.WriteSysLog("e05");
             }
             return null;
         }
@@ -202,6 +210,7 @@ namespace wsServices
             catch (Exception ex)
             {
                 WriteSysLogLocal(ex);
+                commonClass.SysLibs.WriteSysLog("e06");
             }
             return null;
         }
@@ -215,6 +224,7 @@ namespace wsServices
             catch (Exception ex)
             {
                 WriteSysLogLocal(ex);
+                commonClass.SysLibs.WriteSysLog("e07");
             }
             return null;
         }
@@ -228,6 +238,7 @@ namespace wsServices
             catch (Exception ex)
             {
                 WriteSysLogLocal(ex);
+                commonClass.SysLibs.WriteSysLog("e08");
             }
             return null;
         }
@@ -244,6 +255,7 @@ namespace wsServices
             catch (Exception ex)
             {
                 WriteSysLogLocal(ex);
+                commonClass.SysLibs.WriteSysLog("e09");
             }
             return null;
         }
@@ -262,6 +274,7 @@ namespace wsServices
             catch (Exception ex)
             {
                 WriteSysLogLocal(ex);
+                commonClass.SysLibs.WriteSysLog("e10");
             }
             return null;
         }
@@ -276,6 +289,7 @@ namespace wsServices
             catch (Exception ex)
             {
                 WriteSysLogLocal(ex);
+                commonClass.SysLibs.WriteSysLog("e11");
             }
             return null;
 
@@ -291,6 +305,7 @@ namespace wsServices
             catch (Exception ex)
             {
                 WriteSysLogLocal(ex);
+                commonClass.SysLibs.WriteSysLog("e12");
             }
             return null;
         }
@@ -306,6 +321,7 @@ namespace wsServices
             catch (Exception ex)
             {
                 WriteSysLogLocal(ex);
+                commonClass.SysLibs.WriteSysLog("e13");
             }
             return null;
         }
@@ -320,6 +336,7 @@ namespace wsServices
             catch (Exception ex)
             {
                 WriteSysLogLocal(ex);
+                commonClass.SysLibs.WriteSysLog("e14");
             }
             return null;
         }
@@ -334,6 +351,7 @@ namespace wsServices
             catch (Exception ex)
             {
                 WriteSysLogLocal(ex);
+                commonClass.SysLibs.WriteSysLog("e15");
             }
             return null;
         }
@@ -348,6 +366,7 @@ namespace wsServices
             catch (Exception ex)
             {
                 WriteSysLogLocal(ex);
+                commonClass.SysLibs.WriteSysLog("e16");
             }
             return null;
         }
@@ -363,6 +382,7 @@ namespace wsServices
             catch (Exception ex)
             {
                 WriteSysLogLocal(ex);
+                commonClass.SysLibs.WriteSysLog("e17");
             }
             return null;
         }
@@ -377,6 +397,7 @@ namespace wsServices
             catch (Exception ex)
             {
                 WriteSysLogLocal(ex);
+                commonClass.SysLibs.WriteSysLog("e18");
             }
             return null;
         }
@@ -391,6 +412,7 @@ namespace wsServices
             catch (Exception ex)
             {
                 WriteSysLogLocal(ex);
+                commonClass.SysLibs.WriteSysLog("e19");
             }
             return null;
         }
@@ -405,6 +427,7 @@ namespace wsServices
             catch (Exception ex)
             {
                 WriteSysLogLocal(ex);
+                commonClass.SysLibs.WriteSysLog("e20");
             }
             return null;
         }
@@ -420,6 +443,7 @@ namespace wsServices
             catch (Exception ex)
             {
                 WriteSysLogLocal(ex);
+                commonClass.SysLibs.WriteSysLog("e21");
             }
             return null;
         }
@@ -435,6 +459,7 @@ namespace wsServices
             catch (Exception ex)
             {
                 WriteSysLogLocal(ex);
+                commonClass.SysLibs.WriteSysLog("e22");
             }
             return null;
         }
@@ -449,6 +474,7 @@ namespace wsServices
             catch (Exception ex)
             {
                 WriteSysLogLocal(ex);
+                commonClass.SysLibs.WriteSysLog("e23");
             }
             return null;
         }
@@ -463,6 +489,7 @@ namespace wsServices
             catch (Exception ex)
             {
                 WriteSysLogLocal(ex);
+                commonClass.SysLibs.WriteSysLog("e24");
             }
             return null;
         }
@@ -478,6 +505,7 @@ namespace wsServices
             catch (Exception ex)
             {
                 WriteSysLogLocal(ex);
+                commonClass.SysLibs.WriteSysLog("e25");
             }
             return null;
         }
@@ -492,6 +520,7 @@ namespace wsServices
             catch (Exception ex)
             {
                 WriteSysLogLocal(ex);
+                commonClass.SysLibs.WriteSysLog("e26");
             }
             return null;
         }
@@ -506,6 +535,7 @@ namespace wsServices
             catch (Exception ex)
             {
                 WriteSysLogLocal(ex);
+                commonClass.SysLibs.WriteSysLog("e27");
             }
             return null;
         }
@@ -520,6 +550,7 @@ namespace wsServices
             catch (Exception ex)
             {
                 WriteSysLogLocal(ex);
+                commonClass.SysLibs.WriteSysLog("e28");
             }
             return null;
         }
@@ -535,6 +566,7 @@ namespace wsServices
             catch (Exception ex)
             {
                 WriteSysLogLocal(ex);
+                commonClass.SysLibs.WriteSysLog("e29");
             }
             return null;
         }
@@ -549,6 +581,7 @@ namespace wsServices
             catch (Exception ex)
             {
                 WriteSysLogLocal(ex);
+                commonClass.SysLibs.WriteSysLog("e30");
             }
             return null;
         }
@@ -563,6 +596,7 @@ namespace wsServices
             catch (Exception ex)
             {
                 WriteSysLogLocal(ex);
+                commonClass.SysLibs.WriteSysLog("e31");
             }
             return null;
         }
@@ -578,6 +612,7 @@ namespace wsServices
             catch (Exception ex)
             {
                 WriteSysLogLocal(ex);
+                commonClass.SysLibs.WriteSysLog("e32");
             }
             return null;
         }
@@ -593,6 +628,7 @@ namespace wsServices
             catch (Exception ex)
             {
                 WriteSysLogLocal(ex);
+                commonClass.SysLibs.WriteSysLog("e33");
             }
             return null;
         }
@@ -607,6 +643,7 @@ namespace wsServices
             catch (Exception ex)
             {
                 WriteSysLogLocal(ex);
+                commonClass.SysLibs.WriteSysLog("e34");
             }
             return null;
         }
@@ -622,6 +659,7 @@ namespace wsServices
             catch (Exception ex)
             {
                 WriteSysLogLocal(ex);
+                commonClass.SysLibs.WriteSysLog("e35");
             }
             return null;
         }
@@ -637,6 +675,7 @@ namespace wsServices
             catch (Exception ex)
             {
                 WriteSysLogLocal(ex);
+                commonClass.SysLibs.WriteSysLog("e36");
             }
             return null;
         }
@@ -661,6 +700,7 @@ namespace wsServices
             catch (Exception ex)
             {
                 WriteSysLogLocal(ex);
+                commonClass.SysLibs.WriteSysLog("e37");
             }
             return null;
         }
@@ -675,6 +715,7 @@ namespace wsServices
             catch (Exception ex)
             {
                 WriteSysLogLocal(ex);
+                commonClass.SysLibs.WriteSysLog("e38");
             }
             return null;
         }
@@ -690,6 +731,7 @@ namespace wsServices
             catch (Exception ex)
             {
                 WriteSysLogLocal(ex);
+                commonClass.SysLibs.WriteSysLog("e39");
             }
             return null;
         }
@@ -704,6 +746,7 @@ namespace wsServices
             catch (Exception ex)
             {
                 WriteSysLogLocal(ex);
+                commonClass.SysLibs.WriteSysLog("e40");
             }
             return null;
         }
@@ -719,6 +762,7 @@ namespace wsServices
             catch (Exception ex)
             {
                 WriteSysLogLocal(ex);
+                commonClass.SysLibs.WriteSysLog("e41");
             }
             return null;
         }
@@ -733,6 +777,7 @@ namespace wsServices
             catch (Exception ex)
             {
                 WriteSysLogLocal(ex);
+                commonClass.SysLibs.WriteSysLog("e42");
             }
             return null;
         }
@@ -747,6 +792,7 @@ namespace wsServices
             catch (Exception ex)
             {
                 WriteSysLogLocal(ex);
+                commonClass.SysLibs.WriteSysLog("e43");
             }
             return null;
         }
@@ -762,6 +808,7 @@ namespace wsServices
             catch (Exception ex)
             {
                 WriteSysLogLocal(ex);
+                commonClass.SysLibs.WriteSysLog("e44");
             }
             return null;
         }
@@ -776,6 +823,7 @@ namespace wsServices
             catch (Exception ex)
             {
                 WriteSysLogLocal(ex);
+                commonClass.SysLibs.WriteSysLog("e45");
             }
             return null;
         }
@@ -790,6 +838,7 @@ namespace wsServices
             catch (Exception ex)
             {
                 WriteSysLogLocal(ex);
+                commonClass.SysLibs.WriteSysLog("e46");
             }
             return null;
         }
@@ -804,6 +853,7 @@ namespace wsServices
             catch (Exception ex)
             {
                 WriteSysLogLocal(ex);
+                commonClass.SysLibs.WriteSysLog("e47");
             }
             return null;
         }
@@ -817,6 +867,7 @@ namespace wsServices
             catch (Exception ex)
             {
                 WriteSysLogLocal(ex);
+                commonClass.SysLibs.WriteSysLog("e48");
             }
             return null;
         }
@@ -831,6 +882,7 @@ namespace wsServices
             catch (Exception ex)
             {
                 WriteSysLogLocal(ex);
+                commonClass.SysLibs.WriteSysLog("e49");
             }
             return null;
         }
@@ -845,6 +897,7 @@ namespace wsServices
             catch (Exception ex)
             {
                 WriteSysLogLocal(ex);
+                commonClass.SysLibs.WriteSysLog("e50");
             }
             return null;
         }
@@ -859,6 +912,7 @@ namespace wsServices
             catch (Exception ex)
             {
                 WriteSysLogLocal(ex);
+                commonClass.SysLibs.WriteSysLog("e51");
             }
             return null;
         }
@@ -873,6 +927,7 @@ namespace wsServices
             catch (Exception ex)
             {
                 WriteSysLogLocal(ex);
+                commonClass.SysLibs.WriteSysLog("e52");
             }
             return null;
         }
@@ -888,6 +943,7 @@ namespace wsServices
             catch (Exception ex)
             {
                 WriteSysLogLocal(ex);
+                commonClass.SysLibs.WriteSysLog("e53");
             }
             return null;
         }
@@ -917,6 +973,7 @@ namespace wsServices
             catch (Exception ex)
             {
                 WriteSysLogLocal(ex);
+                commonClass.SysLibs.WriteSysLog("e54");
             }
             return null;
         }
@@ -939,27 +996,55 @@ namespace wsServices
             catch (Exception ex)
             {
                 WriteSysLogLocal(ex);
+                commonClass.SysLibs.WriteSysLog("e55");
             }
             return false;
         }
 
         public databases.baseDS.priceDataDataTable GetData_ByTimeScale_Code_FrDate(string timeScaleCode,string stockCode,DateTime fromDate)
         {
-            databases.baseDS.priceDataDataTable tbl = new databases.baseDS.priceDataDataTable();
-            databases.DbAccess.LoadData(tbl, timeScaleCode, fromDate, stockCode);
-            return tbl;
+            try
+            {
+                databases.baseDS.priceDataDataTable tbl = new databases.baseDS.priceDataDataTable();
+                databases.DbAccess.LoadData(tbl, timeScaleCode, fromDate, stockCode);
+                return tbl;
+            }
+            catch (Exception ex)
+            {
+                WriteSysLogLocal(ex);
+                commonClass.SysLibs.WriteSysLog("e56");
+            }
+            return null;
         }
         public databases.baseDS.priceDataDataTable GetData_ByTimeScale_Code_DateRange(string timeScaleCode, string stockCode, DateTime frDate, DateTime toDate)
         {
-            databases.baseDS.priceDataDataTable tbl = new databases.baseDS.priceDataDataTable();
-            databases.DbAccess.LoadData(tbl, timeScaleCode, frDate, toDate, stockCode);
-            return tbl;
+            try
+            {
+                databases.baseDS.priceDataDataTable tbl = new databases.baseDS.priceDataDataTable();
+                databases.DbAccess.LoadData(tbl, timeScaleCode, frDate, toDate, stockCode);
+                return tbl;
+            }
+            catch (Exception ex)
+            {
+                WriteSysLogLocal(ex);
+                commonClass.SysLibs.WriteSysLog("e57");
+            }
+            return null;
         }
         
 
         public int GetData_TotalRow(string timeScaleCode, string stockCode, DateTime frDate, DateTime toDate)
         {
-            return databases.DbAccess.GetTotalPriceRow(AppTypes.TimeScaleFromCode(timeScaleCode), frDate, toDate, stockCode);
+            try
+            {
+                return databases.DbAccess.GetTotalPriceRow(AppTypes.TimeScaleFromCode(timeScaleCode), frDate, toDate, stockCode);
+            }
+            catch (Exception ex)
+            {
+                WriteSysLogLocal(ex);
+                commonClass.SysLibs.WriteSysLog("e58");
+            }
+            return -1;
         }
 
         public DateTime GetLastAlertTime(string investorCode)
@@ -985,6 +1070,7 @@ namespace wsServices
             catch (Exception ex)
             {
                 WriteSysLogLocal(ex);
+                commonClass.SysLibs.WriteSysLog("e59");
             }
             return null;
         }
@@ -999,6 +1085,7 @@ namespace wsServices
             catch (Exception ex)
             {
                 WriteSysLogLocal(ex);
+                commonClass.SysLibs.WriteSysLog("e60");
             }
             return null;
         }
@@ -1015,6 +1102,7 @@ namespace wsServices
             catch (Exception ex)
             {
                 WriteSysLogLocal(ex);
+                commonClass.SysLibs.WriteSysLog("e61");
             }
             return false;
         }
@@ -1029,6 +1117,7 @@ namespace wsServices
             catch (Exception ex)
             {
                 WriteSysLogLocal(ex);
+                commonClass.SysLibs.WriteSysLog("e62");
             }
             return false;
         }
@@ -1042,6 +1131,7 @@ namespace wsServices
             catch (Exception ex)
             {
                 WriteSysLogLocal(ex);
+                commonClass.SysLibs.WriteSysLog("e63");
             }
             return false;
         }
@@ -1055,6 +1145,7 @@ namespace wsServices
             catch (Exception ex)
             {
                 WriteSysLogLocal(ex);
+                commonClass.SysLibs.WriteSysLog("e64");
             }
             return false;
         }
@@ -1068,6 +1159,7 @@ namespace wsServices
             catch (Exception ex)
             {
                 WriteSysLogLocal(ex);
+                commonClass.SysLibs.WriteSysLog("e65");
             }
             return false;
         }
@@ -1088,6 +1180,7 @@ namespace wsServices
             catch (Exception ex)
             {
                 WriteSysLogLocal(ex);
+                commonClass.SysLibs.WriteSysLog("e66");
             }
             return false;
         }
@@ -1109,6 +1202,7 @@ namespace wsServices
             catch (Exception ex)
             {
                 WriteSysLogLocal(ex);
+                commonClass.SysLibs.WriteSysLog("e67");
             }
             return false;
         }
@@ -1122,6 +1216,7 @@ namespace wsServices
             catch (Exception ex)
             {
                 WriteSysLogLocal(ex);
+                commonClass.SysLibs.WriteSysLog("e68");
             }
             return false;
         }
@@ -1135,6 +1230,7 @@ namespace wsServices
             catch (Exception ex)
             {
                 WriteSysLogLocal(ex);
+                commonClass.SysLibs.WriteSysLog("e69");
             }
             return false;
         }
@@ -1148,6 +1244,7 @@ namespace wsServices
             catch (Exception ex)
             {
                 WriteSysLogLocal(ex);
+                commonClass.SysLibs.WriteSysLog("e70");
             }
             return false;
         }
@@ -1161,6 +1258,7 @@ namespace wsServices
             catch (Exception ex)
             {
                 WriteSysLogLocal(ex);
+                commonClass.SysLibs.WriteSysLog("e71");
             }
             return false;
         }
@@ -1174,6 +1272,7 @@ namespace wsServices
             catch (Exception ex)
             {
                 WriteSysLogLocal(ex);
+                commonClass.SysLibs.WriteSysLog("e72");
             }
             return false;
         }
@@ -1187,6 +1286,7 @@ namespace wsServices
             catch (Exception ex)
             {
                 WriteSysLogLocal(ex);
+                commonClass.SysLibs.WriteSysLog("e73");
             }
             return false;
         }
@@ -1200,6 +1300,7 @@ namespace wsServices
             catch (Exception ex)
             {
                 WriteSysLogLocal(ex);
+                commonClass.SysLibs.WriteSysLog("e74");
             }
             return false;
         }
@@ -1216,6 +1317,7 @@ namespace wsServices
             catch (Exception ex)
             {
                 WriteSysLogLocal(ex);
+                commonClass.SysLibs.WriteSysLog("e75");
             }
         }
         public void DeleteStock(string code)
@@ -1227,6 +1329,7 @@ namespace wsServices
             catch (Exception ex)
             {
                 WriteSysLogLocal(ex);
+                commonClass.SysLibs.WriteSysLog("e76");
             }
         }
         public void DeleteInvestor(string code)
@@ -1238,6 +1341,7 @@ namespace wsServices
             catch (Exception ex)
             {
                 WriteSysLogLocal(ex);
+                commonClass.SysLibs.WriteSysLog("e77");
             }
         }
         public void DeletePortfolio(string code)
@@ -1249,6 +1353,7 @@ namespace wsServices
             catch (Exception ex)
             {
                 WriteSysLogLocal(ex);
+                commonClass.SysLibs.WriteSysLog("e78");
             }
         }
         public void DeleteTradeAlert(int rowId)
@@ -1260,6 +1365,7 @@ namespace wsServices
             catch (Exception ex)
             {
                 WriteSysLogLocal(ex);
+                commonClass.SysLibs.WriteSysLog("e79");
             }
         }
 
@@ -1272,6 +1378,7 @@ namespace wsServices
             catch (Exception ex)
             {
                 WriteSysLogLocal(ex);
+                commonClass.SysLibs.WriteSysLog("e80");
             }
         }
         public void DeleteSysCode(string catCode,string code)
@@ -1283,6 +1390,7 @@ namespace wsServices
             catch (Exception ex)
             {
                 WriteSysLogLocal(ex);
+                commonClass.SysLibs.WriteSysLog("e81");
             }
         }
         #endregion
@@ -1310,6 +1418,7 @@ namespace wsServices
             catch (Exception ex)
             {
                 WriteSysLogLocal(ex);
+                commonClass.SysLibs.WriteSysLog("e82");
             }
             return null;
         }
@@ -1327,6 +1436,7 @@ namespace wsServices
             catch (Exception ex)
             {
                 WriteSysLogLocal(ex);
+                commonClass.SysLibs.WriteSysLog("e83");
             }
             return null;
         }
@@ -1344,6 +1454,7 @@ namespace wsServices
             catch (Exception ex)
             {
                 WriteSysLogLocal(ex);
+                commonClass.SysLibs.WriteSysLog("e84");
             }
             return null;
         }
@@ -1360,6 +1471,7 @@ namespace wsServices
             catch (Exception ex)
             {
                 WriteSysLogLocal(ex);
+                commonClass.SysLibs.WriteSysLog("e85");
             }
             return null;
         }
@@ -1373,6 +1485,7 @@ namespace wsServices
             catch (Exception ex)
             {
                 WriteSysLogLocal(ex);
+                commonClass.SysLibs.WriteSysLog("e86");
             }
         }
         public void Save_Global_Settings(GlobalSettings settings)
@@ -1384,6 +1497,7 @@ namespace wsServices
             catch (Exception ex)
             {
                 WriteSysLogLocal(ex);
+                commonClass.SysLibs.WriteSysLog("e87");
             }
         }
 
@@ -1419,6 +1533,7 @@ namespace wsServices
             catch (Exception ex)
             {
                 WriteSysLogLocal(ex);
+                commonClass.SysLibs.WriteSysLog("e88");
             }
             return null;
         }
@@ -1432,6 +1547,7 @@ namespace wsServices
             catch (Exception ex)
             {
                 WriteSysLogLocal(ex);
+                commonClass.SysLibs.WriteSysLog("e89");
             }
         }
        
@@ -1444,6 +1560,7 @@ namespace wsServices
         //    catch (Exception ex)
         //    {
         //        WriteSysLogLocal(ex);
+                  //commonClass.SysLibs.WriteSysLog("e90");
         //    }
         //}
 
@@ -1457,6 +1574,7 @@ namespace wsServices
             catch (Exception ex)
             {
                 WriteSysLogLocal(ex);
+                commonClass.SysLibs.WriteSysLog("e91");
             }
         }
         #endregion
@@ -1471,6 +1589,7 @@ namespace wsServices
             catch (Exception ex)
             {
                 WriteSysLogLocal(ex);
+                commonClass.SysLibs.WriteSysLog("e92");
             }
         }
         public void WriteExcptionLog(string investorCode, common.SysLog.LogData logData)
@@ -1483,6 +1602,7 @@ namespace wsServices
             catch (Exception ex)
             {
                 WriteSysLogLocal(ex);
+                commonClass.SysLibs.WriteSysLog("e93");
             }
         }
 

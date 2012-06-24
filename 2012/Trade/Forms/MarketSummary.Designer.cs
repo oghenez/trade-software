@@ -114,13 +114,13 @@
             this.layoutPnl.RowCount = 2;
             this.layoutPnl.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.layoutPnl.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.layoutPnl.Size = new System.Drawing.Size(891, 557);
+            this.layoutPnl.Size = new System.Drawing.Size(1232, 576);
             this.layoutPnl.TabIndex = 149;
             // 
             // splitContainer1
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.Location = new System.Drawing.Point(448, 281);
+            this.splitContainer1.Location = new System.Drawing.Point(619, 291);
             this.splitContainer1.Name = "splitContainer1";
             this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -131,7 +131,7 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.dailyChangeGV);
-            this.splitContainer1.Size = new System.Drawing.Size(440, 273);
+            this.splitContainer1.Size = new System.Drawing.Size(610, 282);
             this.splitContainer1.SplitterDistance = 25;
             this.splitContainer1.TabIndex = 149;
             // 
@@ -144,7 +144,7 @@
             this.dailyChangeLbl.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.dailyChangeLbl.Location = new System.Drawing.Point(0, 0);
             this.dailyChangeLbl.Name = "dailyChangeLbl";
-            this.dailyChangeLbl.Size = new System.Drawing.Size(440, 26);
+            this.dailyChangeLbl.Size = new System.Drawing.Size(610, 26);
             this.dailyChangeLbl.TabIndex = 151;
             this.dailyChangeLbl.Text = "Daily Market Change";
             this.dailyChangeLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -167,7 +167,7 @@
             this.dailyChangeGV.Name = "dailyChangeGV";
             this.dailyChangeGV.ReadOnly = true;
             this.dailyChangeGV.RowTemplate.Height = 24;
-            this.dailyChangeGV.Size = new System.Drawing.Size(440, 244);
+            this.dailyChangeGV.Size = new System.Drawing.Size(610, 253);
             this.dailyChangeGV.TabIndex = 6;
             // 
             // codeColumn
@@ -224,7 +224,7 @@
             // splitContainer2
             // 
             this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer2.Location = new System.Drawing.Point(3, 281);
+            this.splitContainer2.Location = new System.Drawing.Point(3, 291);
             this.splitContainer2.Name = "splitContainer2";
             this.splitContainer2.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -235,7 +235,7 @@
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.Controls.Add(this.top10biggestChangeChart);
-            this.splitContainer2.Size = new System.Drawing.Size(439, 273);
+            this.splitContainer2.Size = new System.Drawing.Size(610, 282);
             this.splitContainer2.SplitterDistance = 28;
             this.splitContainer2.TabIndex = 150;
             // 
@@ -248,7 +248,7 @@
             this.weeklyChangeLbl.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.weeklyChangeLbl.Location = new System.Drawing.Point(0, 0);
             this.weeklyChangeLbl.Name = "weeklyChangeLbl";
-            this.weeklyChangeLbl.Size = new System.Drawing.Size(439, 26);
+            this.weeklyChangeLbl.Size = new System.Drawing.Size(610, 26);
             this.weeklyChangeLbl.TabIndex = 152;
             this.weeklyChangeLbl.Text = "Weekly Market Change";
             this.weeklyChangeLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -318,7 +318,7 @@
             series1.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Date;
             series1.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
             this.top10biggestChangeChart.Series.Add(series1);
-            this.top10biggestChangeChart.Size = new System.Drawing.Size(439, 241);
+            this.top10biggestChangeChart.Size = new System.Drawing.Size(610, 250);
             this.top10biggestChangeChart.TabIndex = 149;
             this.top10biggestChangeChart.TextAntiAliasingQuality = System.Windows.Forms.DataVisualization.Charting.TextAntiAliasingQuality.Normal;
             // 
@@ -336,8 +336,8 @@
             // splitContainer3.Panel2
             // 
             this.splitContainer3.Panel2.Controls.Add(this.vnIdxChart);
-            this.splitContainer3.Size = new System.Drawing.Size(439, 272);
-            this.splitContainer3.SplitterDistance = 31;
+            this.splitContainer3.Size = new System.Drawing.Size(610, 282);
+            this.splitContainer3.SplitterDistance = 32;
             this.splitContainer3.TabIndex = 151;
             // 
             // marketTitle1Ed
@@ -349,7 +349,7 @@
             this.marketTitle1Ed.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.marketTitle1Ed.Location = new System.Drawing.Point(0, 0);
             this.marketTitle1Ed.Name = "marketTitle1Ed";
-            this.marketTitle1Ed.Size = new System.Drawing.Size(439, 25);
+            this.marketTitle1Ed.Size = new System.Drawing.Size(610, 25);
             this.marketTitle1Ed.TabIndex = 153;
             this.marketTitle1Ed.Text = "HOSE";
             this.marketTitle1Ed.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -444,13 +444,13 @@
             series3.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.DateTime;
             this.vnIdxChart.Series.Add(series2);
             this.vnIdxChart.Series.Add(series3);
-            this.vnIdxChart.Size = new System.Drawing.Size(439, 237);
+            this.vnIdxChart.Size = new System.Drawing.Size(610, 246);
             this.vnIdxChart.TabIndex = 147;
             // 
             // splitContainer4
             // 
             this.splitContainer4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer4.Location = new System.Drawing.Point(448, 3);
+            this.splitContainer4.Location = new System.Drawing.Point(619, 3);
             this.splitContainer4.Name = "splitContainer4";
             this.splitContainer4.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -461,7 +461,7 @@
             // splitContainer4.Panel2
             // 
             this.splitContainer4.Panel2.Controls.Add(this.hnxChart);
-            this.splitContainer4.Size = new System.Drawing.Size(440, 272);
+            this.splitContainer4.Size = new System.Drawing.Size(610, 282);
             this.splitContainer4.SplitterDistance = 27;
             this.splitContainer4.TabIndex = 152;
             // 
@@ -474,7 +474,7 @@
             this.marketTitle2Ed.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.marketTitle2Ed.Location = new System.Drawing.Point(0, 0);
             this.marketTitle2Ed.Name = "marketTitle2Ed";
-            this.marketTitle2Ed.Size = new System.Drawing.Size(440, 26);
+            this.marketTitle2Ed.Size = new System.Drawing.Size(610, 26);
             this.marketTitle2Ed.TabIndex = 154;
             this.marketTitle2Ed.Text = "HASTC";
             this.marketTitle2Ed.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -575,7 +575,7 @@
             series5.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.DateTime;
             this.hnxChart.Series.Add(series4);
             this.hnxChart.Series.Add(series5);
-            this.hnxChart.Size = new System.Drawing.Size(440, 241);
+            this.hnxChart.Size = new System.Drawing.Size(610, 251);
             this.hnxChart.TabIndex = 148;
             // 
             // introLbl
@@ -585,7 +585,7 @@
             this.introLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.introLbl.Location = new System.Drawing.Point(18, 43);
             this.introLbl.Name = "introLbl";
-            this.introLbl.Size = new System.Drawing.Size(913, 29);
+            this.introLbl.Size = new System.Drawing.Size(1254, 29);
             this.introLbl.TabIndex = 1;
             this.introLbl.Text = "Quantum is the pioneer software bla bla bla";
             // 
@@ -593,7 +593,7 @@
             // 
             this.AutoScroll = true;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(931, 673);
+            this.ClientSize = new System.Drawing.Size(1272, 692);
             this.Controls.Add(this.introLbl);
             this.Controls.Add(this.layoutPnl);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
