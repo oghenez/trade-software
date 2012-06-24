@@ -865,7 +865,6 @@ namespace client
 
                 myForm.ChartPriceType = this.ChartType;
                 myForm.Activated += new System.EventHandler(this.tradeAnalysisActivatedHandler);
-                myForm.myEstimateTradePoints += new Tools.Forms.tradeAnalysis.EstimateTradePointFunc(EstimateTradePointHandler);
                 //Cache it if no error occured
                 cachedForms.Add(formName, myForm);
             }
@@ -890,7 +889,7 @@ namespace client
                 myForm.ChartPriceType = this.ChartType;
                 myForm.UseStock(DataAccess.Libs.myStockCodeTbl.FindBycode(stockCode));
                 myForm.Activated += new System.EventHandler(this.tradeAnalysisActivatedHandler);
-                myForm.myEstimateTradePoints += new Tools.Forms.tradeAnalysis.EstimateTradePointFunc(EstimateTradePointHandler);
+                
                 //Cache it if no error occured
                 cachedForms.Add(formName, myForm);
             }
@@ -1194,8 +1193,8 @@ namespace client
 
         #region event handler
 
-        private void EstimateTradePointHandler(Tools.Forms.tradeAnalysis sender, string strategyCode, 
-                                               EstimateOptions option, databases.tmpDS.tradeEstimateDataTable tbl)
+        private void ShowTradePointEstimate(Tools.Forms.tradeAnalysis sender, string strategyCode, 
+                                            EstimateOptions option, databases.tmpDS.tradeEstimateDataTable tbl)
         {
             string formName = constFormNameEstimateTrade + "-" + sender.myData.DataStockCode;
             Tools.Forms.profitEstimate myForm = (Tools.Forms.profitEstimate)cachedForms.Find(formName);
@@ -1204,6 +1203,8 @@ namespace client
                 myForm = new Tools.Forms.profitEstimate();
                 myForm.Name = formName;
                 cachedForms.Add(formName, myForm);
+
+                MapForm(myForm, strategyEstimationiMenuItem);
             }
             //myForm.CheckTradepoints(sendder.myData, tradePoints);
 
@@ -1286,7 +1287,7 @@ namespace client
                     meta = application.Strategy.Libs.FindMetaByCode(item.myValue);
                 }
                 if (meta == null) activeForm.ClearStrategyTradepoints();
-                else activeForm.PlotStrategyTradepoints(meta, this.ChartHaveStrategyEstimation); 
+                else activeForm.PlotStrategyTradepoints(meta, this.ChartHaveStrategyEstimation, ShowTradePointEstimate);
             }
             catch (Exception er)
             {
