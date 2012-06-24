@@ -33,7 +33,7 @@ namespace client
         const string constFormNameTradeAlert = "TradeAlert";
         const string constFormNameMarketSummary = "MarketSummary";
         const string constFormNameEstimateTrade = "EstimateTrade-";
-        
+
         public main()
         {
             try
@@ -423,7 +423,6 @@ namespace client
                 if (fRefreshingData) return;
                 fRefreshingData = true;
 
-                //myWorkingImageVisibled = true;
                 IDockContent[] fomrs = new IDockContent[0];
                 for (int idx = 0; idx < dockPanel.Contents.Count; idx++)
                 {
@@ -451,13 +450,14 @@ namespace client
                     //    (dockPanel.Contents[idx] as Trade.Forms.transactionList).RefreshData(false);
                     //    continue;
                     //}
-                    //myWorkingImageVisibled = false;
                 }
+                //Update trade point on chart
+                PlotTradepointHandler(strategyCbStrip, null);
+
                 fRefreshingData = false;
             }
             catch(Exception er)
             {
-                //myWorkingImageVisibled = false;
                 fRefreshingData = false;
                 ShowError(er);
             }
@@ -474,20 +474,15 @@ namespace client
             {
                 if (fRefreshingAlert) return;
                 fRefreshingAlert = true;
-                //this.myWorkingImageVisibled = true;
+                
                 Trade.Forms.tradeAlertList form = GetTradeAlertForm(false);
                 if (form != null && !form.IsDisposed && form.Visible)
                     form.RefreshData(false);
 
-                //Update trade point on chart
-                PlotTradepointHandler(strategyCbStrip, null);
-
                 fRefreshingAlert = false;
-                //this.myWorkingImageVisibled = false;
             }
             catch (Exception er)
             {
-                //this.myWorkingImageVisibled = false;
                 fRefreshingAlert = false;
                 ShowError(er);
             }
@@ -1033,7 +1028,8 @@ namespace client
                 RefreshDataProc.WaitInSeconds = Settings.sysGlobal.RefreshDataInSecs;
                 RefreshDataProc.OnProcess += new common.TimerProcess.OnProcessEvent(RefreshData);
             }
-            RefreshDataProc.Execute();
+            if (RefreshDataProc.IsEndWaitTime())
+                RefreshDataProc.Execute();
 
             if (RefreshAlertProc == null)
             {
@@ -1041,7 +1037,8 @@ namespace client
                 RefreshAlertProc.WaitInSeconds = Settings.sysGlobal.CheckAlertInSeconds;
                 RefreshAlertProc.OnProcess += new common.TimerProcess.OnProcessEvent(RefreshAlert);
             }
-            RefreshAlertProc.Execute();
+            if (RefreshAlertProc.IsEndWaitTime())
+                RefreshAlertProc.Execute();
         }
         /// <summary>
         /// Set language for controls's main form

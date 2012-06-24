@@ -31,6 +31,7 @@ namespace baseClass.forms
             this.components = new System.ComponentModel.Container();
             this.loginInfoLbl = new System.Windows.Forms.ToolStripStatusLabel();
             this.sysTimer = new System.Windows.Forms.Timer(this.components);
+            this.bgWorkerTimer = new System.ComponentModel.BackgroundWorker();
             this.SuspendLayout();
             // 
             // loginInfoLbl
@@ -45,9 +46,14 @@ namespace baseClass.forms
             this.sysTimer.Interval = 2000;
             this.sysTimer.Tick += new System.EventHandler(this.sysTimer_Tick);
             // 
+            // bgWorkerTimer
+            // 
+            this.bgWorkerTimer.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bgWorkerTimer_RunWorkerCompleted);
+            // 
             // baseApplication
             // 
             this.ClientSize = new System.Drawing.Size(1080, 562);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "baseApplication";
             this.Load += new System.EventHandler(this.Form_Load);
@@ -61,6 +67,6 @@ namespace baseClass.forms
 
         private System.Windows.Forms.ToolStripStatusLabel loginInfoLbl;
         protected System.Windows.Forms.Timer sysTimer;
-
+        private System.ComponentModel.BackgroundWorker bgWorkerTimer;
     }
 }
