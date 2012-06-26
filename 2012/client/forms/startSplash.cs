@@ -10,6 +10,9 @@ namespace client.forms
 {
     public partial class startSplash : common.forms.baseSlashForm
     {
+        /// <summary>
+        /// COntructor for start splash
+        /// </summary>
         public startSplash()
         {
             InitializeComponent();

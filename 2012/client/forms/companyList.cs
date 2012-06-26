@@ -10,6 +10,9 @@ namespace client.forms
 {
     public partial class companyList : baseClass.forms.companyList
     {
+        /// <summary>
+        /// Contructor for Company List
+        /// </summary>
         public companyList()
         {
             try
@@ -21,6 +24,10 @@ namespace client.forms
                 this.ShowError(er);
             }
         }
+        /// <summary>
+        /// Lock edit base on lock State
+        /// </summary>
+        /// <param name="lockState">Lock State</param>
         public override void LockEdit(bool lockState)
         {
             lockState = true;
