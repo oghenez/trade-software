@@ -86,7 +86,12 @@ namespace client
             return retVal;
         }
 
-
+        /// <summary>
+        /// Before load form :
+        /// - Start timer
+        /// - Set form appearance
+        /// </summary>
+        /// <returns>alway true</returns>
         protected override bool BeforeLoadForm()
         {
             SetTimer(false);
@@ -97,6 +102,11 @@ namespace client
         private common.TimerProcess RefreshAlertProc = null;
         private common.DictionaryList cachedForms = new common.DictionaryList();  // To cache used forms 
 
+        /// <summary>
+        /// Init system(trategy, indicator and neccessaryvalues)
+        /// </summary>
+        /// <param name="force">enable force flag</param>
+        /// <returns></returns>
         private bool InitSystem(bool force)
         {
             if (force) DataAccess.Libs.ClearCache();
@@ -106,7 +116,11 @@ namespace client
             DataAccess.Libs.LoadSystemVars();
             return true;
         }
-
+        /// <summary>
+        /// Set culture
+        /// </summary>
+        /// <param name="code">Code of country</param>
+        /// <param name="force">Force flag</param>
         private void SetCulture(AppTypes.LanguageCodes code,bool force)
         {
             Settings.sysLanguage = code;
@@ -132,6 +146,9 @@ namespace client
             SetLanguage();
             SetLanguageAllOpenForms();
         }
+        /// <summary>
+        /// Translate All Open Forms
+        /// </summary>
         private void SetLanguageAllOpenForms()
         {
             ContextMenuStrip tradeAnalysisContextMenu = CreateContextMenu_TradeAnalysis();
@@ -315,6 +332,9 @@ namespace client
         {
         }
 
+        /// <summary>
+        /// Open default form   
+        /// </summary>
         private void OpenDefaultForm()
         {
             if (marketWatchMenuItem.Checked) ShowMarketWatchForm();
