@@ -48,7 +48,10 @@ namespace client
                 this.ShowError(er);
             }
         }
-
+        /// <summary>
+        /// This method declare for assuring only one application that user can run
+        /// </summary>
+        /// <returns>Boolean value for checking application have run</returns>
         protected override bool CheckValid()
         {
             if (Process.GetProcessesByName(Process.GetCurrentProcess().ProcessName).Length > 1)
@@ -328,7 +331,9 @@ namespace client
 
             ShowMarketSummaryForm();
         }
-
+        /// <summary>
+        /// This method user for arranging elements on the Form before app have loaded
+        /// </summary>
         private void SetFormAppearance()
         {
             standardStrip.BringToFront();
@@ -369,11 +374,21 @@ namespace client
             //Default language from global settings
             //SetCulture(Settings.sysGlobal.DefautLanguage);
         }
+        /// <summary>
+        /// This method used for reseting Data source and timer 
+        /// </summary>
         private void Reset()
         {
             DataAccess.Libs.Reset();
             SetTimer(true);
         }
+
+        /// <summary>
+        /// This method used for mapping form to checked menu button
+        /// Check menu -> Open/Close form 
+        /// Close form -> uncheck me
+        /// </summary>
+        /// <returns></returns>
 
         /// <summary>
         /// Map form to checked menu button
@@ -550,7 +565,10 @@ namespace client
                 toMenu.DropDownItems.Add(menuItem);
             }
         }
-
+        /// <summary>
+        /// GET and SET Method for Chart Time Scale
+        /// Day,  Week, Month, Year ...
+        /// </summary>
         private AppTypes.TimeScale ChartTimeScale
         {
             get
@@ -582,16 +600,23 @@ namespace client
         }
 
         /// <summary>
-        /// Update what part in the active form
+        /// Update what part in the active form that base on the form option which declared below
         /// </summary>
         private enum FormOptions : byte
         {
             PricePane = 0, VolumePane = 1, ChartType =4, HaveGrid =8, TimeScale=16, All = 255
         }
+        /// <summary>
+        /// Update active all parts on the form
+        /// </summary>
         private void UpdateActiveForm()
         {
             UpdateActiveForm(FormOptions.All);
         }
+        /// <summary>
+        /// Update all parts on form that base on an input FormOptions.
+        /// </summary>
+        /// <param name="parts">Input an option for updating the form</param>
         private void UpdateActiveForm(FormOptions parts)
         {
             Tools.Forms.tradeAnalysis activeForm = GetActiveStockForm();
@@ -612,7 +637,9 @@ namespace client
                 activeForm.ReloadChart();
             }
         }
-
+        /// <summary>
+        /// GET and SET method for ChartType that includes 3 types: Bar, Candle Stick and Line
+        /// </summary>
         private AppTypes.ChartTypes ChartType
         {
             get
@@ -655,19 +682,25 @@ namespace client
                 }
             }
         }
-        
+        /// <summary>
+        /// GET and SET method for checking Chart that have used Grid
+        /// </summary>
         private bool ChartHaveGrid
         {
             get { return chartGridMenuItem.Checked; }
             set { chartGridMenuItem.Checked = value;}
         }
-
+        /// <summary>
+        /// GET and SET method for checking Chart that have used Strategy Estimation
+        /// </summary>
         private bool ChartHaveStrategyEstimation
         {
             get { return strategyEstimationiMenuItem.Checked; }
             set { strategyEstimationiMenuItem.Checked = value;}
         }
-
+        /// <summary>
+        /// Export form that based on the tool that user is running.
+        /// </summary>
         private void Export()
         {
             object activeObj = dockPanel.ActiveContent;
@@ -716,7 +749,11 @@ namespace client
                 return;
             }
         }
-
+        /// <summary>
+        /// Get Market Watch Form instance
+        /// </summary>
+        /// <param name="createIfNotFound">Boolean value for checking creating if market watch not instantiate</param>
+        /// <returns></returns>
         private Trade.Forms.marketWatch GetMarketWatchForm(bool createIfNotFound)
         {
             string formName = constFormNameWatchList + "Market";
@@ -732,6 +769,9 @@ namespace client
             }
             return myForm;
         }
+        /// <summary>
+        /// Show market watch form. Config font, refresh data and raise event New Chart
+        /// </summary>
         private void ShowMarketWatchForm()
         {
             Trade.Forms.marketWatch form = GetMarketWatchForm(true);
@@ -741,12 +781,19 @@ namespace client
             form.RefreshData(true);
             form.Show(dockPanel, DockState.DockLeft);
         }
+        /// <summary>
+        /// Hide market watch form if form!=null
+        /// </summary>
         private void HideMarketWatchForm()
         {
             Trade.Forms.marketWatch form = GetMarketWatchForm(false);
             if (form!=null) form.Hide();
         }
-
+        /// <summary>
+        /// Get Market Summary Form instance
+        /// </summary>
+        /// <param name="createIfNotFound">Boolean value for checking creating if market summary not instantiate</param>
+        /// <returns></returns>
         private Trade.Forms.MarketSummary GetMarketSummaryForm(bool createIfNotFound)
         {
             string formName = constFormNameMarketSummary + "Market";
@@ -760,18 +807,28 @@ namespace client
             }
             return myForm;
         }
+        /// <summary>
+        /// Show market summary. Get the this, and show on dock panel under DockState which is Document and Refresh data finnaly
+        /// </summary>
         private void ShowMarketSummaryForm()
         {
             Trade.Forms.MarketSummary form = GetMarketSummaryForm(true);
             form.Show(dockPanel, DockState.Document);
             form.RefreshData(true);
         }
+        /// <summary>
+        /// Get the market summary on form and hide it on the form
+        /// </summary>
         private void HideMarketSummaryForm()
         {
             Trade.Forms.MarketSummary form = GetMarketSummaryForm(false);
             if (form != null) form.Hide();
         }
-
+        /// <summary>
+        /// Get Trade Alert Form instance
+        /// </summary>
+        /// <param name="createIfNotFound">Boolean value for checking creating if Trade Alert Form not instantiate</param>
+        /// <returns></returns>
         private Trade.Forms.tradeAlertList GetTradeAlertForm(bool createIfNotExisted)
         {
             string formName = constFormNameTradeAlert;
@@ -787,6 +844,9 @@ namespace client
             }
             return myForm;
         }
+        /// <summary>
+        /// Show trade alert form
+        /// </summary>
         private void ShowTradeAlertForm()
         {
             Trade.Forms.tradeAlertList myForm = GetTradeAlertForm(true);
@@ -795,13 +855,20 @@ namespace client
             myForm.Show(dockPanel, DockState.DockBottom);
             MapForm(myForm, tradeAlertMenuItem);
         }
+        /// <summary>
+        /// Hide the trade alert form
+        /// </summary>
         private void HideTradeAlertForm()
         {
             Trade.Forms.tradeAlertList myForm = GetTradeAlertForm(false);
             if (myForm == null || myForm.IsDisposed) return;
             myForm.Close();
         }
-
+        /// <summary>
+        /// Get Porfolio Watch Form instance
+        /// </summary>
+        /// <param name="createIfNotFound">Boolean value for checking creating if PorfolioWatchForm not instantiate</param>
+        /// <returns></returns>
         private Trade.Forms.portfolioWatch GetPorfolioWatchForm(bool createIfNotExisted)
         {
             string formName = constFormNamePorfolioWatch;
@@ -816,6 +883,9 @@ namespace client
             }
             return myForm;
         }
+        /// <summary>
+        /// Show portfolio Watch form 
+        /// </summary>
         private void ShowPortfolioWatchtForm()
         {
             Trade.Forms.portfolioWatch myForm = GetPorfolioWatchForm(true);
@@ -824,13 +894,18 @@ namespace client
             myForm.Show(dockPanel, DockState.DockBottom);
             MapForm(myForm, myPortfolioMenuItem);
         }
+        /// <summary>
+        /// Hide portfolio watch form
+        /// </summary>
         private void HidePortfolioWatchtForm()
         {
             Trade.Forms.portfolioWatch form = GetPorfolioWatchForm(false);
             if (form == null || form.IsDisposed) return;
             form.Close();
         }
-
+        /// <summary>
+        /// Show transaction history form
+        /// </summary>
         private void ShowTransHistForm()
         {
             string formName = constFormNameWatchList + "TransactionList";
@@ -844,6 +919,9 @@ namespace client
             }
             myForm.Show(dockPanel, DockState.Document);
         }
+        /// <summary>
+        /// Hide transaction history form
+        /// </summary>
         private void HideTransHistForm()
         {
             string formName = constFormNameWatchList + "TransactionList";
@@ -851,7 +929,10 @@ namespace client
             if (myForm == null || myForm.IsDisposed) return;
             myForm.Close();
         }
-                
+        /// <summary>
+        /// Show stock chart base on the code of stock
+        /// </summary>
+        /// <param name="stockCode">string of stock code</param>
         private void ShowStockChart(string stockCode)
         {
             string formName = constFormNameStock + stockCode.Trim();
@@ -873,6 +954,12 @@ namespace client
             myForm.Show(dockPanel);
             UpdateActiveForm(FormOptions.ChartType); 
         }
+        /// <summary>
+        /// Show stock chart
+        /// </summary>
+        /// <param name="stockCode">code of stock</param>
+        /// <param name="timeRange">Time range: Y1,5M,10M,D1,M1,W1...</param>
+        /// <param name="timeScale">Time scale: Day, Week, Month,Year...</param>
         private void ShowStockChart(string stockCode,AppTypes.TimeRanges timeRange, AppTypes.TimeScale timeScale)
         {
             DateTime frDate = common.Consts.constNullDate, toDate = common.Consts.constNullDate;
@@ -941,11 +1028,19 @@ namespace client
             }
             return null;
         }
-
+        /// <summary>
+        /// Get all forms which are activated.
+        /// </summary>
+        /// <returns></returns>
         private IDockContent[] GetCurrentForms()
         {
             return GetCurrentForms(null);
         }
+        /// <summary>
+        /// Get form base on System.Type input
+        /// </summary>
+        /// <param name="type">Type of form</param>
+        /// <returns></returns>
         private IDockContent[] GetCurrentForms(Type type)
         {
             IDockContent[] fomrs = new IDockContent[0];
@@ -957,7 +1052,9 @@ namespace client
             }
             return fomrs;
         }
-
+        /// <summary>
+        /// Correct the form visibility
+        /// </summary>
         private void MainMenuItemVisiblity()
         {
             if (dockPanel.ActiveContent == null) return;
@@ -980,6 +1077,10 @@ namespace client
         }
 
         #region overwtite functions
+        /// <summary>
+        /// Load user config in loading program
+        /// </summary>
+        /// <returns>value express for loadding succesfully or unsuccessfully</returns>
         protected override bool LoadUserConfig()
         {
             System.Diagnostics.Stopwatch stopWatch = new System.Diagnostics.Stopwatch();
@@ -1008,6 +1109,10 @@ namespace client
 
             return true;
         }
+        /// <summary>
+        /// Save user config
+        /// </summary>
+        /// <returns>value:true express for save successfully</returns>
         protected override bool SaveUserConfig()
         {
             return application.Configuration.SetDefaultFormState("marketWatch", marketWatchMenuItem.Checked) &&
@@ -1015,7 +1120,9 @@ namespace client
                    application.Configuration.SetDefaultFormState("portfolio", myPortfolioMenuItem.Checked) &&
                    application.Configuration.SetDefaultFormState("transHistory", transHistoryMenuItem.Checked);
         }
-
+        /// <summary>
+        /// ProcessSys timer tick
+        /// </summary>
         protected override void ProcessSysTimerTick()
         {
             base.ProcessSysTimerTick();
@@ -1192,9 +1299,21 @@ namespace client
         #endregion
 
         #region event handler
+<<<<<<< .mine
+        /// <summary>
+        /// Estimate trade pointe handler
+        /// </summary>
+        /// <param name="sender">sender object</param>
+        /// <param name="strategyCode">Code of strategy</param>
+        /// <param name="option">Estimate options(MaxBuyAmtPerc,MaxBuyQtyPerc ...)</param>
+        /// <param name="tbl">Data table for processing</param>
+        private void ShowTradePointEstimate(Tools.Forms.tradeAnalysis sender, string strategyCode, 
+                                            EstimateOptions option, databases.tmpDS.tradeEstimateDataTable tbl)
+=======
 
         private void ShowTradePointEstimate(Tools.Forms.tradeAnalysis sender, string strategyCode, 
                                             EstimateOptions option, databases.tmpDS.tradeEstimateDataTable tbl)
+>>>>>>> .r646
         {
             string formName = constFormNameEstimateTrade + "-" + sender.myData.DataStockCode;
             Tools.Forms.profitEstimate myForm = (Tools.Forms.profitEstimate)cachedForms.Find(formName);
@@ -1219,6 +1338,11 @@ namespace client
             myForm.Show(dockPanel, DockState.DockBottom);
             myForm.BringToFront();
         }
+        /// <summary>
+        /// Trade analysis Activate handler
+        /// </summary>
+        /// <param name="sender">sender object</param>
+        /// <param name="e">event arguments</param>
         private void tradeAnalysisActivatedHandler(object sender, EventArgs e)
         {
             try
