@@ -81,7 +81,7 @@ namespace server
                 list = common.system.String2List(workTimeRules[idx], ";");
                 if (list.Length != 3)
                 {
-                    commonClass.SysLibs.WriteSysLog("Invalid config : " + workTimeRules[idx]);
+                    commonClass.SysLibs.WriteSysLog(common.SysSeverityLevel.Error,"SRV001", "Invalid config : " + workTimeRules[idx]);
                     return false;
                 }
                 //Start date
@@ -164,18 +164,18 @@ namespace server
                     catch (Exception er)
                     {
                         retVal = false;
-                        commonClass.SysLibs.WriteSysLog("Error " + er.Message);
+                        commonClass.SysLibs.WriteSysLog(common.SysSeverityLevel.Error, "SRV004", er);
                     }
 
                     int nextRunId = 0;
                     if (retVal)
                     {
-                        commonClass.SysLibs.WriteSysLog(" - Updated from " + exchangeDetailRow.address +" successful");
+                        commonClass.SysLibs.WriteSysLog(common.SysSeverityLevel.Informational, "", " - Updated from " + exchangeDetailRow.address + " successful");
                         nextRunId = exchangeDetailRow.goFalse;
                     }
                     else
                     {
-                        commonClass.SysLibs.WriteSysLog(" - Updated from " + exchangeDetailRow.address + " failed");
+                        commonClass.SysLibs.WriteSysLog(common.SysSeverityLevel.Informational, "", " - Updated from " + exchangeDetailRow.address + " failed");
                         nextRunId = exchangeDetailRow.goTrue;
                     }
                     //Find next line to run

@@ -115,7 +115,7 @@ namespace server
             catch (Exception er)
             {
                 fFetchDataRunning = false;
-                commonClass.SysLibs.WriteSysLog("Error " + er.Message);
+                commonClass.SysLibs.WriteSysLog(common.SysSeverityLevel.Error, "SRV002",er);
             }
             
         }
@@ -125,18 +125,18 @@ namespace server
             {
                 if (fCreateAlertRunning)
                 {
-                    commonClass.SysLibs.WriteSysLog("Ignore Trade alert");
+                    commonClass.SysLibs.WriteSysLog(common.SysSeverityLevel.Informational, "", "Ignore Trade alert");
                     return;
                 }
                 fCreateAlertRunning = true;
                 int noAlertCreated = application.TradeAlert.CreateTradeAlert(onTradeAlertProcessStart, onTradeAlertProcessItem, onTradeAlertProcessEnd);
-                commonClass.SysLibs.WriteSysLog(" - Trade alert run successfully : " + noAlertCreated + " alerts created");
+                commonClass.SysLibs.WriteSysLog(common.SysSeverityLevel.Informational, "", " - Trade alert run successfully : " + noAlertCreated + " alerts created");
                 fCreateAlertRunning = false;
             }
             catch (Exception er)
             {
                 fCreateAlertRunning = false;
-                commonClass.SysLibs.WriteSysLog(" - Trader Alert error " + er.Message);
+                commonClass.SysLibs.WriteSysLog(common.SysSeverityLevel.Error, "SRV003", " - Trader Alert error " + er.Message);
                 ShowError(er);
             }
         }

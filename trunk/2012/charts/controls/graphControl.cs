@@ -11,9 +11,6 @@ namespace Charts.Controls
 {
     public partial class myGraphControl : ZedGraph.ZedGraphControl
     {
-        /// <summary>
-        /// Contructor for myGraph Control
-        /// </summary>
         public myGraphControl()
         {
             InitializeComponent();
@@ -47,10 +44,7 @@ namespace Charts.Controls
 
             this.PointValueEvent += new ZedGraphControl.PointValueHandler(GraphPointValueHandler);
         }
-        /// <summary>
-        /// Set font for all Panes on Chart
-        /// </summary>
-        /// <param name="font"></param>
+
         public void SetFont(Font font)
         {
             this.Font = font;
@@ -79,10 +73,6 @@ namespace Charts.Controls
             this.myGraphPane.Y2Axis.Scale.FontSpec.IsItalic = font.Italic;
             this.myGraphPane.Y2Axis.Scale.FontSpec.IsUnderline = font.Underline;
         }
-        /// <summary>
-        /// Set font size for all panes on chart
-        /// </summary>
-        /// <param name="fontSize"></param>
         public void SetFont(int fontSize)
         {
             this.Font = new Font(this.Font.FontFamily.Name, fontSize);
@@ -323,10 +313,8 @@ namespace Charts.Controls
             }
             this.myGraphPane.XAxis.Scale.Format = "hh:mm:ss";
         }
-                
-        /// <summary>
-        ///Chart series can be added dynamically, after such update UpdateSeries() should be called to update the chart's serries(mySeriesX...) 
-        /// </summary>
+
+        // Chart series can be added dynamically, after such update UpdateSeries() should be called to update the chart's serries(mySeriesX...)
         public void UpdateSeries()
         {
             if (mySeriesX == null)
@@ -341,12 +329,6 @@ namespace Charts.Controls
         {
             SetSeriesX(xSeries, axisType, AxisUnit.Day);
         }
-        /// <summary>
-        /// Set seriesX
-        /// </summary>
-        /// <param name="xSeries">xSeries</param>
-        /// <param name="axisType">Axis Type</param>
-        /// <param name="axisUnit">Axis Unit</param>
         public void SetSeriesX(double[] xSeries, AxisType axisType, AxisUnit axisUnit)
         {
             this.myViewportState.myAxisType = axisType;
@@ -400,9 +382,6 @@ namespace Charts.Controls
             }
             if (myOnDataRangeChanged != null)  myOnDataRangeChanged(this);
         }
-        /// <summary>
-        /// Set default viewport
-        /// </summary>
         public void DefaultViewport()
         {
             if (this.mySeriesX == null) return;
@@ -414,10 +393,7 @@ namespace Charts.Controls
             this.myViewportState.Reset();
             this.SetViewportX(new IntRange(min, this.mySeriesX.Length - 1));
         }
-        /// <summary>
-        /// IsLastView
-        /// </summary>
-        /// <returns></returns>
+
         public bool IsLastView()
         {
             if (this.mySeriesX == null) return false;
@@ -430,9 +406,7 @@ namespace Charts.Controls
                     return (mySeriesX.Length - 1 >= this.myViewportX.Min && mySeriesX.Length - 1 <= this.myViewportX.Max);
             }
         }
-        /// <summary>
-        /// Move To End on chart handling
-        /// </summary>
+
         public void MoveToEnd()
         {
             if (this.mySeriesX == null) return;
@@ -450,27 +424,17 @@ namespace Charts.Controls
             this.myViewportX = xRange;
         }
 
-        /// <summary>
-        /// Count the move on chart
-        /// </summary>
-        /// <returns></returns>
         private int GetMoveCount()
         {
             int moveCount = (this.myViewportX.Max - this.myViewportX.Min) * Settings.sysPAN_MovePercent / 100;
             return (moveCount < Settings.sysPAN_MoveMinCount ? Settings.sysPAN_MoveMinCount : moveCount);
         }
-        /// <summary>
-        /// Get zoom count
-        /// </summary>
-        /// <returns></returns>
         private int GetZoomCount()
         {
             int zoomCount = (this.myViewportX.Max - this.myViewportX.Min) * Settings.sysZoom_Percent/ 100;
             return (zoomCount < Settings.sysZoom_MinCount ? Settings.sysZoom_MinCount : zoomCount);
         }
-        /// <summary>
-        /// Move backward on chart when user use mouse for handling
-        /// </summary>
+
         public void MoveBackward()
         {
             try
@@ -501,9 +465,6 @@ namespace Charts.Controls
                 this.myViewportState.state = ViewportState.StateType.None;
             }
         }
-        /// <summary>
-        /// Move chart forward
-        /// </summary>
         public void MoveForward()
         {
             try
@@ -526,9 +487,6 @@ namespace Charts.Controls
                 this.myViewportState.state = ViewportState.StateType.None;
             }
         }
-        /// <summary>
-        /// ZoomOut
-        /// </summary>
         public void ZoomOut()
         {
             try
@@ -543,9 +501,6 @@ namespace Charts.Controls
                 this.myViewportState.state = ViewportState.StateType.None;
             }
         }
-        /// <summary>
-        /// ZoomIn
-        /// </summary>
         public void ZoomIn()
         {
             try
@@ -562,17 +517,12 @@ namespace Charts.Controls
                 this.myViewportState.state = ViewportState.StateType.None;
             }
         }
-        /// <summary>
-        /// Update chart when edit or add new
-        /// </summary>
         public void UpdateChart()
         {
             this.AxisChange();
             this.Invalidate();
         }
-        /// <summary>
-        /// Calculate the graph size for set correct rectangle
-        /// </summary>
+
         public virtual void CalcGraphSize()
         {
             this.myGraphPane.Chart.Rect = new RectangleF(this.ChartMarginLEFT, this.ChartMarginTOP,
@@ -596,12 +546,6 @@ namespace Charts.Controls
         #endregion
 
         #region Chart
-        /// <summary>
-        /// Redraw a curve line
-        /// </summary>
-        /// <param name="curve"></param>
-        /// <param name="seriesY"></param>
-        /// <returns></returns>
         public LineItem ReDrawCurveLine(LineItem curve,double[] seriesY)
         {
             myGraphPane.CurveList.Remove(curve); 
@@ -612,15 +556,7 @@ namespace Charts.Controls
             //myCurve.Symbol.Size = width + 1;
             //return myCurve;
         }
-        /// <summary>
-        /// Add New curve line
-        /// </summary>
-        /// <param name="name"></param>
-        /// <param name="seriesY"></param>
-        /// <param name="symbol"></param>
-        /// <param name="color"></param>
-        /// <param name="width"></param>
-        /// <returns></returns>
+
         public LineItem AddCurveLine(string name, double[] seriesY, SymbolType symbol, Color color, int width)
         {
             LineItem myCurve = myGraphPane.AddCurve(name, this.mySeriesX, seriesY, color, symbol);
@@ -628,15 +564,6 @@ namespace Charts.Controls
             myCurve.Symbol.Size = width + 1;
             return myCurve;
         }
-        /// <summary>
-        /// Add new curve bar
-        /// </summary>
-        /// <param name="name"></param>
-        /// <param name="seriesY"></param>
-        /// <param name="color"></param>
-        /// <param name="borderColor"></param>
-        /// <param name="width"></param>
-        /// <returns></returns>
         public BarItem AddCurveBar(string name, double[] seriesY, Color color, Color borderColor, int width)
         {
             BarItem myCurve = myGraphPane.AddBar(name, this.mySeriesX, seriesY, color);
@@ -645,34 +572,11 @@ namespace Charts.Controls
             myCurve.Bar.Border.Width = width;
             return myCurve;
         }
-        /// <summary>
-        /// Add new curve stick
-        /// </summary>
-        /// <param name="name"></param>
-        /// <param name="seriesY"></param>
-        /// <param name="color"></param>
-        /// <returns></returns>
         public StickItem AddCurveStick(string name, double[] seriesY, Color color)
         {
             StickItem myCurve = myGraphPane.AddStick(name, this.mySeriesX, seriesY, color);
             return myCurve;
         }
-        /// <summary>
-        /// Add new curve under Candle stick format
-        /// </summary>
-        /// <param name="name"></param>
-        /// <param name="seriesHigh"></param>
-        /// <param name="seriesLow"></param>
-        /// <param name="seriesOpen"></param>
-        /// <param name="seriesClose"></param>
-        /// <param name="seriesVolume"></param>
-        /// <param name="barUpColor"></param>
-        /// <param name="barDownColor"></param>
-        /// <param name="risingFillColor"></param>
-        /// <param name="risingBorderColor"></param>
-        /// <param name="fallingFillColor"></param>
-        /// <param name="fallingBorderColor"></param>
-        /// <returns></returns>
         public JapaneseCandleStickItem AddCandleStick(string name, double[] seriesHigh, double[] seriesLow, double[] seriesOpen, double[] seriesClose, double[] seriesVolume,
                                                       Color barUpColor, Color barDownColor, 
                                                       Color risingFillColor, Color risingBorderColor,

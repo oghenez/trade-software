@@ -34,7 +34,7 @@ namespace baseClass.forms
                     DataAccess.Libs.WriteLog(commonClass.SysLibs.sysLoginCode, er);
                     break;
                 case AppTypes.SyslogMedia.File:
-                    commonClass.SysLibs.WriteSysLog(commonClass.SysLibs.sysLoginCode,er);
+                    commonClass.SysLibs.WriteSysLog(common.SysSeverityLevel.Error,"base002",er);
                     break;
             }
         }
@@ -53,7 +53,7 @@ namespace baseClass.forms
                         DataAccess.Libs.WriteLog(AppTypes.SyslogTypes.Access, commonClass.SysLibs.sysLoginCode, "Opened : " + this.Name, null, null);
                         break;
                     case AppTypes.SyslogMedia.File:
-                        commonClass.SysLibs.WriteSysLog(AppTypes.SyslogTypes.Access, commonClass.SysLibs.sysLoginCode, "Opened : " + this.Name);
+                        commonClass.SysLibs.WriteSysLog(common.SysSeverityLevel.Informational,"", commonClass.SysLibs.sysLoginCode+ " Opened : " + this.Name);
                         break;
                 }
             }
@@ -73,7 +73,7 @@ namespace baseClass.forms
                         DataAccess.Libs.WriteLog(AppTypes.SyslogTypes.Access, commonClass.SysLibs.sysLoginCode, "Closed : " + this.Name, null, null);
                         break;
                     case AppTypes.SyslogMedia.File:
-                        commonClass.SysLibs.WriteSysLog(AppTypes.SyslogTypes.Access, commonClass.SysLibs.sysLoginCode, "Closed : " + this.Name);
+                        commonClass.SysLibs.WriteSysLog(common.SysSeverityLevel.Informational,"", commonClass.SysLibs.sysLoginCode+ " Closed : " + this.Name);
                         break;
                 }
             }

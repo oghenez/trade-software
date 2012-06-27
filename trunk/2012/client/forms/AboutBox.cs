@@ -10,9 +10,6 @@ namespace client.forms
 {
     partial class AboutBox : Form
     {
-        /// <summary>
-        /// Contructor for about box
-        /// </summary>
         public AboutBox()
         {
             InitializeComponent();
