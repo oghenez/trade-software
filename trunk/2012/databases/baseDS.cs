@@ -9,3 +9,11 @@ namespace databases {
         }
     }
 }
+
+namespace databases.baseDSTableAdapters
+{
+    
+    
+    public partial class priceDataTA {
+    }
+}

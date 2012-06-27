@@ -452,7 +452,7 @@ namespace client
                     //}
                 }
                 //Update trade point on chart
-                PlotTradepointHandler(strategyCbStrip, null);
+                //PlotTradepointHandler(strategyCbStrip, null);
 
                 fRefreshingData = false;
             }

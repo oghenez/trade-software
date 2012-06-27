@@ -164,7 +164,7 @@ namespace commonTypes
         /// Price can be querried from SQL continouously and cause some bottleneck. 
         /// The setting specified the time (in seconds) that data cached in the application server
         /// </summary>
-        public static int sysDataDelayTimeInSecs = 5;
+        public static int sysDataDelayTimeInSecs = 1;
 
 
         /// <summary>
