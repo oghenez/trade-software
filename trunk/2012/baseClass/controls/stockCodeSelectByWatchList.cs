@@ -170,6 +170,7 @@ namespace baseClass.controls
         public enum RefreshOptions : byte { CodeGroup = 1, PriceData = 4 , All = 255}
         public void RefreshData(bool force)
         {
+            if (this.bgWorker.IsBusy) return;
             this.bgWorker.RunWorkerAsync();
         }
 

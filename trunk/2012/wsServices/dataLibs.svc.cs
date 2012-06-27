@@ -1515,7 +1515,6 @@ namespace wsServices
 
         #endregion syslog
 
-
         #region Backward compatible
 
         public databases.baseDS.lastPriceDataDataTable GetLastPrice(AppTypes.PriceDataType type)

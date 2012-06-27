@@ -115,7 +115,7 @@ namespace commonTypes
     }
     public static class Settings
     {
-        public const bool sysDebugMode = false;
+        public const bool sysDebugMode = true;
 
         private static GlobalSettings _sysGlobal = null;
         public static GlobalSettings sysGlobal

@@ -49,6 +49,8 @@ namespace Trade.Forms
 
         public void RefreshData(bool force)
         {
+            if (this.bgWorker.IsBusy) return;
+            
             this.bgWorker.RunWorkerAsync(force);
         }
 
