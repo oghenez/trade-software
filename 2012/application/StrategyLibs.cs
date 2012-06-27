@@ -337,7 +337,7 @@ namespace application.Strategy
                 }
                 catch(Exception er)
                 {
-                   commonClass.SysLibs.WriteSysLog(commonClass.SysLibs.sysLoginCode,er);
+                   commonClass.SysLibs.WriteSysLog(common.SysSeverityLevel.Error,"STR001",er);
                 }
             }
             return;
@@ -1022,7 +1022,7 @@ namespace application.Strategy
                 {
                     _sysXmlDocument = commonClass.Configuration.GetLocalXmlDocSTRATEGY();
                     if (common.Settings.sysDebugMode)
-                        commonClass.SysLibs.WriteSysLog(AppTypes.SyslogTypes.Others, commonClass.SysLibs.sysLoginCode,"Use local STRATEGY XML");
+                        commonClass.SysLibs.WriteSysLog(common.SysSeverityLevel.Error,"STR002","Use local STRATEGY XML");
                 }
                 return _sysXmlDocument;
             }

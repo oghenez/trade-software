@@ -123,18 +123,21 @@ namespace commonClass
             sysLoginType =  AppTypes.UserTypes.Investor;
         }
 
-        public static void WriteSysLog(AppTypes.SyslogTypes type, string investorCode, string text)
+        public static void WriteSysLog(common.SysSeverityLevel level, string code, string text)
         {
-            common.SysLog.WriteLog(DateTime.Now.ToString() + common.Consts.constTab + type.ToString() + common.Consts.constTab +
-                                  (investorCode == null || investorCode.Trim() == "" ? "" : investorCode.Trim()) + common.Consts.constTab + text, Settings.sysFileUserLog);
+            common.SysLog.WriteLog(DateTime.Now.ToString() + common.Consts.constTab + 
+                                   level.ToString() + common.Consts.constTab +
+                                   code + common.Consts.constTab + text, Settings.sysFileUserLog);
         }
-        public static void WriteSysLog(string investorCode,Exception er)
+        public static void WriteSysLog(common.SysSeverityLevel level, string code, Exception er)
         {
-            WriteSysLog(AppTypes.SyslogTypes.Exception, investorCode,common.SysLog.MakeLogString(er, common.Consts.constTab));
+            WriteSysLog(level,code, er,null);
         }
-        public static void WriteSysLog(string text)
+        public static void WriteSysLog(common.SysSeverityLevel level, string code, Exception er, string additionalMsg)
         {
-            common.SysLog.WriteLog(DateTime.Now.ToString() + common.Consts.constTab + text, Settings.sysFileUserLog);
+            WriteSysLog(level, code,
+                        (additionalMsg!=null? additionalMsg + common.Consts.constTab :"" )+
+                         common.SysLog.MakeLogString(er, common.Consts.constTab));
         }
 
         #region system environment
