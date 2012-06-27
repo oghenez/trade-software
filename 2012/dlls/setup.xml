@@ -1,1 +1,29 @@
-﻿<Configuration />
+<Configuration>
+  <WSCONNECTION>
+    <Main wsURI="" />
+  </WSCONNECTION>
+  <WSCONNECTION>
+    <Main wsAccount="" />
+  </WSCONNECTION>
+  <WSCONNECTION>
+    <Main wsPassword="" />
+  </WSCONNECTION>
+  <WSCONNECTION>
+    <Main wsWindowAuthentication="EpAxoobbG0tPxhyMIVa+4Q==" />
+  </WSCONNECTION>
+  <WSCONNECTION>
+    <Main wsTimeout="RkLVbHhukqmG8DqFrUVKzw==" />
+  </WSCONNECTION>
+  <WSCONNECTION>
+    <Main wsUseProxy="EpAxoobbG0tPxhyMIVa+4Q==" />
+  </WSCONNECTION>
+  <WSCONNECTION>
+    <Main wsUseDefaultProxy="MVsoctThcobSC9M10quTJg==" />
+  </WSCONNECTION>
+  <WSCONNECTION>
+    <Main wsProxyAddress="" />
+  </WSCONNECTION>
+  <WSCONNECTION>
+    <Main wsProxyPort="" />
+  </WSCONNECTION>
+</Configuration>
