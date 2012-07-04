@@ -205,7 +205,10 @@ namespace DataAccess
         {
             try
             {
-                return myClient.IsWorking();
+                lock (myClient)
+                {
+                    return myClient.IsWorking();
+                }
             }
             catch(Exception er)
             {
@@ -217,7 +220,10 @@ namespace DataAccess
         {
             try
             {
-                return myClient.GetServerDateTime();
+                lock (myClient)
+                {
+                    return myClient.GetServerDateTime();
+                }
             }
             catch (Exception er)
             {
@@ -256,12 +262,15 @@ namespace DataAccess
             {
                 try
                 {
-                    string cacheKey = MakeCacheKey("StockList", "Enable");
-                    object obj = GetCache(cacheKey);
-                    if (obj != null) return (databases.tmpDS.stockCodeDataTable)obj;
-                    databases.tmpDS.stockCodeDataTable tbl = myClient.GetStockByStatus(AppTypes.CommonStatus.Enable);
-                    AddCache(cacheKey, tbl);
-                    return tbl;
+                    lock (myClient)
+                    {
+                        string cacheKey = MakeCacheKey("StockList", "Enable");
+                        object obj = GetCache(cacheKey);
+                        if (obj != null) return (databases.tmpDS.stockCodeDataTable)obj;
+                        databases.tmpDS.stockCodeDataTable tbl = myClient.GetStockByStatus(AppTypes.CommonStatus.Enable);
+                        AddCache(cacheKey, tbl);
+                        return tbl;
+                    }
                 }
                 catch (Exception er)
                 {
@@ -284,12 +293,15 @@ namespace DataAccess
             {
                 try
                 {
-                    string cacheKey = MakeCacheKey("stockExchange", "All");
-                    object obj = GetCache(cacheKey);
-                    if (obj != null) return (databases.baseDS.stockExchangeDataTable)obj;
-                    databases.baseDS.stockExchangeDataTable tbl = myClient.GetStockExchange();
-                    AddCache(cacheKey, tbl);
-                    return tbl;
+                    lock (myClient)
+                    {
+                        string cacheKey = MakeCacheKey("stockExchange", "All");
+                        object obj = GetCache(cacheKey);
+                        if (obj != null) return (databases.baseDS.stockExchangeDataTable)obj;
+                        databases.baseDS.stockExchangeDataTable tbl = myClient.GetStockExchange();
+                        AddCache(cacheKey, tbl);
+                        return tbl;
+                    }
                 }
                 catch (Exception er)
                 {
@@ -308,12 +320,15 @@ namespace DataAccess
             {
                 try
                 {
-                    string cacheKey = MakeCacheKey("SysCodeCat", "All");
-                    object obj = GetCache(cacheKey);
-                    if (obj != null) return (databases.baseDS.sysCodeCatDataTable)obj;
-                    databases.baseDS.sysCodeCatDataTable tbl = myClient.GetSysCodeCat();
-                    AddCache(cacheKey, tbl);
-                    return tbl;
+                    lock (myClient)
+                    {
+                        string cacheKey = MakeCacheKey("SysCodeCat", "All");
+                        object obj = GetCache(cacheKey);
+                        if (obj != null) return (databases.baseDS.sysCodeCatDataTable)obj;
+                        databases.baseDS.sysCodeCatDataTable tbl = myClient.GetSysCodeCat();
+                        AddCache(cacheKey, tbl);
+                        return tbl;
+                    }
                 }
                 catch (Exception er)
                 {
@@ -332,12 +347,15 @@ namespace DataAccess
             {
                 try
                 {
-                    string cacheKey = MakeCacheKey("Currency", "All");
-                    object obj = GetCache(cacheKey);
-                    if (obj != null) return (databases.baseDS.currencyDataTable)obj;
-                    databases.baseDS.currencyDataTable tbl = myClient.GetCurrency();
-                    AddCache(cacheKey, tbl);
-                    return tbl;
+                    lock (myClient)
+                    {
+                        string cacheKey = MakeCacheKey("Currency", "All");
+                        object obj = GetCache(cacheKey);
+                        if (obj != null) return (databases.baseDS.currencyDataTable)obj;
+                        databases.baseDS.currencyDataTable tbl = myClient.GetCurrency();
+                        AddCache(cacheKey, tbl);
+                        return tbl;
+                    }
                 }
                 catch (Exception er)
                 {
@@ -356,12 +374,15 @@ namespace DataAccess
             {
                 try
                 {
-                    string cacheKey = MakeCacheKey("Country", "All");
-                    object obj = GetCache(cacheKey);
-                    if (obj != null) return (databases.baseDS.countryDataTable)obj;
-                    databases.baseDS.countryDataTable tbl = myClient.GetCountry();
-                    AddCache(cacheKey, tbl);
-                    return tbl;
+                   string cacheKey = MakeCacheKey("Country", "All");
+                   object obj = GetCache(cacheKey);
+                   if (obj != null) return (databases.baseDS.countryDataTable)obj;
+                   lock (myClient)
+                   {
+                        databases.baseDS.countryDataTable tbl = myClient.GetCountry();
+                        AddCache(cacheKey, tbl);
+                        return tbl;
+                    }
                 }
                 catch (Exception er)
                 {
@@ -383,9 +404,12 @@ namespace DataAccess
                     string cacheKey = MakeCacheKey("InvestorCat", "All");
                     object obj = GetCache(cacheKey);
                     if (obj != null) return (databases.baseDS.investorCatDataTable)obj;
-                    databases.baseDS.investorCatDataTable tbl = myClient.GetInvestorCat();
-                    AddCache(cacheKey, tbl);
-                    return tbl;
+                    lock (myClient)
+                    {
+                        databases.baseDS.investorCatDataTable tbl = myClient.GetInvestorCat();
+                        AddCache(cacheKey, tbl);
+                        return tbl;
+                    }
                 }
                 catch (Exception er)
                 {
@@ -403,9 +427,12 @@ namespace DataAccess
                     string cacheKey = MakeCacheKey("EmployeeRange", "All");
                     object obj = GetCache(cacheKey);
                     if (obj != null) return (databases.baseDS.employeeRangeDataTable)obj;
-                    databases.baseDS.employeeRangeDataTable tbl = myClient.GetEmployeeRange();
-                    AddCache(cacheKey, tbl);
-                    return tbl;
+                    lock (myClient)
+                    {
+                        databases.baseDS.employeeRangeDataTable tbl = myClient.GetEmployeeRange();
+                        AddCache(cacheKey, tbl);
+                        return tbl;
+                    }
                 }
                 catch (Exception er)
                 {
@@ -423,9 +450,12 @@ namespace DataAccess
                     string cacheKey = MakeCacheKey("BizSector", "All");
                     object obj = GetCache(cacheKey);
                     if (obj != null) return (databases.baseDS.bizSectorDataTable)obj;
-                    databases.baseDS.bizSectorDataTable tbl = myClient.GetBizSector();
-                    AddCache(cacheKey, tbl);
-                    return tbl;
+                    lock (myClient)
+                    {
+                        databases.baseDS.bizSectorDataTable tbl = myClient.GetBizSector();
+                        AddCache(cacheKey, tbl);
+                        return tbl;
+                    }
                 }
                 catch (Exception er)
                 {
@@ -444,9 +474,12 @@ namespace DataAccess
                     string cacheKey = MakeCacheKey("BizSubSector", "All");
                     object obj = GetCache(cacheKey);
                     if (obj != null) return (databases.baseDS.bizSubSectorDataTable)obj;
-                    databases.baseDS.bizSubSectorDataTable tbl = myClient.GetBizSubSector();
-                    AddCache(cacheKey, tbl);
-                    return tbl;
+                    lock (myClient)
+                    {
+                        databases.baseDS.bizSubSectorDataTable tbl = myClient.GetBizSubSector();
+                        AddCache(cacheKey, tbl);
+                        return tbl;
+                    }
                 }
                 catch (Exception er)
                 {
@@ -464,9 +497,12 @@ namespace DataAccess
                     string cacheKey = MakeCacheKey("BizSuperSector", "All");
                     object obj = GetCache(cacheKey);
                     if (obj != null) return (databases.baseDS.bizSuperSectorDataTable)obj;
-                    databases.baseDS.bizSuperSectorDataTable tbl = myClient.GetBizSuperSector();
-                    AddCache(cacheKey, tbl);
-                    return tbl;
+                    lock (myClient)
+                    {
+                        databases.baseDS.bizSuperSectorDataTable tbl = myClient.GetBizSuperSector();
+                        AddCache(cacheKey, tbl);
+                        return tbl;
+                    }
                 }
                 catch (Exception er)
                 {
@@ -484,9 +520,12 @@ namespace DataAccess
                     string cacheKey = MakeCacheKey("BizIndustry", "All");
                     object obj = GetCache(cacheKey);
                     if (obj != null) return (databases.baseDS.bizIndustryDataTable)obj;
-                    databases.baseDS.bizIndustryDataTable tbl = myClient.GetBizIndustry();
-                    AddCache(cacheKey, tbl);
-                    return tbl;
+                    lock (myClient)
+                    {
+                        databases.baseDS.bizIndustryDataTable tbl = myClient.GetBizIndustry();
+                        AddCache(cacheKey, tbl);
+                        return tbl;
+                    }
                 }
                 catch (Exception er)
                 {
@@ -503,10 +542,13 @@ namespace DataAccess
         {
             try
             {
-                string cacheKey = MakeCacheKey("feedbackCat", cultureCode);
-                databases.baseDS.feedbackCatDataTable tbl = myClient.GetFeedbackCat(cultureCode);
-                AddCache(cacheKey, tbl);
-                return tbl;
+                lock (myClient)
+                {
+                    string cacheKey = MakeCacheKey("feedbackCat", cultureCode);
+                    databases.baseDS.feedbackCatDataTable tbl = myClient.GetFeedbackCat(cultureCode);
+                    AddCache(cacheKey, tbl);
+                    return tbl;
+                }
             }
             catch (Exception er)
             {
@@ -518,7 +560,10 @@ namespace DataAccess
         {
             try
             {
-                return myClient.GetSyslog_ByDate(frDate, toDate);
+                lock (myClient)
+                {
+                    return myClient.GetSyslog_ByDate(frDate, toDate);
+                }
             }
             catch (Exception er)
             {
@@ -530,7 +575,10 @@ namespace DataAccess
         {
             try
             {
-                return myClient.GetSyslog_BySQL(sql);
+                lock (myClient)
+                {
+                    return myClient.GetSyslog_BySQL(sql);
+                }
             }
             catch (Exception er)
             {
@@ -543,7 +591,10 @@ namespace DataAccess
         {
             try
             {
-                return myClient.GetMesssage_ByDate(frDate, toDate);
+                lock (myClient)
+                {
+                    return myClient.GetMesssage_ByDate(frDate, toDate);
+                }
             }
             catch (Exception er)
             {
@@ -555,7 +606,10 @@ namespace DataAccess
         {
             try
             {
-                return myClient.GetMesssage_BySql(sql);
+                lock (myClient)
+                {
+                    return myClient.GetMesssage_BySql(sql);
+                }
             }
             catch (Exception er)
             {
@@ -582,9 +636,12 @@ namespace DataAccess
         {
             try
             {
-                databases.baseDS.exchangeDetailDataTable tmpTbl = myClient.GetExchangeDetail(code);
-                if (tmpTbl == null) return false;
-                common.system.Concat(tmpTbl,0, tbl);
+                lock (myClient)
+                {
+                    databases.baseDS.exchangeDetailDataTable tmpTbl = myClient.GetExchangeDetail(code);
+                    if (tmpTbl == null) return false;
+                    common.system.Concat(tmpTbl, 0, tbl);
+                }
             }
             catch (Exception er)
             {
@@ -603,9 +660,12 @@ namespace DataAccess
                     object obj = GetCache(cacheKey);
                     if (obj != null) return (databases.baseDS.stockCodeDataTable)obj;
                 }
-                databases.baseDS.stockCodeDataTable tbl = myClient.GetStockFull();
-                AddCache(cacheKey, tbl);
-                return tbl;
+                lock (myClient)
+                {
+                    databases.baseDS.stockCodeDataTable tbl = myClient.GetStockFull();
+                    AddCache(cacheKey, tbl);
+                    return tbl;
+                }
             }
             catch (Exception er)
             {
@@ -621,9 +681,12 @@ namespace DataAccess
                 string cacheKey = MakeCacheKey("SysWatchList", "List");
                 object obj = GetCache(cacheKey);
                 if (obj != null) return (databases.baseDS.portfolioDataTable)obj;
-                databases.baseDS.portfolioDataTable tbl = myClient.GetPortfolio_ByType(AppTypes.PortfolioTypes.SysWatchList);
-                AddCache(cacheKey, tbl);
-                return tbl;
+                lock (myClient)
+                {
+                    databases.baseDS.portfolioDataTable tbl = myClient.GetPortfolio_ByType(AppTypes.PortfolioTypes.SysWatchList);
+                    AddCache(cacheKey, tbl);
+                    return tbl;
+                }
             }
             catch (Exception er)
             {
@@ -638,21 +701,24 @@ namespace DataAccess
                 string cacheKey = MakeCacheKey("SysPortfolio", "DefaultStrategy");
                 object obj = GetCache(cacheKey);
                 if (obj != null) return (databases.baseDS.portfolioRow)obj;
-                databases.baseDS.portfolioRow row = null;
-                databases.baseDS.portfolioDataTable tbl = myClient.GetPortfolio_ByType(AppTypes.PortfolioTypes.PortfolioDefaultStrategy);
-                if (tbl.Count == 0)
+                lock (myClient)
                 {
-                    row = tbl.NewportfolioRow();
-                    databases.AppLibs.InitData(row);
-                    row.type = (byte)AppTypes.PortfolioTypes.PortfolioDefaultStrategy;
-                    row.code = Consts.constMarkerNEW;
-                    row.investorCode = commonClass.SysLibs.sysLoginCode;
-                    tbl.AddportfolioRow(row);
-                    myClient.UpdatePortfolio(ref tbl);
+                    databases.baseDS.portfolioRow row = null;
+                    databases.baseDS.portfolioDataTable tbl = myClient.GetPortfolio_ByType(AppTypes.PortfolioTypes.PortfolioDefaultStrategy);
+                    if (tbl.Count == 0)
+                    {
+                        row = tbl.NewportfolioRow();
+                        databases.AppLibs.InitData(row);
+                        row.type = (byte)AppTypes.PortfolioTypes.PortfolioDefaultStrategy;
+                        row.code = Consts.constMarkerNEW;
+                        row.investorCode = commonClass.SysLibs.sysLoginCode;
+                        tbl.AddportfolioRow(row);
+                        myClient.UpdatePortfolio(ref tbl);
+                    }
+                    row = tbl[0];
+                    AddCache(cacheKey, row);
+                    return row;
                 }
-                row = tbl[0];
-                AddCache(cacheKey, row);
-                return row;
             }
             catch (Exception er)
             {
@@ -664,9 +730,12 @@ namespace DataAccess
         {
             try
             {
-                databases.baseDS.portfolioDataTable tbl = myClient.GetPortfolio_ByCode(code);
-                if (tbl.Count == 0) return null;
-                return tbl[0];
+                lock (myClient)
+                {
+                    databases.baseDS.portfolioDataTable tbl = myClient.GetPortfolio_ByCode(code);
+                    if (tbl.Count == 0) return null;
+                    return tbl[0];
+                }
             }
             catch (Exception er)
             {
@@ -678,7 +747,10 @@ namespace DataAccess
         {
             try
             {
-                return myClient.GetPortfolio_ByType(type);
+                lock (myClient)
+                {
+                    return myClient.GetPortfolio_ByType(type);
+                }
             }
             catch (Exception er)
             {
@@ -691,7 +763,10 @@ namespace DataAccess
         {
             try
             {
-                return myClient.GetPortfolio_ByInvestorAndType(investorCode, type);
+                lock (myClient)
+                {
+                    return myClient.GetPortfolio_ByInvestorAndType(investorCode, type);
+                }
             }
             catch (Exception er)
             {
@@ -703,7 +778,10 @@ namespace DataAccess
         {
             try
             {
-                return myClient.GetPortfolio_ByInvestor(investorCode);
+                lock (myClient)
+                {
+                    return myClient.GetPortfolio_ByInvestor(investorCode);
+                }
             }
             catch (Exception er)
             {
@@ -716,7 +794,10 @@ namespace DataAccess
         {
             try
             {
-                return myClient.GetPortfolioDetail_ByCode(portfolioCode);
+                lock (myClient)
+                {
+                    return myClient.GetPortfolioDetail_ByCode(portfolioCode);
+                }
             }
             catch (Exception er)
             {
@@ -728,7 +809,10 @@ namespace DataAccess
         {
             try
             {
-                return myClient.GetPortfolioDetail_ByType(types);
+                lock (myClient)
+                {
+                    return myClient.GetPortfolioDetail_ByType(types);
+                }
             }
             catch (Exception er)
             {
@@ -741,7 +825,10 @@ namespace DataAccess
         {
             try
             {
-                return myClient.GetTradeAlert(frDate, toDate, investor, statusMask);
+                lock (myClient)
+                {
+                    return myClient.GetTradeAlert(frDate, toDate, investor, statusMask);
+                }
             }
             catch (Exception er)
             {
@@ -753,7 +840,10 @@ namespace DataAccess
         {
             try
             {
-                return myClient.GetTradeAlert_BySQL(sql);
+                lock (myClient)
+                {
+                    return myClient.GetTradeAlert_BySQL(sql);
+                }
             }
             catch (Exception er)
             {
@@ -765,7 +855,10 @@ namespace DataAccess
         {
             try
             {
-                return myClient.GetTransaction_BySQL(sql);
+                lock (myClient)
+                {
+                    return myClient.GetTransaction_BySQL(sql);
+                }
             }
             catch (Exception er)
             {
@@ -778,7 +871,10 @@ namespace DataAccess
         {
             try
             {
-                return myClient.GetOwnedStock_ByPortfolio(portfolio);
+                lock (myClient)
+                {
+                    return myClient.GetOwnedStock_ByPortfolio(portfolio);
+                }
             }
             catch (Exception er)
             {
@@ -791,7 +887,10 @@ namespace DataAccess
         {
             try
             {
-                return myClient.GetOwnedStockSum_ByInvestor(investorCode);
+                lock (myClient)
+                {
+                    return myClient.GetOwnedStockSum_ByInvestor(investorCode);
+                }
             }
             catch (Exception er)
             {
@@ -802,7 +901,10 @@ namespace DataAccess
 
         public static databases.tmpDS.stockCodeDataTable GetStock_InPortfolio(StringCollection portfolios)
         {
-            return myClient.GetStock_InPortfolio(common.system.Collection2List(portfolios)); 
+            lock (myClient)
+            {
+                return myClient.GetStock_InPortfolio(common.system.Collection2List(portfolios));
+            }
         }
         private static databases.tmpDS.stockCodeDataTable StockFromCodeList(string[] codes)
         {
@@ -829,8 +931,11 @@ namespace DataAccess
         {
             try
             {
-                string[] codeList = myClient.GetStockList_ByWatchList(common.system.Collection2List(codes));
-                return StockFromCodeList(codeList);
+                lock (myClient)
+                {
+                    string[] codeList = myClient.GetStockList_ByWatchList(common.system.Collection2List(codes));
+                    return StockFromCodeList(codeList);
+                }
             }
             catch (Exception er)
             {
@@ -842,7 +947,10 @@ namespace DataAccess
         {
             try
             {
-                return myClient.GetStockList_ByWatchList(common.system.Collection2List(codes));
+                lock (myClient)
+                {
+                    return myClient.GetStockList_ByWatchList(common.system.Collection2List(codes));
+                }
             }
             catch (Exception er)
             {
@@ -854,7 +962,10 @@ namespace DataAccess
         {
             try
             {
-                return myClient.GetStockList_ByBizSector(common.system.Collection2List(codes));
+                lock (myClient)
+                {
+                    return myClient.GetStockList_ByBizSector(common.system.Collection2List(codes));
+                }
             }
             catch (Exception er)
             {
@@ -868,7 +979,10 @@ namespace DataAccess
         {
             try
             {
-                return StockFromCodeList(myClient.GetStockList_ByBizSector(common.system.Collection2List(bizSector)));
+                lock (myClient)
+                {
+                    return StockFromCodeList(myClient.GetStockList_ByBizSector(common.system.Collection2List(bizSector)));
+                }
             }
             catch (Exception er)
             {
@@ -884,9 +998,12 @@ namespace DataAccess
                 string cacheKey = MakeCacheKey("BizSubSector_ByIndustry", code);
                 object obj = GetCache(cacheKey);
                 if (obj != null) return (databases.baseDS.bizSubSectorDataTable)obj;
-                databases.baseDS.bizSubSectorDataTable tbl = myClient.GetBizSubSector_ByIndustry(code);
-                AddCache(cacheKey, tbl);
-                return tbl;
+                lock (myClient)
+                {
+                    databases.baseDS.bizSubSectorDataTable tbl = myClient.GetBizSubSector_ByIndustry(code);
+                    AddCache(cacheKey, tbl);
+                    return tbl;
+                }
             }
             catch (Exception er)
             {
@@ -901,9 +1018,12 @@ namespace DataAccess
                 string cacheKey = MakeCacheKey("BizSubSector_BySuperSector", code);
                 object obj = GetCache(cacheKey);
                 if (obj != null) return (databases.baseDS.bizSubSectorDataTable)obj;
-                databases.baseDS.bizSubSectorDataTable tbl = myClient.GetBizSubSector_BySuperSector(code);
-                AddCache(cacheKey, tbl);
-                return tbl;
+                lock (myClient)
+                {
+                    databases.baseDS.bizSubSectorDataTable tbl = myClient.GetBizSubSector_BySuperSector(code);
+                    AddCache(cacheKey, tbl);
+                    return tbl;
+                }
             }
             catch (Exception er)
             {
@@ -918,9 +1038,12 @@ namespace DataAccess
                 string cacheKey = MakeCacheKey("BizSubSector_BySector", code);
                 object obj = GetCache(cacheKey);
                 if (obj != null) return (databases.baseDS.bizSubSectorDataTable)obj;
-                databases.baseDS.bizSubSectorDataTable tbl = myClient.GetBizSubSector_BySector(code);
-                AddCache(cacheKey, tbl);
-                return tbl;
+                lock (myClient)
+                {
+                    databases.baseDS.bizSubSectorDataTable tbl = myClient.GetBizSubSector_BySector(code);
+                    AddCache(cacheKey, tbl);
+                    return tbl;
+                }
             }
             catch (Exception er)
             {
@@ -933,7 +1056,10 @@ namespace DataAccess
         {
             try
             {
-                return myClient.GetInvestor_BySQL(sql);
+                lock (myClient)
+                {
+                    return myClient.GetInvestor_BySQL(sql);
+                }
             }
             catch (Exception er)
             {
@@ -945,7 +1071,10 @@ namespace DataAccess
         {
             try
             {
-                return myClient.GetInvestor_ByCode(code);
+                lock (myClient)
+                {
+                    return myClient.GetInvestor_ByCode(code);
+                }
             }
             catch (Exception er)
             {
@@ -957,9 +1086,12 @@ namespace DataAccess
         {
             try
             {
-                databases.baseDS.investorDataTable tbl = new databases.baseDS.investorDataTable();
-                return myClient.GetInvestor_BySQL("SELECT * FROM " + tbl.TableName +
-                                                   " WHERE " + tbl.accountColumn.ColumnName + "=N'" + account + "'");
+                lock (myClient)
+                {
+                    databases.baseDS.investorDataTable tbl = new databases.baseDS.investorDataTable();
+                    return myClient.GetInvestor_BySQL("SELECT * FROM " + tbl.TableName +
+                                                       " WHERE " + tbl.accountColumn.ColumnName + "=N'" + account + "'");
+                }
             }
             catch (Exception er)
             {
@@ -971,8 +1103,11 @@ namespace DataAccess
         {
             try
             {
-                databases.baseDS.investorDataTable tbl = new databases.baseDS.investorDataTable();
-                return myClient.GetInvestor_BySQL("SELECT * FROM " + tbl.TableName + (criteria.Trim() == "" ? "" : " WHERE " + criteria));
+                lock (myClient)
+                {
+                    databases.baseDS.investorDataTable tbl = new databases.baseDS.investorDataTable();
+                    return myClient.GetInvestor_BySQL("SELECT * FROM " + tbl.TableName + (criteria.Trim() == "" ? "" : " WHERE " + criteria));
+                }
             }
             catch (Exception er)
             {
@@ -985,7 +1120,10 @@ namespace DataAccess
         {
             try
             {
-                return myClient.GetInvestorShortList();
+                lock (myClient)
+                {
+                    return myClient.GetInvestorShortList();
+                }
             }
             catch (Exception er)
             {
@@ -999,7 +1137,10 @@ namespace DataAccess
         {
             try
             {
-                return myClient.GetSysCodeCat();
+                lock (myClient)
+                {
+                    return myClient.GetSysCodeCat();
+                }
             }
             catch (Exception er)
             {
@@ -1011,7 +1152,10 @@ namespace DataAccess
         {
             try
             {
-                return myClient.GetSysCode(catCode);
+                lock (myClient)
+                {
+                    return myClient.GetSysCode(catCode);
+                }
             }
             catch (Exception er)
             {
@@ -1025,7 +1169,10 @@ namespace DataAccess
         {
             try
             {
-                return myClient.GetPriceData(stockCode,timeScaleCode,frDate, toDate);
+                lock (myClient)
+                {
+                    return myClient.GetPriceData(stockCode, timeScaleCode, frDate, toDate);
+                }
             }
             catch (Exception er)
             {
@@ -1053,12 +1200,15 @@ namespace DataAccess
                         common.dateTimeLibs.DateDiffInSecs(lastPriceCache.CacheTime, DateTime.Now) <= commonTypes.Settings.sysGlobal.RefreshDataInSecs)
                         return lastPriceCache.DataTbl;
 
-                    if (lastPriceCache == null) lastPriceCache = new LastPriceCache();
-                    string timeScaleCode = AppTypes.TimeScaleFromType(AppTypes.TimeScaleTypes.Day).Code;
-                    lastPriceCache.DataTbl = myClient.GetLastPriceSum(AppTypes.PriceDataType.Close,timeScaleCode);
-                    lastPriceCache.CacheTime = DateTime.Now;
-                    AddCache(cacheKey, lastPriceCache);
-                    return lastPriceCache.DataTbl;
+                    lock (myClient)
+                    {
+                        if (lastPriceCache == null) lastPriceCache = new LastPriceCache();
+                        string timeScaleCode = AppTypes.TimeScaleFromType(AppTypes.TimeScaleTypes.Day).Code;
+                        lastPriceCache.DataTbl = myClient.GetLastPriceSum(AppTypes.PriceDataType.Close, timeScaleCode);
+                        lastPriceCache.CacheTime = DateTime.Now;
+                        AddCache(cacheKey, lastPriceCache);
+                        return lastPriceCache.DataTbl;
+                    }
                 }
                 catch (Exception er)
                 {
@@ -1077,12 +1227,15 @@ namespace DataAccess
                     LastPriceCache lastPriceCache = (LastPriceCache)GetCache(cacheKey);
                     if (lastPriceCache != null && lastPriceCache.CacheTime== DateTime.Today)
                         return lastPriceCache.DataTbl;
-                    if (lastPriceCache == null) lastPriceCache = new LastPriceCache();
-                    string timeScaleCode = AppTypes.TimeScaleFromType(AppTypes.TimeScaleTypes.Day).Code;
-                    lastPriceCache.DataTbl = myClient.GetLastPriceSum(AppTypes.PriceDataType.Open, timeScaleCode);
-                    lastPriceCache.CacheTime = DateTime.Today;
-                    AddCache(cacheKey, lastPriceCache);
-                    return lastPriceCache.DataTbl;
+                    lock (myClient)
+                    {
+                        if (lastPriceCache == null) lastPriceCache = new LastPriceCache();
+                        string timeScaleCode = AppTypes.TimeScaleFromType(AppTypes.TimeScaleTypes.Day).Code;
+                        lastPriceCache.DataTbl = myClient.GetLastPriceSum(AppTypes.PriceDataType.Open, timeScaleCode);
+                        lastPriceCache.CacheTime = DateTime.Today;
+                        AddCache(cacheKey, lastPriceCache);
+                        return lastPriceCache.DataTbl;
+                    }
                 }
                 catch (Exception er)
                 {
@@ -1096,7 +1249,10 @@ namespace DataAccess
         {
             try
             {
-                return myClient.GetTransactionInfo(ref transInfo);
+                lock (myClient)
+                {
+                    return myClient.GetTransactionInfo(ref transInfo);
+                }
             }
             catch (Exception er)
             {
@@ -1109,7 +1265,10 @@ namespace DataAccess
         {
             try
             {
-                return myClient.GetLastAlertTime(investorCode);
+                lock (myClient)
+                {
+                    return myClient.GetLastAlertTime(investorCode);
+                }
             }
             catch (Exception er)
             {
@@ -1122,7 +1281,10 @@ namespace DataAccess
         {
             try
             {
-                return myClient.GetData_ByTimeScale_Code_FrDate(timeScaleCode, stockCode, fromDate);
+                lock (myClient)
+                {
+                    return myClient.GetData_ByTimeScale_Code_FrDate(timeScaleCode, stockCode, fromDate);
+                }
             }
             catch (Exception er)
             {
@@ -1134,7 +1296,10 @@ namespace DataAccess
         {
             try
             {
-                return myClient.GetData_ByTimeScale_Code_DateRange(timeScaleCode, stockCode, frDate, toDate);
+                lock (myClient)
+                {
+                    return myClient.GetData_ByTimeScale_Code_DateRange(timeScaleCode, stockCode, frDate, toDate);
+                }
             }
             catch (Exception er)
             {
@@ -1146,7 +1311,10 @@ namespace DataAccess
         {
             try
             {
-                return myClient.GetData_TotalRow(timeScaleCode, stockCode, frDate, toDate);
+                lock (myClient)
+                {
+                    return myClient.GetData_TotalRow(timeScaleCode, stockCode, frDate, toDate);
+                }
             }
             catch (Exception er)
             {
@@ -1161,7 +1329,10 @@ namespace DataAccess
         {
             try
             {
-                myClient.DeleteStockExchange(row.code);
+                lock (myClient)
+                {
+                    myClient.DeleteStockExchange(row.code);
+                }
             }
             catch (Exception er)
             {
@@ -1172,7 +1343,10 @@ namespace DataAccess
         {
             try
             {
-                myClient.DeleteStock(row.code);
+                lock (myClient)
+                {
+                    myClient.DeleteStock(row.code);
+                }
             }
             catch (Exception er)
             {
@@ -1183,7 +1357,10 @@ namespace DataAccess
         {
             try
             {
-                myClient.DeleteInvestor(row.code);
+                lock (myClient)
+                {
+                    myClient.DeleteInvestor(row.code);
+                }
             }
             catch (Exception er)
             {
@@ -1194,7 +1371,10 @@ namespace DataAccess
         {
             try
             {
-                myClient.DeletePortfolio(row.code);
+                lock (myClient)
+                {
+                    myClient.DeletePortfolio(row.code);
+                }
             }
             catch (Exception er)
             {
@@ -1206,7 +1386,10 @@ namespace DataAccess
         {
             try
             {
-                myClient.DeleteSysCodeCat(row.category);
+                lock (myClient)
+                {
+                    myClient.DeleteSysCodeCat(row.category);
+                }
             }
             catch (Exception er)
             {
@@ -1217,7 +1400,10 @@ namespace DataAccess
         {
             try
             {
-                myClient.DeleteSysCode(row.category, row.code);
+                lock (myClient)
+                {
+                    myClient.DeleteSysCode(row.category, row.code);
+                }
             }
             catch (Exception er)
             {
@@ -1229,7 +1415,10 @@ namespace DataAccess
         {
             try
             {
-                myClient.DeleteTradeAlert(alertId);
+                lock (myClient)
+                {
+                    myClient.DeleteTradeAlert(alertId);
+                }
             }
             catch (Exception er)
             {
@@ -1243,7 +1432,10 @@ namespace DataAccess
         {
             try
             {
-                myClient.UpdatePriceData(ref data);
+                lock (myClient)
+                {
+                    myClient.UpdatePriceData(ref data);
+                }
             }
             catch (Exception er)
             {
@@ -1254,11 +1446,14 @@ namespace DataAccess
         {
             try
             {
-                databases.baseDS.sysCodeCatDataTable tbl = new databases.baseDS.sysCodeCatDataTable();
-                tbl.ImportRow(row);
-                myClient.UpdateSysCodeCat(ref tbl);
-                row.AcceptChanges();
-                return tbl[0];
+                lock (myClient)
+                {
+                    databases.baseDS.sysCodeCatDataTable tbl = new databases.baseDS.sysCodeCatDataTable();
+                    tbl.ImportRow(row);
+                    myClient.UpdateSysCodeCat(ref tbl);
+                    row.AcceptChanges();
+                    return tbl[0];
+                }
             }
             catch (Exception er)
             {
@@ -1270,11 +1465,14 @@ namespace DataAccess
         {
             try
             {
-                databases.baseDS.sysCodeDataTable tbl = new databases.baseDS.sysCodeDataTable();
-                tbl.ImportRow(row);
-                myClient.UpdateSysCode(ref tbl);
-                row.AcceptChanges();
-                return tbl[0];
+                lock (myClient)
+                {
+                    databases.baseDS.sysCodeDataTable tbl = new databases.baseDS.sysCodeDataTable();
+                    tbl.ImportRow(row);
+                    myClient.UpdateSysCode(ref tbl);
+                    row.AcceptChanges();
+                    return tbl[0];
+                }
             }
             catch (Exception er)
             {
@@ -1287,11 +1485,14 @@ namespace DataAccess
         {
             try
             {
-                databases.baseDS.stockCodeDataTable tbl = new databases.baseDS.stockCodeDataTable();
-                tbl.ImportRow(row);
-                myClient.UpdateStock(ref tbl);
-                row.AcceptChanges();
-                return tbl[0];
+                lock (myClient)
+                {
+                    databases.baseDS.stockCodeDataTable tbl = new databases.baseDS.stockCodeDataTable();
+                    tbl.ImportRow(row);
+                    myClient.UpdateStock(ref tbl);
+                    row.AcceptChanges();
+                    return tbl[0];
+                }
             }
             catch (Exception er)
             {
@@ -1303,11 +1504,14 @@ namespace DataAccess
         {
             try
             {
-                databases.baseDS.investorDataTable tbl = new databases.baseDS.investorDataTable();
-                tbl.ImportRow(row);
-                myClient.UpdateInvestor(ref tbl);
-                row.AcceptChanges();
-                return tbl[0];
+                lock (myClient)
+                {
+                    databases.baseDS.investorDataTable tbl = new databases.baseDS.investorDataTable();
+                    tbl.ImportRow(row);
+                    myClient.UpdateInvestor(ref tbl);
+                    row.AcceptChanges();
+                    return tbl[0];
+                }
             }
             catch (Exception er)
             {
@@ -1319,11 +1523,14 @@ namespace DataAccess
         {
             try
             {
-                databases.baseDS.portfolioDataTable tbl = new databases.baseDS.portfolioDataTable();
-                tbl.ImportRow(row);
-                myClient.UpdatePortfolio(ref tbl);
-                row.AcceptChanges();
-                return tbl[0];
+                lock (myClient)
+                {
+                    databases.baseDS.portfolioDataTable tbl = new databases.baseDS.portfolioDataTable();
+                    tbl.ImportRow(row);
+                    myClient.UpdatePortfolio(ref tbl);
+                    row.AcceptChanges();
+                    return tbl[0];
+                }
             }
             catch (Exception er)
             {
@@ -1335,8 +1542,11 @@ namespace DataAccess
         {
             try
             {
-                myClient.UpdatePortfolioDetail(ref tbl);
-                tbl.AcceptChanges();
+                lock (myClient)
+                {
+                    myClient.UpdatePortfolioDetail(ref tbl);
+                    tbl.AcceptChanges();
+                }
             }
             catch (Exception er)
             {
@@ -1348,11 +1558,14 @@ namespace DataAccess
         {
             try
             {
-                databases.baseDS.stockExchangeDataTable tbl = new databases.baseDS.stockExchangeDataTable();
-                tbl.ImportRow(row);
-                myClient.UpdateStockExchange(ref tbl);
-                row.AcceptChanges();
-                return tbl[0];
+                lock (myClient)
+                {
+                    databases.baseDS.stockExchangeDataTable tbl = new databases.baseDS.stockExchangeDataTable();
+                    tbl.ImportRow(row);
+                    myClient.UpdateStockExchange(ref tbl);
+                    row.AcceptChanges();
+                    return tbl[0];
+                }
             }
             catch (Exception er)
             {
@@ -1365,11 +1578,14 @@ namespace DataAccess
         {
             try
             {
-                databases.baseDS.exchangeDetailDataTable tbl = new databases.baseDS.exchangeDetailDataTable();
-                common.system.Concat(data,0, tbl);
-                myClient.UpdateExchangeDetail(ref tbl);
-                data.AcceptChanges();
-                return true;
+                lock (myClient)
+                {
+                    databases.baseDS.exchangeDetailDataTable tbl = new databases.baseDS.exchangeDetailDataTable();
+                    common.system.Concat(data, 0, tbl);
+                    myClient.UpdateExchangeDetail(ref tbl);
+                    data.AcceptChanges();
+                    return true;
+                }
             }
             catch (Exception er)
             {
@@ -1381,11 +1597,14 @@ namespace DataAccess
         {
             try
             {
-                databases.baseDS.transactionsDataTable tbl = new databases.baseDS.transactionsDataTable();
-                tbl.ImportRow(row);
-                myClient.UpdateTransactions(ref tbl);
-                row.AcceptChanges();
-                return tbl[0];
+                lock (myClient)
+                {
+                    databases.baseDS.transactionsDataTable tbl = new databases.baseDS.transactionsDataTable();
+                    tbl.ImportRow(row);
+                    myClient.UpdateTransactions(ref tbl);
+                    row.AcceptChanges();
+                    return tbl[0];
+                }
             }
             catch (Exception er)
             {
@@ -1397,11 +1616,14 @@ namespace DataAccess
         {
             try
             {
-                databases.baseDS.investorStockDataTable tbl = new databases.baseDS.investorStockDataTable();
-                tbl.ImportRow(row);
-                myClient.UpdateInvestorStock(ref tbl);
-                row.AcceptChanges();
-                return tbl[0];
+                lock (myClient)
+                {
+                    databases.baseDS.investorStockDataTable tbl = new databases.baseDS.investorStockDataTable();
+                    tbl.ImportRow(row);
+                    myClient.UpdateInvestorStock(ref tbl);
+                    row.AcceptChanges();
+                    return tbl[0];
+                }
             }
             catch (Exception er)
             {
@@ -1413,11 +1635,14 @@ namespace DataAccess
         {
             try
             {
-                databases.baseDS.tradeAlertDataTable tbl = new databases.baseDS.tradeAlertDataTable();
-                tbl.ImportRow(row);
-                myClient.UpdateTradeAlert(ref tbl);
-                row.AcceptChanges();
-                return tbl[0];
+                lock (myClient)
+                {
+                    databases.baseDS.tradeAlertDataTable tbl = new databases.baseDS.tradeAlertDataTable();
+                    tbl.ImportRow(row);
+                    myClient.UpdateTradeAlert(ref tbl);
+                    row.AcceptChanges();
+                    return tbl[0];
+                }
             }
             catch (Exception er)
             {
@@ -1430,11 +1655,14 @@ namespace DataAccess
         {
             try
             {
-                databases.baseDS.messagesDataTable tbl = new databases.baseDS.messagesDataTable();
-                tbl.ImportRow(row);
-                myClient.UpdateMessage(ref tbl);
-                row.AcceptChanges();
-                return tbl[0];
+                lock (myClient)
+                {
+                    databases.baseDS.messagesDataTable tbl = new databases.baseDS.messagesDataTable();
+                    tbl.ImportRow(row);
+                    myClient.UpdateMessage(ref tbl);
+                    row.AcceptChanges();
+                    return tbl[0];
+                }
             }
             catch (Exception er)
             {
@@ -1446,11 +1674,14 @@ namespace DataAccess
         {
             try
             {
-                databases.baseDS.sysAutoKeyPendingDataTable tbl = new databases.baseDS.sysAutoKeyPendingDataTable();
-                tbl.ImportRow(row);
-                myClient.UpdateSysAutoKeyPending(ref tbl);
-                row.AcceptChanges();
-                return tbl[0];
+                lock (myClient)
+                {
+                    databases.baseDS.sysAutoKeyPendingDataTable tbl = new databases.baseDS.sysAutoKeyPendingDataTable();
+                    tbl.ImportRow(row);
+                    myClient.UpdateSysAutoKeyPending(ref tbl);
+                    row.AcceptChanges();
+                    return tbl[0];
+                }
             }
             catch (Exception er)
             {
@@ -1465,7 +1696,10 @@ namespace DataAccess
         {
             try
             {
-                return myClient.Estimate_Matrix_LastBizWeight(dataParam, stockCodeList, strategyList);
+                lock (myClient)
+                {
+                    return myClient.Estimate_Matrix_LastBizWeight(dataParam, stockCodeList, strategyList);
+                }
             }
             catch (Exception er)
             {
@@ -1479,7 +1713,10 @@ namespace DataAccess
         {
             try
             {
-                return myClient.Estimate_Matrix_Profit(timeRange, timeScaleCode, stocks, strategyList, option);
+                lock (myClient)
+                {
+                    return myClient.Estimate_Matrix_Profit(timeRange, timeScaleCode, stocks, strategyList, option);
+                }
             }
             catch (Exception er)
             {
@@ -1493,10 +1730,13 @@ namespace DataAccess
         {
             try
             {
-                string errorText = "";
-                databases.baseDS.transactionsDataTable retVal = myClient.MakeTransaction(out errorText, type, stockCode, portfolioCode, qty, feePerc);
-                if (retVal == null) common.system.ShowErrorMessage(errorText);
-                return retVal;
+                lock (myClient)
+                {
+                    string errorText = "";
+                    databases.baseDS.transactionsDataTable retVal = myClient.MakeTransaction(out errorText, type, stockCode, portfolioCode, qty, feePerc);
+                    if (retVal == null) common.system.ShowErrorMessage(errorText);
+                    return retVal;
+                }
             }
             catch (Exception er)
             {
@@ -1550,14 +1790,17 @@ namespace DataAccess
                 }
                 using (new PleaseWait())
                 {
-                    data = new AnalysisDataCache();
-                    int firstData = 0;
-                    DataParams dataParam = new DataParams(dataObj.DataTimeScale.Code, dataObj.DataTimeRange, dataObj.DataMaxCount);
-                    data.dataTbl = myClient.GetAnalysis_Data(out firstData, dataObj.DataStockCode, dataParam);
-                    data.firstData = firstData;
-                    AddCache(cacheKey, data);
-                    dataObj.priceDataTbl = (databases.baseDS.priceDataDataTable)data.dataTbl.Copy();
-                    dataObj.FirstDataStartAt = firstData;
+                    lock (myClient)
+                    {
+                        data = new AnalysisDataCache();
+                        int firstData = 0;
+                        DataParams dataParam = new DataParams(dataObj.DataTimeScale.Code, dataObj.DataTimeRange, dataObj.DataMaxCount);
+                        data.dataTbl = myClient.GetAnalysis_Data(out firstData, dataObj.DataStockCode, dataParam);
+                        data.firstData = firstData;
+                        AddCache(cacheKey, data);
+                        dataObj.priceDataTbl = (databases.baseDS.priceDataDataTable)data.dataTbl.Copy();
+                        dataObj.FirstDataStartAt = firstData;
+                    }
                 }
                 return true;
             }
@@ -1573,7 +1816,10 @@ namespace DataAccess
         {
             try
             {
-                return myClient.GetTradePointWithEstimationDetail(out toTbl, dataParam, stockCode, strategyCode, options);
+                lock (myClient)
+                {
+                    return myClient.GetTradePointWithEstimationDetail(out toTbl, dataParam, stockCode, strategyCode, options);
+                }
             }
             catch (Exception er)
             {
@@ -1639,10 +1885,13 @@ namespace DataAccess
         {
             try
             {
-                GlobalSettings globSettings = Settings.sysGlobal;
-                myClient.Load_Global_Settings(ref globSettings);
-                Settings.sysGlobal = globSettings;
-                return true;
+                lock (myClient)
+                {
+                    GlobalSettings globSettings = Settings.sysGlobal;
+                    myClient.Load_Global_Settings(ref globSettings);
+                    Settings.sysGlobal = globSettings;
+                    return true;
+                }
             }
             catch (Exception er)
             {
@@ -1654,8 +1903,11 @@ namespace DataAccess
         {
             try
             {
-                GlobalSettings globSettings = Settings.sysGlobal;
-                myClient.Save_Global_Settings(globSettings);
+                lock (myClient)
+                {
+                    GlobalSettings globSettings = Settings.sysGlobal;
+                    myClient.Save_Global_Settings(globSettings);
+                }
             }
             catch (Exception er)
             {
@@ -1669,7 +1921,10 @@ namespace DataAccess
         {
             try
             {
-                myClient.WriteLog((byte)logType, investorCode, desc, source, msg);
+                lock (myClient)
+                {
+                    myClient.WriteLog((byte)logType, investorCode, desc, source, msg);
+                }
             }
             catch (Exception er)
             {
@@ -1680,7 +1935,10 @@ namespace DataAccess
         {
             try
             {
-                myClient.WriteLog(logType, investorCode, desc, source, msg);
+                lock (myClient)
+                {
+                    myClient.WriteLog(logType, investorCode, desc, source, msg);
+                }
             }
             catch (Exception er)
             {
@@ -1691,7 +1949,10 @@ namespace DataAccess
         {
             try
             {
-                myClient.WriteExcptionLog(investorCode,common.SysLog.MakeData(er));
+                lock (myClient)
+                {
+                    myClient.WriteExcptionLog(investorCode, common.SysLog.MakeData(er));
+                }
             }
             catch (Exception ex)
             {
@@ -1713,11 +1974,14 @@ namespace DataAccess
                 object obj = GetCache(cacheKey);
                 if (obj != null) return (databases.tmpDS.dataVarrianceDataTable)obj;
 
-                //Maybe there are some holidays or weekend so wee need to look before some days 
-                DateTime beforeDate = DateTime.Today.AddDays(-commonTypes.Settings.sysGlobal.DayScanForLastPrice);
-                databases.tmpDS.dataVarrianceDataTable tbl = myClient.GetTopPriceVarrianceMarket(beforeDate, AppTypes.TimeScaleTypeToCode(AppTypes.TimeScaleTypes.Week), topN);
-                AddCache(cacheKey, tbl);
-                return tbl;
+                lock (myClient)
+                {
+                    //Maybe there are some holidays or weekend so wee need to look before some days 
+                    DateTime beforeDate = DateTime.Today.AddDays(-commonTypes.Settings.sysGlobal.DayScanForLastPrice);
+                    databases.tmpDS.dataVarrianceDataTable tbl = myClient.GetTopPriceVarrianceMarket(beforeDate, AppTypes.TimeScaleTypeToCode(AppTypes.TimeScaleTypes.Week), topN);
+                    AddCache(cacheKey, tbl);
+                    return tbl;
+                }
             }
             catch (Exception er)
             {
@@ -1734,12 +1998,15 @@ namespace DataAccess
                 object obj = GetCache(cacheKey);
                 if (obj != null) return (databases.tmpDS.dataVarrianceDataTable)obj;
 
-                //Maybe there are some holidays or weekend so wee need to look before some days 
-                DateTime beforeDate = DateTime.Today.AddDays(-commonTypes.Settings.sysGlobal.DayScanForLastPrice);
-                databases.tmpDS.dataVarrianceDataTable tbl = myClient.GetTopPriceVarrianceUser(beforeDate, AppTypes.TimeScaleTypeToCode(AppTypes.TimeScaleTypes.Week),
-                                                                                               commonClass.SysLibs.sysLoginCode,topN);
-                AddCache(cacheKey, tbl);
-                return tbl;
+                lock (myClient)
+                {
+                    //Maybe there are some holidays or weekend so wee need to look before some days 
+                    DateTime beforeDate = DateTime.Today.AddDays(-commonTypes.Settings.sysGlobal.DayScanForLastPrice);
+                    databases.tmpDS.dataVarrianceDataTable tbl = myClient.GetTopPriceVarrianceUser(beforeDate, AppTypes.TimeScaleTypeToCode(AppTypes.TimeScaleTypes.Week),
+                                                                                                   commonClass.SysLibs.sysLoginCode, topN);
+                    AddCache(cacheKey, tbl);
+                    return tbl;
+                }
             }
             catch (Exception er)
             {
@@ -1752,7 +2019,10 @@ namespace DataAccess
         {
             try
             {
-                myClient.ReAggregatePriceData(code);
+                lock (myClient)
+                {
+                    myClient.ReAggregatePriceData(code);
+                }
             }
             catch (Exception er)
             {
@@ -1769,7 +2039,10 @@ namespace DataAccess
         {
             try
             {
-                return myClient.DiagnosePrice_CloseAndNextOpen(frDate, toDate, timeScaleCode, exchangeCode, code, variancePerc, variance, precision);
+                lock (myClient)
+                {
+                    return myClient.DiagnosePrice_CloseAndNextOpen(frDate, toDate, timeScaleCode, exchangeCode, code, variancePerc, variance, precision);
+                }
             }
             catch (Exception er)
             {
@@ -1793,9 +2066,12 @@ namespace DataAccess
         {
             try
             {
-                XmlDocument xmlDoc = new XmlDocument();
-                xmlDoc.LoadXml(myClient.GetXmlDoc2StringSTRATEGY());
-                return xmlDoc;
+                lock (myClient)
+                {
+                    XmlDocument xmlDoc = new XmlDocument();
+                    xmlDoc.LoadXml(myClient.GetXmlDoc2StringSTRATEGY());
+                    return xmlDoc;
+                }
             }
             catch (Exception er)
             {
@@ -1807,9 +2083,12 @@ namespace DataAccess
         {
             try
             {
-                XmlDocument xmlDoc = new XmlDocument();
-                xmlDoc.LoadXml(myClient.GetXmlDoc2StringINDICATOR());
-                return xmlDoc;
+                lock (myClient)
+                {
+                    XmlDocument xmlDoc = new XmlDocument();
+                    xmlDoc.LoadXml(myClient.GetXmlDoc2StringINDICATOR());
+                    return xmlDoc;
+                }
             }
             catch (Exception er)
             {
@@ -1828,10 +2107,13 @@ namespace DataAccess
                 cacheKey = MakeCacheKey(cacheKey,metaName);
                 object obj = GetCache(cacheKey);
                 if (obj != null) return (DataValues[])obj;
-                
-                DataValues[] data = myClient.GetIndicatorData(code, dataParam, metaName);
-                AddCache(cacheKey, data);
-                return data;
+
+                lock (myClient)
+                {
+                    DataValues[] data = myClient.GetIndicatorData(code, dataParam, metaName);
+                    AddCache(cacheKey, data);
+                    return data;
+                }
             }
             catch (Exception er)
             {
