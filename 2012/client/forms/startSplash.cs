@@ -8,6 +8,9 @@ using System.Windows.Forms;
 
 namespace client.forms
 {
+    /// <summary>
+    /// Start Splash Window
+    /// </summary>
     public partial class startSplash : common.forms.baseSlashForm
     {
         public startSplash()

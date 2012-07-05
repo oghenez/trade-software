@@ -83,7 +83,10 @@ namespace client
             return retVal;
         }
 
-
+        /// <summary>
+        /// Set Timer and Form Appearance before loading Main Form
+        /// </summary>
+        /// <returns></returns>
         protected override bool BeforeLoadForm()
         {
             SetTimer(false);
@@ -104,6 +107,11 @@ namespace client
             return true;
         }
 
+        /// <summary>
+        /// Set language for the application
+        /// </summary>
+        /// <param name="code"></param>
+        /// <param name="force"></param>
         private void SetCulture(AppTypes.LanguageCodes code,bool force)
         {
             Settings.sysLanguage = code;
@@ -129,6 +137,10 @@ namespace client
             SetLanguage();
             SetLanguageAllOpenForms();
         }
+
+        /// <summary>
+        /// set language for all open forms
+        /// </summary>
         private void SetLanguageAllOpenForms()
         {
             ContextMenuStrip tradeAnalysisContextMenu = CreateContextMenu_TradeAnalysis();
@@ -329,6 +341,9 @@ namespace client
             ShowMarketSummaryForm();
         }
 
+        /// <summary>
+        /// Create ,enu and toolbars item
+        /// </summary>
         private void SetFormAppearance()
         {
             standardStrip.BringToFront();
@@ -369,6 +384,10 @@ namespace client
             //Default language from global settings
             //SetCulture(Settings.sysGlobal.DefautLanguage);
         }
+
+        /// <summary>
+        /// Reset timer and data access
+        /// </summary>
         private void Reset()
         {
             DataAccess.Libs.Reset();
