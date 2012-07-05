@@ -1,6 +1,6 @@
 <Configuration>
   <WSCONNECTION>
-    <Main wsURI="afwOHXxDvq0osWVvctS4Ys+T4U669ewj1xQ5YkhobeZSJx6vxomFGb28ub7BuaUYZgcMLSlpEItiDDQXhYvAOw==" />
+    <Main wsURI="afwOHXxDvq0w5lO8f7L0TH86OpaHT5DC1xQ5YkhobeZSJx6vxomFGb28ub7BuaUYZgcMLSlpEItiDDQXhYvAOw==" />
   </WSCONNECTION>
   <WSCONNECTION>
     <Main wsAccount="KyfIBVMmkxxwVTSmToEeiw==" />
@@ -15,7 +15,7 @@
     <Main wsTimeout="X2lPedB12xwunb1F8akLuw==" />
   </WSCONNECTION>
   <WSCONNECTION>
-    <Main wsUseProxy="MVsoctThcobSC9M10quTJg==" />
+    <Main wsUseProxy="EpAxoobbG0tPxhyMIVa+4Q==" />
   </WSCONNECTION>
   <WSCONNECTION>
     <Main wsUseDefaultProxy="MVsoctThcobSC9M10quTJg==" />
