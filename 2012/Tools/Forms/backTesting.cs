@@ -1,4 +1,4 @@
-﻿using System;
+ using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.ComponentModel;
@@ -12,6 +12,9 @@ using commonClass;
 
 namespace Tools.Forms
 {
+    /// <summary>
+    /// This class uses historical data to test the strategy implemented for stock, forex, commodities
+    /// </summary>
     public partial class backTesting : baseTesting
     {
         /// <summary>
