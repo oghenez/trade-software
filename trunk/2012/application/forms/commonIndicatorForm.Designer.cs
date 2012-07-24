@@ -35,6 +35,8 @@
             this.valueColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.paraPg = new System.Windows.Forms.TabPage();
+            this.lblWindow = new System.Windows.Forms.Label();
+            this.cbbWindow = new System.Windows.Forms.ComboBox();
             this.outputLbl = new common.controls.baseLabel();
             this.paraLbl = new common.controls.baseLabel();
             this.outputGrid = new common.controls.baseDataGridView();
@@ -55,17 +57,18 @@
             // 
             // saveBtn
             // 
-            this.saveBtn.Location = new System.Drawing.Point(270, 301);
+            this.saveBtn.Location = new System.Drawing.Point(277, 311);
+            this.saveBtn.Text = "Save settings";
             // 
             // closeBtn
             // 
             this.closeBtn.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.closeBtn.Location = new System.Drawing.Point(477, 386);
+            this.closeBtn.Location = new System.Drawing.Point(481, 396);
             this.closeBtn.Size = new System.Drawing.Size(104, 26);
             // 
             // okBtn
             // 
-            this.okBtn.Location = new System.Drawing.Point(168, 301);
+            this.okBtn.Location = new System.Drawing.Point(175, 311);
             this.okBtn.Text = "Ok";
             // 
             // TitleLbl
@@ -86,7 +89,8 @@
             this.paramGrid.Name = "paramGrid";
             this.paramGrid.RowHeadersWidth = 25;
             this.paramGrid.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.paramGrid.Size = new System.Drawing.Size(385, 115);
+            this.paramGrid.RowTemplate.Height = 24;
+            this.paramGrid.Size = new System.Drawing.Size(392, 115);
             this.paramGrid.TabIndex = 1;
             this.paramGrid.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.paramGrid_DataError);
             // 
@@ -118,11 +122,13 @@
             this.tabControl.Location = new System.Drawing.Point(-3, 0);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(395, 369);
+            this.tabControl.Size = new System.Drawing.Size(402, 379);
             this.tabControl.TabIndex = 1;
             // 
             // paraPg
             // 
+            this.paraPg.Controls.Add(this.lblWindow);
+            this.paraPg.Controls.Add(this.cbbWindow);
             this.paraPg.Controls.Add(this.outputLbl);
             this.paraPg.Controls.Add(this.paraLbl);
             this.paraPg.Controls.Add(this.outputGrid);
@@ -133,10 +139,31 @@
             this.paraPg.Location = new System.Drawing.Point(4, 25);
             this.paraPg.Name = "paraPg";
             this.paraPg.Padding = new System.Windows.Forms.Padding(3);
-            this.paraPg.Size = new System.Drawing.Size(387, 340);
+            this.paraPg.Size = new System.Drawing.Size(394, 350);
             this.paraPg.TabIndex = 0;
             this.paraPg.Text = "Parameters";
             this.paraPg.UseVisualStyleBackColor = true;
+            // 
+            // lblWindow
+            // 
+            this.lblWindow.AutoSize = true;
+            this.lblWindow.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblWindow.Location = new System.Drawing.Point(6, 280);
+            this.lblWindow.Name = "lblWindow";
+            this.lblWindow.Size = new System.Drawing.Size(117, 16);
+            this.lblWindow.TabIndex = 15;
+            this.lblWindow.Text = "Draw on Window";
+            this.lblWindow.Visible = false;
+            // 
+            // cbbWindow
+            // 
+            this.cbbWindow.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbbWindow.FormattingEnabled = true;
+            this.cbbWindow.Location = new System.Drawing.Point(6, 298);
+            this.cbbWindow.Name = "cbbWindow";
+            this.cbbWindow.Size = new System.Drawing.Size(150, 22);
+            this.cbbWindow.TabIndex = 14;
+            this.cbbWindow.Visible = false;
             // 
             // outputLbl
             // 
@@ -174,7 +201,8 @@
             this.outputGrid.Name = "outputGrid";
             this.outputGrid.RowHeadersWidth = 25;
             this.outputGrid.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.outputGrid.Size = new System.Drawing.Size(387, 111);
+            this.outputGrid.RowTemplate.Height = 24;
+            this.outputGrid.Size = new System.Drawing.Size(394, 121);
             this.outputGrid.TabIndex = 11;
             // 
             // outNameolumn
@@ -210,7 +238,7 @@
             this.inNewPaneChk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.inNewPaneChk.AutoSize = true;
             this.inNewPaneChk.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.inNewPaneChk.Location = new System.Drawing.Point(4, 285);
+            this.inNewPaneChk.Location = new System.Drawing.Point(4, 295);
             this.inNewPaneChk.Name = "inNewPaneChk";
             this.inNewPaneChk.Size = new System.Drawing.Size(137, 20);
             this.inNewPaneChk.TabIndex = 10;
@@ -223,11 +251,13 @@
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.paraDescEd.BackColor = System.Drawing.SystemColors.Control;
             this.paraDescEd.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.paraDescEd.Location = new System.Drawing.Point(-3, 367);
+            this.paraDescEd.isRequired = true;
+            this.paraDescEd.isToUpperCase = false;
+            this.paraDescEd.Location = new System.Drawing.Point(-3, 377);
             this.paraDescEd.Multiline = true;
             this.paraDescEd.Name = "paraDescEd";
             this.paraDescEd.ReadOnly = true;
-            this.paraDescEd.Size = new System.Drawing.Size(387, 45);
+            this.paraDescEd.Size = new System.Drawing.Size(394, 45);
             this.paraDescEd.TabIndex = 3;
             this.paraDescEd.Visible = false;
             // 
@@ -238,7 +268,7 @@
             this.hintPg.Location = new System.Drawing.Point(4, 25);
             this.hintPg.Name = "hintPg";
             this.hintPg.Padding = new System.Windows.Forms.Padding(3);
-            this.hintPg.Size = new System.Drawing.Size(387, 340);
+            this.hintPg.Size = new System.Drawing.Size(394, 350);
             this.hintPg.TabIndex = 1;
             this.hintPg.Text = "Description";
             this.hintPg.UseVisualStyleBackColor = true;
@@ -248,19 +278,22 @@
             this.hintTextEd.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.hintTextEd.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.hintTextEd.isRequired = true;
+            this.hintTextEd.isToUpperCase = false;
             this.hintTextEd.Location = new System.Drawing.Point(-1, 2);
             this.hintTextEd.Multiline = true;
             this.hintTextEd.Name = "hintTextEd";
             this.hintTextEd.ReadOnly = true;
-            this.hintTextEd.Size = new System.Drawing.Size(389, 254);
+            this.hintTextEd.Size = new System.Drawing.Size(396, 254);
             this.hintTextEd.TabIndex = 1;
             // 
-            // commonForm
+            // commonIndicatorForm
             // 
-            this.ClientSize = new System.Drawing.Size(389, 364);
+            this.ClientSize = new System.Drawing.Size(396, 374);
             this.Controls.Add(this.tabControl);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Name = "commonForm";
+            this.Name = "commonIndicatorForm";
             this.Text = "Indicators";
             this.Controls.SetChildIndex(this.tabControl, 0);
             this.Controls.SetChildIndex(this.saveBtn, 0);
@@ -297,6 +330,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn outChartTypeColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn valueColumn;
+        private System.Windows.Forms.Label lblWindow;
+        private System.Windows.Forms.ComboBox cbbWindow;
 
     }
 }
