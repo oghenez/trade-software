@@ -20,6 +20,21 @@ namespace application.forms
             tabControl.SendToBack();
 
             SetPara(meta);
+            //TUAN 7/24/2012 - Add Windows selection for drawing - BEGIN
+            if (meta.ListWindowNames!=null)
+            {
+                lblWindow.Visible = true;
+                cbbWindow.Visible = true;
+                inNewPaneChk.Visible = false;
+                cbbWindow.Items.Add(Languages.Libs.GetString("newPanel"));
+                cbbWindow.Items.Add(Languages.Libs.GetString("pricePanel"));
+                for (int i = 2; i < meta.ListWindowNames.Count; i++)
+                {
+                    cbbWindow.Items.Add(meta.ListWindowNames[i]);
+                }
+                cbbWindow.SelectedIndex = 0;
+            }
+            //TUAN 7/24/2012 - Add Windows selection for drawing - END
         }
         public override void SetLanguage()
         {
@@ -34,6 +49,7 @@ namespace application.forms
             outColorColumn.HeaderText = Languages.Libs.GetString("color");
             outWeightColumn.HeaderText = Languages.Libs.GetString("weight");
             inNewPaneChk.Text = Languages.Libs.GetString("inNewPane");
+            lblWindow.Text = Languages.Libs.GetString("drawOnWindow");            
         }
         protected override void CollectMetaData(Indicators.Meta meta) 
         {
@@ -54,6 +70,7 @@ namespace application.forms
             }
             meta.Output = outPut;
             meta.DrawInNewWindow = inNewPaneChk.Checked;
+            meta.SelectedWindowName =meta.ListWindowNames[cbbWindow.SelectedIndex];
         }
 
         /// <summary>
@@ -93,6 +110,6 @@ namespace application.forms
         private void paramGrid_DataError(object sender, DataGridViewDataErrorEventArgs e)
         {
             this.ShowError(e.Exception);
-        }
+        }      
     }
 }

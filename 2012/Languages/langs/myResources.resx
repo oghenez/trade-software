@@ -1338,4 +1338,13 @@
   <data name="bullBorder" xml:space="preserve">
     <value>Bull Border</value>
   </data>
+  <data name="drawOnWindow" xml:space="preserve">
+    <value>Draw on window</value>
+  </data>
+  <data name="pricePanel" xml:space="preserve">
+    <value>Price Window</value>
+  </data>
+  <data name="newPanel" xml:space="preserve">
+    <value>New Window ...</value>
+  </data>
 </root>

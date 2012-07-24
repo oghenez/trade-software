@@ -1344,4 +1344,13 @@
   <data name="bullBorder" xml:space="preserve">
     <value>Viền tăng</value>
   </data>
+  <data name="drawOnWindow" xml:space="preserve">
+    <value>Vẽ trên cửa sổ</value>
+  </data>
+  <data name="newPanel" xml:space="preserve">
+    <value>Cửa sổ mới ...</value>
+  </data>
+  <data name="pricePanel" xml:space="preserve">
+    <value>Cửa sổ Giá</value>
+  </data>
 </root>

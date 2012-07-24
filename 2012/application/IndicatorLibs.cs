@@ -140,6 +140,12 @@ namespace application.Indicators
         public Type InputDataType = typeof(DataSeries);
         public bool DrawInNewWindow = false;
 
+        //List Windows for Drawing
+        //TUAN 24/7/2012 - BEGIN
+        public List<string> ListWindowNames = null;
+        public string SelectedWindowName = String.Empty;
+        //TUAN 24/7/2012 - END
+
         //Suggested default values : list of KeyPair(string, integer)
         public common.DictionaryList ParameterList = null;
         public common.DictionaryList OutputInfoList = null;
