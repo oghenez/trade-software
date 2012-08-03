@@ -32,7 +32,7 @@ namespace application.forms
                 {
                     cbbWindow.Items.Add(meta.ListWindowNames[i]);
                 }
-                cbbWindow.SelectedIndex = 0;
+                cbbWindow.SelectedIndex = 0;                
             }
             //TUAN 7/24/2012 - Add Windows selection for drawing - END
         }

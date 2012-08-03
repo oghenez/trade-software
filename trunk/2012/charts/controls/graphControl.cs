@@ -42,7 +42,7 @@ namespace Charts.Controls
             this.MouseUpEvent += new ZedGraph.ZedGraphControl.ZedMouseEventHandler(MouseUpHandler);
             this.MouseMoveEvent += new ZedGraph.ZedGraphControl.ZedMouseEventHandler(MouseMoveHandler);
 
-            this.PointValueEvent += new ZedGraphControl.PointValueHandler(GraphPointValueHandler);
+            this.PointValueEvent += new ZedGraphControl.PointValueHandler(GraphPointValueHandler);            
         }
 
         public void SetFont(Font font)
@@ -559,7 +559,7 @@ namespace Charts.Controls
 
         public LineItem AddCurveLine(string name, double[] seriesY, SymbolType symbol, Color color, int width)
         {
-            LineItem myCurve = myGraphPane.AddCurve(name, this.mySeriesX, seriesY, color, symbol);
+            LineItem myCurve = myGraphPane.AddCurve(name, this.mySeriesX, seriesY, color, symbol);            
             myCurve.Line.Width = width;
             myCurve.Symbol.Size = width + 1;
             return myCurve;

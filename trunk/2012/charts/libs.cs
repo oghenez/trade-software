@@ -183,7 +183,20 @@ namespace Charts
             }
             return list;
         }
-
+        //TUAN - Update Curve Name in Pane when the pane name changed
+        public void UpdateCurveWhenPaneNameChanged(string oldPane,string newPane)
+        {            
+            object[] items = Cache.Values;
+            for (int idx = 0; idx < items.Length; idx++)
+            {
+                DrawCurve drawCurve = (DrawCurve)items[idx];
+                if (drawCurve.PaneName == oldPane)
+                {
+                    drawCurve.PaneName = newPane;
+                }
+            }            
+        }
+        //TUAN
         //public int NumberOfCurves(string paneName)
         //{
         //    int count = 0;
