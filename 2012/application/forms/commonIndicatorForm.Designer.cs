@@ -157,6 +157,8 @@
             // 
             // cbbWindow
             // 
+            this.cbbWindow.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbWindow.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.cbbWindow.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbbWindow.FormattingEnabled = true;
             this.cbbWindow.Location = new System.Drawing.Point(6, 298);
