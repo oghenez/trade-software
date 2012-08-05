@@ -135,6 +135,12 @@ namespace Charts
             }
             else
             {
+                //TUAN-Ensure curveName startWith is correct
+                if (curveName.Length>6)
+                {
+                    curveName = curveName.Remove(curveName.Length - 3);   
+                }
+                //TUAN-Ensure curveName startWith is correct
                 object[] items = Cache.Values;
                 for (int idx = 0; idx < items.Length; idx++)
                 {
