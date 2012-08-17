@@ -52,10 +52,11 @@
             this.sysInterestedStrategyMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolMenuStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.dataDiagnoseMenu = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
-            this.resetServiceMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
             this.syslogViewerMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.feesbackViewerMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
+            this.resetServiceMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.infoMenuStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.licenseMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutMenu = new System.Windows.Forms.ToolStripMenuItem();
@@ -64,7 +65,8 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.myMainTimer = new System.Windows.Forms.Timer(this.components);
             this.dataProcessMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.feesbackViewerMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dataEditMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
             this.myMainMenu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -248,6 +250,8 @@
             this.toolMenuStrip.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.dataDiagnoseMenu,
             this.toolStripSeparator7,
+            this.dataEditMenuItem,
+            this.toolStripSeparator8,
             this.syslogViewerMenuItem,
             this.feesbackViewerMenuItem,
             this.toolStripSeparator5,
@@ -264,19 +268,6 @@
             this.dataDiagnoseMenu.Text = "Kiểm tra dữ liệu";
             this.dataDiagnoseMenu.Click += new System.EventHandler(this.dataDiagnoseMenu_Click);
             // 
-            // toolStripSeparator5
-            // 
-            this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(187, 6);
-            // 
-            // resetServiceMenuItem
-            // 
-            this.resetServiceMenuItem.Image = global::admin.Properties.Resources.services;
-            this.resetServiceMenuItem.Name = "resetServiceMenuItem";
-            this.resetServiceMenuItem.Size = new System.Drawing.Size(190, 22);
-            this.resetServiceMenuItem.Text = "Khởi động lại";
-            this.resetServiceMenuItem.Click += new System.EventHandler(this.resetServiceMenuItem_Click);
-            // 
             // toolStripSeparator7
             // 
             this.toolStripSeparator7.Name = "toolStripSeparator7";
@@ -289,6 +280,27 @@
             this.syslogViewerMenuItem.Size = new System.Drawing.Size(190, 22);
             this.syslogViewerMenuItem.Text = "Xem nhật ký";
             this.syslogViewerMenuItem.Click += new System.EventHandler(this.syslogViewerMenuItem_Click);
+            // 
+            // feesbackViewerMenuItem
+            // 
+            this.feesbackViewerMenuItem.Image = global::admin.Properties.Resources.employee;
+            this.feesbackViewerMenuItem.Name = "feesbackViewerMenuItem";
+            this.feesbackViewerMenuItem.Size = new System.Drawing.Size(190, 22);
+            this.feesbackViewerMenuItem.Text = "Xem phản hồi";
+            this.feesbackViewerMenuItem.Click += new System.EventHandler(this.feesbackViewerMenuItem_Click);
+            // 
+            // toolStripSeparator5
+            // 
+            this.toolStripSeparator5.Name = "toolStripSeparator5";
+            this.toolStripSeparator5.Size = new System.Drawing.Size(187, 6);
+            // 
+            // resetServiceMenuItem
+            // 
+            this.resetServiceMenuItem.Image = global::admin.Properties.Resources.services;
+            this.resetServiceMenuItem.Name = "resetServiceMenuItem";
+            this.resetServiceMenuItem.Size = new System.Drawing.Size(190, 22);
+            this.resetServiceMenuItem.Text = "Khởi động lại";
+            this.resetServiceMenuItem.Click += new System.EventHandler(this.resetServiceMenuItem_Click);
             // 
             // infoMenuStrip
             // 
@@ -339,13 +351,18 @@
             this.dataProcessMenuItem.Size = new System.Drawing.Size(116, 20);
             this.dataProcessMenuItem.Text = "Xử lý dữ liệu";
             // 
-            // feesbackViewerMenuItem
+            // dataEditMenuItem
             // 
-            this.feesbackViewerMenuItem.Image = global::admin.Properties.Resources.employee;
-            this.feesbackViewerMenuItem.Name = "feesbackViewerMenuItem";
-            this.feesbackViewerMenuItem.Size = new System.Drawing.Size(190, 22);
-            this.feesbackViewerMenuItem.Text = "Xem phản hồi";
-            this.feesbackViewerMenuItem.Click += new System.EventHandler(this.feesbackViewerMenuItem_Click);
+            this.dataEditMenuItem.Image = global::admin.Properties.Resources.edit;
+            this.dataEditMenuItem.Name = "dataEditMenuItem";
+            this.dataEditMenuItem.Size = new System.Drawing.Size(190, 22);
+            this.dataEditMenuItem.Text = "Biên tập dữ liệu";
+            this.dataEditMenuItem.Click += new System.EventHandler(this.dataEditMenuItem_Click);
+            // 
+            // toolStripSeparator8
+            // 
+            this.toolStripSeparator8.Name = "toolStripSeparator8";
+            this.toolStripSeparator8.Size = new System.Drawing.Size(187, 6);
             // 
             // main
             // 
@@ -405,5 +422,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
         private System.Windows.Forms.ToolStripMenuItem syslogViewerMenuItem;
         private System.Windows.Forms.ToolStripMenuItem feesbackViewerMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem dataEditMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator8;
     }
 }

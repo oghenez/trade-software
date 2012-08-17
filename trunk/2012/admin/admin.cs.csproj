@@ -59,6 +59,12 @@
     <Reference Include="XPPanel, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="forms\editTools.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\editTools.Designer.cs">
+      <DependentUpon>editTools.cs</DependentUpon>
+    </Compile>
     <Compile Include="libs\dataClass.cs" />
     <Compile Include="forms\dataTools.cs">
       <SubType>Form</SubType>
@@ -74,6 +80,10 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="forms\editTools.resx">
+      <DependentUpon>editTools.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="forms\dataTools.resx">
       <DependentUpon>dataTools.cs</DependentUpon>
       <SubType>Designer</SubType>
