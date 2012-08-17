@@ -627,7 +627,7 @@ namespace application.Strategy
                         break;
                 }
                 myEstimationData.tradeAction = tradePoints[idx].TradeAction;
-                myEstimationData.onDate = DateTime.FromOADate(data.DateTime[transDataIdx]).Date; 
+                myEstimationData.onDate = DateTime.FromOADate(data.DateTime[transDataIdx]); 
                 myEstimationData.price = stockPrice;
                 myEstimationData.qty = qty;
                 myEstimationData.amt = amt;

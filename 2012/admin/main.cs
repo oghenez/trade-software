@@ -234,5 +234,18 @@ namespace admin
                 this.ShowError(er);
             }
         }
+
+        private void dataEditMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                forms.editTools form = new forms.editTools();
+                form.ShowDialog();
+            }
+            catch (Exception er)
+            {
+                this.ShowError(er);
+            }
+        }
     }
 }
