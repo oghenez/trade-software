@@ -1,0 +1,17 @@
+---CAC NOI DUNG CHINH CUA BAO CAO THUC TAP (INTERNSHIP REPORT)----
+
+* Gioi thieu ve cty (HQ Investment & Consulting Corporation)
+- CEO : NGUYEN Hai Quan (quan.nguyen@hqcorporatio.net)
+- GD Ky Thuat : Vu Quoc Dung
+** Cac san pham cua cty da phat trien (Quantum)
+
+*** Nhung dieu hoc duoc sau 2,5 thang thuc tap
+- Cong nghe WCF cua Microsoft.
+- Cong cu quan ly code Tortoisesvn cua Apache.
+- Component ma minh da tham gia phat trien cung voi doi ngu cua cong ty.
+- Hoc tap ve quy trinh requirement (thu thap y kien cua khach hang) , 1 trong cac buoc rat quan trong trong viec phat trien san pham
+- Qui trinh phat trien phan mem :Agile (Scrum + XP)
+- Quan ly du an : PMI/PMP
+- Cac ky nang mem khac
+
+Con nua.....
