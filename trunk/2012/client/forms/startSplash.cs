@@ -16,6 +16,13 @@ namespace client.forms
         public startSplash()
         {
             InitializeComponent();
+            //Tuan - Make the background in transparent border.
+            SetStyle(ControlStyles.UserPaint, true);
+            SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
+            SetStyle(ControlStyles.SupportsTransparentBackColor, true);
+            this.BackColor = Color.Black;
+            this.TransparencyKey = Color.Black;
+            //Tuan - Make the background in transparent border.
             if (commonTypes.Consts.constEditionPROFESSIONALL)
                 this.BackgroundImage = global::client.Properties.Resources.trader_professional;
             else
