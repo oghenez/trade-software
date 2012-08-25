@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
@@ -59,6 +60,58 @@ namespace admin.forms
             dataHighPriceColumn.HeaderText = Languages.Libs.GetString("highPrice");
             dataLowPriceColumn.HeaderText = Languages.Libs.GetString("lowPrice");
             dataVolumeColumn.HeaderText = Languages.Libs.GetString("volume");
+        }
+
+        private void Import()
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            common.dialogs.SetFileDialogEXCEL(openFileDialog);
+            if (openFileDialog.ShowDialog() != DialogResult.OK) return;
+            string fileName = openFileDialog.FileName;
+            if (!common.fileFuncs.FileExist(fileName))
+            {
+                common.system.ShowMessage("Tệp " + fileName + " không tồn tại!");
+                return;
+            }
+            StringCollection sheetName = common.import.GetExcelSheetName(fileName);
+            DataTable tbl = new DataTable();
+            if (!common.import.ImportFromExcel(fileName, sheetName[0], tbl)) return;
+
+            if (tbl.Columns.Count!=6)
+            {
+                common.system.ShowMessage("Tệp " + fileName + " không đúng định dạng !");
+                return;
+            }
+            decimal d = 0;
+            DateTime onDate = DateTime.Today;
+            string code = dataCodeEd.Text.Trim();
+            databases.baseDS.priceDataRow priceDataRow;
+            for (int idx1 = 0; idx1 < tbl.Rows.Count; idx1++)
+            {
+                this.priceDataSource.AddNew();
+                priceDataRow = (databases.baseDS.priceDataRow) ((DataRowView)this.priceDataSource.Current).Row;
+                databases.AppLibs.InitData(priceDataRow);
+                priceDataRow.stockCode = code;
+                DateTime.TryParse(tbl.Rows[idx1][0].ToString(), out onDate);
+                priceDataRow.onDate = onDate;
+
+                decimal.TryParse(tbl.Rows[idx1][1].ToString(), out d);
+                priceDataRow.highPrice = d;
+
+                decimal.TryParse(tbl.Rows[idx1][2].ToString(), out d);
+                priceDataRow.lowPrice = d;
+
+                decimal.TryParse(tbl.Rows[idx1][3].ToString(), out d);
+                priceDataRow.openPrice = d;
+
+                decimal.TryParse(tbl.Rows[idx1][4].ToString(), out d);
+                priceDataRow.closePrice = d;
+
+                decimal.TryParse(tbl.Rows[idx1][5].ToString(), out d);
+                priceDataRow.volume = d;
+            }
+            priceDataSource.EndEdit();
+            this.Refresh();
         }
 
         private bool DataValid_Edit()
@@ -222,6 +275,20 @@ namespace admin.forms
                     databases.AppLibs.InitData(row);
                     row.stockCode = dataCodeEd.Text.Trim(); 
                 }
+            }
+            catch (Exception er)
+            {
+                this.ShowError(er);
+            }
+        }
+
+        private void importBtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (!DataValid_Aggregate()) return;
+                Import();
+                fullMode = true;
             }
             catch (Exception er)
             {

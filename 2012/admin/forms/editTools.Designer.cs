@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             this.priceDiagnoseSource = new System.Windows.Forms.BindingSource(this.components);
             this.tmpDS = new databases.tmpDS();
             this.priceDataSource = new System.Windows.Forms.BindingSource(this.components);
@@ -42,9 +42,6 @@
             this.editFrDateEd = new common.controls.baseDate();
             this.editToDateLbl = new common.controls.baseLabel();
             this.editToDateEd = new common.controls.baseDate();
-            this.reAggregateBtn = new baseClass.controls.baseButton();
-            this.loadPriceBtn = new baseClass.controls.baseButton();
-            this.saveDataBtn = new baseClass.controls.baseButton();
             this.dataCodeLbl = new common.controls.baseLabel();
             this.dataCodeEd = new baseClass.controls.txtStockCode();
             this.dataEditPnl = new common.controls.basePanel();
@@ -55,6 +52,10 @@
             this.dataOpenPriceColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataClosePriceColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataVolumeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.importBtn = new baseClass.controls.baseButton();
+            this.reAggregateBtn = new baseClass.controls.baseButton();
+            this.loadPriceBtn = new baseClass.controls.baseButton();
+            this.saveDataBtn = new baseClass.controls.baseButton();
             ((System.ComponentModel.ISupportInitialize)(this.priceDiagnoseSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tmpDS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.priceDataSource)).BeginInit();
@@ -110,7 +111,7 @@
             this.editFrDateEd.myDateTime = new System.DateTime(((long)(0)));
             this.editFrDateEd.Name = "editFrDateEd";
             this.editFrDateEd.Size = new System.Drawing.Size(93, 24);
-            this.editFrDateEd.TabIndex = 177;
+            this.editFrDateEd.TabIndex = 1;
             // 
             // editToDateLbl
             // 
@@ -131,53 +132,7 @@
             this.editToDateEd.myDateTime = new System.DateTime(((long)(0)));
             this.editToDateEd.Name = "editToDateEd";
             this.editToDateEd.Size = new System.Drawing.Size(93, 24);
-            this.editToDateEd.TabIndex = 178;
-            // 
-            // reAggregateBtn
-            // 
-            this.reAggregateBtn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.reAggregateBtn.Image = global::admin.Properties.Resources.run;
-            this.reAggregateBtn.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.reAggregateBtn.isDownState = false;
-            this.reAggregateBtn.Location = new System.Drawing.Point(457, 21);
-            this.reAggregateBtn.Name = "reAggregateBtn";
-            this.reAggregateBtn.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
-            this.reAggregateBtn.Size = new System.Drawing.Size(113, 63);
-            this.reAggregateBtn.TabIndex = 182;
-            this.reAggregateBtn.Text = "Aggregate";
-            this.reAggregateBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.reAggregateBtn.UseVisualStyleBackColor = true;
-            this.reAggregateBtn.Click += new System.EventHandler(this.reAggregateBtn_Click);
-            // 
-            // loadPriceBtn
-            // 
-            this.loadPriceBtn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.loadPriceBtn.Image = global::admin.Properties.Resources.refresh;
-            this.loadPriceBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.loadPriceBtn.isDownState = false;
-            this.loadPriceBtn.Location = new System.Drawing.Point(175, 50);
-            this.loadPriceBtn.Name = "loadPriceBtn";
-            this.loadPriceBtn.Padding = new System.Windows.Forms.Padding(0, 0, 15, 0);
-            this.loadPriceBtn.Size = new System.Drawing.Size(131, 34);
-            this.loadPriceBtn.TabIndex = 180;
-            this.loadPriceBtn.Text = "Load";
-            this.loadPriceBtn.UseVisualStyleBackColor = true;
-            this.loadPriceBtn.Click += new System.EventHandler(this.loadPriceBtn_Click);
-            // 
-            // saveDataBtn
-            // 
-            this.saveDataBtn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.saveDataBtn.Image = global::admin.Properties.Resources.save;
-            this.saveDataBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.saveDataBtn.isDownState = false;
-            this.saveDataBtn.Location = new System.Drawing.Point(306, 50);
-            this.saveDataBtn.Name = "saveDataBtn";
-            this.saveDataBtn.Padding = new System.Windows.Forms.Padding(0, 0, 15, 0);
-            this.saveDataBtn.Size = new System.Drawing.Size(131, 34);
-            this.saveDataBtn.TabIndex = 181;
-            this.saveDataBtn.Text = "Save";
-            this.saveDataBtn.UseVisualStyleBackColor = true;
-            this.saveDataBtn.Click += new System.EventHandler(this.saveDataBtn_Click);
+            this.editToDateEd.TabIndex = 2;
             // 
             // dataCodeLbl
             // 
@@ -198,8 +153,8 @@
             this.dataCodeEd.isToUpperCase = true;
             this.dataCodeEd.Location = new System.Drawing.Point(361, 21);
             this.dataCodeEd.Name = "dataCodeEd";
-            this.dataCodeEd.Size = new System.Drawing.Size(75, 24);
-            this.dataCodeEd.TabIndex = 179;
+            this.dataCodeEd.Size = new System.Drawing.Size(80, 24);
+            this.dataCodeEd.TabIndex = 3;
             // 
             // dataEditPnl
             // 
@@ -247,58 +202,120 @@
             // dataHighPriceColumn
             // 
             this.dataHighPriceColumn.DataPropertyName = "highPrice";
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle1.Format = "N2";
-            dataGridViewCellStyle1.NullValue = null;
-            this.dataHighPriceColumn.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle11.Format = "N2";
+            dataGridViewCellStyle11.NullValue = null;
+            this.dataHighPriceColumn.DefaultCellStyle = dataGridViewCellStyle11;
             this.dataHighPriceColumn.HeaderText = "High";
             this.dataHighPriceColumn.Name = "dataHighPriceColumn";
             // 
             // dataLowPriceColumn
             // 
             this.dataLowPriceColumn.DataPropertyName = "lowPrice";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle2.Format = "N2";
-            dataGridViewCellStyle2.NullValue = null;
-            this.dataLowPriceColumn.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle12.Format = "N2";
+            dataGridViewCellStyle12.NullValue = null;
+            this.dataLowPriceColumn.DefaultCellStyle = dataGridViewCellStyle12;
             this.dataLowPriceColumn.HeaderText = "Low";
             this.dataLowPriceColumn.Name = "dataLowPriceColumn";
             // 
             // dataOpenPriceColumn
             // 
             this.dataOpenPriceColumn.DataPropertyName = "openPrice";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle3.Format = "N2";
-            dataGridViewCellStyle3.NullValue = null;
-            this.dataOpenPriceColumn.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle13.Format = "N2";
+            dataGridViewCellStyle13.NullValue = null;
+            this.dataOpenPriceColumn.DefaultCellStyle = dataGridViewCellStyle13;
             this.dataOpenPriceColumn.HeaderText = "Open";
             this.dataOpenPriceColumn.Name = "dataOpenPriceColumn";
             // 
             // dataClosePriceColumn
             // 
             this.dataClosePriceColumn.DataPropertyName = "closePrice";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle4.Format = "N2";
-            dataGridViewCellStyle4.NullValue = null;
-            this.dataClosePriceColumn.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle14.Format = "N2";
+            dataGridViewCellStyle14.NullValue = null;
+            this.dataClosePriceColumn.DefaultCellStyle = dataGridViewCellStyle14;
             this.dataClosePriceColumn.HeaderText = "Close";
             this.dataClosePriceColumn.Name = "dataClosePriceColumn";
             // 
             // dataVolumeColumn
             // 
             this.dataVolumeColumn.DataPropertyName = "volume";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.Format = "N0";
-            dataGridViewCellStyle5.NullValue = null;
-            this.dataVolumeColumn.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle15.Format = "N0";
+            dataGridViewCellStyle15.NullValue = null;
+            this.dataVolumeColumn.DefaultCellStyle = dataGridViewCellStyle15;
             this.dataVolumeColumn.HeaderText = "Volume";
             this.dataVolumeColumn.Name = "dataVolumeColumn";
             this.dataVolumeColumn.Width = 120;
+            // 
+            // importBtn
+            // 
+            this.importBtn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.importBtn.Image = global::admin.Properties.Resources.excel;
+            this.importBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.importBtn.isDownState = false;
+            this.importBtn.Location = new System.Drawing.Point(265, 50);
+            this.importBtn.Name = "importBtn";
+            this.importBtn.Padding = new System.Windows.Forms.Padding(0, 0, 15, 0);
+            this.importBtn.Size = new System.Drawing.Size(89, 34);
+            this.importBtn.TabIndex = 11;
+            this.importBtn.Text = "Excel";
+            this.importBtn.UseVisualStyleBackColor = true;
+            this.importBtn.Click += new System.EventHandler(this.importBtn_Click);
+            // 
+            // reAggregateBtn
+            // 
+            this.reAggregateBtn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.reAggregateBtn.Image = global::admin.Properties.Resources.run;
+            this.reAggregateBtn.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.reAggregateBtn.isDownState = false;
+            this.reAggregateBtn.Location = new System.Drawing.Point(457, 21);
+            this.reAggregateBtn.Name = "reAggregateBtn";
+            this.reAggregateBtn.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
+            this.reAggregateBtn.Size = new System.Drawing.Size(113, 63);
+            this.reAggregateBtn.TabIndex = 30;
+            this.reAggregateBtn.Text = "Aggregate";
+            this.reAggregateBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.reAggregateBtn.UseVisualStyleBackColor = true;
+            this.reAggregateBtn.Click += new System.EventHandler(this.reAggregateBtn_Click);
+            // 
+            // loadPriceBtn
+            // 
+            this.loadPriceBtn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.loadPriceBtn.Image = global::admin.Properties.Resources.refresh;
+            this.loadPriceBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.loadPriceBtn.isDownState = false;
+            this.loadPriceBtn.Location = new System.Drawing.Point(176, 50);
+            this.loadPriceBtn.Name = "loadPriceBtn";
+            this.loadPriceBtn.Padding = new System.Windows.Forms.Padding(0, 0, 15, 0);
+            this.loadPriceBtn.Size = new System.Drawing.Size(89, 34);
+            this.loadPriceBtn.TabIndex = 10;
+            this.loadPriceBtn.Text = "Load";
+            this.loadPriceBtn.UseVisualStyleBackColor = true;
+            this.loadPriceBtn.Click += new System.EventHandler(this.loadPriceBtn_Click);
+            // 
+            // saveDataBtn
+            // 
+            this.saveDataBtn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.saveDataBtn.Image = global::admin.Properties.Resources.save;
+            this.saveDataBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.saveDataBtn.isDownState = false;
+            this.saveDataBtn.Location = new System.Drawing.Point(354, 50);
+            this.saveDataBtn.Name = "saveDataBtn";
+            this.saveDataBtn.Padding = new System.Windows.Forms.Padding(0, 0, 15, 0);
+            this.saveDataBtn.Size = new System.Drawing.Size(89, 34);
+            this.saveDataBtn.TabIndex = 12;
+            this.saveDataBtn.Text = "Save";
+            this.saveDataBtn.UseVisualStyleBackColor = true;
+            this.saveDataBtn.Click += new System.EventHandler(this.saveDataBtn_Click);
             // 
             // editTools
             // 
             this.ClientSize = new System.Drawing.Size(721, 508);
             this.Controls.Add(this.dataEditPnl);
+            this.Controls.Add(this.importBtn);
             this.Controls.Add(this.editFrDateLbl);
             this.Controls.Add(this.editFrDateEd);
             this.Controls.Add(this.editToDateLbl);
@@ -321,6 +338,7 @@
             this.Controls.SetChildIndex(this.editToDateLbl, 0);
             this.Controls.SetChildIndex(this.editFrDateEd, 0);
             this.Controls.SetChildIndex(this.editFrDateLbl, 0);
+            this.Controls.SetChildIndex(this.importBtn, 0);
             this.Controls.SetChildIndex(this.dataEditPnl, 0);
             ((System.ComponentModel.ISupportInitialize)(this.priceDiagnoseSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tmpDS)).EndInit();
@@ -356,5 +374,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataOpenPriceColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataClosePriceColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataVolumeColumn;
+        protected baseClass.controls.baseButton importBtn;
     }
 }

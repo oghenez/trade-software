@@ -130,6 +130,13 @@ namespace admin.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap excel {
+            get {
+                object obj = ResourceManager.GetObject("excel", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap exrate {
             get {
                 object obj = ResourceManager.GetObject("exrate", resourceCulture);
