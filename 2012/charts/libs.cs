@@ -136,7 +136,13 @@ namespace Charts
             else
             {
                 //TUAN-Ensure curveName startWith is correct
-                if (curveName.Length>6)
+                int spaceCount=0;
+                for (int i = 0; i < curveName.Length; i++)
+			    {
+    			    if(curveName[i]==' ')
+                        spaceCount++;
+			    }
+                if (spaceCount>1)
                 {
                     curveName = curveName.Remove(curveName.Length - 3);   
                 }

@@ -608,6 +608,5 @@ namespace Charts.Controls
         }
         #endregion Chart
 
-
-    }
+    }   
 }

@@ -36,6 +36,19 @@ namespace application.forms
             }
             //TUAN 7/24/2012 - Add Windows selection for drawing - END
         }
+        //TUAN 9/3/2012
+        public void updateFormFromMeta(Indicators.Meta _meta)
+        {
+            if (_meta.ListWindowNames != null)
+            {
+                for (int i = 2; i < _meta.ListWindowNames.Count; i++)
+                {
+                    cbbWindow.Items.Add(_meta.ListWindowNames[i]);
+                }
+                cbbWindow.SelectedIndex = 0;
+            }
+        }
+        //TUAN 9/3/2012
         public override void SetLanguage()
         {
             base.SetLanguage();
