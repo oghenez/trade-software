@@ -34,6 +34,8 @@ namespace client
         const string constFormNameMarketSummary = "MarketSummary";
         const string constFormNameEstimateTrade = "EstimateTrade-";
 
+        private int indexStockFormName=0;
+
         public main()
         {
             try
@@ -870,10 +872,25 @@ namespace client
             if (myForm == null || myForm.IsDisposed) return;
             myForm.Close();
         }
-                
+
+        /// <summary>
+        /// Create new name for new stock form
+        /// </summary>
+        /// <returns>Name of new stock form</returns>
+        private string createNewStockFormName()
+        {
+            indexStockFormName++;
+            return constFormNameStock + indexStockFormName.ToString();
+        }
+       
         private void ShowStockChart(string stockCode)
         {
-            string formName = constFormNameStock + stockCode.Trim();
+            //string formName = constFormNameStock + stockCode.Trim();
+
+            //TUAN- enable open new form with a same stock code
+            string formName = createNewStockFormName();
+            //TUAN- enable open new form with a same stock code
+
             Tools.Forms.tradeAnalysis myForm = (Tools.Forms.tradeAnalysis)cachedForms.Find(formName);
             if (myForm == null || myForm.IsDisposed)
             {
@@ -897,7 +914,12 @@ namespace client
             DateTime frDate = common.Consts.constNullDate, toDate = common.Consts.constNullDate;
             if (!AppTypes.GetDate(timeRange, out frDate, out toDate)) return;
 
-            string formName = constFormNameStock + stockCode.Trim();
+            //string formName = constFormNameStock + stockCode.Trim();
+
+            //TUAN- enable open new form with a same stock code
+            string formName = createNewStockFormName();
+            //TUAN- enable open new form with a same stock code
+
             Tools.Forms.tradeAnalysis myForm = (Tools.Forms.tradeAnalysis)cachedForms.Find(formName);
             if (myForm == null || myForm.IsDisposed)
             {
