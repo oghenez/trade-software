@@ -26,8 +26,17 @@ namespace application.forms
                 lblWindow.Visible = true;
                 cbbWindow.Visible = true;
                 inNewPaneChk.Visible = false;
-                cbbWindow.Items.Add(Languages.Libs.GetString("newPanel"));
-                cbbWindow.Items.Add(Languages.Libs.GetString("pricePanel"));
+                if (meta.inNewWindows)
+                {
+                    cbbWindow.Items.Add(Languages.Libs.GetString("newPanel"));
+                    cbbWindow.Items.Add(Languages.Libs.GetString("pricePanel"));
+                }
+                else
+                {
+                    cbbWindow.Items.Add(Languages.Libs.GetString("pricePanel"));
+                    cbbWindow.Items.Add(Languages.Libs.GetString("newPanel"));
+                }
+                
                 for (int i = 2; i < meta.ListWindowNames.Count; i++)
                 {
                     cbbWindow.Items.Add(meta.ListWindowNames[i]);
