@@ -212,8 +212,6 @@ namespace application.Indicators
             }
         }
 
-        public bool inNewWindows = false;
-
         //Name of the indicator
         public string Name = "";
         //Description of the indicator

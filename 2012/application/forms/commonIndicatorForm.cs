@@ -26,7 +26,7 @@ namespace application.forms
                 lblWindow.Visible = true;
                 cbbWindow.Visible = true;
                 inNewPaneChk.Visible = false;
-                if (meta.inNewWindows)
+                if (meta.DrawInNewWindow)
                 {
                     cbbWindow.Items.Add(Languages.Libs.GetString("newPanel"));
                     cbbWindow.Items.Add(Languages.Libs.GetString("pricePanel"));

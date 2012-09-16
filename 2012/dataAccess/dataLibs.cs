@@ -2097,32 +2097,26 @@ namespace DataAccess
             return null;
         }
 
-
-
-        public static DataValues[] GetIndicatorData(string code, DataParams dataParam, string metaName)
-        {
-            try
-            {
-                string cacheKey = MakeCacheKey("IndicatorData", dataParam.ToUniqueString());
-                cacheKey = MakeCacheKey(cacheKey,metaName);
-                object obj = GetCache(cacheKey);
-                if (obj != null) return (DataValues[])obj;
-
-                lock (myClient)
-                {
-                    DataValues[] data = myClient.GetIndicatorData(code, dataParam, metaName);
-                    AddCache(cacheKey, data);
-                    return data;
-                }
-            }
-            catch (Exception er)
-            {
-                if (OnError != null) OnError(er);
-            }
-            return null;
-        }
-           
-    
-
+        //public static DataValues[] GetIndicatorData(string code, DataParams dataParam, string metaName)
+        //{
+        //    try
+        //    {
+        //        string cacheKey = MakeCacheKey("IndicatorData", dataParam.ToUniqueString());
+        //        cacheKey = MakeCacheKey(cacheKey,metaName);
+        //        object obj = GetCache(cacheKey);
+        //        if (obj != null) return (DataValues[])obj;
+        //        lock (myClient)
+        //        {
+        //            DataValues[] data = myClient.GetIndicatorData(code, dataParam, metaName);
+        //            AddCache(cacheKey, data);
+        //            return data;
+        //        }
+        //    }
+        //    catch (Exception er)
+        //    {
+        //        if (OnError != null) OnError(er);
+        //    }
+        //    return null;
+        //}
     }
 }
