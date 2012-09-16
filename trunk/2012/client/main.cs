@@ -34,8 +34,6 @@ namespace client
         const string constFormNameMarketSummary = "MarketSummary";
         const string constFormNameEstimateTrade = "EstimateTrade-";
 
-        private int indexStockFormName=0;
-
         public main()
         {
             try
@@ -877,10 +875,9 @@ namespace client
         /// Create new name for new stock form
         /// </summary>
         /// <returns>Name of new stock form</returns>
-        private string createNewStockFormName()
+        private string CreateNewStockFormName()
         {
-            indexStockFormName++;
-            return constFormNameStock + indexStockFormName.ToString();
+            return constFormNameStock + common.system.UniqueString();
         }
        
         private void ShowStockChart(string stockCode)
@@ -888,7 +885,7 @@ namespace client
             //string formName = constFormNameStock + stockCode.Trim();
 
             //TUAN- enable open new form with a same stock code
-            string formName = createNewStockFormName();
+            string formName = CreateNewStockFormName();
             //TUAN- enable open new form with a same stock code
 
             Tools.Forms.tradeAnalysis myForm = (Tools.Forms.tradeAnalysis)cachedForms.Find(formName);
@@ -917,7 +914,7 @@ namespace client
             //string formName = constFormNameStock + stockCode.Trim();
 
             //TUAN- enable open new form with a same stock code
-            string formName = createNewStockFormName();
+            string formName = CreateNewStockFormName();
             //TUAN- enable open new form with a same stock code
 
             Tools.Forms.tradeAnalysis myForm = (Tools.Forms.tradeAnalysis)cachedForms.Find(formName);
