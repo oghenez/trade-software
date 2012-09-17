@@ -9,6 +9,7 @@ using System.Xml;
 using System.Reflection;
 using commonTypes;
 using commonClass;
+using System.Collections;
 
 namespace application.Indicators
 {
@@ -142,7 +143,7 @@ namespace application.Indicators
 
         //List Windows for Drawing
         //TUAN 24/7/2012 - BEGIN
-        public List<string> ListWindowNames = null;
+        public Hashtable ListWindowNames = null;
         public string SelectedWindowName = String.Empty;
         //TUAN 24/7/2012 - END
 
