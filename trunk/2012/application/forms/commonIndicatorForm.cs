@@ -14,6 +14,8 @@ namespace application.forms
 {
     public partial class commonIndicatorForm : baseIndicatorForm 
     {
+        const string constPaneNamePrice = "pricePanel";
+        const string constPaneNameNew = "newPanel";
         public commonIndicatorForm(Indicators.Meta meta) : base(meta)
         {
             InitializeComponent();
@@ -35,11 +37,17 @@ namespace application.forms
                 {
                     cbbWindow.Items.Add(Languages.Libs.GetString("pricePanel"));
                     cbbWindow.Items.Add(Languages.Libs.GetString("newPanel"));
-                }
-                
-                for (int i = 2; i < meta.ListWindowNames.Count; i++)
+                }                
+                foreach (DictionaryEntry item in meta.ListWindowNames)
                 {
-                    cbbWindow.Items.Add(meta.ListWindowNames[i]);
+                    if (item.Key.Equals(constPaneNamePrice) || item.Key.Equals(constPaneNameNew))
+                    {
+
+                    }
+                    else
+                    {
+                        cbbWindow.Items.Add(item.Key.ToString());
+                    }
                 }
                 cbbWindow.SelectedIndex = 0;                
             }
@@ -50,9 +58,16 @@ namespace application.forms
         {
             if (_meta.ListWindowNames != null)
             {
-                for (int i = 2; i < _meta.ListWindowNames.Count; i++)
+                foreach (DictionaryEntry item in _meta.ListWindowNames)
                 {
-                    cbbWindow.Items.Add(_meta.ListWindowNames[i]);
+                    if (item.Key.Equals(constPaneNamePrice) || item.Key.Equals(constPaneNameNew))
+                    {
+
+                    }
+                    else
+                    {
+                        cbbWindow.Items.Add(item.Key.ToString());
+                    }
                 }
                 cbbWindow.SelectedIndex = 0;
             }
@@ -92,7 +107,19 @@ namespace application.forms
             }
             meta.Output = outPut;
             meta.DrawInNewWindow = inNewPaneChk.Checked;
-            meta.SelectedWindowName =meta.ListWindowNames[cbbWindow.SelectedIndex];
+            if (cbbWindow.SelectedItem.ToString().Equals(Languages.Libs.GetString("newPanel")))
+            {
+                meta.SelectedWindowName =meta.ListWindowNames[constPaneNameNew].ToString();
+            }
+            else if (cbbWindow.SelectedItem.ToString().Equals(Languages.Libs.GetString("pricePanel")))
+            {
+                meta.SelectedWindowName = meta.ListWindowNames[constPaneNamePrice].ToString();
+            }
+            else
+            {
+                meta.SelectedWindowName = meta.ListWindowNames[cbbWindow.SelectedItem.ToString()].ToString();
+            }
+           
         }
 
         /// <summary>
