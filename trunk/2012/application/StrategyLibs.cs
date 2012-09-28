@@ -239,6 +239,16 @@ namespace application.Strategy
         private static Meta FindMetaByName(common.DictionaryList MetaList, string name)
         {
             object obj = MetaList.Find(name);
+            //TUAN - 29 Sept 2012 fix bug profit detail and all profit details
+            foreach (application.Strategy.Meta item in MetaList.Values)
+            {
+                if(item.Name.Equals(name))
+                {
+                    obj = item;                
+                    break;
+                }
+            }
+            //TUAN - 29 Sept 2012 fix bug profit detail and all profit details
             if (obj == null) return null;
             return (Meta)obj;
         }
