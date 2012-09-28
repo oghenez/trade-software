@@ -931,6 +931,8 @@ namespace client
                 //Cache it if no error occured
                 cachedForms.Add(formName, myForm);
             }
+            myForm.myContextMenuStrip = CreateContextMenu_TradeAnalysis();
+            myForm.myContextMenuStrip.Font = Settings.sysFontMenu;
             myForm.Show(dockPanel);
             UpdateActiveForm(FormOptions.ChartType); 
         }
