@@ -586,18 +586,39 @@ namespace Tools.Forms
                     if (stockCodeRow == null) return;
 
                     DataParams dataParam = new DataParams(timeScaleCb.myValue.Code, AppTypes.TimeRanges.None,0);
-                    if (resultDataGrid.SelectedRows.Count > 0)
+                    //TUAN - 29 Sept 2012 fix bug profit detail and all profit details
+                    int min = int.MaxValue;
+                    int max = -1;
+                    for (int i = 0; i < resultDataGrid.SelectedCells.Count; i++)                   
                     {
-                        for (int rowId = 0; rowId < resultDataGrid.SelectedRows.Count; rowId++)
+                        if (resultDataGrid.SelectedCells[i].RowIndex > max)
+                            max = resultDataGrid.SelectedCells[i].RowIndex;
+                        if (resultDataGrid.SelectedCells[i].RowIndex < min)
+                            min = resultDataGrid.SelectedCells[i].RowIndex;
+                    }
+                    //if (resultDataGrid.SelectedRows.Count > 0)
+                    if (min<max)
+                    {
+                        for (int rowId = min; rowId <= max; rowId++)
                         {
-                            application.Strategy.Meta meta = application.Strategy.Libs.FindMetaByName(resultDataGrid.SelectedRows[rowId].Cells[0].Value.ToString());
+                            application.Strategy.Meta meta = application.Strategy.Libs.FindMetaByName(resultDataGrid.Rows[rowId].Cells[0].Value.ToString());
                             for (int idx = 1; idx < resultDataGrid.ColumnCount; idx++)
                             {
                                 dataParam.TimeRange = AppTypes.TimeRangeFromCode(resultDataGrid.Columns[idx].DataPropertyName);
                                 ShowTradeTransactions(stockCodeRow, meta.Code, dataParam);
                             }
                         }
+                        //for (int rowId = 0; rowId < resultDataGrid.SelectedRows.Count; rowId++)
+                        //{
+                        //    application.Strategy.Meta meta = application.Strategy.Libs.FindMetaByName(resultDataGrid.SelectedRows[rowId].Cells[0].Value.ToString());
+                        //    for (int idx = 1; idx < resultDataGrid.ColumnCount; idx++)
+                        //    {
+                        //        dataParam.TimeRange = AppTypes.TimeRangeFromCode(resultDataGrid.Columns[idx].DataPropertyName);
+                        //        ShowTradeTransactions(stockCodeRow, meta.Code, dataParam);
+                        //    }
+                        //}
                     }
+                    //TUAN - 29 Sept 2012 fix bug profit detail and all profit details
                     else
                     {
                         if (resultDataGrid.CurrentRow != null)
@@ -623,14 +644,19 @@ namespace Tools.Forms
             {
                 common.controls.baseDataGridView resultDataGrid = this.CurrentDataGridView;
                 if (resultDataGrid == null || resultDataGrid.CurrentRow == null || resultDataGrid.CurrentCell == null) return;
-                if (resultDataGrid.CurrentCell.ColumnIndex<=0) return;
+
+                //TUAN - 29 Sept 2012 fix bug profit detail and all profit details
+                if (resultDataGrid.CurrentCell.ColumnIndex<0) return;
+                //TUAN - 29 Sept 2012 fix bug profit detail and all profit details
 
                 string stockCode = resultTab.SelectedTab.Name;
                 databases.tmpDS.stockCodeRow stockCodeRow = DataAccess.Libs.myStockCodeTbl.FindBycode(stockCode);
                 if (stockCodeRow == null) return;
                 application.Strategy.Meta meta = application.Strategy.Libs.FindMetaByName(resultDataGrid.CurrentRow.Cells[0].Value.ToString());
 
-                int colId = resultDataGrid.CurrentCell.ColumnIndex;
+                //TUAN - 29 Sept 2012 fix bug profit detail and all profit details
+                int colId = resultDataGrid.CurrentCell.ColumnIndex == 0 ? 1 : resultDataGrid.CurrentCell.ColumnIndex;
+                //TUAN - 29 Sept 2012 fix bug profit detail and all profit details
                 DataParams dataParam = new DataParams(timeScaleCb.myValue.Code, AppTypes.TimeRangeFromCode(resultDataGrid.Columns[colId].DataPropertyName),0);
                 ShowTradeTransactions(stockCodeRow, meta.Code, dataParam);
             }
