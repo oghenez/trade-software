@@ -1353,4 +1353,10 @@
   <data name="pricePanel" xml:space="preserve">
     <value>Cửa sổ Giá</value>
   </data>
+  <data name="portfolioWatch" xml:space="preserve">
+    <value>Danh mục đầu tư</value>
+  </data>
+  <data name="newOrder" xml:space="preserve">
+    <value>Lệnh đặt</value>
+  </data>
 </root>

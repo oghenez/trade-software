@@ -1347,4 +1347,10 @@
   <data name="newPanel" xml:space="preserve">
     <value>New Window ...</value>
   </data>
+  <data name="portfolioWatch" xml:space="preserve">
+    <value>Portfolio Watch</value>
+  </data>
+  <data name="newOrder" xml:space="preserve">
+    <value>New Order</value>
+  </data>
 </root>
