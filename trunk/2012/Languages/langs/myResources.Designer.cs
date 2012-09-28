@@ -2140,6 +2140,15 @@ namespace Languages.langs {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to New Order.
+        /// </summary>
+        internal static string newOrder {
+            get {
+                return ResourceManager.GetString("newOrder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to New Window ....
         /// </summary>
         internal static string newPanel {
@@ -2496,6 +2505,15 @@ namespace Languages.langs {
         internal static string portfolio {
             get {
                 return ResourceManager.GetString("portfolio", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Portfolio Watch.
+        /// </summary>
+        internal static string portfolioWatch {
+            get {
+                return ResourceManager.GetString("portfolioWatch", resourceCulture);
             }
         }
         

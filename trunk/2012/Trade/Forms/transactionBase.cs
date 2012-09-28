@@ -39,6 +39,7 @@ namespace Trade.Forms
             subTotalLbl.Text = Languages.Libs.GetString("subTotal");
             feeAmtLbl.Text = Languages.Libs.GetString("feeAmt");
             totalAmtLbl.Text = Languages.Libs.GetString("totalAmt");
+            transTypeLbl.Text = Languages.Libs.GetString("transaction");
 
             portfolioCb.SetLanguage();
             transTypeCb.SetLanguage();
