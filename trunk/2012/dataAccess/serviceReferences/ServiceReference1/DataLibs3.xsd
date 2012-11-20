@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/commonClass" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/commonClass" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://localhost:8731/wsServices/DataLibs/?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/commonTypes" />
-  <xs:import schemaLocation="http://localhost:8731/wsServices/DataLibs/?xsd=xsd7" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="http://dungvq/DataLibs.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/commonTypes" />
+  <xs:import schemaLocation="http://dungvq/DataLibs.svc?xsd=xsd7" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
   <xs:complexType name="TransactionInfo">
     <xs:sequence>
       <xs:element minOccurs="0" name="availableCash" type="xs:decimal" />
