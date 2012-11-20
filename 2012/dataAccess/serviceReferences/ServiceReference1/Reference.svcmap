@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="b99baf3b-d985-447d-9453-47676907eb2f" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="38cf1a4c-a86b-40ca-affb-d6fea625857e" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <EnableDataBinding>true</EnableDataBinding>
@@ -17,19 +17,20 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://localhost:8731/wsServices/DataLibs/?wsdl" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://localhost/dataLibs.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="DataLibs.wsdl" MetadataType="Wsdl" ID="e0b7f7e0-be74-4c00-aabe-abe3e3b330a2" SourceId="1" SourceUrl="http://localhost:8731/wsServices/DataLibs/?wsdl" />
-    <MetadataFile FileName="item.xsd" MetadataType="Schema" ID="cb3f75bd-fb60-41f9-859b-c986fb8f39ea" SourceId="1" SourceUrl="http://localhost:8731/wsServices/DataLibs/?xsd=xsd4" />
-    <MetadataFile FileName="item1.xsd" MetadataType="Schema" ID="4aab104d-d0e2-4460-a744-de1a103cc88e" SourceId="1" SourceUrl="http://localhost:8731/wsServices/DataLibs/?xsd=xsd7" />
-    <MetadataFile FileName="baseDS.xsd" MetadataType="Schema" ID="72b33387-aecd-4c5b-a567-26521b322977" SourceId="1" SourceUrl="http://localhost:8731/wsServices/DataLibs/?xsd=xsd5" />
-    <MetadataFile FileName="item2.xsd" MetadataType="Schema" ID="e36f00ec-481a-44d1-90b7-2a4ec8e924cb" SourceId="1" SourceUrl="http://localhost:8731/wsServices/DataLibs/?xsd=xsd0" />
-    <MetadataFile FileName="item3.xsd" MetadataType="Schema" ID="ade00e0a-6fe2-449e-8eef-2b39736f470f" SourceId="1" SourceUrl="http://localhost:8731/wsServices/DataLibs/?xsd=xsd1" />
-    <MetadataFile FileName="item4.xsd" MetadataType="Schema" ID="a2c003c9-2bd4-451d-b74c-25f29cc694f3" SourceId="1" SourceUrl="http://localhost:8731/wsServices/DataLibs/?xsd=xsd3" />
-    <MetadataFile FileName="tmpDS.xsd" MetadataType="Schema" ID="f278951a-f1f2-455c-874a-afd44a18d18d" SourceId="1" SourceUrl="http://localhost:8731/wsServices/DataLibs/?xsd=xsd2" />
-    <MetadataFile FileName="item5.xsd" MetadataType="Schema" ID="11c250cf-be84-4bcf-b842-90e530d3da38" SourceId="1" SourceUrl="http://localhost:8731/wsServices/DataLibs/?xsd=xsd8" />
-    <MetadataFile FileName="item6.xsd" MetadataType="Schema" ID="370633ac-6220-4638-b376-321cf84a4896" SourceId="1" SourceUrl="http://localhost:8731/wsServices/DataLibs/?xsd=xsd6" />
+    <MetadataFile FileName="tmpDS.xsd" MetadataType="Schema" ID="7e7a5a1c-1dc8-488b-b1dd-bd5e522295d1" SourceId="1" SourceUrl="http://dungvq/DataLibs.svc?xsd=xsd2" />
+    <MetadataFile FileName="baseDS.xsd" MetadataType="Schema" ID="092e2b2d-d1ed-4bee-8d7d-ad9d66c43928" SourceId="1" SourceUrl="http://dungvq/DataLibs.svc?xsd=xsd5" />
+    <MetadataFile FileName="DataLibs.xsd" MetadataType="Schema" ID="a82d3273-c13f-4a4c-89ee-e085403ac2db" SourceId="1" SourceUrl="http://dungvq/DataLibs.svc?xsd=xsd4" />
+    <MetadataFile FileName="DataLibs1.xsd" MetadataType="Schema" ID="ca6f7397-27d1-4ae8-a0af-feebd81a15ab" SourceId="1" SourceUrl="http://dungvq/DataLibs.svc?xsd=xsd1" />
+    <MetadataFile FileName="DataLibs2.xsd" MetadataType="Schema" ID="c12abd99-0205-4335-a93d-4e477d6f761c" SourceId="1" SourceUrl="http://dungvq/DataLibs.svc?xsd=xsd0" />
+    <MetadataFile FileName="DataLibs.disco" MetadataType="Disco" ID="135a90cf-8998-4d3c-80dc-bf8ec75ac1b6" SourceId="1" SourceUrl="http://dungvq/DataLibs.svc?disco" />
+    <MetadataFile FileName="DataLibs3.xsd" MetadataType="Schema" ID="d78d1ec4-b86e-44c5-961c-24ded07232a1" SourceId="1" SourceUrl="http://dungvq/DataLibs.svc?xsd=xsd6" />
+    <MetadataFile FileName="DataLibs4.xsd" MetadataType="Schema" ID="0af876f4-cc24-4fa7-9c49-c580be609c67" SourceId="1" SourceUrl="http://dungvq/DataLibs.svc?xsd=xsd7" />
+    <MetadataFile FileName="DataLibs.wsdl" MetadataType="Wsdl" ID="5aac1f72-c2d1-40b2-94e0-524f0c8e6c7a" SourceId="1" SourceUrl="http://dungvq/DataLibs.svc?wsdl" />
+    <MetadataFile FileName="DataLibs5.xsd" MetadataType="Schema" ID="4f9a9e2b-1e95-423c-8e1d-63295aa71378" SourceId="1" SourceUrl="http://dungvq/DataLibs.svc?xsd=xsd8" />
+    <MetadataFile FileName="DataLibs6.xsd" MetadataType="Schema" ID="8c99f094-a1a4-48d5-85e1-846ba3b32123" SourceId="1" SourceUrl="http://dungvq/DataLibs.svc?xsd=xsd3" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
