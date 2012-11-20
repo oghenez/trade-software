@@ -173,12 +173,12 @@ namespace server
                     string nextRunCode = null;
                     if (retVal==false)
                     {
-                        commonClass.SysLibs.WriteSysLog(common.SysSeverityLevel.Informational, "", " - Updated from " + exchangeDetailRow.address + " successful");
+                        commonClass.SysLibs.WriteSysLog(common.SysSeverityLevel.Informational, "", " - Updated from " + exchangeDetailRow.address + " failed");
                         nextRunCode = exchangeDetailRow.goFalse;
                     }
                     else
                     {
-                        commonClass.SysLibs.WriteSysLog(common.SysSeverityLevel.Informational, "", " - Updated from " + exchangeDetailRow.address + " failed");
+                        commonClass.SysLibs.WriteSysLog(common.SysSeverityLevel.Informational, "", " - Updated from " + exchangeDetailRow.address + " successful");
                         nextRunCode = exchangeDetailRow.goTrue;
                     }
                     //Find next line to run
