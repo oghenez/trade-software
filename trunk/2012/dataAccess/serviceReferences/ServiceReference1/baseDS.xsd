@@ -388,53 +388,6 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="stockExchange">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element name="code">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="10" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="description">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="255" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="country">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="3" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="workTime">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="255" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="holidays">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="255" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="minBuySellDay" type="xs:unsignedByte" />
-              <xs:element name="tranFeePerc" type="xs:decimal" />
-              <xs:element name="priceRatio" type="xs:decimal" />
-              <xs:element name="volumeRatio" type="xs:decimal" />
-              <xs:element minOccurs="0" name="weight" type="xs:unsignedByte" />
-              <xs:element name="priceAmplitude" type="xs:decimal" />
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
         <xs:element name="sysCode">
           <xs:complexType>
             <xs:sequence>
@@ -1112,7 +1065,13 @@
         <xs:element name="exchangeDetail">
           <xs:complexType>
             <xs:sequence>
-              <xs:element msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" name="id" type="xs:short" />
+              <xs:element name="code">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
               <xs:element name="marketCode">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
@@ -1127,14 +1086,80 @@
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="sourceCode" type="xs:short" />
-              <xs:element name="orderId" type="xs:short" />
-              <xs:element name="goTrue" type="xs:short" />
-              <xs:element name="goFalse" type="xs:short" />
+              <xs:element name="goTrue">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="goFalse">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
               <xs:element minOccurs="0" name="notes">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="culture">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="isEnabled" type="xs:boolean" />
+              <xs:element name="orderId" type="xs:short" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="stockExchange">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="description">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="country">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="3" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="workTime">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="holidays">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="minBuySellDay" type="xs:unsignedByte" />
+              <xs:element name="tranFeePerc" type="xs:decimal" />
+              <xs:element name="priceRatio" type="xs:decimal" />
+              <xs:element name="volumeRatio" type="xs:decimal" />
+              <xs:element minOccurs="0" name="weight" type="xs:unsignedByte" />
+              <xs:element name="priceAmplitude" type="xs:decimal" />
+              <xs:element name="code">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
@@ -1176,10 +1201,6 @@
     </xs:unique>
     <xs:unique msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true" name="stockCode_Constraint1">
       <xs:selector xpath=".//mstns:stockCode" />
-      <xs:field xpath="mstns:code" />
-    </xs:unique>
-    <xs:unique msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true" name="stockExchange_Constraint1">
-      <xs:selector xpath=".//mstns:stockExchange" />
       <xs:field xpath="mstns:code" />
     </xs:unique>
     <xs:unique msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true" name="sysCode_Constraint1">
@@ -1274,7 +1295,11 @@
     </xs:unique>
     <xs:unique msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true" name="exchangeDetail_Constraint1">
       <xs:selector xpath=".//mstns:exchangeDetail" />
-      <xs:field xpath="mstns:id" />
+      <xs:field xpath="mstns:code" />
+    </xs:unique>
+    <xs:unique msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true" name="stockExchange_Constraint1">
+      <xs:selector xpath=".//mstns:stockExchange" />
+      <xs:field xpath="mstns:code" />
     </xs:unique>
   </xs:element>
 </xs:schema>

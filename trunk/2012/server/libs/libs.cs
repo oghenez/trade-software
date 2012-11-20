@@ -110,12 +110,12 @@ namespace server
         static Imports.Stock.hnIdxImport hnIdxImport = new Imports.Stock.hnIdxImport();
 
         static Imports.Gold.forexImport forexImport = new Imports.Gold.forexImport();
+        static Imports.Gold.kitcoImport kitcoImport = new Imports.Gold.kitcoImport();
         public static void FetchRealTimeData(DateTime updateTime)
         {
             DataView myDataView = new DataView(application.SysLibs.myExchangeDetailTbl);
-            myDataView.Sort =  application.SysLibs.myExchangeDetailTbl.orderIdColumn.ColumnName;
+            myDataView.Sort = application.SysLibs.myExchangeDetailTbl.orderIdColumn.ToString();
             string[] parts;
-            DataRowView[] foundRows;
             databases.baseDS.stockExchangeRow marketRow;
             databases.baseDS.exchangeDetailRow exchangeDetailRow;
             for (int idx1 = 0; idx1 < application.SysLibs.myStockExchangeTbl.Count; idx1++)
@@ -129,7 +129,8 @@ namespace server
                 for(int idx2=0;idx2<parts.Length;idx2++) confWorkTimes.Add(parts[idx2]);
                 if (!IsWorktime(updateTime, confWorkTimes)) continue;
 
-                myDataView.RowFilter = application.SysLibs.myExchangeDetailTbl.marketCodeColumn.ColumnName + "='" + marketRow.code + "'";
+                myDataView.RowFilter = application.SysLibs.myExchangeDetailTbl.marketCodeColumn.ColumnName + "='" + marketRow.code + "' AND "+
+                                       application.SysLibs.myExchangeDetailTbl.isEnabledColumn.ColumnName + "=true";
                 if (myDataView.Count == 0) continue;
 
                 
@@ -139,25 +140,27 @@ namespace server
                 {
                     try
                     {
-                        switch ((AppTypes.DataSourceCodes)exchangeDetailRow.sourceCode)
+                        switch (exchangeDetailRow.code.Trim().ToUpper())
                         {
-                            case AppTypes.DataSourceCodes.HOSE1:
+                            case "HOSE1":
                                 retVal = hoseImport.ImportFromWeb(updateTime, exchangeDetailRow);
                                 break;
-                            case AppTypes.DataSourceCodes.HASTC1:
+                            case "HASTC1":
                                 retVal = htastcImport.ImportFromWeb(updateTime, exchangeDetailRow);
                                 break;
-                            case AppTypes.DataSourceCodes.GOLD1:
-                                retVal = forexImport.ImportFromWeb(updateTime, exchangeDetailRow);
-                                break;
-
-                            case AppTypes.DataSourceCodes.VNVN30_IDX1:
+                            case "VNVN30_IDX1":
                                 retVal = vnIdxImport.ImportFromWeb(updateTime, exchangeDetailRow);
                                 break;
-                            case AppTypes.DataSourceCodes.HN_IDX1:
+                            case "HN_IDX1":
                                 retVal = hnIdxImport.ImportFromWeb(updateTime, exchangeDetailRow);
                                 break;
-
+                            
+                            case "GOLD_FOREX":
+                                retVal = forexImport.ImportFromWeb(updateTime, exchangeDetailRow);
+                                break;
+                            case "GOLD_KITCO":
+                                retVal = kitcoImport.ImportFromWeb(updateTime, exchangeDetailRow);
+                                break;
                             default: return; //To avoid loop
                         }
                     }
@@ -167,21 +170,21 @@ namespace server
                         commonClass.SysLibs.WriteSysLog(common.SysSeverityLevel.Error, "SRV004", er);
                     }
 
-                    int nextRunId = 0;
-                    if (retVal)
+                    string nextRunCode = null;
+                    if (retVal==false)
                     {
                         commonClass.SysLibs.WriteSysLog(common.SysSeverityLevel.Informational, "", " - Updated from " + exchangeDetailRow.address + " successful");
-                        nextRunId = exchangeDetailRow.goFalse;
+                        nextRunCode = exchangeDetailRow.goFalse;
                     }
                     else
                     {
                         commonClass.SysLibs.WriteSysLog(common.SysSeverityLevel.Informational, "", " - Updated from " + exchangeDetailRow.address + " failed");
-                        nextRunId = exchangeDetailRow.goTrue;
+                        nextRunCode = exchangeDetailRow.goTrue;
                     }
                     //Find next line to run
-                    foundRows = myDataView.FindRows(new object[]{nextRunId});
-                    if (foundRows.Length <= 0) break;
-                    exchangeDetailRow = (databases.baseDS.exchangeDetailRow)foundRows[0].Row;
+                    if (nextRunCode == null || nextRunCode.Trim() == "") break;
+                    exchangeDetailRow = application.SysLibs.myExchangeDetailTbl.FindBycode(nextRunCode);
+                    if (exchangeDetailRow == null) break;
                 }
             }
             return;

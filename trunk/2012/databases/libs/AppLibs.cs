@@ -145,12 +145,12 @@ namespace databases
         }
         public static void InitData(databases.baseDS.exchangeDetailRow row)
         {
+            row.code = "";
             row.marketCode = "";
             row.address = "";
-            row.sourceCode = 0;
+            row.isEnabled = true;
             row.orderId = 0;
-            row.goTrue = -1;
-            row.goFalse = -1;
+            row.culture = commonTypes.Consts.constDefaultCultureCode;
         }
         public static void InitData(databases.baseDS.stockExchangeRow row)
         {

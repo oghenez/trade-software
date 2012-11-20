@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="rxvnN6UH9DDpZugtD8QKv5rvwWE=">
+<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="OQwzoYFbUUEZxDeLUARV0V0+w9w=">
   <bindingConfigurations>
     <bindingConfiguration bindingType="basicHttpBinding" name="basicEndpoint">
       <properties>
@@ -212,10 +212,10 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="basicEndpoint" contract="ServiceReference1.IStockService" bindingType="basicHttpBinding" address="http://localhost:8731/wsServices/DataLibs/" bindingConfiguration="basicEndpoint">
+    <endpoint name="basicEndpoint" contract="ServiceReference1.IStockService" bindingType="basicHttpBinding" address="http://dungvq/DataLibs.svc" bindingConfiguration="basicEndpoint">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://localhost:8731/wsServices/DataLibs/</serializedValue>
+          <serializedValue>http://dungvq/DataLibs.svc</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
@@ -291,10 +291,10 @@
         </property>
       </properties>
     </endpoint>
-    <endpoint name="wsEndpoint" contract="ServiceReference1.IStockService" bindingType="wsHttpBinding" address="http://localhost:8731/wsServices/DataLibs/secure" bindingConfiguration="wsEndpoint">
+    <endpoint name="wsEndpoint" contract="ServiceReference1.IStockService" bindingType="wsHttpBinding" address="http://dungvq/DataLibs.svc/secure" bindingConfiguration="wsEndpoint">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://localhost:8731/wsServices/DataLibs/secure</serializedValue>
+          <serializedValue>http://dungvq/DataLibs.svc/secure</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
@@ -321,7 +321,7 @@
           <serializedValue>System.ServiceModel.Configuration.UserPrincipalNameElement</serializedValue>
         </property>
         <property path="/identity/userPrincipalName/value" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>DUNGVQ\admin</serializedValue>
+          <serializedValue>DUNGVQ\ASPNET</serializedValue>
         </property>
         <property path="/identity/servicePrincipalName" isComplexType="true" isExplicitlyDefined="false" clrType="System.ServiceModel.Configuration.ServicePrincipalNameElement, System.ServiceModel, Version=3.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>System.ServiceModel.Configuration.ServicePrincipalNameElement</serializedValue>
