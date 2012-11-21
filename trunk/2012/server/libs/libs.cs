@@ -102,15 +102,6 @@ namespace server
             return false;
         }
 
-
-        static Imports.Stock.hoseImport hoseImport = new Imports.Stock.hoseImport();
-        static Imports.Stock.htastcImport htastcImport = new Imports.Stock.htastcImport();
-
-        static Imports.Stock.vnIdxImport vnIdxImport = new Imports.Stock.vnIdxImport();
-        static Imports.Stock.hnIdxImport hnIdxImport = new Imports.Stock.hnIdxImport();
-
-        static Imports.Gold.forexImport forexImport = new Imports.Gold.forexImport();
-        static Imports.Gold.kitcoImport kitcoImport = new Imports.Gold.kitcoImport();
         public static void FetchRealTimeData(DateTime updateTime)
         {
             DataView myDataView = new DataView(application.SysLibs.myExchangeDetailTbl);
@@ -118,6 +109,7 @@ namespace server
             string[] parts;
             databases.baseDS.stockExchangeRow marketRow;
             databases.baseDS.exchangeDetailRow exchangeDetailRow;
+            commonClass.SysLibs.WriteSysLog(common.SysSeverityLevel.Informational, "", "Start");
             for (int idx1 = 0; idx1 < application.SysLibs.myStockExchangeTbl.Count; idx1++)
             {
                 marketRow = application.SysLibs.myStockExchangeTbl[idx1];
@@ -140,29 +132,7 @@ namespace server
                 {
                     try
                     {
-                        switch (exchangeDetailRow.code.Trim().ToUpper())
-                        {
-                            case "HOSE1":
-                                retVal = hoseImport.ImportFromWeb(updateTime, exchangeDetailRow);
-                                break;
-                            case "HASTC1":
-                                retVal = htastcImport.ImportFromWeb(updateTime, exchangeDetailRow);
-                                break;
-                            case "VNVN30_IDX1":
-                                retVal = vnIdxImport.ImportFromWeb(updateTime, exchangeDetailRow);
-                                break;
-                            case "HN_IDX1":
-                                retVal = hnIdxImport.ImportFromWeb(updateTime, exchangeDetailRow);
-                                break;
-                            
-                            case "GOLD_FOREX":
-                                retVal = forexImport.ImportFromWeb(updateTime, exchangeDetailRow);
-                                break;
-                            case "GOLD_KITCO":
-                                retVal = kitcoImport.ImportFromWeb(updateTime, exchangeDetailRow);
-                                break;
-                            default: return; //To avoid loop
-                        }
+                        retVal = Imports.Libs.ImportFromWeb(updateTime, exchangeDetailRow);
                     }
                     catch (Exception er)
                     {
@@ -173,13 +143,13 @@ namespace server
                     string nextRunCode = null;
                     if (retVal==false)
                     {
-                        commonClass.SysLibs.WriteSysLog(common.SysSeverityLevel.Informational, "", " - Updated from " + exchangeDetailRow.address + " failed");
-                        nextRunCode = exchangeDetailRow.goFalse;
+                        commonClass.SysLibs.WriteSysLog(common.SysSeverityLevel.Informational, "", " - Updated " + exchangeDetailRow.code + " from " +  exchangeDetailRow.address + " failed");
+                        if (exchangeDetailRow.IsgoFalseNull()==false) nextRunCode = exchangeDetailRow.goFalse;
                     }
                     else
                     {
-                        commonClass.SysLibs.WriteSysLog(common.SysSeverityLevel.Informational, "", " - Updated from " + exchangeDetailRow.address + " successful");
-                        nextRunCode = exchangeDetailRow.goTrue;
+                        commonClass.SysLibs.WriteSysLog(common.SysSeverityLevel.Informational, "", " - Updated " + exchangeDetailRow.code + " from " +exchangeDetailRow.address + " successful");
+                        if (exchangeDetailRow.IsgoTrueNull() == false) nextRunCode = exchangeDetailRow.goTrue;
                     }
                     //Find next line to run
                     if (nextRunCode == null || nextRunCode.Trim() == "") break;
@@ -187,6 +157,7 @@ namespace server
                     if (exchangeDetailRow == null) break;
                 }
             }
+            commonClass.SysLibs.WriteSysLog(common.SysSeverityLevel.Informational, "", "End");
             return;
         }
     }
