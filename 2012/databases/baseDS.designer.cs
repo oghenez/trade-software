@@ -10604,9 +10604,7 @@ namespace databases {
                 this.columnmarketCode.MaxLength = 10;
                 this.columnaddress.AllowDBNull = false;
                 this.columnaddress.MaxLength = 255;
-                this.columngoTrue.AllowDBNull = false;
                 this.columngoTrue.MaxLength = 20;
-                this.columngoFalse.AllowDBNull = false;
                 this.columngoFalse.MaxLength = 20;
                 this.columnnotes.MaxLength = 255;
                 this.columnculture.AllowDBNull = false;
@@ -14364,7 +14362,12 @@ namespace databases {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public string goTrue {
                 get {
-                    return ((string)(this[this.tableexchangeDetail.goTrueColumn]));
+                    try {
+                        return ((string)(this[this.tableexchangeDetail.goTrueColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'goTrue\' in table \'exchangeDetail\' is DBNull.", e);
+                    }
                 }
                 set {
                     this[this.tableexchangeDetail.goTrueColumn] = value;
@@ -14374,7 +14377,12 @@ namespace databases {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public string goFalse {
                 get {
-                    return ((string)(this[this.tableexchangeDetail.goFalseColumn]));
+                    try {
+                        return ((string)(this[this.tableexchangeDetail.goFalseColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'goFalse\' in table \'exchangeDetail\' is DBNull.", e);
+                    }
                 }
                 set {
                     this[this.tableexchangeDetail.goFalseColumn] = value;
@@ -14424,6 +14432,26 @@ namespace databases {
                 set {
                     this[this.tableexchangeDetail.orderIdColumn] = value;
                 }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsgoTrueNull() {
+                return this.IsNull(this.tableexchangeDetail.goTrueColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetgoTrueNull() {
+                this[this.tableexchangeDetail.goTrueColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsgoFalseNull() {
+                return this.IsNull(this.tableexchangeDetail.goFalseColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetgoFalseNull() {
+                this[this.tableexchangeDetail.goFalseColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -25886,11 +25914,11 @@ SELECT MsgId, type, OnDate, SenderId, ReceiverId, Category, Subject, MsgBody, st
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_code", global::System.Data.SqlDbType.NVarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "code", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [exchangeDetail] ([code], [marketCode], [address], [goTrue], [goFalse], [notes], [culture], [isEnabled], [orderId]) VALUES (@code, @marketCode, @address, @goTrue, @goFalse, @notes, @culture, @isEnabled, @orderId);
-SELECT code, marketCode, address, goTrue, goFalse, notes, culture, isEnabled, orderId FROM exchangeDetail WHERE (code = @code)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [exchangeDetail] ([marketCode], [code], [address], [goTrue], [goFalse], [notes], [culture], [isEnabled], [orderId]) VALUES (@marketCode, @code, @address, @goTrue, @goFalse, @notes, @culture, @isEnabled, @orderId);
+SELECT marketCode, code, address, goTrue, goFalse, notes, culture, isEnabled, orderId FROM exchangeDetail WHERE (code = @code) AND (marketCode = @marketCode)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@code", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "code", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@marketCode", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "marketCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@code", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "code", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@address", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "address", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@goTrue", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "goTrue", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@goFalse", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "goFalse", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -25901,13 +25929,13 @@ SELECT code, marketCode, address, goTrue, goFalse, notes, culture, isEnabled, or
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
             this._adapter.UpdateCommand.CommandText = @"UPDATE exchangeDetail
-SET        code = @code, marketCode = @marketCode, address = @address, goTrue = @goTrue, goFalse = @goFalse, notes = @notes, culture = @culture, isEnabled = @isEnabled, 
+SET        marketCode = @marketCode, code = @code, address = @address, goTrue = @goTrue, goFalse = @goFalse, notes = @notes, culture = @culture, isEnabled = @isEnabled, 
                orderId = @orderId
 WHERE  (code = @Original_code); 
-SELECT code, marketCode, address, goTrue, goFalse, notes, culture, isEnabled, orderId FROM exchangeDetail WHERE (code = @code)";
+SELECT marketCode, code, address, goTrue, goFalse, notes, culture, isEnabled, orderId FROM exchangeDetail WHERE (code = @code) AND (marketCode = @marketCode)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@code", global::System.Data.SqlDbType.NVarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "code", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@marketCode", global::System.Data.SqlDbType.NVarChar, 10, global::System.Data.ParameterDirection.Input, 0, 0, "marketCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@code", global::System.Data.SqlDbType.NVarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "code", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@address", global::System.Data.SqlDbType.NVarChar, 255, global::System.Data.ParameterDirection.Input, 0, 0, "address", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@goTrue", global::System.Data.SqlDbType.NVarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "goTrue", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@goFalse", global::System.Data.SqlDbType.NVarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "goFalse", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -25933,7 +25961,7 @@ SELECT code, marketCode, address, goTrue, goFalse, notes, culture, isEnabled, or
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT * FROM exchangeDetail WHERE (marketCode = @marketCode) ORDER BY orderId";
+            this._commandCollection[1].CommandText = "SELECT *  FROM exchangeDetail WHERE (marketCode = @marketCode) ORDER BY orderId";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@marketCode", global::System.Data.SqlDbType.NVarChar, 10, global::System.Data.ParameterDirection.Input, 0, 0, "marketCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
@@ -26017,173 +26045,6 @@ SELECT code, marketCode, address, goTrue, goFalse, notes, culture, isEnabled, or
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         public virtual int Update(global::System.Data.DataRow[] dataRows) {
             return this.Adapter.Update(dataRows);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(string Original_code) {
-            if ((Original_code == null)) {
-                throw new global::System.ArgumentNullException("Original_code");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[0].Value = ((string)(Original_code));
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
-            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.DeleteCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.DeleteCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string code, string marketCode, string address, string goTrue, string goFalse, string notes, string culture, bool isEnabled, short orderId) {
-            if ((code == null)) {
-                throw new global::System.ArgumentNullException("code");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(code));
-            }
-            if ((marketCode == null)) {
-                throw new global::System.ArgumentNullException("marketCode");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(marketCode));
-            }
-            if ((address == null)) {
-                throw new global::System.ArgumentNullException("address");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(address));
-            }
-            if ((goTrue == null)) {
-                throw new global::System.ArgumentNullException("goTrue");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(goTrue));
-            }
-            if ((goFalse == null)) {
-                throw new global::System.ArgumentNullException("goFalse");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(goFalse));
-            }
-            if ((notes == null)) {
-                this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(notes));
-            }
-            if ((culture == null)) {
-                throw new global::System.ArgumentNullException("culture");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[6].Value = ((string)(culture));
-            }
-            this.Adapter.InsertCommand.Parameters[7].Value = ((bool)(isEnabled));
-            this.Adapter.InsertCommand.Parameters[8].Value = ((short)(orderId));
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
-            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.InsertCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.InsertCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string code, string marketCode, string address, string goTrue, string goFalse, string notes, string culture, bool isEnabled, short orderId, string Original_code) {
-            if ((code == null)) {
-                throw new global::System.ArgumentNullException("code");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(code));
-            }
-            if ((marketCode == null)) {
-                throw new global::System.ArgumentNullException("marketCode");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(marketCode));
-            }
-            if ((address == null)) {
-                throw new global::System.ArgumentNullException("address");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(address));
-            }
-            if ((goTrue == null)) {
-                throw new global::System.ArgumentNullException("goTrue");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(goTrue));
-            }
-            if ((goFalse == null)) {
-                throw new global::System.ArgumentNullException("goFalse");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(goFalse));
-            }
-            if ((notes == null)) {
-                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(notes));
-            }
-            if ((culture == null)) {
-                throw new global::System.ArgumentNullException("culture");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(culture));
-            }
-            this.Adapter.UpdateCommand.Parameters[7].Value = ((bool)(isEnabled));
-            this.Adapter.UpdateCommand.Parameters[8].Value = ((short)(orderId));
-            if ((Original_code == null)) {
-                throw new global::System.ArgumentNullException("Original_code");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(Original_code));
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
-            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.UpdateCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.UpdateCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string marketCode, string address, string goTrue, string goFalse, string notes, string culture, bool isEnabled, short orderId, string Original_code) {
-            return this.Update(Original_code, marketCode, address, goTrue, goFalse, notes, culture, isEnabled, orderId, Original_code);
         }
     }
     

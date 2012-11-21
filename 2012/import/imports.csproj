@@ -115,6 +115,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Service References\clientSSI\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="forms\reAggregatePrice.resx">
@@ -167,6 +172,7 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\clientHOSE\" />
+    <WCFMetadataStorage Include="Service References\clientSSI\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\clientHOSE\HoSTC_Service.disco" />
@@ -179,7 +185,24 @@
     <None Include="Service References\clientHOSE\configuration.svcinfo" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="Service References\clientHOSE\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\clientSSI\AjaxWebService.disco" />
+    <None Include="Service References\clientSSI\AjaxWebService.wsdl" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\clientSSI\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\clientSSI\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\clientSSI\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
