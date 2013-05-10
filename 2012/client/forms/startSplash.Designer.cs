@@ -29,14 +29,15 @@ namespace client.forms
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(startSplash));
             ((System.ComponentModel.ISupportInitialize)(this.waitingPB)).BeginInit();
             this.SuspendLayout();
             // 
             // waitingPB
             // 
             this.waitingPB.Image = global::client.Properties.Resources.waiting_bar;
-            this.waitingPB.Location = new System.Drawing.Point(126, 327);
-            this.waitingPB.Size = new System.Drawing.Size(294, 23);
+            this.waitingPB.Location = new System.Drawing.Point(12, 322);
+            this.waitingPB.Size = new System.Drawing.Size(109, 17);
             // 
             // waitingLbl
             // 
@@ -53,8 +54,9 @@ namespace client.forms
             this.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.BackgroundImage = global::client.Properties.Resources.trader_professional;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(544, 382);
+            this.ClientSize = new System.Drawing.Size(500, 350);
             this.DoubleBuffered = true;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "startSplash";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             ((System.ComponentModel.ISupportInitialize)(this.waitingPB)).EndInit();

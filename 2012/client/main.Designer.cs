@@ -1503,6 +1503,7 @@ namespace client
             this.strategyStrip.ResumeLayout(false);
             this.strategyStrip.PerformLayout();
             this.feedbackStrip.ResumeLayout(false);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.feedbackStrip.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
