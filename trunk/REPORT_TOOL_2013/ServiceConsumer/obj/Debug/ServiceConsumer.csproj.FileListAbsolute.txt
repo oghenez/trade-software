@@ -1,0 +1,12 @@
+C:\Users\NGUYENTUAN\Documents\Visual Studio 2008\Projects\OpenXMLDemo\ServiceConsumer\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\NGUYENTUAN\Documents\Visual Studio 2008\Projects\OpenXMLDemo\ServiceConsumer\bin\Debug\ServiceConsumer.dll.config
+C:\Users\NGUYENTUAN\Documents\Visual Studio 2008\Projects\OpenXMLDemo\ServiceConsumer\bin\Debug\ServiceConsumer.dll
+C:\Users\NGUYENTUAN\Documents\Visual Studio 2008\Projects\OpenXMLDemo\ServiceConsumer\bin\Debug\ServiceConsumer.pdb
+C:\Users\NGUYENTUAN\Documents\Visual Studio 2008\Projects\OpenXMLDemo\ServiceConsumer\obj\Debug\ServiceConsumer.dll
+C:\Users\NGUYENTUAN\Documents\Visual Studio 2008\Projects\OpenXMLDemo\ServiceConsumer\obj\Debug\ServiceConsumer.pdb
+C:\Documents and Settings\Administrator\My Documents\Downloads\REPORT_TOOL_2013\ServiceConsumer\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\Administrator\My Documents\Downloads\REPORT_TOOL_2013\ServiceConsumer\bin\Debug\ServiceConsumer.dll.config
+C:\Documents and Settings\Administrator\My Documents\Downloads\REPORT_TOOL_2013\ServiceConsumer\bin\Debug\ServiceConsumer.dll
+C:\Documents and Settings\Administrator\My Documents\Downloads\REPORT_TOOL_2013\ServiceConsumer\bin\Debug\ServiceConsumer.pdb
+C:\Documents and Settings\Administrator\My Documents\Downloads\REPORT_TOOL_2013\ServiceConsumer\obj\Debug\ServiceConsumer.dll
+C:\Documents and Settings\Administrator\My Documents\Downloads\REPORT_TOOL_2013\ServiceConsumer\obj\Debug\ServiceConsumer.pdb

@@ -1,0 +1,20 @@
+C:\Users\NGUYENTUAN\Documents\Visual Studio 2008\Projects\OpenXMLDemo\ReportProcessing\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\NGUYENTUAN\Documents\Visual Studio 2008\Projects\OpenXMLDemo\ReportProcessing\bin\Debug\ReportProcessing.dll
+C:\Users\NGUYENTUAN\Documents\Visual Studio 2008\Projects\OpenXMLDemo\ReportProcessing\bin\Debug\ReportProcessing.pdb
+C:\Users\NGUYENTUAN\Documents\Visual Studio 2008\Projects\OpenXMLDemo\ReportProcessing\bin\Debug\ChartHelper.dll
+C:\Users\NGUYENTUAN\Documents\Visual Studio 2008\Projects\OpenXMLDemo\ReportProcessing\bin\Debug\ServiceConsumer.dll
+C:\Users\NGUYENTUAN\Documents\Visual Studio 2008\Projects\OpenXMLDemo\ReportProcessing\bin\Debug\WordHelper.dll
+C:\Users\NGUYENTUAN\Documents\Visual Studio 2008\Projects\OpenXMLDemo\ReportProcessing\bin\Debug\WordHelper.pdb
+C:\Users\NGUYENTUAN\Documents\Visual Studio 2008\Projects\OpenXMLDemo\ReportProcessing\bin\Debug\ChartHelper.pdb
+C:\Users\NGUYENTUAN\Documents\Visual Studio 2008\Projects\OpenXMLDemo\ReportProcessing\bin\Debug\ServiceConsumer.pdb
+C:\Users\NGUYENTUAN\Documents\Visual Studio 2008\Projects\OpenXMLDemo\ReportProcessing\obj\Debug\ReportProcessing.dll
+C:\Users\NGUYENTUAN\Documents\Visual Studio 2008\Projects\OpenXMLDemo\ReportProcessing\obj\Debug\ReportProcessing.pdb
+C:\Documents and Settings\Administrator\My Documents\Downloads\REPORT_TOOL_2013\ReportProcessing\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\Administrator\My Documents\Downloads\REPORT_TOOL_2013\ReportProcessing\bin\Debug\ReportProcessing.dll
+C:\Documents and Settings\Administrator\My Documents\Downloads\REPORT_TOOL_2013\ReportProcessing\bin\Debug\ReportProcessing.pdb
+C:\Documents and Settings\Administrator\My Documents\Downloads\REPORT_TOOL_2013\ReportProcessing\bin\Debug\ChartHelper.dll
+C:\Documents and Settings\Administrator\My Documents\Downloads\REPORT_TOOL_2013\ReportProcessing\bin\Debug\ServiceConsumer.dll
+C:\Documents and Settings\Administrator\My Documents\Downloads\REPORT_TOOL_2013\ReportProcessing\bin\Debug\ChartHelper.pdb
+C:\Documents and Settings\Administrator\My Documents\Downloads\REPORT_TOOL_2013\ReportProcessing\bin\Debug\ServiceConsumer.pdb
+C:\Documents and Settings\Administrator\My Documents\Downloads\REPORT_TOOL_2013\ReportProcessing\obj\Debug\ReportProcessing.dll
+C:\Documents and Settings\Administrator\My Documents\Downloads\REPORT_TOOL_2013\ReportProcessing\obj\Debug\ReportProcessing.pdb

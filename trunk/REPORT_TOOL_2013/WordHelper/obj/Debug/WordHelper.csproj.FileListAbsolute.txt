@@ -1,0 +1,10 @@
+C:\Users\NGUYENTUAN\Documents\Visual Studio 2008\Projects\OpenXMLDemo\WordHelper\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\NGUYENTUAN\Documents\Visual Studio 2008\Projects\OpenXMLDemo\WordHelper\bin\Debug\WordHelper.dll
+C:\Users\NGUYENTUAN\Documents\Visual Studio 2008\Projects\OpenXMLDemo\WordHelper\bin\Debug\WordHelper.pdb
+C:\Users\NGUYENTUAN\Documents\Visual Studio 2008\Projects\OpenXMLDemo\WordHelper\obj\Debug\WordHelper.dll
+C:\Users\NGUYENTUAN\Documents\Visual Studio 2008\Projects\OpenXMLDemo\WordHelper\obj\Debug\WordHelper.pdb
+C:\Documents and Settings\Administrator\My Documents\Downloads\REPORT_TOOL_2013\WordHelper\bin\Debug\WordHelper.dll
+C:\Documents and Settings\Administrator\My Documents\Downloads\REPORT_TOOL_2013\WordHelper\bin\Debug\WordHelper.pdb
+C:\Documents and Settings\Administrator\My Documents\Downloads\REPORT_TOOL_2013\WordHelper\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\Administrator\My Documents\Downloads\REPORT_TOOL_2013\WordHelper\obj\Debug\WordHelper.dll
+C:\Documents and Settings\Administrator\My Documents\Downloads\REPORT_TOOL_2013\WordHelper\obj\Debug\WordHelper.pdb
