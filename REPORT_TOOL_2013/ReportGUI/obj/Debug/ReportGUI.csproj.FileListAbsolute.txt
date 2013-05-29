@@ -1,0 +1,24 @@
+C:\Users\NGUYENTUAN\Documents\Visual Studio 2008\Projects\OpenXMLDemo\ReportGUI\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\NGUYENTUAN\Documents\Visual Studio 2008\Projects\OpenXMLDemo\ReportGUI\obj\Debug\ReportGUI.FrmReportMain.resources
+C:\Users\NGUYENTUAN\Documents\Visual Studio 2008\Projects\OpenXMLDemo\ReportGUI\obj\Debug\ReportGUI.FrmTemplateManager.resources
+C:\Users\NGUYENTUAN\Documents\Visual Studio 2008\Projects\OpenXMLDemo\ReportGUI\obj\Debug\ReportGUI.Properties.Resources.resources
+C:\Users\NGUYENTUAN\Documents\Visual Studio 2008\Projects\OpenXMLDemo\ReportGUI\obj\Debug\ReportGUI.csproj.GenerateResource.Cache
+C:\Users\NGUYENTUAN\Documents\Visual Studio 2008\Projects\OpenXMLDemo\ReportGUI\bin\Debug\ReportGUI.exe
+C:\Users\NGUYENTUAN\Documents\Visual Studio 2008\Projects\OpenXMLDemo\ReportGUI\bin\Debug\ReportGUI.pdb
+C:\Users\NGUYENTUAN\Documents\Visual Studio 2008\Projects\OpenXMLDemo\ReportGUI\bin\Debug\ReportProcessing.dll
+C:\Users\NGUYENTUAN\Documents\Visual Studio 2008\Projects\OpenXMLDemo\ReportGUI\bin\Debug\ReportProcessing.pdb
+C:\Users\NGUYENTUAN\Documents\Visual Studio 2008\Projects\OpenXMLDemo\ReportGUI\obj\Debug\ReportGUI.exe
+C:\Users\NGUYENTUAN\Documents\Visual Studio 2008\Projects\OpenXMLDemo\ReportGUI\obj\Debug\ReportGUI.pdb
+C:\Documents and Settings\Administrator\My Documents\Downloads\REPORT_TOOL_2013\ReportGUI\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\Administrator\My Documents\Downloads\REPORT_TOOL_2013\ReportGUI\obj\Debug\ReportGUI.FrmReportMain.resources
+C:\Documents and Settings\Administrator\My Documents\Downloads\REPORT_TOOL_2013\ReportGUI\obj\Debug\ReportGUI.FrmTemplateManager.resources
+C:\Documents and Settings\Administrator\My Documents\Downloads\REPORT_TOOL_2013\ReportGUI\obj\Debug\ReportGUI.Properties.Resources.resources
+C:\Documents and Settings\Administrator\My Documents\Downloads\REPORT_TOOL_2013\ReportGUI\obj\Debug\ReportGUI.csproj.GenerateResource.Cache
+C:\Documents and Settings\Administrator\My Documents\Downloads\REPORT_TOOL_2013\ReportGUI\bin\Debug\ReportGUI.exe
+C:\Documents and Settings\Administrator\My Documents\Downloads\REPORT_TOOL_2013\ReportGUI\bin\Debug\ReportGUI.pdb
+C:\Documents and Settings\Administrator\My Documents\Downloads\REPORT_TOOL_2013\ReportGUI\bin\Debug\ReportProcessing.dll
+C:\Documents and Settings\Administrator\My Documents\Downloads\REPORT_TOOL_2013\ReportGUI\bin\Debug\ServiceConsumer.dll
+C:\Documents and Settings\Administrator\My Documents\Downloads\REPORT_TOOL_2013\ReportGUI\bin\Debug\ReportProcessing.pdb
+C:\Documents and Settings\Administrator\My Documents\Downloads\REPORT_TOOL_2013\ReportGUI\bin\Debug\ServiceConsumer.pdb
+C:\Documents and Settings\Administrator\My Documents\Downloads\REPORT_TOOL_2013\ReportGUI\obj\Debug\ReportGUI.exe
+C:\Documents and Settings\Administrator\My Documents\Downloads\REPORT_TOOL_2013\ReportGUI\obj\Debug\ReportGUI.pdb

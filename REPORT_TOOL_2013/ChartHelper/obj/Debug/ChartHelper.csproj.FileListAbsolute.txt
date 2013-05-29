@@ -1,0 +1,16 @@
+C:\Users\NGUYENTUAN\Documents\Visual Studio 2008\Projects\OpenXMLDemo\ChartHelper\bin\Debug\ChartHelper.dll
+C:\Users\NGUYENTUAN\Documents\Visual Studio 2008\Projects\OpenXMLDemo\ChartHelper\bin\Debug\ChartHelper.pdb
+C:\Users\NGUYENTUAN\Documents\Visual Studio 2008\Projects\OpenXMLDemo\ChartHelper\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\NGUYENTUAN\Documents\Visual Studio 2008\Projects\OpenXMLDemo\ChartHelper\obj\Debug\ChartHelper.dll
+C:\Users\NGUYENTUAN\Documents\Visual Studio 2008\Projects\OpenXMLDemo\ChartHelper\obj\Debug\ChartHelper.pdb
+C:\Users\NGUYENTUAN\Documents\Visual Studio 2008\Projects\OpenXMLDemo\ChartHelper\obj\Debug\ChartHelper.LineCurvesChartType.resources
+C:\Users\NGUYENTUAN\Documents\Visual Studio 2008\Projects\OpenXMLDemo\ChartHelper\obj\Debug\ChartHelper.PieChart.resources
+C:\Users\NGUYENTUAN\Documents\Visual Studio 2008\Projects\OpenXMLDemo\ChartHelper\obj\Debug\ChartHelper.csproj.GenerateResource.Cache
+C:\Documents and Settings\Administrator\My Documents\Downloads\REPORT_TOOL_2013\ChartHelper\bin\Debug\ChartHelper.dll
+C:\Documents and Settings\Administrator\My Documents\Downloads\REPORT_TOOL_2013\ChartHelper\bin\Debug\ChartHelper.pdb
+C:\Documents and Settings\Administrator\My Documents\Downloads\REPORT_TOOL_2013\ChartHelper\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\Administrator\My Documents\Downloads\REPORT_TOOL_2013\ChartHelper\obj\Debug\ChartHelper.LineCurvesChartType.resources
+C:\Documents and Settings\Administrator\My Documents\Downloads\REPORT_TOOL_2013\ChartHelper\obj\Debug\ChartHelper.PieChart.resources
+C:\Documents and Settings\Administrator\My Documents\Downloads\REPORT_TOOL_2013\ChartHelper\obj\Debug\ChartHelper.csproj.GenerateResource.Cache
+C:\Documents and Settings\Administrator\My Documents\Downloads\REPORT_TOOL_2013\ChartHelper\obj\Debug\ChartHelper.dll
+C:\Documents and Settings\Administrator\My Documents\Downloads\REPORT_TOOL_2013\ChartHelper\obj\Debug\ChartHelper.pdb
