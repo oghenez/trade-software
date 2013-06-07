@@ -315,8 +315,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="IconQuantum.ico" />
-    <Content Include="Resources\trader_professional.png" />
     <Content Include="Resources\trader_standard.png" />
+    <Content Include="Resources\trader_professional.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
