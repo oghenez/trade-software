@@ -1168,7 +1168,7 @@ namespace client
                 this.strategyEstimationMenuItem.Text = Languages.Libs.GetString("strategyEstimation");
                 this.screeningMenuItem.Text = Languages.Libs.GetString("screening");
 
-                this.feedbackStripItem.Text = Languages.Libs.GetString("feedback");
+                //this.feedbackStripItem.Text = Languages.Libs.GetString("feedback");
 
 
                 //Create indicator menu

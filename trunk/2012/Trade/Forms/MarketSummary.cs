@@ -83,7 +83,7 @@ namespace Trade.Forms
             DateTime frDate = toDate.AddMonths(-2);
             string timeScaleCode = AppTypes.TimeScaleTypeToCode(AppTypes.TimeScaleTypes.Day);
             DrawLineChart(vnIdxChart, 0, true, "VN-IDX", frDate, toDate, timeScaleCode);
-            DrawLineChart(hnxChart, 0, true, "HNX-IDX", frDate, toDate, timeScaleCode);
+            DrawLineChart(hnxChart, 0, true, "VN30-IDX", frDate, toDate, timeScaleCode);
 
             //DrawLineChart(hnxChart, 0, true, "HNX-IDX", frDate, toDate, timeScaleCode);
         }
