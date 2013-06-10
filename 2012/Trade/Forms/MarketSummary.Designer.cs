@@ -351,7 +351,7 @@
             this.marketTitle1Ed.Name = "marketTitle1Ed";
             this.marketTitle1Ed.Size = new System.Drawing.Size(610, 25);
             this.marketTitle1Ed.TabIndex = 153;
-            this.marketTitle1Ed.Text = "HOSE";
+            this.marketTitle1Ed.Text = "VN Index";
             this.marketTitle1Ed.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // vnIdxChart
@@ -476,7 +476,7 @@
             this.marketTitle2Ed.Name = "marketTitle2Ed";
             this.marketTitle2Ed.Size = new System.Drawing.Size(610, 26);
             this.marketTitle2Ed.TabIndex = 154;
-            this.marketTitle2Ed.Text = "HASTC";
+            this.marketTitle2Ed.Text = "VN30 Index";
             this.marketTitle2Ed.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // hnxChart
@@ -563,7 +563,7 @@
             series4.Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             series4.IsXValueIndexed = true;
             series4.Legend = "hnxIndex";
-            series4.LegendText = "HNX-Index";
+            series4.LegendText = "VN30 Index";
             series4.Name = "hnxIndex";
             series4.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.DateTime;
             series4.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
