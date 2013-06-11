@@ -12,7 +12,7 @@ using System.Resources;
 [assembly: AssemblyCompany("HQ Corporation")]
 [assembly: AssemblyProduct("Quantum 2013")]
 [assembly: AssemblyCopyright("Copyright © by HQ Corporation")]
-[assembly: AssemblyTrademark("Quantum 2012")]
+[assembly: AssemblyTrademark("Quantum 2013")]
 [assembly: AssemblyCulture("")]
 
 // Setting ComVisible to false makes the types in this assembly not visible 
@@ -33,6 +33,7 @@ using System.Resources;
 // You can specify all the values or you can default the Build and Revision Numbers 
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.13.06.06")]
-[assembly: AssemblyFileVersion("1.13.06.06")]
+
+[assembly: AssemblyVersion("1.13.06.08")]
+[assembly: AssemblyFileVersion("1.13.06.08")]
 [assembly: NeutralResourcesLanguageAttribute("en-GB")]
