@@ -328,7 +328,7 @@
     <value>Theo dõi thị trường</value>
   </data>
   <data name="myPortfolio" xml:space="preserve">
-    <value>Hồ sơ của tôi</value>
+    <value>Danh mục đầu tư</value>
   </data>
   <data name="myProfile" xml:space="preserve">
     <value>Lý lịch của tôi</value>
@@ -574,7 +574,7 @@
     <value>SL đăng ký</value>
   </data>
   <data name="logo" xml:space="preserve">
-    <value>Biểu trưng</value>
+    <value>Logo</value>
   </data>
   <data name="maxAccumulatePercent" xml:space="preserve">
     <value>Tích lũy</value>
@@ -1321,10 +1321,10 @@
     <value>Lọai tài khỏan</value>
   </data>
   <data name="mainFont" xml:space="preserve">
-    <value>Phông chính</value>
+    <value>Font chính</value>
   </data>
   <data name="menuFont" xml:space="preserve">
-    <value>Phông menu</value>
+    <value>Font menu</value>
   </data>
   <data name="timeServer" xml:space="preserve">
     <value>Máy chủ thời gian</value>
