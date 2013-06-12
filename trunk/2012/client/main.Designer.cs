@@ -184,8 +184,6 @@ namespace client
             this.myPortfolioBtn = new System.Windows.Forms.ToolStripButton();
             this.tradeAlertBtn = new System.Windows.Forms.ToolStripButton();
             this.transHistoryBtn = new System.Windows.Forms.ToolStripButton();
-            this.feedbackStrip = new System.Windows.Forms.ToolStrip();
-            this.feedbackStripItem = new common.controls.buttonStripItem();
             this.chartStrip.SuspendLayout();
             this.toolsStrip.SuspendLayout();
             this.toolStripPanel.SuspendLayout();
@@ -194,7 +192,6 @@ namespace client
             this.autoCreateStrip.SuspendLayout();
             this.strategyStrip.SuspendLayout();
             this.standardStrip.SuspendLayout();
-            this.feedbackStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // TitleLbl
@@ -285,10 +282,10 @@ namespace client
             this.dockPanel.ActiveAutoHideContent = null;
             this.dockPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dockPanel.DockBackColor = System.Drawing.SystemColors.Control;
-            this.dockPanel.Location = new System.Drawing.Point(0, 55);
+            this.dockPanel.Location = new System.Drawing.Point(0, 49);
             this.dockPanel.Margin = new System.Windows.Forms.Padding(4);
             this.dockPanel.Name = "dockPanel";
-            this.dockPanel.Size = new System.Drawing.Size(1276, 595);
+            this.dockPanel.Size = new System.Drawing.Size(1276, 601);
             dockPanelGradient1.EndColor = System.Drawing.SystemColors.ControlLight;
             dockPanelGradient1.StartColor = System.Drawing.SystemColors.ControlLight;
             autoHideStripSkin1.DockStripGradient = dockPanelGradient1;
@@ -356,7 +353,7 @@ namespace client
             this.chartRefreshBtn});
             this.chartStrip.Location = new System.Drawing.Point(3, 24);
             this.chartStrip.Name = "chartStrip";
-            this.chartStrip.Size = new System.Drawing.Size(214, 25);
+            this.chartStrip.Size = new System.Drawing.Size(212, 25);
             this.chartStrip.TabIndex = 11;
             // 
             // chartPropertiesBtn
@@ -486,7 +483,7 @@ namespace client
             this.exportBtn});
             this.toolsStrip.Location = new System.Drawing.Point(278, 24);
             this.toolsStrip.Name = "toolsStrip";
-            this.toolsStrip.Size = new System.Drawing.Size(81, 25);
+            this.toolsStrip.Size = new System.Drawing.Size(79, 25);
             this.toolsStrip.TabIndex = 2;
             // 
             // toolRunBtn
@@ -528,13 +525,12 @@ namespace client
             this.toolStripPanel.Controls.Add(this.autoCreateStrip);
             this.toolStripPanel.Controls.Add(this.strategyStrip);
             this.toolStripPanel.Controls.Add(this.standardStrip);
-            this.toolStripPanel.Controls.Add(this.feedbackStrip);
             this.toolStripPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.toolStripPanel.Location = new System.Drawing.Point(0, 0);
             this.toolStripPanel.Name = "toolStripPanel";
             this.toolStripPanel.Orientation = System.Windows.Forms.Orientation.Horizontal;
             this.toolStripPanel.RowMargin = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.toolStripPanel.Size = new System.Drawing.Size(1276, 55);
+            this.toolStripPanel.Size = new System.Drawing.Size(1276, 49);
             // 
             // mainMenu
             // 
@@ -1295,7 +1291,7 @@ namespace client
             this.percentBtn});
             this.formatStrip.Location = new System.Drawing.Point(220, 24);
             this.formatStrip.Name = "formatStrip";
-            this.formatStrip.Size = new System.Drawing.Size(58, 25);
+            this.formatStrip.Size = new System.Drawing.Size(56, 25);
             this.formatStrip.TabIndex = 148;
             // 
             // amountBtn
@@ -1325,7 +1321,7 @@ namespace client
             this.dummyStripBtn});
             this.autoCreateStrip.Location = new System.Drawing.Point(359, 24);
             this.autoCreateStrip.Name = "autoCreateStrip";
-            this.autoCreateStrip.Size = new System.Drawing.Size(91, 25);
+            this.autoCreateStrip.Size = new System.Drawing.Size(84, 25);
             this.autoCreateStrip.TabIndex = 147;
             // 
             // dummyStripBtn
@@ -1334,7 +1330,7 @@ namespace client
             this.dummyStripBtn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.dummyStripBtn.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.dummyStripBtn.Name = "dummyStripBtn";
-            this.dummyStripBtn.Size = new System.Drawing.Size(79, 22);
+            this.dummyStripBtn.Size = new System.Drawing.Size(74, 22);
             this.dummyStripBtn.Text = "Auto created";
             // 
             // strategyStrip
@@ -1345,7 +1341,7 @@ namespace client
             this.strategyCbStrip});
             this.strategyStrip.Location = new System.Drawing.Point(505, 24);
             this.strategyStrip.Name = "strategyStrip";
-            this.strategyStrip.Size = new System.Drawing.Size(314, 25);
+            this.strategyStrip.Size = new System.Drawing.Size(312, 25);
             this.strategyStrip.TabIndex = 149;
             // 
             // strategyCbStrip
@@ -1369,7 +1365,7 @@ namespace client
             this.transHistoryBtn});
             this.standardStrip.Location = new System.Drawing.Point(819, 24);
             this.standardStrip.Name = "standardStrip";
-            this.standardStrip.Size = new System.Drawing.Size(156, 25);
+            this.standardStrip.Size = new System.Drawing.Size(154, 25);
             this.standardStrip.TabIndex = 10;
             // 
             // addChartBtn
@@ -1438,27 +1434,6 @@ namespace client
             this.transHistoryBtn.Text = "toolStripButton1";
             this.transHistoryBtn.Click += new System.EventHandler(this.transHistoryBtn_Click);
             // 
-            // feedbackStrip
-            // 
-            this.feedbackStrip.Dock = System.Windows.Forms.DockStyle.None;
-            this.feedbackStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.feedbackStripItem});
-            this.feedbackStrip.Location = new System.Drawing.Point(975, 24);
-            this.feedbackStrip.Name = "feedbackStrip";
-            this.feedbackStrip.Size = new System.Drawing.Size(112, 31);
-            this.feedbackStrip.TabIndex = 151;
-            // 
-            // feedbackStripItem
-            // 
-            this.feedbackStripItem.AutoSize = false;
-            this.feedbackStripItem.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.feedbackStripItem.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
-            this.feedbackStripItem.myImage = null;
-            this.feedbackStripItem.Name = "feedbackStripItem";
-            this.feedbackStripItem.Size = new System.Drawing.Size(100, 28);
-            this.feedbackStripItem.Text = "Feedback";
-            this.feedbackStripItem.Click += new System.EventHandler(this.feedbackMenuItem_Click);
-            // 
             // main
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -1494,8 +1469,6 @@ namespace client
             this.strategyStrip.PerformLayout();
             this.standardStrip.ResumeLayout(false);
             this.standardStrip.PerformLayout();
-            this.feedbackStrip.ResumeLayout(false);
-            this.feedbackStrip.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1549,8 +1522,6 @@ namespace client
         private System.Windows.Forms.ToolStripButton tradeAlertBtn;
         private System.Windows.Forms.ToolStripButton transHistoryBtn;
         private System.Windows.Forms.ToolStripButton chartLeverageBtn;
-        private System.Windows.Forms.ToolStrip feedbackStrip;
-        private common.controls.buttonStripItem feedbackStripItem;
         protected System.Windows.Forms.MenuStrip mainMenu;
         private System.Windows.Forms.ToolStripMenuItem FileMenuStrip;
         private System.Windows.Forms.ToolStripMenuItem loginMenuItem;
