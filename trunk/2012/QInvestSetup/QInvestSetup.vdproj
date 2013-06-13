@@ -40,6 +40,12 @@
         "Entry"
         {
         "MsmKey" = "8:_03D78366061FDBFA3115F1327C519E87"
+        "OwnerKey" = "8:_A1F5FED2B5AC73B8AED23BC87324D627"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_03D78366061FDBFA3115F1327C519E87"
         "OwnerKey" = "8:_DAF00DBDE1DE4AE8967DBFBA1079DE5E"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -238,6 +244,12 @@
         "Entry"
         {
         "MsmKey" = "8:_41E76B7A9BE4D80C538F3A71A70C13D0"
+        "OwnerKey" = "8:_A1F5FED2B5AC73B8AED23BC87324D627"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_41E76B7A9BE4D80C538F3A71A70C13D0"
         "OwnerKey" = "8:_D2E27902896EF6323D38FC6AE632EB3E"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -273,6 +285,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_51B26AD03FB6E72C42AD7E2767668911"
+        "OwnerKey" = "8:_A1F5FED2B5AC73B8AED23BC87324D627"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_62046F08EE978B86B9F7CAE538704D01"
         "OwnerKey" = "8:_7DFC79CC02B6A783F71BD532044EF3DF"
         "MsmSig" = "8:_UNDEFINED"
@@ -287,6 +305,12 @@
         {
         "MsmKey" = "8:_62046F08EE978B86B9F7CAE538704D01"
         "OwnerKey" = "8:_8421AABDD4E68E145ED3E000BC7B6CC0"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_62046F08EE978B86B9F7CAE538704D01"
+        "OwnerKey" = "8:_A1F5FED2B5AC73B8AED23BC87324D627"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -388,6 +412,12 @@
         "Entry"
         {
         "MsmKey" = "8:_7DFC79CC02B6A783F71BD532044EF3DF"
+        "OwnerKey" = "8:_A1F5FED2B5AC73B8AED23BC87324D627"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_7DFC79CC02B6A783F71BD532044EF3DF"
         "OwnerKey" = "8:_DAF00DBDE1DE4AE8967DBFBA1079DE5E"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -436,12 +466,24 @@
         "Entry"
         {
         "MsmKey" = "8:_8B0782DF23F013A8B442836EB59790D1"
-        "OwnerKey" = "8:_D3C7B1682F19AF54FDA02131C9FB22A6"
+        "OwnerKey" = "8:_DAF00DBDE1DE4AE8967DBFBA1079DE5E"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_8B0782DF23F013A8B442836EB59790D1"
+        "OwnerKey" = "8:_D3C7B1682F19AF54FDA02131C9FB22A6"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_908CDEFE569785A2E69B65AB02A5868D"
+        "OwnerKey" = "8:_A1F5FED2B5AC73B8AED23BC87324D627"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_908CDEFE569785A2E69B65AB02A5868D"
         "OwnerKey" = "8:_DAF00DBDE1DE4AE8967DBFBA1079DE5E"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -455,6 +497,12 @@
         {
         "MsmKey" = "8:_97695539274B4E63887224238C616B7D"
         "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_A1F5FED2B5AC73B8AED23BC87324D627"
+        "OwnerKey" = "8:_DAF00DBDE1DE4AE8967DBFBA1079DE5E"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -485,6 +533,12 @@
         {
         "MsmKey" = "8:_A261BB8B9DEC61814D03D0932FEA93E5"
         "OwnerKey" = "8:_8421AABDD4E68E145ED3E000BC7B6CC0"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_A261BB8B9DEC61814D03D0932FEA93E5"
+        "OwnerKey" = "8:_A1F5FED2B5AC73B8AED23BC87324D627"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -585,6 +639,18 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_D772BE9186A210503AA18017A29F6BFE"
+        "OwnerKey" = "8:_DAF00DBDE1DE4AE8967DBFBA1079DE5E"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_D772BE9186A210503AA18017A29F6BFE"
+        "OwnerKey" = "8:_A1F5FED2B5AC73B8AED23BC87324D627"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_DAF00DBDE1DE4AE8967DBFBA1079DE5E"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -628,6 +694,12 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_8B0782DF23F013A8B442836EB59790D1"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_4F8031D15A8849F0BFEF2A572C16B9BE"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -652,13 +724,25 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_8B0782DF23F013A8B442836EB59790D1"
+        "OwnerKey" = "8:_8421AABDD4E68E145ED3E000BC7B6CC0"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_8421AABDD4E68E145ED3E000BC7B6CC0"
+        "OwnerKey" = "8:_A1F5FED2B5AC73B8AED23BC87324D627"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_908CDEFE569785A2E69B65AB02A5868D"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_D772BE9186A210503AA18017A29F6BFE"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -1463,6 +1547,37 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_908CDEFE569785A2E69B65AB02A5868D"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:LumenWorks.Framework.IO, Version=3.7.2.0, Culture=neutral, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_908CDEFE569785A2E69B65AB02A5868D"
+                    {
+                    "Name" = "8:LumenWorks.Framework.IO.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:LumenWorks.Framework.IO.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_7570715A8752448BABC71CB6E5BB2207"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_94DB25EF4AAB47318652E695FCD56B03"
             {
             "AssemblyRegister" = "3:1"
@@ -1523,6 +1638,37 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_A1F5FED2B5AC73B8AED23BC87324D627"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:imports, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_A1F5FED2B5AC73B8AED23BC87324D627"
+                    {
+                    "Name" = "8:imports.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:imports.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_7570715A8752448BABC71CB6E5BB2207"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_A261BB8B9DEC61814D03D0932FEA93E5"
@@ -1731,6 +1877,37 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_D772BE9186A210503AA18017A29F6BFE"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:HtmlAgilityPack, Version=1.4.0.0, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_D772BE9186A210503AA18017A29F6BFE"
+                    {
+                    "Name" = "8:HtmlAgilityPack.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:HtmlAgilityPack.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_7570715A8752448BABC71CB6E5BB2207"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_E374C16F7EBF46129D11B0F1694900B8"
             {
             "SourcePath" = "8:..\\dlls\\vi-VN\\strategyInfo.xml"
@@ -1830,7 +2007,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Quantum Professional"
         "ProductCode" = "8:{6CF48590-D766-4788-B1EE-E33791CDE621}"
-        "PackageCode" = "8:{A2A16451-E41A-46AA-9C02-B3C3D4CF70E3}"
+        "PackageCode" = "8:{206AAB21-188D-4E56-8DB6-46FE6D91FE87}"
         "UpgradeCode" = "8:{C11E3338-16C6-4CC4-B114-C501AE00390C}"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
@@ -1845,7 +2022,7 @@
         "ARPCONTACT" = "8:HQ Corporation"
         "Keywords" = "8:"
         "ARPCOMMENTS" = "8:Quantum Installation"
-        "ARPURLINFOABOUT" = "8:http://www.q-invest.net"
+        "ARPURLINFOABOUT" = "8:http://www.quantumvn.com"
         "ARPPRODUCTICON" = "8:"
         "ARPIconIndex" = "3:0"
         "SearchPath" = "8:"
