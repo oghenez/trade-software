@@ -29,6 +29,7 @@ namespace baseClass.forms
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(baseApplication));
             this.loginInfoLbl = new System.Windows.Forms.ToolStripStatusLabel();
             this.sysTimer = new System.Windows.Forms.Timer(this.components);
             this.bgWorkerTimer = new System.ComponentModel.BackgroundWorker();
@@ -54,6 +55,7 @@ namespace baseClass.forms
             // 
             this.ClientSize = new System.Drawing.Size(1080, 562);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "baseApplication";
             this.Load += new System.EventHandler(this.Form_Load);

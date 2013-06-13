@@ -14,6 +14,7 @@
     <FileAlignment>512</FileAlignment>
     <StartupObject>
     </StartupObject>
+    <ApplicationIcon>IconQuantum.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -666,6 +667,7 @@
     <None Include="Resources\data.png" />
     <None Include="Resources\connected.gif" />
     <None Include="Resources\configure1.png" />
+    <Content Include="IconQuantum.ico" />
     <Content Include="Resources\strategy_images.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

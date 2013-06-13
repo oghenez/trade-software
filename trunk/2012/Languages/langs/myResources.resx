@@ -1353,4 +1353,7 @@
   <data name="newOrder" xml:space="preserve">
     <value>New Order</value>
   </data>
+  <data name="appErrorManyInstances" xml:space="preserve">
+    <value>Application is running.Only one instance of this application is allowed</value>
+  </data>
 </root>
