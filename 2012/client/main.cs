@@ -38,8 +38,9 @@ namespace client
         {
             try
             {
+                //common.language.myCulture = new System.Globalization.CultureInfo("vi-VN");
                 InitializeComponent();
-                testMenuItem.Visible = false;
+                testMenuItem.Visible = false;                
             }
             catch (Exception er)
             {
@@ -52,8 +53,8 @@ namespace client
         protected override bool CheckValid()
         {
             if (Process.GetProcessesByName(Process.GetCurrentProcess().ProcessName).Length > 1)
-            {
-                common.system.ShowMessage("Application is running.Only one instance of this application is allowed");
+            {                
+                common.system.ShowMessage(Languages.Libs.GetString("appErrorManyInstances"));
                 return false;
             }
 

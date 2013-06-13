@@ -40,7 +40,7 @@ namespace admin
             }
             if (commonClass.SysLibs.sysLoginType != AppTypes.UserTypes.System)
             {
-                common.system.ShowErrorMessage("Không thể đăng nhập bằng tài khỏan này !");
+                common.system.ShowErrorMessage("Không thể đăng nhập bằng tài khoản này !");
                 return false;
             }
             return true;

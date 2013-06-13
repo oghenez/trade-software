@@ -133,7 +133,7 @@
     <value>Ngưng</value>
   </data>
   <data name="enableStat" xml:space="preserve">
-    <value>Họat động</value>
+    <value>Hoạt động</value>
   </data>
   <data name="female" xml:space="preserve">
     <value>Nữ</value>
@@ -298,7 +298,7 @@
     <value>Tiếng Anh</value>
   </data>
   <data name="exit" xml:space="preserve">
-    <value>Thóat</value>
+    <value>Thoát</value>
   </data>
   <data name="file" xml:space="preserve">
     <value>Hệ thống</value>
@@ -454,7 +454,7 @@
     <value>Theo lĩnh vực</value>
   </data>
   <data name="cannotDelete" xml:space="preserve">
-    <value>Không thề xóa dữ liệu này !</value>
+    <value>Không thể xóa dữ liệu này !</value>
   </data>
   <data name="capitalAmt" xml:space="preserve">
     <value>Tổng tiền vốn</value>
@@ -472,7 +472,7 @@
     <value>Đóng</value>
   </data>
   <data name="code" xml:space="preserve">
-    <value>Mã.số</value>
+    <value>Mã số</value>
   </data>
   <data name="color" xml:space="preserve">
     <value>Màu sắc</value>
@@ -775,7 +775,7 @@
     <value>Mới</value>
   </data>
   <data name="addToWatchList" xml:space="preserve">
-    <value>Thêm vào danh sách quan tâm</value>
+    <value>Thêm vào danh sách theo dõi</value>
   </data>
   <data name="allProfitDetail" xml:space="preserve">
     <value>Tất cả chi tiết</value>
@@ -919,7 +919,7 @@
     <value>Cộng</value>
   </data>
   <data name="tradeAction" xml:space="preserve">
-    <value>Lọai</value>
+    <value>Loại</value>
   </data>
   <data name="transaction" xml:space="preserve">
     <value>Giao dịch</value>
@@ -934,7 +934,7 @@
     <value>Giao dịch số</value>
   </data>
   <data name="transactionType" xml:space="preserve">
-    <value>Lọai</value>
+    <value>Loại</value>
   </data>
   <data name="systemError" xml:space="preserve">
     <value>Hệ thống gặp lỗi !</value>
@@ -1027,7 +1027,7 @@
     <value>Độ nhạy chuột</value>
   </data>
   <data name="movesPerPan" xml:space="preserve">
-    <value>rê chuột/di chuyển</value>
+    <value>Rê chuột/di chuyển</value>
   </data>
   <data name="internetError" xml:space="preserve">
     <value>Xin vui lòng kiểm tra lại kết nối Internet</value>
@@ -1045,7 +1045,7 @@
     <value>Canh lề </value>
   </data>
   <data name="right" xml:space="preserve">
-    <value>Phài</value>
+    <value>Phải</value>
   </data>
   <data name="top" xml:space="preserve">
     <value>Trên</value>
@@ -1078,7 +1078,7 @@
     <value>Ngoại tệ</value>
   </data>
   <data name="localAmtMask" xml:space="preserve">
-    <value>Tịền</value>
+    <value>Tiền</value>
   </data>
   <data name="percentMask" xml:space="preserve">
     <value>Tỉ lệ</value>
@@ -1201,7 +1201,7 @@
     <value>Ghi nhật ký sử dụng</value>
   </data>
   <data name="logType" xml:space="preserve">
-    <value>Lọai</value>
+    <value>Loại</value>
   </data>
   <data name="source" xml:space="preserve">
     <value>Nguồn</value>
@@ -1246,7 +1246,7 @@
     <value>Mua</value>
   </data>
   <data name="current" xml:space="preserve">
-    <value>Hiên tại</value>
+    <value>Hiện tại</value>
   </data>
   <data name="decision" xml:space="preserve">
     <value>Quyết định</value>
@@ -1318,7 +1318,7 @@
     <value>Thị trường trong tuần</value>
   </data>
   <data name="userType" xml:space="preserve">
-    <value>Lọai tài khỏan</value>
+    <value>Loại tài khỏan</value>
   </data>
   <data name="mainFont" xml:space="preserve">
     <value>Font chính</value>
@@ -1358,5 +1358,8 @@
   </data>
   <data name="newOrder" xml:space="preserve">
     <value>Lệnh đặt</value>
+  </data>
+  <data name="appErrorManyInstances" xml:space="preserve">
+    <value>Một ứng dụng Quantum đã chạy. Hệ thống chỉ cho phép một lần chạy.</value>
   </data>
 </root>

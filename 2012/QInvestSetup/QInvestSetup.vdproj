@@ -2005,19 +2005,19 @@
         "Product"
         {
         "Name" = "8:Microsoft Visual Studio"
-        "ProductName" = "8:Quantum Professional"
-        "ProductCode" = "8:{6CF48590-D766-4788-B1EE-E33791CDE621}"
-        "PackageCode" = "8:{206AAB21-188D-4E56-8DB6-46FE6D91FE87}"
+        "ProductName" = "8:Quantum Professional 2013"
+        "ProductCode" = "8:{3BA5E3FB-F862-46FE-AABD-C0DE71930CFC}"
+        "PackageCode" = "8:{444BF131-F267-4861-97F1-AF482F68A00E}"
         "UpgradeCode" = "8:{C11E3338-16C6-4CC4-B114-C501AE00390C}"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:TRUE"
-        "ProductVersion" = "8:13.06.06"
+        "ProductVersion" = "8:13.06.13"
         "Manufacturer" = "8:HQ Corporation"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
-        "Title" = "8:Quantum Professional"
+        "Title" = "8:Quantum Professional 2013"
         "Subject" = "8:"
         "ARPCONTACT" = "8:HQ Corporation"
         "Keywords" = "8:"
@@ -2128,7 +2128,7 @@
         {
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_6665654B03884B1C8DC4BC72913E119B"
             {
-            "Name" = "8:Quantum 2012"
+            "Name" = "8:Quantum Professional 2013"
             "Arguments" = "8:"
             "Description" = "8:"
             "ShowCmd" = "3:1"
@@ -2142,7 +2142,7 @@
             }
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_C29D88C3412A481E8A306CC7380724EE"
             {
-            "Name" = "8:Quantum 2012"
+            "Name" = "8:Quantum Professional 2013"
             "Arguments" = "8:"
             "Description" = "8:"
             "ShowCmd" = "3:1"
