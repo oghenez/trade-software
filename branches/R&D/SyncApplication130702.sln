@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SyncApplication130702", "SyncApplication130702\SyncApplication130702.csproj", "{D147E22B-8DBD-46F4-9A8F-0A81E85187B0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProvisionServer", "ProvisionServer\ProvisionServer.csproj", "{AD291C5F-EC22-4BCA-84DF-98FCC64F1B5A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProvisionClient", "ProvisionClient\ProvisionClient.csproj", "{C6AA6EEB-BF58-46AF-8EC8-82D0E8FFA133}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D147E22B-8DBD-46F4-9A8F-0A81E85187B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D147E22B-8DBD-46F4-9A8F-0A81E85187B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D147E22B-8DBD-46F4-9A8F-0A81E85187B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D147E22B-8DBD-46F4-9A8F-0A81E85187B0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD291C5F-EC22-4BCA-84DF-98FCC64F1B5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD291C5F-EC22-4BCA-84DF-98FCC64F1B5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD291C5F-EC22-4BCA-84DF-98FCC64F1B5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD291C5F-EC22-4BCA-84DF-98FCC64F1B5A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C6AA6EEB-BF58-46AF-8EC8-82D0E8FFA133}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C6AA6EEB-BF58-46AF-8EC8-82D0E8FFA133}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C6AA6EEB-BF58-46AF-8EC8-82D0E8FFA133}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C6AA6EEB-BF58-46AF-8EC8-82D0E8FFA133}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
