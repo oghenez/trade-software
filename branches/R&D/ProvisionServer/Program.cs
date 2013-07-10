@@ -12,7 +12,8 @@ namespace ProvisionServer
     {
         static void Main(string[] args)
         {
-            SqlConnection serverConn = new SqlConnection("Data Source=HAIQUAN\\SQLEXPRESS; Initial Catalog=SyncDB; Integrated Security=True");
+            SqlConnection serverConn = new SqlConnection("Data Source=MOSS-SVR6;user id=sa;password=P@ssword123;Initial Catalog=SyncDB; ");
+            //serverConn.p
   
             // define a new scope named ProductsScope
             DbSyncScopeDescription scopeDesc = new DbSyncScopeDescription("ProductsScope");
