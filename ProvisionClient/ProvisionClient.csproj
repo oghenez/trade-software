@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.21022</ProductVersion>
+    <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{C6AA6EEB-BF58-46AF-8EC8-82D0E8FFA133}</ProjectGuid>
     <OutputType>Exe</OutputType>
@@ -54,9 +54,9 @@
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
-    <Reference Include="System.Data.SqlServerCe, Version=4.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+    <Reference Include="System.Data.SqlServerCe, Version=3.5.1.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\..\Program Files\Microsoft SQL Server Compact Edition\v4.0\Desktop\System.Data.SqlServerCe.dll</HintPath>
+      <HintPath>..\..\..\..\..\Program Files\Microsoft SQL Server Compact Edition\v3.5\Desktop\System.Data.SqlServerCe.dll</HintPath>
     </Reference>
     <Reference Include="System.Transactions" />
     <Reference Include="System.Xml.Linq">
@@ -76,12 +76,76 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="SyncDataDB3DataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SyncDataDB3DataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="SyncDB4DataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SyncDB4DataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="SyncDB5DataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SyncDB5DataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="SyncDB7DataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SyncDB7DataSet.xsd</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="SyncDataDB3DataSet.xsc">
+      <DependentUpon>SyncDataDB3DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="SyncDataDB3DataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SyncDataDB3DataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SyncDataDB3DataSet.xss">
+      <DependentUpon>SyncDataDB3DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="SyncDB4DataSet.xsc">
+      <DependentUpon>SyncDB4DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="SyncDB4DataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SyncDB4DataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SyncDB4DataSet.xss">
+      <DependentUpon>SyncDB4DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="SyncDB5DataSet.xsc">
+      <DependentUpon>SyncDB5DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="SyncDB5DataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SyncDB5DataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SyncDB5DataSet.xss">
+      <DependentUpon>SyncDB5DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="SyncDB7DataSet.xsc">
+      <DependentUpon>SyncDB7DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="SyncDB7DataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SyncDB7DataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SyncDB7DataSet.xss">
+      <DependentUpon>SyncDB7DataSet.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -122,7 +186,7 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Database1.sdf">
+    <Content Include="SyncDB7.sdf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
