@@ -1,0 +1,8 @@
+C:\Users\qnguyen37\Documents\SyncProj\SyncApplication130702\bin\Debug\SyncApplication130702.exe
+C:\Users\qnguyen37\Documents\SyncProj\SyncApplication130702\bin\Debug\SyncApplication130702.pdb
+C:\Users\qnguyen37\Documents\SyncProj\SyncApplication130702\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\qnguyen37\Documents\SyncProj\SyncApplication130702\obj\Debug\SyncApplication130702.Form1.resources
+C:\Users\qnguyen37\Documents\SyncProj\SyncApplication130702\obj\Debug\SyncApplication130702.Properties.Resources.resources
+C:\Users\qnguyen37\Documents\SyncProj\SyncApplication130702\obj\Debug\SyncApplication130702.csproj.GenerateResource.Cache
+C:\Users\qnguyen37\Documents\SyncProj\SyncApplication130702\obj\Debug\SyncApplication130702.exe
+C:\Users\qnguyen37\Documents\SyncProj\SyncApplication130702\obj\Debug\SyncApplication130702.pdb
