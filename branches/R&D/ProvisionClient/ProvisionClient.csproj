@@ -76,21 +76,6 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Include="SyncDataDB3DataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>SyncDataDB3DataSet.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="SyncDB4DataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>SyncDB4DataSet.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="SyncDB5DataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>SyncDB5DataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="SyncDB7DataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -102,39 +87,6 @@
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="SyncDataDB3DataSet.xsc">
-      <DependentUpon>SyncDataDB3DataSet.xsd</DependentUpon>
-    </None>
-    <None Include="SyncDataDB3DataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>SyncDataDB3DataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="SyncDataDB3DataSet.xss">
-      <DependentUpon>SyncDataDB3DataSet.xsd</DependentUpon>
-    </None>
-    <None Include="SyncDB4DataSet.xsc">
-      <DependentUpon>SyncDB4DataSet.xsd</DependentUpon>
-    </None>
-    <None Include="SyncDB4DataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>SyncDB4DataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="SyncDB4DataSet.xss">
-      <DependentUpon>SyncDB4DataSet.xsd</DependentUpon>
-    </None>
-    <None Include="SyncDB5DataSet.xsc">
-      <DependentUpon>SyncDB5DataSet.xsd</DependentUpon>
-    </None>
-    <None Include="SyncDB5DataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>SyncDB5DataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="SyncDB5DataSet.xss">
-      <DependentUpon>SyncDB5DataSet.xsd</DependentUpon>
     </None>
     <None Include="SyncDB7DataSet.xsc">
       <DependentUpon>SyncDB7DataSet.xsd</DependentUpon>
