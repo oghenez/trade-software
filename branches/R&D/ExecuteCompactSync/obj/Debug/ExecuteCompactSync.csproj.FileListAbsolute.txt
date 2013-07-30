@@ -1,0 +1,5 @@
+C:\Users\qnguyen37\Documents\SyncProj\ExecuteCompactSync\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\qnguyen37\Documents\SyncProj\ExecuteCompactSync\bin\Debug\ExecuteCompactSync.exe
+C:\Users\qnguyen37\Documents\SyncProj\ExecuteCompactSync\bin\Debug\ExecuteCompactSync.pdb
+C:\Users\qnguyen37\Documents\SyncProj\ExecuteCompactSync\obj\Debug\ExecuteCompactSync.exe
+C:\Users\qnguyen37\Documents\SyncProj\ExecuteCompactSync\obj\Debug\ExecuteCompactSync.pdb
