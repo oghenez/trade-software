@@ -26,6 +26,7 @@ namespace ProvisionClient
 
         static void CreateOrderFilterScope(SqlConnection serverConn, SqlCeConnection clientConn)
         {
+            string template_name = "orders_template";
             //Read from table Products using TableAdapter
             try
             {
@@ -43,24 +44,17 @@ namespace ProvisionClient
                     System.Console.WriteLine(row["ID"]);
                     string productID = row["ID"].ToString();
                     string scopeName = productID + "scope";
-
-                    // Create a synchronization scope for retail customers.
-                    // This action adds rows to synchronization tables but does not create new tables or stored procedures, reducing
-                    // the permissions needed on the server.
-                    SqlSyncScopeProvisioning serverProvision = new SqlSyncScopeProvisioning(serverConn);
-                    //serverProvRetail.ObjectSchema = "Sync";
-                    serverProvision.PopulateFromTemplate(scopeName, scopeName);
-                    serverProvision.Tables["Orders"].FilterParameters["@productid"].Value = row["ID"];
-                    //serverProvision.UserDescription = "Customer data includes only retail customers.";
-                    serverProvision.Apply();
-
+                    
                     // Provision the existing database SyncSamplesDb_SqlPeer2 based on filtered scope
                     // information that is retrieved from the server.
-                    DbSyncScopeDescription clientSqlDesc = SqlSyncDescriptionBuilder.GetDescriptionForScope("RetailCustomers", null, "Sync", serverConn);
-                    SqlSyncScopeProvisioning clientSqlConfig = new SqlSyncScopeProvisioning(clientSqlConn, clientSqlDesc);
-                    clientSqlConfig.ObjectSchema = "Sync";
-                    clientSqlConfig.Apply();
+                    DbSyncScopeDescription clientScopeDesc = SqlSyncDescriptionBuilder.GetDescriptionForScope(scopeName, serverConn);
 
+                    SqlCeSyncScopeProvisioning clientProvision;
+                    clientProvision = new SqlCeSyncScopeProvisioning(clientConn, clientScopeDesc);
+
+                    //// starts the provisioning process
+                    if (!clientProvision.ScopeExists(scopeName))
+                        clientProvision.Apply();
                 }
 
                 row.Close();
