@@ -60,6 +60,21 @@
       <xs:attribute fixed="dataVarrianceDataTable" name="tableTypeName" />
     </xs:complexType>
   </xs:element>
+  <xs:element name="baseDS.lastPriceDataDataTable" nillable="true">
+    <xs:complexType>
+      <xs:annotation>
+        <xs:appinfo>
+          <ActualType Name="baseDS.lastPriceDataDataTable" Namespace="http://schemas.datacontract.org/2004/07/databases" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+        </xs:appinfo>
+      </xs:annotation>
+      <xs:sequence>
+        <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+        <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+      </xs:sequence>
+      <xs:attribute fixed="http://tempuri.org/masterDataSet.xsd" name="namespace" />
+      <xs:attribute fixed="lastPriceDataDataTable" name="tableTypeName" />
+    </xs:complexType>
+  </xs:element>
   <xs:element name="baseDS.bizSubSectorDataTable" nillable="true">
     <xs:complexType>
       <xs:annotation>
@@ -150,21 +165,6 @@
       <xs:attribute fixed="investorStockDataTable" name="tableTypeName" />
     </xs:complexType>
   </xs:element>
-  <xs:element name="baseDS.lastPriceDataDataTable" nillable="true">
-    <xs:complexType>
-      <xs:annotation>
-        <xs:appinfo>
-          <ActualType Name="baseDS.lastPriceDataDataTable" Namespace="http://schemas.datacontract.org/2004/07/databases" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
-        </xs:appinfo>
-      </xs:annotation>
-      <xs:sequence>
-        <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
-        <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
-      </xs:sequence>
-      <xs:attribute fixed="http://tempuri.org/masterDataSet.xsd" name="namespace" />
-      <xs:attribute fixed="lastPriceDataDataTable" name="tableTypeName" />
-    </xs:complexType>
-  </xs:element>
   <xs:element name="baseDS.priceDataDataTable" nillable="true">
     <xs:complexType>
       <xs:annotation>
@@ -193,21 +193,6 @@
       </xs:sequence>
       <xs:attribute fixed="http://tempuri.org/masterDataSet.xsd" name="namespace" />
       <xs:attribute fixed="messagesDataTable" name="tableTypeName" />
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="tmpDS.investorDataTable" nillable="true">
-    <xs:complexType>
-      <xs:annotation>
-        <xs:appinfo>
-          <ActualType Name="tmpDS.investorDataTable" Namespace="http://schemas.datacontract.org/2004/07/databases" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
-        </xs:appinfo>
-      </xs:annotation>
-      <xs:sequence>
-        <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
-        <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
-      </xs:sequence>
-      <xs:attribute fixed="" name="namespace" />
-      <xs:attribute fixed="investorDataTable" name="tableTypeName" />
     </xs:complexType>
   </xs:element>
   <xs:element name="baseDS.sysLogDataTable" nillable="true">
@@ -463,6 +448,21 @@
       </xs:sequence>
       <xs:attribute fixed="http://tempuri.org/masterDataSet.xsd" name="namespace" />
       <xs:attribute fixed="sysAutoKeyPendingDataTable" name="tableTypeName" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="tmpDS.investorDataTable" nillable="true">
+    <xs:complexType>
+      <xs:annotation>
+        <xs:appinfo>
+          <ActualType Name="tmpDS.investorDataTable" Namespace="http://schemas.datacontract.org/2004/07/databases" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+        </xs:appinfo>
+      </xs:annotation>
+      <xs:sequence>
+        <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+        <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+      </xs:sequence>
+      <xs:attribute fixed="" name="namespace" />
+      <xs:attribute fixed="investorDataTable" name="tableTypeName" />
     </xs:complexType>
   </xs:element>
 </xs:schema>

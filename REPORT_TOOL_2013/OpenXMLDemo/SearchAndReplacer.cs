@@ -10,7 +10,7 @@ using DocumentFormat.OpenXml.Packaging;
 
 namespace OpenXMLDemo
 {
-    class SearchAndReplacer
+    public class SearchAndReplacer
     {
         public static XmlDocument GetXmlDocument(OpenXmlPart part)
         {

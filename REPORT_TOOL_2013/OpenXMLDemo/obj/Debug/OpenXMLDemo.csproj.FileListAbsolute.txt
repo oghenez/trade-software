@@ -18,3 +18,13 @@ C:\Documents and Settings\Administrator\My Documents\Downloads\REPORT_TOOL_2013\
 C:\Documents and Settings\Administrator\My Documents\Downloads\REPORT_TOOL_2013\OpenXMLDemo\obj\Debug\OpenXMLDemo.csproj.GenerateResource.Cache
 C:\Documents and Settings\Administrator\My Documents\Downloads\REPORT_TOOL_2013\OpenXMLDemo\obj\Debug\OpenXMLDemo.exe
 C:\Documents and Settings\Administrator\My Documents\Downloads\REPORT_TOOL_2013\OpenXMLDemo\obj\Debug\OpenXMLDemo.pdb
+E:\5.PROJECTS\1.HQ\2.QUANTUM\REPORT_TOOL_2013\OpenXMLDemo\bin\Debug\OpenXMLDemo.exe.config
+E:\5.PROJECTS\1.HQ\2.QUANTUM\REPORT_TOOL_2013\OpenXMLDemo\bin\Debug\OpenXMLDemo.exe
+E:\5.PROJECTS\1.HQ\2.QUANTUM\REPORT_TOOL_2013\OpenXMLDemo\bin\Debug\OpenXMLDemo.pdb
+E:\5.PROJECTS\1.HQ\2.QUANTUM\REPORT_TOOL_2013\OpenXMLDemo\bin\Debug\HQChart.dll
+E:\5.PROJECTS\1.HQ\2.QUANTUM\REPORT_TOOL_2013\OpenXMLDemo\obj\Debug\ResolveAssemblyReference.cache
+E:\5.PROJECTS\1.HQ\2.QUANTUM\REPORT_TOOL_2013\OpenXMLDemo\obj\Debug\OpenXMLDemo.Form1.resources
+E:\5.PROJECTS\1.HQ\2.QUANTUM\REPORT_TOOL_2013\OpenXMLDemo\obj\Debug\OpenXMLDemo.Properties.Resources.resources
+E:\5.PROJECTS\1.HQ\2.QUANTUM\REPORT_TOOL_2013\OpenXMLDemo\obj\Debug\OpenXMLDemo.csproj.GenerateResource.Cache
+E:\5.PROJECTS\1.HQ\2.QUANTUM\REPORT_TOOL_2013\OpenXMLDemo\obj\Debug\OpenXMLDemo.exe
+E:\5.PROJECTS\1.HQ\2.QUANTUM\REPORT_TOOL_2013\OpenXMLDemo\obj\Debug\OpenXMLDemo.pdb
