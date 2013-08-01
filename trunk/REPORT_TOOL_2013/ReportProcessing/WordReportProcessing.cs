@@ -26,7 +26,7 @@ namespace ReportProcessing
               
                 //SearchAndReplacer.SearchAndReplace(doc, "", "", true);
                 WordAnalysis wordAnalysis = new WordAnalysis();
-                wordAnalysis.AnalyseReport(doc);
+                wordAnalysis.AnalyseReport(doc);                
                 doc.MainDocumentPart.Document.Save();
             }
         }

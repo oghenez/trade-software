@@ -17,21 +17,20 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://test03.cesti.gov.vn/DataLibs.svc" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://test01.cesti.gov.vn/DataLibs.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="DataLibs.disco" MetadataType="Disco" ID="eeb8af80-faf1-4d77-8f06-d25934a7c776" SourceId="1" SourceUrl="http://test03.cesti.gov.vn/DataLibs.svc?disco" />
-    <MetadataFile FileName="DataLibs.xsd" MetadataType="Schema" ID="e9802abc-5d20-4793-94f7-ad131d9a76b9" SourceId="1" SourceUrl="http://test03.cesti.gov.vn/DataLibs.svc?xsd=xsd2" />
-    <MetadataFile FileName="DataLibs1.xsd" MetadataType="Schema" ID="9ddacf66-08eb-4858-a48b-9003610f0640" SourceId="1" SourceUrl="http://test03.cesti.gov.vn/DataLibs.svc?xsd=xsd8" />
-    <MetadataFile FileName="tmpDS.xsd" MetadataType="Schema" ID="e515d75d-7026-4ac9-ad68-01d788cf5b77" SourceId="1" SourceUrl="http://test03.cesti.gov.vn/DataLibs.svc?xsd=xsd7" />
-    <MetadataFile FileName="baseDS.xsd" MetadataType="Schema" ID="2c22752e-74fe-4bba-bafb-d3e1198224e6" SourceId="1" SourceUrl="http://test03.cesti.gov.vn/DataLibs.svc?xsd=xsd5" />
-    <MetadataFile FileName="DataLibs2.xsd" MetadataType="Schema" ID="27f91a2f-cf7e-4b4d-b12c-165c0fbbf0e3" SourceId="1" SourceUrl="http://test03.cesti.gov.vn/DataLibs.svc?xsd=xsd4" />
-    <MetadataFile FileName="DataLibs3.xsd" MetadataType="Schema" ID="98927cf2-1294-47f3-bb23-15374eb6fbbb" SourceId="1" SourceUrl="http://test03.cesti.gov.vn/DataLibs.svc?xsd=xsd0" />
-    <MetadataFile FileName="DataLibs4.xsd" MetadataType="Schema" ID="cd6a5312-6246-4142-9489-663162c54937" SourceId="1" SourceUrl="http://test03.cesti.gov.vn/DataLibs.svc?xsd=xsd3" />
-    <MetadataFile FileName="DataLibs5.xsd" MetadataType="Schema" ID="28831091-c25b-4773-8a40-b91d47ee26d8" SourceId="1" SourceUrl="http://test03.cesti.gov.vn/DataLibs.svc?xsd=xsd9" />
-    <MetadataFile FileName="DataLibs6.xsd" MetadataType="Schema" ID="17ee7d8c-0643-4b54-9d49-08c1f622bbf5" SourceId="1" SourceUrl="http://test03.cesti.gov.vn/DataLibs.svc?xsd=xsd6" />
-    <MetadataFile FileName="DataLibs7.xsd" MetadataType="Schema" ID="e790180c-9071-4ac7-b9a9-98fa4f9e6682" SourceId="1" SourceUrl="http://test03.cesti.gov.vn/DataLibs.svc?xsd=xsd1" />
-    <MetadataFile FileName="DataLibs.wsdl" MetadataType="Wsdl" ID="30b546d1-a13b-4daf-9adc-b20e9e292a6b" SourceId="1" SourceUrl="http://test03.cesti.gov.vn/DataLibs.svc?wsdl" />
+    <MetadataFile FileName="DataLibs8.xsd" MetadataType="Schema" ID="29e927a5-df9f-4f90-a115-bf0b82784039" SourceId="1" SourceUrl="http://test01.cesti.gov.vn/DataLibs.svc?xsd=xsd3" />
+    <MetadataFile FileName="DataLibs81.xsd" MetadataType="Schema" ID="2c60e643-24af-4f80-a28c-065dd4bc12e6" SourceId="1" SourceUrl="http://test01.cesti.gov.vn/DataLibs.svc?xsd=xsd1" />
+    <MetadataFile FileName="tmpDS1.xsd" MetadataType="Schema" ID="7ed271ad-a071-46c7-82ba-79a24f36b4ec" SourceId="1" SourceUrl="http://test01.cesti.gov.vn/DataLibs.svc?xsd=xsd6" />
+    <MetadataFile FileName="baseDS1.xsd" MetadataType="Schema" ID="59acf40a-1a02-453d-8198-05d6830bb00f" SourceId="1" SourceUrl="http://test01.cesti.gov.vn/DataLibs.svc?xsd=xsd4" />
+    <MetadataFile FileName="DataLibs82.xsd" MetadataType="Schema" ID="c2abd481-beef-4ca8-ad0b-9f12d90a439c" SourceId="1" SourceUrl="http://test01.cesti.gov.vn/DataLibs.svc?xsd=xsd8" />
+    <MetadataFile FileName="DataLibs1.wsdl" MetadataType="Wsdl" ID="9114e4fe-1ff3-428f-b02b-30a8bf7bfaa8" SourceId="1" SourceUrl="http://test01.cesti.gov.vn/DataLibs.svc?wsdl" />
+    <MetadataFile FileName="DataLibs83.xsd" MetadataType="Schema" ID="b55ae051-c794-48ba-adbf-fc07d850e870" SourceId="1" SourceUrl="http://test01.cesti.gov.vn/DataLibs.svc?xsd=xsd2" />
+    <MetadataFile FileName="DataLibs84.xsd" MetadataType="Schema" ID="3d5898e6-f456-417c-aa1e-9e467bb3fbbc" SourceId="1" SourceUrl="http://test01.cesti.gov.vn/DataLibs.svc?xsd=xsd0" />
+    <MetadataFile FileName="DataLibs85.xsd" MetadataType="Schema" ID="8cad2154-580e-46bd-b0e4-95c997078840" SourceId="1" SourceUrl="http://test01.cesti.gov.vn/DataLibs.svc?xsd=xsd7" />
+    <MetadataFile FileName="DataLibs1.disco" MetadataType="Disco" ID="991b6188-1275-4430-9a62-a9764cc3f068" SourceId="1" SourceUrl="http://test01.cesti.gov.vn/DataLibs.svc?disco" />
+    <MetadataFile FileName="DataLibs86.xsd" MetadataType="Schema" ID="2f5248fa-7661-4835-8540-97d237388e98" SourceId="1" SourceUrl="http://test01.cesti.gov.vn/DataLibs.svc?xsd=xsd5" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

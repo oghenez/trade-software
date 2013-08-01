@@ -10,3 +10,11 @@ C:\Documents and Settings\Administrator\My Documents\Downloads\REPORT_TOOL_2013\
 C:\Documents and Settings\Administrator\My Documents\Downloads\REPORT_TOOL_2013\ServiceConsumer\bin\Debug\ServiceConsumer.pdb
 C:\Documents and Settings\Administrator\My Documents\Downloads\REPORT_TOOL_2013\ServiceConsumer\obj\Debug\ServiceConsumer.dll
 C:\Documents and Settings\Administrator\My Documents\Downloads\REPORT_TOOL_2013\ServiceConsumer\obj\Debug\ServiceConsumer.pdb
+E:\5.PROJECTS\1.HQ\2.QUANTUM\REPORT_TOOL_2013\ServiceConsumer\bin\Debug\ServiceConsumer.dll.config
+E:\5.PROJECTS\1.HQ\2.QUANTUM\REPORT_TOOL_2013\ServiceConsumer\bin\Debug\ServiceConsumer.dll
+E:\5.PROJECTS\1.HQ\2.QUANTUM\REPORT_TOOL_2013\ServiceConsumer\bin\Debug\ServiceConsumer.pdb
+E:\5.PROJECTS\1.HQ\2.QUANTUM\REPORT_TOOL_2013\ServiceConsumer\obj\Debug\ResolveAssemblyReference.cache
+E:\5.PROJECTS\1.HQ\2.QUANTUM\REPORT_TOOL_2013\ServiceConsumer\obj\Debug\ServiceConsumer.dll
+E:\5.PROJECTS\1.HQ\2.QUANTUM\REPORT_TOOL_2013\ServiceConsumer\obj\Debug\ServiceConsumer.pdb
+E:\5.PROJECTS\1.HQ\2.QUANTUM\REPORT_TOOL_2013\ServiceConsumer\bin\Debug\commonClass.dll
+E:\5.PROJECTS\1.HQ\2.QUANTUM\REPORT_TOOL_2013\ServiceConsumer\bin\Debug\commonTypes.dll

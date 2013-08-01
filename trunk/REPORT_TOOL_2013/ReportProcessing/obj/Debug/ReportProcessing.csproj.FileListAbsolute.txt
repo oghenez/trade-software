@@ -18,3 +18,17 @@ C:\Documents and Settings\Administrator\My Documents\Downloads\REPORT_TOOL_2013\
 C:\Documents and Settings\Administrator\My Documents\Downloads\REPORT_TOOL_2013\ReportProcessing\bin\Debug\ServiceConsumer.pdb
 C:\Documents and Settings\Administrator\My Documents\Downloads\REPORT_TOOL_2013\ReportProcessing\obj\Debug\ReportProcessing.dll
 C:\Documents and Settings\Administrator\My Documents\Downloads\REPORT_TOOL_2013\ReportProcessing\obj\Debug\ReportProcessing.pdb
+E:\5.PROJECTS\1.HQ\2.QUANTUM\REPORT_TOOL_2013\ReportProcessing\bin\Debug\ReportProcessing.dll
+E:\5.PROJECTS\1.HQ\2.QUANTUM\REPORT_TOOL_2013\ReportProcessing\bin\Debug\ReportProcessing.pdb
+E:\5.PROJECTS\1.HQ\2.QUANTUM\REPORT_TOOL_2013\ReportProcessing\bin\Debug\ChartHelper.dll
+E:\5.PROJECTS\1.HQ\2.QUANTUM\REPORT_TOOL_2013\ReportProcessing\bin\Debug\ServiceConsumer.dll
+E:\5.PROJECTS\1.HQ\2.QUANTUM\REPORT_TOOL_2013\ReportProcessing\bin\Debug\ChartHelper.pdb
+E:\5.PROJECTS\1.HQ\2.QUANTUM\REPORT_TOOL_2013\ReportProcessing\bin\Debug\ServiceConsumer.pdb
+E:\5.PROJECTS\1.HQ\2.QUANTUM\REPORT_TOOL_2013\ReportProcessing\obj\Debug\ResolveAssemblyReference.cache
+E:\5.PROJECTS\1.HQ\2.QUANTUM\REPORT_TOOL_2013\ReportProcessing\obj\Debug\ReportProcessing.dll
+E:\5.PROJECTS\1.HQ\2.QUANTUM\REPORT_TOOL_2013\ReportProcessing\obj\Debug\ReportProcessing.pdb
+E:\5.PROJECTS\1.HQ\2.QUANTUM\REPORT_TOOL_2013\ReportProcessing\bin\Debug\commonClass.dll
+E:\5.PROJECTS\1.HQ\2.QUANTUM\REPORT_TOOL_2013\ReportProcessing\bin\Debug\commonTypes.dll
+E:\5.PROJECTS\1.HQ\2.QUANTUM\REPORT_TOOL_2013\ReportProcessing\bin\Debug\OpenXMLDemo.exe
+E:\5.PROJECTS\1.HQ\2.QUANTUM\REPORT_TOOL_2013\ReportProcessing\bin\Debug\HQChart.dll
+E:\5.PROJECTS\1.HQ\2.QUANTUM\REPORT_TOOL_2013\ReportProcessing\bin\Debug\OpenXMLDemo.pdb

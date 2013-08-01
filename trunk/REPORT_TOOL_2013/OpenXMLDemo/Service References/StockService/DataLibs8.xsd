@@ -1,33 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/commonTypes" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/commonTypes" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://test03.cesti.gov.vn/DataLibs.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-  <xs:simpleType name="AppTypes.TimeRanges">
-    <xs:annotation>
-      <xs:appinfo>
-        <ActualType Name="unsignedByte" Namespace="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
-      </xs:appinfo>
-    </xs:annotation>
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="None" />
-      <xs:enumeration value="W1" />
-      <xs:enumeration value="W2" />
-      <xs:enumeration value="W3" />
-      <xs:enumeration value="M1" />
-      <xs:enumeration value="M2" />
-      <xs:enumeration value="M3" />
-      <xs:enumeration value="M4" />
-      <xs:enumeration value="M5" />
-      <xs:enumeration value="M6" />
-      <xs:enumeration value="YTD" />
-      <xs:enumeration value="Y1" />
-      <xs:enumeration value="Y2" />
-      <xs:enumeration value="Y3" />
-      <xs:enumeration value="Y4" />
-      <xs:enumeration value="Y5" />
-      <xs:enumeration value="All" />
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:element name="AppTypes.TimeRanges" nillable="true" type="tns:AppTypes.TimeRanges" />
+  <xs:import schemaLocation="http://test01.cesti.gov.vn/DataLibs.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
   <xs:simpleType name="AppTypes.MarketTrend">
     <xs:annotation>
       <xs:appinfo>
@@ -58,6 +31,33 @@
     </xs:restriction>
   </xs:simpleType>
   <xs:element name="AppTypes.TradeActions" nillable="true" type="tns:AppTypes.TradeActions" />
+  <xs:simpleType name="AppTypes.TimeRanges">
+    <xs:annotation>
+      <xs:appinfo>
+        <ActualType Name="unsignedByte" Namespace="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="None" />
+      <xs:enumeration value="W1" />
+      <xs:enumeration value="W2" />
+      <xs:enumeration value="W3" />
+      <xs:enumeration value="M1" />
+      <xs:enumeration value="M2" />
+      <xs:enumeration value="M3" />
+      <xs:enumeration value="M4" />
+      <xs:enumeration value="M5" />
+      <xs:enumeration value="M6" />
+      <xs:enumeration value="YTD" />
+      <xs:enumeration value="Y1" />
+      <xs:enumeration value="Y2" />
+      <xs:enumeration value="Y3" />
+      <xs:enumeration value="Y4" />
+      <xs:enumeration value="Y5" />
+      <xs:enumeration value="All" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="AppTypes.TimeRanges" nillable="true" type="tns:AppTypes.TimeRanges" />
   <xs:complexType name="GlobalSettings">
     <xs:sequence>
       <xs:element minOccurs="0" name="AlertDataCount" type="xs:short" />
@@ -113,6 +113,22 @@
     </xs:restriction>
   </xs:simpleType>
   <xs:element name="AppTypes.SyslogMedia" nillable="true" type="tns:AppTypes.SyslogMedia" />
+  <xs:simpleType name="AppTypes.PriceDataType">
+    <xs:annotation>
+      <xs:appinfo>
+        <ActualType Name="unsignedByte" Namespace="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="High" />
+      <xs:enumeration value="Low" />
+      <xs:enumeration value="Open" />
+      <xs:enumeration value="Close" />
+      <xs:enumeration value="Volume" />
+      <xs:enumeration value="DateTime" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="AppTypes.PriceDataType" nillable="true" type="tns:AppTypes.PriceDataType" />
   <xs:simpleType name="AppTypes.PortfolioTypes">
     <xs:annotation>
       <xs:appinfo>
@@ -157,22 +173,6 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ArrayOfAppTypes.PortfolioTypes" nillable="true" type="tns:ArrayOfAppTypes.PortfolioTypes" />
-  <xs:simpleType name="AppTypes.PriceDataType">
-    <xs:annotation>
-      <xs:appinfo>
-        <ActualType Name="unsignedByte" Namespace="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
-      </xs:appinfo>
-    </xs:annotation>
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="High" />
-      <xs:enumeration value="Low" />
-      <xs:enumeration value="Open" />
-      <xs:enumeration value="Close" />
-      <xs:enumeration value="Volume" />
-      <xs:enumeration value="DateTime" />
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:element name="AppTypes.PriceDataType" nillable="true" type="tns:AppTypes.PriceDataType" />
   <xs:simpleType name="AppTypes.CommonStatus">
     <xs:annotation>
       <xs:appinfo>

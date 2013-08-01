@@ -96,17 +96,24 @@ namespace OpenXMLDemo
                 TableRow theRow = theTable.Elements<TableRow>().Last();
                 foreach (var item in lstStockCodes)
                 {
-                    StockService.baseDS.priceDataRow row = Gateway.PriceData.getPriceDataToDay(item);
-                    TableRow rowCopy = (TableRow)theRow.CloneNode(true);
-                    rowCopy.Descendants<TableCell>().ElementAt(0).Append(new Paragraph
-                        (new Run(new Text(row.stockCode.ToString()))));
-                    rowCopy.Descendants<TableCell>().ElementAt(1).Append(new Paragraph
-                        (new Run(new Text(row.openPrice.ToString()))));                
-                    rowCopy.Descendants<TableCell>().ElementAt(2).Append(new Paragraph
-                        (new Run(new Text(row.closePrice.ToString()))));
-                    rowCopy.Descendants<TableCell>().ElementAt(3).Append(new Paragraph
-                    (new Run(new Text(row.volume.ToString()))));
-                    theTable.AppendChild(rowCopy);
+                    try
+                    {
+                        StockService.baseDS.priceDataRow row = Gateway.PriceData.getPriceDataToDay(item);
+                        TableRow rowCopy = (TableRow)theRow.CloneNode(true);
+                        rowCopy.Descendants<TableCell>().ElementAt(0).Append(new Paragraph
+                            (new Run(new Text(row.stockCode.ToString()))));
+                        rowCopy.Descendants<TableCell>().ElementAt(1).Append(new Paragraph
+                            (new Run(new Text(row.openPrice.ToString()))));
+                        rowCopy.Descendants<TableCell>().ElementAt(2).Append(new Paragraph
+                            (new Run(new Text(row.closePrice.ToString()))));
+                        rowCopy.Descendants<TableCell>().ElementAt(3).Append(new Paragraph
+                        (new Run(new Text(row.volume.ToString()))));
+                        theTable.AppendChild(rowCopy);
+                    }
+                    catch (Exception ex)
+                    {
+                        continue;
+                    }                    
                 }
                 // Remove the empty placeholder row from the table.
                 theTable.RemoveChild(theRow);
@@ -135,7 +142,7 @@ namespace OpenXMLDemo
             lineChart.Series["Series1"].YValueType = ChartValueType.Int32;
             //lineChart.Legends["Series1"].Title = "VN-Index";
             //lineChart.Legends["Series1"].DockedToChartArea = "Default";
-            lineChart.Series["Series1"].MarkerStyle = MarkerStyle.Diamond;
+            lineChart.Series["Series1"].MarkerStyle = MarkerStyle.None;
             lineChart.Series["Series1"].Points.DataBindXY(xValues, yValues);
             lineChart.Series["Series1"].Color = System.Drawing.Color.Red;
             lineChart.Series["Series1"].IsValueShownAsLabel = true;
@@ -195,8 +202,8 @@ namespace OpenXMLDemo
             title4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(59)))), ((int)(((byte)(105)))));
             title4.Name = "Title1";
             title4.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            title4.ShadowOffset = 3;
-            title4.Text = "Stock Indexes";
+            title4.ShadowOffset = 1;
+            title4.Text = "BIỂU ĐỒ CHỈ SỐ VN-INDEX TUẦN QUA";
             lineChart.Titles.Clear();
             lineChart.Titles.Add(title4);
         }

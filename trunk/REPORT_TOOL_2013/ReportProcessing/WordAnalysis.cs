@@ -14,12 +14,14 @@ namespace ReportProcessing
     public class WordAnalysis
     {
         public int countKeyword { get; set; }
+        public WordprocessingDocument wDoc;
         public WordAnalysis()
         {
             countKeyword = 0;            
         }
         public void AnalyseReport(WordprocessingDocument wordDoc)
         {
+            wDoc = wordDoc;
             this.SearchAndReplace(wordDoc, "", "", true);
         }
         public XmlDocument GetXmlDocument(OpenXmlPart part)

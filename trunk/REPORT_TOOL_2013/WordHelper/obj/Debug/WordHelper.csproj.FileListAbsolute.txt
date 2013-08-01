@@ -8,3 +8,8 @@ C:\Documents and Settings\Administrator\My Documents\Downloads\REPORT_TOOL_2013\
 C:\Documents and Settings\Administrator\My Documents\Downloads\REPORT_TOOL_2013\WordHelper\obj\Debug\ResolveAssemblyReference.cache
 C:\Documents and Settings\Administrator\My Documents\Downloads\REPORT_TOOL_2013\WordHelper\obj\Debug\WordHelper.dll
 C:\Documents and Settings\Administrator\My Documents\Downloads\REPORT_TOOL_2013\WordHelper\obj\Debug\WordHelper.pdb
+E:\5.PROJECTS\1.HQ\2.QUANTUM\REPORT_TOOL_2013\WordHelper\bin\Debug\WordHelper.dll
+E:\5.PROJECTS\1.HQ\2.QUANTUM\REPORT_TOOL_2013\WordHelper\bin\Debug\WordHelper.pdb
+E:\5.PROJECTS\1.HQ\2.QUANTUM\REPORT_TOOL_2013\WordHelper\obj\Debug\ResolveAssemblyReference.cache
+E:\5.PROJECTS\1.HQ\2.QUANTUM\REPORT_TOOL_2013\WordHelper\obj\Debug\WordHelper.dll
+E:\5.PROJECTS\1.HQ\2.QUANTUM\REPORT_TOOL_2013\WordHelper\obj\Debug\WordHelper.pdb

@@ -119,24 +119,6 @@
     <WCFMetadataStorage Include="Service References\StockService\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\StockService\baseDS.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\StockService\DataLibs.disco" />
-    <None Include="Service References\StockService\DataLibs.wsdl" />
-    <None Include="Service References\StockService\DataLibs.xsd" />
-    <None Include="Service References\StockService\DataLibs1.xsd" />
-    <None Include="Service References\StockService\DataLibs2.xsd" />
-    <None Include="Service References\StockService\DataLibs3.xsd" />
-    <None Include="Service References\StockService\DataLibs4.xsd" />
-    <None Include="Service References\StockService\DataLibs5.xsd" />
-    <None Include="Service References\StockService\DataLibs6.xsd" />
-    <None Include="Service References\StockService\DataLibs7.xsd" />
-    <None Include="Service References\StockService\tmpDS.xsd">
-      <SubType>Designer</SubType>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Service References\StockService\configuration91.svcinfo" />
   </ItemGroup>
   <ItemGroup>
@@ -144,6 +126,14 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\DataSources\System.Data.DataTable.datasource" />
+    <None Include="Service References\StockService\baseDS1.xsd" />
+    <None Include="Service References\StockService\DataLibs1.wsdl" />
+    <None Include="Service References\StockService\DataLibs8.xsd" />
+    <None Include="Service References\StockService\DataLibs81.xsd" />
+    <None Include="Service References\StockService\DataLibs82.xsd" />
+    <None Include="Service References\StockService\DataLibs83.xsd" />
+    <None Include="Service References\StockService\DataLibs84.xsd" />
+    <None Include="Service References\StockService\DataLibs85.xsd" />
     <None Include="Service References\StockService\OpenXMLDemo.StockService.baseDS.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -166,6 +156,11 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <None Include="Service References\StockService\tmpDS1.xsd" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\StockService\DataLibs1.disco" />
+    <None Include="Service References\StockService\DataLibs86.xsd" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

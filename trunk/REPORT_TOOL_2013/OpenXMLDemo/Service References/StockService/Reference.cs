@@ -9,17 +9,11 @@
 //------------------------------------------------------------------------------
 
 namespace OpenXMLDemo.StockService {
-    using System.Data;
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "3.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="StockService.IStockService")]
     public interface IStockService {
-        
-        // CODEGEN: Parameter 'Estimate_Matrix_LastBizWeightResult' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlArrayAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/Estimate_Matrix_LastBizWeight", ReplyAction="http://tempuri.org/IStockService/Estimate_Matrix_LastBizWeightResponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute()]
-        OpenXMLDemo.StockService.Estimate_Matrix_LastBizWeightResponse Estimate_Matrix_LastBizWeight(OpenXMLDemo.StockService.Estimate_Matrix_LastBizWeightRequest request);
         
         // CODEGEN: Parameter 'AnalysisResult' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlArrayAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/Analysis", ReplyAction="http://tempuri.org/IStockService/AnalysisResponse")]
@@ -76,25 +70,30 @@ namespace OpenXMLDemo.StockService {
         [System.ServiceModel.XmlSerializerFormatAttribute()]
         OpenXMLDemo.StockService.WriteExcptionLogResponse WriteExcptionLog(OpenXMLDemo.StockService.WriteExcptionLogRequest request);
         
-        // CODEGEN: Parameter 'GetTopPriceVarrianceResult' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetTopPriceVarriance", ReplyAction="http://tempuri.org/IStockService/GetTopPriceVarrianceResponse")]
+        // CODEGEN: Parameter 'GetTopPriceVarrianceMarketResult' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetTopPriceVarrianceMarket", ReplyAction="http://tempuri.org/IStockService/GetTopPriceVarrianceMarketResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute()]
-        OpenXMLDemo.StockService.GetTopPriceVarrianceResponse GetTopPriceVarriance(OpenXMLDemo.StockService.GetTopPriceVarrianceRequest request);
+        OpenXMLDemo.StockService.GetTopPriceVarrianceMarketResponse GetTopPriceVarrianceMarket(OpenXMLDemo.StockService.GetTopPriceVarrianceMarketRequest request);
+        
+        // CODEGEN: Parameter 'GetTopPriceVarrianceUserResult' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetTopPriceVarrianceUser", ReplyAction="http://tempuri.org/IStockService/GetTopPriceVarrianceUserResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute()]
+        OpenXMLDemo.StockService.GetTopPriceVarrianceUserResponse GetTopPriceVarrianceUser(OpenXMLDemo.StockService.GetTopPriceVarrianceUserRequest request);
         
         // CODEGEN: Parameter 'GetTopPriceVarrianceOfUserResult' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetTopPriceVarrianceOfUser", ReplyAction="http://tempuri.org/IStockService/GetTopPriceVarrianceOfUserResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute()]
         OpenXMLDemo.StockService.GetTopPriceVarrianceOfUserResponse GetTopPriceVarrianceOfUser(OpenXMLDemo.StockService.GetTopPriceVarrianceOfUserRequest request);
         
-        // CODEGEN: Parameter 'TestResult' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/Test", ReplyAction="http://tempuri.org/IStockService/TestResponse")]
+        // CODEGEN: Parameter 'GetTopPriceVarrianceResult' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetTopPriceVarriance", ReplyAction="http://tempuri.org/IStockService/GetTopPriceVarrianceResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute()]
-        OpenXMLDemo.StockService.TestResponse Test(OpenXMLDemo.StockService.TestRequest request);
+        OpenXMLDemo.StockService.GetTopPriceVarrianceResponse GetTopPriceVarriance(OpenXMLDemo.StockService.GetTopPriceVarrianceRequest request);
         
-        // CODEGEN: Parameter 'GetBizSubSector_ByIndustryResult' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetBizSubSector_ByIndustry", ReplyAction="http://tempuri.org/IStockService/GetBizSubSector_ByIndustryResponse")]
+        // CODEGEN: Parameter 'GetLastPriceResult' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetLastPrice", ReplyAction="http://tempuri.org/IStockService/GetLastPriceResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute()]
-        OpenXMLDemo.StockService.GetBizSubSector_ByIndustryResponse GetBizSubSector_ByIndustry(OpenXMLDemo.StockService.GetBizSubSector_ByIndustryRequest request);
+        OpenXMLDemo.StockService.GetLastPriceResponse GetLastPrice(OpenXMLDemo.StockService.GetLastPriceRequest request);
         
         // CODEGEN: Parameter 'GetBizSubSector_BySuperSectorResult' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetBizSubSector_BySuperSector", ReplyAction="http://tempuri.org/IStockService/GetBizSubSector_BySuperSectorResponse")]
@@ -161,10 +160,10 @@ namespace OpenXMLDemo.StockService {
         [System.ServiceModel.XmlSerializerFormatAttribute()]
         OpenXMLDemo.StockService.GetOwnedStock_ByPortfolioResponse GetOwnedStock_ByPortfolio(OpenXMLDemo.StockService.GetOwnedStock_ByPortfolioRequest request);
         
-        // CODEGEN: Parameter 'GetLastPriceResult' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetLastPrice", ReplyAction="http://tempuri.org/IStockService/GetLastPriceResponse")]
+        // CODEGEN: Parameter 'GetLastPriceSumResult' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetLastPriceSum", ReplyAction="http://tempuri.org/IStockService/GetLastPriceSumResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute()]
-        OpenXMLDemo.StockService.GetLastPriceResponse GetLastPrice(OpenXMLDemo.StockService.GetLastPriceRequest request);
+        OpenXMLDemo.StockService.GetLastPriceSumResponse GetLastPriceSum(OpenXMLDemo.StockService.GetLastPriceSumRequest request);
         
         // CODEGEN: Parameter 'GetPriceDataResult' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetPriceData", ReplyAction="http://tempuri.org/IStockService/GetPriceDataResponse")]
@@ -231,10 +230,10 @@ namespace OpenXMLDemo.StockService {
         [System.ServiceModel.XmlSerializerFormatAttribute()]
         OpenXMLDemo.StockService.Estimate_Matrix_ProfitResponse Estimate_Matrix_Profit(OpenXMLDemo.StockService.Estimate_Matrix_ProfitRequest request);
         
-        // CODEGEN: Parameter 'GetInvestorShortListResult' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetInvestorShortList", ReplyAction="http://tempuri.org/IStockService/GetInvestorShortListResponse")]
+        // CODEGEN: Parameter 'Estimate_Matrix_LastBizWeightResult' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlArrayAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/Estimate_Matrix_LastBizWeight", ReplyAction="http://tempuri.org/IStockService/Estimate_Matrix_LastBizWeightResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute()]
-        OpenXMLDemo.StockService.GetInvestorShortListResponse GetInvestorShortList(OpenXMLDemo.StockService.GetInvestorShortListRequest request);
+        OpenXMLDemo.StockService.Estimate_Matrix_LastBizWeightResponse Estimate_Matrix_LastBizWeight(OpenXMLDemo.StockService.Estimate_Matrix_LastBizWeightRequest request);
         
         // CODEGEN: Parameter 'GetSyslog_ByDateResult' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetSyslog_ByDate", ReplyAction="http://tempuri.org/IStockService/GetSyslog_ByDateResponse")]
@@ -371,6 +370,11 @@ namespace OpenXMLDemo.StockService {
         [System.ServiceModel.XmlSerializerFormatAttribute()]
         OpenXMLDemo.StockService.GetStock_ByBizSectorResponse GetStock_ByBizSector(OpenXMLDemo.StockService.GetStock_ByBizSectorRequest request);
         
+        // CODEGEN: Parameter 'GetBizSubSector_ByIndustryResult' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetBizSubSector_ByIndustry", ReplyAction="http://tempuri.org/IStockService/GetBizSubSector_ByIndustryResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute()]
+        OpenXMLDemo.StockService.GetBizSubSector_ByIndustryResponse GetBizSubSector_ByIndustry(OpenXMLDemo.StockService.GetBizSubSector_ByIndustryRequest request);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/Reset", ReplyAction="http://tempuri.org/IStockService/ResetResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute()]
         void Reset();
@@ -501,10 +505,10 @@ namespace OpenXMLDemo.StockService {
         [System.ServiceModel.XmlSerializerFormatAttribute()]
         OpenXMLDemo.StockService.GetStockByStatusResponse GetStockByStatus(OpenXMLDemo.StockService.GetStockByStatusRequest request);
         
-        // CODEGEN: Parameter 'GetAbnormalDataResult' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetAbnormalData", ReplyAction="http://tempuri.org/IStockService/GetAbnormalDataResponse")]
+        // CODEGEN: Parameter 'GetInvestorShortListResult' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStockService/GetInvestorShortList", ReplyAction="http://tempuri.org/IStockService/GetInvestorShortListResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute()]
-        OpenXMLDemo.StockService.GetAbnormalDataResponse GetAbnormalData(OpenXMLDemo.StockService.GetAbnormalDataRequest request);
+        OpenXMLDemo.StockService.GetInvestorShortListResponse GetInvestorShortList(OpenXMLDemo.StockService.GetInvestorShortListRequest request);
     }
     
     /// <remarks/>
@@ -513,75 +517,103 @@ namespace OpenXMLDemo.StockService {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.datacontract.org/2004/07/commonClass")]
-    public partial class DataParams : object, System.ComponentModel.INotifyPropertyChanged {
+    public partial class TradePointInfo : object, System.ComponentModel.INotifyPropertyChanged {
         
-        private int maxDataCountField;
+        private BusinessInfo businessInfoField;
         
-        private bool maxDataCountFieldSpecified;
+        private int dataIdxField;
         
-        private AppTypesTimeRanges timeRangeField;
+        private bool dataIdxFieldSpecified;
         
-        private bool timeRangeFieldSpecified;
+        private AppTypesTradeActions tradeActionField;
         
-        private string timeScaleField;
+        private bool tradeActionFieldSpecified;
         
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public int MaxDataCount {
-            get {
-                return this.maxDataCountField;
-            }
-            set {
-                this.maxDataCountField = value;
-                this.RaisePropertyChanged("MaxDataCount");
-            }
-        }
+        private bool isValidField;
+        
+        private bool isValidFieldSpecified;
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool MaxDataCountSpecified {
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=0)]
+        public BusinessInfo BusinessInfo {
             get {
-                return this.maxDataCountFieldSpecified;
+                return this.businessInfoField;
             }
             set {
-                this.maxDataCountFieldSpecified = value;
-                this.RaisePropertyChanged("MaxDataCountSpecified");
+                this.businessInfoField = value;
+                this.RaisePropertyChanged("BusinessInfo");
             }
         }
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-        public AppTypesTimeRanges TimeRange {
+        public int DataIdx {
             get {
-                return this.timeRangeField;
+                return this.dataIdxField;
             }
             set {
-                this.timeRangeField = value;
-                this.RaisePropertyChanged("TimeRange");
+                this.dataIdxField = value;
+                this.RaisePropertyChanged("DataIdx");
             }
         }
         
         /// <remarks/>
         [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool TimeRangeSpecified {
+        public bool DataIdxSpecified {
             get {
-                return this.timeRangeFieldSpecified;
+                return this.dataIdxFieldSpecified;
             }
             set {
-                this.timeRangeFieldSpecified = value;
-                this.RaisePropertyChanged("TimeRangeSpecified");
+                this.dataIdxFieldSpecified = value;
+                this.RaisePropertyChanged("DataIdxSpecified");
             }
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=2)]
-        public string TimeScale {
+        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
+        public AppTypesTradeActions TradeAction {
             get {
-                return this.timeScaleField;
+                return this.tradeActionField;
             }
             set {
-                this.timeScaleField = value;
-                this.RaisePropertyChanged("TimeScale");
+                this.tradeActionField = value;
+                this.RaisePropertyChanged("TradeAction");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool TradeActionSpecified {
+            get {
+                return this.tradeActionFieldSpecified;
+            }
+            set {
+                this.tradeActionFieldSpecified = value;
+                this.RaisePropertyChanged("TradeActionSpecified");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
+        public bool isValid {
+            get {
+                return this.isValidField;
+            }
+            set {
+                this.isValidField = value;
+                this.RaisePropertyChanged("isValid");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool isValidSpecified {
+            get {
+                return this.isValidFieldSpecified;
+            }
+            set {
+                this.isValidFieldSpecified = value;
+                this.RaisePropertyChanged("isValidSpecified");
             }
         }
         
@@ -598,59 +630,262 @@ namespace OpenXMLDemo.StockService {
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.5420")]
     [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(TypeName="AppTypes.TimeRanges", Namespace="http://schemas.datacontract.org/2004/07/commonTypes")]
-    public enum AppTypesTimeRanges {
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.datacontract.org/2004/07/commonClass")]
+    public partial class BusinessInfo : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private AppTypesMarketTrend longTermTrendField;
+        
+        private bool longTermTrendFieldSpecified;
+        
+        private AppTypesMarketTrend mediumTermTrendField;
+        
+        private bool mediumTermTrendFieldSpecified;
+        
+        private AppTypesMarketTrend shortTermTrendField;
+        
+        private bool shortTermTrendFieldSpecified;
+        
+        private double short_ResistanceField;
+        
+        private bool short_ResistanceFieldSpecified;
+        
+        private double short_SupportField;
+        
+        private bool short_SupportFieldSpecified;
+        
+        private double short_TargetField;
+        
+        private bool short_TargetFieldSpecified;
+        
+        private double stop_LossField;
+        
+        private bool stop_LossFieldSpecified;
+        
+        private double weightField;
+        
+        private bool weightFieldSpecified;
         
         /// <remarks/>
-        None,
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public AppTypesMarketTrend LongTermTrend {
+            get {
+                return this.longTermTrendField;
+            }
+            set {
+                this.longTermTrendField = value;
+                this.RaisePropertyChanged("LongTermTrend");
+            }
+        }
         
         /// <remarks/>
-        W1,
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool LongTermTrendSpecified {
+            get {
+                return this.longTermTrendFieldSpecified;
+            }
+            set {
+                this.longTermTrendFieldSpecified = value;
+                this.RaisePropertyChanged("LongTermTrendSpecified");
+            }
+        }
         
         /// <remarks/>
-        W2,
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public AppTypesMarketTrend MediumTermTrend {
+            get {
+                return this.mediumTermTrendField;
+            }
+            set {
+                this.mediumTermTrendField = value;
+                this.RaisePropertyChanged("MediumTermTrend");
+            }
+        }
         
         /// <remarks/>
-        W3,
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool MediumTermTrendSpecified {
+            get {
+                return this.mediumTermTrendFieldSpecified;
+            }
+            set {
+                this.mediumTermTrendFieldSpecified = value;
+                this.RaisePropertyChanged("MediumTermTrendSpecified");
+            }
+        }
         
         /// <remarks/>
-        M1,
+        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
+        public AppTypesMarketTrend ShortTermTrend {
+            get {
+                return this.shortTermTrendField;
+            }
+            set {
+                this.shortTermTrendField = value;
+                this.RaisePropertyChanged("ShortTermTrend");
+            }
+        }
         
         /// <remarks/>
-        M2,
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool ShortTermTrendSpecified {
+            get {
+                return this.shortTermTrendFieldSpecified;
+            }
+            set {
+                this.shortTermTrendFieldSpecified = value;
+                this.RaisePropertyChanged("ShortTermTrendSpecified");
+            }
+        }
         
         /// <remarks/>
-        M3,
+        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
+        public double Short_Resistance {
+            get {
+                return this.short_ResistanceField;
+            }
+            set {
+                this.short_ResistanceField = value;
+                this.RaisePropertyChanged("Short_Resistance");
+            }
+        }
         
         /// <remarks/>
-        M4,
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool Short_ResistanceSpecified {
+            get {
+                return this.short_ResistanceFieldSpecified;
+            }
+            set {
+                this.short_ResistanceFieldSpecified = value;
+                this.RaisePropertyChanged("Short_ResistanceSpecified");
+            }
+        }
         
         /// <remarks/>
-        M5,
+        [System.Xml.Serialization.XmlElementAttribute(Order=4)]
+        public double Short_Support {
+            get {
+                return this.short_SupportField;
+            }
+            set {
+                this.short_SupportField = value;
+                this.RaisePropertyChanged("Short_Support");
+            }
+        }
         
         /// <remarks/>
-        M6,
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool Short_SupportSpecified {
+            get {
+                return this.short_SupportFieldSpecified;
+            }
+            set {
+                this.short_SupportFieldSpecified = value;
+                this.RaisePropertyChanged("Short_SupportSpecified");
+            }
+        }
         
         /// <remarks/>
-        YTD,
+        [System.Xml.Serialization.XmlElementAttribute(Order=5)]
+        public double Short_Target {
+            get {
+                return this.short_TargetField;
+            }
+            set {
+                this.short_TargetField = value;
+                this.RaisePropertyChanged("Short_Target");
+            }
+        }
         
         /// <remarks/>
-        Y1,
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool Short_TargetSpecified {
+            get {
+                return this.short_TargetFieldSpecified;
+            }
+            set {
+                this.short_TargetFieldSpecified = value;
+                this.RaisePropertyChanged("Short_TargetSpecified");
+            }
+        }
         
         /// <remarks/>
-        Y2,
+        [System.Xml.Serialization.XmlElementAttribute(Order=6)]
+        public double Stop_Loss {
+            get {
+                return this.stop_LossField;
+            }
+            set {
+                this.stop_LossField = value;
+                this.RaisePropertyChanged("Stop_Loss");
+            }
+        }
         
         /// <remarks/>
-        Y3,
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool Stop_LossSpecified {
+            get {
+                return this.stop_LossFieldSpecified;
+            }
+            set {
+                this.stop_LossFieldSpecified = value;
+                this.RaisePropertyChanged("Stop_LossSpecified");
+            }
+        }
         
         /// <remarks/>
-        Y4,
+        [System.Xml.Serialization.XmlElementAttribute(Order=7)]
+        public double Weight {
+            get {
+                return this.weightField;
+            }
+            set {
+                this.weightField = value;
+                this.RaisePropertyChanged("Weight");
+            }
+        }
         
         /// <remarks/>
-        Y5,
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool WeightSpecified {
+            get {
+                return this.weightFieldSpecified;
+            }
+            set {
+                this.weightFieldSpecified = value;
+                this.RaisePropertyChanged("WeightSpecified");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.5420")]
+    [System.SerializableAttribute()]
+    [System.Xml.Serialization.XmlTypeAttribute(TypeName="AppTypes.MarketTrend", Namespace="http://schemas.datacontract.org/2004/07/commonTypes")]
+    public enum AppTypesMarketTrend {
         
         /// <remarks/>
-        All,
+        Unspecified,
+        
+        /// <remarks/>
+        Sidebar,
+        
+        /// <remarks/>
+        Upward,
+        
+        /// <remarks/>
+        Downward,
     }
     
     /// <remarks/>
@@ -1611,6 +1846,64 @@ namespace OpenXMLDemo.StockService {
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.5420")]
     [System.SerializableAttribute()]
+    [System.Xml.Serialization.XmlTypeAttribute(TypeName="AppTypes.TimeRanges", Namespace="http://schemas.datacontract.org/2004/07/commonTypes")]
+    public enum AppTypesTimeRanges {
+        
+        /// <remarks/>
+        None,
+        
+        /// <remarks/>
+        W1,
+        
+        /// <remarks/>
+        W2,
+        
+        /// <remarks/>
+        W3,
+        
+        /// <remarks/>
+        M1,
+        
+        /// <remarks/>
+        M2,
+        
+        /// <remarks/>
+        M3,
+        
+        /// <remarks/>
+        M4,
+        
+        /// <remarks/>
+        M5,
+        
+        /// <remarks/>
+        M6,
+        
+        /// <remarks/>
+        YTD,
+        
+        /// <remarks/>
+        Y1,
+        
+        /// <remarks/>
+        Y2,
+        
+        /// <remarks/>
+        Y3,
+        
+        /// <remarks/>
+        Y4,
+        
+        /// <remarks/>
+        Y5,
+        
+        /// <remarks/>
+        All,
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.5420")]
+    [System.SerializableAttribute()]
     [System.Xml.Serialization.XmlTypeAttribute(TypeName="AppTypes.LanguageCodes", Namespace="http://schemas.datacontract.org/2004/07/commonTypes")]
     public enum AppTypesLanguageCodes {
         
@@ -1801,364 +2094,75 @@ namespace OpenXMLDemo.StockService {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.datacontract.org/2004/07/commonClass")]
-    public partial class BusinessInfo : object, System.ComponentModel.INotifyPropertyChanged {
+    public partial class DataParams : object, System.ComponentModel.INotifyPropertyChanged {
         
-        private AppTypesMarketTrend longTermTrendField;
+        private int maxDataCountField;
         
-        private bool longTermTrendFieldSpecified;
+        private bool maxDataCountFieldSpecified;
         
-        private AppTypesMarketTrend mediumTermTrendField;
+        private AppTypesTimeRanges timeRangeField;
         
-        private bool mediumTermTrendFieldSpecified;
+        private bool timeRangeFieldSpecified;
         
-        private AppTypesMarketTrend shortTermTrendField;
-        
-        private bool shortTermTrendFieldSpecified;
-        
-        private double short_ResistanceField;
-        
-        private bool short_ResistanceFieldSpecified;
-        
-        private double short_SupportField;
-        
-        private bool short_SupportFieldSpecified;
-        
-        private double short_TargetField;
-        
-        private bool short_TargetFieldSpecified;
-        
-        private double stop_LossField;
-        
-        private bool stop_LossFieldSpecified;
-        
-        private double weightField;
-        
-        private bool weightFieldSpecified;
+        private string timeScaleField;
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public AppTypesMarketTrend LongTermTrend {
+        public int MaxDataCount {
             get {
-                return this.longTermTrendField;
+                return this.maxDataCountField;
             }
             set {
-                this.longTermTrendField = value;
-                this.RaisePropertyChanged("LongTermTrend");
+                this.maxDataCountField = value;
+                this.RaisePropertyChanged("MaxDataCount");
             }
         }
         
         /// <remarks/>
         [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool LongTermTrendSpecified {
+        public bool MaxDataCountSpecified {
             get {
-                return this.longTermTrendFieldSpecified;
+                return this.maxDataCountFieldSpecified;
             }
             set {
-                this.longTermTrendFieldSpecified = value;
-                this.RaisePropertyChanged("LongTermTrendSpecified");
+                this.maxDataCountFieldSpecified = value;
+                this.RaisePropertyChanged("MaxDataCountSpecified");
             }
         }
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-        public AppTypesMarketTrend MediumTermTrend {
+        public AppTypesTimeRanges TimeRange {
             get {
-                return this.mediumTermTrendField;
+                return this.timeRangeField;
             }
             set {
-                this.mediumTermTrendField = value;
-                this.RaisePropertyChanged("MediumTermTrend");
+                this.timeRangeField = value;
+                this.RaisePropertyChanged("TimeRange");
             }
         }
         
         /// <remarks/>
         [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool MediumTermTrendSpecified {
+        public bool TimeRangeSpecified {
             get {
-                return this.mediumTermTrendFieldSpecified;
+                return this.timeRangeFieldSpecified;
             }
             set {
-                this.mediumTermTrendFieldSpecified = value;
-                this.RaisePropertyChanged("MediumTermTrendSpecified");
+                this.timeRangeFieldSpecified = value;
+                this.RaisePropertyChanged("TimeRangeSpecified");
             }
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-        public AppTypesMarketTrend ShortTermTrend {
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=2)]
+        public string TimeScale {
             get {
-                return this.shortTermTrendField;
+                return this.timeScaleField;
             }
             set {
-                this.shortTermTrendField = value;
-                this.RaisePropertyChanged("ShortTermTrend");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool ShortTermTrendSpecified {
-            get {
-                return this.shortTermTrendFieldSpecified;
-            }
-            set {
-                this.shortTermTrendFieldSpecified = value;
-                this.RaisePropertyChanged("ShortTermTrendSpecified");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
-        public double Short_Resistance {
-            get {
-                return this.short_ResistanceField;
-            }
-            set {
-                this.short_ResistanceField = value;
-                this.RaisePropertyChanged("Short_Resistance");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool Short_ResistanceSpecified {
-            get {
-                return this.short_ResistanceFieldSpecified;
-            }
-            set {
-                this.short_ResistanceFieldSpecified = value;
-                this.RaisePropertyChanged("Short_ResistanceSpecified");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=4)]
-        public double Short_Support {
-            get {
-                return this.short_SupportField;
-            }
-            set {
-                this.short_SupportField = value;
-                this.RaisePropertyChanged("Short_Support");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool Short_SupportSpecified {
-            get {
-                return this.short_SupportFieldSpecified;
-            }
-            set {
-                this.short_SupportFieldSpecified = value;
-                this.RaisePropertyChanged("Short_SupportSpecified");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=5)]
-        public double Short_Target {
-            get {
-                return this.short_TargetField;
-            }
-            set {
-                this.short_TargetField = value;
-                this.RaisePropertyChanged("Short_Target");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool Short_TargetSpecified {
-            get {
-                return this.short_TargetFieldSpecified;
-            }
-            set {
-                this.short_TargetFieldSpecified = value;
-                this.RaisePropertyChanged("Short_TargetSpecified");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=6)]
-        public double Stop_Loss {
-            get {
-                return this.stop_LossField;
-            }
-            set {
-                this.stop_LossField = value;
-                this.RaisePropertyChanged("Stop_Loss");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool Stop_LossSpecified {
-            get {
-                return this.stop_LossFieldSpecified;
-            }
-            set {
-                this.stop_LossFieldSpecified = value;
-                this.RaisePropertyChanged("Stop_LossSpecified");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=7)]
-        public double Weight {
-            get {
-                return this.weightField;
-            }
-            set {
-                this.weightField = value;
-                this.RaisePropertyChanged("Weight");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool WeightSpecified {
-            get {
-                return this.weightFieldSpecified;
-            }
-            set {
-                this.weightFieldSpecified = value;
-                this.RaisePropertyChanged("WeightSpecified");
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.5420")]
-    [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(TypeName="AppTypes.MarketTrend", Namespace="http://schemas.datacontract.org/2004/07/commonTypes")]
-    public enum AppTypesMarketTrend {
-        
-        /// <remarks/>
-        Unspecified,
-        
-        /// <remarks/>
-        Sidebar,
-        
-        /// <remarks/>
-        Upward,
-        
-        /// <remarks/>
-        Downward,
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.5420")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.datacontract.org/2004/07/commonClass")]
-    public partial class TradePointInfo : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private BusinessInfo businessInfoField;
-        
-        private int dataIdxField;
-        
-        private bool dataIdxFieldSpecified;
-        
-        private AppTypesTradeActions tradeActionField;
-        
-        private bool tradeActionFieldSpecified;
-        
-        private bool isValidField;
-        
-        private bool isValidFieldSpecified;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=0)]
-        public BusinessInfo BusinessInfo {
-            get {
-                return this.businessInfoField;
-            }
-            set {
-                this.businessInfoField = value;
-                this.RaisePropertyChanged("BusinessInfo");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-        public int DataIdx {
-            get {
-                return this.dataIdxField;
-            }
-            set {
-                this.dataIdxField = value;
-                this.RaisePropertyChanged("DataIdx");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool DataIdxSpecified {
-            get {
-                return this.dataIdxFieldSpecified;
-            }
-            set {
-                this.dataIdxFieldSpecified = value;
-                this.RaisePropertyChanged("DataIdxSpecified");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-        public AppTypesTradeActions TradeAction {
-            get {
-                return this.tradeActionField;
-            }
-            set {
-                this.tradeActionField = value;
-                this.RaisePropertyChanged("TradeAction");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool TradeActionSpecified {
-            get {
-                return this.tradeActionFieldSpecified;
-            }
-            set {
-                this.tradeActionFieldSpecified = value;
-                this.RaisePropertyChanged("TradeActionSpecified");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
-        public bool isValid {
-            get {
-                return this.isValidField;
-            }
-            set {
-                this.isValidField = value;
-                this.RaisePropertyChanged("isValid");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool isValidSpecified {
-            get {
-                return this.isValidFieldSpecified;
-            }
-            set {
-                this.isValidFieldSpecified = value;
-                this.RaisePropertyChanged("isValidSpecified");
+                this.timeScaleField = value;
+                this.RaisePropertyChanged("TimeScale");
             }
         }
         
@@ -2195,54 +2199,6 @@ namespace OpenXMLDemo.StockService {
         
         /// <remarks/>
         Select,
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "3.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="Estimate_Matrix_LastBizWeight", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class Estimate_Matrix_LastBizWeightRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public OpenXMLDemo.StockService.DataParams dataParams;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
-        [System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
-        [System.Xml.Serialization.XmlArrayItemAttribute(Namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays")]
-        public string[] stockCodeList;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=2)]
-        [System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
-        [System.Xml.Serialization.XmlArrayItemAttribute(Namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays")]
-        public string[] strategyList;
-        
-        public Estimate_Matrix_LastBizWeightRequest() {
-        }
-        
-        public Estimate_Matrix_LastBizWeightRequest(OpenXMLDemo.StockService.DataParams dataParams, string[] stockCodeList, string[] strategyList) {
-            this.dataParams = dataParams;
-            this.stockCodeList = stockCodeList;
-            this.strategyList = strategyList;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "3.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="Estimate_Matrix_LastBizWeightResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class Estimate_Matrix_LastBizWeightResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        [System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
-        [System.Xml.Serialization.XmlArrayItemAttribute("ArrayOfdouble", Namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays")]
-        [System.Xml.Serialization.XmlArrayItemAttribute(Namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays", IsNullable=false, NestingLevel=1)]
-        public double[][] Estimate_Matrix_LastBizWeightResult;
-        
-        public Estimate_Matrix_LastBizWeightResponse() {
-        }
-        
-        public Estimate_Matrix_LastBizWeightResponse(double[][] Estimate_Matrix_LastBizWeightResult) {
-            this.Estimate_Matrix_LastBizWeightResult = Estimate_Matrix_LastBizWeightResult;
-        }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -12877,9 +12833,7 @@ namespace OpenXMLDemo.StockService {
                 this.columnmarketCode.MaxLength = 10;
                 this.columnaddress.AllowDBNull = false;
                 this.columnaddress.MaxLength = 255;
-                this.columngoTrue.AllowDBNull = false;
                 this.columngoTrue.MaxLength = 20;
-                this.columngoFalse.AllowDBNull = false;
                 this.columngoFalse.MaxLength = 20;
                 this.columnnotes.MaxLength = 255;
                 this.columnculture.AllowDBNull = false;
@@ -16637,7 +16591,12 @@ namespace OpenXMLDemo.StockService {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public string goTrue {
                 get {
-                    return ((string)(this[this.tableexchangeDetail.goTrueColumn]));
+                    try {
+                        return ((string)(this[this.tableexchangeDetail.goTrueColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'goTrue\' in table \'exchangeDetail\' is DBNull.", e);
+                    }
                 }
                 set {
                     this[this.tableexchangeDetail.goTrueColumn] = value;
@@ -16647,7 +16606,12 @@ namespace OpenXMLDemo.StockService {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public string goFalse {
                 get {
-                    return ((string)(this[this.tableexchangeDetail.goFalseColumn]));
+                    try {
+                        return ((string)(this[this.tableexchangeDetail.goFalseColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'goFalse\' in table \'exchangeDetail\' is DBNull.", e);
+                    }
                 }
                 set {
                     this[this.tableexchangeDetail.goFalseColumn] = value;
@@ -16697,6 +16661,26 @@ namespace OpenXMLDemo.StockService {
                 set {
                     this[this.tableexchangeDetail.orderIdColumn] = value;
                 }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsgoTrueNull() {
+                return this.IsNull(this.tableexchangeDetail.goTrueColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetgoTrueNull() {
+                this[this.tableexchangeDetail.goTrueColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsgoFalseNull() {
+                return this.IsNull(this.tableexchangeDetail.goFalseColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetgoFalseNull() {
+                this[this.tableexchangeDetail.goFalseColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -23462,28 +23446,24 @@ namespace OpenXMLDemo.StockService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "3.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="GetTopPriceVarriance", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class GetTopPriceVarrianceRequest {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetTopPriceVarrianceMarket", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class GetTopPriceVarrianceMarketRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public System.DateTime frDate;
+        public System.DateTime beforeDate;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
-        public System.DateTime toDate;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=2)]
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
         public string timeScaleCode;
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=3)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=2)]
         public int topN;
         
-        public GetTopPriceVarrianceRequest() {
+        public GetTopPriceVarrianceMarketRequest() {
         }
         
-        public GetTopPriceVarrianceRequest(System.DateTime frDate, System.DateTime toDate, string timeScaleCode, int topN) {
-            this.frDate = frDate;
-            this.toDate = toDate;
+        public GetTopPriceVarrianceMarketRequest(System.DateTime beforeDate, string timeScaleCode, int topN) {
+            this.beforeDate = beforeDate;
             this.timeScaleCode = timeScaleCode;
             this.topN = topN;
         }
@@ -23491,18 +23471,65 @@ namespace OpenXMLDemo.StockService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "3.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="GetTopPriceVarrianceResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class GetTopPriceVarrianceResponse {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetTopPriceVarrianceMarketResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class GetTopPriceVarrianceMarketResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public tmpDS.dataVarrianceDataTable GetTopPriceVarrianceResult;
+        public tmpDS.dataVarrianceDataTable GetTopPriceVarrianceMarketResult;
         
-        public GetTopPriceVarrianceResponse() {
+        public GetTopPriceVarrianceMarketResponse() {
         }
         
-        public GetTopPriceVarrianceResponse(tmpDS.dataVarrianceDataTable GetTopPriceVarrianceResult) {
-            this.GetTopPriceVarrianceResult = GetTopPriceVarrianceResult;
+        public GetTopPriceVarrianceMarketResponse(tmpDS.dataVarrianceDataTable GetTopPriceVarrianceMarketResult) {
+            this.GetTopPriceVarrianceMarketResult = GetTopPriceVarrianceMarketResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "3.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetTopPriceVarrianceUser", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class GetTopPriceVarrianceUserRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public System.DateTime beforeDate;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string timeScaleCode;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=2)]
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string userCode;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=3)]
+        public int topN;
+        
+        public GetTopPriceVarrianceUserRequest() {
+        }
+        
+        public GetTopPriceVarrianceUserRequest(System.DateTime beforeDate, string timeScaleCode, string userCode, int topN) {
+            this.beforeDate = beforeDate;
+            this.timeScaleCode = timeScaleCode;
+            this.userCode = userCode;
+            this.topN = topN;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "3.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetTopPriceVarrianceUserResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class GetTopPriceVarrianceUserResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public tmpDS.dataVarrianceDataTable GetTopPriceVarrianceUserResult;
+        
+        public GetTopPriceVarrianceUserResponse() {
+        }
+        
+        public GetTopPriceVarrianceUserResponse(tmpDS.dataVarrianceDataTable GetTopPriceVarrianceUserResult) {
+            this.GetTopPriceVarrianceUserResult = GetTopPriceVarrianceUserResult;
         }
     }
     
@@ -23559,69 +23586,105 @@ namespace OpenXMLDemo.StockService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "3.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="Test", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class TestRequest {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetTopPriceVarriance", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class GetTopPriceVarrianceRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string sql;
+        public System.DateTime frDate;
         
-        public TestRequest() {
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
+        public System.DateTime toDate;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=2)]
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string timeScaleCode;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=3)]
+        public int topN;
+        
+        public GetTopPriceVarrianceRequest() {
         }
         
-        public TestRequest(string sql) {
-            this.sql = sql;
+        public GetTopPriceVarrianceRequest(System.DateTime frDate, System.DateTime toDate, string timeScaleCode, int topN) {
+            this.frDate = frDate;
+            this.toDate = toDate;
+            this.timeScaleCode = timeScaleCode;
+            this.topN = topN;
         }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "3.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="TestResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class TestResponse {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetTopPriceVarrianceResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class GetTopPriceVarrianceResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public System.Data.DataTable TestResult;
+        public tmpDS.dataVarrianceDataTable GetTopPriceVarrianceResult;
         
-        public TestResponse() {
+        public GetTopPriceVarrianceResponse() {
         }
         
-        public TestResponse(System.Data.DataTable TestResult) {
-            this.TestResult = TestResult;
+        public GetTopPriceVarrianceResponse(tmpDS.dataVarrianceDataTable GetTopPriceVarrianceResult) {
+            this.GetTopPriceVarrianceResult = GetTopPriceVarrianceResult;
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.5420")]
+    [System.SerializableAttribute()]
+    [System.Xml.Serialization.XmlTypeAttribute(TypeName="AppTypes.PriceDataType", Namespace="http://schemas.datacontract.org/2004/07/commonTypes")]
+    public enum AppTypesPriceDataType {
+        
+        /// <remarks/>
+        High,
+        
+        /// <remarks/>
+        Low,
+        
+        /// <remarks/>
+        Open,
+        
+        /// <remarks/>
+        Close,
+        
+        /// <remarks/>
+        Volume,
+        
+        /// <remarks/>
+        DateTime,
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "3.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetLastPrice", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class GetLastPriceRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public OpenXMLDemo.StockService.AppTypesPriceDataType type;
+        
+        public GetLastPriceRequest() {
+        }
+        
+        public GetLastPriceRequest(OpenXMLDemo.StockService.AppTypesPriceDataType type) {
+            this.type = type;
         }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "3.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="GetBizSubSector_ByIndustry", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class GetBizSubSector_ByIndustryRequest {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetLastPriceResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class GetLastPriceResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string code;
+        public baseDS.lastPriceDataDataTable GetLastPriceResult;
         
-        public GetBizSubSector_ByIndustryRequest() {
+        public GetLastPriceResponse() {
         }
         
-        public GetBizSubSector_ByIndustryRequest(string code) {
-            this.code = code;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "3.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="GetBizSubSector_ByIndustryResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class GetBizSubSector_ByIndustryResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public baseDS.bizSubSectorDataTable GetBizSubSector_ByIndustryResult;
-        
-        public GetBizSubSector_ByIndustryResponse() {
-        }
-        
-        public GetBizSubSector_ByIndustryResponse(baseDS.bizSubSectorDataTable GetBizSubSector_ByIndustryResult) {
-            this.GetBizSubSector_ByIndustryResult = GetBizSubSector_ByIndustryResult;
+        public GetLastPriceResponse(baseDS.lastPriceDataDataTable GetLastPriceResult) {
+            this.GetLastPriceResult = GetLastPriceResult;
         }
     }
     
@@ -24102,61 +24165,41 @@ namespace OpenXMLDemo.StockService {
         }
     }
     
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.5420")]
-    [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(TypeName="AppTypes.PriceDataType", Namespace="http://schemas.datacontract.org/2004/07/commonTypes")]
-    public enum AppTypesPriceDataType {
-        
-        /// <remarks/>
-        High,
-        
-        /// <remarks/>
-        Low,
-        
-        /// <remarks/>
-        Open,
-        
-        /// <remarks/>
-        Close,
-        
-        /// <remarks/>
-        Volume,
-        
-        /// <remarks/>
-        DateTime,
-    }
-    
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "3.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="GetLastPrice", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class GetLastPriceRequest {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetLastPriceSum", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class GetLastPriceSumRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
         public OpenXMLDemo.StockService.AppTypesPriceDataType type;
         
-        public GetLastPriceRequest() {
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string timeScaleCode;
+        
+        public GetLastPriceSumRequest() {
         }
         
-        public GetLastPriceRequest(OpenXMLDemo.StockService.AppTypesPriceDataType type) {
+        public GetLastPriceSumRequest(OpenXMLDemo.StockService.AppTypesPriceDataType type, string timeScaleCode) {
             this.type = type;
+            this.timeScaleCode = timeScaleCode;
         }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "3.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="GetLastPriceResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class GetLastPriceResponse {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetLastPriceSumResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class GetLastPriceSumResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public baseDS.lastPriceDataDataTable GetLastPriceResult;
+        public baseDS.lastPriceDataDataTable GetLastPriceSumResult;
         
-        public GetLastPriceResponse() {
+        public GetLastPriceSumResponse() {
         }
         
-        public GetLastPriceResponse(baseDS.lastPriceDataDataTable GetLastPriceResult) {
-            this.GetLastPriceResult = GetLastPriceResult;
+        public GetLastPriceSumResponse(baseDS.lastPriceDataDataTable GetLastPriceSumResult) {
+            this.GetLastPriceSumResult = GetLastPriceSumResult;
         }
     }
     
@@ -24713,27 +24756,49 @@ namespace OpenXMLDemo.StockService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "3.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="GetInvestorShortList", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class GetInvestorShortListRequest {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="Estimate_Matrix_LastBizWeight", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class Estimate_Matrix_LastBizWeightRequest {
         
-        public GetInvestorShortListRequest() {
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public OpenXMLDemo.StockService.DataParams dataParams;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
+        [System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
+        [System.Xml.Serialization.XmlArrayItemAttribute(Namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays")]
+        public string[] stockCodeList;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=2)]
+        [System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
+        [System.Xml.Serialization.XmlArrayItemAttribute(Namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays")]
+        public string[] strategyList;
+        
+        public Estimate_Matrix_LastBizWeightRequest() {
+        }
+        
+        public Estimate_Matrix_LastBizWeightRequest(OpenXMLDemo.StockService.DataParams dataParams, string[] stockCodeList, string[] strategyList) {
+            this.dataParams = dataParams;
+            this.stockCodeList = stockCodeList;
+            this.strategyList = strategyList;
         }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "3.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="GetInvestorShortListResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class GetInvestorShortListResponse {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="Estimate_Matrix_LastBizWeightResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class Estimate_Matrix_LastBizWeightResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public tmpDS.investorDataTable GetInvestorShortListResult;
+        [System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
+        [System.Xml.Serialization.XmlArrayItemAttribute("ArrayOfdouble", Namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays")]
+        [System.Xml.Serialization.XmlArrayItemAttribute(Namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays", IsNullable=false, NestingLevel=1)]
+        public double[][] Estimate_Matrix_LastBizWeightResult;
         
-        public GetInvestorShortListResponse() {
+        public Estimate_Matrix_LastBizWeightResponse() {
         }
         
-        public GetInvestorShortListResponse(tmpDS.investorDataTable GetInvestorShortListResult) {
-            this.GetInvestorShortListResult = GetInvestorShortListResult;
+        public Estimate_Matrix_LastBizWeightResponse(double[][] Estimate_Matrix_LastBizWeightResult) {
+            this.Estimate_Matrix_LastBizWeightResult = Estimate_Matrix_LastBizWeightResult;
         }
     }
     
@@ -25578,6 +25643,40 @@ namespace OpenXMLDemo.StockService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "3.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetBizSubSector_ByIndustry", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class GetBizSubSector_ByIndustryRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string code;
+        
+        public GetBizSubSector_ByIndustryRequest() {
+        }
+        
+        public GetBizSubSector_ByIndustryRequest(string code) {
+            this.code = code;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "3.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetBizSubSector_ByIndustryResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class GetBizSubSector_ByIndustryResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public baseDS.bizSubSectorDataTable GetBizSubSector_ByIndustryResult;
+        
+        public GetBizSubSector_ByIndustryResponse() {
+        }
+        
+        public GetBizSubSector_ByIndustryResponse(baseDS.bizSubSectorDataTable GetBizSubSector_ByIndustryResult) {
+            this.GetBizSubSector_ByIndustryResult = GetBizSubSector_ByIndustryResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "3.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="DeleteCache", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
     public partial class DeleteCacheRequest {
         
@@ -26358,48 +26457,27 @@ namespace OpenXMLDemo.StockService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "3.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="GetAbnormalData", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class GetAbnormalDataRequest {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetInvestorShortList", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class GetInvestorShortListRequest {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string code;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
-        public System.DateTime frDate;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=2)]
-        public System.DateTime toDate;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=3)]
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string timeSacleCode;
-        
-        public GetAbnormalDataRequest() {
-        }
-        
-        public GetAbnormalDataRequest(string code, System.DateTime frDate, System.DateTime toDate, string timeSacleCode) {
-            this.code = code;
-            this.frDate = frDate;
-            this.toDate = toDate;
-            this.timeSacleCode = timeSacleCode;
+        public GetInvestorShortListRequest() {
         }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "3.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="GetAbnormalDataResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class GetAbnormalDataResponse {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetInvestorShortListResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class GetInvestorShortListResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public baseDS.priceDataDataTable GetAbnormalDataResult;
+        public tmpDS.investorDataTable GetInvestorShortListResult;
         
-        public GetAbnormalDataResponse() {
+        public GetInvestorShortListResponse() {
         }
         
-        public GetAbnormalDataResponse(baseDS.priceDataDataTable GetAbnormalDataResult) {
-            this.GetAbnormalDataResult = GetAbnormalDataResult;
+        public GetInvestorShortListResponse(tmpDS.investorDataTable GetInvestorShortListResult) {
+            this.GetInvestorShortListResult = GetInvestorShortListResult;
         }
     }
     
@@ -26428,20 +26506,6 @@ namespace OpenXMLDemo.StockService {
         
         public StockServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        OpenXMLDemo.StockService.Estimate_Matrix_LastBizWeightResponse OpenXMLDemo.StockService.IStockService.Estimate_Matrix_LastBizWeight(OpenXMLDemo.StockService.Estimate_Matrix_LastBizWeightRequest request) {
-            return base.Channel.Estimate_Matrix_LastBizWeight(request);
-        }
-        
-        public double[][] Estimate_Matrix_LastBizWeight(OpenXMLDemo.StockService.DataParams dataParams, string[] stockCodeList, string[] strategyList) {
-            OpenXMLDemo.StockService.Estimate_Matrix_LastBizWeightRequest inValue = new OpenXMLDemo.StockService.Estimate_Matrix_LastBizWeightRequest();
-            inValue.dataParams = dataParams;
-            inValue.stockCodeList = stockCodeList;
-            inValue.strategyList = strategyList;
-            OpenXMLDemo.StockService.Estimate_Matrix_LastBizWeightResponse retVal = ((OpenXMLDemo.StockService.IStockService)(this)).Estimate_Matrix_LastBizWeight(inValue);
-            return retVal.Estimate_Matrix_LastBizWeightResult;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -26593,18 +26657,32 @@ namespace OpenXMLDemo.StockService {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        OpenXMLDemo.StockService.GetTopPriceVarrianceResponse OpenXMLDemo.StockService.IStockService.GetTopPriceVarriance(OpenXMLDemo.StockService.GetTopPriceVarrianceRequest request) {
-            return base.Channel.GetTopPriceVarriance(request);
+        OpenXMLDemo.StockService.GetTopPriceVarrianceMarketResponse OpenXMLDemo.StockService.IStockService.GetTopPriceVarrianceMarket(OpenXMLDemo.StockService.GetTopPriceVarrianceMarketRequest request) {
+            return base.Channel.GetTopPriceVarrianceMarket(request);
         }
         
-        public tmpDS.dataVarrianceDataTable GetTopPriceVarriance(System.DateTime frDate, System.DateTime toDate, string timeScaleCode, int topN) {
-            OpenXMLDemo.StockService.GetTopPriceVarrianceRequest inValue = new OpenXMLDemo.StockService.GetTopPriceVarrianceRequest();
-            inValue.frDate = frDate;
-            inValue.toDate = toDate;
+        public tmpDS.dataVarrianceDataTable GetTopPriceVarrianceMarket(System.DateTime beforeDate, string timeScaleCode, int topN) {
+            OpenXMLDemo.StockService.GetTopPriceVarrianceMarketRequest inValue = new OpenXMLDemo.StockService.GetTopPriceVarrianceMarketRequest();
+            inValue.beforeDate = beforeDate;
             inValue.timeScaleCode = timeScaleCode;
             inValue.topN = topN;
-            OpenXMLDemo.StockService.GetTopPriceVarrianceResponse retVal = ((OpenXMLDemo.StockService.IStockService)(this)).GetTopPriceVarriance(inValue);
-            return retVal.GetTopPriceVarrianceResult;
+            OpenXMLDemo.StockService.GetTopPriceVarrianceMarketResponse retVal = ((OpenXMLDemo.StockService.IStockService)(this)).GetTopPriceVarrianceMarket(inValue);
+            return retVal.GetTopPriceVarrianceMarketResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        OpenXMLDemo.StockService.GetTopPriceVarrianceUserResponse OpenXMLDemo.StockService.IStockService.GetTopPriceVarrianceUser(OpenXMLDemo.StockService.GetTopPriceVarrianceUserRequest request) {
+            return base.Channel.GetTopPriceVarrianceUser(request);
+        }
+        
+        public tmpDS.dataVarrianceDataTable GetTopPriceVarrianceUser(System.DateTime beforeDate, string timeScaleCode, string userCode, int topN) {
+            OpenXMLDemo.StockService.GetTopPriceVarrianceUserRequest inValue = new OpenXMLDemo.StockService.GetTopPriceVarrianceUserRequest();
+            inValue.beforeDate = beforeDate;
+            inValue.timeScaleCode = timeScaleCode;
+            inValue.userCode = userCode;
+            inValue.topN = topN;
+            OpenXMLDemo.StockService.GetTopPriceVarrianceUserResponse retVal = ((OpenXMLDemo.StockService.IStockService)(this)).GetTopPriceVarrianceUser(inValue);
+            return retVal.GetTopPriceVarrianceUserResult;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -26624,27 +26702,30 @@ namespace OpenXMLDemo.StockService {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        OpenXMLDemo.StockService.TestResponse OpenXMLDemo.StockService.IStockService.Test(OpenXMLDemo.StockService.TestRequest request) {
-            return base.Channel.Test(request);
+        OpenXMLDemo.StockService.GetTopPriceVarrianceResponse OpenXMLDemo.StockService.IStockService.GetTopPriceVarriance(OpenXMLDemo.StockService.GetTopPriceVarrianceRequest request) {
+            return base.Channel.GetTopPriceVarriance(request);
         }
         
-        public System.Data.DataTable Test(string sql) {
-            OpenXMLDemo.StockService.TestRequest inValue = new OpenXMLDemo.StockService.TestRequest();
-            inValue.sql = sql;
-            OpenXMLDemo.StockService.TestResponse retVal = ((OpenXMLDemo.StockService.IStockService)(this)).Test(inValue);
-            return retVal.TestResult;
+        public tmpDS.dataVarrianceDataTable GetTopPriceVarriance(System.DateTime frDate, System.DateTime toDate, string timeScaleCode, int topN) {
+            OpenXMLDemo.StockService.GetTopPriceVarrianceRequest inValue = new OpenXMLDemo.StockService.GetTopPriceVarrianceRequest();
+            inValue.frDate = frDate;
+            inValue.toDate = toDate;
+            inValue.timeScaleCode = timeScaleCode;
+            inValue.topN = topN;
+            OpenXMLDemo.StockService.GetTopPriceVarrianceResponse retVal = ((OpenXMLDemo.StockService.IStockService)(this)).GetTopPriceVarriance(inValue);
+            return retVal.GetTopPriceVarrianceResult;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        OpenXMLDemo.StockService.GetBizSubSector_ByIndustryResponse OpenXMLDemo.StockService.IStockService.GetBizSubSector_ByIndustry(OpenXMLDemo.StockService.GetBizSubSector_ByIndustryRequest request) {
-            return base.Channel.GetBizSubSector_ByIndustry(request);
+        OpenXMLDemo.StockService.GetLastPriceResponse OpenXMLDemo.StockService.IStockService.GetLastPrice(OpenXMLDemo.StockService.GetLastPriceRequest request) {
+            return base.Channel.GetLastPrice(request);
         }
         
-        public baseDS.bizSubSectorDataTable GetBizSubSector_ByIndustry(string code) {
-            OpenXMLDemo.StockService.GetBizSubSector_ByIndustryRequest inValue = new OpenXMLDemo.StockService.GetBizSubSector_ByIndustryRequest();
-            inValue.code = code;
-            OpenXMLDemo.StockService.GetBizSubSector_ByIndustryResponse retVal = ((OpenXMLDemo.StockService.IStockService)(this)).GetBizSubSector_ByIndustry(inValue);
-            return retVal.GetBizSubSector_ByIndustryResult;
+        public baseDS.lastPriceDataDataTable GetLastPrice(OpenXMLDemo.StockService.AppTypesPriceDataType type) {
+            OpenXMLDemo.StockService.GetLastPriceRequest inValue = new OpenXMLDemo.StockService.GetLastPriceRequest();
+            inValue.type = type;
+            OpenXMLDemo.StockService.GetLastPriceResponse retVal = ((OpenXMLDemo.StockService.IStockService)(this)).GetLastPrice(inValue);
+            return retVal.GetLastPriceResult;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -26808,15 +26889,16 @@ namespace OpenXMLDemo.StockService {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        OpenXMLDemo.StockService.GetLastPriceResponse OpenXMLDemo.StockService.IStockService.GetLastPrice(OpenXMLDemo.StockService.GetLastPriceRequest request) {
-            return base.Channel.GetLastPrice(request);
+        OpenXMLDemo.StockService.GetLastPriceSumResponse OpenXMLDemo.StockService.IStockService.GetLastPriceSum(OpenXMLDemo.StockService.GetLastPriceSumRequest request) {
+            return base.Channel.GetLastPriceSum(request);
         }
         
-        public baseDS.lastPriceDataDataTable GetLastPrice(OpenXMLDemo.StockService.AppTypesPriceDataType type) {
-            OpenXMLDemo.StockService.GetLastPriceRequest inValue = new OpenXMLDemo.StockService.GetLastPriceRequest();
+        public baseDS.lastPriceDataDataTable GetLastPriceSum(OpenXMLDemo.StockService.AppTypesPriceDataType type, string timeScaleCode) {
+            OpenXMLDemo.StockService.GetLastPriceSumRequest inValue = new OpenXMLDemo.StockService.GetLastPriceSumRequest();
             inValue.type = type;
-            OpenXMLDemo.StockService.GetLastPriceResponse retVal = ((OpenXMLDemo.StockService.IStockService)(this)).GetLastPrice(inValue);
-            return retVal.GetLastPriceResult;
+            inValue.timeScaleCode = timeScaleCode;
+            OpenXMLDemo.StockService.GetLastPriceSumResponse retVal = ((OpenXMLDemo.StockService.IStockService)(this)).GetLastPriceSum(inValue);
+            return retVal.GetLastPriceSumResult;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -27000,14 +27082,17 @@ namespace OpenXMLDemo.StockService {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        OpenXMLDemo.StockService.GetInvestorShortListResponse OpenXMLDemo.StockService.IStockService.GetInvestorShortList(OpenXMLDemo.StockService.GetInvestorShortListRequest request) {
-            return base.Channel.GetInvestorShortList(request);
+        OpenXMLDemo.StockService.Estimate_Matrix_LastBizWeightResponse OpenXMLDemo.StockService.IStockService.Estimate_Matrix_LastBizWeight(OpenXMLDemo.StockService.Estimate_Matrix_LastBizWeightRequest request) {
+            return base.Channel.Estimate_Matrix_LastBizWeight(request);
         }
         
-        public tmpDS.investorDataTable GetInvestorShortList() {
-            OpenXMLDemo.StockService.GetInvestorShortListRequest inValue = new OpenXMLDemo.StockService.GetInvestorShortListRequest();
-            OpenXMLDemo.StockService.GetInvestorShortListResponse retVal = ((OpenXMLDemo.StockService.IStockService)(this)).GetInvestorShortList(inValue);
-            return retVal.GetInvestorShortListResult;
+        public double[][] Estimate_Matrix_LastBizWeight(OpenXMLDemo.StockService.DataParams dataParams, string[] stockCodeList, string[] strategyList) {
+            OpenXMLDemo.StockService.Estimate_Matrix_LastBizWeightRequest inValue = new OpenXMLDemo.StockService.Estimate_Matrix_LastBizWeightRequest();
+            inValue.dataParams = dataParams;
+            inValue.stockCodeList = stockCodeList;
+            inValue.strategyList = strategyList;
+            OpenXMLDemo.StockService.Estimate_Matrix_LastBizWeightResponse retVal = ((OpenXMLDemo.StockService.IStockService)(this)).Estimate_Matrix_LastBizWeight(inValue);
+            return retVal.Estimate_Matrix_LastBizWeightResult;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -27324,6 +27409,18 @@ namespace OpenXMLDemo.StockService {
             return retVal.GetStock_ByBizSectorResult;
         }
         
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        OpenXMLDemo.StockService.GetBizSubSector_ByIndustryResponse OpenXMLDemo.StockService.IStockService.GetBizSubSector_ByIndustry(OpenXMLDemo.StockService.GetBizSubSector_ByIndustryRequest request) {
+            return base.Channel.GetBizSubSector_ByIndustry(request);
+        }
+        
+        public baseDS.bizSubSectorDataTable GetBizSubSector_ByIndustry(string code) {
+            OpenXMLDemo.StockService.GetBizSubSector_ByIndustryRequest inValue = new OpenXMLDemo.StockService.GetBizSubSector_ByIndustryRequest();
+            inValue.code = code;
+            OpenXMLDemo.StockService.GetBizSubSector_ByIndustryResponse retVal = ((OpenXMLDemo.StockService.IStockService)(this)).GetBizSubSector_ByIndustry(inValue);
+            return retVal.GetBizSubSector_ByIndustryResult;
+        }
+        
         public void Reset() {
             base.Channel.Reset();
         }
@@ -27617,18 +27714,14 @@ namespace OpenXMLDemo.StockService {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        OpenXMLDemo.StockService.GetAbnormalDataResponse OpenXMLDemo.StockService.IStockService.GetAbnormalData(OpenXMLDemo.StockService.GetAbnormalDataRequest request) {
-            return base.Channel.GetAbnormalData(request);
+        OpenXMLDemo.StockService.GetInvestorShortListResponse OpenXMLDemo.StockService.IStockService.GetInvestorShortList(OpenXMLDemo.StockService.GetInvestorShortListRequest request) {
+            return base.Channel.GetInvestorShortList(request);
         }
         
-        public baseDS.priceDataDataTable GetAbnormalData(string code, System.DateTime frDate, System.DateTime toDate, string timeSacleCode) {
-            OpenXMLDemo.StockService.GetAbnormalDataRequest inValue = new OpenXMLDemo.StockService.GetAbnormalDataRequest();
-            inValue.code = code;
-            inValue.frDate = frDate;
-            inValue.toDate = toDate;
-            inValue.timeSacleCode = timeSacleCode;
-            OpenXMLDemo.StockService.GetAbnormalDataResponse retVal = ((OpenXMLDemo.StockService.IStockService)(this)).GetAbnormalData(inValue);
-            return retVal.GetAbnormalDataResult;
+        public tmpDS.investorDataTable GetInvestorShortList() {
+            OpenXMLDemo.StockService.GetInvestorShortListRequest inValue = new OpenXMLDemo.StockService.GetInvestorShortListRequest();
+            OpenXMLDemo.StockService.GetInvestorShortListResponse retVal = ((OpenXMLDemo.StockService.IStockService)(this)).GetInvestorShortList(inValue);
+            return retVal.GetInvestorShortListResult;
         }
     }
 }
