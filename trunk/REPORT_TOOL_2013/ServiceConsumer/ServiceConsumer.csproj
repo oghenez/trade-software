@@ -39,6 +39,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>.\commonTypes.dll</HintPath>
     </Reference>
+    <Reference Include="databases, Version=2.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\dlls\databases.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
@@ -69,6 +73,7 @@
     <Compile Include="QuantumServiceProvider.cs" />
     <Compile Include="ReflectionUtils.cs" />
     <Compile Include="DataServiceConsumer.cs" />
+    <Compile Include="StockTodayModel.cs" />
     <Compile Include="Test\Data\DataTest.cs" />
     <Compile Include="Test\Data\TemplateModelTest.cs" />
     <Compile Include="Test\TestStringData.cs" />
@@ -79,6 +84,12 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="Properties\DataSources\System.Data.DataTable.datasource" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\dataAccess\dataAccess.csproj">
+      <Project>{826C6D25-5C31-4CEA-B9A3-01578ECDB148}</Project>
+      <Name>dataAccess</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

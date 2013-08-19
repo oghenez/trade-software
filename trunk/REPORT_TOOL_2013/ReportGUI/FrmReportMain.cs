@@ -7,6 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using ReportProcessing;
+using ReportGUI.Properties;
+using System.Globalization;
+using commonTypes;
 
 namespace ReportGUI
 {
@@ -14,7 +17,12 @@ namespace ReportGUI
     {
         public FrmReportMain()
         {
-            InitializeComponent();                     
+            InitializeComponent();
+            CultureInfo newCulture = AppTypes.Code2Culture(commonTypes.AppTypes.LanguageCodes.VI);
+
+            common.language.myCulture = newCulture;          
+            common.language.SetLanguage();
+            commonClass.SysLibs.SetLanguage();
         }
 
         private void button1_Click(object sender, EventArgs e)

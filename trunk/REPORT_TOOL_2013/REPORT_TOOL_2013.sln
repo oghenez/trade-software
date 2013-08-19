@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChartHelper", "ChartHelper\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceConsumer", "ServiceConsumer\ServiceConsumer.csproj", "{1BE81917-2538-492C-816D-B4AD6235E6C1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dataAccess", "dataAccess\dataAccess.csproj", "{826C6D25-5C31-4CEA-B9A3-01578ECDB148}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -43,6 +45,10 @@ Global
 		{1BE81917-2538-492C-816D-B4AD6235E6C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1BE81917-2538-492C-816D-B4AD6235E6C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1BE81917-2538-492C-816D-B4AD6235E6C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{826C6D25-5C31-4CEA-B9A3-01578ECDB148}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{826C6D25-5C31-4CEA-B9A3-01578ECDB148}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{826C6D25-5C31-4CEA-B9A3-01578ECDB148}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{826C6D25-5C31-4CEA-B9A3-01578ECDB148}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
