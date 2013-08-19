@@ -19,6 +19,7 @@ using DW = DocumentFormat.OpenXml.Drawing.Wordprocessing;
 using PIC = DocumentFormat.OpenXml.Drawing.Pictures;
 using System.Windows.Forms.DataVisualization.Charting;
 using OpenXMLDemo.StockService;
+using OpenXMLDemo.Gateway;
 
 
 namespace OpenXMLDemo
@@ -37,7 +38,7 @@ namespace OpenXMLDemo
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
+            PriceData.getPriceDataToDay("ACB");
             if (File.Exists("template_output.docx"))
             {
                 File.Delete("template_output.docx");

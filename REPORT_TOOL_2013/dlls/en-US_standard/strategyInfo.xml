@@ -1,0 +1,410 @@
+<Configuration>
+<CATEGORY>
+      <CAT0 Code="HFT" />
+      <CAT0 Description="High Frequency Trading"/>
+  </CATEGORY>
+
+  <CATEGORY>
+     <CAT1 Code="TRE" />
+     <CAT1 Description="Trending"/>
+  </CATEGORY>
+
+  <CATEGORY>
+    <CAT2 Code="BUYSIG" />
+    <CAT2 Description="Buy Signal"/>
+  </CATEGORY>
+
+  <CATEGORY>
+    <CAT3 Code="SELLSIG" />
+    <CAT3 Description="Sell Signal"/>
+  </CATEGORY>
+
+  <CATEGORY>
+    <CAT4 Code="PFL" />
+    <CAT4 Description="Portfolio Selection"/>
+  </CATEGORY>
+
+
+  <STRATEGY>
+    <TwoSMAMACDSCR Type="SCREENING" />
+    <TwoSMAMACDSCR ParameterPrecision="1"/>
+    <TwoSMAMACDSCR Code="SCR001" />
+    <TwoSMAMACDSCR Category="BUYSIG" />
+    <TwoSMAMACDSCR Parameters="MACD Fast=12,MACD Slow=26,MACD Signal=9,Short Period=5,Long Period=10" />
+    <TwoSMAMACDSCR ParameterDescriptions="Period defines the input data for the strategy" />
+    <TwoSMAMACDSCR Name="MACD and Two SMA Buy Signal" />
+    <TwoSMAMACDSCR Description="Screen stock macd line above 0 and Short term SMA is above Long term SMA" />
+    <TwoSMAMACDSCR URL="http://www.quantum.vn" />
+    <TwoSMAMACDSCR Authors="Quan Nguyen" />
+    <TwoSMAMACDSCR Version="1.0" />
+  </STRATEGY>
+  <STRATEGY>
+    <TwoSMASCR Type="SCREENING" />
+    <TwoSMASCR Code="SCR002" />
+    <TwoSMASCR Category="TRE" />
+    <TwoSMASCR Parameters="Short Period=5,Long Period=10" />
+    <TwoSMASCR ParameterDescriptions="Period defines the parameter for the screening" />
+    <TwoSMASCR Name="Two SMA Strategy Buy Signal" />
+    <TwoSMASCR Description="Two SMA Screening" />
+    <TwoSMASCR URL="http://www.quantum.vn" />
+    <TwoSMASCR Authors="Quan Nguyen" />
+    <TwoSMASCR Version="1.0" />
+  </STRATEGY>
+  <STRATEGY>
+    <BasicADXSCR Type="SCREENING" />
+    <BasicADXSCR Code="SCR003" />
+    <BasicADXSCR Category="TRE" />
+    <BasicADXSCR Parameters="ADX Period=14" />
+    <BasicADXSCR ParameterDescriptions="Period defines the parameter for the screening" />
+    <BasicADXSCR Name="ADX Screening" />
+    <BasicADXSCR Description="Screen stock with ADX as parameter" />
+    <BasicADXSCR URL="http://www.quantum.vn" />
+    <BasicADXSCR Authors="Quan Nguyen" />
+    <BasicADXSCR Version="1.0" />
+  </STRATEGY>
+  <STRATEGY>
+    <MACD_HistogramSCR Type="SCREENING" />
+    <MACD_HistogramSCR Code="SCR004" />
+    <MACD_HistogramSCR Category="TRE" />
+    <MACD_HistogramSCR Parameters="MACD Fast=12,MACD Slow=26,MACD Signal=9" />
+    <MACD_HistogramSCR ParameterDescriptions="Period defines the parameter relative strength" />
+    <MACD_HistogramSCR Name="MACD Histogram Changed" />
+    <MACD_HistogramSCR Description="MACD Histogram Changed" />
+    <MACD_HistogramSCR URL="http://www.quantum.vn" />
+    <MACD_HistogramSCR Authors="Quan Nguyen" />
+    <MACD_HistogramSCR Version="1.0" />
+  </STRATEGY>
+  <STRATEGY>
+    <RelativeStrengthSCR Type="SCREENING" />
+    <RelativeStrengthSCR Code="SCR005" />
+    <RelativeStrengthSCR Category="TRE" />
+    <RelativeStrengthSCR Parameters="Period=180" />
+    <RelativeStrengthSCR ParameterDescriptions="Period defines the parameter relative strength" />
+    <RelativeStrengthSCR Name="Relative Strength" />
+    <RelativeStrengthSCR Description="Relative Strength" />
+    <RelativeStrengthSCR URL="http://www.quantum.vn" />
+    <RelativeStrengthSCR Authors="Quan Nguyen" />
+    <RelativeStrengthSCR Version="1.0" />
+  </STRATEGY>
+  <STRATEGY>
+    <SupportSCR Type="SCREENING" />
+    <SupportSCR Code="SCR006" />
+    <SupportSCR Category="TRE" />
+    <SupportSCR Parameters="Period=30, Distance (%)=1" />
+    <SupportSCR ParameterDescriptions="Period defines the parameter for support line. Distance is between price and support line" />
+    <SupportSCR Name="Stocks near support" />
+    <SupportSCR Description="Screen stock near support line" />
+    <SupportSCR URL="http://www.quantum.vn" />
+    <SupportSCR Authors="Quan Nguyen" />
+    <SupportSCR Version="1.0" />
+  </STRATEGY>
+  <STRATEGY>
+    <ResistanceSCR Type="SCREENING" />
+    <ResistanceSCR Code="SCR007" />
+    <ResistanceSCR Category="TRE" />
+    <ResistanceSCR Parameters="Period=30, Distance (%)=1" />
+    <ResistanceSCR ParameterDescriptions="Period defines the parameter for resistance line. Distance is between price and resistance line" />
+    <ResistanceSCR Name="Stocks near resistance" />
+    <ResistanceSCR Description="Screen stock near resistance line" />
+    <ResistanceSCR URL="http://www.quantum.vn" />
+    <ResistanceSCR Authors="Quan Nguyen" />
+    <ResistanceSCR Version="1.0" />
+  </STRATEGY>
+  <STRATEGY>
+    <StochFastSCR Type="SCREENING" />
+    <StochFastSCR Code="SCR008" />
+    <StochFastSCR Category="TRE" />
+    <StochFastSCR Parameters="Fast K=14,Fast D=3" />
+    <StochFastSCR ParameterDescriptions="" />
+    <StochFastSCR Name="Stochastic Fast" />
+    <StochFastSCR Description="Screen stock fast K line above fast D line" />
+    <StochFastSCR URL="http://www.quantum.vn" />
+    <StochFastSCR Authors="Quan Nguyen" />
+    <StochFastSCR Version="1.0" />
+  </STRATEGY>
+  <STRATEGY>
+    <BasicMACDSCR Type="SCREENING" />
+    <BasicMACDSCR Code="SCR009" />
+    <BasicMACDSCR Category="TRE" />
+    <BasicMACDSCR Parameters="MACD Fast=12,MACD Slow=26,MACD Signal=9" />
+    <BasicMACDSCR ParameterDescriptions="Period defines the input data for the strategy" />
+    <BasicMACDSCR Name="Basic MACD Screening" />
+    <BasicMACDSCR Description="Screen stock with MACD line above 0" />
+    <BasicMACDSCR URL="http://www.quantum.vn" />
+    <BasicMACDSCR Authors="Quan Nguyen" />
+    <BasicMACDSCR Version="1.0" />
+  </STRATEGY>
+  <STRATEGY>
+    <PriceSCR Type="SCREENING" />
+    <PriceSCR Code="SCR010" />
+    <PriceSCR Category="TRE" />
+    <PriceSCR Parameters="SMA Period=200" />
+    <PriceSCR ParameterDescriptions="Period defines the screening line" />
+    <PriceSCR Name="Price Screening" />
+    <PriceSCR Description="Screen stock with price above SMA lines with Period as parameter" />
+    <PriceSCR URL="http://www.quantum.vn" />
+    <PriceSCR Authors="Quan Nguyen" />
+    <PriceSCR Version="1.0" />
+  </STRATEGY>
+  <STRATEGY>
+    <BasicPriceSCR Type="SCREENING"/>
+    <BasicPriceSCR Code="SCR011" />
+    <BasicPriceSCR Category="TRE" />
+    <BasicPriceSCR Parameters="" />
+    <BasicPriceSCR ParameterDescriptions="" />
+    <BasicPriceSCR Name="Basic Price Screening" />
+    <BasicPriceSCR Description="Screen stock with target price" />
+    <BasicPriceSCR URL="http://www.quantum.vn" />
+    <BasicPriceSCR Authors="Quan Nguyen" />
+    <BasicPriceSCR Version="1.0" />
+  </STRATEGY>
+  <STRATEGY>
+    <BasicVolumeSCR Type="SCREENING" />
+    <BasicVolumeSCR Code="SCR012" />
+    <BasicVolumeSCR Category="TRE" />
+    <BasicVolumeSCR Parameters="" />
+    <BasicVolumeSCR ParameterDescriptions="" />
+    <BasicVolumeSCR Name="Volume of the last day in a range" />
+    <BasicVolumeSCR Description="Volume of the last day in a range" />
+    <BasicVolumeSCR URL="http://www.quantum.vn" />
+    <BasicVolumeSCR Authors="Quan Nguyen" />
+    <BasicVolumeSCR Version="1.0" />
+  </STRATEGY>
+  <STRATEGY>
+    <VolumeSCR Type="SCREENING" />
+    <VolumeSCR Code="SCR013" />
+    <VolumeSCR Category="TRE" />
+    <VolumeSCR Parameters="" />
+    <VolumeSCR ParameterDescriptions="" />
+    <VolumeSCR Name="Volume Screening" />
+    <VolumeSCR Description="Volume of the last day above volume of the previous day" />
+    <VolumeSCR URL="http://www.quantum.vn" />
+    <VolumeSCR Authors="Quan Nguyen" />
+    <VolumeSCR Version="1.0" />
+  </STRATEGY>
+  <STRATEGY>
+    <BasicDMISCR Type="SCREENING" />
+    <BasicDMISCR Code="SCR014" />
+    <BasicDMISCR Category="TRE" />
+    <BasicDMISCR Parameters="Plus Period=14,Minus Period=14" />
+    <BasicDMISCR ParameterDescriptions="Period defines the input data for the strategy" />
+    <BasicDMISCR Name="Basic DMI Screening" />
+    <BasicDMISCR Description="Screen stock with DI+ above DI-" />
+    <BasicDMISCR URL="http://www.quantum.vn" />
+    <BasicDMISCR Authors="Quan Nguyen" />
+    <BasicDMISCR Version="1.0" />
+  </STRATEGY>
+  <STRATEGY>
+    <BasicSARSCR Type="SCREENING" />
+    <BasicSARSCR Code="SCR015" />
+    <BasicSARSCR Category="TRE" />
+    <BasicSARSCR Parameters="AF=0.02,Step=0.2" />
+    <BasicSARSCR ParameterPrecision="2"/>
+    <BasicSARSCR ParameterDescriptions="The Acceleration Factor (AF), which is also referred to as the Step, dictates SAR sensitivity.Step gradually increases as the trend extends until it hits a maximum. SAR sensitivity can be decreased by decreasing the Step. A lower step moves SAR further from price, which makes a reversal less likely." />
+    <BasicSARSCR Name="SAR Screening" />
+    <BasicSARSCR Description="Screen stock with SAR signal for buy" />
+    <BasicSARSCR URL="http://www.quantum.vn" />
+    <BasicSARSCR Authors="Quan Nguyen" />
+    <BasicSARSCR Version="1.0" />
+  </STRATEGY>
+  <STRATEGY>
+    <PriceChangeSCR Type="SCREENING" />
+    <PriceChangeSCR Code="SCR016" />
+    <PriceChangeSCR Category="TRE" />
+    <PriceChangeSCR Parameters="Period=30" />
+    <PriceChangeSCR ParameterDescriptions="Period defines the input data for the screening" />
+    <PriceChangeSCR Name="Price change (%)" />
+    <PriceChangeSCR Description="Price change (%)" />
+    <PriceChangeSCR URL="http://www.quantum.vn" />
+    <PriceChangeSCR Authors="Quan Nguyen" />
+    <PriceChangeSCR Version="1.0" />
+  </STRATEGY>
+  <STRATEGY>
+    <BasicATRSCR Type="SCREENING" />
+    <BasicATRSCR Code="SCR017" />
+    <BasicATRSCR Category="TRE" />
+    <BasicATRSCR Parameters="Period=14" />
+    <BasicATRSCR ParameterDescriptions="Period defines the input data for the screening" />
+    <BasicATRSCR Name="Is Trending ? (ATR)" />
+    <BasicATRSCR Description="Is Trending ? (ATR)" />
+    <BasicATRSCR URL="http://www.quantum.vn" />
+    <BasicATRSCR Authors="Quan Nguyen" />
+    <BasicATRSCR Version="1.0" />
+  </STRATEGY>
+  <STRATEGY>
+    <AbnormaliesSCR Type="SCREENING" />
+    <AbnormaliesSCR Code="SCR018" />
+    <AbnormaliesSCR Category="TRE" />
+    <AbnormaliesSCR Parameters="Period=30,Multi=2" />
+    <AbnormaliesSCR ParameterDescriptions="Period defines the input data for the screening" />
+    <AbnormaliesSCR Name="Abnormalies Screening" />
+    <AbnormaliesSCR Description="Finding stocks which have abnormaly behaviour" />
+    <AbnormaliesSCR URL="http://www.quantum.vn" />
+    <AbnormaliesSCR Authors="Quan Nguyen" />
+    <AbnormaliesSCR Version="1.0" />
+  </STRATEGY>
+
+  <STRATEGY>
+    <RSIOverSold Type="SCREENING" />
+    <RSIOverSold Code="SCR019" />
+    <RSIOverSold Category="TRE" />
+    <RSIOverSold Parameters="Period=14,Oversold=30" />
+    <RSIOverSold ParameterDescriptions="Period defines the input data for the screening" />
+    <RSIOverSold Name="Oversold RSI" />
+    <RSIOverSold Description="Oversold stocks" />
+    <RSIOverSold URL="http://www.quantum.vn" />
+    <RSIOverSold Authors="Quan Nguyen" />
+    <RSIOverSold Version="1.0" />
+  </STRATEGY>
+
+  <STRATEGY>
+    <RSIOverBought Type="SCREENING" />
+    <RSIOverBought Code="SCR020" />
+    <RSIOverBought Category="TRE" />
+    <RSIOverBought Parameters="Period=14,Overbought=70" />
+    <RSIOverBought ParameterDescriptions="Period defines the input data for the screening" />
+    <RSIOverBought Name="Overbought RSI" />
+    <RSIOverBought Description="Overbought stocks" />
+    <RSIOverBought URL="http://www.quantum.vn" />
+    <RSIOverBought Authors="Quan Nguyen" />
+    <RSIOverBought Version="1.0" />
+  </STRATEGY>
+
+  <STRATEGY>
+    <HybridTestBUY Type="SCREENING" />
+    <HybridTestBUY Code="SCR021"/>
+    <HybridTestBUY Category="TRE" />
+    <HybridTestBUY Parameters="ATR Period=14,SMA Short Period=5,SMA Long Period=10,Stop Loss Level (%)=5,Trailing Stop (%)=15, Take Profit Level (%)=200" />
+    <HybridTestBUY ParameterDescriptions="Period is the period for the short term moving average line." />
+    <HybridTestBUY Name="Testing Hybrid ATR-SMA" />
+    <HybridTestBUY Description="Testing Hybrid ATR-SMA" />
+    <HybridTest URL="http://www.quantum.vn" />
+    <HybridTestBUY Authors="Quan Nguyen" />
+    <HybridTestBUY Version="1.0" />
+  </STRATEGY>
+  
+  <!--Sell Signal Screening Description-->
+  <STRATEGY>
+    <TwoSMAMACD_SELL Type="SCREENING" />
+    <TwoSMAMACD_SELL ParameterPrecision="1"/>
+    <TwoSMAMACD_SELL Code="SELL001" />
+    <TwoSMAMACD_SELL Category="SELLSIG" />
+    <TwoSMAMACD_SELL Parameters="MACD Fast=12,MACD Slow=26,MACD Signal=9,Short Period=5,Long Period=10" />
+    <TwoSMAMACD_SELL ParameterDescriptions="Period defines the input data for the strategy" />
+    <TwoSMAMACD_SELL Name="MACD and Two SMA Sell Signal" />
+    <TwoSMAMACD_SELL Description="Screen sell signal for stock macd line below 0 and Short term SMA is below Long term SMA" />
+    <TwoSMAMACD_SELL URL="http://www.quantum.vn" />
+    <TwoSMAMACD_SELL Authors="Quan Nguyen" />
+    <TwoSMAMACD_SELL Version="1.0" />
+  </STRATEGY>
+
+  <!--Up Trend Screening Description-->
+  <STRATEGY>
+    <TwoSMAMACD_UPTREND Type="SCREENING" />
+    <TwoSMAMACD_UPTREND ParameterPrecision="1"/>
+    <TwoSMAMACD_UPTREND Code="UPTREND001" />
+    <TwoSMAMACD_UPTREND Category="TRE" />
+    <TwoSMAMACD_UPTREND Parameters="MACD Fast=12,MACD Slow=26,MACD Signal=9,Short Period=5,Long Period=10" />
+    <TwoSMAMACD_UPTREND ParameterDescriptions="Period defines the input data for the strategy" />
+    <TwoSMAMACD_UPTREND Name="MACD and Two SMA Up Trend" />
+    <TwoSMAMACD_UPTREND Description="Screen Up Trend for stock macd line below 0 and Short term SMA is below Long term SMA" />
+    <TwoSMAMACD_UPTREND URL="http://www.quantum.vn" />
+    <TwoSMAMACD_UPTREND Authors="Quan Nguyen" />
+    <TwoSMAMACD_UPTREND Version="1.0" />
+  </STRATEGY>
+
+  <!--Down Trend Screening Description-->
+  <STRATEGY>
+    <TwoSMAMACD_DOWNTREND Type="SCREENING" />
+    <TwoSMAMACD_DOWNTREND ParameterPrecision="1"/>
+    <TwoSMAMACD_DOWNTREND Code="DOWNTREND001" />
+    <TwoSMAMACD_DOWNTREND Category="TRE" />
+    <TwoSMAMACD_DOWNTREND Parameters="MACD Fast=12,MACD Slow=26,MACD Signal=9,Short Period=5,Long Period=10" />
+    <TwoSMAMACD_DOWNTREND ParameterDescriptions="Period defines the input data for the strategy" />
+    <TwoSMAMACD_DOWNTREND Name="MACD and Two SMA Down Trend" />
+    <TwoSMAMACD_DOWNTREND Description="Screen Down Trend for stock macd line below 0 and Short term SMA is below Long term SMA" />
+    <TwoSMAMACD_DOWNTREND URL="http://www.quantum.vn" />
+    <TwoSMAMACD_DOWNTREND Authors="Quan Nguyen" />
+    <TwoSMAMACD_DOWNTREND Version="1.0" />
+  </STRATEGY>
+  
+  <!--Strategy Description-->
+  <STRATEGY>
+    <BuyAndHold Code="STR001"/>
+    <BuyAndHold Category="TRE" />
+    <BuyAndHold Parameters="" />
+    <BuyAndHold ParameterDescriptions="" />
+    <BuyAndHold Name="Buy and Hold" />
+    <BuyAndHold Description="Buy and Hold during period" />
+    <BuyAndHold URL="http://www.quantum.vn" />
+    <BuyAndHold Authors="Quan Nguyen" />
+    <BuyAndHold Version="1.0" />
+  </STRATEGY>
+
+  <STRATEGY>
+    <BasicMACD Code="STR004"/>
+    <BasicMACD Category="TRE" />
+    <BasicMACD Parameters="MACD Fast=12,MACD Slow=26,MACD Signal=9" />
+    <BasicMACD ParameterDescriptions="Period defines the input data for the strategy" />
+    <BasicMACD Name="Basic MACD" />
+    <BasicMACD Description="Buy when there is cut between signal and macd line" />
+    <BasicMACD URL="http://www.quantum.vn" />
+    <BasicMACD Authors="Quan Nguyen" />
+    <BasicMACD Version="1.0" />
+  </STRATEGY>
+
+  <STRATEGY>
+    <TwoSMA Code="STR025"/>
+    <TwoSMA Category="TRE" />
+    <TwoSMA Parameters="Short Period = 5,Long Period=10,Stop Loss Level (%)=5,Trailing Stop (%)=15, Take Profit Level (%)=50" />
+    <TwoSMA ParameterDescriptions="Short Period is the period for the short term moving average line.&#xD;&#xA;                 Long Period is the period for the long term moving average line." />
+    <TwoSMA Name="Two Simple Moving Average Waves" />
+    <TwoSMA Description="Two Simple Moving Average Waves" />
+    <TwoSMA URL="http://www.quantum.vn" />
+    <TwoSMA Authors="Quan Nguyen" />
+    <TwoSMA Version="1.0" />
+  </STRATEGY>
+
+  <STRATEGY>
+    <HybridEMAATR Code="STR037"/>
+    <HybridEMAATR Category="HFT" />
+    <HybridEMAATR Parameters="ATR Period=14,EMA Short Period=5,EMA Long Period=10,Stop Loss Level (%)=5,Trailing Stop (%)=15, Take Profit Level (%)=200" />
+    <HybridEMAATR ParameterDescriptions="Period is the period for the short term moving average line." />
+    <HybridEMAATR Name="Hybrid ATR-EMA" />
+    <HybridEMAATR Description="Hybrid ATR-EMA" />
+    <HybridEMAATR URL="http://www.quantum.vn" />
+    <HybridEMAATR Authors="Quan Nguyen" />
+    <HybridEMAATR Version="1.0" />
+  </STRATEGY>
+
+
+  <STRATEGY>
+    <HybridSARATR Code="STR041"/>
+    <HybridSARATR Category="HFT" />
+    <HybridSARATR Parameters="ATR Period=14,AF=0.02,Step=0.2,Stop Loss Level (%)=5,Trailing Stop (%)=15, Take Profit Level (%)=200" />
+    <HybridSARATR ParameterPrecision="2"/>
+    <HybridSARATR ParameterDescriptions="Period is the period for the short term moving average line." />
+    <HybridSARATR Name="ATR-Parabolic SAR" />
+    <HybridSARATR Description="ATR-Parabolic SAR" />
+    <HybridSARATR URL="http://www.quantum.vn" />
+    <HybridSARATR Authors="Quan Nguyen" />
+    <HybridSARATR Version="1.0" />
+  </STRATEGY>
+
+
+  <STRATEGY>
+    <TwoSMABasicMACD ParameterPrecision="1"/>
+    <TwoSMABasicMACD Code="STR044" />
+    <TwoSMABasicMACD Category="HFT" />
+    <TwoSMABasicMACD Parameters="MACD Fast=12,MACD Slow=26,MACD Signal=9,Short Period=5,Long Period=10,Stop Loss Level (%)=5,Trailing Stop (%)=15, Take Profit Level (%)=50" />
+    <TwoSMABasicMACD ParameterDescriptions="Period defines the input data for the strategy" />
+    <TwoSMABasicMACD Name="Basic MACD and Two SMA cut" />
+    <TwoSMABasicMACD Description="Screen sell signal for stock macd line below 0 and Short term SMA is below Long term SMA" />
+    <TwoSMABasicMACD URL="http://www.quantum.vn" />
+    <TwoSMABasicMACD Authors="Quan Nguyen" />
+    <TwoSMABasicMACD Version="1.0" />
+  </STRATEGY>
+  
+
+  
+</Configuration>

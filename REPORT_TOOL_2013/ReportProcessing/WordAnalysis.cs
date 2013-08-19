@@ -7,6 +7,8 @@ using System.Text.RegularExpressions;
 using System.Xml;
 using System.Xml.Linq;
 using DocumentFormat.OpenXml.Packaging;
+using ServiceConsumer.Gateway;
+using DocumentFormat.OpenXml.Wordprocessing;
 
 
 namespace ReportProcessing
@@ -22,7 +24,46 @@ namespace ReportProcessing
         public void AnalyseReport(WordprocessingDocument wordDoc)
         {
             wDoc = wordDoc;
+            //PROCESSING STRING EXPRESSION IN WORD
             this.SearchAndReplace(wordDoc, "", "", true);
+
+            //PROCESSING StockTable_Tag
+            string tblTag = "StockTable_Tag";
+            MainDocumentPart mainPart = wordDoc.MainDocumentPart;
+                //StockService.baseDS.stockCodeDataTable tbl = Gateway.PriceData.getPriceDataToDay();
+                SdtBlock ccWithTable = mainPart.Document.Body.Descendants<SdtBlock>().Where
+                (r => r.SdtProperties.GetFirstChild<Tag>().Val == tblTag).Single();
+
+                // This should return only one table.
+                Table theTable = ccWithTable.Descendants<Table>().Single();
+                // Get the last row in the table.
+                TableRow theRow = theTable.Elements<TableRow>().Last();
+
+                StockReport stockReport = StockReport.getInstance();
+                databases.tmpDS.dataVarrianceDataTable tbl =  stockReport.TopBiggestChangeTable();
+                foreach (databases.tmpDS.dataVarrianceRow item in tbl.Rows)
+                {
+                    try
+                    {                        
+                        TableRow rowCopy = (TableRow)theRow.CloneNode(true);
+                        rowCopy.Descendants<TableCell>().ElementAt(0).Append(new Paragraph
+                            (new Run(new Text(item.code.ToString()))));
+                        rowCopy.Descendants<TableCell>().ElementAt(1).Append(new Paragraph
+                            (new Run(new Text(String.Format("{0:0,0}", item.val1*1000)+" VNĐ"))));
+                        rowCopy.Descendants<TableCell>().ElementAt(2).Append(new Paragraph
+                            (new Run(new Text(String.Format("{0:0,0}", item.val2 * 1000) + " VNĐ"))));
+                        rowCopy.Descendants<TableCell>().ElementAt(3).Append(new Paragraph
+                        (new Run(new Text(String.Format("{0:0,0}", item.value * 1000) + " VNĐ"))));
+                        rowCopy.Descendants<TableCell>().ElementAt(4).Append(new Paragraph
+                        (new Run(new Text((item.percent / 100).ToString("P")))));
+                        theTable.AppendChild(rowCopy);
+                    }
+                    catch (Exception ex)
+                    {
+                        continue;
+                    }                    
+                }
+                theTable.RemoveChild(theRow);                
         }
         public XmlDocument GetXmlDocument(OpenXmlPart part)
         {
@@ -174,12 +215,10 @@ namespace ReportProcessing
                 MatchCollection m = _regex.Matches(sb.ToString());
                 foreach (Match item in m)
                 {
-                    //item.Groups[0].Value;
-                    TestData t = new TestData();
                     string value = item.Groups[0].Value;
                     value = value.Remove(0,1);
                     value = value.Remove(value.Length - 1);
-                    string text = t.testString(value);
+                    string text = ReportResult.processString(value);
                     this.SearchAndReplaceInParagraph(paragraph, item.Groups[0].Value, text, true);                    
                 }
                 return;
