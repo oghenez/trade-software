@@ -113,6 +113,11 @@ namespace commonTypes
         [DataMember]
         public AppTypes.SyslogMedia WriteLogAccess = AppTypes.SyslogMedia.None;
     }
+
+    /// <summary>
+    /// Class Settings defines the default settings of the applications, which includes:
+    /// - application folders
+    /// </summary>
     public static class Settings
     {
         public const bool sysDebugMode = false;
