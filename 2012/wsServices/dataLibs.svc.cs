@@ -1414,7 +1414,18 @@ namespace wsServices
             }
         }
 
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="frDate">From Date</param>
+        /// <param name="toDate">To Date</param>
+        /// <param name="timeScaleCode">Time Scale</param>
+        /// <param name="exchangeCode">Market</param>
+        /// <param name="code"></param>
+        /// <param name="variancePerc"></param>
+        /// <param name="variance"></param>
+        /// <param name="precision"></param>
+        /// <returns></returns>
         public databases.tmpDS.priceDiagnoseDataTable DiagnosePrice_CloseAndNextOpen(DateTime frDate, DateTime toDate, string timeScaleCode,
                                                                    string exchangeCode,string code, double variancePerc, double variance,byte precision)
         {

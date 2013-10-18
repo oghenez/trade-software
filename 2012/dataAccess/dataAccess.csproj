@@ -161,6 +161,7 @@
     <None Include="serviceReferences\ServiceReference1\configuration.svcinfo" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="dataAccess.cd" />
     <None Include="serviceReferences\ServiceReference1\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>

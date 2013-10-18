@@ -184,6 +184,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <None Include="application.cd" />
     <None Include="Resources\save.png" />
   </ItemGroup>
   <ItemGroup>

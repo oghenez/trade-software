@@ -154,6 +154,11 @@ namespace admin.forms
             }
         }
 
+        /// <summary>
+        /// Tim kiem cac co phieu co dau hieu dieu chinh
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void diagnoseBtn_Click(object sender, EventArgs e)
         {
             try

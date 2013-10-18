@@ -165,13 +165,27 @@ namespace commonClass
         public static string sysCompanyURL = "";
         #endregion system environment
     }
+
+    /// <summary>
+    /// Configuration is the class to manipulate the configuration files of the Quantum software
+    /// </summary>
     public static class Configuration
     {
+
+        /// <summary>
+        /// Getting the file name of strategy.ini
+        /// </summary>
+        /// <returns></returns>
         public static XmlDocument GetLocalXmlDocSTRATEGY()
         {
             string tmp = common.fileFuncs.ConcatFileName(new string[] { Settings.sysExecuteDirectory, common.language.myCulture.Name, Consts.constConfFile_Meta_Strategy });
             return common.xmlLibs.GetXmlDocument(tmp);
         }
+
+        /// <summary>
+        /// Getting the file name of indication.ini
+        /// </summary>
+        /// <returns></returns>
         public static XmlDocument GetLocalXmlDocINDICATOR()
         {
             string tmp = common.fileFuncs.ConcatFileName(new string[] { Settings.sysExecuteDirectory, common.language.myCulture.Name, Consts.constConfFile_Meta_Indicator });

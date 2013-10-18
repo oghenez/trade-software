@@ -758,15 +758,15 @@
   </STRATEGY>
 
   <STRATEGY>
-    <HybridMACDHistATR Code="STR039"/>
-    <HybridMACDHistATR Category="HFT" />
-    <HybridMACDHistATR Parameters="ATR Period=14,MACD Fast=12,MACD Slow=26,MACD Signal=9,ADX Period=14,Stop Loss Level (%)=5,Trailing Stop (%)=15, Take Profit Level (%)=200" />
-    <HybridMACDHistATR ParameterDescriptions="Period is the period for the short term moving average line." />
-    <HybridMACDHistATR Name="Hybrid ATR-MACD Histogram" />
-    <HybridMACDHistATR Description="Hybrid ATR-MACD Histogram" />
-    <HybridMACDHistATR URL="http://www.quantumvn.com" />
-    <HybridMACDHistATR Authors="Quan Nguyen" />
-    <HybridMACDHistATR Version="1.0" />
+    <MACDHistATR Code="STR039"/>
+    <MACDHistATR Category="HFT" />
+    <MACDHistATR Parameters="ATR Period=14,MACD Fast=12,MACD Slow=26,MACD Signal=9,ADX Period=14,Stop Loss Level (%)=5,Trailing Stop (%)=15, Take Profit Level (%)=200" />
+    <MACDHistATR ParameterDescriptions="Period is the period for the short term moving average line." />
+    <MACDHistATR Name="Hybrid ATR-MACD Histogram" />
+    <MACDHistATR Description="Hybrid ATR-MACD Histogram" />
+    <MACDHistATR URL="http://www.quantumvn.com" />
+    <MACDHistATR Authors="Quan Nguyen" />
+    <MACDHistATR Version="1.0" />
   </STRATEGY>
 
   <STRATEGY>
@@ -782,16 +782,16 @@
   </STRATEGY>
 
   <STRATEGY>
-    <HybridSARATR Code="STR041"/>
-    <HybridSARATR Category="HFT" />
-    <HybridSARATR Parameters="ATR Period=14,AF=0.02,Step=0.2,Stop Loss Level (%)=5,Trailing Stop (%)=15, Take Profit Level (%)=200" />
-    <HybridSARATR ParameterPrecision="2"/>
-    <HybridSARATR ParameterDescriptions="Period is the period for the short term moving average line." />
-    <HybridSARATR Name="ATR-Parabolic SAR" />
-    <HybridSARATR Description="ATR-Parabolic SAR" />
-    <HybridSARATR URL="http://www.quantumvn.com" />
-    <HybridSARATR Authors="Quan Nguyen" />
-    <HybridSARATR Version="1.0" />
+    <SARATR Code="STR041"/>
+    <SARATR Category="HFT" />
+    <SARATR Parameters="ATR Period=14,AF=0.02,Step=0.2,Stop Loss Level (%)=5,Trailing Stop (%)=15, Take Profit Level (%)=200" />
+    <SARATR ParameterPrecision="2"/>
+    <SARATR ParameterDescriptions="Period is the period for the short term moving average line." />
+    <SARATR Name="ATR-Parabolic SAR" />
+    <SARATR Description="ATR-Parabolic SAR" />
+    <SARATR URL="http://www.quantumvn.com" />
+    <SARATR Authors="Quan Nguyen" />
+    <SARATR Version="1.0" />
   </STRATEGY>
 
   <STRATEGY>
