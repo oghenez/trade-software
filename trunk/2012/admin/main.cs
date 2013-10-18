@@ -9,8 +9,8 @@ using commonTypes;
 
 namespace admin
 {
-    //public partial class main : common.forms.baseApplication
-    public partial class main : baseClass.forms.baseApplication
+    public partial class main : common.forms.baseApplication
+    //public partial class main : baseClass.forms.baseApplication
     {
         public main()
         {
@@ -18,7 +18,7 @@ namespace admin
             {
                 common.language.myCulture = new System.Globalization.CultureInfo("vi-VN");
                 InitializeComponent();
-                LogAccess = false;
+                //LogAccess = false;
                 //test.LoadTestConfig();
             }
             catch (Exception er)
@@ -186,6 +186,11 @@ namespace admin
             }
         }
 
+        /// <summary>
+        /// Kiem tra du lieu
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void dataDiagnoseMenu_Click(object sender, EventArgs e)
         {
             try

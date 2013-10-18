@@ -237,6 +237,7 @@
     <None Include="Resources\run.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="admin.cd" />
     <None Include="Resources\excel.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
