@@ -133,26 +133,26 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\DataSources\commonClass.DataValues.datasource" />
-    <None Include="serviceReferences\ServiceReference1\baseDS.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="serviceReferences\ServiceReference1\DataLibs.xsd" />
-    <None Include="serviceReferences\ServiceReference1\DataLibs1.xsd" />
-    <None Include="serviceReferences\ServiceReference1\DataLibs2.xsd" />
-    <None Include="serviceReferences\ServiceReference1\tmpDS.xsd">
-      <SubType>Designer</SubType>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="serviceReferences\ServiceReference1\" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="serviceReferences\ServiceReference1\baseDS.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="serviceReferences\ServiceReference1\DataLibs.disco" />
     <None Include="serviceReferences\ServiceReference1\DataLibs.wsdl" />
+    <None Include="serviceReferences\ServiceReference1\DataLibs.xsd" />
+    <None Include="serviceReferences\ServiceReference1\DataLibs1.xsd" />
+    <None Include="serviceReferences\ServiceReference1\DataLibs2.xsd" />
     <None Include="serviceReferences\ServiceReference1\DataLibs3.xsd" />
     <None Include="serviceReferences\ServiceReference1\DataLibs4.xsd" />
     <None Include="serviceReferences\ServiceReference1\DataLibs5.xsd" />
     <None Include="serviceReferences\ServiceReference1\DataLibs6.xsd" />
+    <None Include="serviceReferences\ServiceReference1\tmpDS.xsd">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="serviceReferences\ServiceReference1\configuration91.svcinfo" />

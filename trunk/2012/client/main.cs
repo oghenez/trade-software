@@ -64,7 +64,7 @@ namespace client
                 DateTime time1 = DateTime.Now;
                 try
                 {
-                    retVal = base.CheckValid();
+                    //retVal = base.CheckValid();
                 }
                 catch (Exception er)
                 {
@@ -447,7 +447,7 @@ namespace client
                 for (int idx = 0; idx < dockPanel.Contents.Count; idx++)
                 {
                     //Update stock charts
-                    if (dockPanel.Contents[idx].GetType() == typeof(Tools.Forms.tradeAnalysis))
+                    if ((dockPanel.Contents[idx].GetType() == typeof(Tools.Forms.tradeAnalysis)) && (dockPanel.Contents[idx].DockHandler.IsActivated))
                     {
                         (dockPanel.Contents[idx] as Tools.Forms.tradeAnalysis).UpdateDataFromLastTime();
                         continue;

@@ -3908,15 +3908,15 @@
   </wsp:Policy>
   <wsdl:types>
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
-      <xsd:import schemaLocation="http://dungvq/DataLibs.svc?xsd=xsd0" namespace="http://tempuri.org/" />
-      <xsd:import schemaLocation="http://dungvq/DataLibs.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-      <xsd:import schemaLocation="http://dungvq/DataLibs.svc?xsd=xsd2" />
-      <xsd:import schemaLocation="http://dungvq/DataLibs.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/databases" />
-      <xsd:import schemaLocation="http://dungvq/DataLibs.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/commonTypes" />
-      <xsd:import schemaLocation="http://dungvq/DataLibs.svc?xsd=xsd5" namespace="http://tempuri.org/masterDataSet.xsd" />
-      <xsd:import schemaLocation="http://dungvq/DataLibs.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/commonClass" />
-      <xsd:import schemaLocation="http://dungvq/DataLibs.svc?xsd=xsd7" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
-      <xsd:import schemaLocation="http://dungvq/DataLibs.svc?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/common" />
+      <xsd:import schemaLocation="http://haiquan:8731/DataLibs.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://haiquan:8731/DataLibs.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://haiquan:8731/DataLibs.svc?xsd=xsd2" />
+      <xsd:import schemaLocation="http://haiquan:8731/DataLibs.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/databases" />
+      <xsd:import schemaLocation="http://haiquan:8731/DataLibs.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/commonTypes" />
+      <xsd:import schemaLocation="http://haiquan:8731/DataLibs.svc?xsd=xsd5" namespace="http://tempuri.org/masterDataSet.xsd" />
+      <xsd:import schemaLocation="http://haiquan:8731/DataLibs.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/commonClass" />
+      <xsd:import schemaLocation="http://haiquan:8731/DataLibs.svc?xsd=xsd7" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://haiquan:8731/DataLibs.svc?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/common" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IStockService_GetTopPriceVarrianceUser_InputMessage">
@@ -6930,14 +6930,14 @@
   </wsdl:binding>
   <wsdl:service name="DataLibs">
     <wsdl:port name="basicEndpoint" binding="tns:basicEndpoint">
-      <soap:address location="http://dungvq/DataLibs.svc" />
+      <soap:address location="http://haiquan:8731/DataLibs.svc" />
     </wsdl:port>
     <wsdl:port name="wsEndpoint" binding="tns:wsEndpoint">
-      <soap12:address location="http://dungvq/DataLibs.svc/secure" />
+      <soap12:address location="http://haiquan:8731/DataLibs.svc/secure" />
       <wsa10:EndpointReference>
-        <wsa10:Address>http://dungvq/DataLibs.svc/secure</wsa10:Address>
+        <wsa10:Address>http://haiquan:8731/DataLibs.svc/secure</wsa10:Address>
         <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
-          <Upn>DUNGVQ\ASPNET</Upn>
+          <Spn>host/HAIQUAN</Spn>
         </Identity>
       </wsa10:EndpointReference>
     </wsdl:port>

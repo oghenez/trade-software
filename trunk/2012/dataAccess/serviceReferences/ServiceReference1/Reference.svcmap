@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="38cf1a4c-a86b-40ca-affb-d6fea625857e" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="21c74c51-bcaf-43bd-8815-cd143395ed92" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <EnableDataBinding>true</EnableDataBinding>
@@ -17,20 +17,20 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://localhost/dataLibs.svc" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://localhost:8731/DataLibs.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="tmpDS.xsd" MetadataType="Schema" ID="7e7a5a1c-1dc8-488b-b1dd-bd5e522295d1" SourceId="1" SourceUrl="http://dungvq/DataLibs.svc?xsd=xsd2" />
-    <MetadataFile FileName="baseDS.xsd" MetadataType="Schema" ID="092e2b2d-d1ed-4bee-8d7d-ad9d66c43928" SourceId="1" SourceUrl="http://dungvq/DataLibs.svc?xsd=xsd5" />
-    <MetadataFile FileName="DataLibs.xsd" MetadataType="Schema" ID="a82d3273-c13f-4a4c-89ee-e085403ac2db" SourceId="1" SourceUrl="http://dungvq/DataLibs.svc?xsd=xsd4" />
-    <MetadataFile FileName="DataLibs1.xsd" MetadataType="Schema" ID="ca6f7397-27d1-4ae8-a0af-feebd81a15ab" SourceId="1" SourceUrl="http://dungvq/DataLibs.svc?xsd=xsd1" />
-    <MetadataFile FileName="DataLibs2.xsd" MetadataType="Schema" ID="c12abd99-0205-4335-a93d-4e477d6f761c" SourceId="1" SourceUrl="http://dungvq/DataLibs.svc?xsd=xsd0" />
-    <MetadataFile FileName="DataLibs.disco" MetadataType="Disco" ID="135a90cf-8998-4d3c-80dc-bf8ec75ac1b6" SourceId="1" SourceUrl="http://dungvq/DataLibs.svc?disco" />
-    <MetadataFile FileName="DataLibs3.xsd" MetadataType="Schema" ID="d78d1ec4-b86e-44c5-961c-24ded07232a1" SourceId="1" SourceUrl="http://dungvq/DataLibs.svc?xsd=xsd6" />
-    <MetadataFile FileName="DataLibs4.xsd" MetadataType="Schema" ID="0af876f4-cc24-4fa7-9c49-c580be609c67" SourceId="1" SourceUrl="http://dungvq/DataLibs.svc?xsd=xsd7" />
-    <MetadataFile FileName="DataLibs.wsdl" MetadataType="Wsdl" ID="5aac1f72-c2d1-40b2-94e0-524f0c8e6c7a" SourceId="1" SourceUrl="http://dungvq/DataLibs.svc?wsdl" />
-    <MetadataFile FileName="DataLibs5.xsd" MetadataType="Schema" ID="4f9a9e2b-1e95-423c-8e1d-63295aa71378" SourceId="1" SourceUrl="http://dungvq/DataLibs.svc?xsd=xsd8" />
-    <MetadataFile FileName="DataLibs6.xsd" MetadataType="Schema" ID="8c99f094-a1a4-48d5-85e1-846ba3b32123" SourceId="1" SourceUrl="http://dungvq/DataLibs.svc?xsd=xsd3" />
+    <MetadataFile FileName="DataLibs.disco" MetadataType="Disco" ID="5adacf1a-c752-4508-85ae-9a03dfcbd2fa" SourceId="1" SourceUrl="http://haiquan:8731/DataLibs.svc?disco" />
+    <MetadataFile FileName="DataLibs.xsd" MetadataType="Schema" ID="77801078-bdb4-4c6f-8f18-46b01645dc32" SourceId="1" SourceUrl="http://haiquan:8731/DataLibs.svc?xsd=xsd8" />
+    <MetadataFile FileName="DataLibs.wsdl" MetadataType="Wsdl" ID="075da980-cb54-437c-bb52-49e9b1565245" SourceId="1" SourceUrl="http://haiquan:8731/DataLibs.svc?wsdl" />
+    <MetadataFile FileName="DataLibs1.xsd" MetadataType="Schema" ID="04f34440-037a-4b3e-aff5-9ace4f70e7d5" SourceId="1" SourceUrl="http://haiquan:8731/DataLibs.svc?xsd=xsd7" />
+    <MetadataFile FileName="DataLibs2.xsd" MetadataType="Schema" ID="5c8cb7aa-26ac-49e3-870b-461273ee8fca" SourceId="1" SourceUrl="http://haiquan:8731/DataLibs.svc?xsd=xsd6" />
+    <MetadataFile FileName="baseDS.xsd" MetadataType="Schema" ID="08a001be-b3e0-4a9e-b353-b046747161cb" SourceId="1" SourceUrl="http://haiquan:8731/DataLibs.svc?xsd=xsd5" />
+    <MetadataFile FileName="DataLibs3.xsd" MetadataType="Schema" ID="3906f290-8721-4488-80a4-2ad4662dd338" SourceId="1" SourceUrl="http://haiquan:8731/DataLibs.svc?xsd=xsd4" />
+    <MetadataFile FileName="DataLibs4.xsd" MetadataType="Schema" ID="668d2287-260d-46b0-bda5-a132650c1324" SourceId="1" SourceUrl="http://haiquan:8731/DataLibs.svc?xsd=xsd3" />
+    <MetadataFile FileName="tmpDS.xsd" MetadataType="Schema" ID="b6619d60-f355-402b-b210-bdc53caa58af" SourceId="1" SourceUrl="http://haiquan:8731/DataLibs.svc?xsd=xsd2" />
+    <MetadataFile FileName="DataLibs5.xsd" MetadataType="Schema" ID="b1cc1115-5da9-4c33-bdad-5b89aee957a9" SourceId="1" SourceUrl="http://haiquan:8731/DataLibs.svc?xsd=xsd1" />
+    <MetadataFile FileName="DataLibs6.xsd" MetadataType="Schema" ID="d6dafc9f-0f6a-4067-b8cc-feb16d02ddb7" SourceId="1" SourceUrl="http://haiquan:8731/DataLibs.svc?xsd=xsd0" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
