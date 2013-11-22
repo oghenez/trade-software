@@ -120,7 +120,7 @@ namespace commonTypes
     /// </summary>
     public static class Settings
     {
-        public const bool sysDebugMode = false;
+        public const bool sysDebugMode = true;
 
         private static GlobalSettings _sysGlobal = null;
         public static GlobalSettings sysGlobal
@@ -231,8 +231,8 @@ namespace commonTypes
                 {
                     if (sysDebugMode)
                     {
-                        //_sysExecuteDirectory = common.fileFuncs.ConcatFileName(common.system.GetExecutePath() + "\\..\\wsServices\\obj\\Debug");
-                        _sysExecuteDirectory  = "D:\\work\\stockProject\\code\\wsServices\\obj\\Debug";
+                        _sysExecuteDirectory = common.fileFuncs.ConcatFileName(common.system.GetExecutePath() + "\\..\\dlls");
+                        //_sysExecuteDirectory  = "D:\\work\\stockProject\\code\\wsServices\\obj\\Debug";
                     }
                     else
                     {

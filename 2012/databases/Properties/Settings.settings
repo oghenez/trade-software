@@ -5,10 +5,10 @@
     <Setting Name="dbConnectionString" Type="(Connection string)" Scope="Application">
       <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
 &lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;ConnectionString&gt;Data Source=localhost\sql08;Initial Catalog=stock;Integrated Security=True;MultipleActiveResultSets=True&lt;/ConnectionString&gt;
+  &lt;ConnectionString&gt;Data Source=HAIQUAN\MSSQLSERVER2008;Initial Catalog=stock;User ID=sa;Password=123&lt;/ConnectionString&gt;
   &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
-      <Value Profile="(Default)">Data Source=localhost\sql08;Initial Catalog=stock;Integrated Security=True;MultipleActiveResultSets=True</Value>
+      <Value Profile="(Default)">Data Source=HAIQUAN\MSSQLSERVER2008;Initial Catalog=stock;User ID=sa;Password=123</Value>
     </Setting>
     <Setting Name="importConnectionString" Type="(Connection string)" Scope="Application">
       <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
@@ -17,6 +17,17 @@
   &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
       <Value Profile="(Default)">Data Source=localhost;Initial Catalog=stock-import;Integrated Security=True;MultipleActiveResultSets=True</Value>
+    </Setting>
+    <Setting Name="stockConnectionString" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;Data Source=HAIQUAN\MSSQLSERVER2008;Initial Catalog=stock;User ID=sa;Password=123&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Data Source=HAIQUAN\MSSQLSERVER2008;Initial Catalog=stock;User ID=sa;Password=123</Value>
+    </Setting>
+    <Setting Name="Setting" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
     </Setting>
   </Settings>
 </SettingsFile>

@@ -58,7 +58,9 @@ namespace client.forms
             this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "startSplash";
+            this.ShowIcon = true;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.TopMost = false;
             ((System.ComponentModel.ISupportInitialize)(this.waitingPB)).EndInit();
             this.ResumeLayout(false);
 

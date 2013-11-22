@@ -65,6 +65,7 @@ namespace DataAccess
             if (_myClient != null) _myClient.Abort();
             //Basic binding
             _myClient = new ServiceReference1.StockServiceClient("basicEndpoint");
+            //_myClient.Endpoint=new System.ServiceModel.Description.ServiceEndpoint(
             System.ServiceModel.BasicHttpBinding binding = (_myClient.Endpoint.Binding as System.ServiceModel.BasicHttpBinding);
 
             //Secure binding
@@ -114,17 +115,17 @@ namespace DataAccess
             ServicePointManager.DefaultConnectionLimit = ServicePointManager.DefaultPersistentConnectionLimit;
 
             //For testing
-            if (Settings.sysDebugMode)
-            {
-                _myClient.Endpoint.Address = new System.ServiceModel.EndpointAddress("http://localhost:8731/wsServices/DataLibs");
-                _myClient.ClientCredentials.Windows.ClientCredential.UserName = "";
-                _myClient.ClientCredentials.Windows.ClientCredential.Password = "";
-            }
+            //if (Settings.sysDebugMode)
+            //{
+            //    _myClient.Endpoint.Address = new System.ServiceModel.EndpointAddress("http://localhost:8731/DataLibs");
+            //    _myClient.ClientCredentials.Windows.ClientCredential.UserName = "";
+            //    _myClient.ClientCredentials.Windows.ClientCredential.Password = "";
+            //}
             //End testing
 
             _myClient.Open();
-
             myConnState = ConnState.Connected;
+            
             return true;
         }
         private static void CloseConnection()
@@ -212,6 +213,7 @@ namespace DataAccess
             }
             catch(Exception er)
             {
+                OnError(er);
             }
             return false;
         }
@@ -1089,8 +1091,11 @@ namespace DataAccess
                 lock (myClient)
                 {
                     databases.baseDS.investorDataTable tbl = new databases.baseDS.investorDataTable();
-                    return myClient.GetInvestor_BySQL("SELECT * FROM " + tbl.TableName +
-                                                       " WHERE " + tbl.accountColumn.ColumnName + "=N'" + account + "'");
+                    //string sql = "SELECT * FROM " + tbl.TableName +
+                    //                                   " WHERE " + tbl.accountColumn.ColumnName + "=N'" + account + "'";
+                    string sql = "SELECT * FROM " + tbl.TableName +
+                                                       " WHERE " + tbl.accountColumn.ColumnName + "='" + account + "'";
+                    return myClient.GetInvestor_BySQL(sql);
                 }
             }
             catch (Exception er)
