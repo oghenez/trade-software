@@ -1,0 +1,399 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B7600D70-3D5D-4F1D-836D-F867120E3FC2}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>common</RootNamespace>
+    <AssemblyName>common</AssemblyName>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\dlls\</OutputPath>
+    <DefineConstants>
+    </DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\dlls\</OutputPath>
+    <DefineConstants>
+    </DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=12.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Enterprise.Framework, Version=12.0.1100.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Enterprise.InfoStore, Version=12.0.1100.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=12.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=12.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=12.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\WINDOWS\assembly\GAC_MSIL\System.Web.Services\2.0.0.0__b03f5f7f11d50a3a\System.Web.Services.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="control\baseControls.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="control\monthRange.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="control\monthRange.Designer.cs">
+      <DependentUpon>monthRange.cs</DependentUpon>
+    </Compile>
+    <Compile Include="control\dateMonthRange.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="control\dateMonthRange.Designer.cs">
+      <DependentUpon>dateMonthRange.cs</DependentUpon>
+    </Compile>
+    <Compile Include="control\dateOrderRange.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="control\dateOrderRange.Designer.cs">
+      <DependentUpon>dateOrderRange.cs</DependentUpon>
+    </Compile>
+    <Compile Include="control\dateRange.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="control\dateRange.Designer.cs">
+      <DependentUpon>dateRange.cs</DependentUpon>
+    </Compile>
+    <Compile Include="control\dateRange2.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="control\dateRange2.Designer.cs">
+      <DependentUpon>dateRange2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="control\dateTimeRange.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="control\dateTimeRange.designer.cs">
+      <DependentUpon>dateTimeRange.cs</DependentUpon>
+    </Compile>
+    <Compile Include="control\gridViewer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="control\gridViewer.Designer.cs">
+      <DependentUpon>gridViewer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="control\doubleListBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="control\doubleListBox.Designer.cs">
+      <DependentUpon>doubleListBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="control\autoPriceUpdateOptions.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="control\autoPriceUpdateOptions.Designer.cs">
+      <DependentUpon>autoPriceUpdateOptions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="control\richTextEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="control\richTextEditor.Designer.cs">
+      <DependentUpon>richTextEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\baseDialogForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\baseDialogForm.Designer.cs">
+      <DependentUpon>baseDialogForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\baseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\baseForm.designer.cs">
+      <DependentUpon>baseForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\baseMasterDetailForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\baseMasterDetailForm.designer.cs">
+      <DependentUpon>baseMasterDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\baseMasterEditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\baseMasterEditForm.designer.cs">
+      <DependentUpon>baseMasterEditForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\baseReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\baseReportForm.Designer.cs">
+      <DependentUpon>baseReportForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\dataViewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\dataViewer.designer.cs">
+      <DependentUpon>dataViewer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\autoPriceUpdateOptions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\autoPriceUpdateOptions.Designer.cs">
+      <DependentUpon>autoPriceUpdateOptions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="includes\constants.cs" />
+    <Compile Include="libs\Export.cs" />
+    <Compile Include="libs\cryption.cs" />
+    <Compile Include="control\gridViewControl_General.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="libs\fileLibs.cs" />
+    <Compile Include="libs\hashing.cs" />
+    <Compile Include="libs\stringLibs.cs" />
+    <Compile Include="libs\sysLibs.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="reports\reportViewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="reports\reportViewer.designer.cs">
+      <DependentUpon>reportViewer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="reports\reportViewerExt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="reports\reportViewerExt.designer.cs">
+      <DependentUpon>reportViewerExt.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="control\baseControls.resx">
+      <DependentUpon>baseControls.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="control\monthRange.resx">
+      <DependentUpon>monthRange.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="control\dateMonthRange.resx">
+      <DependentUpon>dateMonthRange.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="control\dateOrderRange.resx">
+      <DependentUpon>dateOrderRange.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="control\dateRange.resx">
+      <DependentUpon>dateRange.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="control\dateRange2.resx">
+      <DependentUpon>dateRange2.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="control\dateTimeRange.resx">
+      <DependentUpon>dateTimeRange.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="control\gridViewer.resx">
+      <DependentUpon>gridViewer.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="control\doubleListBox.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>doubleListBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="control\autoPriceUpdateOptions.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>autoPriceUpdateOptions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="control\richTextEditor.resx">
+      <DependentUpon>richTextEditor.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\baseDialogForm.resx">
+      <DependentUpon>baseDialogForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\baseForm.resx">
+      <DependentUpon>baseForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\baseMasterDetailForm.resx">
+      <DependentUpon>baseMasterDetailForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\baseMasterEditForm.resx">
+      <DependentUpon>baseMasterEditForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\baseReportForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>baseReportForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\dataViewer.resx">
+      <DependentUpon>dataViewer.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\autoPriceUpdateOptions.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>autoPriceUpdateOptions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <SubType>Designer</SubType>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reports\reportViewer.resx">
+      <DependentUpon>reportViewer.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reports\reportViewer.vi-VN.resx">
+      <DependentUpon>reportViewer.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reports\reportViewerExt.resx">
+      <DependentUpon>reportViewerExt.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reports\reportViewerExt.vi-VN.resx">
+      <DependentUpon>reportViewerExt.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\print.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\report.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\scanner.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\refresh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\remove.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\down.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\find.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\addNew.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\addLine.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\deleteLine.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\excel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\previous.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\export.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\first.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\last.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\next.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\printsetup.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\properties.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
