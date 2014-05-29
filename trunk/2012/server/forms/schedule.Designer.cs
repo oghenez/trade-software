@@ -41,6 +41,7 @@
             this.myTimer = new System.Windows.Forms.Timer(this.components);
             this.startBtn = new common.controls.baseButton();
             this.pauseBtn = new common.controls.baseButton();
+            this.timerAlert = new System.Windows.Forms.Timer(this.components);
             this.scheduleGb.SuspendLayout();
             this.basePanel1.SuspendLayout();
             this.SuspendLayout();
@@ -90,8 +91,6 @@
             // tradeAlertChk
             // 
             this.tradeAlertChk.AutoSize = true;
-            this.tradeAlertChk.Checked = true;
-            this.tradeAlertChk.CheckState = System.Windows.Forms.CheckState.Checked;
             this.tradeAlertChk.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tradeAlertChk.Location = new System.Drawing.Point(36, 46);
             this.tradeAlertChk.Margin = new System.Windows.Forms.Padding(2);
@@ -193,6 +192,10 @@
             this.pauseBtn.UseVisualStyleBackColor = true;
             this.pauseBtn.Visible = false;
             // 
+            // timerAlert
+            // 
+            this.timerAlert.Tick += new System.EventHandler(this.timerAlert_Tick);
+            // 
             // scheduleForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -232,6 +235,7 @@
         protected System.Windows.Forms.Timer myTimer;
         private common.controls.baseCheckBox tradeAlertChk;
         private common.controls.baseCheckBox fetchDataChk;
+        protected System.Windows.Forms.Timer timerAlert;
     }
 }
 

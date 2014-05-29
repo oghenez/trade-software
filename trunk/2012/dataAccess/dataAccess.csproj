@@ -32,6 +32,22 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="application, Version=1.3.0.0, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="common, Version=1.5.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -108,31 +124,8 @@
     <WCFMetadata Include="serviceReferences\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Properties\DataSources\data.tmpDS.datasource" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Properties\DataSources\application.wsData.datasource" />
-    <None Include="Properties\DataSources\data.baseDS.datasource" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Properties\DataSources\commonClass.TradePointInfo.datasource" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Properties\DataSources\commonClass.TransactionInfo.datasource" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Properties\DataSources\System.Data.DataTable1.datasource" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Properties\DataSources\commonClass.GlobalSettings.datasource" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Properties\DataSources\commonTypes.GlobalSettings.datasource" />
-    <None Include="Properties\DataSources\databases.baseDS.datasource" />
-    <None Include="Properties\DataSources\databases.tmpDS.datasource" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Properties\DataSources\commonClass.DataValues.datasource" />
+    <None Include="dataAccess.cd" />
+    <None Include="serviceReferences\ServiceReference1\DataLibs.xsd" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="serviceReferences\ServiceReference1\" />
@@ -143,7 +136,6 @@
     </None>
     <None Include="serviceReferences\ServiceReference1\DataLibs.disco" />
     <None Include="serviceReferences\ServiceReference1\DataLibs.wsdl" />
-    <None Include="serviceReferences\ServiceReference1\DataLibs.xsd" />
     <None Include="serviceReferences\ServiceReference1\DataLibs1.xsd" />
     <None Include="serviceReferences\ServiceReference1\DataLibs2.xsd" />
     <None Include="serviceReferences\ServiceReference1\DataLibs3.xsd" />
@@ -161,7 +153,12 @@
     <None Include="serviceReferences\ServiceReference1\configuration.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="dataAccess.cd" />
+    <None Include="Properties\DataSources\commonClass.DataValues.datasource" />
+    <None Include="Properties\DataSources\commonClass.TradePointInfo.datasource" />
+    <None Include="Properties\DataSources\commonClass.TransactionInfo.datasource" />
+    <None Include="Properties\DataSources\commonTypes.GlobalSettings.datasource" />
+    <None Include="Properties\DataSources\databases.baseDS.datasource" />
+    <None Include="Properties\DataSources\databases.tmpDS.datasource" />
     <None Include="serviceReferences\ServiceReference1\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>

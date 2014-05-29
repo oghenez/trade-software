@@ -1956,7 +1956,8 @@ namespace DataAccess
             {
                 lock (myClient)
                 {
-                    myClient.WriteExcptionLog(investorCode, common.SysLog.MakeData(er));
+                    //myClient.WriteExcptionLog(investorCode,
+                    //myClient.WriteExcptionLog(investorCode, common.SysLog.MakeData(er));
                 }
             }
             catch (Exception ex)
