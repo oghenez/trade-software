@@ -17,3 +17,10 @@ namespace databases.baseDSTableAdapters
     public partial class priceDataTA {
     }
 }
+
+namespace baseDSTableAdapters {
+    
+    
+    public partial class transactionsTA {
+    }
+}

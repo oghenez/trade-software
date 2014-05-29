@@ -151,6 +151,7 @@
     <None Include="Resources\exrate.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="ServerClassDiagram.cd" />
     <None Include="Resources\home1.png" />
   </ItemGroup>
   <ItemGroup>

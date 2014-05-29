@@ -148,5 +148,27 @@ namespace server
                 this.ShowError(er);
             }
         }
+
+        public scheduleForm scheduleForm1
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+            set
+            {
+            }
+        }
+
+        public libs libs
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+            set
+            {
+            }
+        }
     }
 }

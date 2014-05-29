@@ -49,7 +49,8 @@ namespace wsServices
                 if (fDataLibsLoaded) return;
                 common.configuration.withEncryption = true;
                 common.Settings.sysConfigFile = common.fileFuncs.ConcatFileName(Settings.sysExecuteDirectory, commonTypes.Consts.constWebServiceConf);
-                databases.SysLibs.dbConnectionString = common.configuration.GetDbConnectionString();
+                //databases.SysLibs.dbConnectionString = common.configuration.GetDbConnectionString();
+                databases.SysLibs.dbConnectionString = "Data Source=MOSS-SVR6;Initial Catalog=stock;Persist Security Info=True;User ID=sa;Password=P@ssword123";
 
                 GlobalSettings globalSetting = Settings.sysGlobal;
                 application.Configuration.Load_Global_Settings(ref globalSetting);
