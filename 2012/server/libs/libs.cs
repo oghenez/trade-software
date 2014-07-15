@@ -102,6 +102,10 @@ namespace server
             return false;
         }
 
+        /// <summary>
+        /// Cap nhat du lieu voi cac thong tin tu table exchangeDetail va stockExchange
+        /// </summary>
+        /// <param name="updateTime"></param>
         public static void FetchRealTimeData(DateTime updateTime)
         {
             DataView myDataView = new DataView(application.SysLibs.myExchangeDetailTbl);
@@ -109,7 +113,7 @@ namespace server
             string[] parts;
             databases.baseDS.stockExchangeRow marketRow;
             databases.baseDS.exchangeDetailRow exchangeDetailRow;
-            commonClass.SysLibs.WriteSysLog(common.SysSeverityLevel.Informational, "", "Start");
+            //commonClass.SysLibs.WriteSysLog(common.SysSeverityLevel.Informational, "", "Start");
             for (int idx1 = 0; idx1 < application.SysLibs.myStockExchangeTbl.Count; idx1++)
             {
                 marketRow = application.SysLibs.myStockExchangeTbl[idx1];
@@ -144,12 +148,14 @@ namespace server
                     if (retVal==false)
                     {
                         commonClass.SysLibs.WriteSysLog(common.SysSeverityLevel.Informational, "", " - Updated " + exchangeDetailRow.code + " from " +  exchangeDetailRow.address + " failed");
-                        if (exchangeDetailRow.IsgoFalseNull()==false) nextRunCode = exchangeDetailRow.goFalse;
+                        //if (exchangeDetailRow.IsgoFalseNull()==false) 
+                            nextRunCode = exchangeDetailRow.goFalse;
                     }
                     else
                     {
-                        commonClass.SysLibs.WriteSysLog(common.SysSeverityLevel.Informational, "", " - Updated " + exchangeDetailRow.code + " from " +exchangeDetailRow.address + " successful");
-                        if (exchangeDetailRow.IsgoTrueNull() == false) nextRunCode = exchangeDetailRow.goTrue;
+                        //commonClass.SysLibs.WriteSysLog(common.SysSeverityLevel.Informational, "", " - Updated " + exchangeDetailRow.code + " from " +exchangeDetailRow.address + " successful");
+                        //if (exchangeDetailRow.IsgoTrueNull() == false) 
+                        nextRunCode = exchangeDetailRow.goTrue;
                     }
                     //Find next line to run
                     if (nextRunCode == null || nextRunCode.Trim() == "") break;
@@ -157,7 +163,7 @@ namespace server
                     if (exchangeDetailRow == null) break;
                 }
             }
-            commonClass.SysLibs.WriteSysLog(common.SysSeverityLevel.Informational, "", "End");
+            //commonClass.SysLibs.WriteSysLog(common.SysSeverityLevel.Informational, "", "End");
             return;
         }
 
@@ -168,7 +174,7 @@ namespace server
             string[] parts;
             databases.baseDS.stockExchangeRow marketRow;
             databases.baseDS.exchangeDetailRow exchangeDetailRow;
-            commonClass.SysLibs.WriteSysLog(common.SysSeverityLevel.Informational, "", "Start");
+            //commonClass.SysLibs.WriteSysLog(common.SysSeverityLevel.Informational, "", "Start");
             for (int idx1 = 0; idx1 < application.SysLibs.myStockExchangeTbl.Count; idx1++)                
             {
                 marketRow = application.SysLibs.myStockExchangeTbl[idx1];
@@ -209,7 +215,7 @@ namespace server
                     }
                     else
                     {
-                        commonClass.SysLibs.WriteSysLog(common.SysSeverityLevel.Informational, "", " - Updated " + exchangeDetailRow.code + " from " + exchangeDetailRow.address + " successful");
+                        //commonClass.SysLibs.WriteSysLog(common.SysSeverityLevel.Informational, "", " - Updated " + exchangeDetailRow.code + " from " + exchangeDetailRow.address + " successful");
                         if (exchangeDetailRow.IsgoTrueNull() == false) nextRunCode = exchangeDetailRow.goTrue;
                     }
                     //Find next line to run
@@ -218,7 +224,7 @@ namespace server
                     if (exchangeDetailRow == null) break;
                 }
             }
-            commonClass.SysLibs.WriteSysLog(common.SysSeverityLevel.Informational, "", "End");
+            //commonClass.SysLibs.WriteSysLog(common.SysSeverityLevel.Informational, "", "End");
             return;
         }
     }
