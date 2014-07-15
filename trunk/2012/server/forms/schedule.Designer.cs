@@ -42,6 +42,7 @@
             this.startBtn = new common.controls.baseButton();
             this.pauseBtn = new common.controls.baseButton();
             this.timerAlert = new System.Windows.Forms.Timer(this.components);
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.scheduleGb.SuspendLayout();
             this.basePanel1.SuspendLayout();
             this.SuspendLayout();
@@ -196,11 +197,20 @@
             // 
             this.timerAlert.Tick += new System.EventHandler(this.timerAlert_Tick);
             // 
+            // toolStrip1
+            // 
+            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(321, 25);
+            this.toolStrip1.TabIndex = 146;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
             // scheduleForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(321, 148);
             this.Controls.Add(this.basePanel1);
+            this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.startBtn);
             this.Controls.Add(this.pauseBtn);
             this.Controls.Add(this.scheduleGb);
@@ -210,9 +220,10 @@
             this.Name = "scheduleForm";
             this.Text = "Tool";
             this.Controls.SetChildIndex(this.scheduleGb, 0);
-            this.Controls.SetChildIndex(this.TitleLbl, 0);
             this.Controls.SetChildIndex(this.pauseBtn, 0);
             this.Controls.SetChildIndex(this.startBtn, 0);
+            this.Controls.SetChildIndex(this.toolStrip1, 0);
+            this.Controls.SetChildIndex(this.TitleLbl, 0);
             this.Controls.SetChildIndex(this.basePanel1, 0);
             this.scheduleGb.ResumeLayout(false);
             this.scheduleGb.PerformLayout();
@@ -236,6 +247,7 @@
         private common.controls.baseCheckBox tradeAlertChk;
         private common.controls.baseCheckBox fetchDataChk;
         protected System.Windows.Forms.Timer timerAlert;
+        private System.Windows.Forms.ToolStrip toolStrip1;
     }
 }
 

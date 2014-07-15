@@ -21,12 +21,15 @@ namespace server
         common.TimerProcess fetchDataTimerGOLD = new common.TimerProcess();
 
         common.TimerProcess createTradeAlertTimer = new common.TimerProcess();
+
+        BackgroundWorker bWorker;
+
         public scheduleForm()
         {
             try
             {
                 InitializeComponent();
-                Init();
+                Init();                
             }
             catch (Exception er)
             {
@@ -43,6 +46,30 @@ namespace server
             fetchDataTimerGOLD.OnProcess += new common.TimerProcess.OnProcessEvent(FetchDataGOLD);
 
             createTradeAlertTimer.OnProcess += new common.TimerProcess.OnProcessEvent(CreateTradeAlert);
+
+            bWorker = new BackgroundWorker();
+            bWorker.DoWork += new DoWorkEventHandler(bWorker_DoWork);
+            bWorker.ProgressChanged += new ProgressChangedEventHandler(bWorker_ProgressChanged);
+            bWorker.RunWorkerCompleted += new RunWorkerCompletedEventHandler(bWorker_DoWork_RunWorkerCompleted);
+
+            bWorker.WorkerReportsProgress = true;
+            bWorker.WorkerSupportsCancellation = true;
+        }
+
+        void bWorker_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            if (fFetchDataHOSERunning) myStatusStrip.Text = "Downloading HOSE data..";
+            if (fFetchDataHASTCRunning) myStatusStrip.Text = "Downloading HASTC data..";
+            if (fFetchDataGOLDRunning) myStatusStrip.Text = "Downloading Gold data..";
+        }
+
+        void bWorker_DoWork(object sender, DoWorkEventArgs e)
+        {
+            FetchData();
+        }
+
+        void bWorker_DoWork_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
         }
 
         private void onTradeAlertProcessStart(int count)
@@ -126,9 +153,11 @@ namespace server
                 stopWatch.Start();            
  
                 fFetchDataRunning = true;
-                libs.FetchRealTimeData(DateTime.Now,"HOSE");
-                libs.FetchRealTimeData(DateTime.Now, "HASTC");
-                libs.FetchRealTimeData(DateTime.Now, "GOLD");
+                //libs.FetchRealTimeData(DateTime.Now,"HOSE");
+                //libs.FetchRealTimeData(DateTime.Now, "HASTC");
+                //libs.FetchRealTimeData(DateTime.Now, "GOLD");
+                //09-Jul-14 update tat ca cac du lieu o cac san
+                libs.FetchRealTimeData(DateTime.Now);
 
                 fFetchDataRunning = false;
                 
@@ -139,7 +168,7 @@ namespace server
                 string elapsedTime = String.Format("{0:00}:{1:00}:{2:00}.{3:00}",
                     ts.Hours, ts.Minutes, ts.Seconds,
                     ts.Milliseconds / 10);
-                commonClass.SysLibs.WriteSysLog(common.SysSeverityLevel.Warning, "Time01",elapsedTime);
+                //commonClass.SysLibs.WriteSysLog(common.SysSeverityLevel.Warning, "Time01",elapsedTime);
             }
             catch (Exception er)
             {
@@ -262,6 +291,13 @@ namespace server
         }
 
         #region event handler
+
+        /// <summary>
+        /// Xu ly hanh vi nhan chuot. 
+        /// Khoi tao hanh vi cua Timer
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void runBtn_Click(object sender, EventArgs e)
         {
             fFetchDataRunning = false;
@@ -284,11 +320,17 @@ namespace server
                 if (fRunning)
                 {
                     myTimer.Start();
-                    
+
                     //Init last price before importing
                     databases.AppLibs.GetLastClosePrices();
                 }
                 else myTimer.Stop();
+                //if (fRunning)
+                //{
+                //    //databases.AppLibs.GetLastClosePrices();
+                //    bWorker.RunWorkerAsync();
+                //}
+                //else bWorker.CancelAsync();
             }
             catch (Exception er)
             {
@@ -312,14 +354,16 @@ namespace server
         {
             try
             {
-                if (fetchDataTimerHOSE.IsEndWaitTime()) 
-                    fetchDataTimerHOSE.Execute();
+                if (!bWorker.IsBusy)
+                    bWorker.RunWorkerAsync();
+                //if (fetchDataTimerHOSE.IsEndWaitTime()) 
+                //    fetchDataTimerHOSE.Execute();
 
-                if (fetchDataTimerHASTC.IsEndWaitTime())
-                    fetchDataTimerHASTC.Execute();
+                //if (fetchDataTimerHASTC.IsEndWaitTime())
+                //    fetchDataTimerHASTC.Execute();
 
-                if (fetchDataTimerGOLD.IsEndWaitTime())
-                    fetchDataTimerGOLD.Execute();
+                //if (fetchDataTimerGOLD.IsEndWaitTime())
+                //    fetchDataTimerGOLD.Execute();
 
                 //if (createTradeAlertTimer.IsEndWaitTime()) 
                 //    createTradeAlertTimer.Execute();
