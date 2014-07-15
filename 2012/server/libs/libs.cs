@@ -132,11 +132,12 @@ namespace server
                 
                 bool retVal = true;
                 exchangeDetailRow = (databases.baseDS.exchangeDetailRow)myDataView[0].Row;
-                while (true)
+                while (exchangeDetailRow.marketCode == marketRow.code)
                 {
                     try
                     {
-                        retVal = Imports.Libs.ImportFromWeb(updateTime, exchangeDetailRow);
+                        //if (exchangeDetailRow.marketCode==marketRow.code) 
+                            retVal = Imports.Libs.ImportFromWeb(updateTime, exchangeDetailRow);
                     }
                     catch (Exception er)
                     {
