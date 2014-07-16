@@ -325,12 +325,6 @@ namespace server
                     databases.AppLibs.GetLastClosePrices();
                 }
                 else myTimer.Stop();
-                //if (fRunning)
-                //{
-                //    //databases.AppLibs.GetLastClosePrices();
-                //    bWorker.RunWorkerAsync();
-                //}
-                //else bWorker.CancelAsync();
             }
             catch (Exception er)
             {
