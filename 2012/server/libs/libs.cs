@@ -142,22 +142,15 @@ namespace server
                     catch (Exception er)
                     {
                         retVal = false;
-                        commonClass.SysLibs.WriteSysLog(common.SysSeverityLevel.Error, "SRV004", er);
+                        //commonClass.SysLibs.WriteSysLog(common.SysSeverityLevel.Error, "SRV004", er);
                     }
 
                     string nextRunCode = null;
-                    if (retVal==false)
-                    {
-                        commonClass.SysLibs.WriteSysLog(common.SysSeverityLevel.Informational, "", " - Updated " + exchangeDetailRow.code + " from " +  exchangeDetailRow.address + " failed");
-                        //if (exchangeDetailRow.IsgoFalseNull()==false) 
-                            nextRunCode = exchangeDetailRow.goFalse;
-                    }
+                    if (retVal==false)                                            
+                            nextRunCode = exchangeDetailRow.goFalse;                    
                     else
-                    {
-                        //commonClass.SysLibs.WriteSysLog(common.SysSeverityLevel.Informational, "", " - Updated " + exchangeDetailRow.code + " from " +exchangeDetailRow.address + " successful");
-                        //if (exchangeDetailRow.IsgoTrueNull() == false) 
                         nextRunCode = exchangeDetailRow.goTrue;
-                    }
+                    
                     //Find next line to run
                     if (nextRunCode == null || nextRunCode.Trim() == "") break;
                     exchangeDetailRow = application.SysLibs.myExchangeDetailTbl.FindBycode(nextRunCode);
