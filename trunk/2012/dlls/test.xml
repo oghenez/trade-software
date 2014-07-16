@@ -1,4 +1,22 @@
 <Configuration>
+  <DBCONNECTION>
+    <dbConInfo0 dbServerName="zffOe7JlI4bVKOKUh/7cwsKDhnkRDrz8Ygw0F4WLwDs=" />
+  </DBCONNECTION>
+  <DBCONNECTION>
+    <dbConInfo0 dbName="lHcrymcHrCjyJllbDTtavQ==" />
+  </DBCONNECTION>
+  <DBCONNECTION>
+    <dbConInfo0 dbAccount="0myaXxZ8eBQHt+bP4urQ5w==" />
+  </DBCONNECTION>
+  <DBCONNECTION>
+    <dbConInfo0 dbPassword="qws6iw7ksbdjRWv/IDFYBYAAEEDOf5fKYgw0F4WLwDs=" />
+  </DBCONNECTION>
+  <DBCONNECTION>
+    <dbConInfo0 dbTimeout="RkLVbHhukqmG8DqFrUVKzw==" />
+  </DBCONNECTION>
+  <DBCONNECTION>
+    <dbConInfo0 dbUseTransaction="EpAxoobbG0tPxhyMIVa+4Q==" />
+  </DBCONNECTION>
   <WSCONNECTION>
     <Main wsURI="cr+BsZtc1VaYm7T/XSx9KlmYzsqT6vVytMvi8CtYNWFdD2pctDCOqfABbH/XEv2j" />
   </WSCONNECTION>
