@@ -209,12 +209,18 @@ namespace commonTypes
             {
                 if (_sysFileUserLog == null)
                 {
+                    DateTime today = DateTime.Today;
+                    string logfile = "syslog_" + today.ToString("d") + ".log";
+                    logfile = logfile.Replace("/", string.Empty);                    
                     string tmp = common.system.GetWebRootPath();
                     //Run on web server
                     if (tmp != null)
-                        _sysFileUserLog = common.fileFuncs.ConcatFileName(tmp , "syslog.log");
-                    else 
-                        _sysFileUserLog = common.fileFuncs.ConcatFileName(GetApplicationFolder(), "syslog.log");
+                    {
+                        
+                        _sysFileUserLog = common.fileFuncs.ConcatFileName(tmp, logfile);
+                    }
+                    else
+                        _sysFileUserLog = common.fileFuncs.ConcatFileName(GetApplicationFolder(), logfile);
                 }
                 return _sysFileUserLog;
             }
