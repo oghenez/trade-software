@@ -30,7 +30,17 @@ namespace Imports.Forms
                 this.ShowError(er);
             }
         }
-        private void Import()
+
+        private void ImportFromFile(string filename)
+        {                        
+            DataTable tbl = new DataTable();
+            common.import.ImportFromExcel(filename, (StringCollection)null, "*", true, tbl);
+            Import_ValidateData(tbl);
+            if (Import_UpdateStockCode(tbl)) this.ShowMessage("Hoàn tất");
+            //common.Export.ExportToExcel(tbl.DefaultView.ToTable(), "d://tmp.xls");
+        }
+
+        private void Import(string filename)
         {
             this.ShowMessage("");
             myDataSet.stockCode.Clear();
@@ -38,15 +48,27 @@ namespace Imports.Forms
             myDataSet.stockExchange.Clear();
             databases.DbAccess.LoadStockCode_ByStatus(myDataSet.stockCode,AppTypes.CommonStatus.Enable);
 
-            this.ShowMessage(" Import from sheet : " + dataFileNameEd.Text);
-            common.SysLog.WriteLog("Import from sheet : " + dataFileNameEd.Text);
-            DataTable tbl = new DataTable();
-            common.import.ImportFromExcel(dataFileNameEd.Text, (StringCollection)null, "*", true, tbl);
-            Import_ValidateData(tbl);
-            if (Import_UpdateStockCode(tbl)) this.ShowMessage("Hoàn tất");
-            //common.Export.ExportToExcel(tbl.DefaultView.ToTable(), "d://tmp.xls");
+            this.ShowMessage(" Import from sheet : " + filename);
+            common.SysLog.WriteLog("Import from sheet : " + filename);
             
+            ImportFromFile(filename);
         }
+
+        private void ImportFileFromDirectory(string directory)
+        {
+            this.ShowMessage("");
+            myDataSet.stockCode.Clear();
+
+            myDataSet.stockExchange.Clear();
+            databases.DbAccess.LoadStockCode_ByStatus(myDataSet.stockCode, AppTypes.CommonStatus.Enable);
+
+            this.ShowMessage(" Import from directory : " + directory);
+            common.SysLog.WriteLog("Import from directory : " + directory);
+            string[] files = Directory.GetFiles(directory,"*.csv");
+            for (int i = 0; i < files.Length; i++)
+                ImportFromFile(files[i]);
+        }
+
         //Fill empty cells with the above one and delete empty rows
         private static void Import_ValidateData(DataTable tbl)
         {
@@ -163,7 +185,7 @@ namespace Imports.Forms
                 importBtn.Enabled = false;
                 viewLogBtn.Enabled = false;
                 ShowCurrorWait();
-                Import();
+                Import(dataFileNameEd.Text);
                 ShowCurrorDefault();
             }
             catch (Exception er)
@@ -205,6 +227,45 @@ namespace Imports.Forms
             catch (Exception er)
             {
                 ShowError(er);
+            }
+        }
+
+        private void selectDirBtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
+                {
+                    directoryEd.Text = folderBrowserDialog.SelectedPath;//openFileDialog.Direct.Trim();
+                }
+            }
+            catch (Exception er)
+            {
+                ShowError(er);
+            }
+        }
+
+        private void importDirbtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (!ValidateImport()) return;
+                progressBar.Visible = true;
+                importDirbtn.Enabled = false;
+                viewLogBtn.Enabled = false;
+                ShowCurrorWait();
+                ImportFileFromDirectory(directoryEd.Text);
+                ShowCurrorDefault();
+            }
+            catch (Exception er)
+            {
+                this.ShowError(er);
+            }
+            finally
+            {
+                importDirbtn.Enabled = true;
+                viewLogBtn.Enabled = true;
+                progressBar.Visible = false;
             }
         }
     }
