@@ -237,8 +237,9 @@ namespace commonTypes
                 {
                     if (sysDebugMode)
                     {
-                        _sysExecuteDirectory = common.fileFuncs.ConcatFileName(common.system.GetExecutePath() + "\\..\\dlls");
+                        //_sysExecuteDirectory = common.fileFuncs.ConcatFileName(common.system.GetExecutePath() + "\\..\\dlls");
                         //_sysExecuteDirectory  = "D:\\work\\stockProject\\code\\wsServices\\obj\\Debug";
+                        _sysExecuteDirectory  = "C:\\Users\\qnguyen37\\Documents\\Quantum0606\\wsServices\\obj\\Debug";
                     }
                     else
                     {
