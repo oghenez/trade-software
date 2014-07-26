@@ -1039,7 +1039,7 @@ namespace client
             SetCulture(Settings.sysLanguage,false);
 
             // Restore the last settings from user config file.
-            marketWatchMenuItem.Checked = application.Configuration.GetDefaultFormState("marketWatch");
+            marketWatchMenuItem.Checked = application.Configuration.GetDefaultFormState("marketWatch",true);
             tradeAlertMenuItem.Checked = application.Configuration.GetDefaultFormState("tradeAlert");
             myPortfolioMenuItem.Checked = application.Configuration.GetDefaultFormState("portfolio");
             transHistoryMenuItem.Checked = application.Configuration.GetDefaultFormState("transHistory");
