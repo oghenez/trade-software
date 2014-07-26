@@ -116,15 +116,6 @@
     </Compile>
     <Compile Include="libs\SysLibs.cs" />
     <Compile Include="libs\AppLibs.cs" />
-    <Compile Include="test.cs">
-      <DependentUpon>test.xsd</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="test.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>test.xsd</DependentUpon>
-    </Compile>
     <Compile Include="tmpDS.cs">
       <DependentUpon>tmpDS.xsd</DependentUpon>
       <SubType>Component</SubType>
@@ -161,17 +152,6 @@
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="test.xsc">
-      <DependentUpon>test.xsd</DependentUpon>
-    </None>
-    <None Include="test.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>test.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="test.xss">
-      <DependentUpon>test.xsd</DependentUpon>
     </None>
     <None Include="tmpDS.xsc">
       <DependentUpon>tmpDS.xsd</DependentUpon>
