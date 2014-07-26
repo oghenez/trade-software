@@ -101,7 +101,6 @@
     <Compile Include="genData.Designer.cs">
       <DependentUpon>genData.cs</DependentUpon>
     </Compile>
-    <Compile Include="goldImport.cs" />
     <Compile Include="main.cs">
       <SubType>Form</SubType>
     </Compile>
