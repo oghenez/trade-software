@@ -120,7 +120,7 @@ namespace commonTypes
     /// </summary>
     public static class Settings
     {
-        public const bool sysDebugMode = true;
+        public const bool sysDebugMode = false;
 
         private static GlobalSettings _sysGlobal = null;
         public static GlobalSettings sysGlobal
