@@ -49,8 +49,7 @@ namespace wsServices
                 if (fDataLibsLoaded) return;
                 common.configuration.withEncryption = true;
                 common.Settings.sysConfigFile = common.fileFuncs.ConcatFileName(Settings.sysExecuteDirectory, commonTypes.Consts.constWebServiceConf);
-                //databases.SysLibs.dbConnectionString = common.configuration.GetDbConnectionString();
-                databases.SysLibs.dbConnectionString = "Data Source=MOSS-SVR6;Initial Catalog=stock;Persist Security Info=True;User ID=sa;Password=P@ssword123";
+                databases.SysLibs.dbConnectionString = common.configuration.GetDbConnectionString();
 
                 GlobalSettings globalSetting = Settings.sysGlobal;
                 application.Configuration.Load_Global_Settings(ref globalSetting);
@@ -1415,18 +1414,7 @@ namespace wsServices
             }
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="frDate">From Date</param>
-        /// <param name="toDate">To Date</param>
-        /// <param name="timeScaleCode">Time Scale</param>
-        /// <param name="exchangeCode">Market</param>
-        /// <param name="code"></param>
-        /// <param name="variancePerc"></param>
-        /// <param name="variance"></param>
-        /// <param name="precision"></param>
-        /// <returns></returns>
+
         public databases.tmpDS.priceDiagnoseDataTable DiagnosePrice_CloseAndNextOpen(DateTime frDate, DateTime toDate, string timeScaleCode,
                                                                    string exchangeCode,string code, double variancePerc, double variance,byte precision)
         {
