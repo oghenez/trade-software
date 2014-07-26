@@ -59,27 +59,30 @@ namespace client
             }
 
             bool retVal = true;
-            using (new common.PleaseWait(new Point(), new forms.startSplash()))
+            if (!commonTypes.Settings.sysDebugMode)
             {
-                DateTime time1 = DateTime.Now;
-                try
+                using (new common.PleaseWait(new Point(), new forms.startSplash()))
                 {
-                    //retVal = base.CheckValid();
+                    DateTime time1 = DateTime.Now;
+                    try
+                    {
+                        //retVal = base.CheckValid();
+                    }
+                    catch (Exception er)
+                    {
+                        retVal = false;
+                        common.system.ShowError(Languages.Libs.GetString("systemError"), er.Message);
+                    }
+                    if (retVal)
+                    {
+                        InitSystem(false);
+                        this.LogAccess = false;
+                    }
+                    DateTime time2 = DateTime.Now;
+                    TimeSpan ts = time2 - time1;
+                    //Neu chua du 3 giay = 3000 ms
+                    if (3000 - ts.TotalMilliseconds > 0) Thread.Sleep((int)(3000 - ts.TotalMilliseconds));
                 }
-                catch (Exception er)
-                {
-                    retVal = false;
-                    common.system.ShowError(Languages.Libs.GetString("systemError"), er.Message);
-                }
-                if (retVal)
-                {
-                    InitSystem(false);
-                    this.LogAccess = false;
-                }
-                DateTime time2 = DateTime.Now;
-                TimeSpan ts = time2 - time1;
-                //Neu chua du 3 giay = 3000 ms
-                if (3000 - ts.TotalMilliseconds > 0) Thread.Sleep((int)(3000 - ts.TotalMilliseconds));
             }
             return retVal;
         }
