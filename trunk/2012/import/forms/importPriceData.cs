@@ -72,7 +72,12 @@ namespace Imports.Forms
                     databases.DbAccess.UpdateData(myDataSet.priceData);
                     DoAggregate(myDataSet.priceData,marketCultureInfo);
                     break;
-                case 1:
+                case 1: // Data from BVSC MMDDYYYY - Neu xu ly tay thi ko can
+                    Imports.Stock.Libs.ImportFromCVS_BVSC(dataFileNameEd.Text, marketCb.myValue, dataCultureInfo, myDataSet.priceData, OnUpdateData);
+                    databases.DbAccess.UpdateData(myDataSet.priceData);
+                    DoAggregate(myDataSet.priceData, marketCultureInfo);
+                    break;
+                case 2:// Gold
                     Imports.Gold.Libs.ImportFromCVS(dataFileNameEd.Text, marketCb.myValue, dataCultureInfo, myDataSet.priceData, OnUpdateData);
                     databases.DbAccess.UpdateData(myDataSet.priceData);
                     DoAggregate(myDataSet.priceData, marketCultureInfo);
