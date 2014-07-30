@@ -74,7 +74,7 @@
             this.dataFileNameEd.isToUpperCase = false;
             this.dataFileNameEd.Location = new System.Drawing.Point(24, 25);
             this.dataFileNameEd.Name = "dataFileNameEd";
-            this.dataFileNameEd.Size = new System.Drawing.Size(363, 23);
+            this.dataFileNameEd.Size = new System.Drawing.Size(363, 20);
             this.dataFileNameEd.TabIndex = 1;
             // 
             // stockExchangeLbl
@@ -199,7 +199,7 @@
             this.actionCb.Location = new System.Drawing.Point(24, 165);
             this.actionCb.myValue = "";
             this.actionCb.Name = "actionCb";
-            this.actionCb.Size = new System.Drawing.Size(362, 24);
+            this.actionCb.Size = new System.Drawing.Size(362, 21);
             this.actionCb.TabIndex = 3;
             this.actionCb.SelectionChangeCommitted += new System.EventHandler(this.actionCb_SelectionChangeCommitted);
             // 
@@ -229,11 +229,12 @@
             this.dataSourceCb.FormattingEnabled = true;
             this.dataSourceCb.Items.AddRange(new object[] {
             "CP68  - YYYYMMDD",
+            "BVSC - MMDDYYYY",
             "Gold   - YYYYMMDDhhmmss"});
             this.dataSourceCb.Location = new System.Drawing.Point(24, 73);
             this.dataSourceCb.myValue = "";
             this.dataSourceCb.Name = "dataSourceCb";
-            this.dataSourceCb.Size = new System.Drawing.Size(244, 24);
+            this.dataSourceCb.Size = new System.Drawing.Size(244, 21);
             this.dataSourceCb.TabIndex = 2;
             this.dataSourceCb.SelectionChangeCommitted += new System.EventHandler(this.dataSourceCb_SelectionChangeCommitted);
             // 
@@ -244,7 +245,7 @@
             this.marketCb.Location = new System.Drawing.Point(24, 123);
             this.marketCb.myValue = "";
             this.marketCb.Name = "marketCb";
-            this.marketCb.Size = new System.Drawing.Size(361, 24);
+            this.marketCb.Size = new System.Drawing.Size(361, 21);
             this.marketCb.TabIndex = 20;
             // 
             // dataCultureLbl
@@ -267,7 +268,7 @@
             this.dataCultureCb.Location = new System.Drawing.Point(266, 73);
             this.dataCultureCb.myValue = "";
             this.dataCultureCb.Name = "dataCultureCb";
-            this.dataCultureCb.Size = new System.Drawing.Size(120, 24);
+            this.dataCultureCb.Size = new System.Drawing.Size(120, 21);
             this.dataCultureCb.TabIndex = 3;
             // 
             // dataSourceLbl
@@ -299,6 +300,7 @@
             this.Controls.Add(this.dataFileNameEd);
             this.Controls.Add(this.dataFileLbl);
             this.Controls.Add(this.selectFileBtn);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "importPriceData";
             this.Text = "Import";
