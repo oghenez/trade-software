@@ -120,7 +120,11 @@ namespace commonTypes
     /// </summary>
     public static class Settings
     {
-        public const bool sysDebugMode = false;
+        public const bool sysDebugMode = true;
+        public const string sysDebugMode_execDirectory = @"C:\Users\qnguyen37\Documents\Quantum201428\wsServices\obj\Debug";
+        //public const string sysDebugMode_execDirectory = @"C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\Quantum20140726\wsServices\obj\Debug";
+        //public const string sysDebugMode_execDirectory = "D:\\work\\stockProdsject\\code\\wsServices\\obj\\Debug";        
+        
 
         private static GlobalSettings _sysGlobal = null;
         public static GlobalSettings sysGlobal
@@ -236,11 +240,8 @@ namespace commonTypes
                 if (_sysExecuteDirectory == null)
                 {
                     if (sysDebugMode)
-                    {
-                        //_sysExecuteDirectory = common.fileFuncs.ConcatFileName(common.system.GetExecutePath() + "\\..\\dlls");
-                        //_sysExecuteDirectory  = "D:\\work\\stockProdsject\\code\\wsServices\\obj\\Debug";
-                        //_sysExecuteDirectory  = "C:\\Users\\qnguyen37\\Documents\\Quantum0606\\wsServices\\obj\\Debug";
-                        _sysExecuteDirectory = @"C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\Quantum20140726\wsServices\obj\Debug";
+                    {                                                
+                        _sysExecuteDirectory = sysDebugMode_execDirectory;
                     }
                     else
                     {
