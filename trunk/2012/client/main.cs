@@ -14,6 +14,7 @@ using application;
 using commonTypes;
 using commonClass;
 using System.Diagnostics;
+using client.forms;
 
 namespace client
 {
@@ -33,7 +34,7 @@ namespace client
         const string constFormNameTradeAlert = "TradeAlert";
         const string constFormNameMarketSummary = "MarketSummary";
         const string constFormNameEstimateTrade = "EstimateTrade-";
-
+        const string constFormNameFundamentalData = "Fundamental Data -";
         public main()
         {
             try
@@ -250,6 +251,19 @@ namespace client
             application.Indicators.Libs.CreateIndicatorMenu(indicatorMenuItem, showIndicatorHandler);
             contextMenuStrip.Items.Add(indicatorMenuItem);
 
+            //menu for Fundamental data
+            contextMenuStrip.Items.Add(new ToolStripSeparator());            
+            menuItem = contextMenuStrip.Items.Add(companyOverviewMenuItem.Text);
+            menuItem.Click += new System.EventHandler(companyOverviewMenuItem_Click);
+
+            menuItem = contextMenuStrip.Items.Add(financialDataMenuItem.Text);
+            menuItem.Click += new System.EventHandler(financialDataMenuItem_Click);
+
+            menuItem = contextMenuStrip.Items.Add(financialRatioToolStripMenuItem.Text);
+            menuItem.Click += new System.EventHandler(financialRatioToolStripMenuItem_Click);
+
+            menuItem = contextMenuStrip.Items.Add(companyNToolStripMenuItem.Text);
+            menuItem.Click += new System.EventHandler(companyNToolStripMenuItem_Click);
 
             //Tools
             contextMenuStrip.Items.Add(new ToolStripSeparator());
@@ -2157,6 +2171,126 @@ namespace client
                 Trade.Forms.marketWatch form = GetMarketWatchForm(false);
                 if (form == null) return;
                 form.RefreshData(false);
+            }
+            catch (Exception er)
+            {
+                this.ShowError(er);
+            }
+        }
+
+        private void companyOverviewMenuItem_Click(object sender, EventArgs e)
+        {            
+            
+            string companyCode="SSI";
+            try
+            {
+                //Get company name
+                //Get active chart or selected item in Watchlist
+                Trade.Forms.marketWatch marketWatchForm = GetMarketWatchForm(false);
+                if (marketWatchForm == null) return;
+                if (marketWatchForm.CurrentRow == null) return;
+                companyCode = marketWatchForm.CurrentRow.code;
+
+                //Open Web Browser
+                string URL = "https://www.vndirect.com.vn/portal/tong-quan/"+companyCode+".shtml";
+                fundamentalWebBrowserForm form = new fundamentalWebBrowserForm(companyCode,URL);                
+                form.Show(dockPanel);
+            }
+            catch (Exception er)
+            {
+                this.ShowError(er);
+            }
+        }
+
+        private void financialDataMenuItem_Click(object sender, EventArgs e)
+        {
+            string companyCode = "SSI";
+            try
+            {
+                //Get company name
+                //Get active chart or selected item in Watchlist
+                Trade.Forms.marketWatch marketWatchForm = GetMarketWatchForm(false);
+                if (marketWatchForm == null) return;
+                if (marketWatchForm.CurrentRow == null) return;
+                companyCode = marketWatchForm.CurrentRow.code;
+
+                //Open Web Browser            
+                string URL = "https://www.vndirect.com.vn/portal/bang-can-doi-ke-toan/" + companyCode + ".shtml";
+                fundamentalWebBrowserForm form = new fundamentalWebBrowserForm(companyCode, URL);
+                form.Show(dockPanel);
+            }
+            catch (Exception er)
+            {
+                this.ShowError(er);
+            }
+        }
+
+        private void financialRatioToolStripMenuItem_Click(object sender, EventArgs e)
+        {            
+            string companyCode = "SSI";
+            try
+            {
+                //Get company name
+                //Get active chart or selected item in Watchlist
+                Trade.Forms.marketWatch marketWatchForm = GetMarketWatchForm(false);
+                if (marketWatchForm == null) return;
+                if (marketWatchForm.CurrentRow == null) return;
+                companyCode = marketWatchForm.CurrentRow.code;
+
+                //Open Web Browser            
+                string URL = "https://www.vndirect.com.vn/portal/thong-ke-co-ban/" + companyCode + ".shtml";
+                fundamentalWebBrowserForm form = new fundamentalWebBrowserForm(companyCode, URL);
+                form.Show(dockPanel);
+            }
+            catch (Exception er)
+            {
+                this.ShowError(er);
+            }
+        }
+
+        private void analysisReportsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string companyCode = "SSI";
+            try
+            {
+                //Get company name
+                //Get active chart or selected item in Watchlist
+                Trade.Forms.marketWatch marketWatchForm = GetMarketWatchForm(false);
+                if (marketWatchForm == null) return;
+                if (marketWatchForm.CurrentRow == null) return;
+                companyCode = marketWatchForm.CurrentRow.code;
+
+                //Open Web Browser    
+                //http://stox.vn/Report/Search?Kw=acb&Cat=-1&Industry=-1
+
+                string URL = "http://stox.vn/Report/Search?Kw=" + companyCode + @"&Cat=-1&Industry=-1";
+                fundamentalWebBrowserForm form = new fundamentalWebBrowserForm(companyCode, URL);
+                form.Show(dockPanel);
+            }
+            catch (Exception er)
+            {
+                this.ShowError(er);
+            }
+        }
+
+        private void companyNToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string companyCode = "SSI";
+            try
+            {
+                //Get company name
+                //Get active chart or selected item in Watchlist
+                Trade.Forms.marketWatch marketWatchForm = GetMarketWatchForm(false);
+                if (marketWatchForm == null) return;
+                if (marketWatchForm.CurrentRow == null) return;
+                companyCode = marketWatchForm.CurrentRow.code;
+
+                //Open Web Browser    
+                //https://www.vndirect.com.vn/portal/tin-doanh-nghiep/
+
+                string URL = "https://www.vndirect.com.vn/portal/tin-doanh-nghiep/" + companyCode + @".shtml";
+                fundamentalWebBrowserForm form = new fundamentalWebBrowserForm(companyCode, URL);
+                form.Show(dockPanel);
             }
             catch (Exception er)
             {
