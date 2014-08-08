@@ -106,6 +106,12 @@
     <Compile Include="forms\companyList.Designer.cs">
       <DependentUpon>companyList.cs</DependentUpon>
     </Compile>
+    <Compile Include="forms\fundamentalWebBrowserForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\fundamentalWebBrowserForm.Designer.cs">
+      <DependentUpon>fundamentalWebBrowserForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="forms\investorEdit.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -133,6 +139,9 @@
     <EmbeddedResource Include="forms\companyList.resx">
       <DependentUpon>companyList.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\fundamentalWebBrowserForm.resx">
+      <DependentUpon>fundamentalWebBrowserForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\investorEdit.resx">
       <DependentUpon>investorEdit.cs</DependentUpon>

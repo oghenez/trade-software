@@ -67,7 +67,6 @@ namespace client
             this.zoomInBtn = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator19 = new System.Windows.Forms.ToolStripSeparator();
             this.chartRefreshBtn = new System.Windows.Forms.ToolStripButton();
-            this.chartLeverageBtn = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator29 = new System.Windows.Forms.ToolStripSeparator();
             this.toolsStrip = new System.Windows.Forms.ToolStrip();
             this.toolRunBtn = new System.Windows.Forms.ToolStripButton();
@@ -145,6 +144,13 @@ namespace client
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.orderMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator13 = new System.Windows.Forms.ToolStripSeparator();
+            this.FundamentalMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.companyOverviewMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.financialDataMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.financialRatioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.analysisReportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.companyNToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.companyListMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator25 = new System.Windows.Forms.ToolStripSeparator();
             this.marketSummaryMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -458,15 +464,6 @@ namespace client
             this.chartRefreshBtn.Size = new System.Drawing.Size(23, 22);
             this.chartRefreshBtn.ToolTipText = "Refresh";
             this.chartRefreshBtn.Click += new System.EventHandler(this.ChartRefreshBtn_Click);
-            // 
-            // chartLeverageBtn
-            // 
-            this.chartLeverageBtn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.chartLeverageBtn.Image = global::client.Properties.Resources.level;
-            this.chartLeverageBtn.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.chartLeverageBtn.Name = "chartLeverageBtn";
-            this.chartLeverageBtn.Size = new System.Drawing.Size(23, 22);
-            this.chartLeverageBtn.Click += new System.EventHandler(this.chartLeverageBtn_Click);
             // 
             // toolStripSeparator29
             // 
@@ -1066,6 +1063,8 @@ namespace client
             this.toolStripSeparator6,
             this.orderMenuItem,
             this.toolStripSeparator13,
+            this.FundamentalMenuItem,
+            this.toolStripSeparator3,
             this.companyListMenuItem,
             this.toolStripSeparator25,
             this.marketSummaryMenuItem,
@@ -1082,7 +1081,7 @@ namespace client
             // 
             this.backTestingMenuItem.Image = global::client.Properties.Resources.Network_icon;
             this.backTestingMenuItem.Name = "backTestingMenuItem";
-            this.backTestingMenuItem.Size = new System.Drawing.Size(174, 22);
+            this.backTestingMenuItem.Size = new System.Drawing.Size(180, 22);
             this.backTestingMenuItem.Text = "Back Testing";
             this.backTestingMenuItem.Click += new System.EventHandler(this.backTestingMenuItem_Click);
             // 
@@ -1090,7 +1089,7 @@ namespace client
             // 
             this.strategyRankingMenuItem.Image = global::client.Properties.Resources.OnLamp_icon_16;
             this.strategyRankingMenuItem.Name = "strategyRankingMenuItem";
-            this.strategyRankingMenuItem.Size = new System.Drawing.Size(174, 22);
+            this.strategyRankingMenuItem.Size = new System.Drawing.Size(180, 22);
             this.strategyRankingMenuItem.Text = "Strategy Ranking";
             this.strategyRankingMenuItem.Click += new System.EventHandler(this.strategyRankingMenuItem_Click);
             // 
@@ -1098,57 +1097,109 @@ namespace client
             // 
             this.screeningMenuItem.Image = global::client.Properties.Resources.sort_ascending_icon;
             this.screeningMenuItem.Name = "screeningMenuItem";
-            this.screeningMenuItem.Size = new System.Drawing.Size(174, 22);
+            this.screeningMenuItem.Size = new System.Drawing.Size(180, 22);
             this.screeningMenuItem.Text = "Screening";
             this.screeningMenuItem.Click += new System.EventHandler(this.screeningMenuItem_Click);
             // 
             // toolStripSeparator6
             // 
             this.toolStripSeparator6.Name = "toolStripSeparator6";
-            this.toolStripSeparator6.Size = new System.Drawing.Size(171, 6);
+            this.toolStripSeparator6.Size = new System.Drawing.Size(177, 6);
             // 
             // orderMenuItem
             // 
             this.orderMenuItem.Image = global::client.Properties.Resources.money_icon;
             this.orderMenuItem.Name = "orderMenuItem";
-            this.orderMenuItem.Size = new System.Drawing.Size(174, 22);
+            this.orderMenuItem.Size = new System.Drawing.Size(180, 22);
             this.orderMenuItem.Text = "Order";
             this.orderMenuItem.Click += new System.EventHandler(this.orderMenuItem_Click);
             // 
             // toolStripSeparator13
             // 
             this.toolStripSeparator13.Name = "toolStripSeparator13";
-            this.toolStripSeparator13.Size = new System.Drawing.Size(171, 6);
+            this.toolStripSeparator13.Size = new System.Drawing.Size(177, 6);
+            // 
+            // FundamentalMenuItem
+            // 
+            this.FundamentalMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.companyOverviewMenuItem,
+            this.financialDataMenuItem,
+            this.financialRatioToolStripMenuItem,
+            this.analysisReportsToolStripMenuItem,
+            this.companyNToolStripMenuItem});
+            this.FundamentalMenuItem.Name = "FundamentalMenuItem";
+            this.FundamentalMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.FundamentalMenuItem.Text = "Fundamental Data";
+            // 
+            // companyOverviewMenuItem
+            // 
+            this.companyOverviewMenuItem.Name = "companyOverviewMenuItem";
+            this.companyOverviewMenuItem.Size = new System.Drawing.Size(213, 22);
+            this.companyOverviewMenuItem.Text = "Company Overview";
+            this.companyOverviewMenuItem.Click += new System.EventHandler(this.companyOverviewMenuItem_Click);
+            // 
+            // financialDataMenuItem
+            // 
+            this.financialDataMenuItem.Name = "financialDataMenuItem";
+            this.financialDataMenuItem.Size = new System.Drawing.Size(213, 22);
+            this.financialDataMenuItem.Text = "Company Financial Data";
+            this.financialDataMenuItem.Click += new System.EventHandler(this.financialDataMenuItem_Click);
+            // 
+            // financialRatioToolStripMenuItem
+            // 
+            this.financialRatioToolStripMenuItem.Name = "financialRatioToolStripMenuItem";
+            this.financialRatioToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
+            this.financialRatioToolStripMenuItem.Text = "Financial Ratio";
+            this.financialRatioToolStripMenuItem.Click += new System.EventHandler(this.financialRatioToolStripMenuItem_Click);
+            // 
+            // analysisReportsToolStripMenuItem
+            // 
+            this.analysisReportsToolStripMenuItem.Name = "analysisReportsToolStripMenuItem";
+            this.analysisReportsToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
+            this.analysisReportsToolStripMenuItem.Text = "Analysis Reports";
+            this.analysisReportsToolStripMenuItem.Click += new System.EventHandler(this.analysisReportsToolStripMenuItem_Click);
+            // 
+            // companyNToolStripMenuItem
+            // 
+            this.companyNToolStripMenuItem.Name = "companyNToolStripMenuItem";
+            this.companyNToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
+            this.companyNToolStripMenuItem.Text = "Company News";
+            this.companyNToolStripMenuItem.Click += new System.EventHandler(this.companyNToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(177, 6);
             // 
             // companyListMenuItem
             // 
             this.companyListMenuItem.Name = "companyListMenuItem";
-            this.companyListMenuItem.Size = new System.Drawing.Size(174, 22);
+            this.companyListMenuItem.Size = new System.Drawing.Size(180, 22);
             this.companyListMenuItem.Text = "Company List";
             this.companyListMenuItem.Click += new System.EventHandler(this.companyListMenuItem_Click);
             // 
             // toolStripSeparator25
             // 
             this.toolStripSeparator25.Name = "toolStripSeparator25";
-            this.toolStripSeparator25.Size = new System.Drawing.Size(171, 6);
+            this.toolStripSeparator25.Size = new System.Drawing.Size(177, 6);
             // 
             // marketSummaryMenuItem
             // 
             this.marketSummaryMenuItem.Name = "marketSummaryMenuItem";
-            this.marketSummaryMenuItem.Size = new System.Drawing.Size(174, 22);
+            this.marketSummaryMenuItem.Size = new System.Drawing.Size(180, 22);
             this.marketSummaryMenuItem.Text = "Market Summary";
             this.marketSummaryMenuItem.Click += new System.EventHandler(this.marketSummaryMenuItem_Click);
             // 
             // toolStripSeparator27
             // 
             this.toolStripSeparator27.Name = "toolStripSeparator27";
-            this.toolStripSeparator27.Size = new System.Drawing.Size(171, 6);
+            this.toolStripSeparator27.Size = new System.Drawing.Size(177, 6);
             // 
             // strategyEstimationMenuItem
             // 
             this.strategyEstimationMenuItem.Image = global::client.Properties.Resources.Office_icon;
             this.strategyEstimationMenuItem.Name = "strategyEstimationMenuItem";
-            this.strategyEstimationMenuItem.Size = new System.Drawing.Size(174, 22);
+            this.strategyEstimationMenuItem.Size = new System.Drawing.Size(180, 22);
             this.strategyEstimationMenuItem.Text = "Strategy List";
             // 
             // toolOptionMenu
@@ -1158,7 +1209,7 @@ namespace client
             this.screeningOptionsMenuItem,
             this.strategyOptionsMenuItem});
             this.toolOptionMenu.Name = "toolOptionMenu";
-            this.toolOptionMenu.Size = new System.Drawing.Size(174, 22);
+            this.toolOptionMenu.Size = new System.Drawing.Size(180, 22);
             this.toolOptionMenu.Text = "Options";
             // 
             // toolStripSeparator22
@@ -1189,12 +1240,12 @@ namespace client
             // toolStripSeparator31
             // 
             this.toolStripSeparator31.Name = "toolStripSeparator31";
-            this.toolStripSeparator31.Size = new System.Drawing.Size(171, 6);
+            this.toolStripSeparator31.Size = new System.Drawing.Size(177, 6);
             // 
             // sysOptionMenuItem
             // 
             this.sysOptionMenuItem.Name = "sysOptionMenuItem";
-            this.sysOptionMenuItem.Size = new System.Drawing.Size(174, 22);
+            this.sysOptionMenuItem.Size = new System.Drawing.Size(180, 22);
             this.sysOptionMenuItem.Text = "Preferences";
             this.sysOptionMenuItem.Click += new System.EventHandler(this.sysOptionMenuItem_Click);
             // 
@@ -1521,7 +1572,6 @@ namespace client
         private System.Windows.Forms.ToolStripButton myPortfolioBtn;
         private System.Windows.Forms.ToolStripButton tradeAlertBtn;
         private System.Windows.Forms.ToolStripButton transHistoryBtn;
-        private System.Windows.Forms.ToolStripButton chartLeverageBtn;
         protected System.Windows.Forms.MenuStrip mainMenu;
         private System.Windows.Forms.ToolStripMenuItem FileMenuStrip;
         private System.Windows.Forms.ToolStripMenuItem loginMenuItem;
@@ -1617,6 +1667,13 @@ namespace client
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
         private System.Windows.Forms.ToolStripMenuItem aboutMenuItem;
         private System.Windows.Forms.ToolStripMenuItem testMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem FundamentalMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private System.Windows.Forms.ToolStripMenuItem companyOverviewMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem financialDataMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem financialRatioToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem analysisReportsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem companyNToolStripMenuItem;
     }
 }
 
