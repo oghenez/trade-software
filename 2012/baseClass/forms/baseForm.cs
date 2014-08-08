@@ -50,10 +50,10 @@ namespace baseClass.forms
                 switch (Settings.sysGlobal.WriteLogAccess)
                 {
                     case AppTypes.SyslogMedia.Database:
-                        DataAccess.Libs.WriteLog(AppTypes.SyslogTypes.Access, commonClass.SysLibs.sysLoginCode, "Opened : " + this.Name, null, null);
+                        DataAccess.Libs.WriteLog(AppTypes.SyslogTypes.Access, commonClass.SysLibs.sysLoginCode, "Opened : " + this.Text, null, null);
                         break;
                     case AppTypes.SyslogMedia.File:
-                        commonClass.SysLibs.WriteSysLog(common.SysSeverityLevel.Informational,"", commonClass.SysLibs.sysLoginCode+ " Opened : " + this.Name);
+                        commonClass.SysLibs.WriteSysLog(common.SysSeverityLevel.Informational,"", commonClass.SysLibs.sysLoginCode+ " Opened : " + this.Text);
                         break;
                 }
             }
