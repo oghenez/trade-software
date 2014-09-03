@@ -1362,4 +1362,25 @@
   <data name="appErrorManyInstances" xml:space="preserve">
     <value>Một ứng dụng Quantum đã chạy. Hệ thống chỉ cho phép một lần chạy.</value>
   </data>
+  <data name="analysistReport" xml:space="preserve">
+    <value>Báo cáo phân tích</value>
+  </data>
+  <data name="companyHotNews" xml:space="preserve">
+    <value>Tin nóng 24h</value>
+  </data>
+  <data name="companyNews" xml:space="preserve">
+    <value>Tin doanh nghiệp</value>
+  </data>
+  <data name="companyOverview" xml:space="preserve">
+    <value>Tổng quan công ty</value>
+  </data>
+  <data name="financialRatio" xml:space="preserve">
+    <value>Chỉ số tài chính</value>
+  </data>
+  <data name="financialStatement" xml:space="preserve">
+    <value>Báo cáo tài chính</value>
+  </data>
+  <data name="fundamentalData" xml:space="preserve">
+    <value>Phân tích cơ bản</value>
+  </data>
 </root>
