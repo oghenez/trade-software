@@ -1356,4 +1356,25 @@
   <data name="appErrorManyInstances" xml:space="preserve">
     <value>Application is running.Only one instance of this application is allowed</value>
   </data>
+  <data name="analysistReport" xml:space="preserve">
+    <value>Analysis Report</value>
+  </data>
+  <data name="companyHotNews" xml:space="preserve">
+    <value>Hot News in 24h</value>
+  </data>
+  <data name="companyNews" xml:space="preserve">
+    <value>Company News</value>
+  </data>
+  <data name="companyOverview" xml:space="preserve">
+    <value>Company Overview</value>
+  </data>
+  <data name="financialRatio" xml:space="preserve">
+    <value>Financial Ratio</value>
+  </data>
+  <data name="fundamentalData" xml:space="preserve">
+    <value>Fundamental Data</value>
+  </data>
+  <data name="financialStatement" xml:space="preserve">
+    <value>Financial Statement</value>
+  </data>
 </root>

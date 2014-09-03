@@ -232,6 +232,15 @@ namespace Languages.langs {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Analysis Report.
+        /// </summary>
+        internal static string analysistReport {
+            get {
+                return ResourceManager.GetString("analysistReport", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Appearance.
         /// </summary>
         internal static string appearance {
@@ -790,11 +799,38 @@ namespace Languages.langs {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Hot News in 24h.
+        /// </summary>
+        internal static string companyHotNews {
+            get {
+                return ResourceManager.GetString("companyHotNews", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Company list.
         /// </summary>
         internal static string companyList {
             get {
                 return ResourceManager.GetString("companyList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Company News.
+        /// </summary>
+        internal static string companyNews {
+            get {
+                return ResourceManager.GetString("companyNews", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Company Overview.
+        /// </summary>
+        internal static string companyOverview {
+            get {
+                return ResourceManager.GetString("companyOverview", resourceCulture);
             }
         }
         
@@ -1321,6 +1357,24 @@ namespace Languages.langs {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Financial Ratio.
+        /// </summary>
+        internal static string financialRatio {
+            get {
+                return ResourceManager.GetString("financialRatio", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Financial Statement.
+        /// </summary>
+        internal static string financialStatement {
+            get {
+                return ResourceManager.GetString("financialStatement", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Find.
         /// </summary>
         internal static string find {
@@ -1398,6 +1452,15 @@ namespace Languages.langs {
         internal static string fullView {
             get {
                 return ResourceManager.GetString("fullView", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Fundamental Data.
+        /// </summary>
+        internal static string fundamentalData {
+            get {
+                return ResourceManager.GetString("fundamentalData", resourceCulture);
             }
         }
         
