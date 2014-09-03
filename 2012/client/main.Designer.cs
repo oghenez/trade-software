@@ -190,6 +190,7 @@ namespace client
             this.myPortfolioBtn = new System.Windows.Forms.ToolStripButton();
             this.tradeAlertBtn = new System.Windows.Forms.ToolStripButton();
             this.transHistoryBtn = new System.Windows.Forms.ToolStripButton();
+            this.companyHottestNewsIn24hToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.chartStrip.SuspendLayout();
             this.toolsStrip.SuspendLayout();
             this.toolStripPanel.SuspendLayout();
@@ -1126,7 +1127,8 @@ namespace client
             this.financialDataMenuItem,
             this.financialRatioToolStripMenuItem,
             this.analysisReportsToolStripMenuItem,
-            this.companyNToolStripMenuItem});
+            this.companyNToolStripMenuItem,
+            this.companyHottestNewsIn24hToolStripMenuItem});
             this.FundamentalMenuItem.Name = "FundamentalMenuItem";
             this.FundamentalMenuItem.Size = new System.Drawing.Size(180, 22);
             this.FundamentalMenuItem.Text = "Fundamental Data";
@@ -1134,35 +1136,35 @@ namespace client
             // companyOverviewMenuItem
             // 
             this.companyOverviewMenuItem.Name = "companyOverviewMenuItem";
-            this.companyOverviewMenuItem.Size = new System.Drawing.Size(213, 22);
+            this.companyOverviewMenuItem.Size = new System.Drawing.Size(247, 22);
             this.companyOverviewMenuItem.Text = "Company Overview";
             this.companyOverviewMenuItem.Click += new System.EventHandler(this.companyOverviewMenuItem_Click);
             // 
             // financialDataMenuItem
             // 
             this.financialDataMenuItem.Name = "financialDataMenuItem";
-            this.financialDataMenuItem.Size = new System.Drawing.Size(213, 22);
+            this.financialDataMenuItem.Size = new System.Drawing.Size(247, 22);
             this.financialDataMenuItem.Text = "Company Financial Data";
             this.financialDataMenuItem.Click += new System.EventHandler(this.financialDataMenuItem_Click);
             // 
             // financialRatioToolStripMenuItem
             // 
             this.financialRatioToolStripMenuItem.Name = "financialRatioToolStripMenuItem";
-            this.financialRatioToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
+            this.financialRatioToolStripMenuItem.Size = new System.Drawing.Size(247, 22);
             this.financialRatioToolStripMenuItem.Text = "Financial Ratio";
             this.financialRatioToolStripMenuItem.Click += new System.EventHandler(this.financialRatioToolStripMenuItem_Click);
             // 
             // analysisReportsToolStripMenuItem
             // 
             this.analysisReportsToolStripMenuItem.Name = "analysisReportsToolStripMenuItem";
-            this.analysisReportsToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
+            this.analysisReportsToolStripMenuItem.Size = new System.Drawing.Size(247, 22);
             this.analysisReportsToolStripMenuItem.Text = "Analysis Reports";
             this.analysisReportsToolStripMenuItem.Click += new System.EventHandler(this.analysisReportsToolStripMenuItem_Click);
             // 
             // companyNToolStripMenuItem
             // 
             this.companyNToolStripMenuItem.Name = "companyNToolStripMenuItem";
-            this.companyNToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
+            this.companyNToolStripMenuItem.Size = new System.Drawing.Size(247, 22);
             this.companyNToolStripMenuItem.Text = "Company News";
             this.companyNToolStripMenuItem.Click += new System.EventHandler(this.companyNToolStripMenuItem_Click);
             // 
@@ -1261,14 +1263,14 @@ namespace client
             // closeAllMenuItem
             // 
             this.closeAllMenuItem.Name = "closeAllMenuItem";
-            this.closeAllMenuItem.Size = new System.Drawing.Size(125, 22);
+            this.closeAllMenuItem.Size = new System.Drawing.Size(152, 22);
             this.closeAllMenuItem.Text = "Close All";
             this.closeAllMenuItem.Click += new System.EventHandler(this.closeAllMenuItem_Click);
             // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(122, 6);
+            this.toolStripSeparator4.Size = new System.Drawing.Size(149, 6);
             // 
             // helpMenuItem
             // 
@@ -1485,6 +1487,13 @@ namespace client
             this.transHistoryBtn.Text = "toolStripButton1";
             this.transHistoryBtn.Click += new System.EventHandler(this.transHistoryBtn_Click);
             // 
+            // companyHottestNewsIn24hToolStripMenuItem
+            // 
+            this.companyHottestNewsIn24hToolStripMenuItem.Name = "companyHottestNewsIn24hToolStripMenuItem";
+            this.companyHottestNewsIn24hToolStripMenuItem.Size = new System.Drawing.Size(247, 22);
+            this.companyHottestNewsIn24hToolStripMenuItem.Text = "Company Hottest News in 24h";
+            this.companyHottestNewsIn24hToolStripMenuItem.Click += new System.EventHandler(this.companyHottestNewsIn24hToolStripMenuItem_Click);
+            // 
             // main
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -1674,6 +1683,7 @@ namespace client
         private System.Windows.Forms.ToolStripMenuItem financialRatioToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem analysisReportsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem companyNToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem companyHottestNewsIn24hToolStripMenuItem;
     }
 }
 

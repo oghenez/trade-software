@@ -1164,6 +1164,14 @@ namespace client
                 this.strategyRankingMenuItem.Text = Languages.Libs.GetString("strategyRanking");
                 this.companyListMenuItem.Text = Languages.Libs.GetString("companyList");
                 this.marketSummaryMenuItem.Text = Languages.Libs.GetString("marketSummary");
+                //fundamental
+                this.companyOverviewMenuItem.Text = Languages.Libs.GetString("companyOverview");
+                this.FundamentalMenuItem.Text = Languages.Libs.GetString("fundamentalData");
+                this.financialDataMenuItem.Text = Languages.Libs.GetString("financialStatement");
+                this.financialRatioToolStripMenuItem.Text = Languages.Libs.GetString("financialRatio");
+                this.analysisReportsToolStripMenuItem.Text = Languages.Libs.GetString("analysistReport");
+                this.companyNToolStripMenuItem.Text = Languages.Libs.GetString("companyNews");
+                this.companyHottestNewsIn24hToolStripMenuItem.Text = Languages.Libs.GetString("companyHotNews");
 
                 this.toolOptionMenu.Text = Languages.Libs.GetString("toolAllOptions");
                 this.strategyOptionsMenuItem.Text = Languages.Libs.GetString("strategyOption");
@@ -2058,6 +2066,8 @@ namespace client
             try
             {
                 CloseAllForms();
+                //Action for Feedback ??
+
             }
             catch (Exception er)
             {
@@ -2289,6 +2299,34 @@ namespace client
                 //https://www.vndirect.com.vn/portal/tin-doanh-nghiep/
 
                 string URL = "https://www.vndirect.com.vn/portal/tin-doanh-nghiep/" + companyCode + @".shtml";
+                fundamentalWebBrowserForm form = new fundamentalWebBrowserForm(companyCode, URL);
+                form.Show(dockPanel);
+            }
+            catch (Exception er)
+            {
+                this.ShowError(er);
+            }
+        }
+
+        private void companyHottestNewsIn24hToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string companyCode = "SSI";
+            try
+            {
+                //Get company name
+                //Get active chart or selected item in Watchlist
+                Trade.Forms.marketWatch marketWatchForm = GetMarketWatchForm(false);
+                //Tools.Forms.tradeAnalysis stockchartForm = GetActiveStockForm();
+                //if (stockchartForm == null) return;
+                if (marketWatchForm == null) return;
+
+                if (marketWatchForm.CurrentRow == null) return;
+                companyCode = marketWatchForm.CurrentRow.code;
+
+                //Open Web Browser    
+                //https://www.google.com/search?as_q=SSI&as_epq=&as_oq=&as_eq=&as_nlo=&as_nhi=&lr=lang_vi&cr=countryVN&as_qdr=d&as_sitesearch=&as_occt=any&safe=images&as_filetype=&as_rights=&gws_rd=ssl
+
+                string URL = @"https://www.google.com/search?as_q=" + companyCode + @"&as_epq=&as_oq=&as_eq=&as_nlo=&as_nhi=&lr=lang_vi&cr=countryVN&as_qdr=d&as_sitesearch=&as_occt=any&safe=images&as_filetype=&as_rights=&gws_rd=ssl";
                 fundamentalWebBrowserForm form = new fundamentalWebBrowserForm(companyCode, URL);
                 form.Show(dockPanel);
             }
