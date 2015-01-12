@@ -154,11 +154,85 @@ namespace Imports.Stock
                     }
                     vnIdx.Value = decimal.Parse(tradeData[0], dataCulture);
                     vnIdx.TotalQty = decimal.Parse(tradeData[1], dataCulture);
-                    vnIdx.TotalAmt = 0;
+                    vnIdx.TotalAmt = decimal.Parse(tradeData[2], dataCulture);
 
                     vn30Idx.Value = decimal.Parse(tradeData[11], dataCulture);
-                    vn30Idx.TotalQty = decimal.Parse(tradeData[14], dataCulture); ;
-                    vn30Idx.TotalAmt = 0;
+                    vn30Idx.TotalQty = decimal.Parse(tradeData[14], dataCulture);
+                    vn30Idx.TotalAmt = decimal.Parse(tradeData[15], dataCulture);
+                    return true;
+                }
+            }
+            catch (WebException e)
+            {
+                return false;
+            }
+            finally
+            {
+                if (client != null && client.State == System.ServiceModel.CommunicationState.Opened)
+                    client.Close();
+            }
+
+            return true;
+        }
+    }
+
+    public class ssi_hastcIdxImport : marketImport
+    {
+        static MarketData hnIdx = new MarketData("HNX-IDX");
+        static MarketData hnIdx30 = new MarketData("HNX30-IDX"); 
+
+        public override databases.baseDS.priceDataDataTable GetImportFromWeb(DateTime updateTime, databases.baseDS.exchangeDetailRow exchangeDetailRow)
+        {
+            if (!GetData(exchangeDetailRow, ref hnIdx, ref hnIdx30)) return null;
+            databases.importDS.importPriceDataTable importPriceTbl = new databases.importDS.importPriceDataTable();
+            AddImportRow(updateTime, hnIdx, true, importPriceTbl);
+            //AddImportRow(updateTime, vn30Idx, false, importPriceTbl);
+
+            Imports.Libs.AddNewCode(exchangeDetailRow.marketCode, importPriceTbl, null);
+            databases.DbAccess.UpdateData(importPriceTbl);
+
+            databases.baseDS.priceDataDataTable priceTbl = new databases.baseDS.priceDataDataTable();
+            Imports.Libs.AddImportPrice(importPriceTbl, priceTbl);
+            databases.DbAccess.UpdateData(priceTbl);
+            return priceTbl;
+        }
+
+        protected bool GetData(databases.baseDS.exchangeDetailRow exchangeDetailRow, ref MarketData hnIdx, ref MarketData hnIdx30)
+        {
+            clientSSI.AjaxWebServiceSoapClient client = null;
+            try
+            {
+                client = new clientSSI.AjaxWebServiceSoapClient();
+                client.Endpoint.Address = new System.ServiceModel.EndpointAddress(exchangeDetailRow.address);
+                System.ServiceModel.BasicHttpBinding binding = (client.Endpoint.Binding as System.ServiceModel.BasicHttpBinding);
+
+                binding.OpenTimeout = TimeSpan.FromSeconds(Consts.constWebServiceTimeOutInSecs);
+                binding.CloseTimeout = binding.OpenTimeout;
+                binding.SendTimeout = binding.OpenTimeout;
+
+                binding.MaxReceivedMessageSize = Consts.constWebServiceMaxReceivedMessageSize;
+                binding.MaxBufferSize = Consts.constWebServiceMaxReceivedMessageSize;
+
+                binding.ReaderQuotas.MaxStringContentLength = Consts.constWebServiceMaxStringContentLength;
+                binding.ReaderQuotas.MaxBytesPerRead = Consts.constWebServiceMaxBytesPerRead;
+
+                CultureInfo dataCulture = application.AppLibs.GetCulture(exchangeDetailRow.culture);
+                String s = client.GetDataHaSTC2_Index();
+                List<string> tradeList = new List<string>(s.Split('#'));
+                for (int i = 0; i < tradeList.Count; i++)
+                {
+                    List<string> tradeData = new List<string>(tradeList[i].Split('|'));
+                    if (tradeData[5].Trim() == "")
+                    {
+                        continue;
+                    }
+                    hnIdx.Value = decimal.Parse(tradeData[5], dataCulture);
+                    hnIdx.TotalQty = decimal.Parse(tradeData[3], dataCulture);
+                    hnIdx.TotalAmt = decimal.Parse(tradeData[4], dataCulture);
+
+                    hnIdx30.Value = decimal.Parse(tradeData[10], dataCulture);
+                    hnIdx30.TotalQty = decimal.Parse(tradeData[11], dataCulture);
+                    hnIdx30.TotalAmt = decimal.Parse(tradeData[12], dataCulture);
                     return true;
                 }
             }
