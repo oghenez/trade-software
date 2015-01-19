@@ -148,12 +148,12 @@ namespace Tools.Forms
         {
             tmpDS.screeningCode.Clear();
             tmpDS.screeningCriteria.Clear();
-            string[] screeningKeys = application.Strategy.Data.MetaList.Keys;
-            object[] screeningValues = application.Strategy.Data.MetaList.Values;
+            string[] screeningKeys = application.Strategy.StrategyData.MetaList.Keys;
+            object[] screeningValues = application.Strategy.StrategyData.MetaList.Values;
             Data.tmpDataSet.screeningCodeRow row;
             for (int idx = 0; idx < screeningKeys.Length; idx++)
             {
-                application.Strategy.Meta meta = (application.Strategy.Meta)screeningValues[idx];
+                application.Strategy.StrategyMeta meta = (application.Strategy.StrategyMeta)screeningValues[idx];
                 if (meta.Type != AppTypes.StrategyTypes.Screening) continue;
                 row = tmpDS.screeningCode.NewscreeningCodeRow();
                 row.code = meta.Code;
@@ -202,7 +202,7 @@ namespace Tools.Forms
             amountCellStyle.Format = "N" + common.system.GetPrecisionFromMask(Settings.sysMaskLocalAmt);
             amountCellStyle.NullValue = null;
 
-            application.Strategy.Meta meta;
+            application.Strategy.StrategyMeta meta;
             grid.Columns.Clear();
             for (int idx = 0; idx < tbl.Columns.Count; idx++)
             {
@@ -217,7 +217,7 @@ namespace Tools.Forms
                 }
                 else
                 {
-                    meta = application.Strategy.Libs.FindMetaByCode(tbl.Columns[idx].ColumnName);
+                    meta = application.Strategy.StrategyLibs.FindMetaByCode(tbl.Columns[idx].ColumnName);
                     column.ToolTipText = meta.Name.Trim();
                     column.HeaderText = meta.ClassType.Name.Trim(); 
                     column.Width = 90;
@@ -393,9 +393,9 @@ namespace Tools.Forms
 
         private void EditScreeningOption(string code)
         {
-            application.Strategy.Meta meta = application.Strategy.Libs.FindMetaByCode(code);
+            application.Strategy.StrategyMeta meta = application.Strategy.StrategyLibs.FindMetaByCode(code);
             if (meta == null) return;
-            application.Strategy.Libs.ShowStrategyForm(meta);
+            application.Strategy.StrategyLibs.ShowStrategyForm(meta);
         }
         #region event handler
 
