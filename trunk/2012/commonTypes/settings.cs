@@ -120,9 +120,9 @@ namespace commonTypes
     /// </summary>
     public static class Settings
     {
-        public const bool sysDebugMode = true;
-        public const string sysDebugMode_execDirectory = @"C:\Users\qnguyen37\Documents\Quantum201428\wsServices\obj\Debug";
-        //public const string sysDebugMode_execDirectory = @"C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\Quantum20140726\wsServices\obj\Debug";
+        public const bool sysDebugMode = false;
+        //public const string sysDebugMode_execDirectory = @"C:\Users\qnguyen37\Documents\Quantum201428\wsServices\obj\Debug";
+        public const string sysDebugMode_execDirectory = @"C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\Quantum20140726\wsServices\obj\Debug";
         //public const string sysDebugMode_execDirectory = "D:\\work\\stockProdsject\\code\\wsServices\\obj\\Debug";        
         
 
