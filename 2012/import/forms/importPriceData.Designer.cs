@@ -229,7 +229,7 @@
             this.dataSourceCb.FormattingEnabled = true;
             this.dataSourceCb.Items.AddRange(new object[] {
             "CP68  - YYYYMMDD",
-            "BVSC - MMDDYYYY",
+            "BVSC - YYMMDD",
             "Gold   - YYYYMMDDhhmmss"});
             this.dataSourceCb.Location = new System.Drawing.Point(24, 73);
             this.dataSourceCb.myValue = "";
