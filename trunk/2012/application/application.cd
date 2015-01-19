@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="application.AppLibs">
+  <Class Name="application.AppLibs" Collapsed="true">
     <Position X="2.5" Y="3.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAIAAACAAABkAAEAAgAAAAACDQCAAgAAAAAAAKAAAAA=</HashCode>
@@ -65,13 +65,6 @@
   </Class>
   <Class Name="application.forms.baseIndicatorForm" Collapsed="true">
     <Position X="1.75" Y="0.5" Width="1.5" />
-    <NestedTypes>
-      <Delegate Name="application.forms.baseIndicatorForm.PlotChart" Collapsed="true">
-        <TypeIdentifier>
-          <NewMemberFileName>forms\baseIndicatorForm.cs</NewMemberFileName>
-        </TypeIdentifier>
-      </Delegate>
-    </NestedTypes>
     <TypeIdentifier>
       <HashCode>AAAAAACAQCACAABgIACCAEACAAAAAAAAAAEAAAAAAAA=</HashCode>
       <FileName>forms\baseIndicatorForm.cs</FileName>
@@ -121,6 +114,13 @@
   </Class>
   <Class Name="application.Indicators.Meta" Collapsed="true">
     <Position X="8.75" Y="3.5" Width="1.5" />
+    <NestedTypes>
+      <Class Name="application.Indicators.Meta.OutputInfo" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>IndicatorLibs.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
     <TypeIdentifier>
       <HashCode>IAAEQCAAAAigAAABAAIIAgSABCBAAEkAGIAAAAgACAA=</HashCode>
       <FileName>IndicatorLibs.cs</FileName>
@@ -152,21 +152,53 @@
       <FileName>StrategyLibs.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="application.Strategy.Meta" Collapsed="true">
+  <Class Name="application.Strategy.StrategyMeta" Collapsed="true">
     <Position X="7" Y="3.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>IAAAQCAAAAigAAAAAAAgABSABCBAAAAAAYAAAAgACAA=</HashCode>
       <FileName>StrategyLibs.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="application.Strategy.Libs" Collapsed="true">
+  <Class Name="application.Strategy.StrategyLibsforStrategy" Collapsed="true">
     <Position X="10.5" Y="2.5" Width="1.5" />
+    <NestedTypes>
+      <Class Name="application.Strategy.StrategyLibsforStrategy.EstimationData" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>StrategyLibs.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+      <Delegate Name="application.Strategy.StrategyLibsforStrategy.AfterEachEstimationFunc" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>StrategyLibs.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+      <Delegate Name="application.Strategy.StrategyLibsforStrategy.AfterEstimationFunc" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>StrategyLibs.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+      <Class Name="application.Strategy.StrategyLibsforStrategy.EstimateSum" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>StrategyLibs.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+      <Class Name="application.Strategy.StrategyLibsforStrategy.OneStockStrategyStats" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>StrategyLibs.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+      <Class Name="application.Strategy.StrategyLibsforStrategy.StrategyStats" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>StrategyLibs.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
     <TypeIdentifier>
-      <HashCode>AIIRAECAiAiAACAAIAABACAAACABAAAAUAAABQEAA2A=</HashCode>
+      <HashCode>AIIRAECAiAiAACAAIAABACAAACABAAAEUAAABQEAA2A=</HashCode>
       <FileName>StrategyLibs.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="application.Strategy.Data" Collapsed="true">
+  <Class Name="application.Strategy.StrategyData" Collapsed="true">
     <Position X="5.25" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAgAAAAAhAAAgAAAAAAQAgAAAAAAAAQAAAEgiABAAAA=</HashCode>
