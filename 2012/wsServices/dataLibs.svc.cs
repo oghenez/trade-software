@@ -66,7 +66,7 @@ namespace wsServices
         public void ClearCache()
         {
             sysDataCache.Clear();
-            application.Strategy.Data.ClearCache();
+            application.Strategy.StrategyData.ClearCache();
         }
 
         //Clear all caches to bring the system into initial state
@@ -166,9 +166,9 @@ namespace wsServices
                 TradePointInfo[] tradePointList = new TradePointInfo[0];
                 application.AnalysisData data = GetAnalysisData(dataKey);
                 if (data == null) return tradePointList;
-                application.Strategy.Meta meta = application.Strategy.Libs.FindMetaByCode(strategyCode);
+                application.Strategy.StrategyMeta meta = application.Strategy.StrategyLibs.FindMetaByCode(strategyCode);
                 if (meta == null) return tradePointList;
-                return application.Strategy.Libs.ToTradePointInfo(application.Strategy.Libs.Analysis(data, meta));
+                return application.Strategy.StrategyLibs.ToTradePointInfo(application.Strategy.StrategyLibs.Analysis(data, meta));
             }
             catch (Exception ex)
             {
@@ -183,7 +183,7 @@ namespace wsServices
         {
             try
             {
-                return application.Strategy.Libs.Estimate_Matrix_Profit(timeRange, AppTypes.TimeScaleFromCode(timeScaleCode),
+                return application.Strategy.StrategyLibs.Estimate_Matrix_Profit(timeRange, AppTypes.TimeScaleFromCode(timeScaleCode),
                                                             common.system.List2Collection(stockCodeList),
                                                             common.system.List2Collection(strategyList), option);
             }
@@ -199,7 +199,7 @@ namespace wsServices
             try
             {
                 WriteLog(1, "InvestorCode", "Estimate_Matrix_LastBizWeight", stockCodeList.ToString(), strategyList.ToString());
-                return application.Strategy.Libs.Estimate_Matrix_LastBizWeight(dataParam, common.system.List2Collection(stockCodeList),
+                return application.Strategy.StrategyLibs.Estimate_Matrix_LastBizWeight(dataParam, common.system.List2Collection(stockCodeList),
                                                                                common.system.List2Collection(strategyList));
             }
             catch (Exception ex)
@@ -1348,7 +1348,7 @@ namespace wsServices
             {
                 string dataKey = LoadAnalysisData(stockCode, dataParam, false);
                 TradePointInfo[] tradePoints = Analysis(dataKey, strategyCode);
-                toTbl = application.Strategy.Libs.EstimateTrading_Details(sysDataCache.Find(dataKey) as application.AnalysisData, tradePoints, options);
+                toTbl = application.Strategy.StrategyLibs.EstimateTrading_Details(sysDataCache.Find(dataKey) as application.AnalysisData, tradePoints, options);
                 return tradePoints;
             }
             catch (Exception ex)
