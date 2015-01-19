@@ -106,7 +106,7 @@ namespace client
         {
             if (force) DataAccess.Libs.ClearCache();
             //Load XML meta for STRATEGY and INDICATOR
-            application.Strategy.Data.sysXmlDocument = DataAccess.Libs.GetXmlDocumentSTRATEGY();
+            application.Strategy.StrategyData.sysXmlDocument = DataAccess.Libs.GetXmlDocumentSTRATEGY();
             application.Indicators.Data.sysXmlDocument = DataAccess.Libs.GetXmlDocumentINDICATOR();
             DataAccess.Libs.LoadSystemVars();
             return true;
@@ -137,7 +137,7 @@ namespace client
             }
             common.language.SetLanguage();
             commonClass.SysLibs.SetLanguage();
-            application.Strategy.Data.Clear();
+            application.Strategy.StrategyData.Clear();
             application.Indicators.Data.Clear();
             SetLanguage();
             SetLanguageAllOpenForms();
@@ -241,7 +241,7 @@ namespace client
             contextMenuStrip.Items.Add(new ToolStripSeparator());
             System.Windows.Forms.ToolStripMenuItem strategyMenuItem = new ToolStripMenuItem();
             strategyMenuItem.Text = Languages.Libs.GetString("strategy");
-            application.Strategy.Libs.CreateMenu(AppTypes.StrategyTypes.Strategy, strategyMenuItem, PlotTradepointHandler);
+            application.Strategy.StrategyLibs.CreateMenu(AppTypes.StrategyTypes.Strategy, strategyMenuItem, PlotTradepointHandler);
             contextMenuStrip.Items.Add(strategyMenuItem);
 
             //menu for indicator
@@ -1203,13 +1203,13 @@ namespace client
 
                 //Strategy menu
                 strategyEstimationMenuItem.DropDownItems.Clear();
-                application.Strategy.Libs.CreateMenu(AppTypes.StrategyTypes.Strategy, strategyEstimationMenuItem, PlotTradepointHandler);
+                application.Strategy.StrategyLibs.CreateMenu(AppTypes.StrategyTypes.Strategy, strategyEstimationMenuItem, PlotTradepointHandler);
 
                 strategyOptionsMenuItem.DropDownItems.Clear();
-                application.Strategy.Libs.CreateMenu(AppTypes.StrategyTypes.Strategy, strategyOptionsMenuItem, StrategyParaEditHandler);
+                application.Strategy.StrategyLibs.CreateMenu(AppTypes.StrategyTypes.Strategy, strategyOptionsMenuItem, StrategyParaEditHandler);
 
                 screeningOptionsMenuItem.DropDownItems.Clear();
-                application.Strategy.Libs.CreateMenu(AppTypes.StrategyTypes.Screening, screeningOptionsMenuItem, StrategyParaEditHandler);
+                application.Strategy.StrategyLibs.CreateMenu(AppTypes.StrategyTypes.Screening, screeningOptionsMenuItem, StrategyParaEditHandler);
 
                 strategyCbStrip.Items.Clear();
                 strategyCbStrip.LoadData();
@@ -1327,8 +1327,8 @@ namespace client
         {
             try
             {
-                application.Strategy.Meta meta = (application.Strategy.Meta)(sender as ToolStripMenuItem).Tag;
-                application.Strategy.Libs.ShowStrategyForm(meta);
+                application.Strategy.StrategyMeta meta = (application.Strategy.StrategyMeta)(sender as ToolStripMenuItem).Tag;
+                application.Strategy.StrategyLibs.ShowStrategyForm(meta);
             }
             catch (Exception er)
             {
@@ -1342,15 +1342,15 @@ namespace client
             {
                 Tools.Forms.tradeAnalysis activeForm = GetActiveStockForm();
                 if (activeForm == null) return;
-                application.Strategy.Meta meta;
+                application.Strategy.StrategyMeta meta;
                 if (sender.GetType() == typeof(ToolStripMenuItem))
                 {
-                    meta = (application.Strategy.Meta)(sender as ToolStripMenuItem).Tag;
+                    meta = (application.Strategy.StrategyMeta)(sender as ToolStripMenuItem).Tag;
                 }
                 else
                 {
                     baseClass.controls.ToolStripCbStrategy item = (baseClass.controls.ToolStripCbStrategy)sender;
-                    meta = application.Strategy.Libs.FindMetaByCode(item.myValue);
+                    meta = application.Strategy.StrategyLibs.FindMetaByCode(item.myValue);
                 }
                 if (meta == null) activeForm.ClearStrategyTradepoints();
                 else activeForm.PlotStrategyTradepoints(meta, this.ChartHaveStrategyEstimation, ShowTradePointEstimate);
