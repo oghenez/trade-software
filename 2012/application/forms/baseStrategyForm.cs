@@ -12,8 +12,8 @@ namespace application.forms
 {
     public partial class baseStrategyForm : common.forms.baseDialogForm
     {
-        private Meta myMeta = null;
-        public baseStrategyForm(Meta meta)
+        private StrategyMeta myMeta = null;
+        public baseStrategyForm(StrategyMeta meta)
         {
             InitializeComponent();
             SetPara(meta);
@@ -54,7 +54,7 @@ namespace application.forms
         /// Create parametter grid from meta.ParameterDefaultValues
         /// </summary>
         /// <param name="meta"></param>
-        protected void SetPara(Meta meta)
+        protected void SetPara(StrategyMeta meta)
         {
             this.ShowMessage("");
 
@@ -79,7 +79,7 @@ namespace application.forms
         protected virtual void SaveSettings()
         {
             this.myMeta.Parameters = this.Parameters;
-            Libs.SaveUserSettings(this.myMeta);
+            StrategyLibs.SaveUserSettings(this.myMeta);
             this.ShowMessage(Languages.Libs.GetString("settingSaved"));
         }
 

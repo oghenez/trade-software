@@ -28,7 +28,7 @@ namespace application.Strategy
     }
     
     //Meta data keeps descriptive information of a strategy
-    public class Meta
+    public class StrategyMeta
     {
         public AppTypes.StrategyTypes Type =  AppTypes.StrategyTypes.Strategy;
         public string Category = "";
@@ -116,7 +116,7 @@ namespace application.Strategy
         /// </summary>
         /// <param name="meta"></param>
         /// <returns></returns>
-        public static bool GetMeta(Meta meta)
+        public static bool GetMeta(StrategyMeta meta)
         {
             StringCollection aFields = new StringCollection();
             aFields.Clear();
@@ -133,7 +133,7 @@ namespace application.Strategy
             aFields.Add("URL");
             aFields.Add("Authors");
             aFields.Add("Version");
-            common.configuration.GetConfiguration(new string[] { "STRATEGY", meta.ClassType.Name }, aFields, Data.sysXmlDocument, false);
+            common.configuration.GetConfiguration(new string[] { "STRATEGY", meta.ClassType.Name }, aFields, StrategyData.sysXmlDocument, false);
 
             meta.Type = AppTypes.Text2StrategyType(aFields[0]);
             meta.Code = aFields[1];
@@ -153,11 +153,11 @@ namespace application.Strategy
         }
     }
 
-    public static class Libs
+    public static class StrategyLibs
     {
         public static string GetMetaName(string code)
         {
-            Meta meta = FindMetaByCode(code);
+            StrategyMeta meta = FindMetaByCode(code);
             return meta.ClassType.Name;
         }
 
@@ -168,7 +168,7 @@ namespace application.Strategy
         /// <param name="myData"> Data used to calculate strategy databases.</param>
         /// <param name="meta">strategy meta data</param>
         /// <returns>Null if error</returns>
-        public static Data.TradePoints Analysis(AnalysisData myData, Meta meta)
+        public static StrategyData.TradePoints Analysis(AnalysisData myData, StrategyMeta meta)
         {
             string cacheName = "data-" + myData.DataStockCode + "-" +
                                          myData.DataTimeScale.Code + "-" + 
@@ -178,21 +178,21 @@ namespace application.Strategy
             processParas[0] = myData;
             processParas[1] = meta.Parameters;
             //First , find in cache
-            Data.TradePoints tradePoints = (Data.TradePoints)Data.FindInCache(cacheName);
+            StrategyData.TradePoints tradePoints = (StrategyData.TradePoints)StrategyData.FindInCache(cacheName);
             if (tradePoints != null) return tradePoints;
 
             //Then, Call Execute() method to get trading points.
             object strategyInstance = GetStrategyInstance(meta.ClassType);
             if (strategyInstance == null) return null;
-            tradePoints = (Data.TradePoints)meta.ClassType.InvokeMember("Execute",
+            tradePoints = (StrategyData.TradePoints)meta.ClassType.InvokeMember("Execute",
                                 BindingFlags.InvokeMethod | BindingFlags.Instance | BindingFlags.Public, null, strategyInstance, processParas);
 
-            Data.AddToCache(cacheName, tradePoints);
+            StrategyData.AddToCache(cacheName, tradePoints);
             return tradePoints;
         }
-        public static Data.TradePoints Analysis(AnalysisData myData, string strategyCode)
+        public static StrategyData.TradePoints AnalysisStrategy(AnalysisData myData, string strategyCode)
         { 
-            Meta meta = FindMetaByCode(strategyCode);
+            StrategyMeta meta = FindMetaByCode(strategyCode);
             if (meta == null) return null;
             return Analysis(myData,meta);
         }
@@ -207,12 +207,12 @@ namespace application.Strategy
         {
             //First, find in cache. 
             string cacheName = "instance-" + strategyType.Name;
-            object strategyInstance = Data.FindInCache(cacheName);
+            object strategyInstance = StrategyData.FindInCache(cacheName);
             if (strategyInstance != null) return strategyInstance;
 
             //Then, create it if not in cache
             strategyInstance = Activator.CreateInstance(strategyType);
-            Data.AddToCache(cacheName, strategyInstance);
+            StrategyData.AddToCache(cacheName, strategyInstance);
             return strategyInstance;
         }
 
@@ -221,13 +221,13 @@ namespace application.Strategy
         /// </summary>
         /// <param name="meta"></param>
         /// <returns></returns>
-        public static forms.baseStrategyForm GetStrategyForm(Meta meta)
+        public static forms.baseStrategyForm GetStrategyForm(StrategyMeta meta)
         {
             string cacheName = "form-" + meta.ClassType.Name;
-            forms.baseStrategyForm form = (forms.baseStrategyForm)Data.FindInCache(cacheName);
+            forms.baseStrategyForm form = (forms.baseStrategyForm)StrategyData.FindInCache(cacheName);
             if (form != null) return form;
             form = (forms.baseStrategyForm)Activator.CreateInstance(meta.FormType, meta);
-            Data.AddToCache(cacheName, form);
+            StrategyData.AddToCache(cacheName, form);
             return form;
         }
         /// <summary>
@@ -236,11 +236,11 @@ namespace application.Strategy
         /// <param name="MetaList">List keeps meta data</param>
         /// <param name="name">strategy name to find</param>
         /// <returns>Null if not found</returns>
-        private static Meta FindMetaByName(common.DictionaryList MetaList, string name)
+        private static StrategyMeta FindMetaByName(common.DictionaryList MetaList, string name)
         {
             object obj = MetaList.Find(name);
             //TUAN - 29 Sept 2012 fix bug profit detail and all profit details
-            foreach (application.Strategy.Meta item in MetaList.Values)
+            foreach (application.Strategy.StrategyMeta item in MetaList.Values)
             {
                 if(item.Name.Equals(name))
                 {
@@ -250,7 +250,7 @@ namespace application.Strategy
             }
             //TUAN - 29 Sept 2012 fix bug profit detail and all profit details
             if (obj == null) return null;
-            return (Meta)obj;
+            return (StrategyMeta)obj;
         }
 
         /// <summary>
@@ -259,11 +259,11 @@ namespace application.Strategy
         /// <param name="MetaList">List keeps meta data</param>
         /// <param name="name">strategy code to find</param>
         /// <returns>Null if not found</returns>
-        private static Meta FindMetaByCode(common.DictionaryList MetaList, string code)
+        private static StrategyMeta FindMetaByCode(common.DictionaryList MetaList, string code)
         {
             for (int idx = 0; idx < MetaList.Values.Length; idx++)
             { 
-                if ( ((Meta)MetaList.Values[idx]).Code==code) return (Meta)MetaList.Values[idx];
+                if ( ((StrategyMeta)MetaList.Values[idx]).Code==code) return (StrategyMeta)MetaList.Values[idx];
             }
             return null;
         }
@@ -273,9 +273,9 @@ namespace application.Strategy
         /// </summary>
         /// <param name="name">strategy name to find</param>/// 
         /// <returns>Null if not found</returns>
-        public static Meta FindMetaByName(string name)
+        public static StrategyMeta FindMetaByName(string name)
         {
-            return FindMetaByName(Data.MetaList, name);
+            return FindMetaByName(StrategyData.MetaList, name);
         }
 
         /// <summary>
@@ -283,9 +283,9 @@ namespace application.Strategy
         /// </summary>
         /// <param name="name">strategy code to find</param>/// 
         /// <returns>Null if not found</returns>
-        public static Meta FindMetaByCode(string code)
+        public static StrategyMeta FindMetaByCode(string code)
         {
-            return FindMetaByCode(Data.MetaList, code);
+            return FindMetaByCode(StrategyData.MetaList, code);
         }
 
         /// <summary>
@@ -294,13 +294,13 @@ namespace application.Strategy
         /// <param name="metasList">List keeps meta data </param>
         /// <param name="category">What category to find/get </param>
         /// <returns></returns>
-        private static Meta[] FindMetaByCat(common.DictionaryList metasList,AppTypes.StrategyTypes  strategyType, string category)
+        private static StrategyMeta[] FindMetaByCat(common.DictionaryList metasList,AppTypes.StrategyTypes  strategyType, string category)
         {
-            Meta[] retMetas = new Meta[0];
+            StrategyMeta[] retMetas = new StrategyMeta[0];
             category = category.Trim().ToLower();
             for (int idx = 0; idx < metasList.Values.Length; idx++)
             {
-                Meta meta = (Meta)metasList.Values[idx];
+                StrategyMeta meta = (StrategyMeta)metasList.Values[idx];
                 if ((meta.Type != strategyType) ||
                     (meta.Category.Trim().ToLower() != category) ) continue;
                 Array.Resize(ref retMetas, retMetas.Length + 1);
@@ -313,9 +313,9 @@ namespace application.Strategy
         /// </summary>
         /// <param name="name">What category to find/get</param>
         /// <returns></returns>
-        public static Meta[] FindMetaByCat(string name, AppTypes.StrategyTypes strategyType)
+        public static StrategyMeta[] FindMetaByCat(string name, AppTypes.StrategyTypes strategyType)
         {
-            return FindMetaByCat(Data.MetaList, strategyType, name);
+            return FindMetaByCat(StrategyData.MetaList, strategyType, name);
         }
 
         /// <summary>
@@ -330,7 +330,7 @@ namespace application.Strategy
         private static void GetMeta(Assembly strategyAss, common.DictionaryList MetaList)
         {
             Type[] mTypes = strategyAss.GetTypes();
-            Meta Meta;
+            StrategyMeta Meta;
             string strategyHelperTypeName = typeof(baseHelper).Name;
             foreach (Type type in mTypes)
             {
@@ -340,7 +340,7 @@ namespace application.Strategy
                 try
                 {
                     object strategyInstance = Activator.CreateInstance(strategyType);
-                    Meta = (Meta)strategyType.InvokeMember("GetInfo",
+                    Meta = (StrategyMeta)strategyType.InvokeMember("GetInfo",
                                         BindingFlags.InvokeMethod | BindingFlags.Instance | BindingFlags.Public, null, strategyInstance, null);
                     if (Meta.Code.Trim() == "") continue;
                     MetaList.Add(Meta.ClassType.Name, Meta);
@@ -380,14 +380,14 @@ namespace application.Strategy
                                        ToolStripMenuItem toMenu,System.EventHandler handler)
             
         {
-            for (int idx1 = 0; idx1 < Data.myCatList.Count; idx1++)
+            for (int idx1 = 0; idx1 < StrategyData.myCatList.Count; idx1++)
             {
-                Meta[] tmpMetas = FindMetaByCat(Metas, strategyType, Data.myCatList[idx1].Code);
+                StrategyMeta[] tmpMetas = FindMetaByCat(Metas, strategyType, StrategyData.myCatList[idx1].Code);
                 if (tmpMetas == null || tmpMetas.Length == 0) continue;
 
                 ToolStripMenuItem catMenuItem = new ToolStripMenuItem();
-                catMenuItem.Name = toMenu.Name + "-group-" + Data.myCatList[idx1].Code;
-                catMenuItem.Text = Data.myCatList[idx1].Description;
+                catMenuItem.Name = toMenu.Name + "-group-" + StrategyData.myCatList[idx1].Code;
+                catMenuItem.Text = StrategyData.myCatList[idx1].Description;
                 toMenu.DropDownItems.Add(catMenuItem);
                 for (int idx2 = 0; idx2 < tmpMetas.Length; idx2++)
                 {
@@ -399,12 +399,12 @@ namespace application.Strategy
                     catMenuItem.DropDownItems.Add(menuItem);
                 }
             }
-            Meta meta;
+            StrategyMeta meta;
             for (int idx2 = 0; idx2 < Metas.Values.Length; idx2++)
             {
-                meta = (Meta)Metas.Values[idx2];
+                meta = (StrategyMeta)Metas.Values[idx2];
                 if (meta.Type != strategyType) continue;
-                if (Data.myCatList.Find(meta.Category.Trim()) != null) continue;
+                if (StrategyData.myCatList.Find(meta.Category.Trim()) != null) continue;
                 ToolStripMenuItem menuItem = new ToolStripMenuItem();
                 menuItem.Name = toMenu.Name + "-group-" + meta.ClassType.Name;
                 menuItem.Tag = meta;
@@ -426,7 +426,7 @@ namespace application.Strategy
                                       ToolStripMenuItem toMenu, System.EventHandler handler)
         {
             if (toMenu!=null)
-                CreateMenu(Data.MetaList, strategyType, toMenu, handler);
+                CreateMenu(StrategyData.MetaList, strategyType, toMenu, handler);
         }
 
 
@@ -439,22 +439,22 @@ namespace application.Strategy
         /// <param name="toObj"></param>
         public static void LoadStrategy(AppTypes.StrategyTypes strategyType, ToolStripComboBox toObj)
         {
-            common.DictionaryList Metas = Data.MetaList;
+            common.DictionaryList Metas = StrategyData.MetaList;
 
             toObj.Items.Clear();
-            for (int idx1 = 0; idx1 < Data.myCatList.Count; idx1++)
+            for (int idx1 = 0; idx1 < StrategyData.myCatList.Count; idx1++)
             {
-                Meta[] tmpMetas = FindMetaByCat(Metas, strategyType, Data.myCatList[idx1].Code);
+                StrategyMeta[] tmpMetas = FindMetaByCat(Metas, strategyType, StrategyData.myCatList[idx1].Code);
                 if (tmpMetas == null || tmpMetas.Length == 0) continue;
 
-                toObj.Items.Add(new common.myComboBoxItem("--" + Data.myCatList[idx1].Description.Trim() + "--", ""));
+                toObj.Items.Add(new common.myComboBoxItem("--" + StrategyData.myCatList[idx1].Description.Trim() + "--", ""));
                 for (int idx2 = 0; idx2 < tmpMetas.Length; idx2++)
                 {
                     toObj.Items.Add(new common.myComboBoxItem(tmpMetas[idx2].Name, tmpMetas[idx2].Code));
                 }
             }
             //Donot have category
-            Meta meta;
+            StrategyMeta meta;
             bool flag = true;
             for (int idx2 = 0; idx2 < Metas.Values.Length; idx2++)
             {
@@ -463,9 +463,9 @@ namespace application.Strategy
                     toObj.Items.Add(new common.myComboBoxItem("--" + Languages.Libs.GetString("others") + "--", ""));
                     flag = false;
                 }
-                meta = (Meta)Metas.Values[idx2];
+                meta = (StrategyMeta)Metas.Values[idx2];
                 if (meta.Type != strategyType) continue;
-                if (Data.myCatList.Find(meta.Category.Trim()) != null) continue;
+                if (StrategyData.myCatList.Find(meta.Category.Trim()) != null) continue;
                 toObj.Items.Add(new common.myComboBoxItem(meta.Name, meta.Code));
             }
         }
@@ -721,12 +721,12 @@ namespace application.Strategy
             commonClass.DataParams dataParm = new DataParams(timeScale.Code,timeRange,0);
             for (int rowId = 0; rowId < stockCodeList.Count; rowId++)
             {
-                Data.ClearCache();
+                StrategyData.ClearCache();
                 AnalysisData analysisData = new AnalysisData(stockCodeList[rowId],dataParm);
                 decimal[] rowRetList = new decimal[strategyList.Count];
                 for (int colId = 0; colId < strategyList.Count; colId++)
                 {
-                    Data.TradePoints advices = Analysis(analysisData, strategyList[colId]);
+                    StrategyData.TradePoints advices = AnalysisStrategy(analysisData, strategyList[colId]);
                     if (advices != null)
                     {
                         rowRetList[colId] = EstimateTrading_Profit(analysisData, ToTradePointInfo(advices), option);
@@ -745,12 +745,12 @@ namespace application.Strategy
             List<double[]> retList = new List<double[]>();
             for (int rowId = 0; rowId < stockCodeList.Count; rowId++)
             {
-                Data.ClearCache();
+                StrategyData.ClearCache();
                 AnalysisData analysisData = new AnalysisData(stockCodeList[rowId], dataParm);
                 double[] rowRetList = new double[strategyList.Count];
                 for (int colId = 0; colId < strategyList.Count; colId++)
                 {
-                    Data.TradePoints tradePoints = Analysis(analysisData, strategyList[colId]);
+                    StrategyData.TradePoints tradePoints = AnalysisStrategy(analysisData, strategyList[colId]);
                     if (tradePoints != null && tradePoints.Count>0)
                     {
                         rowRetList[colId] = (tradePoints[tradePoints.Count - 1] as TradePointInfo).BusinessInfo.Weight;
@@ -929,14 +929,14 @@ namespace application.Strategy
         /// Show strategy form that allow user to change default setting and save these settings
         /// </summary>
         /// <param name="meta"></param>
-        public static void ShowStrategyForm(Meta meta)
+        public static void ShowStrategyForm(StrategyMeta meta)
         {
             GetUserSettings(meta);
             forms.baseStrategyForm form = GetStrategyForm(meta);
             form.ShowDialog();
         }
         //Read and save setting to users's XML file
-        public static bool GetUserSettings(Meta meta)
+        public static bool GetUserSettings(StrategyMeta meta)
         {
             StringCollection aFields = new StringCollection();
             aFields.Add("params");
@@ -945,7 +945,7 @@ namespace application.Strategy
             meta.Parameters = common.system.String2DoubleList(aFields[0]);
             return true;
         }
-        public static bool SaveUserSettings(Meta meta)
+        public static bool SaveUserSettings(StrategyMeta meta)
         {
             StringCollection aFields = new StringCollection();
             aFields.Clear();
@@ -959,30 +959,30 @@ namespace application.Strategy
         //Load strategy to table
         public static void LoadStrategy(databases.tmpDS.codeListDataTable tbl, AppTypes.StrategyTypes type)
         {
-            Meta meta;
+            StrategyMeta meta;
             databases.tmpDS.codeListRow row;
-            for (int idx = 0; idx < Data.MetaList.Values.Length; idx++)
+            for (int idx = 0; idx < StrategyData.MetaList.Values.Length; idx++)
             {
-                meta = (Meta)Data.MetaList.Values[idx];
+                meta = (StrategyMeta)StrategyData.MetaList.Values[idx];
                 if (meta.Type != type) continue;
                 row = tbl.NewcodeListRow();
-                row.code = ((Meta)Data.MetaList.Values[idx]).Code;
-                row.description = ((Meta)Data.MetaList.Values[idx]).Name;
+                row.code = ((StrategyMeta)StrategyData.MetaList.Values[idx]).Code;
+                row.description = ((StrategyMeta)StrategyData.MetaList.Values[idx]).Name;
                 tbl.AddcodeListRow(row);
             }
         }
 
         //Convert
-        public static Data.TradePoints ToTradePoints(TradePointInfo[] tradePointInfos)
+        public static StrategyData.TradePoints ToTradePoints(TradePointInfo[] tradePointInfos)
         {
-            Data.TradePoints tradePointList = new Data.TradePoints();
+            StrategyData.TradePoints tradePointList = new StrategyData.TradePoints();
             for (int idx = 0; idx < tradePointInfos.Length; idx++)
             {
                 tradePointList.Add(tradePointInfos[idx]);
             }
             return tradePointList;
         }
-        public static TradePointInfo[] ToTradePointInfo(Data.TradePoints tradePoints)
+        public static TradePointInfo[] ToTradePointInfo(StrategyData.TradePoints tradePoints)
         {
             TradePointInfo[] tradePointInfos = new TradePointInfo[tradePoints.Count];
             for (int idx = 0; idx < tradePoints.Count; idx++)
@@ -993,7 +993,7 @@ namespace application.Strategy
         }
     }
 
-    public static class Data
+    public static class StrategyData
     {
         public const string constAssemplyNamePattern = "*strategy.dll";
 
@@ -1057,7 +1057,7 @@ namespace application.Strategy
                         aFields.Clear();
                         aFields.Add("Code");
                         aFields.Add("Description");
-                        if (!common.configuration.GetConfiguration(new string[] { "CATEGORY", "CAT" + count.ToString() }, aFields, Data.sysXmlDocument, false)) break;
+                        if (!common.configuration.GetConfiguration(new string[] { "CATEGORY", "CAT" + count.ToString() }, aFields, StrategyData.sysXmlDocument, false)) break;
                         _myCatList.Add(new commonClass.DataCategory(aFields[0], aFields[1]));
                         count++;
                     }
@@ -1077,7 +1077,7 @@ namespace application.Strategy
                 if (_metaList == null)
                 {
                     _metaList = new common.DictionaryList();
-                    Libs.GetMeta(Settings.sysExecuteDirectory, constAssemplyNamePattern, _metaList);
+                    StrategyLibs.GetMeta(Settings.sysExecuteDirectory, constAssemplyNamePattern, _metaList);
                 }
                 return _metaList;
             }
@@ -1099,7 +1099,7 @@ namespace application.Strategy
     }
 
     /// <summary>
-    /// Base Strategy
+    /// Base Strategys
     /// </summary>
     public class baseStrategy
     {
@@ -1110,8 +1110,8 @@ namespace application.Strategy
     /// </summary>
     public class baseHelper
     {
-        private Meta MetaData = new Meta();
-        public Meta GetInfo() { return MetaData; }
+        private StrategyMeta MetaData = new StrategyMeta();
+        public StrategyMeta GetInfo() { return MetaData; }
 
         protected baseHelper(Type strategyType)
         {
@@ -1125,7 +1125,7 @@ namespace application.Strategy
         {
             this.MetaData.ClassType = strategyType;
             this.MetaData.FormType = formType;
-            Meta.GetMeta(this.MetaData);
+            StrategyMeta.GetMeta(this.MetaData);
         }
     }
 }
