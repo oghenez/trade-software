@@ -213,7 +213,7 @@ namespace Tools.Forms
             amountCellStyle.Format = "N" + common.system.GetPrecisionFromMask(Settings.sysMaskLocalAmt);
             amountCellStyle.NullValue = null;
 
-            application.Strategy.Meta meta;
+            application.Strategy.StrategyMeta meta;
             grid.Columns.Clear();
             for (int idx = 0; idx < tbl.Columns.Count; idx++)
             {
@@ -227,7 +227,7 @@ namespace Tools.Forms
                 }
                 else
                 {
-                    meta = application.Strategy.Libs.FindMetaByCode(tbl.Columns[idx].ColumnName);
+                    meta = application.Strategy.StrategyLibs.FindMetaByCode(tbl.Columns[idx].ColumnName);
                     column.ToolTipText = meta.Name;
                     column.HeaderText = meta.ClassType.Name.Trim(); 
                     column.Width = 90;
@@ -248,7 +248,7 @@ namespace Tools.Forms
         private void SetEstimateStrategyGridText()
         {
             DataTable tbl = (DataTable)strategyEstimationGrid.DataSource;
-            StringCollection text = application.Strategy.Libs.GetStrategyStatsText();
+            StringCollection text = application.Strategy.StrategyLibs.GetStrategyStatsText();
             if (tbl == null || text.Count != strategyEstimationGrid.Rows.Count) return;
             for (int idx = 0; idx < text.Count; idx++)
             {
@@ -269,7 +269,7 @@ namespace Tools.Forms
                 }
                 else
                 {
-                    resultDataGrid.Columns[idx].HeaderText = application.Strategy.Libs.GetMetaName(tbl.Columns[idx].ColumnName);
+                    resultDataGrid.Columns[idx].HeaderText = application.Strategy.StrategyLibs.GetMetaName(tbl.Columns[idx].ColumnName);
                 }
             }
             resultDataGrid.Refresh();
@@ -395,7 +395,7 @@ namespace Tools.Forms
             common.system.RemoveEmptyItems(retsultTbl);
             SetDataGrid(resultDataGrid, retsultTbl);
 
-            SetEstimateDataGrid(application.Strategy.Libs.GetStrategyStats(retsultTbl));
+            SetEstimateDataGrid(application.Strategy.StrategyLibs.GetStrategyStats(retsultTbl));
         }
 
         private void CreateContextMenu()

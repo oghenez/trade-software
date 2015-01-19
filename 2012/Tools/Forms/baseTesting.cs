@@ -59,7 +59,7 @@ namespace Tools.Forms
 
         protected void ShowTradeTransactions(databases.tmpDS.stockCodeRow stockCodeRow, string strategyCode, DataParams dataParam)
         {
-            string formName = stockCodeRow.code.Trim() + "," + dataParam.TimeRange.ToString() + "," + application.Strategy.Libs.GetMetaName(strategyCode) + "," + dataParam.TimeScale;
+            string formName = stockCodeRow.code.Trim() + "," + dataParam.TimeRange.ToString() + "," + application.Strategy.StrategyLibs.GetMetaName(strategyCode) + "," + dataParam.TimeScale;
             profitEstimate myForm = profitEstimate.GetForm(formName);
             myForm.myDataParam = dataParam;
             myForm.myStockCode = stockCodeRow.code;
