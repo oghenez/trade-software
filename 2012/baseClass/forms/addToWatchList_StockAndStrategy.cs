@@ -56,7 +56,7 @@ namespace baseClass.Forms
             strategyLb.Items.Clear();
             for (int idx = 0; idx < strategyCodes.Count; idx++)
             {
-                strategyLb.Items.Add(application.Strategy.Libs.GetMetaName(strategyCodes[idx]));
+                strategyLb.Items.Add(application.Strategy.StrategyLibs.GetMetaName(strategyCodes[idx]));
             }
             this.timeScaleCb.myValue = timeScale;
             this.ShowDialog();

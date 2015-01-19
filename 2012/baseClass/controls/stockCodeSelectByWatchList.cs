@@ -356,8 +356,8 @@ namespace baseClass.controls
                 if (stockCodeRow.price == closePriceRow.value) continue;
                 stockCodeRow.price = closePriceRow.value;
                 openPriceRow = openPriceTbl.FindBystockCode(stockCodeRow.code);
-                if (openPriceRow != null)
-                    stockCodeRow.priceVariant = closePriceRow.value - openPriceRow.value;
+                if (openPriceRow != null&&openPriceRow.value!=0)
+                    stockCodeRow.priceVariant = (closePriceRow.value - openPriceRow.value) / openPriceRow.value;
                 else stockCodeRow.priceVariant = 0;
             }
             SetColor();
