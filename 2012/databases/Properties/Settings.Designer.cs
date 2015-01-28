@@ -31,7 +31,7 @@ namespace databases.Properties {
         public string importConnectionString {
             get {
                 return databases.SysLibs.importConnectionString;
-                return ((string)(this["importConnectionString"]));
+                //return ((string)(this["importConnectionString"]));
             }
         }
         
@@ -43,7 +43,7 @@ namespace databases.Properties {
         public string dbConnectionString {
             get {
                 return databases.SysLibs.dbConnectionString; 
-                return ((string)(this["dbConnectionString"]));
+                //return ((string)(this["dbConnectionString"]));
             }
         }
         
