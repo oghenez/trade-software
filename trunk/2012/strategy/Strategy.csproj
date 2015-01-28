@@ -1,0 +1,184 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{1463FC47-2B74-4E63-9710-2C3B8ED3DE8A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>strategy</RootNamespace>
+    <AssemblyName>strategy</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <TargetFrameworkProfile />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\dlls\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\dlls\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="application, Version=1.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Quantum20140726\dlls\application.dll</HintPath>
+    </Reference>
+    <Reference Include="commonClass, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Quantum20140726\dlls\commonClass.dll</HintPath>
+    </Reference>
+    <Reference Include="commonTypes, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Quantum20140726\dlls\commonTypes.dll</HintPath>
+    </Reference>
+    <Reference Include="Indicators, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Quantum20140726\dlls\Indicators.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WeifenLuo.WinFormsUI.Docking">
+      <HintPath>..\dlls\WeifenLuo.WinFormsUI.Docking.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AverageStrategy.cs" />
+    <Compile Include="Basic Strategy\BasicAroon.cs" />
+    <Compile Include="Basic Strategy\BasicATR.cs" />
+    <Compile Include="Basic Strategy\BasicRSI.cs" />
+    <Compile Include="Basic Strategy\BasicSAR.cs" />
+    <Compile Include="Basic Strategy\BasicTRIX.cs" />
+    <Compile Include="Basic Strategy\MarketTrend.cs" />
+    <Compile Include="Basic Strategy\Price_3MA.cs" />
+    <Compile Include="Basic Strategy\BasicDMI.cs" />
+    <Compile Include="Basic Strategy\BasicMACD.cs" />
+    <Compile Include="Basic Strategy\BuyAndHoldStrategy.cs" />
+    <Compile Include="GenericStrategy.cs" />
+    <Compile Include="HybridTest.cs" />
+    <Compile Include="Hybrid\SARATR.cs" />
+    <Compile Include="Hybrid\HybridEMAATR.cs" />
+    <Compile Include="Hybrid\HybridKeltner.cs" />
+    <Compile Include="Hybrid\HybridSAR.cs" />
+    <Compile Include="Hybrid\HybridSMAATR.cs" />
+    <Compile Include="Hybrid\MACDHistATR.cs" />
+    <Compile Include="Hybrid\MACD_Hybrid.cs" />
+    <Compile Include="Hybrid\MACD_Stochastic.cs" />
+    <Compile Include="Hybrid\MACD_Stochastic_Bottom.cs" />
+    <Compile Include="Basic Strategy\MACD_Histogram.cs" />
+    <Compile Include="Basic Strategy\MACD_Line_Cut.cs" />
+    <Compile Include="Hybrid\MACD_StochSlow.cs" />
+    <Compile Include="Hybrid\TrendingSystem.cs" />
+    <Compile Include="Parameters.cs" />
+    <Compile Include="Hybrid\RSI_MACD_Histogram.cs" />
+    <Compile Include="Basic Strategy\Price_2MA.cs" />
+    <Compile Include="ConsecutiveUpAndDown.cs" />
+    <Compile Include="Rules\BasicATRRule.cs" />
+    <Compile Include="Rules\BasicMACDRule.cs" />
+    <Compile Include="Rules\BasicRSI_Rule.cs" />
+    <Compile Include="Rules\BasicSARRule.cs" />
+    <Compile Include="Rules\BasicTRIXRule.cs" />
+    <Compile Include="Rules\MACDHistATRRules.cs" />
+    <Compile Include="Rules\MACD_HistogramRule.cs" />
+    <Compile Include="Rules\PriceTwoSMARule.cs" />
+    <Compile Include="Rules\SARATRRules.cs" />
+    <Compile Include="Rules\SMAATRRules.cs" />
+    <Compile Include="Rules\StochSlowRule.cs" />
+    <Compile Include="Rules\TwoLineTRIXRule.cs" />
+    <Compile Include="Screening\AbnormaliesScreening.cs" />
+    <Compile Include="Screening\BasicATRSCR.cs" />
+    <Compile Include="Screening\BasicMACDSCR.cs" />
+    <Compile Include="Screening\BestRankingSCR.cs" />
+    <Compile Include="Screening\MACD_HistogramSCR.cs" />
+    <Compile Include="Screening\RelativeStrength.cs" />
+    <Compile Include="Screening\ResistanceScreening.cs" />
+    <Compile Include="Screening\PriceScreening.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Basic Strategy\RandomStrategy.cs" />
+    <Compile Include="Basic Strategy\StochasticFast.cs" />
+    <Compile Include="Basic Strategy\StochasticSlow.cs" />
+    <Compile Include="Hybrid\SMA_Stochastic.cs" />
+    <Compile Include="Rule.cs" />
+    <Compile Include="strategyLib.cs" />
+    <Compile Include="Basic Strategy\TwoMA.cs" />
+    <Compile Include="Basic Strategy\TwoMA_Filters.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

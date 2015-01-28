@@ -120,9 +120,9 @@ namespace commonTypes
     /// </summary>
     public static class Settings
     {
-        public const bool sysDebugMode = false;
+        public const bool sysDebugMode = true;
         public enum environmentDebugMode{localT440,localHP,SIT440,UAT,Prod};
-        public static environmentDebugMode environmentMode=environmentDebugMode.Prod;
+        public static environmentDebugMode environmentMode=environmentDebugMode.localHP;
         //public const string sysDebugMode_execDirectory = @"C:\Users\qnguyen37\Documents\Quantum201428\wsServices\obj\Debug";
         public static string sysDebugMode_execDirectory = "";
         //public const string sysDebugMode_execDirectory = "D:\\work\\stockProdsject\\code\\wsServices\\obj\\Debug";        
