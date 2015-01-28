@@ -112,14 +112,17 @@ namespace DataAccess
             ServicePointManager.Expect100Continue = false; //loi proxy http://chrishaas.wordpress.com/2009/11/02/fixing-the-remote-server-returned-an-error-417-expectation-failed/
             ServicePointManager.UseNagleAlgorithm = true;
             ServicePointManager.CheckCertificateRevocationList = true;
-            ServicePointManager.DefaultConnectionLimit = ServicePointManager.DefaultPersistentConnectionLimit;
+            //ServicePointManager.DefaultConnectionLimit = ServicePointManager.DefaultPersistentConnectionLimit;
 
             //For testing
             if (Settings.sysDebugMode)
             {
-                _myClient.Endpoint.Address = new System.ServiceModel.EndpointAddress("http://localhost:8731/wsServices/DataLibs");
-                _myClient.ClientCredentials.Windows.ClientCredential.UserName = "";
-                _myClient.ClientCredentials.Windows.ClientCredential.Password = "";
+                if (Settings.environmentMode == Settings.environmentDebugMode.localT440 || Settings.environmentMode == Settings.environmentDebugMode.localT440)
+                {
+                    _myClient.Endpoint.Address = new System.ServiceModel.EndpointAddress("http://localhost:8731/wsServices/DataLibs");
+                    _myClient.ClientCredentials.Windows.ClientCredential.UserName = "";
+                    _myClient.ClientCredentials.Windows.ClientCredential.Password = "";
+                }
             }
             //End testing
 
