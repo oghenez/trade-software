@@ -5,7 +5,6 @@
     <file relUrl="bin/wsServices.pdb" publishTime="07/26/2014 18:12:02" />
     <file relUrl="bin/ResolveAssemblyReference.cache" publishTime="07/26/2014 18:12:01" />
     <file relUrl="bin/commonClass.pdb" publishTime="07/26/2014 18:11:37" />
-    <file relUrl="bin\vi-VN/common.resources.dll" publishTime="07/16/2014 14:12:20" />
     <file relUrl="bin/Indicators.dll" publishTime="07/26/2014 18:11:57" />
     <file relUrl="bin\en-US/strategyInfo.xml" publishTime="10/18/2013 11:09:20" />
     <file relUrl="bin/commonClass.dll" publishTime="07/26/2014 18:11:37" />
@@ -17,6 +16,7 @@
     <file relUrl="Web.config" publishTime="06/12/2012 18:03:29" />
     <file relUrl="bin/databases.dll" publishTime="07/26/2014 18:11:36" />
     <file relUrl="bin/Charts.pdb" publishTime="07/26/2014 18:11:38" />
+    <file relUrl="bin/wsServices.dll" publishTime="07/26/2014 18:12:02" />
     <file relUrl="bin/WeifenLuo.WinFormsUI.Docking.dll" publishTime="02/07/2012 23:57:53" />
     <file relUrl="wsServices.DataLibs.svc" publishTime="07/26/2014 18:26:28" />
     <file relUrl="bin/commonTypes.pdb" publishTime="07/26/2014 18:11:35" />
@@ -35,6 +35,6 @@
     <file relUrl="bin/wsServices.dll.config" publishTime="06/12/2012 18:03:29" />
     <file relUrl="bin/ZedGraph.dll" publishTime="02/07/2012 23:57:53" />
     <file relUrl="bin/wsStock.xml" publishTime="07/26/2014 16:08:27" />
-    <file relUrl="bin/wsServices.dll" publishTime="07/26/2014 18:12:02" />
+    <file relUrl="bin\vi-VN/common.resources.dll" publishTime="07/16/2014 14:12:20" />
   </publishTarget>
 </publishData>

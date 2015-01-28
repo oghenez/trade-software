@@ -121,8 +121,10 @@ namespace commonTypes
     public static class Settings
     {
         public const bool sysDebugMode = false;
+        public enum environmentDebugMode{localT440,localHP,SIT440,UAT,Prod};
+        public static environmentDebugMode environmentMode=environmentDebugMode.localT440;
         //public const string sysDebugMode_execDirectory = @"C:\Users\qnguyen37\Documents\Quantum201428\wsServices\obj\Debug";
-        public const string sysDebugMode_execDirectory = @"C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\Quantum20140726\wsServices\obj\Debug";
+        public static string sysDebugMode_execDirectory = "";
         //public const string sysDebugMode_execDirectory = "D:\\work\\stockProdsject\\code\\wsServices\\obj\\Debug";        
         
 
@@ -240,7 +242,25 @@ namespace commonTypes
                 if (_sysExecuteDirectory == null)
                 {
                     if (sysDebugMode)
-                    {                                                
+                    {
+                        if (environmentMode == environmentDebugMode.localHP)
+                            sysDebugMode_execDirectory = @"C:\Users\quan_nh\Documents\Visual Studio 2008\Projects\Quantum20140726\wsServices\obj\Debug";
+                        else
+                            if (environmentMode == environmentDebugMode.localT440)
+                                sysDebugMode_execDirectory = @"C:\Quantum2012_20150128\wsServices\obj\Debug";
+                            else
+                                if (environmentMode == environmentDebugMode.SIT440)
+                                    sysDebugMode_execDirectory = @"C:\Quantum2012_20150128\wsServices\obj\Debug";
+                                else
+                                //for Production and UAT
+                                {
+                                    string tmp = common.system.GetWebRootPath();
+                                    //Run on web server
+                                    if (tmp != null)
+                                        _sysExecuteDirectory = common.fileFuncs.ConcatFileName(tmp, "bin");
+                                    else _sysExecuteDirectory = common.system.GetExecutePath();
+                                }
+
                         _sysExecuteDirectory = sysDebugMode_execDirectory;
                     }
                     else
