@@ -1,6 +1,6 @@
 <Configuration>
   <WSCONNECTION>
-    <Main wsURI="cr+BsZtc1VaYm7T/XSx9KuOemeuVTrhYviCcjDcCCFldD2pctDCOqfABbH/XEv2j" />
+    <Main wsURI="1XSF9ehvHg8eswccFtGut/M/KF5TQyqhKl5TBtu70HEcJEGROwR5NvQ01Rp9txWoEZuV7+Q6rO9iDDQXhYvAOw==" />
   </WSCONNECTION>
   <WSCONNECTION>
     <Main wsAccount="KyfIBVMmkxxwVTSmToEeiw==" />
@@ -9,7 +9,7 @@
     <Main wsPassword="AsULALTQODioRsx1v+oBlQ==" />
   </WSCONNECTION>
   <WSCONNECTION>
-    <Main wsWindowAuthentication="EpAxoobbG0tPxhyMIVa+4Q==" />
+    <Main wsWindowAuthentication="MVsoctThcobSC9M10quTJg==" />
   </WSCONNECTION>
   <WSCONNECTION>
     <Main wsTimeout="v4/XvWEiC0nPjWIc1ykw5Q==" />
