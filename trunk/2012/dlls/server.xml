@@ -1,6 +1,6 @@
 <Configuration>
   <DBCONNECTION>
-    <dbConInfo0 dbServerName="UFgJ30q7O3cPO2qdp6ZJBA==" />
+    <dbConInfo0 dbServerName="flaOPO6e1FfKkeZ/fCefz+STYj1FkUEHYMt2L81AMCtiDDQXhYvAOw==" />
   </DBCONNECTION>
   <DBCONNECTION>
     <dbConInfo0 dbName="lHcrymcHrCjyJllbDTtavQ==" />
@@ -9,7 +9,7 @@
     <dbConInfo0 dbAccount="0myaXxZ8eBQHt+bP4urQ5w==" />
   </DBCONNECTION>
   <DBCONNECTION>
-    <dbConInfo0 dbPassword="qws6iw7ksbdjRWv/IDFYBYAAEEDOf5fKYgw0F4WLwDs=" />
+    <dbConInfo0 dbPassword="evxYd+5W2oZPPxjhLzROlA==" />
   </DBCONNECTION>
   <DBCONNECTION>
     <dbConInfo0 dbTimeout="K4KflIl87Tj0aRV+gP0H0g==" />
@@ -18,7 +18,7 @@
     <dbConInfo0 dbUseTransaction="EpAxoobbG0tPxhyMIVa+4Q==" />
   </DBCONNECTION>
   <DBCONNECTION>
-    <dbConInfo1 dbServerName="UFgJ30q7O3cPO2qdp6ZJBA==" />
+    <dbConInfo1 dbServerName="flaOPO6e1FfKkeZ/fCefz+STYj1FkUEHYMt2L81AMCtiDDQXhYvAOw==" />
   </DBCONNECTION>
   <DBCONNECTION>
     <dbConInfo1 dbName="nqZzhkYwjra2W+pnDnQYajuxA5jJP7kQYgw0F4WLwDs=" />
@@ -27,7 +27,7 @@
     <dbConInfo1 dbAccount="0myaXxZ8eBQHt+bP4urQ5w==" />
   </DBCONNECTION>
   <DBCONNECTION>
-    <dbConInfo1 dbPassword="qws6iw7ksbdjRWv/IDFYBYAAEEDOf5fKYgw0F4WLwDs=" />
+    <dbConInfo1 dbPassword="evxYd+5W2oZPPxjhLzROlA==" />
   </DBCONNECTION>
   <DBCONNECTION>
     <dbConInfo1 dbTimeout="K4KflIl87Tj0aRV+gP0H0g==" />
