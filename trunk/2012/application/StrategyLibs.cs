@@ -170,8 +170,10 @@ namespace application.Strategy
         /// <returns>Null if error</returns>
         public static StrategyData.TradePoints Analysis(AnalysisData myData, StrategyMeta meta)
         {
+            //Fix loi do dai bang cach them myData.Close.Count
             string cacheName = "data-" + myData.DataStockCode + "-" +
                                          myData.DataTimeScale.Code + "-" + 
+                                         myData.Close.Count + "-" +
                                          meta.ClassType.Name;
 
             object[] processParas = new object[2];
