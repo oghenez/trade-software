@@ -1,4 +1,5 @@
-﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -15,7 +16,7 @@
     </FileUpgradeFlags>
     <UpgradeBackupLocation>
     </UpgradeBackupLocation>
-    <OldToolsVersion>2.0</OldToolsVersion>
+    <OldToolsVersion>3.5</OldToolsVersion>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
@@ -91,22 +92,16 @@
   <ItemGroup>
     <Compile Include="baseDS.cs">
       <DependentUpon>baseDS.xsd</DependentUpon>
-      <SubType>Component</SubType>
     </Compile>
-    <Compile Include="baseDS.Designer.cs">
-      <DependentUpon>baseDS.xsd</DependentUpon>
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
+    <Compile Include="baseDS.designer.cs">
+      <DependentUpon>baseDS.cs</DependentUpon>
     </Compile>
     <Compile Include="importDS.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>importDS.xsd</DependentUpon>
+      <DependentUpon>importDS.cs</DependentUpon>
     </Compile>
     <Compile Include="libs\DbAccess.cs" />
     <Compile Include="importDS.cs">
       <DependentUpon>importDS.xsd</DependentUpon>
-      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
@@ -118,12 +113,9 @@
     <Compile Include="libs\AppLibs.cs" />
     <Compile Include="tmpDS.cs">
       <DependentUpon>tmpDS.xsd</DependentUpon>
-      <SubType>Component</SubType>
     </Compile>
     <Compile Include="tmpDS.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>tmpDS.xsd</DependentUpon>
+      <DependentUpon>tmpDS.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -134,7 +126,6 @@
     <None Include="baseDS.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>baseDS.Designer.cs</LastGenOutput>
     </None>
     <None Include="baseDS.xss">
       <DependentUpon>baseDS.xsd</DependentUpon>
@@ -144,7 +135,6 @@
     </None>
     <None Include="importDS.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>importDS.Designer.cs</LastGenOutput>
     </None>
     <None Include="importDS.xss">
       <DependentUpon>importDS.xsd</DependentUpon>
@@ -158,7 +148,6 @@
     </None>
     <None Include="tmpDS.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>tmpDS.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
     <None Include="tmpDS.xss">
