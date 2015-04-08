@@ -2348,32 +2348,23 @@ namespace client
         private void bestStrategyToolStripButton_Click(object sender, EventArgs e)
         {
         //    //1. Find the best strategy (in database)
+
+            string beststrategyCode = "STR041";
             
-        //    //2. Apply the strategy into the stock
-        //    DataAccess.Libs.GetBestStrategy();
-        //    try
-        //    {
-        //        Tools.Forms.tradeAnalysis activeForm = GetActiveStockForm();
-        //        if (activeForm == null) return;
-        //        application.Strategy.StrategyMeta meta;
-        //        ////if (sender.GetType() == typeof(ToolStripMenuItem))
-        //        ////{
-        //        ////    meta = (application.Strategy.StrategyMeta)(sender as ToolStripMenuItem).Tag;
-        //        ////}
-        //        ////else
-        //        ////{
-        //        ////    baseClass.controls.ToolStripCbStrategy item = (baseClass.controls.ToolStripCbStrategy)sender;
-        //        ////    meta = application.Strategy.StrategyLibs.FindMetaByCode(item.myValue);
-        //        ////}
-        //        //if (meta == null) activeForm.ClearStrategyTradepoints();
-        //        //else 
-        //        activeForm.co
-        //        activeForm.PlotStrategyTradepoints(meta, this.ChartHaveStrategyEstimation, ShowTradePointEstimate);
-        //    }
-        //    catch (Exception er)
-        //    {
-        //        this.ShowError(er);
-        //    }
+            beststrategyCode=  DataAccess.Libs.GetBestStrategyCode();
+            //2. Apply the strategy into the stock
+            try
+            {
+                Tools.Forms.tradeAnalysis activeForm = GetActiveStockForm();
+                if (activeForm == null) return;
+                application.Strategy.StrategyMeta meta;
+                meta = application.Strategy.StrategyLibs.FindMetaByCode(beststrategyCode);
+                activeForm.PlotStrategyTradepoints(meta, this.ChartHaveStrategyEstimation, ShowTradePointEstimate);
+            }
+            catch (Exception er)
+            {
+                this.ShowError(er);
+            }
         }
 
     }

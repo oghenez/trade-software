@@ -2127,5 +2127,29 @@ namespace DataAccess
         //    }
         //    return null;
         //}
+
+        /// <summary>
+        /// Tim chien luoc tot nhat 
+        /// </summary>
+        /// <param name="stockCode"></param>
+        /// <param name="timeFrame"></param>
+        /// <returns></returns>
+        public static string GetBestStrategyCode(string stockCode,string timeFrame)
+        {
+            string bestStrategyCode="";
+            try
+            {
+                lock (myClient)
+                {
+                    //return myClient.GetBestStrategyCode(stockCode,timeFrame);
+                }
+            }
+            catch (Exception er)
+            {
+                if (OnError != null) OnError(er);
+            }
+            return null;
+            return bestStrategyCode;
+        }
     }
 }

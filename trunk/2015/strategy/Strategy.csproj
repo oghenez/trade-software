@@ -64,7 +64,7 @@
     </Reference>
     <Reference Include="commonTypes, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Quantum20140726\dlls\commonTypes.dll</HintPath>
+      <HintPath>..\dlls\commonTypes.dll</HintPath>
     </Reference>
     <Reference Include="Indicators, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
