@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -14,6 +14,11 @@
     <FileAlignment>512</FileAlignment>
     <StartupObject>
     </StartupObject>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -105,6 +110,41 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <None Include="app_bak.config" />
+    <None Include="Properties\DataSources\commonClass.DataValues1.datasource" />
+    <None Include="Properties\DataSources\commonClass.TradePointInfo1.datasource" />
+    <None Include="Properties\DataSources\commonClass.TransactionInfo1.datasource" />
+    <None Include="Properties\DataSources\commonTypes.GlobalSettings1.datasource" />
+    <None Include="Properties\DataSources\databases.baseDS1.datasource" />
+    <None Include="Properties\DataSources\databases.baseDS10.datasource" />
+    <None Include="Properties\DataSources\databases.baseDS11.datasource" />
+    <None Include="Properties\DataSources\databases.baseDS111.datasource" />
+    <None Include="Properties\DataSources\databases.baseDS12.datasource" />
+    <None Include="Properties\DataSources\databases.baseDS13.datasource" />
+    <None Include="Properties\DataSources\databases.baseDS14.datasource" />
+    <None Include="Properties\DataSources\databases.baseDS15.datasource" />
+    <None Include="Properties\DataSources\databases.baseDS16.datasource" />
+    <None Include="Properties\DataSources\databases.baseDS17.datasource" />
+    <None Include="Properties\DataSources\databases.baseDS18.datasource" />
+    <None Include="Properties\DataSources\databases.baseDS19.datasource" />
+    <None Include="Properties\DataSources\databases.baseDS2.datasource" />
+    <None Include="Properties\DataSources\databases.baseDS20.datasource" />
+    <None Include="Properties\DataSources\databases.baseDS21.datasource" />
+    <None Include="Properties\DataSources\databases.baseDS22.datasource" />
+    <None Include="Properties\DataSources\databases.baseDS23.datasource" />
+    <None Include="Properties\DataSources\databases.baseDS24.datasource" />
+    <None Include="Properties\DataSources\databases.baseDS3.datasource" />
+    <None Include="Properties\DataSources\databases.baseDS4.datasource" />
+    <None Include="Properties\DataSources\databases.baseDS5.datasource" />
+    <None Include="Properties\DataSources\databases.baseDS6.datasource" />
+    <None Include="Properties\DataSources\databases.baseDS7.datasource" />
+    <None Include="Properties\DataSources\databases.baseDS8.datasource" />
+    <None Include="Properties\DataSources\databases.baseDS9.datasource" />
+    <None Include="Properties\DataSources\databases.tmpDS1.datasource" />
+    <None Include="Properties\DataSources\databases.tmpDS11.datasource" />
+    <None Include="Properties\DataSources\databases.tmpDS2.datasource" />
+    <None Include="Properties\DataSources\databases.tmpDS3.datasource" />
+    <None Include="Properties\DataSources\databases.tmpDS4.datasource" />
+    <None Include="Properties\DataSources\databases.tmpDS5.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

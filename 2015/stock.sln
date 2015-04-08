@@ -1,6 +1,12 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 10.00
-# Visual Studio 2008
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{6F85B296-DAB5-42A3-8F98-F42588CBB2FB}"
+	ProjectSection(SolutionItems) = preProject
+		LocalTestRun.testrunconfig = LocalTestRun.testrunconfig
+		stock.vsmdi = stock.vsmdi
+	EndProjectSection
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "baseClass", "baseClass\baseClass.csproj", "{D14859F5-0C41-4D7E-91AD-ED1C9195234D}"
 	ProjectSection(ProjectDependencies) = postProject
 		{826C6D25-5C31-4CEA-B9A3-01578ECDB148} = {826C6D25-5C31-4CEA-B9A3-01578ECDB148}
@@ -149,7 +155,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Trade", "Trade\Trade.csproj
 		{D14859F5-0C41-4D7E-91AD-ED1C9195234D} = {D14859F5-0C41-4D7E-91AD-ED1C9195234D}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "common", "..\..\ketoan-moi\code\common\common.csproj", "{90A73556-87A1-4887-BB82-F482669A7784}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "common", "..\ketoan-moi\code\common\common.csproj", "{90A73556-87A1-4887-BB82-F482669A7784}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "commonTypes", "commonTypes\commonTypes.csproj", "{AE392C66-BEBF-4507-ADD9-F17D9E51FC42}"
 	ProjectSection(ProjectDependencies) = postProject
@@ -163,12 +169,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "databases", "databases\data
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuantumTest", "QuantumTest\QuantumTest.csproj", "{74939515-1D59-424B-A5F6-F150F75240A8}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{6F85B296-DAB5-42A3-8F98-F42588CBB2FB}"
-	ProjectSection(SolutionItems) = preProject
-		LocalTestRun.testrunconfig = LocalTestRun.testrunconfig
-		stock.vsmdi = stock.vsmdi
-	EndProjectSection
 EndProject
 Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "QuantumSetup", "QInvestSetup\QInvestSetup.vdproj", "{39E37AEC-7847-4711-9322-C86C6A5BAACE}"
 EndProject

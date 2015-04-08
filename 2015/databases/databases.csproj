@@ -92,6 +92,7 @@
   <ItemGroup>
     <Compile Include="baseDS.cs">
       <DependentUpon>baseDS.xsd</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="baseDS.designer.cs">
       <DependentUpon>baseDS.cs</DependentUpon>
@@ -102,6 +103,7 @@
     <Compile Include="libs\DbAccess.cs" />
     <Compile Include="importDS.cs">
       <DependentUpon>importDS.xsd</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
@@ -113,6 +115,7 @@
     <Compile Include="libs\AppLibs.cs" />
     <Compile Include="tmpDS.cs">
       <DependentUpon>tmpDS.xsd</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="tmpDS.Designer.cs">
       <DependentUpon>tmpDS.cs</DependentUpon>
