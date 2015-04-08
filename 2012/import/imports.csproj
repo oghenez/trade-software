@@ -260,20 +260,21 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\clientSSI\AjaxWebService.disco" />
-    <None Include="Service References\clientSSI\AjaxWebService.wsdl" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Service References\clientSSI\configuration91.svcinfo" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\clientSSI\configuration.svcinfo" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Service References\clientSSI\AjaxWebService1.wsdl" />
     <None Include="Service References\clientSSI\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\clientSSI\AjaxWebService1.disco" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

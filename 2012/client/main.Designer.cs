@@ -29,21 +29,21 @@ namespace client
         /// </summary>
         private void InitializeComponent()
         {
-            WeifenLuo.WinFormsUI.Docking.DockPanelSkin dockPanelSkin1 = new WeifenLuo.WinFormsUI.Docking.DockPanelSkin();
-            WeifenLuo.WinFormsUI.Docking.AutoHideStripSkin autoHideStripSkin1 = new WeifenLuo.WinFormsUI.Docking.AutoHideStripSkin();
-            WeifenLuo.WinFormsUI.Docking.DockPanelGradient dockPanelGradient1 = new WeifenLuo.WinFormsUI.Docking.DockPanelGradient();
-            WeifenLuo.WinFormsUI.Docking.TabGradient tabGradient1 = new WeifenLuo.WinFormsUI.Docking.TabGradient();
-            WeifenLuo.WinFormsUI.Docking.DockPaneStripSkin dockPaneStripSkin1 = new WeifenLuo.WinFormsUI.Docking.DockPaneStripSkin();
-            WeifenLuo.WinFormsUI.Docking.DockPaneStripGradient dockPaneStripGradient1 = new WeifenLuo.WinFormsUI.Docking.DockPaneStripGradient();
-            WeifenLuo.WinFormsUI.Docking.TabGradient tabGradient2 = new WeifenLuo.WinFormsUI.Docking.TabGradient();
-            WeifenLuo.WinFormsUI.Docking.DockPanelGradient dockPanelGradient2 = new WeifenLuo.WinFormsUI.Docking.DockPanelGradient();
-            WeifenLuo.WinFormsUI.Docking.TabGradient tabGradient3 = new WeifenLuo.WinFormsUI.Docking.TabGradient();
-            WeifenLuo.WinFormsUI.Docking.DockPaneStripToolWindowGradient dockPaneStripToolWindowGradient1 = new WeifenLuo.WinFormsUI.Docking.DockPaneStripToolWindowGradient();
-            WeifenLuo.WinFormsUI.Docking.TabGradient tabGradient4 = new WeifenLuo.WinFormsUI.Docking.TabGradient();
-            WeifenLuo.WinFormsUI.Docking.TabGradient tabGradient5 = new WeifenLuo.WinFormsUI.Docking.TabGradient();
-            WeifenLuo.WinFormsUI.Docking.DockPanelGradient dockPanelGradient3 = new WeifenLuo.WinFormsUI.Docking.DockPanelGradient();
-            WeifenLuo.WinFormsUI.Docking.TabGradient tabGradient6 = new WeifenLuo.WinFormsUI.Docking.TabGradient();
-            WeifenLuo.WinFormsUI.Docking.TabGradient tabGradient7 = new WeifenLuo.WinFormsUI.Docking.TabGradient();
+            WeifenLuo.WinFormsUI.Docking.DockPanelSkin dockPanelSkin2 = new WeifenLuo.WinFormsUI.Docking.DockPanelSkin();
+            WeifenLuo.WinFormsUI.Docking.AutoHideStripSkin autoHideStripSkin2 = new WeifenLuo.WinFormsUI.Docking.AutoHideStripSkin();
+            WeifenLuo.WinFormsUI.Docking.DockPanelGradient dockPanelGradient4 = new WeifenLuo.WinFormsUI.Docking.DockPanelGradient();
+            WeifenLuo.WinFormsUI.Docking.TabGradient tabGradient8 = new WeifenLuo.WinFormsUI.Docking.TabGradient();
+            WeifenLuo.WinFormsUI.Docking.DockPaneStripSkin dockPaneStripSkin2 = new WeifenLuo.WinFormsUI.Docking.DockPaneStripSkin();
+            WeifenLuo.WinFormsUI.Docking.DockPaneStripGradient dockPaneStripGradient2 = new WeifenLuo.WinFormsUI.Docking.DockPaneStripGradient();
+            WeifenLuo.WinFormsUI.Docking.TabGradient tabGradient9 = new WeifenLuo.WinFormsUI.Docking.TabGradient();
+            WeifenLuo.WinFormsUI.Docking.DockPanelGradient dockPanelGradient5 = new WeifenLuo.WinFormsUI.Docking.DockPanelGradient();
+            WeifenLuo.WinFormsUI.Docking.TabGradient tabGradient10 = new WeifenLuo.WinFormsUI.Docking.TabGradient();
+            WeifenLuo.WinFormsUI.Docking.DockPaneStripToolWindowGradient dockPaneStripToolWindowGradient2 = new WeifenLuo.WinFormsUI.Docking.DockPaneStripToolWindowGradient();
+            WeifenLuo.WinFormsUI.Docking.TabGradient tabGradient11 = new WeifenLuo.WinFormsUI.Docking.TabGradient();
+            WeifenLuo.WinFormsUI.Docking.TabGradient tabGradient12 = new WeifenLuo.WinFormsUI.Docking.TabGradient();
+            WeifenLuo.WinFormsUI.Docking.DockPanelGradient dockPanelGradient6 = new WeifenLuo.WinFormsUI.Docking.DockPanelGradient();
+            WeifenLuo.WinFormsUI.Docking.TabGradient tabGradient13 = new WeifenLuo.WinFormsUI.Docking.TabGradient();
+            WeifenLuo.WinFormsUI.Docking.TabGradient tabGradient14 = new WeifenLuo.WinFormsUI.Docking.TabGradient();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(main));
             this.myPrintDialog = new System.Windows.Forms.PrintDialog();
             this.fullScreenBtn = new baseClass.controls.baseButton();
@@ -150,6 +150,7 @@ namespace client
             this.financialRatioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.analysisReportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.companyNToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.companyHottestNewsIn24hToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.companyListMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator25 = new System.Windows.Forms.ToolStripSeparator();
@@ -189,8 +190,7 @@ namespace client
             this.marketWatchBtn = new System.Windows.Forms.ToolStripButton();
             this.myPortfolioBtn = new System.Windows.Forms.ToolStripButton();
             this.tradeAlertBtn = new System.Windows.Forms.ToolStripButton();
-            this.transHistoryBtn = new System.Windows.Forms.ToolStripButton();
-            this.companyHottestNewsIn24hToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bestStrategyToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.chartStrip.SuspendLayout();
             this.toolsStrip.SuspendLayout();
             this.toolStripPanel.SuspendLayout();
@@ -289,56 +289,56 @@ namespace client
             this.dockPanel.ActiveAutoHideContent = null;
             this.dockPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dockPanel.DockBackColor = System.Drawing.SystemColors.Control;
-            this.dockPanel.Location = new System.Drawing.Point(0, 49);
+            this.dockPanel.Location = new System.Drawing.Point(0, 57);
             this.dockPanel.Margin = new System.Windows.Forms.Padding(4);
             this.dockPanel.Name = "dockPanel";
-            this.dockPanel.Size = new System.Drawing.Size(1276, 601);
-            dockPanelGradient1.EndColor = System.Drawing.SystemColors.ControlLight;
-            dockPanelGradient1.StartColor = System.Drawing.SystemColors.ControlLight;
-            autoHideStripSkin1.DockStripGradient = dockPanelGradient1;
-            tabGradient1.EndColor = System.Drawing.SystemColors.Control;
-            tabGradient1.StartColor = System.Drawing.SystemColors.Control;
-            tabGradient1.TextColor = System.Drawing.SystemColors.ControlDarkDark;
-            autoHideStripSkin1.TabGradient = tabGradient1;
-            autoHideStripSkin1.TextFont = new System.Drawing.Font("Tahoma", 8.25F);
-            dockPanelSkin1.AutoHideStripSkin = autoHideStripSkin1;
-            tabGradient2.EndColor = System.Drawing.SystemColors.ControlLightLight;
-            tabGradient2.StartColor = System.Drawing.SystemColors.ControlLightLight;
-            tabGradient2.TextColor = System.Drawing.SystemColors.ControlText;
-            dockPaneStripGradient1.ActiveTabGradient = tabGradient2;
-            dockPanelGradient2.EndColor = System.Drawing.SystemColors.Control;
-            dockPanelGradient2.StartColor = System.Drawing.SystemColors.Control;
-            dockPaneStripGradient1.DockStripGradient = dockPanelGradient2;
-            tabGradient3.EndColor = System.Drawing.SystemColors.ControlLight;
-            tabGradient3.StartColor = System.Drawing.SystemColors.ControlLight;
-            tabGradient3.TextColor = System.Drawing.SystemColors.ControlText;
-            dockPaneStripGradient1.InactiveTabGradient = tabGradient3;
-            dockPaneStripSkin1.DocumentGradient = dockPaneStripGradient1;
-            dockPaneStripSkin1.TextFont = new System.Drawing.Font("Tahoma", 8.25F);
-            tabGradient4.EndColor = System.Drawing.SystemColors.ActiveCaption;
-            tabGradient4.LinearGradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
-            tabGradient4.StartColor = System.Drawing.SystemColors.GradientActiveCaption;
-            tabGradient4.TextColor = System.Drawing.SystemColors.ActiveCaptionText;
-            dockPaneStripToolWindowGradient1.ActiveCaptionGradient = tabGradient4;
-            tabGradient5.EndColor = System.Drawing.SystemColors.Control;
-            tabGradient5.StartColor = System.Drawing.SystemColors.Control;
-            tabGradient5.TextColor = System.Drawing.SystemColors.ControlText;
-            dockPaneStripToolWindowGradient1.ActiveTabGradient = tabGradient5;
-            dockPanelGradient3.EndColor = System.Drawing.SystemColors.ControlLight;
-            dockPanelGradient3.StartColor = System.Drawing.SystemColors.ControlLight;
-            dockPaneStripToolWindowGradient1.DockStripGradient = dockPanelGradient3;
-            tabGradient6.EndColor = System.Drawing.SystemColors.InactiveCaption;
-            tabGradient6.LinearGradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
-            tabGradient6.StartColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            tabGradient6.TextColor = System.Drawing.SystemColors.InactiveCaptionText;
-            dockPaneStripToolWindowGradient1.InactiveCaptionGradient = tabGradient6;
-            tabGradient7.EndColor = System.Drawing.Color.Transparent;
-            tabGradient7.StartColor = System.Drawing.Color.Transparent;
-            tabGradient7.TextColor = System.Drawing.SystemColors.ControlDarkDark;
-            dockPaneStripToolWindowGradient1.InactiveTabGradient = tabGradient7;
-            dockPaneStripSkin1.ToolWindowGradient = dockPaneStripToolWindowGradient1;
-            dockPanelSkin1.DockPaneStripSkin = dockPaneStripSkin1;
-            this.dockPanel.Skin = dockPanelSkin1;
+            this.dockPanel.Size = new System.Drawing.Size(1276, 592);
+            dockPanelGradient4.EndColor = System.Drawing.SystemColors.ControlLight;
+            dockPanelGradient4.StartColor = System.Drawing.SystemColors.ControlLight;
+            autoHideStripSkin2.DockStripGradient = dockPanelGradient4;
+            tabGradient8.EndColor = System.Drawing.SystemColors.Control;
+            tabGradient8.StartColor = System.Drawing.SystemColors.Control;
+            tabGradient8.TextColor = System.Drawing.SystemColors.ControlDarkDark;
+            autoHideStripSkin2.TabGradient = tabGradient8;
+            autoHideStripSkin2.TextFont = new System.Drawing.Font("Tahoma", 8.25F);
+            dockPanelSkin2.AutoHideStripSkin = autoHideStripSkin2;
+            tabGradient9.EndColor = System.Drawing.SystemColors.ControlLightLight;
+            tabGradient9.StartColor = System.Drawing.SystemColors.ControlLightLight;
+            tabGradient9.TextColor = System.Drawing.SystemColors.ControlText;
+            dockPaneStripGradient2.ActiveTabGradient = tabGradient9;
+            dockPanelGradient5.EndColor = System.Drawing.SystemColors.Control;
+            dockPanelGradient5.StartColor = System.Drawing.SystemColors.Control;
+            dockPaneStripGradient2.DockStripGradient = dockPanelGradient5;
+            tabGradient10.EndColor = System.Drawing.SystemColors.ControlLight;
+            tabGradient10.StartColor = System.Drawing.SystemColors.ControlLight;
+            tabGradient10.TextColor = System.Drawing.SystemColors.ControlText;
+            dockPaneStripGradient2.InactiveTabGradient = tabGradient10;
+            dockPaneStripSkin2.DocumentGradient = dockPaneStripGradient2;
+            dockPaneStripSkin2.TextFont = new System.Drawing.Font("Tahoma", 8.25F);
+            tabGradient11.EndColor = System.Drawing.SystemColors.ActiveCaption;
+            tabGradient11.LinearGradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
+            tabGradient11.StartColor = System.Drawing.SystemColors.GradientActiveCaption;
+            tabGradient11.TextColor = System.Drawing.SystemColors.ActiveCaptionText;
+            dockPaneStripToolWindowGradient2.ActiveCaptionGradient = tabGradient11;
+            tabGradient12.EndColor = System.Drawing.SystemColors.Control;
+            tabGradient12.StartColor = System.Drawing.SystemColors.Control;
+            tabGradient12.TextColor = System.Drawing.SystemColors.ControlText;
+            dockPaneStripToolWindowGradient2.ActiveTabGradient = tabGradient12;
+            dockPanelGradient6.EndColor = System.Drawing.SystemColors.ControlLight;
+            dockPanelGradient6.StartColor = System.Drawing.SystemColors.ControlLight;
+            dockPaneStripToolWindowGradient2.DockStripGradient = dockPanelGradient6;
+            tabGradient13.EndColor = System.Drawing.SystemColors.InactiveCaption;
+            tabGradient13.LinearGradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
+            tabGradient13.StartColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            tabGradient13.TextColor = System.Drawing.SystemColors.InactiveCaptionText;
+            dockPaneStripToolWindowGradient2.InactiveCaptionGradient = tabGradient13;
+            tabGradient14.EndColor = System.Drawing.Color.Transparent;
+            tabGradient14.StartColor = System.Drawing.Color.Transparent;
+            tabGradient14.TextColor = System.Drawing.SystemColors.ControlDarkDark;
+            dockPaneStripToolWindowGradient2.InactiveTabGradient = tabGradient14;
+            dockPaneStripSkin2.ToolWindowGradient = dockPaneStripToolWindowGradient2;
+            dockPanelSkin2.DockPaneStripSkin = dockPaneStripSkin2;
+            this.dockPanel.Skin = dockPanelSkin2;
             this.dockPanel.TabIndex = 147;
             this.dockPanel.ActiveContentChanged += new System.EventHandler(this.dockPanel_ActiveContentChanged);
             // 
@@ -358,9 +358,9 @@ namespace client
             this.zoomInBtn,
             this.toolStripSeparator19,
             this.chartRefreshBtn});
-            this.chartStrip.Location = new System.Drawing.Point(3, 24);
+            this.chartStrip.Location = new System.Drawing.Point(3, 0);
             this.chartStrip.Name = "chartStrip";
-            this.chartStrip.Size = new System.Drawing.Size(212, 25);
+            this.chartStrip.Size = new System.Drawing.Size(214, 25);
             this.chartStrip.TabIndex = 11;
             // 
             // chartPropertiesBtn
@@ -479,9 +479,9 @@ namespace client
             this.toolRunBtn,
             this.toolFullViewBtn,
             this.exportBtn});
-            this.toolsStrip.Location = new System.Drawing.Point(278, 24);
+            this.toolsStrip.Location = new System.Drawing.Point(278, 0);
             this.toolsStrip.Name = "toolsStrip";
-            this.toolsStrip.Size = new System.Drawing.Size(79, 25);
+            this.toolsStrip.Size = new System.Drawing.Size(81, 25);
             this.toolsStrip.TabIndex = 2;
             // 
             // toolRunBtn
@@ -516,19 +516,19 @@ namespace client
             // 
             // toolStripPanel
             // 
-            this.toolStripPanel.Controls.Add(this.mainMenu);
             this.toolStripPanel.Controls.Add(this.chartStrip);
             this.toolStripPanel.Controls.Add(this.formatStrip);
             this.toolStripPanel.Controls.Add(this.toolsStrip);
             this.toolStripPanel.Controls.Add(this.autoCreateStrip);
             this.toolStripPanel.Controls.Add(this.strategyStrip);
             this.toolStripPanel.Controls.Add(this.standardStrip);
+            this.toolStripPanel.Controls.Add(this.mainMenu);
             this.toolStripPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.toolStripPanel.Location = new System.Drawing.Point(0, 0);
             this.toolStripPanel.Name = "toolStripPanel";
             this.toolStripPanel.Orientation = System.Windows.Forms.Orientation.Horizontal;
             this.toolStripPanel.RowMargin = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.toolStripPanel.Size = new System.Drawing.Size(1276, 49);
+            this.toolStripPanel.Size = new System.Drawing.Size(1276, 57);
             // 
             // mainMenu
             // 
@@ -544,11 +544,11 @@ namespace client
             this.windowsMenuItem,
             this.helpMenuItem,
             this.testMenuItem});
-            this.mainMenu.Location = new System.Drawing.Point(0, 0);
+            this.mainMenu.Location = new System.Drawing.Point(0, 28);
             this.mainMenu.MdiWindowListItem = this.windowsMenuItem;
             this.mainMenu.Name = "mainMenu";
             this.mainMenu.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.mainMenu.Size = new System.Drawing.Size(1276, 24);
+            this.mainMenu.Size = new System.Drawing.Size(1276, 29);
             this.mainMenu.TabIndex = 0;
             // 
             // FileMenuStrip
@@ -570,54 +570,54 @@ namespace client
             this.toolStripSeparator20,
             this.exitMenuItem});
             this.FileMenuStrip.Name = "FileMenuStrip";
-            this.FileMenuStrip.Size = new System.Drawing.Size(40, 20);
+            this.FileMenuStrip.Size = new System.Drawing.Size(48, 25);
             this.FileMenuStrip.Text = "&File";
             // 
             // loginMenuItem
             // 
             this.loginMenuItem.Image = global::client.Properties.Resources.login;
             this.loginMenuItem.Name = "loginMenuItem";
-            this.loginMenuItem.Size = new System.Drawing.Size(178, 22);
+            this.loginMenuItem.Size = new System.Drawing.Size(211, 26);
             this.loginMenuItem.Text = "Log in";
             this.loginMenuItem.Click += new System.EventHandler(this.loginMenuItem_Click);
             // 
             // logOutMenuItem
             // 
             this.logOutMenuItem.Name = "logOutMenuItem";
-            this.logOutMenuItem.Size = new System.Drawing.Size(178, 22);
+            this.logOutMenuItem.Size = new System.Drawing.Size(211, 26);
             this.logOutMenuItem.Text = "Log Out";
             this.logOutMenuItem.Click += new System.EventHandler(this.logOutMenuItem_Click);
             // 
             // changePassMenuItem
             // 
             this.changePassMenuItem.Name = "changePassMenuItem";
-            this.changePassMenuItem.Size = new System.Drawing.Size(178, 22);
+            this.changePassMenuItem.Size = new System.Drawing.Size(211, 26);
             this.changePassMenuItem.Text = "Change Password";
             this.changePassMenuItem.Click += new System.EventHandler(this.changePassMenuItem_Click);
             // 
             // toolStripSeparator28
             // 
             this.toolStripSeparator28.Name = "toolStripSeparator28";
-            this.toolStripSeparator28.Size = new System.Drawing.Size(175, 6);
+            this.toolStripSeparator28.Size = new System.Drawing.Size(208, 6);
             // 
             // MyProfileMenuItem
             // 
             this.MyProfileMenuItem.Image = global::client.Properties.Resources.contacts_icon;
             this.MyProfileMenuItem.Name = "MyProfileMenuItem";
-            this.MyProfileMenuItem.Size = new System.Drawing.Size(178, 22);
+            this.MyProfileMenuItem.Size = new System.Drawing.Size(211, 26);
             this.MyProfileMenuItem.Text = "My Profile";
             this.MyProfileMenuItem.Click += new System.EventHandler(this.MyProfileMenuItem_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(175, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(208, 6);
             // 
             // NewChartMenuItem
             // 
             this.NewChartMenuItem.Image = global::client.Properties.Resources.candeleStick;
             this.NewChartMenuItem.Name = "NewChartMenuItem";
-            this.NewChartMenuItem.Size = new System.Drawing.Size(178, 22);
+            this.NewChartMenuItem.Size = new System.Drawing.Size(211, 26);
             this.NewChartMenuItem.Text = "New Chart";
             this.NewChartMenuItem.ToolTipText = "New Stock Chart";
             this.NewChartMenuItem.Click += new System.EventHandler(this.NewChartMenuItem_Click);
@@ -625,7 +625,7 @@ namespace client
             // closeChartMenuItem
             // 
             this.closeChartMenuItem.Name = "closeChartMenuItem";
-            this.closeChartMenuItem.Size = new System.Drawing.Size(178, 22);
+            this.closeChartMenuItem.Size = new System.Drawing.Size(211, 26);
             this.closeChartMenuItem.Text = "Close";
             this.closeChartMenuItem.ToolTipText = "Close chart";
             this.closeChartMenuItem.Click += new System.EventHandler(this.CloseChartMenuItem_Click);
@@ -633,12 +633,12 @@ namespace client
             // toolStripSeparator7
             // 
             this.toolStripSeparator7.Name = "toolStripSeparator7";
-            this.toolStripSeparator7.Size = new System.Drawing.Size(175, 6);
+            this.toolStripSeparator7.Size = new System.Drawing.Size(208, 6);
             // 
             // configMenuItem
             // 
             this.configMenuItem.Name = "configMenuItem";
-            this.configMenuItem.Size = new System.Drawing.Size(178, 22);
+            this.configMenuItem.Size = new System.Drawing.Size(211, 26);
             this.configMenuItem.Tag = " ";
             this.configMenuItem.Text = "Configure";
             this.configMenuItem.Click += new System.EventHandler(this.configMenuItem_Click);
@@ -646,7 +646,7 @@ namespace client
             // printSetupMenuItem
             // 
             this.printSetupMenuItem.Name = "printSetupMenuItem";
-            this.printSetupMenuItem.Size = new System.Drawing.Size(178, 22);
+            this.printSetupMenuItem.Size = new System.Drawing.Size(211, 26);
             this.printSetupMenuItem.Text = "Print Setup...";
             this.printSetupMenuItem.Click += new System.EventHandler(this.printSetupMenuItem_Click);
             // 
@@ -654,26 +654,26 @@ namespace client
             // 
             this.printPreViewMenuItem.Enabled = false;
             this.printPreViewMenuItem.Name = "printPreViewMenuItem";
-            this.printPreViewMenuItem.Size = new System.Drawing.Size(178, 22);
+            this.printPreViewMenuItem.Size = new System.Drawing.Size(211, 26);
             this.printPreViewMenuItem.Text = "Print Preview";
             // 
             // printMenuItem
             // 
             this.printMenuItem.Enabled = false;
             this.printMenuItem.Name = "printMenuItem";
-            this.printMenuItem.Size = new System.Drawing.Size(178, 22);
+            this.printMenuItem.Size = new System.Drawing.Size(211, 26);
             this.printMenuItem.Text = "Print";
             // 
             // toolStripSeparator20
             // 
             this.toolStripSeparator20.Name = "toolStripSeparator20";
-            this.toolStripSeparator20.Size = new System.Drawing.Size(175, 6);
+            this.toolStripSeparator20.Size = new System.Drawing.Size(208, 6);
             // 
             // exitMenuItem
             // 
             this.exitMenuItem.Image = global::client.Properties.Resources.close;
             this.exitMenuItem.Name = "exitMenuItem";
-            this.exitMenuItem.Size = new System.Drawing.Size(178, 22);
+            this.exitMenuItem.Size = new System.Drawing.Size(211, 26);
             this.exitMenuItem.Text = "E&xit";
             this.exitMenuItem.Click += new System.EventHandler(this.exitMenuItem_Click);
             // 
@@ -690,67 +690,67 @@ namespace client
             this.toolStripSeparator8,
             this.selectAllMenuItem});
             this.editMenuStrip.Name = "editMenuStrip";
-            this.editMenuStrip.Size = new System.Drawing.Size(41, 20);
+            this.editMenuStrip.Size = new System.Drawing.Size(51, 25);
             this.editMenuStrip.Text = "Edit";
             // 
             // undoMenuItem
             // 
             this.undoMenuItem.Enabled = false;
             this.undoMenuItem.Name = "undoMenuItem";
-            this.undoMenuItem.Size = new System.Drawing.Size(129, 22);
+            this.undoMenuItem.Size = new System.Drawing.Size(149, 26);
             this.undoMenuItem.Text = "Undo";
             // 
             // redoMenuItem
             // 
             this.redoMenuItem.Enabled = false;
             this.redoMenuItem.Name = "redoMenuItem";
-            this.redoMenuItem.Size = new System.Drawing.Size(129, 22);
+            this.redoMenuItem.Size = new System.Drawing.Size(149, 26);
             this.redoMenuItem.Text = "Redo";
             // 
             // toolStripSeparator9
             // 
             this.toolStripSeparator9.Name = "toolStripSeparator9";
-            this.toolStripSeparator9.Size = new System.Drawing.Size(126, 6);
+            this.toolStripSeparator9.Size = new System.Drawing.Size(146, 6);
             // 
             // copyMenuItem
             // 
             this.copyMenuItem.Enabled = false;
             this.copyMenuItem.Image = global::client.Properties.Resources.Actions_edit_copy_icon;
             this.copyMenuItem.Name = "copyMenuItem";
-            this.copyMenuItem.Size = new System.Drawing.Size(129, 22);
+            this.copyMenuItem.Size = new System.Drawing.Size(149, 26);
             this.copyMenuItem.Text = "Copy";
             // 
             // cutMenuItem
             // 
             this.cutMenuItem.Enabled = false;
             this.cutMenuItem.Name = "cutMenuItem";
-            this.cutMenuItem.Size = new System.Drawing.Size(129, 22);
+            this.cutMenuItem.Size = new System.Drawing.Size(149, 26);
             this.cutMenuItem.Text = "Cut";
             // 
             // pasteMenuItem
             // 
             this.pasteMenuItem.Enabled = false;
             this.pasteMenuItem.Name = "pasteMenuItem";
-            this.pasteMenuItem.Size = new System.Drawing.Size(129, 22);
+            this.pasteMenuItem.Size = new System.Drawing.Size(149, 26);
             this.pasteMenuItem.Text = "Paste";
             // 
             // deleteMenuItem
             // 
             this.deleteMenuItem.Enabled = false;
             this.deleteMenuItem.Name = "deleteMenuItem";
-            this.deleteMenuItem.Size = new System.Drawing.Size(129, 22);
+            this.deleteMenuItem.Size = new System.Drawing.Size(149, 26);
             this.deleteMenuItem.Text = "Delete";
             // 
             // toolStripSeparator8
             // 
             this.toolStripSeparator8.Name = "toolStripSeparator8";
-            this.toolStripSeparator8.Size = new System.Drawing.Size(126, 6);
+            this.toolStripSeparator8.Size = new System.Drawing.Size(146, 6);
             // 
             // selectAllMenuItem
             // 
             this.selectAllMenuItem.Enabled = false;
             this.selectAllMenuItem.Name = "selectAllMenuItem";
-            this.selectAllMenuItem.Size = new System.Drawing.Size(129, 22);
+            this.selectAllMenuItem.Size = new System.Drawing.Size(149, 26);
             this.selectAllMenuItem.Text = "Select All";
             // 
             // viewMenuStrip
@@ -768,7 +768,7 @@ namespace client
             this.toolStripSeparator26,
             this.strategyEstimationiMenuItem});
             this.viewMenuStrip.Name = "viewMenuStrip";
-            this.viewMenuStrip.Size = new System.Drawing.Size(48, 20);
+            this.viewMenuStrip.Size = new System.Drawing.Size(58, 25);
             this.viewMenuStrip.Text = "View";
             // 
             // languageMenuItem
@@ -778,7 +778,7 @@ namespace client
             this.englishMenuItem});
             this.languageMenuItem.Image = global::client.Properties.Resources.language_skills_icon;
             this.languageMenuItem.Name = "languageMenuItem";
-            this.languageMenuItem.Size = new System.Drawing.Size(187, 22);
+            this.languageMenuItem.Size = new System.Drawing.Size(226, 26);
             this.languageMenuItem.Text = "Language";
             // 
             // vietnameseMenuItem
@@ -788,7 +788,7 @@ namespace client
             this.vietnameseMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.vietnameseMenuItem.Image = global::client.Properties.Resources.Vietnam_Flag_icon;
             this.vietnameseMenuItem.Name = "vietnameseMenuItem";
-            this.vietnameseMenuItem.Size = new System.Drawing.Size(143, 22);
+            this.vietnameseMenuItem.Size = new System.Drawing.Size(167, 26);
             this.vietnameseMenuItem.Text = "Vietnamese";
             this.vietnameseMenuItem.Click += new System.EventHandler(this.vietnameseMenuItem_Click);
             // 
@@ -797,14 +797,14 @@ namespace client
             this.englishMenuItem.CheckOnClick = true;
             this.englishMenuItem.Image = global::client.Properties.Resources.uk_icon;
             this.englishMenuItem.Name = "englishMenuItem";
-            this.englishMenuItem.Size = new System.Drawing.Size(143, 22);
+            this.englishMenuItem.Size = new System.Drawing.Size(167, 26);
             this.englishMenuItem.Text = "English";
             this.englishMenuItem.Click += new System.EventHandler(this.englishMenuItem_Click);
             // 
             // toolStripSeparator10
             // 
             this.toolStripSeparator10.Name = "toolStripSeparator10";
-            this.toolStripSeparator10.Size = new System.Drawing.Size(184, 6);
+            this.toolStripSeparator10.Size = new System.Drawing.Size(223, 6);
             // 
             // toolBarMenuItem
             // 
@@ -813,7 +813,7 @@ namespace client
             this.tbChartMenuItem,
             this.tbPeriodicityMenuItem});
             this.toolBarMenuItem.Name = "toolBarMenuItem";
-            this.toolBarMenuItem.Size = new System.Drawing.Size(187, 22);
+            this.toolBarMenuItem.Size = new System.Drawing.Size(226, 26);
             this.toolBarMenuItem.Text = "Toolbars";
             // 
             // tbStandardMenuItem
@@ -822,7 +822,7 @@ namespace client
             this.tbStandardMenuItem.CheckOnClick = true;
             this.tbStandardMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.tbStandardMenuItem.Name = "tbStandardMenuItem";
-            this.tbStandardMenuItem.Size = new System.Drawing.Size(134, 22);
+            this.tbStandardMenuItem.Size = new System.Drawing.Size(156, 26);
             this.tbStandardMenuItem.Text = "Standard";
             this.tbStandardMenuItem.Click += new System.EventHandler(this.View_ToolBar_MenuClick);
             // 
@@ -832,7 +832,7 @@ namespace client
             this.tbChartMenuItem.CheckOnClick = true;
             this.tbChartMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.tbChartMenuItem.Name = "tbChartMenuItem";
-            this.tbChartMenuItem.Size = new System.Drawing.Size(134, 22);
+            this.tbChartMenuItem.Size = new System.Drawing.Size(156, 26);
             this.tbChartMenuItem.Text = "Chart";
             this.tbChartMenuItem.Click += new System.EventHandler(this.View_ToolBar_MenuClick);
             // 
@@ -842,14 +842,14 @@ namespace client
             this.tbPeriodicityMenuItem.CheckOnClick = true;
             this.tbPeriodicityMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.tbPeriodicityMenuItem.Name = "tbPeriodicityMenuItem";
-            this.tbPeriodicityMenuItem.Size = new System.Drawing.Size(134, 22);
+            this.tbPeriodicityMenuItem.Size = new System.Drawing.Size(156, 26);
             this.tbPeriodicityMenuItem.Text = "Periodicity";
             this.tbPeriodicityMenuItem.Click += new System.EventHandler(this.View_ToolBar_MenuClick);
             // 
             // toolStripSeparator11
             // 
             this.toolStripSeparator11.Name = "toolStripSeparator11";
-            this.toolStripSeparator11.Size = new System.Drawing.Size(184, 6);
+            this.toolStripSeparator11.Size = new System.Drawing.Size(223, 6);
             // 
             // marketWatchMenuItem
             // 
@@ -857,40 +857,40 @@ namespace client
             this.marketWatchMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.marketWatchMenuItem.Image = global::client.Properties.Resources.price_watch_icon;
             this.marketWatchMenuItem.Name = "marketWatchMenuItem";
-            this.marketWatchMenuItem.Size = new System.Drawing.Size(187, 22);
+            this.marketWatchMenuItem.Size = new System.Drawing.Size(226, 26);
             this.marketWatchMenuItem.Text = "Market Watch";
             this.marketWatchMenuItem.Click += new System.EventHandler(this.marketWatchBtn_Click);
             // 
             // tradeAlertMenuItem
             // 
             this.tradeAlertMenuItem.Name = "tradeAlertMenuItem";
-            this.tradeAlertMenuItem.Size = new System.Drawing.Size(187, 22);
+            this.tradeAlertMenuItem.Size = new System.Drawing.Size(226, 26);
             this.tradeAlertMenuItem.Text = "Trade Alerts";
             this.tradeAlertMenuItem.Click += new System.EventHandler(this.tradeAlertBtn_Click);
             // 
             // toolStripSeparator17
             // 
             this.toolStripSeparator17.Name = "toolStripSeparator17";
-            this.toolStripSeparator17.Size = new System.Drawing.Size(184, 6);
+            this.toolStripSeparator17.Size = new System.Drawing.Size(223, 6);
             // 
             // transHistoryMenuItem
             // 
             this.transHistoryMenuItem.Name = "transHistoryMenuItem";
-            this.transHistoryMenuItem.Size = new System.Drawing.Size(187, 22);
+            this.transHistoryMenuItem.Size = new System.Drawing.Size(226, 26);
             this.transHistoryMenuItem.Text = "Transactions";
             this.transHistoryMenuItem.Click += new System.EventHandler(this.transHistoryBtn_Click);
             // 
             // myPortfolioMenuItem
             // 
             this.myPortfolioMenuItem.Name = "myPortfolioMenuItem";
-            this.myPortfolioMenuItem.Size = new System.Drawing.Size(187, 22);
+            this.myPortfolioMenuItem.Size = new System.Drawing.Size(226, 26);
             this.myPortfolioMenuItem.Text = "My Portfolio";
             this.myPortfolioMenuItem.Click += new System.EventHandler(this.myPortfolioBtn_Click);
             // 
             // toolStripSeparator26
             // 
             this.toolStripSeparator26.Name = "toolStripSeparator26";
-            this.toolStripSeparator26.Size = new System.Drawing.Size(184, 6);
+            this.toolStripSeparator26.Size = new System.Drawing.Size(223, 6);
             // 
             // strategyEstimationiMenuItem
             // 
@@ -898,7 +898,7 @@ namespace client
             this.strategyEstimationiMenuItem.CheckOnClick = true;
             this.strategyEstimationiMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.strategyEstimationiMenuItem.Name = "strategyEstimationiMenuItem";
-            this.strategyEstimationiMenuItem.Size = new System.Drawing.Size(187, 22);
+            this.strategyEstimationiMenuItem.Size = new System.Drawing.Size(226, 26);
             this.strategyEstimationiMenuItem.Text = "Strategy Estimation";
             // 
             // chartMenuStrip
@@ -921,7 +921,7 @@ namespace client
             this.toolStripSeparator14,
             this.chartPropertyMenuItem});
             this.chartMenuStrip.Name = "chartMenuStrip";
-            this.chartMenuStrip.Size = new System.Drawing.Size(57, 20);
+            this.chartMenuStrip.Size = new System.Drawing.Size(70, 25);
             this.chartMenuStrip.Text = "Charts";
             // 
             // indicatorMenuItem
@@ -931,31 +931,31 @@ namespace client
             this.macdMenuItem,
             this.rsiMenuItem34});
             this.indicatorMenuItem.Name = "indicatorMenuItem";
-            this.indicatorMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.indicatorMenuItem.Size = new System.Drawing.Size(172, 26);
             this.indicatorMenuItem.Text = "Indicators";
             // 
             // chartMenuItem
             // 
             this.chartMenuItem.Name = "chartMenuItem";
-            this.chartMenuItem.Size = new System.Drawing.Size(110, 22);
+            this.chartMenuItem.Size = new System.Drawing.Size(126, 26);
             this.chartMenuItem.Text = "SMA";
             // 
             // macdMenuItem
             // 
             this.macdMenuItem.Name = "macdMenuItem";
-            this.macdMenuItem.Size = new System.Drawing.Size(110, 22);
+            this.macdMenuItem.Size = new System.Drawing.Size(126, 26);
             this.macdMenuItem.Text = "MACD";
             // 
             // rsiMenuItem34
             // 
             this.rsiMenuItem34.Name = "rsiMenuItem34";
-            this.rsiMenuItem34.Size = new System.Drawing.Size(110, 22);
+            this.rsiMenuItem34.Size = new System.Drawing.Size(126, 26);
             this.rsiMenuItem34.Text = "RSI";
             // 
             // toolStripSeparator15
             // 
             this.toolStripSeparator15.Name = "toolStripSeparator15";
-            this.toolStripSeparator15.Size = new System.Drawing.Size(143, 6);
+            this.toolStripSeparator15.Size = new System.Drawing.Size(169, 6);
             // 
             // lineChartMenuItem
             // 
@@ -963,7 +963,7 @@ namespace client
             this.lineChartMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.lineChartMenuItem.Image = global::client.Properties.Resources.lineChart2;
             this.lineChartMenuItem.Name = "lineChartMenuItem";
-            this.lineChartMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.lineChartMenuItem.Size = new System.Drawing.Size(172, 26);
             this.lineChartMenuItem.Text = "Line Chart";
             this.lineChartMenuItem.Click += new System.EventHandler(this.ChartTypeMenu_Click);
             // 
@@ -971,7 +971,7 @@ namespace client
             // 
             this.barChartMenuItem.Image = global::client.Properties.Resources.barChart2;
             this.barChartMenuItem.Name = "barChartMenuItem";
-            this.barChartMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.barChartMenuItem.Size = new System.Drawing.Size(172, 26);
             this.barChartMenuItem.Text = "Bar Chart";
             this.barChartMenuItem.Click += new System.EventHandler(this.ChartTypeMenu_Click);
             // 
@@ -979,45 +979,45 @@ namespace client
             // 
             this.candleSticksMenuItem.Image = global::client.Properties.Resources.candeleStick;
             this.candleSticksMenuItem.Name = "candleSticksMenuItem";
-            this.candleSticksMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.candleSticksMenuItem.Size = new System.Drawing.Size(172, 26);
             this.candleSticksMenuItem.Text = "Candlesticks";
             this.candleSticksMenuItem.Click += new System.EventHandler(this.ChartTypeMenu_Click);
             // 
             // toolStripSeparator24
             // 
             this.toolStripSeparator24.Name = "toolStripSeparator24";
-            this.toolStripSeparator24.Size = new System.Drawing.Size(143, 6);
+            this.toolStripSeparator24.Size = new System.Drawing.Size(169, 6);
             // 
             // chartGridMenuItem
             // 
             this.chartGridMenuItem.Checked = true;
             this.chartGridMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chartGridMenuItem.Name = "chartGridMenuItem";
-            this.chartGridMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.chartGridMenuItem.Size = new System.Drawing.Size(172, 26);
             this.chartGridMenuItem.Text = "Grid";
             this.chartGridMenuItem.Click += new System.EventHandler(this.ChartGridMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(143, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(169, 6);
             // 
             // periodicityMenuItem
             // 
             this.periodicityMenuItem.Name = "periodicityMenuItem";
-            this.periodicityMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.periodicityMenuItem.Size = new System.Drawing.Size(172, 26);
             this.periodicityMenuItem.Text = "Periodicity";
             // 
             // toolStripSeparator16
             // 
             this.toolStripSeparator16.Name = "toolStripSeparator16";
-            this.toolStripSeparator16.Size = new System.Drawing.Size(143, 6);
+            this.toolStripSeparator16.Size = new System.Drawing.Size(169, 6);
             // 
             // zoomInMenuItem
             // 
             this.zoomInMenuItem.Image = global::client.Properties.Resources.zoomIn;
             this.zoomInMenuItem.Name = "zoomInMenuItem";
-            this.zoomInMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.zoomInMenuItem.Size = new System.Drawing.Size(172, 26);
             this.zoomInMenuItem.Text = "Zoom In";
             this.zoomInMenuItem.Click += new System.EventHandler(this.zoomInMenuItem_Click);
             // 
@@ -1025,32 +1025,32 @@ namespace client
             // 
             this.zoomOutMenuItem.Image = global::client.Properties.Resources.zoomOut;
             this.zoomOutMenuItem.Name = "zoomOutMenuItem";
-            this.zoomOutMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.zoomOutMenuItem.Size = new System.Drawing.Size(172, 26);
             this.zoomOutMenuItem.Text = "Zoom Out";
             this.zoomOutMenuItem.Click += new System.EventHandler(this.zoomOutMenuItem_Click);
             // 
             // toolStripSeparator21
             // 
             this.toolStripSeparator21.Name = "toolStripSeparator21";
-            this.toolStripSeparator21.Size = new System.Drawing.Size(143, 6);
+            this.toolStripSeparator21.Size = new System.Drawing.Size(169, 6);
             // 
             // chartVolumeMenuItem
             // 
             this.chartVolumeMenuItem.Image = global::client.Properties.Resources.barChart11;
             this.chartVolumeMenuItem.Name = "chartVolumeMenuItem";
-            this.chartVolumeMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.chartVolumeMenuItem.Size = new System.Drawing.Size(172, 26);
             this.chartVolumeMenuItem.Text = "Volumes";
             this.chartVolumeMenuItem.Click += new System.EventHandler(this.ChartVolume_Click);
             // 
             // toolStripSeparator14
             // 
             this.toolStripSeparator14.Name = "toolStripSeparator14";
-            this.toolStripSeparator14.Size = new System.Drawing.Size(143, 6);
+            this.toolStripSeparator14.Size = new System.Drawing.Size(169, 6);
             // 
             // chartPropertyMenuItem
             // 
             this.chartPropertyMenuItem.Name = "chartPropertyMenuItem";
-            this.chartPropertyMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.chartPropertyMenuItem.Size = new System.Drawing.Size(172, 26);
             this.chartPropertyMenuItem.Text = "Properties";
             this.chartPropertyMenuItem.ToolTipText = "Color, Weight..";
             this.chartPropertyMenuItem.Click += new System.EventHandler(this.chartPropertiesBtn_Click);
@@ -1075,14 +1075,14 @@ namespace client
             this.toolStripSeparator31,
             this.sysOptionMenuItem});
             this.toolsMenuItem.Name = "toolsMenuItem";
-            this.toolsMenuItem.Size = new System.Drawing.Size(51, 20);
+            this.toolsMenuItem.Size = new System.Drawing.Size(62, 25);
             this.toolsMenuItem.Text = "&Tools";
             // 
             // backTestingMenuItem
             // 
             this.backTestingMenuItem.Image = global::client.Properties.Resources.Network_icon;
             this.backTestingMenuItem.Name = "backTestingMenuItem";
-            this.backTestingMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.backTestingMenuItem.Size = new System.Drawing.Size(217, 26);
             this.backTestingMenuItem.Text = "Back Testing";
             this.backTestingMenuItem.Click += new System.EventHandler(this.backTestingMenuItem_Click);
             // 
@@ -1090,7 +1090,7 @@ namespace client
             // 
             this.strategyRankingMenuItem.Image = global::client.Properties.Resources.OnLamp_icon_16;
             this.strategyRankingMenuItem.Name = "strategyRankingMenuItem";
-            this.strategyRankingMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.strategyRankingMenuItem.Size = new System.Drawing.Size(217, 26);
             this.strategyRankingMenuItem.Text = "Strategy Ranking";
             this.strategyRankingMenuItem.Click += new System.EventHandler(this.strategyRankingMenuItem_Click);
             // 
@@ -1098,27 +1098,27 @@ namespace client
             // 
             this.screeningMenuItem.Image = global::client.Properties.Resources.sort_ascending_icon;
             this.screeningMenuItem.Name = "screeningMenuItem";
-            this.screeningMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.screeningMenuItem.Size = new System.Drawing.Size(217, 26);
             this.screeningMenuItem.Text = "Screening";
             this.screeningMenuItem.Click += new System.EventHandler(this.screeningMenuItem_Click);
             // 
             // toolStripSeparator6
             // 
             this.toolStripSeparator6.Name = "toolStripSeparator6";
-            this.toolStripSeparator6.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator6.Size = new System.Drawing.Size(214, 6);
             // 
             // orderMenuItem
             // 
             this.orderMenuItem.Image = global::client.Properties.Resources.money_icon;
             this.orderMenuItem.Name = "orderMenuItem";
-            this.orderMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.orderMenuItem.Size = new System.Drawing.Size(217, 26);
             this.orderMenuItem.Text = "Order";
             this.orderMenuItem.Click += new System.EventHandler(this.orderMenuItem_Click);
             // 
             // toolStripSeparator13
             // 
             this.toolStripSeparator13.Name = "toolStripSeparator13";
-            this.toolStripSeparator13.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator13.Size = new System.Drawing.Size(214, 6);
             // 
             // FundamentalMenuItem
             // 
@@ -1130,78 +1130,85 @@ namespace client
             this.companyNToolStripMenuItem,
             this.companyHottestNewsIn24hToolStripMenuItem});
             this.FundamentalMenuItem.Name = "FundamentalMenuItem";
-            this.FundamentalMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.FundamentalMenuItem.Size = new System.Drawing.Size(217, 26);
             this.FundamentalMenuItem.Text = "Fundamental Data";
             // 
             // companyOverviewMenuItem
             // 
             this.companyOverviewMenuItem.Name = "companyOverviewMenuItem";
-            this.companyOverviewMenuItem.Size = new System.Drawing.Size(247, 22);
+            this.companyOverviewMenuItem.Size = new System.Drawing.Size(304, 26);
             this.companyOverviewMenuItem.Text = "Company Overview";
             this.companyOverviewMenuItem.Click += new System.EventHandler(this.companyOverviewMenuItem_Click);
             // 
             // financialDataMenuItem
             // 
             this.financialDataMenuItem.Name = "financialDataMenuItem";
-            this.financialDataMenuItem.Size = new System.Drawing.Size(247, 22);
+            this.financialDataMenuItem.Size = new System.Drawing.Size(304, 26);
             this.financialDataMenuItem.Text = "Company Financial Data";
             this.financialDataMenuItem.Click += new System.EventHandler(this.financialDataMenuItem_Click);
             // 
             // financialRatioToolStripMenuItem
             // 
             this.financialRatioToolStripMenuItem.Name = "financialRatioToolStripMenuItem";
-            this.financialRatioToolStripMenuItem.Size = new System.Drawing.Size(247, 22);
+            this.financialRatioToolStripMenuItem.Size = new System.Drawing.Size(304, 26);
             this.financialRatioToolStripMenuItem.Text = "Financial Ratio";
             this.financialRatioToolStripMenuItem.Click += new System.EventHandler(this.financialRatioToolStripMenuItem_Click);
             // 
             // analysisReportsToolStripMenuItem
             // 
             this.analysisReportsToolStripMenuItem.Name = "analysisReportsToolStripMenuItem";
-            this.analysisReportsToolStripMenuItem.Size = new System.Drawing.Size(247, 22);
+            this.analysisReportsToolStripMenuItem.Size = new System.Drawing.Size(304, 26);
             this.analysisReportsToolStripMenuItem.Text = "Analysis Reports";
             this.analysisReportsToolStripMenuItem.Click += new System.EventHandler(this.analysisReportsToolStripMenuItem_Click);
             // 
             // companyNToolStripMenuItem
             // 
             this.companyNToolStripMenuItem.Name = "companyNToolStripMenuItem";
-            this.companyNToolStripMenuItem.Size = new System.Drawing.Size(247, 22);
+            this.companyNToolStripMenuItem.Size = new System.Drawing.Size(304, 26);
             this.companyNToolStripMenuItem.Text = "Company News";
             this.companyNToolStripMenuItem.Click += new System.EventHandler(this.companyNToolStripMenuItem_Click);
+            // 
+            // companyHottestNewsIn24hToolStripMenuItem
+            // 
+            this.companyHottestNewsIn24hToolStripMenuItem.Name = "companyHottestNewsIn24hToolStripMenuItem";
+            this.companyHottestNewsIn24hToolStripMenuItem.Size = new System.Drawing.Size(304, 26);
+            this.companyHottestNewsIn24hToolStripMenuItem.Text = "Company Hottest News in 24h";
+            this.companyHottestNewsIn24hToolStripMenuItem.Click += new System.EventHandler(this.companyHottestNewsIn24hToolStripMenuItem_Click);
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(214, 6);
             // 
             // companyListMenuItem
             // 
             this.companyListMenuItem.Name = "companyListMenuItem";
-            this.companyListMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.companyListMenuItem.Size = new System.Drawing.Size(217, 26);
             this.companyListMenuItem.Text = "Company List";
             this.companyListMenuItem.Click += new System.EventHandler(this.companyListMenuItem_Click);
             // 
             // toolStripSeparator25
             // 
             this.toolStripSeparator25.Name = "toolStripSeparator25";
-            this.toolStripSeparator25.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator25.Size = new System.Drawing.Size(214, 6);
             // 
             // marketSummaryMenuItem
             // 
             this.marketSummaryMenuItem.Name = "marketSummaryMenuItem";
-            this.marketSummaryMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.marketSummaryMenuItem.Size = new System.Drawing.Size(217, 26);
             this.marketSummaryMenuItem.Text = "Market Summary";
             this.marketSummaryMenuItem.Click += new System.EventHandler(this.marketSummaryMenuItem_Click);
             // 
             // toolStripSeparator27
             // 
             this.toolStripSeparator27.Name = "toolStripSeparator27";
-            this.toolStripSeparator27.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator27.Size = new System.Drawing.Size(214, 6);
             // 
             // strategyEstimationMenuItem
             // 
             this.strategyEstimationMenuItem.Image = global::client.Properties.Resources.Office_icon;
             this.strategyEstimationMenuItem.Name = "strategyEstimationMenuItem";
-            this.strategyEstimationMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.strategyEstimationMenuItem.Size = new System.Drawing.Size(217, 26);
             this.strategyEstimationMenuItem.Text = "Strategy List";
             // 
             // toolOptionMenu
@@ -1211,18 +1218,18 @@ namespace client
             this.screeningOptionsMenuItem,
             this.strategyOptionsMenuItem});
             this.toolOptionMenu.Name = "toolOptionMenu";
-            this.toolOptionMenu.Size = new System.Drawing.Size(180, 22);
+            this.toolOptionMenu.Size = new System.Drawing.Size(217, 26);
             this.toolOptionMenu.Text = "Options";
             // 
             // toolStripSeparator22
             // 
             this.toolStripSeparator22.Name = "toolStripSeparator22";
-            this.toolStripSeparator22.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator22.Size = new System.Drawing.Size(211, 6);
             // 
             // screeningOptionsMenuItem
             // 
             this.screeningOptionsMenuItem.Name = "screeningOptionsMenuItem";
-            this.screeningOptionsMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.screeningOptionsMenuItem.Size = new System.Drawing.Size(214, 26);
             this.screeningOptionsMenuItem.Text = "Screening Options";
             // 
             // strategyOptionsMenuItem
@@ -1230,24 +1237,24 @@ namespace client
             this.strategyOptionsMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.markovToolStripMenuItem});
             this.strategyOptionsMenuItem.Name = "strategyOptionsMenuItem";
-            this.strategyOptionsMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.strategyOptionsMenuItem.Size = new System.Drawing.Size(214, 26);
             this.strategyOptionsMenuItem.Text = "Strategy Options";
             // 
             // markovToolStripMenuItem
             // 
             this.markovToolStripMenuItem.Name = "markovToolStripMenuItem";
-            this.markovToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
+            this.markovToolStripMenuItem.Size = new System.Drawing.Size(133, 26);
             this.markovToolStripMenuItem.Text = "Markov";
             // 
             // toolStripSeparator31
             // 
             this.toolStripSeparator31.Name = "toolStripSeparator31";
-            this.toolStripSeparator31.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator31.Size = new System.Drawing.Size(214, 6);
             // 
             // sysOptionMenuItem
             // 
             this.sysOptionMenuItem.Name = "sysOptionMenuItem";
-            this.sysOptionMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.sysOptionMenuItem.Size = new System.Drawing.Size(217, 26);
             this.sysOptionMenuItem.Text = "Preferences";
             this.sysOptionMenuItem.Click += new System.EventHandler(this.sysOptionMenuItem_Click);
             // 
@@ -1257,20 +1264,20 @@ namespace client
             this.closeAllMenuItem,
             this.toolStripSeparator4});
             this.windowsMenuItem.Name = "windowsMenuItem";
-            this.windowsMenuItem.Size = new System.Drawing.Size(72, 20);
+            this.windowsMenuItem.Size = new System.Drawing.Size(89, 25);
             this.windowsMenuItem.Text = "Windows";
             // 
             // closeAllMenuItem
             // 
             this.closeAllMenuItem.Name = "closeAllMenuItem";
-            this.closeAllMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.closeAllMenuItem.Size = new System.Drawing.Size(144, 26);
             this.closeAllMenuItem.Text = "Close All";
             this.closeAllMenuItem.Click += new System.EventHandler(this.closeAllMenuItem_Click);
             // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(149, 6);
+            this.toolStripSeparator4.Size = new System.Drawing.Size(141, 6);
             // 
             // helpMenuItem
             // 
@@ -1283,56 +1290,56 @@ namespace client
             this.toolStripSeparator5,
             this.aboutMenuItem});
             this.helpMenuItem.Name = "helpMenuItem";
-            this.helpMenuItem.Size = new System.Drawing.Size(45, 20);
+            this.helpMenuItem.Size = new System.Drawing.Size(55, 25);
             this.helpMenuItem.Text = "&Help";
             // 
             // feedbackMenuItem
             // 
             this.feedbackMenuItem.Name = "feedbackMenuItem";
-            this.feedbackMenuItem.Size = new System.Drawing.Size(130, 22);
+            this.feedbackMenuItem.Size = new System.Drawing.Size(150, 26);
             this.feedbackMenuItem.Text = "Feedback";
             this.feedbackMenuItem.Click += new System.EventHandler(this.feedbackMenuItem_Click);
             // 
             // toolStripSeparator30
             // 
             this.toolStripSeparator30.Name = "toolStripSeparator30";
-            this.toolStripSeparator30.Size = new System.Drawing.Size(127, 6);
+            this.toolStripSeparator30.Size = new System.Drawing.Size(147, 6);
             // 
             // contentsMenuItem
             // 
             this.contentsMenuItem.Image = global::client.Properties.Resources.Help_and_support_icon;
             this.contentsMenuItem.Name = "contentsMenuItem";
-            this.contentsMenuItem.Size = new System.Drawing.Size(130, 22);
+            this.contentsMenuItem.Size = new System.Drawing.Size(150, 26);
             this.contentsMenuItem.Text = "&Contents";
             // 
             // indexMenuItem
             // 
             this.indexMenuItem.Name = "indexMenuItem";
-            this.indexMenuItem.Size = new System.Drawing.Size(130, 22);
+            this.indexMenuItem.Size = new System.Drawing.Size(150, 26);
             this.indexMenuItem.Text = "&Index";
             // 
             // searchMenuItem
             // 
             this.searchMenuItem.Name = "searchMenuItem";
-            this.searchMenuItem.Size = new System.Drawing.Size(130, 22);
+            this.searchMenuItem.Size = new System.Drawing.Size(150, 26);
             this.searchMenuItem.Text = "&Search";
             // 
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(127, 6);
+            this.toolStripSeparator5.Size = new System.Drawing.Size(147, 6);
             // 
             // aboutMenuItem
             // 
             this.aboutMenuItem.Name = "aboutMenuItem";
-            this.aboutMenuItem.Size = new System.Drawing.Size(130, 22);
+            this.aboutMenuItem.Size = new System.Drawing.Size(150, 26);
             this.aboutMenuItem.Text = "&About...";
             this.aboutMenuItem.Click += new System.EventHandler(this.aboutMenuItem_Click);
             // 
             // testMenuItem
             // 
             this.testMenuItem.Name = "testMenuItem";
-            this.testMenuItem.Size = new System.Drawing.Size(45, 20);
+            this.testMenuItem.Size = new System.Drawing.Size(55, 25);
             this.testMenuItem.Text = "Test";
             this.testMenuItem.Click += new System.EventHandler(this.testMenuItem_Click);
             // 
@@ -1342,9 +1349,9 @@ namespace client
             this.formatStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.amountBtn,
             this.percentBtn});
-            this.formatStrip.Location = new System.Drawing.Point(220, 24);
+            this.formatStrip.Location = new System.Drawing.Point(220, 0);
             this.formatStrip.Name = "formatStrip";
-            this.formatStrip.Size = new System.Drawing.Size(56, 25);
+            this.formatStrip.Size = new System.Drawing.Size(58, 25);
             this.formatStrip.TabIndex = 148;
             // 
             // amountBtn
@@ -1372,9 +1379,9 @@ namespace client
             this.autoCreateStrip.Enabled = false;
             this.autoCreateStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.dummyStripBtn});
-            this.autoCreateStrip.Location = new System.Drawing.Point(359, 24);
+            this.autoCreateStrip.Location = new System.Drawing.Point(359, 0);
             this.autoCreateStrip.Name = "autoCreateStrip";
-            this.autoCreateStrip.Size = new System.Drawing.Size(84, 25);
+            this.autoCreateStrip.Size = new System.Drawing.Size(111, 27);
             this.autoCreateStrip.TabIndex = 147;
             // 
             // dummyStripBtn
@@ -1383,7 +1390,7 @@ namespace client
             this.dummyStripBtn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.dummyStripBtn.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.dummyStripBtn.Name = "dummyStripBtn";
-            this.dummyStripBtn.Size = new System.Drawing.Size(74, 22);
+            this.dummyStripBtn.Size = new System.Drawing.Size(99, 24);
             this.dummyStripBtn.Text = "Auto created";
             // 
             // strategyStrip
@@ -1392,9 +1399,9 @@ namespace client
             this.strategyStrip.Enabled = false;
             this.strategyStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.strategyCbStrip});
-            this.strategyStrip.Location = new System.Drawing.Point(505, 24);
+            this.strategyStrip.Location = new System.Drawing.Point(505, 0);
             this.strategyStrip.Name = "strategyStrip";
-            this.strategyStrip.Size = new System.Drawing.Size(312, 25);
+            this.strategyStrip.Size = new System.Drawing.Size(347, 28);
             this.strategyStrip.TabIndex = 149;
             // 
             // strategyCbStrip
@@ -1403,7 +1410,7 @@ namespace client
             this.strategyCbStrip.myValue = "";
             this.strategyCbStrip.Name = "strategyCbStrip";
             this.strategyCbStrip.SelectedValue = "";
-            this.strategyCbStrip.Size = new System.Drawing.Size(300, 25);
+            this.strategyCbStrip.Size = new System.Drawing.Size(300, 28);
             // 
             // standardStrip
             // 
@@ -1415,10 +1422,10 @@ namespace client
             this.marketWatchBtn,
             this.myPortfolioBtn,
             this.tradeAlertBtn,
-            this.transHistoryBtn});
-            this.standardStrip.Location = new System.Drawing.Point(819, 24);
+            this.bestStrategyToolStripButton});
+            this.standardStrip.Location = new System.Drawing.Point(852, 0);
             this.standardStrip.Name = "standardStrip";
-            this.standardStrip.Size = new System.Drawing.Size(154, 25);
+            this.standardStrip.Size = new System.Drawing.Size(156, 25);
             this.standardStrip.TabIndex = 10;
             // 
             // addChartBtn
@@ -1477,22 +1484,15 @@ namespace client
             this.tradeAlertBtn.ToolTipText = "Trade Alerts";
             this.tradeAlertBtn.Click += new System.EventHandler(this.tradeAlertBtn_Click);
             // 
-            // transHistoryBtn
+            // bestStrategyToolStripButton
             // 
-            this.transHistoryBtn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.transHistoryBtn.Image = global::client.Properties.Resources.documents;
-            this.transHistoryBtn.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.transHistoryBtn.Name = "transHistoryBtn";
-            this.transHistoryBtn.Size = new System.Drawing.Size(23, 22);
-            this.transHistoryBtn.Text = "toolStripButton1";
-            this.transHistoryBtn.Click += new System.EventHandler(this.transHistoryBtn_Click);
-            // 
-            // companyHottestNewsIn24hToolStripMenuItem
-            // 
-            this.companyHottestNewsIn24hToolStripMenuItem.Name = "companyHottestNewsIn24hToolStripMenuItem";
-            this.companyHottestNewsIn24hToolStripMenuItem.Size = new System.Drawing.Size(247, 22);
-            this.companyHottestNewsIn24hToolStripMenuItem.Text = "Company Hottest News in 24h";
-            this.companyHottestNewsIn24hToolStripMenuItem.Click += new System.EventHandler(this.companyHottestNewsIn24hToolStripMenuItem_Click);
+            this.bestStrategyToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bestStrategyToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("bestStrategyToolStripButton.Image")));
+            this.bestStrategyToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.bestStrategyToolStripButton.Name = "bestStrategyToolStripButton";
+            this.bestStrategyToolStripButton.Size = new System.Drawing.Size(23, 22);
+            this.bestStrategyToolStripButton.Text = "toolStripButton1";
+            this.bestStrategyToolStripButton.Click += new System.EventHandler(this.bestStrategyToolStripButton_Click);
             // 
             // main
             // 
@@ -1580,7 +1580,6 @@ namespace client
         private System.Windows.Forms.ToolStripButton marketWatchBtn;
         private System.Windows.Forms.ToolStripButton myPortfolioBtn;
         private System.Windows.Forms.ToolStripButton tradeAlertBtn;
-        private System.Windows.Forms.ToolStripButton transHistoryBtn;
         protected System.Windows.Forms.MenuStrip mainMenu;
         private System.Windows.Forms.ToolStripMenuItem FileMenuStrip;
         private System.Windows.Forms.ToolStripMenuItem loginMenuItem;
@@ -1684,6 +1683,7 @@ namespace client
         private System.Windows.Forms.ToolStripMenuItem analysisReportsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem companyNToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem companyHottestNewsIn24hToolStripMenuItem;
+        private System.Windows.Forms.ToolStripButton bestStrategyToolStripButton;
     }
 }
 

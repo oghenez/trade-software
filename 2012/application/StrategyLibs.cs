@@ -993,6 +993,13 @@ namespace application.Strategy
             }
             return tradePointInfos;
         }
+
+        public static void createBestStrategy()
+        {
+            //1.Lay tat ca stock trong database
+            //2.Voi moi stock trong database, tinh toan xem chien luoc nao hieu qua nhat dua tren cach tinh trung binh
+            //3.gan vao tabel bestStrategy
+        }
     }
 
     public static class StrategyData

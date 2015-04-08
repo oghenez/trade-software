@@ -122,7 +122,7 @@ namespace commonTypes
     {
         public const bool sysDebugMode = false;//Dung de debug WCF
         public enum environmentDebugMode{localT440,localHP,SIT440,UAT,Prod};
-        public static environmentDebugMode environmentMode=environmentDebugMode.Prod;
+        public static environmentDebugMode environmentMode=environmentDebugMode.localT440;
         //public const string sysDebugMode_execDirectory = @"C:\Users\qnguyen37\Documents\Quantum201428\wsServices\obj\Debug";
         public static string sysDebugMode_execDirectory = "";
         //public const string sysDebugMode_execDirectory = "D:\\work\\stockProdsject\\code\\wsServices\\obj\\Debug";        

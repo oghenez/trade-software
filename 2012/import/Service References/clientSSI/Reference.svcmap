@@ -20,8 +20,8 @@
     <MetadataSource Address="http://banggia.ssi.com.vn/AjaxWebService.asmx" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="AjaxWebService.disco" MetadataType="Disco" ID="2c64c9cc-c7a9-41a6-adcb-3ce95a253908" SourceId="1" SourceUrl="http://banggia.ssi.com.vn/AjaxWebService.asmx?disco" />
-    <MetadataFile FileName="AjaxWebService.wsdl" MetadataType="Wsdl" ID="39355639-4995-4cb2-8dc7-8c52353582c7" SourceId="1" SourceUrl="http://banggia.ssi.com.vn/AjaxWebService.asmx?wsdl" />
+    <MetadataFile FileName="AjaxWebService1.wsdl" MetadataType="Wsdl" ID="44745229-f9bc-4eb6-b09d-636377aa339e" SourceId="1" SourceUrl="http://banggia2.ssi.com.vn/AjaxWebService.asmx?wsdl" />
+    <MetadataFile FileName="AjaxWebService1.disco" MetadataType="Disco" ID="35890e39-d69c-49c5-a6ae-27b2745950c5" SourceId="1" SourceUrl="http://banggia2.ssi.com.vn/AjaxWebService.asmx?disco" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

@@ -170,5 +170,15 @@ namespace server
             {
             }
         }
+
+        /// <summary>
+        /// Menu Tạo chiến lược tốt nhất cho từng loại cổ phiếu
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void bestStrategyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            application.Strategy.StrategyLibs.createBestStrategy();
+        }
     }
 }
