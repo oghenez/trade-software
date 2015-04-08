@@ -18,7 +18,8 @@ namespace databases.baseDSTableAdapters
     }
 }
 
-namespace baseDSTableAdapters {
+namespace databases.baseDSTableAdapters
+{
     
     
     public partial class transactionsTA {

@@ -1217,8 +1217,7 @@ namespace client
                 //Tool tip
                 this.addChartBtn.ToolTipText = this.NewChartMenuItem.Text;
                 this.printChartBtn.ToolTipText = this.printMenuItem.Text;
-
-                this.transHistoryBtn.ToolTipText = this.transHistoryMenuItem.Text;
+                
                 this.marketWatchBtn.ToolTipText = this.marketWatchMenuItem.Text;
                 this.tradeAlertBtn.ToolTipText = this.tradeAlertMenuItem.Text;
                 this.myPortfolioBtn.ToolTipText = this.myPortfolioMenuItem.Text;
@@ -1336,6 +1335,11 @@ namespace client
             }
         }
 
+        /// <summary>
+        /// 23-03-15: Xu ly viec select mot strategy trong combobox va tinh toan diem Buy/Sell
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void PlotTradepointHandler(object sender, EventArgs e)
         {
             try
@@ -2334,6 +2338,42 @@ namespace client
             {
                 this.ShowError(er);
             }
+        }
+
+        /// <summary>
+        /// 2015-03-21: Thuc hien xac dinh Buy/Sell dua vao chien luoc tot nhat
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void bestStrategyToolStripButton_Click(object sender, EventArgs e)
+        {
+        //    //1. Find the best strategy (in database)
+            
+        //    //2. Apply the strategy into the stock
+        //    DataAccess.Libs.GetBestStrategy();
+        //    try
+        //    {
+        //        Tools.Forms.tradeAnalysis activeForm = GetActiveStockForm();
+        //        if (activeForm == null) return;
+        //        application.Strategy.StrategyMeta meta;
+        //        ////if (sender.GetType() == typeof(ToolStripMenuItem))
+        //        ////{
+        //        ////    meta = (application.Strategy.StrategyMeta)(sender as ToolStripMenuItem).Tag;
+        //        ////}
+        //        ////else
+        //        ////{
+        //        ////    baseClass.controls.ToolStripCbStrategy item = (baseClass.controls.ToolStripCbStrategy)sender;
+        //        ////    meta = application.Strategy.StrategyLibs.FindMetaByCode(item.myValue);
+        //        ////}
+        //        //if (meta == null) activeForm.ClearStrategyTradepoints();
+        //        //else 
+        //        activeForm.co
+        //        activeForm.PlotStrategyTradepoints(meta, this.ChartHaveStrategyEstimation, ShowTradePointEstimate);
+        //    }
+        //    catch (Exception er)
+        //    {
+        //        this.ShowError(er);
+        //    }
         }
 
     }

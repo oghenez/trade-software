@@ -39,6 +39,7 @@
     <Reference Include="common, Version=1.5.0.0, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="commonClass, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="commonTypes, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=10.5.3700.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="dataAccess, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="databases, Version=2.1.0.0, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="ExpandableGridView, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />

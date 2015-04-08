@@ -77,10 +77,10 @@ namespace Imports.Stock
                 switch (exchangeDetailRow.code.ToUpper().Trim())
                 {
                     case "HOSE_SSI":
-                        s = client.GetDataHoSTC2();
+                        //s = client.GetDataHoSTC2();
                         break;
                     case "HASTC_SSI":
-                        s = client.GetDataHaSTC2();
+                        //s = client.GetDataHaSTC2();
                         break;
                     default: return null;
                 }
@@ -142,8 +142,8 @@ namespace Imports.Stock
                 binding.ReaderQuotas.MaxBytesPerRead = Consts.constWebServiceMaxBytesPerRead;
 
                 CultureInfo dataCulture = application.AppLibs.GetCulture(exchangeDetailRow.culture);
-                String s = client.GetDataHoSTC2_Index();
-                List<string> tradeList = new List<string>(s.Split('#'));
+                String s = client.GetMarketAllIndex(0);
+                List<string> tradeList = new List<string>(s.Split('$'));
                 for (int i = 0; i < tradeList.Count; i++)
                 {
                     List<string> tradeData = new List<string>(tradeList[i].Split('|'));
@@ -217,7 +217,7 @@ namespace Imports.Stock
                 binding.ReaderQuotas.MaxBytesPerRead = Consts.constWebServiceMaxBytesPerRead;
 
                 CultureInfo dataCulture = application.AppLibs.GetCulture(exchangeDetailRow.culture);
-                String s = client.GetDataHaSTC2_Index();
+                String s = client.GetMarketAllIndex(0);//.GetDataHaSTC2_Index();
                 List<string> tradeList = new List<string>(s.Split('#'));
                 for (int i = 0; i < tradeList.Count; i++)
                 {
