@@ -106,7 +106,7 @@ namespace baseClass.controls
             DataGridViewCellStyle priceVariantCellType = new DataGridViewCellStyle();
             this.priceVariantColumn.DataPropertyName = this.myStockTbl.priceVariantColumn.ColumnName;
             priceVariantCellType.Alignment = DataGridViewContentAlignment.MiddleRight;
-            priceVariantCellType.Format = "N" + precisionPercent;
+            priceVariantCellType.Format = "P" + precisionPercent;
             priceVariantCellType.NullValue = null;
             this.priceVariantColumn.DefaultCellStyle = priceVariantCellType;
             this.priceVariantColumn.HeaderText = "+/-";
@@ -466,5 +466,32 @@ namespace baseClass.controls
             }
         }
         #endregion
+
+        private void txtStockCode_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+ 
+        private void stockGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }        
+
+        private void txtStockCode_TextChanged_2(object sender, EventArgs e)
+        {
+            int i = -1;
+            if ((stockGV == null)
+                || (txtStockCode.Text == ""))
+                return;
+            for (i = 0; i < stockGV.Rows.Count; i++)
+                if (String.Compare(stockGV.Rows[i].Cells[1].Value.ToString(),txtStockCode.Text,true)==0)
+                    break;
+            if (i == -1 || i == stockGV.Rows.Count)
+                return;
+            stockGV.ClearSelection();
+            stockGV.FirstDisplayedScrollingRowIndex = i;
+            stockGV.Rows[i].Selected = true;
+        }
     }
 }
