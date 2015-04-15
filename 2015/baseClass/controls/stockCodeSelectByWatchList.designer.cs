@@ -32,8 +32,9 @@
             this.stockGV = new common.controls.baseDataGridView();
             this.stockSource = new System.Windows.Forms.BindingSource(this.components);
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
-            this.refreshBtn = new baseClass.controls.baseButton();
             this.codeGroupCb = new baseClass.controls.cbStockSelection();
+            this.refreshBtn = new baseClass.controls.baseButton();
+            this.txtStockCode = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.stockGV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.stockSource)).BeginInit();
             this.SuspendLayout();
@@ -42,20 +43,21 @@
             // 
             this.stockGV.AllowUserToAddRows = false;
             this.stockGV.AllowUserToDeleteRows = false;
-            this.stockGV.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.stockGV.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.stockGV.AutoGenerateColumns = false;
             this.stockGV.ColumnHeadersHeight = 30;
             this.stockGV.DataSource = this.stockSource;
-            this.stockGV.Location = new System.Drawing.Point(0, 25);
+            this.stockGV.Location = new System.Drawing.Point(0, 51);
             this.stockGV.Name = "stockGV";
             this.stockGV.ReadOnly = true;
             this.stockGV.RowHeadersWidth = 20;
             this.stockGV.RowTemplate.Height = 24;
             this.stockGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.stockGV.Size = new System.Drawing.Size(278, 348);
+            this.stockGV.Size = new System.Drawing.Size(278, 322);
             this.stockGV.TabIndex = 10;
+            this.stockGV.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.stockGV_CellContentClick);
             this.stockGV.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.stockGV_CellDoubleClick);
             this.stockGV.CellToolTipTextNeeded += new System.Windows.Forms.DataGridViewCellToolTipTextNeededEventHandler(this.stockGV_CellToolTipTextNeeded);
             this.stockGV.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.stockGV_DataBindingComplete);
@@ -64,6 +66,19 @@
             // 
             this.saveFileDialog.DefaultExt = "*.xls";
             this.saveFileDialog.Filter = "(*.xls)|*.xls|All files (*.*)|*.*";
+            // 
+            // codeGroupCb
+            // 
+            this.codeGroupCb.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.codeGroupCb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.codeGroupCb.FormattingEnabled = true;
+            this.codeGroupCb.Location = new System.Drawing.Point(1, -1);
+            this.codeGroupCb.myValue = baseClass.controls.cbStockSelection.Options.None;
+            this.codeGroupCb.Name = "codeGroupCb";
+            this.codeGroupCb.Size = new System.Drawing.Size(256, 24);
+            this.codeGroupCb.TabIndex = 1;
+            this.codeGroupCb.SelectionChangeCommitted += new System.EventHandler(this.codeGroupCb_SelectionChangeCommitted);
             // 
             // refreshBtn
             // 
@@ -79,22 +94,18 @@
             this.refreshBtn.UseVisualStyleBackColor = true;
             this.refreshBtn.Click += new System.EventHandler(this.refreshBtn_Click);
             // 
-            // codeGroupCb
+            // txtStockCode
             // 
-            this.codeGroupCb.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.codeGroupCb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.codeGroupCb.FormattingEnabled = true;
-            this.codeGroupCb.Location = new System.Drawing.Point(1, -1);
-            this.codeGroupCb.myValue = baseClass.controls.cbStockSelection.Options.None;
-            this.codeGroupCb.Name = "codeGroupCb";
-            this.codeGroupCb.Size = new System.Drawing.Size(256, 21);
-            this.codeGroupCb.TabIndex = 1;
-            this.codeGroupCb.SelectionChangeCommitted += new System.EventHandler(this.codeGroupCb_SelectionChangeCommitted);
+            this.txtStockCode.Location = new System.Drawing.Point(0, 23);
+            this.txtStockCode.Name = "txtStockCode";
+            this.txtStockCode.Size = new System.Drawing.Size(259, 22);
+            this.txtStockCode.TabIndex = 11;
+            this.txtStockCode.TextChanged += new System.EventHandler(this.txtStockCode_TextChanged_2);
             // 
             // stockCodeSelectByWatchList
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.Controls.Add(this.txtStockCode);
             this.Controls.Add(this.codeGroupCb);
             this.Controls.Add(this.refreshBtn);
             this.Controls.Add(this.stockGV);
@@ -106,6 +117,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.stockGV)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.stockSource)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -116,6 +128,7 @@
         protected common.controls.baseDataGridView stockGV;
         protected System.Windows.Forms.SaveFileDialog saveFileDialog;
         protected cbStockSelection codeGroupCb;
+        private System.Windows.Forms.TextBox txtStockCode;
 
     }
 }
