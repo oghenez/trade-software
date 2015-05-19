@@ -12,6 +12,7 @@ using System.Reflection;
 using application;
 using commonTypes;
 using commonClass;
+using System.Runtime.Serialization;
 
 namespace application.Strategy
 {
@@ -27,132 +28,6 @@ namespace application.Strategy
         }
     }
     
-    //Meta data keeps descriptive information of a strategy
-    public class StrategyMeta
-    {
-        public AppTypes.StrategyTypes Type =  AppTypes.StrategyTypes.Strategy;
-        public string Category = "";
-        public Type ClassType = null;
-        public Type FormType = typeof(forms.baseStrategyForm);
-
-        //Suggested default values : list of KeyPair(string, integer)
-        public common.DictionaryList ParameterList = null;
-
-        //Parameter descriptions
-        public IList<string> ParameterDescriptions = null;
-
-        //Name and Code of the strategy
-        public string Code = "";
-        public string Name = "";
-
-        //Description of the strategy
-        public string Description = "";
-        //URL for more info
-        public string URL = "";
-
-        //Author
-        public string Authors = "";
-        //Version
-        public string Version = "";
-       
-        public double[] Parameters
-        {
-            get
-            {
-                object[] values = this.ParameterList.Values;
-                double[] paras = new double[values.Length];
-                for (int idx = 0; idx < values.Length; idx++)
-                {
-                    paras[idx] =  (double)values[idx];
-                }
-                return paras;
-            }
-            set
-            {
-                string[] keys = this.ParameterList.Keys;
-                for (int idx = 0; idx < keys.Length; idx++)
-                {
-                    this.ParameterList.Add(keys[idx], value[idx]);
-                }
-            }
-        }
-        public int ParameterPrecision = 0;
-
-        /// <summary>
-        /// Set Parameters property from a formated string.
-        /// </summary>
-        /// <param name="str">String in the format <key=value>,...,<key=value></param>
-        private static common.DictionaryList String2ParameterList(string str)
-        {
-            double para = 0;
-            common.DictionaryList list = new common.DictionaryList();
-            common.myKeyValueItem[] keyValues = common.system.String2KeyValueList(str, ",", "=");
-            for (int idx = 0; idx < keyValues.Length; idx++)
-            {
-                if (!double.TryParse(keyValues[idx].Value, out para)) continue;
-                list.Add(keyValues[idx].Key, para);
-            }
-            return list;
-        }
-
-        /// <summary>
-        /// Convert ParameterList property into string in format <key=value>,...,<key=value>
-        /// </summary>
-        public string ParameterToString()
-        {
-            string retStr = "";
-            string[] keys = this.ParameterList.Keys;
-            object[] values = this.ParameterList.Values;
-            for (int idx = 0; idx < keys.Length; idx++)
-            {
-                retStr += (retStr == "" ? "" : common.Settings.sysSeparatorList[0].ToString()) + keys[idx] + "=" + values[idx].ToString();
-            }
-            return retStr;
-        }
-
-
-        /// <summary>
-        /// Get meta data from meta file
-        /// </summary>
-        /// <param name="meta"></param>
-        /// <returns></returns>
-        public static bool GetMeta(StrategyMeta meta)
-        {
-            StringCollection aFields = new StringCollection();
-            aFields.Clear();
-            aFields.Add("Type");
-            aFields.Add("Code");
-            aFields.Add("Name");
-            aFields.Add("Description");
-            aFields.Add("Category");
-
-            aFields.Add("Parameters");
-            aFields.Add("ParameterPrecision");
-            aFields.Add("ParameterDescriptions");
-
-            aFields.Add("URL");
-            aFields.Add("Authors");
-            aFields.Add("Version");
-            common.configuration.GetConfiguration(new string[] { "STRATEGY", meta.ClassType.Name }, aFields, StrategyData.sysXmlDocument, false);
-
-            meta.Type = AppTypes.Text2StrategyType(aFields[0]);
-            meta.Code = aFields[1];
-            meta.Name = aFields[2];
-            meta.Description = aFields[3];
-            meta.Category = aFields[4];
-
-            meta.ParameterList = String2ParameterList(aFields[5]);
-            int num = 0; int.TryParse(aFields[6], out num);
-            meta.ParameterPrecision = num;
-            meta.ParameterDescriptions = common.system.String2List(aFields[7]);
-
-            meta.URL = aFields[8];
-            meta.Authors = aFields[9];
-            meta.Version = aFields[10];
-            return true;
-        }
-    }
-
     public static class StrategyLibs
     {
         public static string GetMetaName(string code)
@@ -168,7 +43,7 @@ namespace application.Strategy
         /// <param name="myData"> Data used to calculate strategy databases.</param>
         /// <param name="meta">strategy meta data</param>
         /// <returns>Null if error</returns>
-        public static StrategyData.TradePoints Analysis(AnalysisData myData, StrategyMeta meta)
+        public static TradePoints Analysis(AnalysisData myData, StrategyMeta meta)
         {
             //Fix loi do dai bang cach them myData.Close.Count
             string cacheName = "data-" + myData.DataStockCode + "-" +
@@ -180,19 +55,26 @@ namespace application.Strategy
             processParas[0] = myData;
             processParas[1] = meta.Parameters;
             //First , find in cache
-            StrategyData.TradePoints tradePoints = (StrategyData.TradePoints)StrategyData.FindInCache(cacheName);
+            TradePoints tradePoints = (TradePoints)StrategyData.FindInCache(cacheName);
             if (tradePoints != null) return tradePoints;
 
             //Then, Call Execute() method to get trading points.
             object strategyInstance = GetStrategyInstance(meta.ClassType);
             if (strategyInstance == null) return null;
-            tradePoints = (StrategyData.TradePoints)meta.ClassType.InvokeMember("Execute",
+            tradePoints = (TradePoints)meta.ClassType.InvokeMember("Execute",
                                 BindingFlags.InvokeMethod | BindingFlags.Instance | BindingFlags.Public, null, strategyInstance, processParas);
 
             StrategyData.AddToCache(cacheName, tradePoints);
             return tradePoints;
         }
-        public static StrategyData.TradePoints AnalysisStrategy(AnalysisData myData, string strategyCode)
+
+        /// <summary>
+        /// Tinh toan do thanh cong cua mot Stratgy dua tren data cua co phieu
+        /// </summary>
+        /// <param name="myData"></param>
+        /// <param name="strategyCode"></param>
+        /// <returns></returns>
+        public static TradePoints AnalysisStrategy(AnalysisData myData, string strategyCode)
         { 
             StrategyMeta meta = FindMetaByCode(strategyCode);
             if (meta == null) return null;
@@ -232,6 +114,7 @@ namespace application.Strategy
             StrategyData.AddToCache(cacheName, form);
             return form;
         }
+
         /// <summary>
         /// Find/Get strategy by name. Return null if not found
         /// </summary>
@@ -728,10 +611,14 @@ namespace application.Strategy
                 decimal[] rowRetList = new decimal[strategyList.Count];
                 for (int colId = 0; colId < strategyList.Count; colId++)
                 {
-                    StrategyData.TradePoints advices = AnalysisStrategy(analysisData, strategyList[colId]);
+                    TradePoints advices = AnalysisStrategy(analysisData, strategyList[colId]);
                     if (advices != null)
                     {
                         rowRetList[colId] = EstimateTrading_Profit(analysisData, ToTradePointInfo(advices), option);
+                        //Tinh %
+                        //decimal iOriginalMoney = 10000000;
+                        //iOriginalMoney = commonTypes.Settings.sysStockTotalCapAmt;
+                        //rowRetList[colId] = (rowRetList[colId]/iOriginalMoney);
                     }
                     else rowRetList[colId] = 0;
                 }
@@ -752,7 +639,7 @@ namespace application.Strategy
                 double[] rowRetList = new double[strategyList.Count];
                 for (int colId = 0; colId < strategyList.Count; colId++)
                 {
-                    StrategyData.TradePoints tradePoints = AnalysisStrategy(analysisData, strategyList[colId]);
+                    TradePoints tradePoints = AnalysisStrategy(analysisData, strategyList[colId]);
                     if (tradePoints != null && tradePoints.Count>0)
                     {
                         rowRetList[colId] = (tradePoints[tradePoints.Count - 1] as TradePointInfo).BusinessInfo.Weight;
@@ -975,16 +862,16 @@ namespace application.Strategy
         }
 
         //Convert
-        public static StrategyData.TradePoints ToTradePoints(TradePointInfo[] tradePointInfos)
+        public static TradePoints ToTradePoints(TradePointInfo[] tradePointInfos)
         {
-            StrategyData.TradePoints tradePointList = new StrategyData.TradePoints();
+            TradePoints tradePointList = new TradePoints();
             for (int idx = 0; idx < tradePointInfos.Length; idx++)
             {
                 tradePointList.Add(tradePointInfos[idx]);
             }
             return tradePointList;
         }
-        public static TradePointInfo[] ToTradePointInfo(StrategyData.TradePoints tradePoints)
+        public static TradePointInfo[] ToTradePointInfo(TradePoints tradePoints)
         {
             TradePointInfo[] tradePointInfos = new TradePointInfo[tradePoints.Count];
             for (int idx = 0; idx < tradePoints.Count; idx++)
@@ -994,118 +881,62 @@ namespace application.Strategy
             return tradePointInfos;
         }
 
+        /// <summary>
+        /// 2015-05-13 by QN
+        /// Tinh toan chien luoc tot nhat cho tat ca cac co phieu.
+        /// Nen chay trong mot background process
+        /// </summary>
         public static void createBestStrategy()
         {
             //1.Lay tat ca stock trong database
-            //2.Voi moi stock trong database, tinh toan xem chien luoc nao hieu qua nhat dua tren cach tinh trung binh
+            //StringCollection stockCodeList = new StringCollection();
+            databases.baseDS.stockCodeDataTable stockCodeTable=new databases.baseDS.stockCodeDataTable();
+            databases.DbAccess.LoadData(stockCodeTable);
+
+            //2. Lay tat ca cac Strategy
+            databases.tmpDS.codeListDataTable strategyTable = new databases.tmpDS.codeListDataTable();
+            LoadStrategy(strategyTable, AppTypes.StrategyTypes.Strategy);
+        
+
+            //3.Voi moi stock trong database, tinh toan xem chien luoc nao hieu qua nhat dua tren cach tinh trung binh
+            
+            for (int i = 0; i < stockCodeTable.Count; i++)
+            {
+
+            }
             //3.gan vao tabel bestStrategy
+
+        //    public static List<decimal[]> Estimate_Matrix_Profit(AppTypes.TimeRanges timeRange, AppTypes.TimeScale timeScale,
+        //                                                     StringCollection stockCodeList, StringCollection strategyList,EstimateOptions option)
+        //{
+        //    List<decimal[]> retList = new List<decimal[]>(); 
+
+        //    commonClass.DataParams dataParm = new DataParams(timeScale.Code,timeRange,0);
+        //    for (int rowId = 0; rowId < stockCodeList.Count; rowId++)
+        //    {
+        //        StrategyData.ClearCache();
+        //        AnalysisData analysisData = new AnalysisData(stockCodeList[rowId],dataParm);
+        //        decimal[] rowRetList = new decimal[strategyList.Count];
+        //        for (int colId = 0; colId < strategyList.Count; colId++)
+        //        {
+        //            TradePoints advices = AnalysisStrategy(analysisData, strategyList[colId]);
+        //            if (advices != null)
+        //            {
+        //                rowRetList[colId] = EstimateTrading_Profit(analysisData, ToTradePointInfo(advices), option);
+        //                //Tinh %
+        //                //decimal iOriginalMoney = 10000000;
+        //                //iOriginalMoney = commonTypes.Settings.sysStockTotalCapAmt;
+        //                //rowRetList[colId] = (rowRetList[colId]/iOriginalMoney);
+        //            }
+        //            else rowRetList[colId] = 0;
+        //        }
+        //        retList.Add(rowRetList);
+        //    }
+        //    return retList;
+        //}
         }
     }
-
-    public static class StrategyData
-    {
-        public const string constAssemplyNamePattern = "*strategy.dll";
-
-        //Cache to boost performance
-        private static common.DictionaryList dataCache = new common.DictionaryList();
-        public static object FindInCache(string key)
-        {
-            return dataCache.Find(key);
-        }
-        public static void AddToCache(string key, object obj)
-        {
-            dataCache.Add(key, obj);
-        }
-
-        public static void Clear()
-        {
-            ClearCache();
-            sysXmlDocument = null;
-            _metaList = null;
-            _myCatList = null;
-        }
-
-        /// <summary>
-        /// Clear cache that keep caculated data to speed up performance.
-        /// </summary>
-        public static void ClearCache()
-        {
-            dataCache.Clear();
-        }
-        private static XmlDocument _sysXmlDocument = null;
-        public static XmlDocument sysXmlDocument
-        {
-            get
-            {
-                if (_sysXmlDocument == null)
-                {
-                    _sysXmlDocument = commonClass.Configuration.GetLocalXmlDocSTRATEGY();
-                    if (common.Settings.sysDebugMode)
-                        commonClass.SysLibs.WriteSysLog(common.SysSeverityLevel.Error,"STR002","Use local STRATEGY XML");
-                }
-                return _sysXmlDocument;
-            }
-            set
-            {
-                _sysXmlDocument = value;
-            }
-        }
-
-        private static CatList _myCatList = null;
-        public static CatList myCatList
-        {
-            get
-            {
-                if (_myCatList == null)
-                {
-                    _myCatList = new CatList();
-                    StringCollection aFields = new StringCollection();
-                    int count = 0;
-                    while (true)
-                    {
-                        aFields.Clear();
-                        aFields.Add("Code");
-                        aFields.Add("Description");
-                        if (!common.configuration.GetConfiguration(new string[] { "CATEGORY", "CAT" + count.ToString() }, aFields, StrategyData.sysXmlDocument, false)) break;
-                        _myCatList.Add(new commonClass.DataCategory(aFields[0], aFields[1]));
-                        count++;
-                    }
-                }
-                return _myCatList;
-            }
-        }
-
-        /// <summary>
-        /// List keeps all meta data dynamically collected from strategy .DLL files
-        /// </summary>
-        private static common.DictionaryList _metaList = null;
-        public static common.DictionaryList MetaList
-        {
-            get
-            {
-                if (_metaList == null)
-                {
-                    _metaList = new common.DictionaryList();
-                    StrategyLibs.GetMeta(Settings.sysExecuteDirectory, constAssemplyNamePattern, _metaList);
-                }
-                return _metaList;
-            }
-        }
-
-        //List of all possible trading points
-        public class TradePoints : ArrayList
-        {
-            public TradePoints() { }
-            public void Add(AppTypes.TradeActions action, int idx, BusinessInfo info)
-            {
-                this.Add(new TradePointInfo(action, idx, info));
-            }
-            public void Add(AppTypes.TradeActions action, int idx)
-            {
-                this.Add(new TradePointInfo(action, idx));
-            }
-        }
-    }
+    
 
     /// <summary>
     /// Base Strategys
