@@ -138,8 +138,10 @@
       <DependentUpon>sampleMACD.cs</DependentUpon>
     </Compile>
     <Compile Include="IndicatorLibs.cs" />
+    <Compile Include="StrategyData.cs" />
     <Compile Include="StrategyLibs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TradePoints.cs" />
     <EmbeddedResource Include="forms\baseIndicatorForm.resx">
       <DependentUpon>baseIndicatorForm.cs</DependentUpon>
       <SubType>Designer</SubType>
