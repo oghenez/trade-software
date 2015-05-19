@@ -29,21 +29,22 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(strategySelect));
-            this.strategyCatCb = new baseClass.controls.cbStrategyCat();
-            this.strategyClb = new baseClass.controls.clbStrategy();
             this.selectAllChk = new baseClass.controls.baseCheckBox();
+            this.strategyClb = new baseClass.controls.clbStrategy();
+            this.strategyCatCb = new baseClass.controls.cbStrategyCat();
             this.SuspendLayout();
             // 
-            // strategyCatCb
+            // selectAllChk
             // 
-            this.strategyCatCb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.strategyCatCb.FormattingEnabled = true;
-            this.strategyCatCb.Location = new System.Drawing.Point(0, 0);
-            this.strategyCatCb.myValue = "";
-            this.strategyCatCb.Name = "strategyCatCb";
-            this.strategyCatCb.Size = new System.Drawing.Size(415, 21);
-            this.strategyCatCb.TabIndex = 1;
-            this.strategyCatCb.SelectedIndexChanged += new System.EventHandler(this.strategyCatCb_SelectedIndexChanged);
+            this.selectAllChk.AutoSize = true;
+            this.selectAllChk.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.selectAllChk.Location = new System.Drawing.Point(3, 177);
+            this.selectAllChk.Name = "selectAllChk";
+            this.selectAllChk.Size = new System.Drawing.Size(111, 25);
+            this.selectAllChk.TabIndex = 20;
+            this.selectAllChk.Text = "Select All";
+            this.selectAllChk.UseVisualStyleBackColor = true;
+            this.selectAllChk.CheckedChanged += new System.EventHandler(this.selectAllChk_CheckedChanged);
             // 
             // strategyClb
             // 
@@ -59,17 +60,16 @@
             this.strategyClb.Size = new System.Drawing.Size(412, 140);
             this.strategyClb.TabIndex = 10;
             // 
-            // selectAllChk
+            // strategyCatCb
             // 
-            this.selectAllChk.AutoSize = true;
-            this.selectAllChk.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.selectAllChk.Location = new System.Drawing.Point(3, 177);
-            this.selectAllChk.Name = "selectAllChk";
-            this.selectAllChk.Size = new System.Drawing.Size(87, 20);
-            this.selectAllChk.TabIndex = 20;
-            this.selectAllChk.Text = "Select All";
-            this.selectAllChk.UseVisualStyleBackColor = true;
-            this.selectAllChk.CheckedChanged += new System.EventHandler(this.selectAllChk_CheckedChanged);
+            this.strategyCatCb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.strategyCatCb.FormattingEnabled = true;
+            this.strategyCatCb.Location = new System.Drawing.Point(0, 0);
+            this.strategyCatCb.myValue = "";
+            this.strategyCatCb.Name = "strategyCatCb";
+            this.strategyCatCb.Size = new System.Drawing.Size(415, 24);
+            this.strategyCatCb.TabIndex = 1;
+            this.strategyCatCb.SelectedIndexChanged += new System.EventHandler(this.strategyCatCb_SelectedIndexChanged);
             // 
             // strategySelect
             // 
@@ -78,6 +78,7 @@
             this.Controls.Add(this.strategyCatCb);
             this.Name = "strategySelect";
             this.Size = new System.Drawing.Size(416, 199);
+            this.Load += new System.EventHandler(this.strategySelect_Load);
             this.Resize += new System.EventHandler(this.form_Resize);
             this.ResumeLayout(false);
             this.PerformLayout();

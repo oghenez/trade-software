@@ -19,7 +19,7 @@ namespace baseClass.controls
         {
             try
             {
-                InitializeComponent();
+                InitializeComponent();                
             }
             catch (Exception er)
             {
@@ -62,6 +62,8 @@ namespace baseClass.controls
         {
             this.strategyClb.LoadData(type);
             this.strategyCatCb.LoadData(true);
+            //Check all
+            //strategyClb.CheckAll(selectAllChk.Checked);
         }
         public virtual void DataBining(BindingSource source, string fldName)
         {
@@ -113,6 +115,11 @@ namespace baseClass.controls
             {
                 ErrorHandler(this, er);
             }
+        }
+
+        private void strategySelect_Load(object sender, EventArgs e)
+        {
+            strategyClb.CheckAll(selectAllChk.Checked);
         }
     }
 }

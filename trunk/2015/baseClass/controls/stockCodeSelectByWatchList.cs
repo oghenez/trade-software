@@ -55,6 +55,8 @@ namespace baseClass.controls
         private DataGridViewTextBoxColumn priceColumn = new DataGridViewTextBoxColumn();
         private DataGridViewTextBoxColumn priceVariantColumn = new DataGridViewTextBoxColumn();
         private DataGridViewTextBoxColumn stockNameColumn = new DataGridViewTextBoxColumn();
+        //private DataGridViewTextBoxColumn volumeColumn = new DataGridViewTextBoxColumn();
+
         private void InitGrid()
         {
             stockGV.myQuickFindColumnId = 1;
@@ -69,7 +71,8 @@ namespace baseClass.controls
             this.codeColumn,
             this.priceColumn,
             this.priceVariantColumn,
-            this.stockNameColumn});
+            this.stockNameColumn,
+            /*this.volumeColumn*/});
             this.stockGV.DataSource = this.stockSource;
             this.stockGV.ReadOnly = true;
             // 
@@ -120,12 +123,24 @@ namespace baseClass.controls
             this.stockNameColumn.HeaderText = "Name";
             this.stockNameColumn.Name = gridColumnName.StockName.ToString();
             this.stockNameColumn.Visible = false;
+
+            ////VolumeColumn
+            //DataGridViewCellStyle volumeCellType = new DataGridViewCellStyle();
+            //this.volumeColumn.DataPropertyName = this.myStockTbl.volumeColumn.ColumnName;
+
+            //volumeCellType.Alignment = DataGridViewContentAlignment.MiddleRight;
+            //volumeCellType.Format = "N" + precisionPrice;
+            //volumeCellType.NullValue = null;
+            //this.volumeColumn.DefaultCellStyle = volumeCellType;
+            //this.volumeColumn.HeaderText = "Volume";
+            //this.volumeColumn.Name = gridColumnName.Volume.ToString();
         }
-        
+                    
+            
         private enum watchListTypes : byte { None, All, StockExchange, WatchList, SysWatchList,Others};
 
         private databases.tmpDS.stockCodeDataTable myStockTbl = DataAccess.Libs.myStockCodeTbl;
-
+      
         public override void SetLanguage()
         {
             base.SetLanguage();
@@ -133,6 +148,7 @@ namespace baseClass.controls
             stockExchangeColumn.HeaderText = Languages.Libs.GetString("exchange");
             codeColumn.HeaderText = Languages.Libs.GetString("code");
             priceColumn.HeaderText = Languages.Libs.GetString("price");
+            //volumeColumn.HeaderText = Languages.Libs.GetString("volume");
         }
 
         public StringCollection mySelectedCodes
@@ -154,7 +170,7 @@ namespace baseClass.controls
 
         public enum gridColumnName
         {
-            StockCode, StockExCode, StockName, Price, PriceVariant
+            StockCode, StockExCode, StockName, Price, PriceVariant,Volume
         }
         public common.controls.baseDataGridView myGridView
         {
@@ -339,6 +355,8 @@ namespace baseClass.controls
         {
             databases.baseDS.lastPriceDataDataTable openPriceTbl = DataAccess.Libs.myLastDailyOpenPrice;
             databases.baseDS.lastPriceDataDataTable closePriceTbl = DataAccess.Libs.myLastDailyClosePrice;
+            //databases.baseDS.lastPriceDataDataTable volumeTbl = DataAccess.Libs.myLastDailyVolume;
+            
             if (openPriceTbl==null || closePriceTbl == null) return;
 
             dataTbl.priceColumn.ReadOnly = false;
@@ -346,19 +364,33 @@ namespace baseClass.controls
 
             databases.tmpDS.stockCodeRow stockCodeRow;
             databases.baseDS.lastPriceDataRow openPriceRow, closePriceRow;
+            //databases.baseDS.lastPriceDataRow volumeRow;
             for (int idx = 0; idx < stockGV.RowCount; idx++)
             {
+                //Lay stock code
                 stockCodeRow = dataTbl.FindBycode(stockGV.Rows[idx].Cells[codeColumn.Name].Value.ToString());
                 if (stockCodeRow == null) continue;
+                
+                //Lay gia dong cua
                 closePriceRow = closePriceTbl.FindBystockCode(stockCodeRow.code);
                 if (closePriceRow == null) continue;
 
                 if (stockCodeRow.price == closePriceRow.value) continue;
+
+                //Lay chenh lech Open/Close
                 stockCodeRow.price = closePriceRow.value;
                 openPriceRow = openPriceTbl.FindBystockCode(stockCodeRow.code);
                 if (openPriceRow != null&&openPriceRow.value!=0)
                     stockCodeRow.priceVariant = (closePriceRow.value - openPriceRow.value) / openPriceRow.value;
                 else stockCodeRow.priceVariant = 0;
+
+                //Lay volume
+                //volumeRow = volumeTbl.FindBystockCode(stockCodeRow.code);
+                //if (volumeRow == null) continue;
+                //if (stockCodeRow.volume == volumeRow.value) continue;
+                //stockCodeRow.volume = volumeRow.value;
+                
+
             }
             SetColor();
         }
@@ -484,13 +516,19 @@ namespace baseClass.controls
             if ((stockGV == null)
                 || (txtStockCode.Text == ""))
                 return;
+
             for (i = 0; i < stockGV.Rows.Count; i++)
-                if (String.Compare(stockGV.Rows[i].Cells[1].Value.ToString(),txtStockCode.Text,true)==0)
+            {
+                string stockname=stockGV.Rows[i].Cells[1].Value.ToString();
+                if (stockname.StartsWith(txtStockCode.Text, StringComparison.OrdinalIgnoreCase))
                     break;
+            }
+            
             if (i == -1 || i == stockGV.Rows.Count)
                 return;
             stockGV.ClearSelection();
             stockGV.FirstDisplayedScrollingRowIndex = i;
+            stockGV.CurrentCell = stockGV.Rows[i].Cells[1];
             stockGV.Rows[i].Selected = true;
         }
     }
