@@ -129,9 +129,11 @@
     <None Include="baseDS.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>baseDS1.Designer.cs</LastGenOutput>
     </None>
     <None Include="baseDS.xss">
       <DependentUpon>baseDS.xsd</DependentUpon>
+      <SubType>Designer</SubType>
     </None>
     <None Include="importDS.xsc">
       <DependentUpon>importDS.xsd</DependentUpon>

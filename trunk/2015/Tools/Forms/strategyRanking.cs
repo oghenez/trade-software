@@ -23,6 +23,7 @@ namespace Tools.Forms
                 codeListLb.LoadData();
                 timeScaleCb.LoadData();
                 strategyClb.LoadData(AppTypes.StrategyTypes.Strategy, true, false);
+                //strategyClb.CheckAll(true);
                 AppTypes.TimeRanges[] timeRanges = new AppTypes.TimeRanges[]
                 {
                     AppTypes.TimeRanges.M1, AppTypes.TimeRanges.M3,AppTypes.TimeRanges.M6,
@@ -312,6 +313,9 @@ namespace Tools.Forms
             return retVal;
         }
 
+        /// <summary>
+        /// Thuc hien viec sap xep chien luoc
+        /// </summary>
         private void DoRanking()
         {
             this.ShowReccount("");
@@ -391,15 +395,21 @@ namespace Tools.Forms
         private void Amount2Percent(common.controls.baseDataGridView dataGrid)
         {
             DataTable dataTbl = (DataTable)dataGrid.DataSource;
+            dataGrid.DefaultCellStyle.Format = "p3";
+            dataGrid.DefaultCellStyle.SelectionForeColor = Color.Yellow;
+             
             decimal val = 0;
             for (int rowId = 0; rowId < dataTbl.Rows.Count; rowId++)
             {
                 for (int colId = 1; colId < dataTbl.Columns.Count; colId++)
                 {
                     if (!decimal.TryParse(dataTbl.Rows[rowId][colId].ToString(), out val)) continue;
-                    dataTbl.Rows[rowId][colId] = (val / this.Amount2PercentDenominator) * 100;
+                    dataTbl.Rows[rowId][colId] = (val / this.Amount2PercentDenominator)*100 ;
                 }
             }
+            
+            //Test them
+            //dataGrid.CellFormatting=
         }
         private void Percent2Amount(common.controls.baseDataGridView dataGrid)
         {
@@ -410,9 +420,10 @@ namespace Tools.Forms
                 for (int colId = 1; colId < dataTbl.Columns.Count; colId++)
                 {
                     if (!decimal.TryParse(dataTbl.Rows[rowId][colId].ToString(), out val)) continue;
-                    dataTbl.Rows[rowId][colId] = (val * this.Amount2PercentDenominator) / 100;
+                    dataTbl.Rows[rowId][colId] = (val * this.Amount2PercentDenominator)/100 ;
                 }
             }
+            dataGrid.DefaultCellStyle.Format = "N" + common.system.GetPrecisionFromMask(Settings.sysMaskLocalAmt);
         }
 
         protected override void Amount2Percent()

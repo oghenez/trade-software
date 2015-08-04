@@ -139,5 +139,10 @@ namespace Trade.Forms
             this.ShowError(e.myException);
         }
 
+        private void stockCodeList_Load(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }

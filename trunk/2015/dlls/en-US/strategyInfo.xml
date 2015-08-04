@@ -816,7 +816,7 @@
   <STRATEGY>
     <SARATR Code="STR041"/>
     <SARATR Category="HFT" />
-    <SARATR Parameters="ATR Period=14,AF=0.02,Step=0.2,Stop Loss Level (%)=5,Trailing Stop (%)=15, Take Profit Level (%)=200" />
+    <SARATR Parameters="ATR Period=14,AF=0.02,Step=0.2,Support/Resistance Period=30,Stop Loss Level (%)=5,Trailing Stop (%)=15, Take Profit Level (%)=200" />
     <SARATR ParameterPrecision="2"/>
     <SARATR ParameterDescriptions="Period is the period for the short term moving average line." />
     <SARATR Name="ATR-Parabolic SAR" />

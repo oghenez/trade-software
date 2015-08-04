@@ -17,6 +17,31 @@ using System.Runtime.Serialization;
 namespace application
 {
     [DataContract]
+    public class StrategyStatistics
+    {
+        [DataMember]
+        public string sStockCode;
+        [DataMember]
+        public string timeframe;
+        [DataMember]
+        public int iTotalTrade;
+        [DataMember]
+        public int iTotalWinningTrade;
+        [DataMember]
+        public int iTotalLosingTrade;
+        [DataMember]
+        public double dWinningPercentagePerTrade;
+        [DataMember]
+        public double dMaxWinningPercentage;
+        [DataMember]
+        public double dMaxLosingPercentage;
+        [DataMember]
+        public double dAverageWinningPercentage;
+        [DataMember]
+        public double dAverageLosingPercentage;
+    }
+
+    [DataContract]
     public static class StrategyData
     {
         [DataMember]

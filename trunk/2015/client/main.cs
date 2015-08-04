@@ -35,6 +35,7 @@ namespace client
         const string constFormNameMarketSummary = "MarketSummary";
         const string constFormNameEstimateTrade = "EstimateTrade-";
         const string constFormNameFundamentalData = "Fundamental Data -";
+        private bool isAppliedBestStrategy = false;
         public main()
         {
             try
@@ -106,7 +107,7 @@ namespace client
         {
             if (force) DataAccess.Libs.ClearCache();
             //Load XML meta for STRATEGY and INDICATOR
-            application.Strategy.StrategyData.sysXmlDocument = DataAccess.Libs.GetXmlDocumentSTRATEGY();
+            application.StrategyData.sysXmlDocument = DataAccess.Libs.GetXmlDocumentSTRATEGY();
             application.Indicators.Data.sysXmlDocument = DataAccess.Libs.GetXmlDocumentINDICATOR();
             DataAccess.Libs.LoadSystemVars();
             return true;
@@ -137,7 +138,7 @@ namespace client
             }
             common.language.SetLanguage();
             commonClass.SysLibs.SetLanguage();
-            application.Strategy.StrategyData.Clear();
+            application.StrategyData.Clear();
             application.Indicators.Data.Clear();
             SetLanguage();
             SetLanguageAllOpenForms();
@@ -264,6 +265,10 @@ namespace client
 
             menuItem = contextMenuStrip.Items.Add(companyNToolStripMenuItem.Text);
             menuItem.Click += new System.EventHandler(companyNToolStripMenuItem_Click);
+
+            menuItem = contextMenuStrip.Items.Add(companyHottestNewsIn24hToolStripMenuItem.Text);
+            menuItem.Click += new System.EventHandler(companyHottestNewsIn24hToolStripMenuItem_Click);
+
 
             //Tools
             contextMenuStrip.Items.Add(new ToolStripSeparator());
@@ -1357,7 +1362,11 @@ namespace client
                     meta = application.Strategy.StrategyLibs.FindMetaByCode(item.myValue);
                 }
                 if (meta == null) activeForm.ClearStrategyTradepoints();
-                else activeForm.PlotStrategyTradepoints(meta, this.ChartHaveStrategyEstimation, ShowTradePointEstimate);
+                else
+                {
+                    isAppliedBestStrategy = true;
+                    activeForm.PlotStrategyTradepoints(meta, this.ChartHaveStrategyEstimation, ShowTradePointEstimate);
+                }
             }
             catch (Exception er)
             {
@@ -1507,18 +1516,20 @@ namespace client
         {
             try
             {
+                //Get company name from active chart                
+                Tools.Forms.tradeAnalysis activeForm = GetActiveStockForm();
+                if (activeForm == null) return;
+
+                StringCollection scCompanyCollection = new StringCollection();
+                scCompanyCollection.Add(activeForm.myData.DataStockCode);
+
                 Tools.Forms.backTesting backTestingForm = Tools.Forms.backTesting.GetForm("");
                 backTestingForm.myDockedPane = dockPanel;
                 backTestingForm.myShowStock += new Tools.Forms.backTesting.ShowStockFunc(ShowStockHandler);
 
                 backTestingForm.Name = "backTesting";
                 backTestingForm.Show(dockPanel);
-                
-                Trade.Forms.marketWatch marketWatch = GetMarketWatchForm(false);
-                if (marketWatch != null)
-                {
-                    backTestingForm.SetSelectedCode(marketWatch.mySelectedCodes);
-                }
+                backTestingForm.SetSelectedCode(scCompanyCollection);                
             }
             catch (Exception er)
             {
@@ -2198,16 +2209,14 @@ namespace client
             string companyCode="SSI";
             try
             {
-                //Get company name
-                //Get active chart or selected item in Watchlist
-                Trade.Forms.marketWatch marketWatchForm = GetMarketWatchForm(false);
-                if (marketWatchForm == null) return;
-                if (marketWatchForm.CurrentRow == null) return;
-                companyCode = marketWatchForm.CurrentRow.code;
+                //Get company name from active chart                
+                Tools.Forms.tradeAnalysis activeForm = GetActiveStockForm();
+                if (activeForm == null) return;
+                companyCode = activeForm.myData.DataStockCode;
 
                 //Open Web Browser
                 string URL = "https://www.vndirect.com.vn/portal/tong-quan/"+companyCode+".shtml";
-                fundamentalWebBrowserForm form = new fundamentalWebBrowserForm(companyCode,URL);                
+                fundamentalWebBrowserForm form = new fundamentalWebBrowserForm(companyCode, URL, "companyOverview");                
                 form.Show(dockPanel);
             }
             catch (Exception er)
@@ -2221,16 +2230,14 @@ namespace client
             string companyCode = "SSI";
             try
             {
-                //Get company name
-                //Get active chart or selected item in Watchlist
-                Trade.Forms.marketWatch marketWatchForm = GetMarketWatchForm(false);
-                if (marketWatchForm == null) return;
-                if (marketWatchForm.CurrentRow == null) return;
-                companyCode = marketWatchForm.CurrentRow.code;
+                //Get company name from active chart                
+                Tools.Forms.tradeAnalysis activeForm = GetActiveStockForm();
+                if (activeForm == null) return;
+                companyCode = activeForm.myData.DataStockCode;                
 
                 //Open Web Browser            
                 string URL = "https://www.vndirect.com.vn/portal/bang-can-doi-ke-toan/" + companyCode + ".shtml";
-                fundamentalWebBrowserForm form = new fundamentalWebBrowserForm(companyCode, URL);
+                fundamentalWebBrowserForm form = new fundamentalWebBrowserForm(companyCode, URL, "financialStatement");
                 form.Show(dockPanel);
             }
             catch (Exception er)
@@ -2244,16 +2251,14 @@ namespace client
             string companyCode = "SSI";
             try
             {
-                //Get company name
-                //Get active chart or selected item in Watchlist
-                Trade.Forms.marketWatch marketWatchForm = GetMarketWatchForm(false);
-                if (marketWatchForm == null) return;
-                if (marketWatchForm.CurrentRow == null) return;
-                companyCode = marketWatchForm.CurrentRow.code;
+                //Get company name from active chart                
+                Tools.Forms.tradeAnalysis activeForm = GetActiveStockForm();
+                if (activeForm == null) return;
+                companyCode = activeForm.myData.DataStockCode;
 
                 //Open Web Browser            
                 string URL = "https://www.vndirect.com.vn/portal/thong-ke-co-ban/" + companyCode + ".shtml";
-                fundamentalWebBrowserForm form = new fundamentalWebBrowserForm(companyCode, URL);
+                fundamentalWebBrowserForm form = new fundamentalWebBrowserForm(companyCode, URL, "financialRatio");
                 form.Show(dockPanel);
             }
             catch (Exception er)
@@ -2267,18 +2272,16 @@ namespace client
             string companyCode = "SSI";
             try
             {
-                //Get company name
-                //Get active chart or selected item in Watchlist
-                Trade.Forms.marketWatch marketWatchForm = GetMarketWatchForm(false);
-                if (marketWatchForm == null) return;
-                if (marketWatchForm.CurrentRow == null) return;
-                companyCode = marketWatchForm.CurrentRow.code;
+                //Get company name from active chart                
+                Tools.Forms.tradeAnalysis activeForm = GetActiveStockForm();
+                if (activeForm == null) return;
+                companyCode = activeForm.myData.DataStockCode;
 
                 //Open Web Browser    
                 //http://stox.vn/Report/Search?Kw=acb&Cat=-1&Industry=-1
 
                 string URL = "http://stox.vn/Report/Search?Kw=" + companyCode + @"&Cat=-1&Industry=-1";
-                fundamentalWebBrowserForm form = new fundamentalWebBrowserForm(companyCode, URL);
+                fundamentalWebBrowserForm form = new fundamentalWebBrowserForm(companyCode, URL, "analysistReport");
                 form.Show(dockPanel);
             }
             catch (Exception er)
@@ -2292,18 +2295,16 @@ namespace client
             string companyCode = "SSI";
             try
             {
-                //Get company name
-                //Get active chart or selected item in Watchlist
-                Trade.Forms.marketWatch marketWatchForm = GetMarketWatchForm(false);
-                if (marketWatchForm == null) return;
-                if (marketWatchForm.CurrentRow == null) return;
-                companyCode = marketWatchForm.CurrentRow.code;
+                //Get company name from active chart                
+                Tools.Forms.tradeAnalysis activeForm = GetActiveStockForm();
+                if (activeForm == null) return;
+                companyCode = activeForm.myData.DataStockCode;
 
                 //Open Web Browser    
                 //https://www.vndirect.com.vn/portal/tin-doanh-nghiep/
 
                 string URL = "https://www.vndirect.com.vn/portal/tin-doanh-nghiep/" + companyCode + @".shtml";
-                fundamentalWebBrowserForm form = new fundamentalWebBrowserForm(companyCode, URL);
+                fundamentalWebBrowserForm form = new fundamentalWebBrowserForm(companyCode, URL, "companyNews");
                 form.Show(dockPanel);
             }
             catch (Exception er)
@@ -2317,21 +2318,16 @@ namespace client
             string companyCode = "SSI";
             try
             {
-                //Get company name
-                //Get active chart or selected item in Watchlist
-                Trade.Forms.marketWatch marketWatchForm = GetMarketWatchForm(false);
-                //Tools.Forms.tradeAnalysis stockchartForm = GetActiveStockForm();
-                //if (stockchartForm == null) return;
-                if (marketWatchForm == null) return;
-
-                if (marketWatchForm.CurrentRow == null) return;
-                companyCode = marketWatchForm.CurrentRow.code;
+                //Get company name from active chart                
+                Tools.Forms.tradeAnalysis activeForm = GetActiveStockForm();
+                if (activeForm == null) return;
+                companyCode = activeForm.myData.DataStockCode;
 
                 //Open Web Browser    
                 //https://www.google.com/search?as_q=SSI&as_epq=&as_oq=&as_eq=&as_nlo=&as_nhi=&lr=lang_vi&cr=countryVN&as_qdr=d&as_sitesearch=&as_occt=any&safe=images&as_filetype=&as_rights=&gws_rd=ssl
 
                 string URL = @"https://www.google.com/search?as_q=" + companyCode + @"&as_epq=&as_oq=&as_eq=&as_nlo=&as_nhi=&lr=lang_vi&cr=countryVN&as_qdr=d&as_sitesearch=&as_occt=any&safe=images&as_filetype=&as_rights=&gws_rd=ssl";
-                fundamentalWebBrowserForm form = new fundamentalWebBrowserForm(companyCode, URL);
+                fundamentalWebBrowserForm form = new fundamentalWebBrowserForm(companyCode, URL, "companyHotNews");
                 form.Show(dockPanel);
             }
             catch (Exception er)
@@ -2350,13 +2346,17 @@ namespace client
         //    //1. Find the best strategy (in database)
 
             string beststrategyCode = "STR041";
-            
-            beststrategyCode=  DataAccess.Libs.GetBestStrategyCode();
+            isAppliedBestStrategy = false;
+
+            Tools.Forms.tradeAnalysis activeForm = GetActiveStockForm();
+            if (activeForm == null) return;
+
+            beststrategyCode=  DataAccess.Libs.GetBestStrategyCode(activeForm.myData.DataStockCode,activeForm.myData.DataTimeScale.Code,1);
+            strategyCbStrip.myValue = beststrategyCode;
             //2. Apply the strategy into the stock
+            if (!isAppliedBestStrategy)
             try
             {
-                Tools.Forms.tradeAnalysis activeForm = GetActiveStockForm();
-                if (activeForm == null) return;
                 application.Strategy.StrategyMeta meta;
                 meta = application.Strategy.StrategyLibs.FindMetaByCode(beststrategyCode);
                 activeForm.PlotStrategyTradepoints(meta, this.ChartHaveStrategyEstimation, ShowTradePointEstimate);

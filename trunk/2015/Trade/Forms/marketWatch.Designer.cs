@@ -39,20 +39,22 @@
             // 
             // stockCodeList
             // 
-            this.stockCodeList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.stockCodeList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.stockCodeList.Location = new System.Drawing.Point(0, 0);
             this.stockCodeList.Margin = new System.Windows.Forms.Padding(2);
             this.stockCodeList.myContextMenuStrip = null;
             this.stockCodeList.Name = "stockCodeList";
             this.stockCodeList.Size = new System.Drawing.Size(255, 750);
             this.stockCodeList.TabIndex = 145;
+            this.stockCodeList.Load += new System.EventHandler(this.stockCodeList_Load);
             // 
             // marketWatch
             // 
             this.ClientSize = new System.Drawing.Size(253, 774);
             this.Controls.Add(this.stockCodeList);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
             this.Name = "marketWatch";
             this.Resize += new System.EventHandler(this.marketWatch_Resize);
             this.Controls.SetChildIndex(this.TitleLbl, 0);

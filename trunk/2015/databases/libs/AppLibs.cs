@@ -100,6 +100,15 @@ namespace databases
             row.expireDate = DateTime.Today.AddDays(Settings.sysDefaultLoginAccountDayToExpire);
             row.status = (byte)AppTypes.CommonStatus.Enable;
         }
+
+        public static void InitData(databases.baseDS.bestStrategyRow row)
+        {
+            row.stockCode = "";
+            row.strategyCode1="";
+            row.strategyCode2 = "";
+            row.strategyCode3 = "";            
+        }
+
         public static void InitData(databases.baseDS.investorStockRow row)
         {
             row.stockCode = "";

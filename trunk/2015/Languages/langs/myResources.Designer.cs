@@ -2212,6 +2212,15 @@ namespace Languages.langs {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Navigating to.
+        /// </summary>
+        internal static string navigatingTo {
+            get {
+                return ResourceManager.GetString("navigatingTo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to New Order.
         /// </summary>
         internal static string newOrder {
@@ -2707,7 +2716,7 @@ namespace Languages.langs {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Qty.
+        ///   Looks up a localized string similar to Quantity.
         /// </summary>
         internal static string qty {
             get {
@@ -2784,6 +2793,15 @@ namespace Languages.langs {
         internal static string rePassword {
             get {
                 return ResourceManager.GetString("rePassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Resistance.
+        /// </summary>
+        internal static string resistance {
+            get {
+                return ResourceManager.GetString("resistance", resourceCulture);
             }
         }
         
@@ -3189,6 +3207,15 @@ namespace Languages.langs {
         internal static string superSector {
             get {
                 return ResourceManager.GetString("superSector", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Support.
+        /// </summary>
+        internal static string support {
+            get {
+                return ResourceManager.GetString("support", resourceCulture);
             }
         }
         

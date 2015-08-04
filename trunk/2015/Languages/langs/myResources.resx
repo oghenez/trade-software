@@ -640,7 +640,7 @@
     <value>Properties</value>
   </data>
   <data name="qty" xml:space="preserve">
-    <value>Qty</value>
+    <value>Quantity</value>
   </data>
   <data name="regDate" xml:space="preserve">
     <value>Reg. date</value>
@@ -1376,5 +1376,14 @@
   </data>
   <data name="financialStatement" xml:space="preserve">
     <value>Financial Statement</value>
+  </data>
+  <data name="resistance" xml:space="preserve">
+    <value>Resistance</value>
+  </data>
+  <data name="support" xml:space="preserve">
+    <value>Support</value>
+  </data>
+  <data name="navigatingTo" xml:space="preserve">
+    <value>Navigating to</value>
   </data>
 </root>
