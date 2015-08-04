@@ -1253,6 +1253,36 @@ namespace DataAccess
             }
         }
 
+        /// <summary>
+        /// Lay Volume trong ngay cua mot Stock
+        /// </summary>
+        public static databases.baseDS.lastPriceDataDataTable myLastDailyVolume
+        {
+            get
+            {
+                try
+                {
+                    string cacheKey = MakeCacheKey("LastPrice", "Volume");
+                    LastPriceCache lastPriceCache = (LastPriceCache)GetCache(cacheKey);
+                    if (lastPriceCache != null && lastPriceCache.CacheTime == DateTime.Today)
+                        return lastPriceCache.DataTbl;
+                    lock (myClient)
+                    {
+                        if (lastPriceCache == null) lastPriceCache = new LastPriceCache();
+                        string timeScaleCode = AppTypes.TimeScaleFromType(AppTypes.TimeScaleTypes.Day).Code;
+                        lastPriceCache.DataTbl = myClient.GetLastPriceSum(AppTypes.PriceDataType.Volume, timeScaleCode);
+                        lastPriceCache.CacheTime = DateTime.Today;
+                        AddCache(cacheKey, lastPriceCache);
+                        return lastPriceCache.DataTbl;
+                    }
+                }
+                catch (Exception er)
+                {
+                    if (OnError != null) OnError(er);
+                }
+                return null;
+            }
+        }
         public static bool GetTransactionInfo(ref TransactionInfo transInfo)
         {
             try
@@ -1820,18 +1850,20 @@ namespace DataAccess
         }
 
         public static TradePointInfo[] GetTradePointWithEstimationDetail(DataParams dataParam,string stockCode, string strategyCode, 
-                                                                         EstimateOptions options,out databases.tmpDS.tradeEstimateDataTable toTbl)
+                                                                         EstimateOptions options,out databases.tmpDS.tradeEstimateDataTable toTbl,
+                                                                            out application.StrategyStatistics statistics)
         {
             try
             {
                 lock (myClient)
                 {
-                    return myClient.GetTradePointWithEstimationDetail(out toTbl, dataParam, stockCode, strategyCode, options);
+                    return myClient.GetTradePointWithEstimationDetail(out toTbl,out statistics, dataParam, stockCode, strategyCode, options);
                 }
             }
             catch (Exception er)
             {
                 toTbl = null;
+                statistics = null;
                 if (OnError != null) OnError(er);
             }
             return null;
@@ -2134,21 +2166,20 @@ namespace DataAccess
         /// <param name="stockCode"></param>
         /// <param name="timeFrame"></param>
         /// <returns></returns>
-        public static string GetBestStrategyCode(string stockCode,string timeFrame)
+        public static string GetBestStrategyCode(string stockCode,string timeFrame,int order)
         {
-            string bestStrategyCode="";
+            string bestStrategyCode = "STR041";
             try
             {
                 lock (myClient)
                 {
-                    //return myClient.GetBestStrategyCode(stockCode,timeFrame);
+                    return myClient.GetBestStrategyCode(stockCode,timeFrame,order);
                 }
             }
             catch (Exception er)
             {
                 if (OnError != null) OnError(er);
             }
-            return null;
             return bestStrategyCode;
         }
     }

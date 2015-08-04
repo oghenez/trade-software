@@ -21,8 +21,8 @@ namespace Strategy
             int trailingstoplevel = (int)parameters[4];
             int takeprofitlevel = (int)parameters[5];
 
-            Indicators.MIN min = Indicators.MIN.Series(data.Close, parameters[0], "min");
-            Indicators.MAX max = Indicators.MAX.Series(data.Close, parameters[0], "max");
+            Indicators.MIN min = Indicators.MIN.Series(data.Close, parameters[3], "min");
+            Indicators.MAX max = Indicators.MAX.Series(data.Close, parameters[3], "max");
 
             for (int idx = 0; idx < data.Close.Count; idx++)
             {
@@ -32,6 +32,8 @@ namespace Strategy
                     info.SetTrend(AppTypes.MarketTrend.Upward, AppTypes.MarketTrend.Unspecified, AppTypes.MarketTrend.Unspecified);
                     info.Short_Target = max[idx];
                     info.Stop_Loss = min[idx];
+                    info.Short_Resistance = max[idx];
+                    info.Short_Support = min[idx];
                     BuyAtClose(idx, info);
                 }
                 else
@@ -41,16 +43,35 @@ namespace Strategy
                         info.SetTrend(AppTypes.MarketTrend.Downward, AppTypes.MarketTrend.Unspecified, AppTypes.MarketTrend.Unspecified);
                         info.Short_Target = min[idx];
                         info.Stop_Loss = max[idx];
+                        info.Short_Resistance = max[idx];
+                        info.Short_Support = min[idx];
+
                         SellAtClose(idx, info);
                     }
                 if (is_bought && CutLossCondition(data.Close[idx], buy_price, cutlosslevel))
-                    SellCutLoss(idx);
-
+                {
+                    BusinessInfo info = new BusinessInfo();
+                    info.SetTrend(AppTypes.MarketTrend.Downward, AppTypes.MarketTrend.Unspecified, AppTypes.MarketTrend.Unspecified);
+                    info.Short_Target = min[idx];
+                    info.Stop_Loss = max[idx];
+                    info.Short_Resistance = max[idx];
+                    info.Short_Support = min[idx];
+                    SellCutLoss(idx, info);
+                }
+                else
                 if (is_bought && TakeProfitCondition(data.Close[idx], buy_price, takeprofitlevel))
-                    SellTakeProfit(idx);
+                {
+                    BusinessInfo info = new BusinessInfo();
+                    info.SetTrend(AppTypes.MarketTrend.Downward, AppTypes.MarketTrend.Unspecified, AppTypes.MarketTrend.Unspecified);
+                    info.Short_Target = min[idx];
+                    info.Stop_Loss = max[idx];
+                    info.Short_Resistance = max[idx];
+                    info.Short_Support = min[idx];
+                    SellTakeProfit(idx,info);
+                }
 
-                if (trailingstoplevel > 0)
-                    TrailingStopWithBuyBack(rule, data.Close[idx], trailingstoplevel, idx);
+                //if (trailingstoplevel > 0)
+                //    TrailingStopWithBuyBack(rule, data.Close[idx], trailingstoplevel, idx);
             }
         }
     }

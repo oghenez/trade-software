@@ -66,7 +66,7 @@ namespace wsServices
         public void ClearCache()
         {
             sysDataCache.Clear();
-            application.Strategy.StrategyData.ClearCache();
+            application.StrategyData.ClearCache();
         }
 
         //Clear all caches to bring the system into initial state
@@ -1029,6 +1029,32 @@ namespace wsServices
             }
             return null;
         }
+
+        public string GetBestStrategyCode(string stockCode, string timeFrame,int order)
+        {
+            string bestStrategy="STR041";
+            try
+            {
+                //d//atabases.baseDS.messagesDataTable tbl = new databases.baseDS.messagesDataTable();
+                databases.baseDS.bestStrategyDataTable tbl=new databases.baseDS.bestStrategyDataTable();
+                databases.DbAccess.LoadData(tbl);
+                databases.baseDS.bestStrategyRow bestStrategyRow=tbl.FindBystockCodetimeFrame(stockCode, timeFrame);
+                if (order==1)
+                    bestStrategy = bestStrategyRow.strategyCode1;
+                else
+                    if (order==2)
+                        bestStrategy = bestStrategyRow.strategyCode2;
+                    else
+                        if (order==3)
+                            bestStrategy = bestStrategyRow.strategyCode3;
+                return bestStrategy;
+            }
+            catch (Exception ex)
+            {
+                WriteSysLogLocal("WS060 - GetBestStrategyCode", ex);
+            }
+            return bestStrategy;
+        }
         #endregion
 
         #region Update
@@ -1341,14 +1367,16 @@ namespace wsServices
             return null;
         }
         public TradePointInfo[] GetTradePointWithEstimationDetail(DataParams dataParam,string stockCode, string strategyCode, EstimateOptions options,
-                                                                  out databases.tmpDS.tradeEstimateDataTable toTbl)
+                                                                  out databases.tmpDS.tradeEstimateDataTable toTbl, out application.StrategyStatistics statistics)
         {
             toTbl = null;
+            statistics = null;
             try
             {
                 string dataKey = LoadAnalysisData(stockCode, dataParam, false);
                 TradePointInfo[] tradePoints = Analysis(dataKey, strategyCode);
-                toTbl = application.Strategy.StrategyLibs.EstimateTrading_Details(sysDataCache.Find(dataKey) as application.AnalysisData, tradePoints, options);
+                statistics = new application.StrategyStatistics();
+                toTbl = application.Strategy.StrategyLibs.EstimateTrading_Details(sysDataCache.Find(dataKey) as application.AnalysisData, tradePoints, options,out statistics);
                 return tradePoints;
             }
             catch (Exception ex)

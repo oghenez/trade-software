@@ -256,7 +256,7 @@ namespace wsServices
 
         [OperationContract]
         TradePointInfo[] GetTradePointWithEstimationDetail(DataParams dataParam,string stockCode, string strategyCode, EstimateOptions options,
-                                                           out databases.tmpDS.tradeEstimateDataTable toTbl);
+                                                           out databases.tmpDS.tradeEstimateDataTable toTbl, out application.StrategyStatistics statistics);
 
         [OperationContract]
         databases.tmpDS.priceDiagnoseDataTable DiagnosePrice_CloseAndNextOpen(DateTime frDate, DateTime toDate, string timeScaleCode,
@@ -301,6 +301,8 @@ namespace wsServices
         [OperationContract]
         databases.baseDS.lastPriceDataDataTable GetLastPrice(AppTypes.PriceDataType type);
 
+        [OperationContract]
+        string GetBestStrategyCode(string stockCode, string timeFrame, int order);
         //[OperationContract]
         //DataTable Test(string sql);
     }

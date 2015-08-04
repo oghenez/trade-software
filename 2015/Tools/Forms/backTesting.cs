@@ -435,6 +435,7 @@ namespace Tools.Forms
                     dataTbl.Rows[rowId][colId] = (val / this.Amount2PercentDenominator) * 100; 
                 }
             }
+            resultDataGrid.DefaultCellStyle.Format = "P";
         }
         protected override void Percent2Amount()
         {
@@ -449,6 +450,7 @@ namespace Tools.Forms
                     dataTbl.Rows[rowId][colId] = (val * this.Amount2PercentDenominator) / 100;
                 }
             }
+            resultDataGrid.DefaultCellStyle.Format = "N"  +common.system.GetPrecisionFromMask(Settings.sysMaskLocalAmt);
         }
 
         private void AddStockToWatchList(StringCollection stockCodes)

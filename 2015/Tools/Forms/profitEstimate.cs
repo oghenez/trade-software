@@ -90,7 +90,8 @@ namespace Tools.Forms
         public void ReLoad()
         {
             databases.tmpDS.tradeEstimateDataTable dataTbl = new databases.tmpDS.tradeEstimateDataTable();
-            DataAccess.Libs.GetTradePointWithEstimationDetail(this.myDataParam, this.myStockCode, this.myStrategyCode, this.myOptions,out dataTbl);
+            application.StrategyStatistics statistics;
+            DataAccess.Libs.GetTradePointWithEstimationDetail(this.myDataParam, this.myStockCode, this.myStrategyCode, this.myOptions,out dataTbl, out statistics);
             tradeEstimateSource.DataSource = dataTbl;
             DoFilter();
             PlotProfitChart();

@@ -148,8 +148,8 @@ namespace Tools.Forms
         {
             tmpDS.screeningCode.Clear();
             tmpDS.screeningCriteria.Clear();
-            string[] screeningKeys = application.Strategy.StrategyData.MetaList.Keys;
-            object[] screeningValues = application.Strategy.StrategyData.MetaList.Values;
+            string[] screeningKeys = application.StrategyData.MetaList.Keys;
+            object[] screeningValues = application.StrategyData.MetaList.Values;
             Data.tmpDataSet.screeningCodeRow row;
             for (int idx = 0; idx < screeningKeys.Length; idx++)
             {

@@ -78,6 +78,7 @@ namespace Imports.Stock
                 {
                     case "HOSE_SSI":
                         //s = client.GetDataHoSTC2();
+                        s = client.GetHoseStockQuote(0);
                         break;
                     case "HASTC_SSI":
                         //s = client.GetDataHaSTC2();

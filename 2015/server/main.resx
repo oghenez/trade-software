@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <metadata name="myToolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>164, 17</value>
+    <value>17, 17</value>
   </metadata>
   <metadata name="myMainMenu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>288, 17</value>
@@ -127,8 +127,8 @@
   <data name="loginMenu.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAYAAAAfSC3RAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAAlwSFlzAAALEgAA
-        CxIB0t1+/AAAAdpJREFUOE9lkttLG1EQxvOXlvhSER9to/hQEESEgtLaJn0QiyiIZr0lboygeGmDbcQk
+        YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAAlwSFlzAAALEQAA
+        CxEBf2RfkQAAAdpJREFUOE9lkttLG1EQxvOXlvhSER9to/hQEESEgtLaJn0QiyiIZr0lboygeGmDbcQk
         mxA2JAQSL0G0lVya7J5N4Ot+syyS9mHY5Zzzm2/mmwk4fQeNRg15I42D+MZQpC80PD+WYGZP0Xwqod2q
         Q6kOyAQs5Qi0MBcaglY/haB9mcB5PILUwRJujV2BLKsN23HBbq+Fi5MdeXx5to2ikUIlm0TNiMNMb2I/
         Moq9yDgysRlRHAwcT5FguVJEqVTA+bEmALNf6e+R+hqEHh7B1ZoXTKpciLCUendfx3Eyio3wG9SzmkCJ

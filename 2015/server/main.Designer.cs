@@ -45,12 +45,13 @@
             this.reUpdatePriceMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.reAggregateMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
+            this.bestStrategyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitMenuStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.dataProcessMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
-            this.bestStrategyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.myMainMenu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -196,6 +197,18 @@
             this.reAggregateMenuItem.Text = "Tổ hợp lại giá";
             this.reAggregateMenuItem.Click += new System.EventHandler(this.reAggregateMenuItem_Click);
             // 
+            // toolStripSeparator7
+            // 
+            this.toolStripSeparator7.Name = "toolStripSeparator7";
+            this.toolStripSeparator7.Size = new System.Drawing.Size(303, 6);
+            // 
+            // bestStrategyToolStripMenuItem
+            // 
+            this.bestStrategyToolStripMenuItem.Name = "bestStrategyToolStripMenuItem";
+            this.bestStrategyToolStripMenuItem.Size = new System.Drawing.Size(306, 26);
+            this.bestStrategyToolStripMenuItem.Text = "Tạo chiến lược tốt nhất";
+            this.bestStrategyToolStripMenuItem.Click += new System.EventHandler(this.bestStrategyToolStripMenuItem_Click);
+            // 
             // exitMenuStrip
             // 
             this.exitMenuStrip.Name = "exitMenuStrip";
@@ -219,21 +232,18 @@
             this.dataProcessMenuItem.Size = new System.Drawing.Size(116, 20);
             this.dataProcessMenuItem.Text = "Xử lý dữ liệu";
             // 
-            // toolStripSeparator7
+            // progressBar1
             // 
-            this.toolStripSeparator7.Name = "toolStripSeparator7";
-            this.toolStripSeparator7.Size = new System.Drawing.Size(303, 6);
-            // 
-            // bestStrategyToolStripMenuItem
-            // 
-            this.bestStrategyToolStripMenuItem.Name = "bestStrategyToolStripMenuItem";
-            this.bestStrategyToolStripMenuItem.Size = new System.Drawing.Size(306, 26);
-            this.bestStrategyToolStripMenuItem.Text = "Tạo chiến lược tốt nhất";
-            this.bestStrategyToolStripMenuItem.Click += new System.EventHandler(this.bestStrategyToolStripMenuItem_Click);
+            this.progressBar1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.progressBar1.Location = new System.Drawing.Point(0, 360);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(720, 23);
+            this.progressBar1.TabIndex = 233;
             // 
             // main
             // 
             this.ClientSize = new System.Drawing.Size(720, 406);
+            this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.myMainMenu);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -245,6 +255,7 @@
             this.Text = "Stock Trading";
             this.Controls.SetChildIndex(this.myMainMenu, 0);
             this.Controls.SetChildIndex(this.TitleLbl, 0);
+            this.Controls.SetChildIndex(this.progressBar1, 0);
             this.myMainMenu.ResumeLayout(false);
             this.myMainMenu.PerformLayout();
             this.ResumeLayout(false);
@@ -276,5 +287,6 @@
         private System.Windows.Forms.ToolStripMenuItem reAggregateMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
         private System.Windows.Forms.ToolStripMenuItem bestStrategyToolStripMenuItem;
+        private System.Windows.Forms.ProgressBar progressBar1;
     }
 }

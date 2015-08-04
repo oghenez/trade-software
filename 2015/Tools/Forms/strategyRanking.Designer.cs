@@ -73,8 +73,8 @@
             // 
             // optionPnl
             // 
-            this.optionPnl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)));
+            this.optionPnl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.optionPnl.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.optionPnl.Controls.Add(this.codeListLb);
             this.optionPnl.Controls.Add(this.timeScaleLbl);
@@ -91,9 +91,9 @@
             // 
             // codeListLb
             // 
-            this.codeListLb.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.codeListLb.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.codeListLb.Location = new System.Drawing.Point(21, 358);
             this.codeListLb.Margin = new System.Windows.Forms.Padding(2);
             this.codeListLb.myItemString = "";
@@ -122,16 +122,18 @@
             this.timeScaleCb.Location = new System.Drawing.Point(346, 4);
             this.timeScaleCb.Name = "timeScaleCb";
             this.timeScaleCb.SelectedValue = "RT";
-            this.timeScaleCb.Size = new System.Drawing.Size(102, 23);
+            this.timeScaleCb.Size = new System.Drawing.Size(102, 26);
             this.timeScaleCb.TabIndex = 2;
             // 
             // allTimeRangeChk
             // 
             this.allTimeRangeChk.AutoSize = true;
+            this.allTimeRangeChk.Checked = true;
+            this.allTimeRangeChk.CheckState = System.Windows.Forms.CheckState.Checked;
             this.allTimeRangeChk.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.allTimeRangeChk.Location = new System.Drawing.Point(25, 4);
             this.allTimeRangeChk.Name = "allTimeRangeChk";
-            this.allTimeRangeChk.Size = new System.Drawing.Size(95, 20);
+            this.allTimeRangeChk.Size = new System.Drawing.Size(123, 25);
             this.allTimeRangeChk.TabIndex = 1;
             this.allTimeRangeChk.Text = "Periodicity";
             this.allTimeRangeChk.UseVisualStyleBackColor = true;
@@ -144,14 +146,14 @@
             this.codeListLbl.Location = new System.Drawing.Point(21, 340);
             this.codeListLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.codeListLbl.Name = "codeListLbl";
-            this.codeListLbl.Size = new System.Drawing.Size(63, 16);
+            this.codeListLbl.Size = new System.Drawing.Size(84, 21);
             this.codeListLbl.TabIndex = 326;
             this.codeListLbl.Text = "Code list";
             // 
             // timeRangeLb
             // 
-            this.timeRangeLb.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.timeRangeLb.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.timeRangeLb.CheckOnClick = true;
             this.timeRangeLb.FormattingEnabled = true;
             this.timeRangeLb.Location = new System.Drawing.Point(22, 27);
@@ -162,7 +164,7 @@
             this.timeRangeLb.myItemValues = ((System.Collections.Specialized.StringCollection)(resources.GetObject("timeRangeLb.myItemValues")));
             this.timeRangeLb.Name = "timeRangeLb";
             this.timeRangeLb.ShowCheckedOnly = false;
-            this.timeRangeLb.Size = new System.Drawing.Size(426, 55);
+            this.timeRangeLb.Size = new System.Drawing.Size(426, 42);
             this.timeRangeLb.TabIndex = 10;
             // 
             // strategyLbl
@@ -171,14 +173,14 @@
             this.strategyLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.strategyLbl.Location = new System.Drawing.Point(22, 90);
             this.strategyLbl.Name = "strategyLbl";
-            this.strategyLbl.Size = new System.Drawing.Size(66, 16);
+            this.strategyLbl.Size = new System.Drawing.Size(83, 21);
             this.strategyLbl.TabIndex = 315;
             this.strategyLbl.Text = "Strategy";
             // 
             // strategyClb
             // 
-            this.strategyClb.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.strategyClb.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.strategyClb.Location = new System.Drawing.Point(22, 109);
             this.strategyClb.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.strategyClb.myCheckedValues = ((System.Collections.Specialized.StringCollection)(resources.GetObject("strategyClb.myCheckedValues")));
@@ -194,7 +196,7 @@
             this.mainMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(1050, 24);
+            this.menuStrip.Size = new System.Drawing.Size(1050, 29);
             this.menuStrip.TabIndex = 316;
             // 
             // mainMenuItem
@@ -213,88 +215,88 @@
             this.toolStripSeparator3,
             this.exportResultMenuItem});
             this.mainMenuItem.Name = "mainMenuItem";
-            this.mainMenuItem.Size = new System.Drawing.Size(133, 20);
+            this.mainMenuItem.Size = new System.Drawing.Size(170, 25);
             this.mainMenuItem.Text = "Strategy Ranking";
             // 
             // runMenuItem
             // 
             this.runMenuItem.Name = "runMenuItem";
-            this.runMenuItem.Size = new System.Drawing.Size(193, 22);
+            this.runMenuItem.Size = new System.Drawing.Size(219, 26);
             this.runMenuItem.Text = "Run";
             this.runMenuItem.Click += new System.EventHandler(this.runMenuItem_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(190, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(216, 6);
             // 
             // openMenuItem
             // 
             this.openMenuItem.Name = "openMenuItem";
-            this.openMenuItem.Size = new System.Drawing.Size(193, 22);
+            this.openMenuItem.Size = new System.Drawing.Size(219, 26);
             this.openMenuItem.Text = "Open";
             this.openMenuItem.Click += new System.EventHandler(this.openMenuItem_Click);
             // 
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(190, 6);
+            this.toolStripSeparator5.Size = new System.Drawing.Size(216, 6);
             // 
             // profitDetailMenu
             // 
             this.profitDetailMenu.Name = "profitDetailMenu";
-            this.profitDetailMenu.Size = new System.Drawing.Size(193, 22);
+            this.profitDetailMenu.Size = new System.Drawing.Size(219, 26);
             this.profitDetailMenu.Text = "Profit Details";
             this.profitDetailMenu.Click += new System.EventHandler(this.profitDetailMenu_Click);
             // 
             // allProfitDetailMenu
             // 
             this.allProfitDetailMenu.Name = "allProfitDetailMenu";
-            this.allProfitDetailMenu.Size = new System.Drawing.Size(193, 22);
+            this.allProfitDetailMenu.Size = new System.Drawing.Size(219, 26);
             this.allProfitDetailMenu.Text = "All Profit Details";
             this.allProfitDetailMenu.Click += new System.EventHandler(this.allProfitDetailMenu_Click);
             // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(190, 6);
+            this.toolStripSeparator4.Size = new System.Drawing.Size(216, 6);
             // 
             // addToWatchListMenuItem
             // 
             this.addToWatchListMenuItem.Name = "addToWatchListMenuItem";
-            this.addToWatchListMenuItem.Size = new System.Drawing.Size(193, 22);
+            this.addToWatchListMenuItem.Size = new System.Drawing.Size(219, 26);
             this.addToWatchListMenuItem.Text = "To Watch List";
             this.addToWatchListMenuItem.Click += new System.EventHandler(this.addToWatchListMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(190, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(216, 6);
             // 
             // fullViewMenuItem
             // 
             this.fullViewMenuItem.Name = "fullViewMenuItem";
-            this.fullViewMenuItem.Size = new System.Drawing.Size(193, 22);
+            this.fullViewMenuItem.Size = new System.Drawing.Size(219, 26);
             this.fullViewMenuItem.Text = "Full View";
             this.fullViewMenuItem.Click += new System.EventHandler(this.fullViewMenuItem_Click);
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(190, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(216, 6);
             // 
             // exportResultMenuItem
             // 
             this.exportResultMenuItem.Name = "exportResultMenuItem";
-            this.exportResultMenuItem.Size = new System.Drawing.Size(193, 22);
+            this.exportResultMenuItem.Size = new System.Drawing.Size(219, 26);
             this.exportResultMenuItem.Text = "Export";
             this.exportResultMenuItem.Click += new System.EventHandler(this.exportResultMenuItem_Click);
             // 
             // resultTab
             // 
-            this.resultTab.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.resultTab.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.resultTab.Location = new System.Drawing.Point(473, 1);
             this.resultTab.Name = "resultTab";
             this.resultTab.SelectedIndex = 0;

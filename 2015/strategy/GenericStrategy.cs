@@ -2,44 +2,59 @@
 using application.Strategy;
 using commonTypes;
 using commonClass;
+using System.Runtime.Serialization;
+using System.Data;
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.Specialized;
+using System.Text;
 
 namespace Strategy
 {
     /// <summary>
     /// The base of all Quantum strategy
     /// </summary>
+    [DataContract]
     public class GenericStrategy:baseStrategy
     {
         /// <summary>
         /// data
         /// </summary>
+        [DataMember]
         public AnalysisData data;
         //Parameters for strategy
+        [DataMember]
         public Parameters parameters;
 
         /// <summary>
         /// Advice info
         /// </summary>
-        public StrategyData.TradePoints adviceInfo=null;
+        [DataMember]
+        public TradePoints adviceInfo=null;
 
         /// <summary>
         /// check if there is bought position
         /// </summary>
+        [DataMember]
         public bool is_bought = false;
 
         /// <summary>
         /// the last transaction position
         /// </summary>
+        [DataMember]
         public int last_position;
 
         /// <summary>
         /// bought price
         /// </summary>
+        [DataMember]
         public double buy_price;
 
         /// <summary>
         /// trailing stop
         /// </summary>
+        [DataMember]
         public double trailing_stop;
 
         /// <summary>
@@ -48,7 +63,7 @@ namespace Strategy
         public GenericStrategy()
         {
             if (adviceInfo==null)
-                adviceInfo = new StrategyData.TradePoints(); 
+                adviceInfo = new TradePoints(); 
         }
 
         /// <summary>
@@ -58,7 +73,7 @@ namespace Strategy
         public GenericStrategy(AnalysisData d)
         {
             this.data = d;
-            this.adviceInfo = new StrategyData.TradePoints();
+            this.adviceInfo = new TradePoints();
             this.last_position = 0;
             this.trailing_stop = -1;
         }
@@ -73,7 +88,7 @@ namespace Strategy
             this.data = d;
             this.parameters = p;
             if (adviceInfo == null)
-                this.adviceInfo = new StrategyData.TradePoints();
+                this.adviceInfo = new TradePoints();
             this.last_position = 0;
             this.trailing_stop = -1;
         }
@@ -154,6 +169,17 @@ namespace Strategy
         ///Sell cut loss at index with close price at index 
         /// </summary>
         /// <param name="index"></param>
+        public void SellCutLoss(int index, BusinessInfo info)
+        {
+            is_bought = false;
+            adviceInfo.Add(AppTypes.TradeActions.Sell, index,info);
+            last_position = index;
+        }
+
+        /// <summary>
+        ///Sell cut loss at index with close price at index 
+        /// </summary>
+        /// <param name="index"></param>
         public void SellTakeProfit(int index)
         {
             is_bought = false;
@@ -161,6 +187,16 @@ namespace Strategy
             last_position = index;
         }
 
+        /// <summary>
+        ///Sell cut loss at index with close price at index 
+        /// </summary>
+        /// <param name="index"></param>
+        public void SellTakeProfit(int index, BusinessInfo info)
+        {
+            is_bought = false;
+            adviceInfo.Add(AppTypes.TradeActions.Sell, index,info);
+            last_position = index;
+        }
         /// <summary>
         /// Accumulate at Close
         /// </summary>
@@ -257,33 +293,51 @@ namespace Strategy
                     trailing_stop = -1;
                 }
         }
+
+        protected void TrailingStopWithBuyBack(Rule rule, double price, double trailingstoplevel, int idx, BusinessInfo info)
+        {
+            //Trailing stop strategtest
+            double new_trailing_stop = data.Close[idx] * (1 - trailingstoplevel / 100);
+            if (new_trailing_stop > trailing_stop)
+            {
+                trailing_stop = new_trailing_stop;
+                //Buy back share if 
+                if ((!is_bought) && rule.UpTrend(idx)) BuyAtClose(idx,info);
+            }
+            else
+                if (data.Close[idx] < trailing_stop)
+                {
+                    SellTakeProfit(idx,info);
+                    trailing_stop = -1;
+                }
+        }
+
         //virtual public TradePoints Execute(AnalysisData data, double[] paras)
-        virtual public StrategyData.TradePoints Execute(AnalysisData data, double[] paras)
+        virtual public TradePoints Execute(AnalysisData data, double[] paras)
         {
             this.data = data;
             parameters = new Parameters(paras);
             //??Bug fixed by Dung 11 Nov 2011
-            //if (adviceInfo == null)
-            //    this.adviceInfo = new StrategyStrategyData.TradePoints();
-            adviceInfo = new StrategyData.TradePoints();
+            if (adviceInfo == null)            
+                adviceInfo = new TradePoints();
             StrategyExecute();
             return adviceInfo;
         }
         
         //Trading rule with cut loss strategy
-        virtual public StrategyData.TradePoints Execute_CutLoss()
+        virtual public TradePoints Execute_CutLoss()
         {
             return null;
         }
 
         //Trading rule with taking profit strategy
-        virtual public StrategyData.TradePoints Execute_TakeProfit()
+        virtual public TradePoints Execute_TakeProfit()
         {
             return null;
         }
 
         //Trading rule with full money management strategy
-        virtual public StrategyData.TradePoints Execute_MoneyManagement()
+        virtual public TradePoints Execute_MoneyManagement()
         {
             return null;
         }

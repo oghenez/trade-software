@@ -58,7 +58,7 @@
             // totalAmtEd
             // 
             this.totalAmtEd.InsertKeyMode = System.Windows.Forms.InsertKeyMode.Overwrite;
-            this.totalAmtEd.Location = new System.Drawing.Point(163, 233);
+            this.totalAmtEd.Location = new System.Drawing.Point(163, 241);
             this.totalAmtEd.myFormat = "###,###,###,###,###";
             this.totalAmtEd.Name = "totalAmtEd";
             this.totalAmtEd.ReadOnly = true;
@@ -76,7 +76,7 @@
             // feePercEd
             // 
             this.feePercEd.InsertKeyMode = System.Windows.Forms.InsertKeyMode.Overwrite;
-            this.feePercEd.Location = new System.Drawing.Point(163, 209);
+            this.feePercEd.Location = new System.Drawing.Point(163, 217);
             this.feePercEd.myFormat = "###,###,##0.00";
             this.feePercEd.Name = "feePercEd";
             this.feePercEd.ReadOnly = true;
@@ -94,7 +94,7 @@
             // qtyEd
             // 
             this.qtyEd.InsertKeyMode = System.Windows.Forms.InsertKeyMode.Overwrite;
-            this.qtyEd.Location = new System.Drawing.Point(163, 137);
+            this.qtyEd.Location = new System.Drawing.Point(163, 145);
             this.qtyEd.myFormat = "###,###,###,###,###";
             this.qtyEd.Name = "qtyEd";
             this.qtyEd.Size = new System.Drawing.Size(163, 23);
@@ -110,9 +110,9 @@
             // totalAmtLbl
             // 
             this.totalAmtLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.totalAmtLbl.Location = new System.Drawing.Point(16, 236);
+            this.totalAmtLbl.Location = new System.Drawing.Point(6, 241);
             this.totalAmtLbl.Name = "totalAmtLbl";
-            this.totalAmtLbl.Size = new System.Drawing.Size(141, 16);
+            this.totalAmtLbl.Size = new System.Drawing.Size(151, 19);
             this.totalAmtLbl.TabIndex = 173;
             this.totalAmtLbl.Text = "Total amount";
             this.totalAmtLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -120,17 +120,17 @@
             // qtyLbl
             // 
             this.qtyLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.qtyLbl.Location = new System.Drawing.Point(16, 141);
+            this.qtyLbl.Location = new System.Drawing.Point(6, 142);
             this.qtyLbl.Name = "qtyLbl";
-            this.qtyLbl.Size = new System.Drawing.Size(141, 16);
+            this.qtyLbl.Size = new System.Drawing.Size(151, 23);
             this.qtyLbl.TabIndex = 163;
-            this.qtyLbl.Text = "Qty";
+            this.qtyLbl.Text = "Quantity";
             this.qtyLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // priceEd
             // 
             this.priceEd.InsertKeyMode = System.Windows.Forms.InsertKeyMode.Overwrite;
-            this.priceEd.Location = new System.Drawing.Point(163, 161);
+            this.priceEd.Location = new System.Drawing.Point(163, 169);
             this.priceEd.myFormat = "###,###,###,###,###";
             this.priceEd.Name = "priceEd";
             this.priceEd.ReadOnly = true;
@@ -148,19 +148,19 @@
             // feeAmtLbl
             // 
             this.feeAmtLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.feeAmtLbl.Location = new System.Drawing.Point(16, 212);
+            this.feeAmtLbl.Location = new System.Drawing.Point(0, 212);
             this.feeAmtLbl.Name = "feeAmtLbl";
-            this.feeAmtLbl.Size = new System.Drawing.Size(141, 16);
+            this.feeAmtLbl.Size = new System.Drawing.Size(157, 24);
             this.feeAmtLbl.TabIndex = 171;
-            this.feeAmtLbl.Text = "Trans Fee ";
+            this.feeAmtLbl.Text = "Transaction Fee ";
             this.feeAmtLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // priceLbl
             // 
             this.priceLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.priceLbl.Location = new System.Drawing.Point(16, 165);
+            this.priceLbl.Location = new System.Drawing.Point(6, 165);
             this.priceLbl.Name = "priceLbl";
-            this.priceLbl.Size = new System.Drawing.Size(141, 16);
+            this.priceLbl.Size = new System.Drawing.Size(151, 24);
             this.priceLbl.TabIndex = 165;
             this.priceLbl.Text = "Price";
             this.priceLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -168,7 +168,7 @@
             // feeAmtEd
             // 
             this.feeAmtEd.InsertKeyMode = System.Windows.Forms.InsertKeyMode.Overwrite;
-            this.feeAmtEd.Location = new System.Drawing.Point(205, 209);
+            this.feeAmtEd.Location = new System.Drawing.Point(205, 217);
             this.feeAmtEd.myFormat = "###,###,###,###,###";
             this.feeAmtEd.Name = "feeAmtEd";
             this.feeAmtEd.ReadOnly = true;
@@ -186,7 +186,7 @@
             // subTotalEd
             // 
             this.subTotalEd.InsertKeyMode = System.Windows.Forms.InsertKeyMode.Overwrite;
-            this.subTotalEd.Location = new System.Drawing.Point(163, 185);
+            this.subTotalEd.Location = new System.Drawing.Point(163, 193);
             this.subTotalEd.myFormat = "###,###,###,###,###";
             this.subTotalEd.Name = "subTotalEd";
             this.subTotalEd.ReadOnly = true;
@@ -204,9 +204,9 @@
             // subTotalLbl
             // 
             this.subTotalLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.subTotalLbl.Location = new System.Drawing.Point(16, 188);
+            this.subTotalLbl.Location = new System.Drawing.Point(-2, 189);
             this.subTotalLbl.Name = "subTotalLbl";
-            this.subTotalLbl.Size = new System.Drawing.Size(141, 16);
+            this.subTotalLbl.Size = new System.Drawing.Size(159, 23);
             this.subTotalLbl.TabIndex = 167;
             this.subTotalLbl.Text = "Amount";
             this.subTotalLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -245,9 +245,9 @@
             // statusLbl
             // 
             this.statusLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.statusLbl.Location = new System.Drawing.Point(10, 262);
+            this.statusLbl.Location = new System.Drawing.Point(4, 266);
             this.statusLbl.Name = "statusLbl";
-            this.statusLbl.Size = new System.Drawing.Size(147, 16);
+            this.statusLbl.Size = new System.Drawing.Size(153, 20);
             this.statusLbl.TabIndex = 163;
             this.statusLbl.Text = "Status";
             this.statusLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -256,7 +256,7 @@
             // 
             this.statusCb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.statusCb.Enabled = false;
-            this.statusCb.Location = new System.Drawing.Point(163, 258);
+            this.statusCb.Location = new System.Drawing.Point(163, 266);
             this.statusCb.myValue = commonTypes.AppTypes.CommonStatus.None;
             this.statusCb.Name = "statusCb";
             this.statusCb.SelectedValue = ((byte)(0));
@@ -267,9 +267,9 @@
             // onTimeLbl
             // 
             this.onTimeLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.onTimeLbl.Location = new System.Drawing.Point(10, 118);
+            this.onTimeLbl.Location = new System.Drawing.Point(4, 121);
             this.onTimeLbl.Name = "onTimeLbl";
-            this.onTimeLbl.Size = new System.Drawing.Size(147, 16);
+            this.onTimeLbl.Size = new System.Drawing.Size(153, 21);
             this.onTimeLbl.TabIndex = 161;
             this.onTimeLbl.Text = "Date Time";
             this.onTimeLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -278,7 +278,7 @@
             // 
             this.onTimeEd.BeepOnError = true;
             this.onTimeEd.InsertKeyMode = System.Windows.Forms.InsertKeyMode.Overwrite;
-            this.onTimeEd.Location = new System.Drawing.Point(163, 113);
+            this.onTimeEd.Location = new System.Drawing.Point(163, 121);
             this.onTimeEd.Mask = "00/00/0000 90:00";
             this.onTimeEd.myDateTime = new System.DateTime(((long)(0)));
             this.onTimeEd.Name = "onTimeEd";
@@ -291,9 +291,9 @@
             // portfolioLbl
             // 
             this.portfolioLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.portfolioLbl.Location = new System.Drawing.Point(10, 93);
+            this.portfolioLbl.Location = new System.Drawing.Point(0, 92);
             this.portfolioLbl.Name = "portfolioLbl";
-            this.portfolioLbl.Size = new System.Drawing.Size(147, 16);
+            this.portfolioLbl.Size = new System.Drawing.Size(157, 25);
             this.portfolioLbl.TabIndex = 152;
             this.portfolioLbl.Text = "Portfolio";
             this.portfolioLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -303,7 +303,7 @@
             this.codeLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.codeLbl.Location = new System.Drawing.Point(10, 18);
             this.codeLbl.Name = "codeLbl";
-            this.codeLbl.Size = new System.Drawing.Size(147, 16);
+            this.codeLbl.Size = new System.Drawing.Size(147, 25);
             this.codeLbl.TabIndex = 159;
             this.codeLbl.Text = "Code";
             this.codeLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -311,9 +311,9 @@
             // transTypeLbl
             // 
             this.transTypeLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.transTypeLbl.Location = new System.Drawing.Point(10, 68);
+            this.transTypeLbl.Location = new System.Drawing.Point(-2, 67);
             this.transTypeLbl.Name = "transTypeLbl";
-            this.transTypeLbl.Size = new System.Drawing.Size(147, 16);
+            this.transTypeLbl.Size = new System.Drawing.Size(159, 25);
             this.transTypeLbl.TabIndex = 157;
             this.transTypeLbl.Text = "Transaction";
             this.transTypeLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -321,7 +321,7 @@
             // portfolioCb
             // 
             this.portfolioCb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.portfolioCb.Location = new System.Drawing.Point(163, 87);
+            this.portfolioCb.Location = new System.Drawing.Point(163, 95);
             this.portfolioCb.myValue = "";
             this.portfolioCb.Name = "portfolioCb";
             this.portfolioCb.Size = new System.Drawing.Size(163, 24);
@@ -343,7 +343,7 @@
             // 
             this.transCodeEd.isRequired = true;
             this.transCodeEd.isToUpperCase = false;
-            this.transCodeEd.Location = new System.Drawing.Point(163, 38);
+            this.transCodeEd.Location = new System.Drawing.Point(163, 46);
             this.transCodeEd.Name = "transCodeEd";
             this.transCodeEd.ReadOnly = true;
             this.transCodeEd.Size = new System.Drawing.Size(81, 23);
@@ -353,7 +353,7 @@
             // transTypeCb
             // 
             this.transTypeCb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.transTypeCb.Location = new System.Drawing.Point(163, 62);
+            this.transTypeCb.Location = new System.Drawing.Point(163, 70);
             this.transTypeCb.myValue = commonTypes.AppTypes.TradeActions.None;
             this.transTypeCb.Name = "transTypeCb";
             this.transTypeCb.SelectedValue = ((byte)(0));
@@ -365,15 +365,16 @@
             this.transactionNoLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.transactionNoLbl.Location = new System.Drawing.Point(10, 43);
             this.transactionNoLbl.Name = "transactionNoLbl";
-            this.transactionNoLbl.Size = new System.Drawing.Size(147, 16);
+            this.transactionNoLbl.Size = new System.Drawing.Size(147, 24);
             this.transactionNoLbl.TabIndex = 156;
             this.transactionNoLbl.Text = "Transaction No";
             this.transactionNoLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // transactionBase
             // 
-            this.ClientSize = new System.Drawing.Size(389, 331);
+            this.ClientSize = new System.Drawing.Size(391, 357);
             this.Controls.Add(this.editGB1);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
             this.Name = "transactionBase";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Controls.SetChildIndex(this.TitleLbl, 0);

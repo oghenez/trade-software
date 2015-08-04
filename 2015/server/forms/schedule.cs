@@ -359,8 +359,8 @@ namespace server
                 //if (fetchDataTimerGOLD.IsEndWaitTime())
                 //    fetchDataTimerGOLD.Execute();
 
-                //if (createTradeAlertTimer.IsEndWaitTime()) 
-                //    createTradeAlertTimer.Execute();
+                if (createTradeAlertTimer.IsEndWaitTime()) 
+                    createTradeAlertTimer.Execute();
             }
             catch (Exception er)
             {

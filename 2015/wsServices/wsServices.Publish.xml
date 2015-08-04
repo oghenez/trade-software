@@ -1,38 +1,55 @@
 <publishData>
   <publishTarget publishUrl="http://localhost">
-    <file relUrl="bin/commonTypes.dll" publishTime="04/08/2015 15:07:23" />
-    <file relUrl="bin/Languages.pdb" publishTime="04/08/2015 14:44:07" />
-    <file relUrl="bin/commonClass.pdb" publishTime="04/08/2015 15:07:33" />
+    <file relUrl="bin/commonTypes.dll" publishTime="06/17/2015 09:55:35" />
+    <file relUrl="bin/Languages.pdb" publishTime="05/29/2015 13:48:40" />
+    <file relUrl="bin\en-US\.svn/entries" publishTime="04/08/2015 13:01:30" />
+    <file relUrl="bin/commonClass.pdb" publishTime="06/17/2015 11:03:45" />
     <file relUrl="bin/ZedGraph.dll" publishTime="01/28/2015 09:16:35" />
+    <file relUrl="bin\vi-VN\.svn\text-base/strategyInfo.xml.svn-base" publishTime="01/28/2015 09:16:20" />
     <file relUrl="bin/WeifenLuo.WinFormsUI.Docking.dll" publishTime="01/28/2015 09:16:34" />
-    <file relUrl="bin/wsServices.dll" publishTime="04/08/2015 15:07:41" />
-    <file relUrl="bin/commonTypes.pdb" publishTime="04/08/2015 15:07:23" />
+    <file relUrl="bin/wsServices.dll" publishTime="06/17/2015 11:12:18" />
+    <file relUrl="bin/databases.dll" publishTime="06/17/2015 11:03:06" />
     <file relUrl="bin/common.dll" publishTime="01/28/2015 09:16:32" />
-    <file relUrl="bin/Charts.dll" publishTime="04/08/2015 14:44:07" />
-    <file relUrl="bin/application.pdb" publishTime="04/08/2015 15:07:34" />
+    <file relUrl="bin\en-US/indicators.xml" publishTime="01/28/2015 09:16:18" />
+    <file relUrl="bin\vi-VN/indicators.xml" publishTime="01/28/2015 09:16:21" />
+    <file relUrl="bin/Charts.dll" publishTime="05/27/2015 14:57:09" />
+    <file relUrl="bin/application.pdb" publishTime="06/17/2015 11:03:46" />
     <file relUrl="DataLibs.svc" publishTime="01/28/2015 09:16:18" />
-    <file relUrl="bin/wsStock.xml" publishTime="03/23/2015 17:02:30" />
-    <file relUrl="bin/databases.dll" publishTime="04/08/2015 15:07:32" />
-    <file relUrl="bin/strategy.pdb" publishTime="04/08/2015 15:07:32" />
-    <file relUrl="bin/strategy.dll" publishTime="04/08/2015 15:07:32" />
-    <file relUrl="bin\vi-VN/common.resources.dll" publishTime="01/28/2015 09:16:20" />
-    <file relUrl="bin/application.dll" publishTime="04/08/2015 15:07:34" />
-    <file relUrl="bin/TA-Lib-Core.dll" publishTime="01/28/2015 09:16:34" />
-    <file relUrl="bin/wsServices.pdb" publishTime="04/08/2015 15:07:41" />
-    <file relUrl="wsServices.DataLibs.svc" publishTime="04/08/2015 15:07:42" />
-    <file relUrl="bin/LaMarvin.Windows.Forms.ColorPicker.dll" publishTime="01/28/2015 09:16:34" />
-    <file relUrl="bin/Indicators.pdb" publishTime="04/08/2015 15:07:36" />
+    <file relUrl="bin/commonClass.dll" publishTime="06/17/2015 11:03:45" />
+    <file relUrl="bin\en-US\.svn\text-base/strategyInfo.xml.svn-base" publishTime="01/28/2015 09:16:18" />
+    <file relUrl="bin/application.dll" publishTime="06/17/2015 11:03:46" />
+    <file relUrl="bin\vi-VN/Languages.resources.dll" publishTime="05/29/2015 13:48:41" />
+    <file relUrl="bin\vi-VN\.svn\text-base/common.resources.dll.svn-base" publishTime="01/28/2015 09:16:20" />
+    <file relUrl="bin/commonTypes.pdb" publishTime="06/17/2015 09:55:34" />
+    <file relUrl="bin/strategy.pdb" publishTime="06/17/2015 11:12:15" />
+    <file relUrl="bin/strategy.dll" publishTime="06/17/2015 11:12:15" />
     <file relUrl="bin/NTP.dll" publishTime="01/28/2015 09:16:34" />
-    <file relUrl="bin/wsServices.csproj.FileListAbsolute.txt" publishTime="04/08/2015 14:56:44" />
-    <file relUrl="bin/databases.pdb" publishTime="04/08/2015 15:07:32" />
-    <file relUrl="bin/Languages.dll" publishTime="04/08/2015 14:44:07" />
-    <file relUrl="bin/wsServices.csprojResolveAssemblyReference.cache" publishTime="04/08/2015 15:07:41" />
-    <file relUrl="Web.config" publishTime="04/08/2015 13:04:02" />
-    <file relUrl="bin/Indicators.dll" publishTime="04/08/2015 15:07:36" />
-    <file relUrl="bin/DesignTimeResolveAssemblyReferencesInput.cache" publishTime="04/08/2015 14:57:02" />
-    <file relUrl="bin/commonClass.dll" publishTime="04/08/2015 15:07:33" />
-    <file relUrl="bin\vi-VN/Languages.resources.dll" publishTime="04/08/2015 14:44:07" />
+    <file relUrl="bin/wsStock.xml" publishTime="06/17/2015 13:28:41" />
+    <file relUrl="bin/TA-Lib-Core.dll" publishTime="01/28/2015 09:16:34" />
+    <file relUrl="bin/wsServices.pdb" publishTime="06/17/2015 11:12:18" />
+    <file relUrl="wsServices.DataLibs.svc" publishTime="06/17/2015 13:36:48" />
+    <file relUrl="bin/LaMarvin.Windows.Forms.ColorPicker.dll" publishTime="01/28/2015 09:16:34" />
+    <file relUrl="bin\vi-VN\.svn\prop-base/indicators.xml.svn-base" publishTime="01/28/2015 09:16:20" />
+    <file relUrl="bin/Indicators.pdb" publishTime="06/17/2015 11:03:58" />
+    <file relUrl="bin\vi-VN\.svn\prop-base/common.resources.dll.svn-base" publishTime="01/28/2015 09:16:20" />
+    <file relUrl="bin/wsServices.csproj.FileListAbsolute.txt" publishTime="06/05/2015 17:28:41" />
+    <file relUrl="bin\vi-VN\.svn/entries" publishTime="04/08/2015 16:51:15" />
+    <file relUrl="bin\en-US\.svn\text-base/indicators.xml.svn-base" publishTime="01/28/2015 09:16:18" />
+    <file relUrl="bin\en-US/strategyInfo.xml" publishTime="05/21/2015 13:10:55" />
+    <file relUrl="bin/databases.pdb" publishTime="06/17/2015 11:03:06" />
     <file relUrl="bin/wsServices.dll.config" publishTime="04/08/2015 13:04:02" />
-    <file relUrl="bin/Charts.pdb" publishTime="04/08/2015 14:44:07" />
+    <file relUrl="bin/wsServices.csprojResolveAssemblyReference.cache" publishTime="06/17/2015 11:12:18" />
+    <file relUrl="bin\vi-VN\.svn\prop-base/Languages.resources.dll.svn-base" publishTime="02/04/2015 13:03:02" />
+    <file relUrl="Web.config" publishTime="04/08/2015 13:04:02" />
+    <file relUrl="bin\vi-VN\.svn\text-base/indicators.xml.svn-base" publishTime="01/28/2015 09:16:20" />
+    <file relUrl="bin/Indicators.dll" publishTime="06/17/2015 11:03:58" />
+    <file relUrl="bin/DesignTimeResolveAssemblyReferencesInput.cache" publishTime="05/27/2015 15:12:28" />
+    <file relUrl="bin\vi-VN\.svn\text-base/Languages.resources.dll.svn-base" publishTime="04/08/2015 16:50:35" />
+    <file relUrl="bin\vi-VN/common.resources.dll" publishTime="01/28/2015 09:16:20" />
+    <file relUrl="bin/Languages.dll" publishTime="05/29/2015 13:48:40" />
+    <file relUrl="bin\vi-VN/strategyInfo.xml" publishTime="04/20/2015 13:47:03" />
+    <file relUrl="bin\vi-VN\.svn/all-wcprops" publishTime="04/08/2015 16:51:15" />
+    <file relUrl="bin\en-US\.svn\prop-base/indicators.xml.svn-base" publishTime="01/28/2015 09:16:18" />
+    <file relUrl="bin/Charts.pdb" publishTime="05/27/2015 14:57:09" />
   </publishTarget>
 </publishData>

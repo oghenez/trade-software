@@ -178,7 +178,27 @@ namespace server
         /// <param name="e"></param>
         private void bestStrategyToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            application.Strategy.StrategyLibs.createBestStrategy();
+            progressBar1.Minimum = 0;
+            progressBar1.Maximum = 700;
+            BackgroundWorker bWorker = new BackgroundWorker();
+            bWorker.WorkerReportsProgress = true;
+            bWorker.DoWork += new DoWorkEventHandler(createBestStrategyBackGround);
+            bWorker.ProgressChanged += new ProgressChangedEventHandler(bWorker_ProgressChangedforBestStrategy);
+            if (!bWorker.IsBusy)
+                bWorker.RunWorkerAsync();            
+        }
+
+        void createBestStrategyBackGround(object sender, DoWorkEventArgs e)
+        {
+            application.Strategy.StrategyLibs.createBestStrategy(sender,e);
+        }
+
+        void bWorker_ProgressChangedforBestStrategy(object sender, ProgressChangedEventArgs e)
+        {
+            // Change the value of the ProgressBar to the BackgroundWorker progress.
+            progressBar1.Value = e.ProgressPercentage;
+            // Set the text.
+            this.Text = e.ProgressPercentage.ToString();
         }
     }
 }

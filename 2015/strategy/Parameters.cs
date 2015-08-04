@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Runtime.Serialization;
 
 namespace Strategy
 {
+    [DataContract]
     public class Parameters
     {
         public int numOfParams;

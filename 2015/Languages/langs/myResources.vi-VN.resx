@@ -643,7 +643,7 @@
     <value>Thuộc tính</value>
   </data>
   <data name="qty" xml:space="preserve">
-    <value>K/L</value>
+    <value>Khối lượng</value>
   </data>
   <data name="regDate" xml:space="preserve">
     <value>Ngày đăng ký</value>
@@ -688,7 +688,7 @@
     <value>Tùy biến</value>
   </data>
   <data name="targetPrice" xml:space="preserve">
-    <value>Giá đích</value>
+    <value>Giá mục tiêu</value>
   </data>
   <data name="test" xml:space="preserve">
     <value>Kiểm</value>
@@ -1382,5 +1382,14 @@
   </data>
   <data name="fundamentalData" xml:space="preserve">
     <value>Phân tích cơ bản</value>
+  </data>
+  <data name="resistance" xml:space="preserve">
+    <value>Kháng cự</value>
+  </data>
+  <data name="support" xml:space="preserve">
+    <value>Hỗ trợ</value>
+  </data>
+  <data name="navigatingTo" xml:space="preserve">
+    <value>Truy cập</value>
   </data>
 </root>

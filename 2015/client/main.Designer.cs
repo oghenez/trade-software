@@ -29,21 +29,21 @@ namespace client
         /// </summary>
         private void InitializeComponent()
         {
-            WeifenLuo.WinFormsUI.Docking.DockPanelSkin dockPanelSkin2 = new WeifenLuo.WinFormsUI.Docking.DockPanelSkin();
-            WeifenLuo.WinFormsUI.Docking.AutoHideStripSkin autoHideStripSkin2 = new WeifenLuo.WinFormsUI.Docking.AutoHideStripSkin();
-            WeifenLuo.WinFormsUI.Docking.DockPanelGradient dockPanelGradient4 = new WeifenLuo.WinFormsUI.Docking.DockPanelGradient();
-            WeifenLuo.WinFormsUI.Docking.TabGradient tabGradient8 = new WeifenLuo.WinFormsUI.Docking.TabGradient();
-            WeifenLuo.WinFormsUI.Docking.DockPaneStripSkin dockPaneStripSkin2 = new WeifenLuo.WinFormsUI.Docking.DockPaneStripSkin();
-            WeifenLuo.WinFormsUI.Docking.DockPaneStripGradient dockPaneStripGradient2 = new WeifenLuo.WinFormsUI.Docking.DockPaneStripGradient();
-            WeifenLuo.WinFormsUI.Docking.TabGradient tabGradient9 = new WeifenLuo.WinFormsUI.Docking.TabGradient();
-            WeifenLuo.WinFormsUI.Docking.DockPanelGradient dockPanelGradient5 = new WeifenLuo.WinFormsUI.Docking.DockPanelGradient();
-            WeifenLuo.WinFormsUI.Docking.TabGradient tabGradient10 = new WeifenLuo.WinFormsUI.Docking.TabGradient();
-            WeifenLuo.WinFormsUI.Docking.DockPaneStripToolWindowGradient dockPaneStripToolWindowGradient2 = new WeifenLuo.WinFormsUI.Docking.DockPaneStripToolWindowGradient();
-            WeifenLuo.WinFormsUI.Docking.TabGradient tabGradient11 = new WeifenLuo.WinFormsUI.Docking.TabGradient();
-            WeifenLuo.WinFormsUI.Docking.TabGradient tabGradient12 = new WeifenLuo.WinFormsUI.Docking.TabGradient();
-            WeifenLuo.WinFormsUI.Docking.DockPanelGradient dockPanelGradient6 = new WeifenLuo.WinFormsUI.Docking.DockPanelGradient();
-            WeifenLuo.WinFormsUI.Docking.TabGradient tabGradient13 = new WeifenLuo.WinFormsUI.Docking.TabGradient();
-            WeifenLuo.WinFormsUI.Docking.TabGradient tabGradient14 = new WeifenLuo.WinFormsUI.Docking.TabGradient();
+            WeifenLuo.WinFormsUI.Docking.DockPanelSkin dockPanelSkin1 = new WeifenLuo.WinFormsUI.Docking.DockPanelSkin();
+            WeifenLuo.WinFormsUI.Docking.AutoHideStripSkin autoHideStripSkin1 = new WeifenLuo.WinFormsUI.Docking.AutoHideStripSkin();
+            WeifenLuo.WinFormsUI.Docking.DockPanelGradient dockPanelGradient1 = new WeifenLuo.WinFormsUI.Docking.DockPanelGradient();
+            WeifenLuo.WinFormsUI.Docking.TabGradient tabGradient1 = new WeifenLuo.WinFormsUI.Docking.TabGradient();
+            WeifenLuo.WinFormsUI.Docking.DockPaneStripSkin dockPaneStripSkin1 = new WeifenLuo.WinFormsUI.Docking.DockPaneStripSkin();
+            WeifenLuo.WinFormsUI.Docking.DockPaneStripGradient dockPaneStripGradient1 = new WeifenLuo.WinFormsUI.Docking.DockPaneStripGradient();
+            WeifenLuo.WinFormsUI.Docking.TabGradient tabGradient2 = new WeifenLuo.WinFormsUI.Docking.TabGradient();
+            WeifenLuo.WinFormsUI.Docking.DockPanelGradient dockPanelGradient2 = new WeifenLuo.WinFormsUI.Docking.DockPanelGradient();
+            WeifenLuo.WinFormsUI.Docking.TabGradient tabGradient3 = new WeifenLuo.WinFormsUI.Docking.TabGradient();
+            WeifenLuo.WinFormsUI.Docking.DockPaneStripToolWindowGradient dockPaneStripToolWindowGradient1 = new WeifenLuo.WinFormsUI.Docking.DockPaneStripToolWindowGradient();
+            WeifenLuo.WinFormsUI.Docking.TabGradient tabGradient4 = new WeifenLuo.WinFormsUI.Docking.TabGradient();
+            WeifenLuo.WinFormsUI.Docking.TabGradient tabGradient5 = new WeifenLuo.WinFormsUI.Docking.TabGradient();
+            WeifenLuo.WinFormsUI.Docking.DockPanelGradient dockPanelGradient3 = new WeifenLuo.WinFormsUI.Docking.DockPanelGradient();
+            WeifenLuo.WinFormsUI.Docking.TabGradient tabGradient6 = new WeifenLuo.WinFormsUI.Docking.TabGradient();
+            WeifenLuo.WinFormsUI.Docking.TabGradient tabGradient7 = new WeifenLuo.WinFormsUI.Docking.TabGradient();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(main));
             this.myPrintDialog = new System.Windows.Forms.PrintDialog();
             this.fullScreenBtn = new baseClass.controls.baseButton();
@@ -73,6 +73,21 @@ namespace client
             this.toolFullViewBtn = new System.Windows.Forms.ToolStripButton();
             this.exportBtn = new System.Windows.Forms.ToolStripButton();
             this.toolStripPanel = new System.Windows.Forms.ToolStripPanel();
+            this.formatStrip = new System.Windows.Forms.ToolStrip();
+            this.amountBtn = new System.Windows.Forms.ToolStripButton();
+            this.percentBtn = new System.Windows.Forms.ToolStripButton();
+            this.autoCreateStrip = new System.Windows.Forms.ToolStrip();
+            this.dummyStripBtn = new System.Windows.Forms.ToolStripButton();
+            this.strategyStrip = new System.Windows.Forms.ToolStrip();
+            this.strategyCbStrip = new baseClass.controls.ToolStripCbStrategy();
+            this.standardStrip = new System.Windows.Forms.ToolStrip();
+            this.addChartBtn = new System.Windows.Forms.ToolStripButton();
+            this.printChartBtn = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator12 = new System.Windows.Forms.ToolStripSeparator();
+            this.marketWatchBtn = new System.Windows.Forms.ToolStripButton();
+            this.myPortfolioBtn = new System.Windows.Forms.ToolStripButton();
+            this.tradeAlertBtn = new System.Windows.Forms.ToolStripButton();
+            this.bestStrategyToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.mainMenu = new System.Windows.Forms.MenuStrip();
             this.FileMenuStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.loginMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -176,29 +191,14 @@ namespace client
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.aboutMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.testMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.formatStrip = new System.Windows.Forms.ToolStrip();
-            this.amountBtn = new System.Windows.Forms.ToolStripButton();
-            this.percentBtn = new System.Windows.Forms.ToolStripButton();
-            this.autoCreateStrip = new System.Windows.Forms.ToolStrip();
-            this.dummyStripBtn = new System.Windows.Forms.ToolStripButton();
-            this.strategyStrip = new System.Windows.Forms.ToolStrip();
-            this.strategyCbStrip = new baseClass.controls.ToolStripCbStrategy();
-            this.standardStrip = new System.Windows.Forms.ToolStrip();
-            this.addChartBtn = new System.Windows.Forms.ToolStripButton();
-            this.printChartBtn = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator12 = new System.Windows.Forms.ToolStripSeparator();
-            this.marketWatchBtn = new System.Windows.Forms.ToolStripButton();
-            this.myPortfolioBtn = new System.Windows.Forms.ToolStripButton();
-            this.tradeAlertBtn = new System.Windows.Forms.ToolStripButton();
-            this.bestStrategyToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.chartStrip.SuspendLayout();
             this.toolsStrip.SuspendLayout();
             this.toolStripPanel.SuspendLayout();
-            this.mainMenu.SuspendLayout();
             this.formatStrip.SuspendLayout();
             this.autoCreateStrip.SuspendLayout();
             this.strategyStrip.SuspendLayout();
             this.standardStrip.SuspendLayout();
+            this.mainMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // TitleLbl
@@ -293,52 +293,52 @@ namespace client
             this.dockPanel.Margin = new System.Windows.Forms.Padding(4);
             this.dockPanel.Name = "dockPanel";
             this.dockPanel.Size = new System.Drawing.Size(1276, 592);
-            dockPanelGradient4.EndColor = System.Drawing.SystemColors.ControlLight;
-            dockPanelGradient4.StartColor = System.Drawing.SystemColors.ControlLight;
-            autoHideStripSkin2.DockStripGradient = dockPanelGradient4;
-            tabGradient8.EndColor = System.Drawing.SystemColors.Control;
-            tabGradient8.StartColor = System.Drawing.SystemColors.Control;
-            tabGradient8.TextColor = System.Drawing.SystemColors.ControlDarkDark;
-            autoHideStripSkin2.TabGradient = tabGradient8;
-            autoHideStripSkin2.TextFont = new System.Drawing.Font("Tahoma", 8.25F);
-            dockPanelSkin2.AutoHideStripSkin = autoHideStripSkin2;
-            tabGradient9.EndColor = System.Drawing.SystemColors.ControlLightLight;
-            tabGradient9.StartColor = System.Drawing.SystemColors.ControlLightLight;
-            tabGradient9.TextColor = System.Drawing.SystemColors.ControlText;
-            dockPaneStripGradient2.ActiveTabGradient = tabGradient9;
-            dockPanelGradient5.EndColor = System.Drawing.SystemColors.Control;
-            dockPanelGradient5.StartColor = System.Drawing.SystemColors.Control;
-            dockPaneStripGradient2.DockStripGradient = dockPanelGradient5;
-            tabGradient10.EndColor = System.Drawing.SystemColors.ControlLight;
-            tabGradient10.StartColor = System.Drawing.SystemColors.ControlLight;
-            tabGradient10.TextColor = System.Drawing.SystemColors.ControlText;
-            dockPaneStripGradient2.InactiveTabGradient = tabGradient10;
-            dockPaneStripSkin2.DocumentGradient = dockPaneStripGradient2;
-            dockPaneStripSkin2.TextFont = new System.Drawing.Font("Tahoma", 8.25F);
-            tabGradient11.EndColor = System.Drawing.SystemColors.ActiveCaption;
-            tabGradient11.LinearGradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
-            tabGradient11.StartColor = System.Drawing.SystemColors.GradientActiveCaption;
-            tabGradient11.TextColor = System.Drawing.SystemColors.ActiveCaptionText;
-            dockPaneStripToolWindowGradient2.ActiveCaptionGradient = tabGradient11;
-            tabGradient12.EndColor = System.Drawing.SystemColors.Control;
-            tabGradient12.StartColor = System.Drawing.SystemColors.Control;
-            tabGradient12.TextColor = System.Drawing.SystemColors.ControlText;
-            dockPaneStripToolWindowGradient2.ActiveTabGradient = tabGradient12;
-            dockPanelGradient6.EndColor = System.Drawing.SystemColors.ControlLight;
-            dockPanelGradient6.StartColor = System.Drawing.SystemColors.ControlLight;
-            dockPaneStripToolWindowGradient2.DockStripGradient = dockPanelGradient6;
-            tabGradient13.EndColor = System.Drawing.SystemColors.InactiveCaption;
-            tabGradient13.LinearGradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
-            tabGradient13.StartColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            tabGradient13.TextColor = System.Drawing.SystemColors.InactiveCaptionText;
-            dockPaneStripToolWindowGradient2.InactiveCaptionGradient = tabGradient13;
-            tabGradient14.EndColor = System.Drawing.Color.Transparent;
-            tabGradient14.StartColor = System.Drawing.Color.Transparent;
-            tabGradient14.TextColor = System.Drawing.SystemColors.ControlDarkDark;
-            dockPaneStripToolWindowGradient2.InactiveTabGradient = tabGradient14;
-            dockPaneStripSkin2.ToolWindowGradient = dockPaneStripToolWindowGradient2;
-            dockPanelSkin2.DockPaneStripSkin = dockPaneStripSkin2;
-            this.dockPanel.Skin = dockPanelSkin2;
+            dockPanelGradient1.EndColor = System.Drawing.SystemColors.ControlLight;
+            dockPanelGradient1.StartColor = System.Drawing.SystemColors.ControlLight;
+            autoHideStripSkin1.DockStripGradient = dockPanelGradient1;
+            tabGradient1.EndColor = System.Drawing.SystemColors.Control;
+            tabGradient1.StartColor = System.Drawing.SystemColors.Control;
+            tabGradient1.TextColor = System.Drawing.SystemColors.ControlDarkDark;
+            autoHideStripSkin1.TabGradient = tabGradient1;
+            autoHideStripSkin1.TextFont = new System.Drawing.Font("Tahoma", 8.25F);
+            dockPanelSkin1.AutoHideStripSkin = autoHideStripSkin1;
+            tabGradient2.EndColor = System.Drawing.SystemColors.ControlLightLight;
+            tabGradient2.StartColor = System.Drawing.SystemColors.ControlLightLight;
+            tabGradient2.TextColor = System.Drawing.SystemColors.ControlText;
+            dockPaneStripGradient1.ActiveTabGradient = tabGradient2;
+            dockPanelGradient2.EndColor = System.Drawing.SystemColors.Control;
+            dockPanelGradient2.StartColor = System.Drawing.SystemColors.Control;
+            dockPaneStripGradient1.DockStripGradient = dockPanelGradient2;
+            tabGradient3.EndColor = System.Drawing.SystemColors.ControlLight;
+            tabGradient3.StartColor = System.Drawing.SystemColors.ControlLight;
+            tabGradient3.TextColor = System.Drawing.SystemColors.ControlText;
+            dockPaneStripGradient1.InactiveTabGradient = tabGradient3;
+            dockPaneStripSkin1.DocumentGradient = dockPaneStripGradient1;
+            dockPaneStripSkin1.TextFont = new System.Drawing.Font("Tahoma", 8.25F);
+            tabGradient4.EndColor = System.Drawing.SystemColors.ActiveCaption;
+            tabGradient4.LinearGradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
+            tabGradient4.StartColor = System.Drawing.SystemColors.GradientActiveCaption;
+            tabGradient4.TextColor = System.Drawing.SystemColors.ActiveCaptionText;
+            dockPaneStripToolWindowGradient1.ActiveCaptionGradient = tabGradient4;
+            tabGradient5.EndColor = System.Drawing.SystemColors.Control;
+            tabGradient5.StartColor = System.Drawing.SystemColors.Control;
+            tabGradient5.TextColor = System.Drawing.SystemColors.ControlText;
+            dockPaneStripToolWindowGradient1.ActiveTabGradient = tabGradient5;
+            dockPanelGradient3.EndColor = System.Drawing.SystemColors.ControlLight;
+            dockPanelGradient3.StartColor = System.Drawing.SystemColors.ControlLight;
+            dockPaneStripToolWindowGradient1.DockStripGradient = dockPanelGradient3;
+            tabGradient6.EndColor = System.Drawing.SystemColors.InactiveCaption;
+            tabGradient6.LinearGradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
+            tabGradient6.StartColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            tabGradient6.TextColor = System.Drawing.SystemColors.InactiveCaptionText;
+            dockPaneStripToolWindowGradient1.InactiveCaptionGradient = tabGradient6;
+            tabGradient7.EndColor = System.Drawing.Color.Transparent;
+            tabGradient7.StartColor = System.Drawing.Color.Transparent;
+            tabGradient7.TextColor = System.Drawing.SystemColors.ControlDarkDark;
+            dockPaneStripToolWindowGradient1.InactiveTabGradient = tabGradient7;
+            dockPaneStripSkin1.ToolWindowGradient = dockPaneStripToolWindowGradient1;
+            dockPanelSkin1.DockPaneStripSkin = dockPaneStripSkin1;
+            this.dockPanel.Skin = dockPanelSkin1;
             this.dockPanel.TabIndex = 147;
             this.dockPanel.ActiveContentChanged += new System.EventHandler(this.dockPanel_ActiveContentChanged);
             // 
@@ -529,6 +529,157 @@ namespace client
             this.toolStripPanel.Orientation = System.Windows.Forms.Orientation.Horizontal;
             this.toolStripPanel.RowMargin = new System.Windows.Forms.Padding(3, 0, 0, 0);
             this.toolStripPanel.Size = new System.Drawing.Size(1276, 57);
+            // 
+            // formatStrip
+            // 
+            this.formatStrip.Dock = System.Windows.Forms.DockStyle.None;
+            this.formatStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.amountBtn,
+            this.percentBtn});
+            this.formatStrip.Location = new System.Drawing.Point(220, 0);
+            this.formatStrip.Name = "formatStrip";
+            this.formatStrip.Size = new System.Drawing.Size(58, 25);
+            this.formatStrip.TabIndex = 148;
+            // 
+            // amountBtn
+            // 
+            this.amountBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.amountBtn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.amountBtn.Image = global::client.Properties.Resources.amount;
+            this.amountBtn.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.amountBtn.Name = "amountBtn";
+            this.amountBtn.Size = new System.Drawing.Size(23, 22);
+            this.amountBtn.Click += new System.EventHandler(this.amountBtn_Click);
+            // 
+            // percentBtn
+            // 
+            this.percentBtn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.percentBtn.Image = global::client.Properties.Resources.percent;
+            this.percentBtn.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.percentBtn.Name = "percentBtn";
+            this.percentBtn.Size = new System.Drawing.Size(23, 22);
+            this.percentBtn.Click += new System.EventHandler(this.percentBtn_Click);
+            // 
+            // autoCreateStrip
+            // 
+            this.autoCreateStrip.Dock = System.Windows.Forms.DockStyle.None;
+            this.autoCreateStrip.Enabled = false;
+            this.autoCreateStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.dummyStripBtn});
+            this.autoCreateStrip.Location = new System.Drawing.Point(359, 0);
+            this.autoCreateStrip.Name = "autoCreateStrip";
+            this.autoCreateStrip.Size = new System.Drawing.Size(111, 27);
+            this.autoCreateStrip.TabIndex = 147;
+            // 
+            // dummyStripBtn
+            // 
+            this.dummyStripBtn.CheckOnClick = true;
+            this.dummyStripBtn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.dummyStripBtn.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.dummyStripBtn.Name = "dummyStripBtn";
+            this.dummyStripBtn.Size = new System.Drawing.Size(99, 24);
+            this.dummyStripBtn.Text = "Auto created";
+            // 
+            // strategyStrip
+            // 
+            this.strategyStrip.Dock = System.Windows.Forms.DockStyle.None;
+            this.strategyStrip.Enabled = false;
+            this.strategyStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.strategyCbStrip});
+            this.strategyStrip.Location = new System.Drawing.Point(505, 0);
+            this.strategyStrip.Name = "strategyStrip";
+            this.strategyStrip.Size = new System.Drawing.Size(347, 28);
+            this.strategyStrip.TabIndex = 149;
+            // 
+            // strategyCbStrip
+            // 
+            this.strategyCbStrip.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.strategyCbStrip.myValue = "";
+            this.strategyCbStrip.Name = "strategyCbStrip";
+            this.strategyCbStrip.SelectedValue = "";
+            this.strategyCbStrip.Size = new System.Drawing.Size(300, 28);
+            // 
+            // standardStrip
+            // 
+            this.standardStrip.Dock = System.Windows.Forms.DockStyle.None;
+            this.standardStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addChartBtn,
+            this.printChartBtn,
+            this.toolStripSeparator12,
+            this.marketWatchBtn,
+            this.myPortfolioBtn,
+            this.tradeAlertBtn,
+            this.bestStrategyToolStripButton});
+            this.standardStrip.Location = new System.Drawing.Point(885, 0);
+            this.standardStrip.Name = "standardStrip";
+            this.standardStrip.Size = new System.Drawing.Size(156, 25);
+            this.standardStrip.TabIndex = 10;
+            // 
+            // addChartBtn
+            // 
+            this.addChartBtn.Image = global::client.Properties.Resources.addAll;
+            this.addChartBtn.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.addChartBtn.Name = "addChartBtn";
+            this.addChartBtn.Size = new System.Drawing.Size(23, 22);
+            this.addChartBtn.ToolTipText = "New Chart";
+            this.addChartBtn.Click += new System.EventHandler(this.NewChartMenuItem_Click);
+            // 
+            // printChartBtn
+            // 
+            this.printChartBtn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.printChartBtn.Image = global::client.Properties.Resources.print;
+            this.printChartBtn.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.printChartBtn.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.printChartBtn.Name = "printChartBtn";
+            this.printChartBtn.Size = new System.Drawing.Size(23, 22);
+            this.printChartBtn.ToolTipText = "Print";
+            // 
+            // toolStripSeparator12
+            // 
+            this.toolStripSeparator12.Name = "toolStripSeparator12";
+            this.toolStripSeparator12.Size = new System.Drawing.Size(6, 25);
+            // 
+            // marketWatchBtn
+            // 
+            this.marketWatchBtn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.marketWatchBtn.Image = global::client.Properties.Resources.glasses;
+            this.marketWatchBtn.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.marketWatchBtn.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.marketWatchBtn.Name = "marketWatchBtn";
+            this.marketWatchBtn.Size = new System.Drawing.Size(23, 22);
+            this.marketWatchBtn.ToolTipText = "Market Watch";
+            this.marketWatchBtn.Click += new System.EventHandler(this.marketWatchBtn_Click);
+            // 
+            // myPortfolioBtn
+            // 
+            this.myPortfolioBtn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.myPortfolioBtn.Image = global::client.Properties.Resources.book;
+            this.myPortfolioBtn.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.myPortfolioBtn.Name = "myPortfolioBtn";
+            this.myPortfolioBtn.Size = new System.Drawing.Size(23, 22);
+            this.myPortfolioBtn.ToolTipText = "Portfolio Watch";
+            this.myPortfolioBtn.Click += new System.EventHandler(this.myPortfolioBtn_Click);
+            // 
+            // tradeAlertBtn
+            // 
+            this.tradeAlertBtn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tradeAlertBtn.Image = global::client.Properties.Resources.flag;
+            this.tradeAlertBtn.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tradeAlertBtn.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tradeAlertBtn.Name = "tradeAlertBtn";
+            this.tradeAlertBtn.Size = new System.Drawing.Size(23, 22);
+            this.tradeAlertBtn.ToolTipText = "Trade Alerts";
+            this.tradeAlertBtn.Click += new System.EventHandler(this.tradeAlertBtn_Click);
+            // 
+            // bestStrategyToolStripButton
+            // 
+            this.bestStrategyToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bestStrategyToolStripButton.Image = global::client.Properties.Resources.cup;
+            this.bestStrategyToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.bestStrategyToolStripButton.Name = "bestStrategyToolStripButton";
+            this.bestStrategyToolStripButton.Size = new System.Drawing.Size(23, 22);
+            this.bestStrategyToolStripButton.Text = "Best Strategy";
+            this.bestStrategyToolStripButton.Click += new System.EventHandler(this.bestStrategyToolStripButton_Click);
             // 
             // mainMenu
             // 
@@ -1343,157 +1494,6 @@ namespace client
             this.testMenuItem.Text = "Test";
             this.testMenuItem.Click += new System.EventHandler(this.testMenuItem_Click);
             // 
-            // formatStrip
-            // 
-            this.formatStrip.Dock = System.Windows.Forms.DockStyle.None;
-            this.formatStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.amountBtn,
-            this.percentBtn});
-            this.formatStrip.Location = new System.Drawing.Point(220, 0);
-            this.formatStrip.Name = "formatStrip";
-            this.formatStrip.Size = new System.Drawing.Size(58, 25);
-            this.formatStrip.TabIndex = 148;
-            // 
-            // amountBtn
-            // 
-            this.amountBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.amountBtn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.amountBtn.Image = global::client.Properties.Resources.amount;
-            this.amountBtn.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.amountBtn.Name = "amountBtn";
-            this.amountBtn.Size = new System.Drawing.Size(23, 22);
-            this.amountBtn.Click += new System.EventHandler(this.amountBtn_Click);
-            // 
-            // percentBtn
-            // 
-            this.percentBtn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.percentBtn.Image = global::client.Properties.Resources.percent;
-            this.percentBtn.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.percentBtn.Name = "percentBtn";
-            this.percentBtn.Size = new System.Drawing.Size(23, 22);
-            this.percentBtn.Click += new System.EventHandler(this.percentBtn_Click);
-            // 
-            // autoCreateStrip
-            // 
-            this.autoCreateStrip.Dock = System.Windows.Forms.DockStyle.None;
-            this.autoCreateStrip.Enabled = false;
-            this.autoCreateStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.dummyStripBtn});
-            this.autoCreateStrip.Location = new System.Drawing.Point(359, 0);
-            this.autoCreateStrip.Name = "autoCreateStrip";
-            this.autoCreateStrip.Size = new System.Drawing.Size(111, 27);
-            this.autoCreateStrip.TabIndex = 147;
-            // 
-            // dummyStripBtn
-            // 
-            this.dummyStripBtn.CheckOnClick = true;
-            this.dummyStripBtn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.dummyStripBtn.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.dummyStripBtn.Name = "dummyStripBtn";
-            this.dummyStripBtn.Size = new System.Drawing.Size(99, 24);
-            this.dummyStripBtn.Text = "Auto created";
-            // 
-            // strategyStrip
-            // 
-            this.strategyStrip.Dock = System.Windows.Forms.DockStyle.None;
-            this.strategyStrip.Enabled = false;
-            this.strategyStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.strategyCbStrip});
-            this.strategyStrip.Location = new System.Drawing.Point(505, 0);
-            this.strategyStrip.Name = "strategyStrip";
-            this.strategyStrip.Size = new System.Drawing.Size(347, 28);
-            this.strategyStrip.TabIndex = 149;
-            // 
-            // strategyCbStrip
-            // 
-            this.strategyCbStrip.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.strategyCbStrip.myValue = "";
-            this.strategyCbStrip.Name = "strategyCbStrip";
-            this.strategyCbStrip.SelectedValue = "";
-            this.strategyCbStrip.Size = new System.Drawing.Size(300, 28);
-            // 
-            // standardStrip
-            // 
-            this.standardStrip.Dock = System.Windows.Forms.DockStyle.None;
-            this.standardStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.addChartBtn,
-            this.printChartBtn,
-            this.toolStripSeparator12,
-            this.marketWatchBtn,
-            this.myPortfolioBtn,
-            this.tradeAlertBtn,
-            this.bestStrategyToolStripButton});
-            this.standardStrip.Location = new System.Drawing.Point(852, 0);
-            this.standardStrip.Name = "standardStrip";
-            this.standardStrip.Size = new System.Drawing.Size(156, 25);
-            this.standardStrip.TabIndex = 10;
-            // 
-            // addChartBtn
-            // 
-            this.addChartBtn.Image = global::client.Properties.Resources.addAll;
-            this.addChartBtn.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.addChartBtn.Name = "addChartBtn";
-            this.addChartBtn.Size = new System.Drawing.Size(23, 22);
-            this.addChartBtn.ToolTipText = "New Chart";
-            this.addChartBtn.Click += new System.EventHandler(this.NewChartMenuItem_Click);
-            // 
-            // printChartBtn
-            // 
-            this.printChartBtn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.printChartBtn.Image = global::client.Properties.Resources.print;
-            this.printChartBtn.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.printChartBtn.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.printChartBtn.Name = "printChartBtn";
-            this.printChartBtn.Size = new System.Drawing.Size(23, 22);
-            this.printChartBtn.ToolTipText = "Print";
-            // 
-            // toolStripSeparator12
-            // 
-            this.toolStripSeparator12.Name = "toolStripSeparator12";
-            this.toolStripSeparator12.Size = new System.Drawing.Size(6, 25);
-            // 
-            // marketWatchBtn
-            // 
-            this.marketWatchBtn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.marketWatchBtn.Image = global::client.Properties.Resources.glasses;
-            this.marketWatchBtn.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.marketWatchBtn.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.marketWatchBtn.Name = "marketWatchBtn";
-            this.marketWatchBtn.Size = new System.Drawing.Size(23, 22);
-            this.marketWatchBtn.ToolTipText = "Market Watch";
-            this.marketWatchBtn.Click += new System.EventHandler(this.marketWatchBtn_Click);
-            // 
-            // myPortfolioBtn
-            // 
-            this.myPortfolioBtn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.myPortfolioBtn.Image = global::client.Properties.Resources.book;
-            this.myPortfolioBtn.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.myPortfolioBtn.Name = "myPortfolioBtn";
-            this.myPortfolioBtn.Size = new System.Drawing.Size(23, 22);
-            this.myPortfolioBtn.ToolTipText = "Portfolio Watch";
-            this.myPortfolioBtn.Click += new System.EventHandler(this.myPortfolioBtn_Click);
-            // 
-            // tradeAlertBtn
-            // 
-            this.tradeAlertBtn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tradeAlertBtn.Image = global::client.Properties.Resources.flag;
-            this.tradeAlertBtn.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.tradeAlertBtn.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tradeAlertBtn.Name = "tradeAlertBtn";
-            this.tradeAlertBtn.Size = new System.Drawing.Size(23, 22);
-            this.tradeAlertBtn.ToolTipText = "Trade Alerts";
-            this.tradeAlertBtn.Click += new System.EventHandler(this.tradeAlertBtn_Click);
-            // 
-            // bestStrategyToolStripButton
-            // 
-            this.bestStrategyToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bestStrategyToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("bestStrategyToolStripButton.Image")));
-            this.bestStrategyToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.bestStrategyToolStripButton.Name = "bestStrategyToolStripButton";
-            this.bestStrategyToolStripButton.Size = new System.Drawing.Size(23, 22);
-            this.bestStrategyToolStripButton.Text = "toolStripButton1";
-            this.bestStrategyToolStripButton.Click += new System.EventHandler(this.bestStrategyToolStripButton_Click);
-            // 
             // main
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -1508,8 +1508,8 @@ namespace client
             this.MaximizeBox = true;
             this.Name = "main";
             this.Text = "Quantum Automatic Trading System";
-            this.Load += new System.EventHandler(this.main_Load);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.main_FormClosed);
+            this.Load += new System.EventHandler(this.main_Load);
             this.Controls.SetChildIndex(this.toolStripPanel, 0);
             this.Controls.SetChildIndex(this.dockPanel, 0);
             this.Controls.SetChildIndex(this.TitleLbl, 0);
@@ -1519,8 +1519,6 @@ namespace client
             this.toolsStrip.PerformLayout();
             this.toolStripPanel.ResumeLayout(false);
             this.toolStripPanel.PerformLayout();
-            this.mainMenu.ResumeLayout(false);
-            this.mainMenu.PerformLayout();
             this.formatStrip.ResumeLayout(false);
             this.formatStrip.PerformLayout();
             this.autoCreateStrip.ResumeLayout(false);
@@ -1529,6 +1527,8 @@ namespace client
             this.strategyStrip.PerformLayout();
             this.standardStrip.ResumeLayout(false);
             this.standardStrip.PerformLayout();
+            this.mainMenu.ResumeLayout(false);
+            this.mainMenu.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 

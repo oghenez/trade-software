@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(backTesting));
             this.resultDataGrid = new common.controls.baseDataGridView();
             this.periodicityLbl = new baseClass.controls.baseLabel();
@@ -71,11 +71,11 @@
             // 
             this.resultDataGrid.AllowUserToAddRows = false;
             this.resultDataGrid.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Blue;
-            this.resultDataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
-            this.resultDataGrid.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Blue;
+            this.resultDataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.resultDataGrid.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.resultDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.resultDataGrid.Location = new System.Drawing.Point(-1, -1);
             this.resultDataGrid.Name = "resultDataGrid";
@@ -93,7 +93,7 @@
             this.periodicityLbl.Location = new System.Drawing.Point(22, 3);
             this.periodicityLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.periodicityLbl.Name = "periodicityLbl";
-            this.periodicityLbl.Size = new System.Drawing.Size(76, 16);
+            this.periodicityLbl.Size = new System.Drawing.Size(101, 21);
             this.periodicityLbl.TabIndex = 311;
             this.periodicityLbl.Text = "Periodicity";
             // 
@@ -123,8 +123,8 @@
             // 
             // strategyEstimationPnl
             // 
-            this.strategyEstimationPnl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.strategyEstimationPnl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.strategyEstimationPnl.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.strategyEstimationPnl.Controls.Add(this.strategyEstimationGrid);
             this.strategyEstimationPnl.haveCloseButton = true;
@@ -142,11 +142,11 @@
             // 
             this.strategyEstimationGrid.AllowUserToAddRows = false;
             this.strategyEstimationGrid.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Blue;
-            this.strategyEstimationGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.strategyEstimationGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Blue;
+            this.strategyEstimationGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+            this.strategyEstimationGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.strategyEstimationGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.strategyEstimationGrid.Location = new System.Drawing.Point(-2, 1);
             this.strategyEstimationGrid.Name = "strategyEstimationGrid";
@@ -171,8 +171,8 @@
             // 
             // codeSelectLb
             // 
-            this.codeSelectLb.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)));
+            this.codeSelectLb.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.codeSelectLb.Location = new System.Drawing.Point(21, 250);
             this.codeSelectLb.Margin = new System.Windows.Forms.Padding(2);
             this.codeSelectLb.myItemString = "";
@@ -189,7 +189,7 @@
             this.codeListLbl.Location = new System.Drawing.Point(22, 232);
             this.codeListLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.codeListLbl.Name = "codeListLbl";
-            this.codeListLbl.Size = new System.Drawing.Size(63, 16);
+            this.codeListLbl.Size = new System.Drawing.Size(84, 21);
             this.codeListLbl.TabIndex = 318;
             this.codeListLbl.Text = "Code list";
             // 
@@ -199,7 +199,7 @@
             this.strategyLbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.strategyLbl.Location = new System.Drawing.Point(22, 50);
             this.strategyLbl.Name = "strategyLbl";
-            this.strategyLbl.Size = new System.Drawing.Size(66, 16);
+            this.strategyLbl.Size = new System.Drawing.Size(83, 21);
             this.strategyLbl.TabIndex = 315;
             this.strategyLbl.Text = "Strategy";
             // 
@@ -220,7 +220,7 @@
             this.backTestMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(842, 24);
+            this.menuStrip.Size = new System.Drawing.Size(842, 29);
             this.menuStrip.TabIndex = 316;
             this.menuStrip.Text = "menuStrip1";
             // 
@@ -240,84 +240,84 @@
             this.exportResultMenuItem,
             this.exportEstimationMenuItem});
             this.backTestMenuItem.Name = "backTestMenuItem";
-            this.backTestMenuItem.Size = new System.Drawing.Size(101, 20);
+            this.backTestMenuItem.Size = new System.Drawing.Size(131, 25);
             this.backTestMenuItem.Text = "Back Testing";
             // 
             // runMenuItem
             // 
             this.runMenuItem.Name = "runMenuItem";
-            this.runMenuItem.Size = new System.Drawing.Size(202, 22);
+            this.runMenuItem.Size = new System.Drawing.Size(232, 26);
             this.runMenuItem.Text = "Run";
             this.runMenuItem.Click += new System.EventHandler(this.runMenuItem_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(199, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(229, 6);
             // 
             // openMenuItem
             // 
             this.openMenuItem.Name = "openMenuItem";
-            this.openMenuItem.Size = new System.Drawing.Size(202, 22);
+            this.openMenuItem.Size = new System.Drawing.Size(232, 26);
             this.openMenuItem.Text = "Open";
             this.openMenuItem.Click += new System.EventHandler(this.openMenuItem_Click);
             // 
             // profitDetailMenu
             // 
             this.profitDetailMenu.Name = "profitDetailMenu";
-            this.profitDetailMenu.Size = new System.Drawing.Size(202, 22);
+            this.profitDetailMenu.Size = new System.Drawing.Size(232, 26);
             this.profitDetailMenu.Text = "Profit Details";
             this.profitDetailMenu.Click += new System.EventHandler(this.profitDetailMenu_Click);
             // 
             // allProfitDetailMenu
             // 
             this.allProfitDetailMenu.Name = "allProfitDetailMenu";
-            this.allProfitDetailMenu.Size = new System.Drawing.Size(202, 22);
+            this.allProfitDetailMenu.Size = new System.Drawing.Size(232, 26);
             this.allProfitDetailMenu.Text = "All Profit Details";
             this.allProfitDetailMenu.Click += new System.EventHandler(this.allProfitDetailMenu_Click);
             // 
             // addToWatchListMenuItem
             // 
             this.addToWatchListMenuItem.Name = "addToWatchListMenuItem";
-            this.addToWatchListMenuItem.Size = new System.Drawing.Size(202, 22);
+            this.addToWatchListMenuItem.Size = new System.Drawing.Size(232, 26);
             this.addToWatchListMenuItem.Text = "To Watch List";
             this.addToWatchListMenuItem.Click += new System.EventHandler(this.addToWatchListMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(199, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(229, 6);
             // 
             // fullViewMenuItem
             // 
             this.fullViewMenuItem.Name = "fullViewMenuItem";
-            this.fullViewMenuItem.Size = new System.Drawing.Size(202, 22);
+            this.fullViewMenuItem.Size = new System.Drawing.Size(232, 26);
             this.fullViewMenuItem.Text = "Full View";
             this.fullViewMenuItem.Click += new System.EventHandler(this.fullViewMenuItem_Click);
             // 
             // estimationMenuItem
             // 
             this.estimationMenuItem.Name = "estimationMenuItem";
-            this.estimationMenuItem.Size = new System.Drawing.Size(202, 22);
+            this.estimationMenuItem.Size = new System.Drawing.Size(232, 26);
             this.estimationMenuItem.Text = "Show Estimation";
             this.estimationMenuItem.Click += new System.EventHandler(this.estimationMenuItem_Click);
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(199, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(229, 6);
             // 
             // exportResultMenuItem
             // 
             this.exportResultMenuItem.Name = "exportResultMenuItem";
-            this.exportResultMenuItem.Size = new System.Drawing.Size(202, 22);
+            this.exportResultMenuItem.Size = new System.Drawing.Size(232, 26);
             this.exportResultMenuItem.Text = "Export Results";
             this.exportResultMenuItem.Click += new System.EventHandler(this.exportResultMenuItem_Click);
             // 
             // exportEstimationMenuItem
             // 
             this.exportEstimationMenuItem.Name = "exportEstimationMenuItem";
-            this.exportEstimationMenuItem.Size = new System.Drawing.Size(202, 22);
+            this.exportEstimationMenuItem.Size = new System.Drawing.Size(232, 26);
             this.exportEstimationMenuItem.Text = "Export Estimation";
             this.exportEstimationMenuItem.Click += new System.EventHandler(this.exportEstimationMenuItem_Click);
             // 
@@ -328,10 +328,12 @@
             this.Controls.Add(this.dataPnl);
             this.Controls.Add(this.optionPnl);
             this.Controls.Add(this.menuStrip);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip;
             this.Name = "backTesting";
             this.Text = "Back Testing";
+            this.TopMost = true;
             this.Load += new System.EventHandler(this.Form_Load);
             this.Resize += new System.EventHandler(this.backTesting_Resize);
             this.Controls.SetChildIndex(this.menuStrip, 0);
